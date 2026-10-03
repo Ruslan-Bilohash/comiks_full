@@ -1,0 +1,49 @@
+# Комікс·Lab — правила для теки сайту (comiks/). Батьківський сайт не зачіпаються:
+# усе нижче діє лише всередині цієї теки.
+
+# Не показувати вміст тек тому, хто зайшов за адресою без файла.
+Options -Indexes
+
+<IfModule mod_headers.c>
+  # Браузер не має «вгадувати» тип файла — так не вийде видати картинку за скрипт.
+  Header always set X-Content-Type-Options "nosniff"
+  # Чужий сайт не дізнається, з якої саме сторінки прийшов відвідувач.
+  Header always set Referrer-Policy "same-origin"
+  # Сайту не потрібні камера, мікрофон чи місце — крім мікрофона для дзвінка.
+  Header always set Permissions-Policy "camera=(), geolocation=(), payment=(), usb=(), microphone=(self)"
+  # Сторінки сайту не можна вбудувати в чужий iframe.
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Озвучення й картинки мають незмінні імена — їх можна тримати рік.
+  ExpiresByType audio/mpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  # Код і дані запитуються з ?v=<версія>, тож година тут безпечна й швидка.
+  ExpiresByType text/css "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+</IfModule>
+
+# Ці три файли вирішують, яку версію побачить відвідувач. Вони завжди свіжі,
+# інакше після оновлення люди тижнями сидітимуть на старій збірці.
+<FilesMatch "^(index\.html|sw\.js|manifest\.webmanifest)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, must-revalidate"
+  </IfModule>
+</FilesMatch>
+
+# Робочі файли, яким не місце на бойовому сервері, — навіть якщо їх туди залили.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(_private|tools|tests|node_modules)(/|$) - [F,L]
+</IfModule>
+
+# Тека зі складальними скриптами й чернетками не віддається за жодних умов.
+<FilesMatch "\.(md|py|bat|jks|properties|env|log|sql)$">
+  Require all denied
+</FilesMatch>

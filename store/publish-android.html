@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Публікація Комікс·Lab в Google Play</title>
+<style>
+  :root {
+    --ink: #141414; --yellow: #ffd23f; --red: #ee4035; --cream: #fff8ea;
+    --paper: #ffffff; --muted: #6b6b6b; --green: #2e7d32; --line: #e6ddc9;
+    --head: 'Rubik', 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.6 'Segoe UI', system-ui, sans-serif; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 16px 80px; }
+
+  header { background: var(--yellow); border-bottom: 5px solid var(--ink); padding: 28px 16px; }
+  header .in { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .logo { width: 56px; height: 56px; border: 4px solid var(--ink); border-radius: 18px; background: #fff; display: grid; place-items: center; font-size: 1.6rem; flex: 0 0 auto; }
+  h1 { font: 900 1.7rem/1.15 var(--head); margin: 0; }
+  header p { margin: 4px 0 0; font-weight: 600; }
+
+  .bar { position: sticky; top: 0; z-index: 10; background: var(--cream); border-bottom: 3px solid var(--ink); padding: 10px 16px; }
+  .bar .in { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .track { flex: 1; height: 14px; background: #fff; border: 3px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  .track i { display: block; height: 100%; width: 0; background: var(--green); transition: width .25s; }
+  .bar b { font: 900 .95rem var(--head); white-space: nowrap; }
+
+  h2 { font: 900 1.3rem var(--head); margin: 36px 0 10px; padding-top: 12px; border-top: 3px dashed var(--line); }
+  h3 { font: 900 1.05rem var(--head); margin: 22px 0 8px; }
+  p, li { margin: 8px 0; }
+  a { color: #1565c0; }
+
+  .step { background: var(--paper); border: 4px solid var(--ink); border-radius: 20px; padding: 18px 20px; margin: 18px 0; box-shadow: 5px 5px 0 rgba(0,0,0,.1); }
+  .step > h2 { margin-top: 0; border: 0; padding: 0; }
+  .num { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--yellow); font: 900 1rem var(--head); margin-right: 8px; vertical-align: -6px; }
+
+  pre { position: relative; background: #141414; color: #f5f5f5; padding: 14px 52px 14px 16px; border-radius: 14px; overflow-x: auto; font: 14px/1.5 Consolas, monospace; }
+  pre button { position: absolute; top: 8px; right: 8px; background: var(--yellow); color: var(--ink); border: 2px solid #000; border-radius: 8px; font: 700 .75rem var(--head); padding: 4px 8px; cursor: pointer; }
+  code { background: #f1ece0; padding: 1px 6px; border-radius: 6px; font: 14px Consolas, monospace; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  th, td { border: 2px solid var(--ink); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--yellow); font: 900 .9rem var(--head); }
+  td code { background: #f6f1e6; }
+
+  .warn { border-left: 8px solid var(--red); background: #fff1f0; padding: 12px 16px; border-radius: 0 14px 14px 0; margin: 14px 0; }
+  .tip { border-left: 8px solid var(--green); background: #f0f8f1; padding: 12px 16px; border-radius: 0 14px 14px 0; margin: 14px 0; }
+  .warn b, .tip b { display: block; margin-bottom: 4px; }
+
+  label.check { display: flex; gap: 10px; align-items: flex-start; background: #fffdf6; border: 3px solid var(--ink); border-radius: 14px; padding: 10px 14px; margin: 8px 0; cursor: pointer; }
+  label.check input { width: 22px; height: 22px; margin-top: 2px; flex: 0 0 auto; accent-color: var(--green); }
+  label.check.done { background: #eaf6ea; }
+  label.check span { font-weight: 600; }
+
+  .toc { background: #fffdf6; border: 3px solid var(--ink); border-radius: 16px; padding: 14px 20px; margin: 20px 0; }
+  .toc ol { margin: 6px 0; padding-left: 22px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .shots figure { margin: 0; text-align: center; font-size: .78rem; }
+  .shots img { width: 100%; border: 3px solid var(--ink); border-radius: 10px; display: block; }
+  footer { text-align: center; color: var(--muted); padding: 30px 16px; font-size: .9rem; }
+  @media print { .bar, pre button { display: none; } body { background: #fff; } .step { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<header><div class="in">
+  <span class="logo">💬</span>
+  <div><h1>Публікація Комікс·Lab у Google Play</h1>
+  <p>Покрокова інструкція для Android — від перевірки до кнопки «Опублікувати»</p></div>
+</div></header>
+
+<div class="bar"><div class="in">
+  <b>Готово:</b><div class="track"><i id="pi"></i></div><b id="pt">0 / 0</b>
+</div></div>
+
+<div class="wrap">
+
+<div class="toc">
+  <b>Що попереду</b>
+  <ol>
+    <li>Перевірити проєкт однією командою</li>
+    <li>Залити сайт (без цього застосунок не працюватиме повністю)</li>
+    <li>Подивитися застосунок на комп'ютері</li>
+    <li>Поставити JDK 17 і Android Studio</li>
+    <li>Зібрати застосунок і створити ключ підпису</li>
+    <li>Обліковий запис розробника — 25 $</li>
+    <li>Сторінка в магазині: тексти й картинки</li>
+    <li>Три анкети Google</li>
+    <li>Тестування й випуск</li>
+  </ol>
+  <p style="margin-bottom:0"><b>Скільки часу:</b> сама збірка — година. Перевірка особи в Google може зайняти кілька днів, тож крок 6 варто почати першим.</p>
+</div>
+
+<!-- 1 -->
+<section class="step">
+  <h2><span class="num">1</span>Перевірити, що все ціле</h2>
+  <p>Одна команда перевіряє комікси, переклади, озвучення, відсутність паролів у збірці, розмір застосунку й матеріали для магазину.</p>
+  <pre><code>cd C:\comiks
+node tools\audit-all.js</code></pre>
+  <p>Має закінчитися рядком <code>✅ Усе гаразд — можна публікувати.</code> Якщо ні — виправте те, на що вкаже, і запустіть ще раз.</p>
+  <label class="check"><input type="checkbox" data-k="s1"><span>Перевірка пройшла без помилок</span></label>
+</section>
+
+<!-- 2 -->
+<section class="step">
+  <h2><span class="num">2</span>Залити сайт</h2>
+  <p>Онлайн-версія застосунку звертається до сервера: акаунти, рейтинг, друзі, дзвінок. Тому спершу оновіть сайт.</p>
+  <pre><code>node tools\build.js</code></pre>
+  <p>Залийте <b>весь вміст теки <code>dist\</code></b> у <code>public_html/comiks/</code> на Hostinger.</p>
+  <div class="warn"><b>⚠️ Найважливіше в цьому кроці</b>
+    Серед залитого обов'язково має бути новий <code>api/lib.php</code>. Саме він дозволяє застосунку звертатися до сервера. Без нього застосунок працюватиме лише як читалка: ні входу, ні рейтингу, ні синхронізації прогресу.</div>
+  <p>Перевірити, що сервер пускає застосунок:</p>
+  <pre><code>curl -i -H "Origin: https://localhost" https://bilohash.com/comiks/api/players.php?sort=stars</code></pre>
+  <p>У відповіді має бути рядок <code>Access-Control-Allow-Origin: https://localhost</code>.</p>
+  <label class="check"><input type="checkbox" data-k="s2a"><span>Сайт залито разом із <code>api/lib.php</code></span></label>
+  <label class="check"><input type="checkbox" data-k="s2b"><span><code>curl</code> показує рядок Access-Control-Allow-Origin</span></label>
+</section>
+
+<!-- 3 -->
+<section class="step">
+  <h2><span class="num">3</span>Подивитися застосунок на комп'ютері</h2>
+  <p>Перед складанням варто побачити те саме, що покаже телефон. Є два варіанти застосунку:</p>
+  <table>
+    <tr><th>Варіант</th><th>Команда</th><th>Розмір</th><th>Кому</th></tr>
+    <tr><td><b>Онлайн</b><br>з акаунтами</td><td><code>node app\tools\prepare-web.js --light</code><br><code>node app\tools\serve.js</code></td><td>15 МБ</td><td>основний — прогрес синхронізується з сайтом</td></tr>
+    <tr><td><b>Офлайн</b><br>без акаунтів</td><td><code>node app\android_offline\build.js --serve</code></td><td>148 МБ</td><td>простіший для перевірки Google: не збирає даних</td></tr>
+  </table>
+  <p>Відкрийте <a href="http://localhost:8970">localhost:8970</a> (онлайн) або <a href="http://localhost:8971">localhost:8971</a> (офлайн) і звузьте вікно до ширини телефона.</p>
+  <div class="tip"><b>Що перевірити</b>
+    Комікс відкривається й звучить · тест проходиться й уміщається на екран · «Пари» працюють · (для онлайн-версії) вхід в акаунт тримається.</div>
+  <label class="check"><input type="checkbox" data-k="s3"><span>Застосунок перевірено на комп'ютері</span></label>
+</section>
+
+<!-- 4 -->
+<section class="step">
+  <h2><span class="num">4</span>Поставити інструменти складання</h2>
+  <p>На вашому комп'ютері їх ще немає — перевірено, <code>java</code> не знайдено.</p>
+  <ol>
+    <li><b>JDK 17</b> — <a href="https://adoptium.net" target="_blank" rel="noopener">adoptium.net</a> → Temurin 17, Windows x64, файл <code>.msi</code></li>
+    <li><b>Android Studio</b> — <a href="https://developer.android.com/studio" target="_blank" rel="noopener">developer.android.com/studio</a>. Під час першого запуску він сам поставить Android SDK (кілька гігабайтів).</li>
+  </ol>
+  <pre><code>java -version</code></pre>
+  <p>Має показати версію 17.</p>
+  <label class="check"><input type="checkbox" data-k="s4"><span>JDK 17 і Android Studio встановлено</span></label>
+</section>
+
+<!-- 5 -->
+<section class="step">
+  <h2><span class="num">5</span>Зібрати застосунок і підписати</h2>
+  <pre><code>cd C:\comiks\app
+npm install
+npm run add:android
+npm run android</code></pre>
+  <p>Відкриється Android Studio з готовим проєктом.</p>
+
+  <h3>Ключ підпису — робиться один раз на все життя застосунку</h3>
+  <p><b>Build → Generate Signed App Bundle → Android App Bundle → Create new…</b></p>
+  <table>
+    <tr><th>Поле</th><th>Що вписати</th></tr>
+    <tr><td>Key store path</td><td><code>C:\comiks\app\komikslab.jks</code></td></tr>
+    <tr><td>Password</td><td>свій, надійний</td></tr>
+    <tr><td>Alias</td><td><code>komikslab</code></td></tr>
+    <tr><td>Validity (years)</td><td><code>25</code></td></tr>
+    <tr><td>First and Last Name</td><td>Ruslan Bilohash</td></tr>
+  </table>
+  <div class="warn"><b>⚠️ Збережіть файл .jks і паролі в надійному місці</b>
+    Це єдиний ключ вашого застосунку. Якщо його загубити, випустити оновлення буде неможливо — доведеться публікувати застосунок заново під іншою назвою, втративши всіх користувачів і відгуки. Зробіть копію в хмару й на флешку.</div>
+  <p>Результат: <code>app\android\app\build\outputs\bundle\release\app-release.aab</code></p>
+  <p>Щоб просто перевірити на своєму телефоні, досить <b>Build → Build APK(s)</b> і перекинути <code>.apk</code> на пристрій.</p>
+  <label class="check"><input type="checkbox" data-k="s5a"><span>Файл <code>.aab</code> зібрано</span></label>
+  <label class="check"><input type="checkbox" data-k="s5b"><span>Ключ <code>.jks</code> і паролі збережено в двох місцях</span></label>
+</section>
+
+<!-- 6 -->
+<section class="step">
+  <h2><span class="num">6</span>Обліковий запис розробника</h2>
+  <p><a href="https://play.google.com/console" target="_blank" rel="noopener">play.google.com/console</a> — одноразовий внесок <b>25 $</b>.</p>
+  <div class="tip"><b>Почніть із цього кроку</b>
+    Google перевіряє особу за документом, і це може зайняти кілька днів. Поки триває перевірка, можна спокійно робити все решту.</div>
+  <label class="check"><input type="checkbox" data-k="s6"><span>Обліковий запис створено й підтверджено</span></label>
+</section>
+
+<!-- 7 -->
+<section class="step">
+  <h2><span class="num">7</span>Сторінка в магазині</h2>
+  <p><b>Create app</b> → назва <code>Komiks·Lab — Learn Norwegian</code>, мова англійська, тип <b>App</b>, <b>Free</b>.</p>
+
+  <h3>Картинки — усе вже готове в теці <code>store\android\</code></h3>
+  <table>
+    <tr><th>Що</th><th>Файл</th><th>Розмір</th></tr>
+    <tr><td>Іконка застосунку</td><td><code>icon-512.png</code></td><td>512 × 512</td></tr>
+    <tr><td>Банер (Feature graphic)</td><td><code>feature-graphic.png</code></td><td>1024 × 500</td></tr>
+    <tr><td>Знімки екрана</td><td><code>01-home.png</code> … <code>08-cards.png</code></td><td>1080 × 1920</td></tr>
+  </table>
+  <div class="shots">
+    <figure><img src="android/01-home.png" alt="Головна"><figcaption>01 Головна</figcaption></figure>
+    <figure><img src="android/02-read.png" alt="Комікс"><figcaption>02 Комікс</figcaption></figure>
+    <figure><img src="android/03-quiz.png" alt="Тест"><figcaption>03 Тест</figcaption></figure>
+    <figure><img src="android/05-pairs.png" alt="Пари"><figcaption>05 Пари</figcaption></figure>
+  </div>
+  <p style="margin-top:14px"><b>Короткий опис</b> (до 80 символів):</p>
+  <pre><code>Learn Norwegian with voiced comics, tests and games. Free, A1–B2.</code></pre>
+  <p><b>Повний опис</b> — скопіюйте як є:</p>
+  <pre><code>Learn Norwegian (Bokmål) the way people actually speak it — through short, funny comics.
+
+Every line is read aloud by a natural Norwegian voice, and the translation appears the moment you tap the text. Start with your first "Hei!" and work up to talking with colleagues, landlords and doctors.
+
+WHAT IS INSIDE
+• 75 voiced comics, levels A1 to B2 — everyday life in Norway: the shop, the doctor, the job interview, the dugnad, the tax card, the parents' meeting.
+• 972 words in 47 topics, each with a picture and audio.
+• Tests in Norwegian: listening, word order, pictures, missing words, true or false.
+• Flashcards with spaced repetition — the app brings back exactly the words you keep forgetting.
+• Pairs: a short daily game built from your own weak spots.
+• Writing practice with instant checking, and a mock Norskprøven.
+• Grammar with tables: pronouns, tenses, en/ei/et, word order.
+• Games for the whole family: Logic Race, Math Rocket, chess and quiz rooms you join with a QR code.
+
+INTERFACE IN YOUR LANGUAGE
+Norwegian, English, Ukrainian, German, Polish, Turkish, Lithuanian and Arabic. Pick several translation languages at once and see them all in the comic.
+
+COMPLETELY FREE
+No subscription, no payments, no ads, no in-app purchases. An account is optional — it only keeps your progress, stars and friends across devices.
+
+MADE FOR
+People moving to Norway, international workers and families, and anyone preparing for a Norwegian course or the Norskprøven exam. Children can use it with a parent.
+
+All stories, characters, drawings and voices are fictional and created with artificial intelligence.</code></pre>
+  <label class="check"><input type="checkbox" data-k="s7"><span>Сторінку заповнено, картинки завантажено</span></label>
+</section>
+
+<!-- 8 -->
+<section class="step">
+  <h2><span class="num">8</span>Три анкети Google</h2>
+  <p>Саме тут зазвичай застрягають. Нижче — готові відповіді.</p>
+
+  <h3>Privacy policy</h3>
+  <pre><code>https://bilohash.com/comiks/#/terms</code></pre>
+
+  <h3>Data safety — які дані збираєте</h3>
+  <table>
+    <tr><th>Питання</th><th>Відповідь</th></tr>
+    <tr><td>Чи збираєте дані?</td><td><b>Так</b> (для офлайн-версії — <b>Ні</b>)</td></tr>
+    <tr><td>Чи передаєте третім особам?</td><td><b>Ні</b></td></tr>
+    <tr><td>Чи шифрується передача?</td><td><b>Так</b>, HTTPS</td></tr>
+    <tr><td>Чи можна видалити дані?</td><td><b>Так</b>, у кабінеті застосунку</td></tr>
+  </table>
+  <table>
+    <tr><th>Тип даних</th><th>Навіщо</th><th>Обов'язково?</th></tr>
+    <tr><td>Ім'я</td><td>профіль і рейтинг</td><td>ні — лише з акаунтом</td></tr>
+    <tr><td>Email</td><td>підтвердження акаунта, відновлення пароля</td><td>ні</td></tr>
+    <tr><td>App activity</td><td>прогрес навчання, зірки, результати тестів</td><td>ні</td></tr>
+    <tr><td>Повідомлення</td><td>листування між друзями</td><td>ні</td></tr>
+    <tr><td><b>Аудіо</b></td><td><b>не збираємо</b> — розпізнавання робить браузер, записи не зберігаються</td><td>—</td></tr>
+  </table>
+
+  <h3>Content rating</h3>
+  <p>Категорія <b>Education</b>. Чесні відповіді дають <b>3+ / PEGI 3</b>: немає насильства, лайки, азартних ігор, покупок і реклами. <b>Обов'язково вкажіть</b>, що є обмін повідомленнями між користувачами (для офлайн-версії — немає).</p>
+
+  <h3>Ads · Target audience · Дозволи</h3>
+  <ul>
+    <li><b>Реклами немає.</b></li>
+    <li><b>Аудиторія:</b> 13+ — через спілкування між користувачами. Якщо позначити «для дітей», Google вимагатиме вимкнути соціальні можливості. Для офлайн-версії можна ставити молодшу аудиторію.</li>
+    <li><b>Дозволи:</b> лише мікрофон (<code>RECORD_AUDIO</code>). Пояснення для форми:</li>
+  </ul>
+  <pre><code>Microphone is used only for pronunciation practice and the in-app speaking exercise. No audio is recorded or stored.</code></pre>
+  <label class="check"><input type="checkbox" data-k="s8a"><span>Privacy policy вказано</span></label>
+  <label class="check"><input type="checkbox" data-k="s8b"><span>Data safety заповнено</span></label>
+  <label class="check"><input type="checkbox" data-k="s8c"><span>Content rating отримано</span></label>
+</section>
+
+<!-- 9 -->
+<section class="step">
+  <h2><span class="num">9</span>Тестування й випуск</h2>
+  <ol>
+    <li><b>Testing → Internal testing</b> — залийте <code>.aab</code>, додайте свою пошту, поставте застосунок за отриманим посиланням і перевірте на живому телефоні.</li>
+    <li>Переконайтеся, що працюють: вхід в акаунт, рейтинг, звук, мікрофон, тест на весь екран.</li>
+    <li><b>Production → Create new release</b> → той самий <code>.aab</code> → <b>Send for review</b>.</li>
+  </ol>
+  <div class="warn"><b>⚠️ Не пропускайте внутрішнє тестування</b>
+    Це єдиний спосіб побачити застосунок на справжньому телефоні до того, як його побачать люди. Помилку в релізі виправляти довше, ніж перевірити зараз.</div>
+  <p>Перша перевірка триває від кількох годин до тижня. Оновлення проходять швидше.</p>
+  <label class="check"><input type="checkbox" data-k="s9a"><span>Внутрішнє тестування пройдено на телефоні</span></label>
+  <label class="check"><input type="checkbox" data-k="s9b"><span>Надіслано на перевірку</span></label>
+</section>
+
+<section class="step">
+  <h2>🔄 Як випускати оновлення</h2>
+  <pre><code>node tools\build.js
+node app\tools\prepare-web.js --light
+cd app &amp;&amp; npm run android</code></pre>
+  <p>У файлі <code>app\android\app\build.gradle</code> підніміть:</p>
+  <ul>
+    <li><code>versionCode</code> — ціле число, <b>обов'язково більше за попереднє</b> (1 → 2 → 3…). Google відхилить бандл із тим самим номером.</li>
+    <li><code>versionName</code> — те, що бачить людина: <code>1.1</code>, <code>1.2</code>…</li>
+  </ul>
+  <p>Далі знову <b>Generate Signed App Bundle</b> — <b>тим самим ключем</b>.</p>
+</section>
+
+<section class="step">
+  <h2>🍎 Якщо колись App Store</h2>
+  <p>Потрібен <b>Mac</b> із Xcode і обліковий запис Apple Developer — <b>99 $ на рік</b>.</p>
+  <pre><code>cd C:\comiks\app
+npm run add:ios
+npm run ios</code></pre>
+  <ul>
+    <li>перевірка суворіша й ручна, часто просять пояснення до дозволів;</li>
+    <li>у <code>Info.plist</code> обов'язковий опис <code>NSMicrophoneUsageDescription</code>;</li>
+    <li>знімки потрібні під кілька розмірів екрана;</li>
+    <li>банер 1024×500 не потрібен, потрібна іконка 1024×1024 — вона вже є.</li>
+  </ul>
+</section>
+
+<footer>Комікс·Lab · документ згенеровано з <code>store/PUBLISH.md</code> · позначки зберігаються у вашому браузері</footer>
+</div>
+
+<script>
+  // кнопка «копіювати» біля кожної команди
+  document.querySelectorAll('pre').forEach(pre => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = 'копіювати';
+    b.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(pre.querySelector('code').textContent); b.textContent = 'скопійовано ✓'; }
+      catch { b.textContent = 'не вийшло'; }
+      setTimeout(() => { b.textContent = 'копіювати'; }, 1600);
+    });
+    pre.append(b);
+  });
+
+  /* Позначки зберігаються в браузері: можна закрити сторінку й повернутися,
+     нічого не загубивши. Це локально, на сервер нічого не йде. */
+  const boxes = [...document.querySelectorAll('label.check input')];
+  const KEY = 'komiks-publish-android';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } };
+  const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch {} };
+  const paint = () => {
+    const done = boxes.filter(b => b.checked).length;
+    document.getElementById('pi').style.width = Math.round(done / boxes.length * 100) + '%';
+    document.getElementById('pt').textContent = done + ' / ' + boxes.length;
+    boxes.forEach(b => b.closest('label').classList.toggle('done', b.checked));
+  };
+  const state = load();
+  boxes.forEach(b => {
+    b.checked = !!state[b.dataset.k];
+    b.addEventListener('change', () => { const s = load(); s[b.dataset.k] = b.checked; save(s); paint(); });
+  });
+  paint();
+</script>
+</body>
+</html>

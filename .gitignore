@@ -1,0 +1,45 @@
+# Build output (publish dist/ to Hostinger, not git)
+dist/
+
+# Neural TTS clips — thousands of mp3s; generate with tools/gen_audio.py
+audio/
+
+# Secrets and local mail dumps
+api/config.php
+api/data/*
+!api/data/.htaccess
+*.sqlite
+*.sqlite-journal
+
+# Private / copyrighted drafts
+_private/
+
+# OS and junk
+.DS_Store
+Thumbs.db
+*.log
+comiks.zip
+dist.zip
+tools/_probe_*.py
+tools/_probe_*.js
+
+# Нативний Android-проєкт і зібрані артефакти — генеруються командами з app/ANDROID.md
+app/node_modules/
+app/android/
+app/www/
+app/android_offline/www/
+store/android/build/
+
+# Архіви оновлень: збираються командою з store/GUIDE.html, у сховищі не потрібні
+*.zip
+comiks-update-*/
+
+# Копія бойових налаштувань із паролями — тільки на диску, ніколи у сховищі
+_server-config/
+api/config.local.php
+
+# VERB — окремий проєкт, живе у власному сховищі
+gpt/
+
+# Зібрані інсталятори — генеруються з installer/komikslab.iss
+installer/out/

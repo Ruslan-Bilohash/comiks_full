@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- Картка коміксу для соцмереж (1200×630).
+     Досі всі 243 сторінки коміксів ділилися одним og-image.png: у стрічці
+     Facebook чи LinkedIn будь-яке посилання на будь-яку історію виглядало
+     однаково, і людина не бачила, про що воно.
+
+     Головне тут — сама обкладинка: малюнок із персонажами впізнається швидше
+     за будь-який заголовок. Тому їй віддано дві третини ширини, а текст іде
+     збоку вузькою колонкою.
+
+     Дані приходять у query-рядку; картинку беремо з файлу, тож шлях до неї
+     передається відносно цього шаблона. -->
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<title>og-comic</title>
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; box-sizing: border-box; padding: 40px;
+    font-family: Nunito, 'Segoe UI', sans-serif; color: #141414;
+    background: #ffd23f radial-gradient(rgba(20,20,20,.1) 2px, transparent 2.4px) 0 0 / 18px 18px;
+    display: flex; gap: 34px; align-items: stretch;
+  }
+  .rays { position: absolute; inset: -300px; background: repeating-conic-gradient(from 0deg at 18% 12%, rgba(255,255,255,.24) 0 9deg, transparent 9deg 18deg); }
+
+  /* Обкладинка. object-fit: cover, бо кадр 4:3, а місце під нього майже
+     квадратне: краще показати середину малюнка великою, ніж вписати його
+     цілком і лишити по боках порожні поля. */
+  .pic {
+    position: relative; flex: 0 0 640px; align-self: center; height: 530px;
+    background: #fff8ea; border: 7px solid #141414; border-radius: 18px;
+    box-shadow: 10px 10px 0 #141414; overflow: hidden;
+  }
+  .pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .side { position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand span { display: grid; place-items: center; width: 54px; height: 54px; font-size: 30px; background: #fff; border: 5px solid #141414; border-radius: 50%; }
+  .brand b { font: 900 32px/1 Rubik, 'Arial Black', sans-serif; letter-spacing: -1px; }
+
+  .lvl {
+    align-self: flex-start; font: 900 26px Nunito, sans-serif;
+    background: #141414; color: #ffd23f; padding: 6px 18px; border-radius: 999px;
+  }
+  h1 {
+    margin: 0; font: 900 54px/1.06 Rubik, 'Arial Black', sans-serif; letter-spacing: -1.5px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  h1.sm { font-size: 42px; } h1.xs { font-size: 34px; }
+  p.sub {
+    margin: 0; font: 800 26px/1.3 Nunito, sans-serif; color: #5b5244;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .foot { margin-top: 6px; font: 900 24px Nunito, sans-serif; }
+  .foot small { display: block; font: 700 20px Nunito, sans-serif; color: #5b5244; }
+</style>
+</head>
+<body>
+  <div class="rays"></div>
+  <div class="pic"><img id="im" alt=""></div>
+  <div class="side">
+    <div class="brand"><span>💬</span><b>Komiks·Lab</b></div>
+    <span class="lvl" id="lv">A1</span>
+    <h1 id="h">—</h1>
+    <p class="sub" id="sub"></p>
+    <div class="foot" id="ft">bilohash.com/comiks<small id="tag"></small></div>
+  </div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const t = k => q.get(k) || '';
+  const $ = id => document.getElementById(id);
+  if (t('img')) $('im').src = t('img');
+  $('lv').textContent = t('level') || 'A1';
+  $('h').textContent = t('title');
+  $('sub').textContent = t('sub');
+  if (t('site')) $('ft').firstChild.textContent = t('site');
+  $('tag').textContent = t('tag');
+  /* Норвезькі назви бувають довгими, а місця збоку небагато. Зменшуємо кегль
+     сходинками, щоб назва вмістилася цілком: обрізана на півслові вона
+     виглядає як поламана верстка, а не як інтрига. */
+  const h = $('h');
+  if (t('title').length > 26) h.classList.add('sm');
+  if (t('title').length > 42) h.classList.add('xs');
+</script>
+</body>
+</html>

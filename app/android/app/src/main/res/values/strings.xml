@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Komiks·Lab</string>
+    <string name="title_activity_main">Komiks·Lab</string>
+    <string name="package_name">com.bilohash.komikslab</string>
+    <string name="custom_url_scheme">com.bilohash.komikslab</string>
+</resources>

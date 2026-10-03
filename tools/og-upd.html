@@ -1,0 +1,99 @@
+<!doctype html>
+<!-- Картка оновлення для соцмереж (1200×630).
+     Її бачать у стрічці Facebook, LinkedIn і Telegram ще до того, як вирішать
+     натиснути. Тому головне тут — великий текст: у стрічці картинка займає
+     приблизно 500 px завширшки, і все, дрібніше за 28 px у макеті, перетворюється
+     на сірий шум.
+
+     Дані приходять у query-рядку, бо так один шаблон обслуговує всі мови й усі
+     записи: tools/build.js відкриває цей файл у безголовому Edge із потрібними
+     параметрами й знімає екран. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og-update</title>
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; box-sizing: border-box; padding: 48px 56px 40px;
+    font-family: Nunito, 'Segoe UI', sans-serif; color: #141414;
+    background: #ffd23f radial-gradient(rgba(20,20,20,.1) 2px, transparent 2.4px) 0 0 / 18px 18px;
+    display: flex; flex-direction: column;
+  }
+  /* Промені з кута — той самий прийом, що й на головній картці сайту, щоб
+     поруч у стрічці картки впізнавалися як одна родина. */
+  .rays { position: absolute; inset: -300px; background: repeating-conic-gradient(from 0deg at 80% 18%, rgba(255,255,255,.26) 0 9deg, transparent 9deg 18deg); }
+  .sheet {
+    position: relative; flex: 1; display: flex; flex-direction: column;
+    background: #fff; border: 7px solid #141414; border-radius: 22px;
+    box-shadow: 12px 12px 0 #141414; padding: 34px 42px; overflow: hidden;
+  }
+  .head { flex: none; display: flex; align-items: center; gap: 16px; }
+  .head .mark { display: grid; place-items: center; width: 60px; height: 60px; font-size: 32px; background: #ffd23f; border: 5px solid #141414; border-radius: 50%; }
+  .head b { font: 900 36px/1 Rubik, 'Arial Black', sans-serif; letter-spacing: -1px; }
+  .head .date { margin-left: auto; font: 900 25px/1 Nunito, sans-serif; background: #141414; color: #ffd23f; padding: 9px 18px; border-radius: 999px; white-space: nowrap; }
+
+  /* Текстовий блок займає решту картки. Кегль підбирає скрипт унизу, тому тут
+     лише стартові значення: стискати flex-елементи не можна — рядок обрізався б
+     навпіл, а не сховався цілком. */
+  .body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  h1 { flex: none; margin: 18px 0 0; font: 900 60px/1.06 Rubik, 'Arial Black', sans-serif; letter-spacing: -1.5px; }
+  p.lead { flex: none; margin: 16px 0 0; font: 700 33px/1.32 Nunito, sans-serif; color: #3a3a3a; }
+  .foot { flex: none; margin-top: 18px; font: 900 25px Nunito, sans-serif; color: #6b6257; }
+
+  /* Велике емодзі-клеймо в кутку: у стрічці воно читається навіть на мініатюрі
+     й одразу каже, про що оновлення. */
+  .icon { position: absolute; right: -24px; bottom: -40px; font-size: 220px; line-height: 1; opacity: .1; font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; pointer-events: none; }
+  .site { position: relative; flex: none; margin: 16px 0 0; font: 900 25px Nunito, sans-serif; text-align: right; }
+</style>
+</head>
+<body>
+  <div class="rays"></div>
+  <div class="sheet">
+    <div class="head"><span class="mark" id="ic">✨</span><b>Komiks·Lab</b><span class="date" id="dt">—</span></div>
+    <div class="body">
+      <h1 id="h">—</h1>
+      <p class="lead" id="p"></p>
+    </div>
+    <div class="foot" id="ft"></div>
+    <span class="icon" id="big">✨</span>
+  </div>
+  <p class="site" id="st">bilohash.com/comiks</p>
+<script>
+  const q = new URLSearchParams(location.search);
+  const t = k => q.get(k) || '';
+  const $ = id => document.getElementById(id);
+  $('ic').textContent = $('big').textContent = t('icon') || '✨';
+  $('dt').textContent = t('date');
+  $('h').textContent = t('title');
+  $('p').textContent = t('lead');
+  $('ft').textContent = t('foot');
+  if (t('site')) $('st').textContent = t('site');
+
+  /* Текст різної довжини в трьох мовах не можна обслужити одним кеглем: те, що
+     в англійській лягає у два рядки, в українській займає три, а в норвезькій
+     трапляються слова на пів рядка. Тому підбираємо розмір так, як це зробила б
+     людина — зменшуємо, поки не вміститься. Обрізати на півслові не можна:
+     у стрічці це читається як помилка верстки, а не як «далі за посиланням». */
+  const box = document.querySelector('.body');
+  const h = $('h'), p = $('p');
+  /* Міряємо саме текстовий блок, а не всю картку: емодзі-клеймо в кутку стоїть
+     абсолютно й навмисно виходить за край, тож за висотою картки виходило б,
+     що текст не вміщається завжди. */
+  const fits = () => box.scrollHeight <= box.clientHeight + 1;
+  let hs = 60, ps = 33;
+  while (!fits() && (hs > 30 || ps > 20)) {
+    if (hs / 60 >= ps / 33 && hs > 30) { hs -= 2; h.style.fontSize = hs + 'px'; }
+    else if (ps > 20) { ps -= 1; p.style.fontSize = ps + 'px'; }
+    else break;
+  }
+  /* Якщо навіть на найменшому кеглі не влізло — краще прибрати хвіст речення
+     цілком, ніж показати половину рядка. */
+  if (!fits()) {
+    const words = p.textContent.split(' ');
+    while (words.length > 6 && !fits()) { words.pop(); p.textContent = words.join(' ') + '…'; }
+  }
+  document.documentElement.dataset.ready = '1';
+</script>
+</body>
+</html>

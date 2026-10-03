@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Комікс·Lab — повний посібник</title>
+<style>
+  :root{
+    --ink:#141414; --cream:#fff8ea; --white:#fff; --yellow:#ffd23f;
+    --blue:#1368ce; --red:#e21b3c; --green:#14892c; --muted:#6b6257;
+    --line:3px solid var(--ink);
+    --mono:ui-monospace,"Cascadia Mono","Consolas","DejaVu Sans Mono",monospace;
+    --sans:"Segoe UI",system-ui,-apple-system,"Noto Sans",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:16px}
+  body{margin:0; background:var(--cream); color:var(--ink); font:16px/1.6 var(--sans)}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 16px; display:grid; grid-template-columns:260px 1fr; gap:28px; align-items:start}
+  header{background:var(--yellow); border-bottom:var(--line)}
+  header .inner{max-width:1180px; margin:0 auto; padding:22px 16px}
+  h1{margin:0; font-size:1.9rem; letter-spacing:.3px}
+  header p{margin:6px 0 0; max-width:70ch}
+  .meta{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px}
+  .pill{background:var(--white); border:var(--line); border-radius:999px; padding:3px 12px; font-size:.82rem; font-weight:700}
+
+  nav{position:sticky; top:12px; background:var(--white); border:var(--line); border-radius:16px; padding:12px; margin-top:24px}
+  nav b{display:block; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 8px}
+  nav a{display:block; padding:5px 8px; border-radius:8px; color:var(--ink); text-decoration:none; font-size:.92rem}
+  nav a:hover{background:var(--yellow)}
+
+  main{margin-top:24px; min-width:0}
+  section{background:var(--white); border:var(--line); border-radius:18px; padding:20px 22px; margin:0 0 20px; box-shadow:5px 5px 0 rgba(0,0,0,.08)}
+  h2{margin:0 0 4px; font-size:1.35rem}
+  h2 .n{display:inline-grid; place-items:center; width:34px; height:34px; margin-right:10px; background:var(--yellow); border:var(--line); border-radius:50%; font-size:1rem; vertical-align:-7px}
+  h3{margin:22px 0 6px; font-size:1.05rem}
+  .lead{color:var(--muted); margin:0 0 14px}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0; padding-left:22px}
+  li{margin:5px 0}
+  code{font-family:var(--mono); background:#f1ece2; border-radius:5px; padding:1px 5px; font-size:.91em}
+  a{color:var(--blue)}
+
+  .cmd{position:relative; margin:12px 0}
+  .cmd pre{margin:0; background:var(--ink); color:#f6f2e8; border-radius:12px; padding:14px 90px 14px 16px; overflow-x:auto; font:13.5px/1.55 var(--mono)}
+  .cmd button{position:absolute; top:9px; right:9px; background:var(--yellow); color:var(--ink); border:2px solid var(--ink); border-radius:8px; padding:4px 11px; font:700 .78rem var(--sans); cursor:pointer}
+  .cmd button:hover{background:#ffe27a}
+  .cmd button.done{background:var(--green); color:#fff; border-color:var(--green)}
+
+  /* На телефоні широка таблиця не стискається нижче своїх слів, тому гортаємо
+     саму таблицю, а не всю сторінку — інакше з'їжджає весь текст посібника. */
+  .tw{overflow-x:auto; margin:12px 0; -webkit-overflow-scrolling:touch}
+  table{width:100%; border-collapse:collapse; margin:0; font-size:.94rem}
+  th,td{border:2px solid var(--ink); padding:7px 10px; text-align:left; vertical-align:top}
+  th{background:var(--yellow)}
+  td code{background:#f6f2e8}
+  code{overflow-wrap:anywhere}
+
+  .note,.warn,.ok{border:var(--line); border-radius:12px; padding:12px 14px; margin:14px 0}
+  .note{background:#eaf2ff; border-color:var(--blue)}
+  .warn{background:#ffeceb; border-color:var(--red)}
+  .ok{background:#e7f7ec; border-color:var(--green)}
+  .note b,.warn b,.ok b{display:block; margin-bottom:3px}
+
+  .check{list-style:none; padding:0; margin:12px 0}
+  .check li{display:flex; gap:10px; align-items:flex-start; padding:8px 10px; border:2px solid var(--ink); border-radius:10px; margin:0 0 7px; background:var(--cream)}
+  .check input{width:20px; height:20px; margin-top:2px; flex:none; accent-color:var(--green); cursor:pointer}
+  .check label{cursor:pointer}
+  .check li.on{background:#e7f7ec; opacity:.72}
+  .check li.on label{text-decoration:line-through}
+  .reset{background:var(--white); border:2px solid var(--ink); border-radius:8px; padding:5px 12px; font:700 .82rem var(--sans); cursor:pointer}
+
+  footer{max-width:1180px; margin:0 auto; padding:24px 16px 60px; color:var(--muted); font-size:.9rem}
+
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr}
+    nav{position:static; margin-top:16px}
+    header .inner{padding:18px 16px}
+    h1{font-size:1.45rem}
+    section{padding:16px}
+  }
+  @media print{
+    nav,.cmd button,.reset{display:none}
+    body{background:#fff}
+    section{box-shadow:none; break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <h1>📘 Комікс·Lab — повний посібник</h1>
+    <p>Що де лежить, як зібрати, як перевірити, що саме вантажити на Hostinger і як випустити застосунок у Google Play. Усі команди можна скопіювати кнопкою.</p>
+    <div class="meta">
+      <span class="pill">Сайт: bilohash.com/comiks/</span>
+      <span class="pill">Проєкт: C:\comiks</span>
+      <span class="pill">75 коміксів</span>
+      <span class="pill">Оновлено 01.10.2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav>
+    <b>Зміст</b>
+    <a href="#map">0 · Карта проєкту</a>
+    <a href="#cycle">1 · Щоденний цикл</a>
+    <a href="#local">2 · Локальна перевірка</a>
+    <a href="#build">3 · Збірка сайту</a>
+    <a href="#upload">4 · Заливання на Hostinger</a>
+    <a href="#after">5 · Перевірка після заливання</a>
+    <a href="#diag">5а · Дебагер в адмінці</a>
+    <a href="#app">6 · Збірка застосунку</a>
+    <a href="#phone">7 · Тест на телефоні</a>
+    <a href="#play">8 · Google Play</a>
+    <a href="#update">9 · Оновлення застосунку</a>
+    <a href="#troubles">10 · Коли щось не так</a>
+    <a href="#checklists">11 · Чек-листи</a>
+  </nav>
+
+  <main>
+
+  <section id="map">
+    <h2><span class="n">0</span>Карта проєкту</h2>
+    <p class="lead">Найголовніше: <b>працюємо в корені <code>C:\comiks</code></b>, а на сервер вантажимо тільки те, що складе <code>tools/build.js</code> у теку <code>dist/</code>. Корінь — це «вихідники», <code>dist/</code> — «готовий сайт».</p>
+
+    <div class="tw"><table>
+      <tr><th>Тека</th><th>Що там</th><th>Чи вантажимо</th></tr>
+      <tr><td><code>assets/</code></td><td>Увесь код сайту: <code>app.js</code>, <code>style.css</code>, модулі ігор, дзвінка, пар</td><td>через <code>dist/</code></td></tr>
+      <tr><td><code>data/</code></td><td>75 коміксів, словники, теми слів, реєстр <code>index.js</code></td><td>через <code>dist/</code></td></tr>
+      <tr><td><code>audio/</code></td><td>18 198 озвучень (mp3), 158 МБ</td><td>через <code>dist/</code></td></tr>
+      <tr><td><code>api/</code></td><td>PHP: акаунти, рейтинг, дзвінок, письмо</td><td>через <code>dist/</code> — <b>крім <code>config.php</code></b></td></tr>
+      <tr><td><code>dist/</code></td><td>Готовий сайт: 10 458 файлів, 151,6 МБ</td><td>✅ це і є те, що вантажимо</td></tr>
+      <tr><td><code>app/</code></td><td>Мобільний застосунок (Capacitor + Android)</td><td>ні — з нього виходить AAB</td></tr>
+      <tr><td><code>store/</code></td><td>Матеріали магазину, знімки екрана, зібрані AAB/APK</td><td>ні</td></tr>
+      <tr><td><code>tools/</code></td><td>Складання, перевірки, генерація голосу й іконок</td><td>ні</td></tr>
+      <tr><td><code>_private/</code></td><td>Чернетки та <b>ключ підпису застосунку</b></td><td>❌ ніколи</td></tr>
+    </table></div>
+
+    <div class="warn">
+      <b>Два файли, які не можна віддати назовні</b>
+      <code>api/config.php</code> — у ньому пароль бази, пошти й ключі оплати. Його <b>немає</b> в <code>dist/</code> і немає в архіві — це навмисне: коли ви розпаковуєте архів поверх сайту, серверний <code>config.php</code> лишається цілим.<br>
+      <code>_private/</code> — там ключ підпису Android. Втратите його — оновити застосунок у Play буде неможливо.
+    </div>
+  </section>
+
+  <section id="cycle">
+    <h2><span class="n">1</span>Щоденний цикл</h2>
+    <p class="lead">Чотири кроки, завжди в цьому порядку. Кожен описаний детально нижче.</p>
+    <ol>
+      <li><b>Змінили</b> щось у <code>assets/</code> або <code>data/</code>.</li>
+      <li><b>Перевірили локально</b> — розділ 2. Сайт відкривається на <code>localhost:8950</code> одразу, без збірки.</li>
+      <li><b>Зібрали</b> — <code>node tools\build.js</code>, далі <code>node tools\audit-all.js</code> має сказати «можна публікувати».</li>
+      <li><b>Залили</b> <code>dist/</code> на Hostinger і перевірили живий сайт — розділи 4 і 5.</li>
+    </ol>
+    <div class="note">
+      <b>Якщо додали нові тексти (репліки, слова, назви)</b>
+      Спочатку треба записати для них голос, інакше на сайті вони будуть німі. Це робить <code>tools\update.bat</code>: перевірка даних → список аудіо → нові голоси → збірка. Один файл замість чотирьох команд.
+    </div>
+    <div class="cmd"><pre>cd C:\comiks && tools\update.bat</pre></div>
+  </section>
+
+  <section id="local">
+    <h2><span class="n">2</span>Локальна перевірка</h2>
+    <p class="lead">Три різні сервери для трьох різних речей. Плутати їх не можна: вони показують <i>різний</i> вміст.</p>
+
+    <div class="tw"><table>
+      <tr><th>Порт</th><th>Що показує</th><th>Коли потрібен</th></tr>
+      <tr><td><code>8950</code></td><td>Сайт з кореня проєкту + <b>робочий PHP-API</b> на SQLite</td><td>щодня: перевірка коду, акаунтів, рейтингу</td></tr>
+      <tr><td><code>8970</code></td><td>Вміст <b>онлайн-застосунку</b> (app/www, 15 МБ)</td><td>перед збіркою APK</td></tr>
+      <tr><td><code>8971</code></td><td>Вміст <b>офлайн-застосунку</b> (147 МБ, без сервера)</td><td>перед збіркою офлайн-AAB</td></tr>
+    </table></div>
+
+    <h3>Сайт із живим API</h3>
+    <p>PHP тут потрібен саме тому, що без нього не працюють вхід, друзі, рейтинг і письмо. База — локальний SQLite, живої бази він не чіпає.</p>
+    <div class="cmd"><pre>cd C:\comiks && php -d extension=pdo_sqlite -d extension=pdo_mysql -d extension=openssl -d extension=mbstring -S localhost:8950 -t C:/comiks</pre></div>
+    <p>Відкрити <a href="http://localhost:8950/">http://localhost:8950/</a>. Перевірити, що сервер живий: <a href="http://localhost:8950/api/health.php">/api/health.php</a> має відповісти <code>"ok": true</code>.</p>
+
+    <h3>Вміст застосунку</h3>
+    <div class="cmd"><pre>cd C:\comiks && node app\tools\prepare-web.js --light && node app\tools\serve.js</pre></div>
+    <p>Відкриється <code>localhost:8970</code>. Якщо чогось не поклали всередину застосунку, сервер надрукує рядок <code>⚠ немає у застосунку: …</code> — це і є список того, що телефон не побачить без інтернету.</p>
+
+    <h3>Офлайн-застосунок</h3>
+    <div class="cmd"><pre>cd C:\comiks && node app\android_offline\build.js --serve</pre></div>
+
+    <h3>Як дивитися «очима телефона»</h3>
+    <p>У браузері: <kbd>F12</kbd> → іконка телефона → ширина <b>390 × 700</b>. Саме на цьому розмірі перевірені тести й читання коміксів: під час тесту шапка й підвал ховаються, усе вміщається в один екран без прокрутки.</p>
+    <div class="note">
+      <b>Що перевіряти на телефонній ширині</b>
+      1) тест: питання + усі відповіді видно без прокрутки; 2) комікс: кадр угорі, репліки гортаються всередині, «Далі» внизу; 3) відповіді-картинки стоять по дві в ряд.
+    </div>
+  </section>
+
+  <section id="build">
+    <h2><span class="n">3</span>Збірка сайту</h2>
+    <p class="lead"><code>dist/</code> збирається з нуля щоразу. Руками в ній нічого не правлять — усе затреться наступною збіркою.</p>
+
+    <div class="cmd"><pre>cd C:\comiks && node tools\build.js</pre></div>
+    <p>Що вона робить: складає 10 458 файлів у <code>dist/</code>, дописує SEO-сторінки для 75 коміксів, ставить нову <b>версію</b> у <code>data/index.js</code> і ту саму версію в ім'я кешу <code>sw.js</code>. Завдяки цьому браузер відвідувача підхопить оновлення, а не покаже вчорашню версію.</p>
+
+    <h3>Перевірка перед публікацією</h3>
+    <div class="cmd"><pre>cd C:\comiks && node tools\audit-all.js</pre></div>
+    <p>Одна команда перевіряє все одразу: цілість даних, переклади, озвучення (щоб жоден текст не лишився німим), відсутність секретів у збірці, вміст застосунку й матеріали магазину. Публікуємо тільки якщо в кінці:</p>
+    <div class="ok"><b>✅ Усе гаразд — можна публікувати.</b></div>
+    <p>Якщо щось не так — вона назве конкретний файл і рядок. Не заливайте, доки не зелено.</p>
+
+    <h3>Запакувати архів для завантаження</h3>
+    <div class="warn">
+      <b>Тільки <code>tar.exe</code>, не «Стиснути» з провідника</b>
+      PowerShell і провідник Windows пишуть у zip шляхи через <code>\</code>. Hostinger такий архів розпакує в один файл із дивною назвою замість тек. Тому пакуємо системним <code>tar.exe</code> — він робить правильний zip.
+    </div>
+    <p>Архів має містити <b>одну теку <code>comiks/</code></b> всередині — саме так, щоб на сервері вийшло <code>public_html/comiks/…</code>:</p>
+    <div class="cmd"><pre>cd C:\comiks && rd /s /q %TEMP%\klpack 2>nul & mkdir %TEMP%\klpack && xcopy dist %TEMP%\klpack\comiks /E /I /Q /Y >nul && cd /d %TEMP%\klpack && C:\Windows\System32\tar.exe -a -c -f C:\comiks\comiks-update.zip comiks</pre></div>
+    <p>Перевірити, що всередині саме тека, а не купа файлів:</p>
+    <div class="cmd"><pre>C:\Windows\System32\tar.exe -tf C:\comiks\comiks-update.zip | more</pre></div>
+    <p>Перші рядки мають бути <code>comiks/</code>, <code>comiks/index.html</code>, <code>comiks/assets/</code>.</p>
+  </section>
+
+  <section id="upload">
+    <h2><span class="n">4</span>Заливання на Hostinger</h2>
+    <p class="lead">Сайт живе в <code>public_html/comiks/</code>. Архів розпаковується <b>поверх</b> — старі файли замінюються, зайві лишаються.</p>
+
+    <h3>Через SSH — одна команда (найшвидше)</h3>
+    <p>Доступ уже налаштований у <code>~/.ssh/config</code> під іменем <code>bilohash</code>, паролів у проєкті немає. Скрипт сам не дасть залити <code>api/config.php</code> і сам перевірить живий сайт після заливання.</p>
+    <div class="cmd"><pre>cd C:\comiks && node tools\deploy.js</pre></div>
+    <p>За замовчуванням летить код, дані й сторінки — близько 7 МБ, секунд сім. Озвучення не чіпається: воно змінюється лише разом із новими текстами.</p>
+    <div class="tw"><table>
+      <tr><th>Команда</th><th>Що робить</th></tr>
+      <tr><td><code>node tools\deploy.js</code></td><td>код, дані, сторінки (без аудіо)</td></tr>
+      <tr><td><code>node tools\deploy.js --full</code></td><td>те саме разом із озвученням</td></tr>
+      <tr><td><code>node tools\deploy.js --only=api</code></td><td>лише вказані теки</td></tr>
+      <tr><td><code>node tools\deploy.js --dry</code></td><td>показати перелік і не заливати</td></tr>
+      <tr><td><code>node tools\deploy.js --clean</code></td><td>ще й прибрати з сервера робочі теки</td></tr>
+    </table></div>
+    <p>У кінці скрипт сам питає живий сайт і друкує, чи збіглися версія даних, кеш <code>sw.js</code> і чи відповідає API. Якщо щось не доїхало — скаже саме це.</p>
+    <div class="note">
+      <b>Резервна копія перед великими змінами</b>
+      <div class="cmd"><pre>ssh bilohash "cd ~/domains/bilohash.com/public_html && tar -czf ~/comiks-backup-$(date +%Y%m%d-%H%M).tar.gz --exclude=comiks/audio comiks"</pre></div>
+      Виходить близько 27 МБ — усе, крім озвучення, яке й так лежить у проєкті.
+    </div>
+
+    <h3>Через File Manager (якщо без SSH)</h3>
+    <ol>
+      <li>hPanel → <b>Файловий менеджер</b> → зайти в <code>public_html</code>.</li>
+      <li>Завантажити <code>comiks-update.zip</code> (118 МБ — кілька хвилин).</li>
+      <li>Правою кнопкою на архіві → <b>Extract</b> → шлях <code>public_html</code> (не <code>public_html/comiks</code>! — тека <code>comiks</code> уже є всередині архіву).</li>
+      <li>Коли розпакується — <b>видалити сам zip</b>, щоб не займав місце і не лежав у відкритому доступі.</li>
+    </ol>
+
+    <h3>Через FTP (коли інтернет нестабільний)</h3>
+    <p>FileZilla → <code>ftp.bilohash.com</code> → перекинути вміст <code>dist/</code> у <code>public_html/comiks/</code>. Повільніше (10 458 файлів), зате можна продовжити з місця обриву.</p>
+
+    <div class="warn">
+      <b>Що НЕ можна робити</b>
+      <ul style="margin:6px 0 0">
+        <li>❌ Не видаляйте теку <code>comiks/</code> перед розпакуванням — разом із нею зникне <code>api/config.php</code>, і сайт ляже.</li>
+        <li>❌ Не заливайте окремо файли з кореня проєкту (<code>C:\comiks\assets\…</code>) — там несклеєні вихідники без версії.</li>
+        <li>❌ Не кладіть на сервер <code>install.php</code>. Він уже видалений — так і має лишитися.</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <b>Коли вантажити не все, а тільки зміни</b>
+      Якщо змінилися лише код і дані (а озвучення — ні), досить залити <code>assets/</code>, <code>data/</code>, <code>index.html</code> і <code>sw.js</code> — це ≈6 МБ замість 118. Але <b>обов'язково разом</b>: версія в <code>data/index.js</code> і в <code>sw.js</code> має збігатися з тим, що в <code>assets/</code>, інакше браузер змішає старе з новим.
+    </div>
+  </section>
+
+  <section id="after">
+    <h2><span class="n">5</span>Перевірка після заливання</h2>
+    <p class="lead">Чотири перевірки, дві хвилини. Робити щоразу.</p>
+
+    <h3>1. Сервер живий</h3>
+    <p>Відкрити <a href="https://bilohash.com/comiks/api/health.php">bilohash.com/comiks/api/health.php</a>. Має бути:</p>
+    <div class="tw"><table>
+      <tr><th>Поле</th><th>Правильне значення</th><th>Якщо не так</th></tr>
+      <tr><td><code>ok</code></td><td><code>true</code></td><td>дивіться <code>db.hint</code> — там написано, чого бракує</td></tr>
+      <tr><td><code>db.ok</code></td><td><code>true</code>, <code>driver: mysql</code></td><td>перевірити пароль бази в <code>config.php</code></td></tr>
+      <tr><td><code>schema</code></td><td><code>14</code></td><td>відкрити будь-яку сторінку сайту — міграція виконається сама</td></tr>
+      <tr><td><code>installer</code></td><td><code>видалено</code></td><td>терміново видалити <code>install.php</code> з сервера</td></tr>
+      <tr><td><code>mail.problems</code></td><td>порожній список</td><td>листи підтвердження не надійдуть — перевірити SMTP</td></tr>
+    </table></div>
+
+    <h3>2. Версія оновилася</h3>
+    <p>Відкрити <a href="https://bilohash.com/comiks/data/index.js">bilohash.com/comiks/data/index.js</a> — у другому рядку <code>"version"</code> має збігатися з тим, що надрукувала збірка.</p>
+
+    <h3>3. Браузер бачить нове, а не кеш</h3>
+    <p><kbd>Ctrl</kbd>+<kbd>F5</kbd>. Якщо сторінка все одно стара: <kbd>F12</kbd> → <b>Application</b> → <b>Service Workers</b> → <b>Unregister</b> → перезавантажити. Ім'я кешу має бути <code>komiks-&lt;версія&gt;</code> — те саме, що у <code>data/index.js</code>.</p>
+
+    <h3>4. Головне працює</h3>
+    <ul>
+      <li>Комікс відкривається, звук грає, підказка показує переклад.</li>
+      <li>Тест проходиться до результату.</li>
+      <li>Вхід в акаунт тримається після перезавантаження.</li>
+      <li>На телефоні: тест в один екран, комікс в один екран.</li>
+    </ul>
+  </section>
+
+  <section id="diag">
+    <h2><span class="n">5а</span>Дебагер в адмінці</h2>
+    <p class="lead">Сторінка <b>🩺 Діагностика</b> в адмінпанелі відповідає на одне питання: «чи все я зробив правильно?». Вона дивиться на сервер зсередини й ззовні — і каже не лише «так/ні», а що саме виправити.</p>
+    <p><a href="https://bilohash.com/comiks/admin.php?p=diag">bilohash.com/comiks/admin.php?p=diag</a> — потрібен вхід адміністратора.</p>
+
+    <div class="tw"><table>
+      <tr><th>Група</th><th>Що перевіряє</th></tr>
+      <tr><td>🔒 Безпека</td><td>інсталятор видалено, права на <code>config.php</code>, довжина секрету, HTTPS, показ помилок PHP, версія PHP, обидва <code>.htaccess</code>, зайві робочі теки, кількість адміністраторів</td></tr>
+      <tr><td>🌐 Що видно ззовні</td><td>справжні запити до сайту: чи закриті <code>config.php</code>, <code>lib.php</code>, <code>api/data/</code> і вкладення, чи відкривається головна, чи є заголовки безпеки, чи не показується список файлів, чи працює CORS для застосунку</td></tr>
+      <tr><td>📦 Збірка</td><td>версія, збіг кешу <code>sw.js</code> з даними, наявність кожного файла з реєстру, кількість озвучень і вибіркова перевірка 400 з них</td></tr>
+      <tr><td>🗄️ База</td><td>з'єднання, тип і версія, схема проти очікуваної, кількість користувачів</td></tr>
+      <tr><td>⚙️ Служби</td><td>пошта, оплата, право запису в <code>api/data</code>, вільне місце</td></tr>
+    </table></div>
+
+    <div class="note">
+      <b>Найцінніша перевірка — збіг версій</b>
+      Якщо <code>sw.js</code> каже одну версію, а <code>data/index.js</code> іншу, значить залилося не все, і відвідувачі бачитимуть суміш старого з новим. Очима це не помітно — саме тому перевірка є.
+    </div>
+    <div class="note">
+      <b>Що означають позначки</b>
+      ✅ гаразд · ⚠️ працює, але варто виправити · ⛔ зламано або небезпечно · ➖ не стосується цього середовища (на робочій копії частина перевірок не має сенсу).
+    </div>
+    <p>Сторінка не показує паролів і ключів — лише «задано / не задано», тож її можна спокійно комусь показати чи зняти на відео.</p>
+  </section>
+
+  <section id="app">
+    <h2><span class="n">6</span>Збірка застосунку</h2>
+    <p class="lead">Застосунок — це той самий сайт у власній оболонці (Capacitor). Код не дублюється: береться готовий <code>dist/</code>.</p>
+
+    <h3>Дві версії — навіщо обидві</h3>
+    <div class="tw"><table>
+      <tr><th></th><th>Онлайн</th><th>Офлайн</th></tr>
+      <tr><td>Розмір AAB</td><td><b>13 МБ</b></td><td><b>121 МБ</b></td></tr>
+      <tr><td>Усередині</td><td>8 історій і 10 тем озвучені, решта — з сайту</td><td>усе: 75 коміксів, 9 724 озвучення</td></tr>
+      <tr><td>Акаунти, друзі, рейтинг, дзвінок</td><td>працюють (через bilohash.com)</td><td>вимкнені — модулів немає</td></tr>
+      <tr><td>Без інтернету</td><td>тільки те, що всередині</td><td>працює повністю</td></tr>
+      <tr><td>Перевірка Google</td><td>довша: є акаунти й дані користувачів</td><td>простіша: даних не збирає</td></tr>
+    </table></div>
+
+    <h3>Інструменти — уже стоять</h3>
+    <div class="tw"><table>
+      <tr><td>JDK</td><td>усередині Android Studio (<code>jbr</code>), 25</td></tr>
+      <tr><td>Android SDK</td><td><code>%LOCALAPPDATA%\Android\Sdk</code>, platform 37, build-tools 36</td></tr>
+      <tr><td>Gradle</td><td>9.1.0 (wrapper у проєкті)</td></tr>
+      <tr><td>Android Gradle Plugin</td><td>8.13.0, <code>targetSdk 36</code></td></tr>
+    </table></div>
+    <div class="note">
+      <b>Окремий JDK ставити не треба</b>
+      Беремо той, що йде з Android Studio. Кожна команда Gradle нижче починається з <code>JAVA_HOME=…</code> саме тому.
+    </div>
+
+    <h3>Якщо нативного проєкту ще немає</h3>
+    <div class="cmd"><pre>cd C:\comiks\app && npm install && npx cap add android && npx --yes @capacitor/assets generate --android</pre></div>
+    <p><code>@capacitor/assets</code> бере <code>app/resources/icon.png</code> і <code>splash.png</code> і розкладає по всіх розмірах. Без цього застосунок матиме стандартну іконку Capacitor.</p>
+    <p>Далі <code>app/android/local.properties</code> має вказувати на SDK <b>прямими скісними рисками</b>:</p>
+    <div class="cmd"><pre>sdk.dir=C:/Users/rbilo/AppData/Local/Android/Sdk</pre></div>
+    <div class="warn"><b>Чому саме так</b> З <code>C:\Users\…</code> Gradle падає з незрозумілим <code>Invalid file path</code> — у файлах <code>.properties</code> зворотна риска означає екранування.</div>
+
+    <h3>Онлайн-версія</h3>
+    <div class="cmd"><pre>cd C:\comiks && node app\tools\prepare-web.js --light && cd app && npx cap sync android</pre></div>
+    <div class="cmd"><pre>cd C:\comiks\app\android && JAVA_HOME="C:/Program Files/Android/Android Studio/jbr" ./gradlew bundleRelease assembleRelease</pre></div>
+
+    <h3>Офлайн-версія</h3>
+    <p><code>cap sync</code> завжди кладе <code>app/www</code>, тому офлайн-вміст підставляємо самі:</p>
+    <div class="cmd"><pre>cd C:\comiks && node app\android_offline\build.js && rmdir /s /q app\android\app\src\main\assets\public && xcopy app\android_offline\www app\android\app\src\main\assets\public /E /I /Q /Y</pre></div>
+    <div class="cmd"><pre>cd C:\comiks\app\android && JAVA_HOME="C:/Program Files/Android/Android Studio/jbr" ./gradlew bundleRelease assembleRelease</pre></div>
+    <p>Готове лежить у <code>app/android/app/build/outputs/</code>, копії з іменами версій — у <code>store/android/build/</code>.</p>
+
+    <h3>Підпис</h3>
+    <p>Ключ уже створено, <code>build.gradle</code> читає його сам, тому <code>bundleRelease</code> одразу дає <b>підписаний</b> AAB:</p>
+    <div class="tw"><table>
+      <tr><td><code>_private/android/komikslab-release.jks</code></td><td>сам ключ, RSA 4096, дійсний до 2054</td></tr>
+      <tr><td><code>_private/android/keystore.properties</code></td><td>пароль і псевдонім</td></tr>
+    </table></div>
+    <div class="warn">
+      <b>Збережіть копію обох файлів просто зараз</b>
+      Менеджер паролів або зовнішній диск. Без цього ключа <b>оновити застосунок у Google Play неможливо</b> — доведеться публікувати новий, з нуля, без відгуків і встановлень.
+    </div>
+    <p>Перевірити, що AAB справді підписаний:</p>
+    <div class="cmd"><pre>"C:/Program Files/Android/Android Studio/jbr/bin/keytool.exe" -printcert -jarfile C:\comiks\store\android\build\komikslab-offline-1.0.aab</pre></div>
+  </section>
+
+  <section id="phone">
+    <h2><span class="n">7</span>Тест на телефоні</h2>
+    <p class="lead">AAB у Play не встановиш напряму — для перевірки на своєму телефоні є <code>.apk</code>.</p>
+    <ol>
+      <li>Перекинути <code>store\android\build\komikslab-offline-1.0.apk</code> на телефон (кабель, Google Drive, Telegram «Збережені»).</li>
+      <li>На телефоні відкрити файл → Android спитає дозвіл «встановлювати з цього джерела» → дозволити.</li>
+      <li>Встановити, відкрити.</li>
+    </ol>
+
+    <h3>Що перевірити першим ділом</h3>
+    <ul>
+      <li><b>Іконка й заставка</b> — наші, а не стандартна кулька Capacitor.</li>
+      <li><b>Звук</b> — відкрити комікс, натиснути 🔊. В офлайн-версії голоси мають бути всередині: увімкніть авіарежим і перевірте ще раз.</li>
+      <li><b>Тест в один екран</b> — питання і всі відповіді видно без прокрутки.</li>
+      <li><b>Кнопка «Назад»</b> телефона — повертає на попередній екран, а не закриває застосунок.</li>
+      <li><b>Онлайн-версія додатково</b>: вхід в акаунт, рейтинг, друзі. Якщо вхід не тримається — це CORS на сервері (розділ 10).</li>
+    </ul>
+    <div class="note">
+      <b>Перевірити ще до складання APK</b>
+      Розділ 2, порт 8971 — там той самий вміст у браузері. Знайти пропущене аудіо чи зламану сторінку там швидше, ніж перевстановлювати APK.
+    </div>
+  </section>
+
+  <section id="play">
+    <h2><span class="n">8</span>Google Play — від нуля до випуску</h2>
+    <p class="lead">Найдовший крок — не збірка, а анкети. Закладіть вечір на перший раз.</p>
+
+    <h3>Обліковий запис розробника</h3>
+    <ol>
+      <li><a href="https://play.google.com/console">play.google.com/console</a> → зареєструватися, <b>одноразово 25 $</b>.</li>
+      <li>Для особистого акаунта Google вимагає підтвердити особу (документ) і адресу. Займає від години до кількох днів.</li>
+      <li>Нові особисті акаунти мусять пройти <b>закрите тестування: 12 тестувальників, 14 днів поспіль</b>, і лише тоді відкривається публікація. Починайте цей відлік якомога раніше — це найдовше очікування.</li>
+    </ol>
+
+    <h3>Створити застосунок</h3>
+    <p><b>All apps → Create app</b>. Назва <code>Komiks·Lab</code>, мова за замовчуванням — англійська, тип «App», безкоштовний.</p>
+
+    <h3>Сторінка в магазині</h3>
+    <div class="tw"><table>
+      <tr><th>Поле</th><th>Що ставити</th></tr>
+      <tr><td>Коротко (80 знаків)</td><td>Learn Norwegian with comics, audio and games</td></tr>
+      <tr><td>Опис (4000)</td><td>готовий текст — у <code>store/PUBLISH.md</code></td></tr>
+      <tr><td>Іконка 512×512</td><td><code>store/android/icon-512.png</code></td></tr>
+      <tr><td>Банер 1024×500</td><td><code>store/android/feature-graphic.png</code></td></tr>
+      <tr><td>Знімки телефона</td><td><code>store/android/</code> — 8 штук, готові</td></tr>
+      <tr><td>Категорія</td><td>Education</td></tr>
+    </table></div>
+
+    <h3>Анкети App content</h3>
+    <div class="tw"><table>
+      <tr><th>Анкета</th><th>Офлайн-версія</th><th>Онлайн-версія</th></tr>
+      <tr><td>Privacy policy</td><td>потрібна завжди — сторінка на сайті</td><td>потрібна</td></tr>
+      <tr><td>Data safety</td><td>«не збирає й не передає даних»</td><td>ел. пошта та ім'я — для акаунта; шифрується; можна видалити</td></tr>
+      <tr><td>Content rating</td><td colspan="2">анкета → вийде <b>3+ / Everyone</b></td></tr>
+      <tr><td>Ads</td><td colspan="2">реклами немає</td></tr>
+      <tr><td>Target audience</td><td colspan="2">якщо позначите вік до 13 — вмикаються правила для дітей і перевірка суворіша</td></tr>
+      <tr><td>Government apps</td><td colspan="2">ні</td></tr>
+    </table></div>
+    <div class="note"><b>Відповідайте чесно.</b> Розбіжність між анкетою й тим, що застосунок реально робить, — найчастіша причина блокування, і повернутися після неї важче, ніж пройти перевірку вдруге.</div>
+
+    <h3>Випуск</h3>
+    <ol>
+      <li><b>Testing → Internal testing</b> → Create release → завантажити <code>komikslab-offline-1.0.aab</code> → додати себе в тестувальники. Перевірити встановлення з Play.</li>
+      <li><b>Closed testing</b> → 12 тестувальників, 14 днів (якщо акаунт особистий).</li>
+      <li><b>Production</b> → той самий AAB → Rollout. Перша перевірка — від кількох годин до тижня.</li>
+    </ol>
+    <div class="note"><b>Play App Signing</b> Погодьтеся, коли Google запропонує. Тоді ваш <code>.jks</code> стає ключем завантаження, а якщо ви його загубите — Google допоможе видати новий. Без цього втрата ключа остаточна.</div>
+  </section>
+
+  <section id="update">
+    <h2><span class="n">9</span>Оновлення застосунку</h2>
+    <p class="lead">Play не прийме другий AAB з тим самим номером збірки.</p>
+    <p>Перед кожним новим завантаженням підняти <code>versionCode</code> (ціле число, лише вгору) і <code>versionName</code> (те, що бачить людина) у <code>app/android/app/build.gradle</code>:</p>
+    <div class="cmd"><pre>        versionCode 2
+        versionName "1.1"</pre></div>
+    <p>Далі — звичайний цикл: зібрати сайт → підставити вміст → <code>./gradlew bundleRelease</code> → завантажити в Play.</p>
+    <div class="note">
+      <b>Вміст сайту оновлюється без Play</b>
+      Онлайн-версія тягне свіжі комікси з bilohash.com сама. Нова збірка в Play потрібна лише тоді, коли змінився код усередині застосунку або офлайн-вміст.
+    </div>
+  </section>
+
+  <section id="troubles">
+    <h2><span class="n">10</span>Коли щось не так</h2>
+    <div class="tw"><table>
+      <tr><th>Що бачите</th><th>Причина</th><th>Що робити</th></tr>
+      <tr><td>Сайт показує стару версію</td><td>кеш браузера або service worker</td><td><kbd>Ctrl</kbd>+<kbd>F5</kbd>; якщо не допомогло — F12 → Application → Service Workers → Unregister</td></tr>
+      <tr><td>Після розпакування архіву сайт ліг</td><td>затерли або видалили <code>api/config.php</code></td><td>відновити з резервної копії Hostinger; перевірити <code>health.php</code></td></tr>
+      <tr><td>В архіві один файл із дивною назвою замість тек</td><td>пакували провідником або PowerShell</td><td>перепакувати через <code>tar.exe</code> (розділ 3)</td></tr>
+      <tr><td>Тести не проходяться, «демо-акаунт»</td><td>без акаунта 20 тестів, у демо — теж ліміт</td><td>створити звичайний акаунт; для перевірки — очистити дані сайту в браузері</td></tr>
+      <tr><td>У застосунку вхід не тримається</td><td>CORS: сервер не пускає джерело застосунку</td><td>залити свіжий <code>api/lib.php</code>; перевірити командою нижче</td></tr>
+      <tr><td>Gradle: <code>Invalid file path</code></td><td><code>sdk.dir</code> зі зворотними рисками</td><td>переписати через <code>/</code> (розділ 6)</td></tr>
+      <tr><td>Gradle: <code>Unsupported class file major version</code></td><td>старий Gradle із новим JDK</td><td>у проєкті вже Gradle 9.1 + AGP 8.13 — не відкочуйте</td></tr>
+      <tr><td>Play: «Target API level»</td><td>Google підняв вимогу</td><td>підняти <code>targetSdkVersion</code> у <code>app/android/variables.gradle</code></td></tr>
+      <tr><td>У застосунку німі комікси</td><td>у збірку потрапив інший голосовий режим</td><td>складальники самі ставлять «жіночий голос»; не правте <code>voiceMode</code> в <code>app/www</code> вручну</td></tr>
+    </table></div>
+
+    <p>Перевірити CORS для застосунку (має бути <code>204</code> і <code>access-control-allow-origin: https://localhost</code>):</p>
+    <div class="cmd"><pre>curl -s -i -X OPTIONS -H "Origin: https://localhost" https://bilohash.com/comiks/api/auth.php</pre></div>
+  </section>
+
+  <section id="checklists">
+    <h2><span class="n">11</span>Чек-листи</h2>
+    <p class="lead">Позначки зберігаються у вашому браузері — можна закрити сторінку й повернутися. <button class="reset" id="reset">Скинути всі</button></p>
+
+    <h3>Перед заливанням сайту</h3>
+    <ul class="check" data-k="site">
+      <li><input type="checkbox" id="s1"><label for="s1">Перевірив локально на <code>localhost:8950</code>, зокрема на ширині 390 px</label></li>
+      <li><input type="checkbox" id="s2"><label for="s2"><code>node tools\build.js</code> пройшов без помилок</label></li>
+      <li><input type="checkbox" id="s3"><label for="s3"><code>node tools\audit-all.js</code> → «Усе гаразд — можна публікувати»</label></li>
+      <li><input type="checkbox" id="s4"><label for="s4">Архів запакований <code>tar.exe</code>, всередині тека <code>comiks/</code></label></li>
+      <li><input type="checkbox" id="s5"><label for="s5">Розпакував у <code>public_html</code> (не в <code>public_html/comiks</code>)</label></li>
+      <li><input type="checkbox" id="s6"><label for="s6">Видалив zip із сервера</label></li>
+      <li><input type="checkbox" id="s7"><label for="s7"><code>health.php</code>: <code>ok: true</code>, schema 14, installer «видалено»</label></li>
+      <li><input type="checkbox" id="s8"><label for="s8">Версія в <code>data/index.js</code> на сайті = версія збірки</label></li>
+      <li><input type="checkbox" id="s9"><label for="s9">Комікс, тест і вхід працюють на живому сайті</label></li>
+      <li><input type="checkbox" id="s10"><label for="s10">🩺 Діагностика в адмінці: жодного ⛔</label></li>
+    </ul>
+
+    <h3>Перед завантаженням у Google Play</h3>
+    <ul class="check" data-k="play">
+      <li><input type="checkbox" id="p1"><label for="p1">Копія <code>_private/android/</code> збережена в надійному місці</label></li>
+      <li><input type="checkbox" id="p2"><label for="p2">APK перевірений на справжньому телефоні, зокрема в авіарежимі</label></li>
+      <li><input type="checkbox" id="p3"><label for="p3"><code>versionCode</code> більший за попередній</label></li>
+      <li><input type="checkbox" id="p4"><label for="p4">AAB підписаний (<code>keytool -printcert</code> показує Komiks Lab)</label></li>
+      <li><input type="checkbox" id="p5"><label for="p5">Іконка, банер і 8 знімків завантажені</label></li>
+      <li><input type="checkbox" id="p6"><label for="p6">Privacy policy відкривається за посиланням</label></li>
+      <li><input type="checkbox" id="p7"><label for="p7">Data safety заповнена чесно</label></li>
+      <li><input type="checkbox" id="p8"><label for="p8">Content rating пройдений</label></li>
+      <li><input type="checkbox" id="p9"><label for="p9">Internal testing: встановив із Play і відкрив</label></li>
+    </ul>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  Комікс·Lab · детальніше про застосунок — <code>app/ANDROID.md</code>, про магазин — <code>store/PUBLISH.md</code>, про файли проєкту — <code>STRUCTURE.md</code>.
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  // Кнопка «копіювати» на кожній команді — щоб не виділяти мишею довгі рядки.
+  for (const box of document.querySelectorAll('.cmd')) {
+    const pre = box.querySelector('pre');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = 'копіювати';
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(pre.textContent.trim()); }
+      catch (e) {
+        const r = document.createRange(); r.selectNodeContents(pre);
+        const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        try { document.execCommand('copy'); } catch (e2) { return; }
+        s.removeAllRanges();
+      }
+      btn.textContent = 'скопійовано ✓'; btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 'копіювати'; btn.classList.remove('done'); }, 1600);
+    });
+    box.append(btn);
+  }
+
+  // Позначки чек-листів переживають перезавантаження. Якщо сховище недоступне
+  // (приватне вікно, заблоковані дані сайту) — сторінка просто працює без пам'яті.
+  const KEY = 'komiks.guide.checks';
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const write = v => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} };
+  const saved = read();
+  const boxes = [...document.querySelectorAll('.check input')];
+  const paint = b => b.closest('li').classList.toggle('on', b.checked);
+  for (const b of boxes) {
+    b.checked = !!saved[b.id];
+    paint(b);
+    b.addEventListener('change', () => { const v = read(); v[b.id] = b.checked; write(v); paint(b); });
+  }
+  document.getElementById('reset').addEventListener('click', () => {
+    write({});
+    for (const b of boxes) { b.checked = false; paint(b); }
+  });
+})();
+</script>
+</body>
+</html>
