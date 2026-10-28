@@ -1,0 +1,61 @@
+1	Learn Norwegian with comics →
+2	All Norwegian comics
+3	🤖 All stories, characters, drawings and voices are fictional and created with AI.
+4	Norwegian {l}
+5	📖 Read the comic with Norwegian audio
+6	Dialogue in Norwegian with English translation
+7	Norwegian words from this comic
+8	More Norwegian comics, level {l}
+9	Learn Norwegian with a comic
+10	Learn Norwegian with
+11	Norwegian audio and English translation.
+12	Norwegian Comics for Learners (A1–B2) — Learn Norwegian | Komiks·Lab
+13	{n} Norwegian comics with audio and English translation for beginners and expats moving to Norway.
+14	Norwegian comics for learners ({n})
+15	Short stories about everyday life in Norway, with Norwegian audio and English translation.
+16	Level {l}
+17	Norwegian tests online (A1–B2) — free practice | Komiks·Lab
+18	Free Norwegian tests: level tests A1–B2, word order, listening, vocabulary, the alphabet and numbers. Every question comes from a voiced comic.
+19	Norwegian tests online
+20	Every test here is built from the same stories you read: the sentences are real, the voices are the ones you have already heard. Nothing is invented for the exercise.
+21	Level tests A1–B2
+22	Practice by skill
+23	The basics
+24	Questions from every comic at level {l}: listening, word order, vocabulary and the meaning of whole lines.
+25	🔀 Word order
+26	The most common mistake in Norwegian is not the word but its place. The verb comes second, and after an adverbial the subject and verb swap. Half the tasks are exactly those inverted sentences.
+27	🎧 Listening
+28	You hear a line and choose what was said. The text is hidden on purpose — this is the skill the oral exam actually checks.
+29	📝 Vocabulary
+30	Words from the comics, with pictures where a picture explains better than a translation.
+31	🧩 Crossword
+32	Recognising a word is not enough: you have to recall it and spell it out. That is what fixes å, ø, æ and double consonants.
+33	🧠 Pairs
+34	A short daily game that pulls in the words you have got wrong before.
+35	✍️ Writing
+36	You write a short text and get the corrected version back, with the mistakes explained.
+37	🔤 The Norwegian alphabet
+38	Letters and sounds, including æ, ø and å.
+39	🔢 Numbers
+40	From zero to a hundred — by ear and in writing.
+41	Preparing for Norskprøven?
+42	There is a mock exam with the same parts as the real one, and a placement test if you are not sure where to start.
+43	🏁 Mock exam
+44	🎯 Placement test
+45	Open the tests →
+46	All tests are free. An account keeps your progress on every device.
+47	What’s new in Komiks·Lab — updates log
+48	All {n} Komiks·Lab updates: new comics, tests, games and languages for learning Norwegian.
+49	Komiks·Lab update {d} — what changed
+50	Komiks·Lab, {d}: {first}
+51	← All updates
+52	Update of
+53	How it looks
+54	Open Komiks·Lab →
+55	Short notes on what changed in the app for learning Norwegian with comics.
+56	✨ What’s new
+57	A short log of the latest Komiks·Lab updates. Everything works right away — nothing to install.
+58	NEW
+59	Older updates
+60	← Home
+61	Take a look

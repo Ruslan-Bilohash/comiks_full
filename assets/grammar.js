@@ -82,6 +82,19 @@
       review: '🔁 Şimdi tekrar et', review_empty: 'Harika: zayıf konu yok. Karma bir test çöz.',
       best: p => `En iyi: %${p}`, last: p => `Son: %${p}`, attempts: n => `${n} deneme`, repeat: '🔄 Testi tekrarla', mixed_review: '🧩 Karma tekrar', clock_name: 'Saat kaç?'
     },
+    pt: {
+      nav: 'Gramática', module: ['📐', 'Gramática', 'pronomes, verbos, ordem das palavras'],
+      title: '📐 Gramática norueguesa', intro: 'Regras curtas com tabelas e exemplos — do A1 ao B2. Toque em 🔊 para ouvir um exemplo e passe o mouse sobre uma palavra para ver a tradução. Cada tema termina com um teste em norueguês.',
+      rule: '📏 Regra', forms: '📋 Formas', examples: '💬 Exemplos', test: '🧩 Teste do tema', mix_test: '🧩 Teste de toda a gramática', level: l => `Nível ${l}`,
+      tests: '📐 Gramática e relógio', clock: ['🕒', 'Que horas são?', 'as horas em norueguês: halv, kvart over, kvart på'], step: x => `Gramática: ${x}`,
+      clock_title: '🕒 Que horas são? — Hva er klokka?', clock_rule: 'Os noruegueses contam a meia hora em direção à PRÓXIMA hora: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
+      topics: 'Temas', q_grammar: 'Escolha a palavra certa', q_clock: 'Que horas o relógio mostra?',
+      cabinet: '🎓 Meu painel de gramática', cabinet_d: 'Testes concluídos, melhores resultados e temas prontos para revisar.',
+      completed: 'Testes concluídos', average: 'Média dos melhores resultados', review_count: 'Prontos para revisar',
+      history: '✅ Testes concluídos', history_empty: 'Você ainda não fez nenhum teste de gramática. Comece por qualquer tema abaixo.',
+      review: '🔁 Revisar agora', review_empty: 'Ótimo trabalho: nenhum tema fraco. Faça um teste misto para manter a prática.',
+      best: p => `Melhor: ${p}%`, last: p => `Último: ${p}%`, attempts: n => `${n} tentativas`, repeat: '🔄 Repetir o teste', mixed_review: '🧩 Revisão mista', clock_name: 'Que horas são?'
+    },
     lt: {
       nav: 'Gramatika', module: ['📐', 'Gramatika', 'įvardžiai, veiksmažodžiai, žodžių tvarka'],
       title: '📐 Norvegų gramatika', intro: 'Trumpos taisyklės su lentelėmis ir pavyzdžiais — nuo A1 iki B2. Spausk 🔊, kad išgirstum pavyzdį, ir užvesk ant žodžio, kad pamatytum vertimą. Kiekviena tema baigiasi testu norvegiškai.',
@@ -96,7 +109,8 @@
       best: p => `Geriausias: ${p}%`, last: p => `Paskutinis: ${p}%`, attempts: n => `${n} bandymai`, repeat: '🔄 Kartoti testą', mixed_review: '🧩 Mišrus kartojimas', clock_name: 'Kiek valandų?'
     }
   };
-  if (window.I18N) for (const l of ['uk', 'en', 'no', 'de', 'pl', 'tr', 'lt']) {
+  if (window.KL_T_FILL) KL_T_FILL(GX, 'grammar.js:GX');
+  if (window.I18N) for (const l of ['uk', 'en', 'no', 'de', 'pl', 'tr', 'lt', 'pt']) {
     const I = window.I18N[l]; if (!I) continue;
     I.nav = Object.assign({}, I.nav, { grammar: GX[l].nav });
     I.modules = Object.assign({}, I.modules, { grammar: GX[l].module, clock: GX[l].clock });

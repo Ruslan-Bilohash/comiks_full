@@ -48,7 +48,7 @@ function pack(lang) {
   return ((w.KL_T || {})['games.js:G'] || {})[lang] || null;
 }
 
-module.exports = function gamesText(langs = ['en', 'no', 'uk', 'de', 'pl', 'tr', 'lt', 'ar']) {
+module.exports = function gamesText(langs = ['en', 'no', 'uk', 'de', 'pl', 'tr', 'lt', 'pt', 'ar']) {
   const G = base();
   const out = {};
   for (const lang of langs) {

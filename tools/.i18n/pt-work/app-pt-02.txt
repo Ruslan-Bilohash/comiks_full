@@ -1,0 +1,200 @@
+201	Tudo revisado — nada pendente
+202	▶️ Próximo passo
+203	Plano concluído — escolha um novo nível no plano
+204	Abrir
+205	🔁 Trabalhar nos erros
+206	Nenhum erro — tudo limpo!
+207	Feito ✓
+208	🎉 Tudo feito por hoje. Até amanhã!
+209	🔥 Comece sua sequência hoje
+210	Quer mais?
+211	📞 Ligar para um personagem
+212	✍️ Escrever em norueguês
+213	🎯 O plano inteiro
+214	🎉 Plano concluído!
+215	Todos os passos foram marcados. Passe para o próximo nível — o plano é refeito, e o que você já fez continua marcado.
+216	⚙️ Montar um novo plano
+217	Você concluiu todos os níveis até o B2. Monte seu próprio plano — ou repita o que quer fixar.
+218	➕ Uma tarefa extra
+219	O conjunto do dia acabou — mas você pode fazer mais uma. Escolha o que tiver vontade.
+220	🎲 Outra tarefa
+221	🎨 Avatar
+222	Código de amigo
+223	Copiado ✓
+224	🔒 Privacidade
+225	Quem pode me encontrar na busca e quem pode me mandar mensagens.
+226	✉️ Mensagens
+227	🔔 Atualizações
+228	👤 Perfil
+229	🏅 Conquistas
+230	📊 Estudo
+231	🔐 Conta
+232	⚙️ Painel de administração
+233	🎟 Convidar um amigo
+234	🎁 Tudo é grátis
+235	Quadrinhos, testes, cartões, jogos, palavras e gramática — sem limites e sem pagamento.
+236	Você é um dos cem primeiros — a medalha PRO fica com você.
+237	🎮 Jogos
+238	👥 Comunidade
+239	🔎 Encontrar jogadores
+240	✨ Novidades
+241	👤 Meu perfil
+242	👥 Amigos
+243	✉️ Mensagens
+244	🔔 Atualizações dos amigos
+245	⚙️ Configurações
+246	🚪 Sair
+247	Entrar
+248	Entre para guardar seu progresso em todos os seus aparelhos.
+249	E-mail
+250	Senha
+251	Repita a senha
+252	Nome ou apelido
+253	Entrar
+254	Ainda não tem conta?
+255	Cadastre-se
+256	Esqueceu a senha?
+257	Experimentar sem senha
+258	👀 Dar uma olhada com uma conta de demonstração
+259	Alunos de demonstração da turma. Toque num nome e pronto, você entrou.
+260	Esta é uma conta de demonstração compartilhada, sem senha. Não guarde nada pessoal aqui.
+261	Crie sua conta
+262	Grátis. Seu progresso, seu avatar e seus amigos — em todos os aparelhos.
+263	Criar conta
+264	Já tem uma conta?
+265	Concordo com os termos de uso (no caso de uma criança, um responsável concorda).
+266	Termos
+267	Levar meu progresso atual para a nova conta
+268	muito fraca
+269	fraca
+270	razoável
+271	forte
+272	muito forte
+273	Pelo menos 8 caracteres. Uma frase com várias palavras é o ideal.
+274	Confira seu e-mail 📬
+275	Normalmente chega em menos de um minuto.
+276	Não encontrou? Confira as pastas Spam ou Promoções.
+277	O link vale por 48 horas.
+278	Enviar de novo
+279	Pronto! Confira sua caixa de entrada de novo.
+280	Endereço errado? Cadastre-se de novo
+281	Sua conta está ativa e um e-mail de boas-vindas está a caminho. Seu progresso agora fica salvo no servidor e disponível em qualquer aparelho.
+282	Por onde começar
+283	Para a minha conta
+284	Esse link não funcionou 😕
+285	O link de confirmação já foi usado ou expirou. Digite seu e-mail e enviaremos um novo.
+286	Enviar um novo link
+287	🔐 Autenticação em dois fatores
+288	Um código extra de um app autenticador ao entrar. Mesmo que alguém descubra sua senha ou entre no seu e-mail, não consegue acessar sem o seu celular.
+289	✅ Ligada. Pedimos um código do seu app a cada entrada.
+290	Ligar
+291	1. Escaneie este código no seu app
+292	Qualquer um serve: Google Authenticator, Microsoft Authenticator, Authy, 2FAS, Aegis.
+293	Não consegue escanear? Digite a chave à mão:
+294	2. Digite o código de seis dígitos do app
+295	Confirmar
+296	Esse código não funcionou. Confira se o relógio do seu celular está certo.
+297	✅ Pronto — a autenticação em dois fatores está ligada.
+298	🔑 Códigos reserva — guarde-os agora
+299	Cada um funciona uma vez e salva você se perder o celular. Não vamos mostrá-los de novo: guardamos só os hashes.
+300	Copiar
+301	Copiado
+302	Desligar
+303	Digite um código do app ou um código reserva para desligar:
+304	Novos códigos reserva
+305	Código de confirmação
+306	Abra seu app autenticador e digite o código de seis dígitos. Ou use um código reserva.
+307	Entrar
+308	Entrar sem senha →
+309	Entrar com senha →
+310	Entrar com senha
+311	Se você já tem uma senha, digite seu e-mail e a senha. Ou volte e entre com um código enviado por e-mail.
+312	Entrar com um código
+313	Digite seu e-mail — enviaremos um link e um código. Não precisa de senha.
+314	Enviar o código
+315	Se esse e-mail estiver cadastrado, a mensagem está a caminho. Abra o link ou digite o código abaixo — ele vale por 15 minutos.
+316	Código do e-mail
+317	Entrar
+318	Esse código não funcionou ou expirou. Peça um novo.
+319	Enviar de novo
+320	Entrando…
+321	O link expirou ou já foi usado. Peça um novo código.
+322	Esqueceu a senha?
+323	Digite o e-mail da sua conta e enviaremos um link para criar uma nova senha.
+324	Enviar link
+325	Se esse e-mail estiver cadastrado, a mensagem está a caminho. O link vale por 1 hora.
+326	Nova senha 🔑
+327	Salvar senha
+328	Senha alterada — você está conectado.
+329	🔐 Conta e segurança
+330	✅ E-mail confirmado
+331	Mudar a senha
+332	Senha atual
+333	Nova senha
+334	Salvar
+335	Salvo ✓
+336	🚪 Sair
+337	Excluir a conta
+338	Sua conta, progresso, perfil e comentários serão excluídos. Isso não pode ser desfeito.
+339	Excluir para sempre
+340	Excluir mesmo a sua conta e todos os dados?
+341	☁️ O progresso é sincronizado com o servidor
+342	🔎 Mostrar-me na busca de jogadores
+343	Outros alunos podem encontrar você pelo nome, ver seu avatar e suas estrelas e convidar você para jogar. Seu e-mail nunca é exibido. Mude isso quando quiser em “🔒 Privacidade”.
+344	Este convite já foi usado ou expirou — você ainda pode se cadastrar normalmente.
+345	💎 Premium — grátis para sempre
+346	🎟 Convidar um amigo
+347	Os amigos que você convidar ganham uma conta grátis para sempre. Cada link funciona uma vez e vale por 30 dias.
+348	🎟 Criar um link
+349	📋 Copiar
+350	Copiado ✓
+351	📤 Compartilhar
+352	⌛ expirado
+353	Meus convites
+354	📥 Trazer o progresso deste aparelho
+355	Estrelas, testes concluídos, palavras, avatar e código de amigo da conta local vão para a sua conta no servidor — os melhores resultados são mantidos.
+356	Progresso de visitante
+357	Isso não está certo 🙅
+358	Um moderador removeu seu comentário de um mural. Seja gentil com os outros — escreva coisas que dá gosto de ler.
+359	Pausa no mural ⏸️
+360	Um moderador removeu seu comentário e pausou por um tempo sua escrita nos murais. Você ainda pode jogar e estudar!
+361	Seu comentário:
+362	Entendi 👍
+363	Uma mensagem da equipe ✉️
+364	Temos algo para te contar:
+365	Entrar com o Google
+366	Cadastrar-se com o Google
+367	Vincular o Google
+368	Aceite os termos acima para criar uma conta.
+369	O login com o Google não foi concluído. Tente de novo ou use sua senha.
+370	Primeiro entre na sua conta existente com a senha ou com um código por e-mail. Escolha “Vincular o Google” na sua conta para usar o Google da próxima vez.
+371	Abra o cadastro, aceite os termos e escolha o Google para criar uma conta.
+372	O login com o Google foi cancelado.
+373	O login com o Google ainda não está configurado.
+374	O Google está vinculado. Agora você pode entrar com o Google.
+375	Entrar com o Google
+376	✅ O Google está conectado — entre com um toque.
+377	Conecte o Google para entrar sem senha.
+378	Desconectar o Google
+379	Desconectar o Google desta conta? O progresso continua. Você pode entrar com a senha ou com um código por e-mail.
+380	Google desconectado ✓
+381	Confirme com sua senha ou com um código enviado por e-mail.
+382	📧 Enviar um código por e-mail
+383	Código do e-mail
+384	Senha
+385	ou
+386	Sem senha? Crie uma
+387	O código está errado ou expirou. Peça um novo.
+388	Senha incorreta.
+389	O Google é conectado no navegador: abra bilohash.com/comiks.
+390	📞 Uma ligação em norueguês
+391	Uma ligação curta e ao vivo. Escolha quem liga e sobre o quê — depois fale em voz alta ou digite.
+392	Quem está ligando
+393	Sobre o quê
+394	📞 Me ligue
+395	Chamada recebida
+396	✅ Atender
+397	✖ Recusar
+398	🎙️ Falar
+399	🎙️ Ouvindo…
+400	Enviar

@@ -174,6 +174,7 @@
     no: { title: '🤖 Test Android-appen', lead: 'Skriv inn e-postadressen din og fullfør den korte spamkontrollen. Vi lagrer testforespørselen før lenken åpnes.', email: 'E-post (for eksempel name@gmail.com)', consent: 'E-posten brukes bare til testtilgang og svar på denne forespørselen.', send: 'Få testlenken', open: 'Åpne testlenken', close: 'Lukk', cap: 'Spamkontroll', ok: '✅ Forespørselen er mottatt. Nå kan du åpne lenken.', emailErr: 'Skriv inn en gyldig e-postadresse.', captcha: 'Velg riktig svar.', net: 'Forespørselen kunne ikke sendes. Prøv igjen.' },
     ar: { title: '🤖 اختبار تطبيق أندرويد', lead: 'أدخل بريدك الإلكتروني وأكمل فحص منع الرسائل المزعجة. سنحفظ طلب الاختبار ثم يمكنك فتح الرابط.', email: 'البريد الإلكتروني', consent: 'يُستخدم البريد فقط للوصول إلى الاختبار والرد على هذا الطلب.', send: 'الحصول على رابط الاختبار', open: 'فتح رابط الاختبار', close: 'إغلاق', cap: 'فحص منع الرسائل المزعجة', ok: '✅ تم استلام الطلب. يمكنك الآن فتح الرابط.', emailErr: 'أدخل بريدًا إلكترونيًا صحيحًا.', captcha: 'اختر الإجابة الصحيحة.', net: 'تعذر إرسال الطلب. حاول مرة أخرى.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(ANDROID_T, 'feedback.js:ANDROID_T');
   function openAndroid(url, source = 'google-play', downloadName = '') {
     const K = C(); if (!K) return;
     const { h } = K, L = ANDROID_T[K.ui] || ANDROID_T.en;

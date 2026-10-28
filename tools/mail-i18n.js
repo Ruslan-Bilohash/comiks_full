@@ -17,7 +17,7 @@ const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const WORK = path.join(__dirname, '.i18n');
 const LIB = path.join(ROOT, 'api', 'lib.php');
-const NAMES = { de: 'German', pl: 'Polish', tr: 'Turkish', lt: 'Lithuanian' };
+const NAMES = { de: 'German', pl: 'Polish', tr: 'Turkish', lt: 'Lithuanian', pt: 'Brazilian Portuguese (pt-BR)' };
 
 const hintFor = (k, v) => {
   const h = [];

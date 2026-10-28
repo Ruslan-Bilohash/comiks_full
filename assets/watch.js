@@ -34,6 +34,7 @@
       sh_title: '👨‍👩‍👧 Tilgang for foreldre og lærer', sh_d: 'Lag en kode og gi den til en forelder eller lærer – de ser fremgangen din (prøver, ord, feil, dager). Meldinger, venner og e-post forblir private.',
       sh_btn: '🔑 Lag tilgangskode', sh_code: (c) => `Kode: ${c}`, sh_exp: 'Gjelder i 24 timer og bare én gang.', sh_who: 'Ser fremgangen min:', sh_none: 'Ingen.', ago: { now: 'nå', m: n => `${n} min siden`, h: n => `${n} t siden`, d: n => `${n} d siden` } },
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'watch.js:T');
   const tx = () => T[C().ui] || T.en;
   const get = (q) => fetch(API + '?' + q, { credentials: 'same-origin', cache: 'no-store' }).then(r => r.json()).catch(() => null);
   const post = body => fetch(API, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Komiks': '1' }, body: JSON.stringify(body) }).then(r => r.json()).catch(() => null);

@@ -1,0 +1,200 @@
+1	🇳🇴 New focused pages cover learning Norwegian from zero, tests, the practice trainer, the app and a fair Duolingo comparison in eight languages.
+2	🔎 All 40 pages have distinct content, canonical URLs, hreflang, structured data, internal links and sitemap entries; the main routes are linked from the footer.
+3	🛡️ A user's admin profile now includes a protected 30-day history of successful sign-ins with encrypted IP, time, device and method.
+4	🤖 Opening the Android testing link now starts with a short form requiring an email address and an anti-spam check.
+5	📬 Requests appear in a dedicated Android category in the feedback admin. After successful verification, the testing link becomes available.
+6	⚡ The daily quick quiz now continues beyond the first five: choose Next 5 words and keep practising without a limit.
+7	🔁 You can still repeat the current set. Words do not repeat within a cycle, and the actions stack vertically on phones.
+8	🏡 Three new A2 story comics cover finding a home and budgeting, choosing a jacket in a shop, and managing a morning when everything runs late.
+9	🧩 The release adds 24 authored comprehension questions and a new grammar practice set for derfor, likevel, dessuten, ettersom, på grunn av, for å and i motsetning til.
+10	🎒 Eight new story comics teach Norwegian possessives: min/mi/mitt/mine, din/di/ditt/dine, vår/vårt/våre, hans/hennes/deres and sin/si/sitt/sine.
+11	📐 Grammar now has three focused practice sets: my and your, our/his/her/their, and word order bilen min / min bil. Every comic includes six scenes, four new questions and trilingual vocabulary.
+12	🗂️ The materials admin now reads the complete generated catalog, so every comic series is listed.
+13	🕵️ A new Hackers and cyber defence path: eight separate comics explain who hackers are, how authorised security testing differs from crime, and how social engineering, account takeover and data theft work.
+14	🛡️ Dedicated stories cover digital extortion, ransomware, malicious apps and recovery after an attack. Every comic includes six scenes, four tests and trilingual vocabulary.
+15	🚨 Eight new practical comics cover emergencies in Norway: fire, ambulance, police, road accidents, poisoning, unconsciousness, danger at home and CPR.
+16	☎️ Children and adults practise choosing 110, 112, 113, 02800, 116 117, 22 59 13 00 and 116 006 correctly. Every comic includes six scenes, four tests, vocabulary and checked official guidance.
+17	📘 The new comic “SIS, expulsion and what to do next” explains the difference between an obligation to leave, refusal of entry, expulsion, an entry ban and removal carried out by the police.
+18	⚖️ Dedicated scenes explain the rights to access SIS data, correct mistakes, delete unlawfully stored information and appeal a decision. The facts were checked against UDI, Norwegian police and European Commission guidance.
+19	💻 Fifty more educational comics have been added to the coding course. My Coding Journey now contains 91 lessons across 11 paths: foundations, HTML and web, game development, Blender, Unity, databases and five safety paths.
+20	🎓 Grammar now has a personal dashboard with completed tests, best and latest scores, attempt counts, and a focused list of topics to review.
+21	💻 A new Coding for children feature is now on the home page: a foundation course with 41 comics across 11 paths, a clear introduction, profile progress, badges and one Try the course button.
+22	🇳🇴🇬🇧 The Play together language choice is now visual: Norwegian and English have their own learning illustrations with flags. Cards stack on phones and sit side by side on desktop.
+23	🛡️ 20 new educational safety comics for children: four lessons each in Everyday safety, Online safety, Spot scams, Secure devices and Secure coding. Every comic has six illustrated scenes, a quiz and a Norwegian–Ukrainian–English vocabulary list.
+24	🚨 Children practise what to do around strangers, when lost and when calling 112, and learn to spot phishing, unsafe QR codes, fake prizes, cloned voices and impersonation profiles.
+25	🔐 Separate comics explain CAPTCHA, server-side validation, HTTPS and safe password hashing in plain language. My coding journey now has 11 categories, with a compact, touch-friendly selector on phones.
+26	🛠️ “Play together”: a room link with a topic (for example “Mat og drikke” from the QR on the words page) now always opens a room with exactly that topic — before, the previous room with another topic could stay open.
+27	🧮 A maths room gives a full game again: 10 different sums instead of one.
+28	📱 The top block of “Play together” no longer spills off the screen on phones.
+29	🧩 The crossword now has pictures, like real picture crosswords: a thumbnail sits in the square just before each word, and above the grid there is a big picture of the word you are typing (with 🔊 and ‹ › buttons). Clue cards show a picture, number, arrow and one box per letter.
+30	🔤 New hint “first letter of every word” — switch it on with a tick and it is remembered. You can type the whole word, given letter included.
+31	🌄 “Today” came alive: a live fjord scene in the colours of the current hour — morning, day, evening, night with the northern lights, snow in winter. Robo walks the path from task to task; tap a flag to open the task. Plus a “⚡ Quick quiz of the day”: 5 words with pictures.
+32	🎮 A new “Play together”: a big screen with a QR code and players, “Start with one tap” (words with pictures, grammar, numbers, clock, alphabet, maths) and recent games on this device.
+33	💻 A new Coding page: a game card with your progress, “My coding journey” — 9 comics as steps (read / test) — and 10 badges from “First program” to “Code master”. Your rank grows from Beginner to Code master.
+34	🏆 “Robo learns to code” has a new chapter, Master test: a winding maze where loops and a function work together, plus one last bug. 17 levels now.
+35	🖼️ About a hundred more word pictures: abstract words, business language, everyday phrases, conversation, environment, Norwegian culture, people and character.
+36	🤖 New game “Robo learns to code”: build a program from blocks — steps, “gjenta” loops, your own function F — and Robo runs it on the board. 15 levels in 4 chapters: commands, loops, functions, debugging. Stars for the shortest program; progress is saved to your account.
+37	🖼️ Pictures now in Days and months and Outdoor life, and all 24 animals got new drawings.
+38	🎮 “Play as a class or together” now sits at the top of “Play together” and the Words pages: pick a topic and a QR room appears at once. Topics with pictures are marked 🖼️ and start with one tap.
+39	📱 Play together, Logic race, Math Rocket with the class, chess and friends now also work in the in-app browsers of Telegram, Instagram, Facebook and on iPhone — before, they showed “This browser cannot make direct connections”.
+40	🖼️ New pictures instead of emoji: Colours, Weather and seasons, School. Twelve topics now have pictures, and words with several meanings get the right one: “is” is ice cream in Food and ice in Weather.
+41	🔍 Search in the header (🔍 or the “/” key) finds words, comics, lines, grammar and sections in any language — even with typos.
+42	🔍 Smart search across the whole site: words, comics and lines, grammar, sections. Type in Norwegian, Ukrainian or English — it forgives typos (“hamer” finds hammer) and works without æ/ø/å. The 🔍 button in the header or the “/” key.
+43	📝 The Words page has a quick word search with pictures and audio.
+44	🖼️ New pictures instead of emoji in Family, Clothes, Body, Food, Fruit and vegetables, Animals, Home, School, Weather and Colours.
+45	🔨 A new word topic, “Tools” — 20 real photos: hammer, cordless drill, rotary hammer, angle grinder, tape measure, spirit level and more. The “Hva er dette?” test shows the photo, and every word has Norwegian audio.
+46	🎮 A room in one click: every word topic now has a “Play together (QR)” button — students scan the code and answer on their phones. The tool photos show on phones too.
+47	🌐 A new comic, “A website for Pus: HTML basics”, and a test where you read HTML code and pick what the page will look like.
+48	🗺️ An updated site map: the Coding section, all word topics by level and all comics.
+49	💻 A new “Coding” category for kids: 8 comics with Robo the robot — commands and programs, algorithms, loops, “if” conditions, variables, debugging, programming languages and modelling.
+50	🤖 A new drawing style: a computer lab, a program-window frame, and the robot talks “in terminal” — in green letters.
+51	🧩 New test types: steer a robot on a grid, say what a program prints (pseudocode and Python), order the steps of an algorithm, find the bug, and learn what Scratch, Python, JavaScript, Swift, Kotlin and C# are for.
+52	📖 A “Coding” page with explanations for parents and teachers. Everything is in Norwegian with a translation on hover.
+53	🇬🇧 20 new English stories (A1–B1) with audio and quizzes — 28 in total. Each one teaches one grammar topic, and the new “English plan” takes you from “I am” to the passive: 22 topics with rules and examples.
+54	🔀 “What I am learning”: choose Norwegian or English in the settings or your account — the home page opens the right course.
+55	📅 A refreshed “Today” page: a daily progress ring, your weekly streak and a “Word of the day” you can flip and listen to.
+56	🎮 My lobby: your account now has a permanent QR code. Friends scan it and land straight in your room, and you pick a quiz for everyone once they are in. Everyone answers on their own device — faster and more accurate means higher in the ranking.
+57	📊 A new learning dashboard in your account: quizzes, accuracy, study days, learned words and fixed mistakes — compared with the previous period, with charts, effectiveness by section and tips on what to do next.
+58	🔥 The learning plan now shows a year of activity like on GitHub, plus your level and day streaks.
+59	📈 A new “Statistics” page (link in the footer): what was added on the site this month and how it compares with last month.
+60	🔔 Notifications show the 10 newest events first, and the rest with “Show more”.
+61	📣 Share your success: after a test you get Facebook, Messenger, Telegram, WhatsApp, Viber, X and e-mail buttons with a ready-made message about your result, plus “Feedback on this test”.
+62	🛡 A safer community: posts and messages that look unsafe for children, share contact details or use bad language are now flagged at once and removed faster. Report a message with the 🚩 button.
+63	📲 On phones your friend code now sits right under the QR code, and the Google Play and Microsoft Store badges line up neatly side by side.
+64	✉️ Emails from Komiks·Lab have a new look and links to the app for Android and Windows.
+65	📚 Four new comics: “En travel morgen” (A1), “Fotballtrening” (A2), “Brannøvelse på jobben” (B1) and “Valg og demokrati i Norge” (B2) — with audio, glossary and tests.
+66	🧠 Smart review: a mistake leaves your log only after you answer it correctly three times on different days. Flashcards now have “Don’t know”, “Review again” and “✅ I know it” — a learned word is not shown again. “My analysis” shows what to review today, your test progress, where you make mistakes and the stage of every word.
+67	½ Fractions in Maths: numerator and denominator, a fraction builder on a pizza and a bar, Norwegian names (“tre fjerdedeler”), equal fractions and a fraction of a number. Plus a separate 10-task Fractions test — all with audio.
+68	👤 Your account and player profile are now one page with tabs: Profile, Achievements, Learning and Account. There is a Share button, and you can delete your account without a password using an email code. Google can be disconnected in Settings.
+69	😊 Emotions in messages: an emoji panel, reactions to a friend’s message and big animated emoji.
+70	♿ Accessibility options moved to Settings and open in their own window.
+71	🎁 Free gifts for friends: on the Friends page pick an item and a wish in Norwegian. Hearts, confetti, a flower ring, a gift bow, a BFF pendant and the candy colour can only be received from a friend.
+72	✨ Cooler avatars: a new Effects section (sparkles, music, star orbit, rainbow glow, fire aura, northern lights) and rarity frames from common to legendary.
+73	👥 Your “Be friends” QR on the home page: a friend scans it and is added at once. Google Play and Microsoft Store badges sit right next to it.
+74	🔑 Sign in with Google: one button on the sign-in and sign-up pages. A new account is created straight away, and an existing one with a confirmed Gmail address is joined automatically. If two-factor sign-in is on, it still asks for the code.
+75	Three avatar adventures: Memory Detective, Pattern Lab and Detail Scout. Practise with bots or invite your class to a room by QR code.
+76	A compact Create your hero section and a magazine carousel. Separate Windows and Android download guides are now available.
+77	Improved email confirmation: requesting another message no longer cancels the previous link.
+78	A more compact home page: Alphabet, Words, Learning plan and Tests are visible immediately; other sections expand under All sections.
+79	Open a room leads to game settings. More games, avatar tools, friends and Comic·Lab magazine articles expand on demand.
+80	📱 Learning Norwegian for Android is on Google Play. Read comics, listen to Norwegian and learn with your account. Online features need an internet connection; installation availability depends on country and release track.
+81	✨ A compact language picker on first launch, rotating comics on the home page and a panel audio button.
+82	🔁 The English course now has its own work on mistakes: the words you got wrong come back as a separate test. They stay apart from the Norwegian ones — Pairs and the crossword still bring back only Norwegian words.
+83	🌍 The whole app now speaks your language: buttons, explanations, the games and the player ratings — 1093 bits of text that used to stay in English for German, Polish, Turkish, Lithuanian and partly Arabic.
+84	⚡ Switching the language works straight away, without reloading the page, and each language is loaded on its own — so the app did not get heavier for anyone else.
+85	📧 Letters from the site — confirming your email, the sign-in code, the welcome note — now arrive in your language instead of English.
+86	📐 The grammar section speaks your language too: the rules, the tables of forms and every example sentence.
+87	📜 The privacy policy is now written in all eight languages, and in the English course the hints under each line and word are in your language too — not in Ukrainian.
+88	🇬🇧 The English course now reads like the Norwegian comics: on a phone it fits one screen with no scrolling, the controls sit on the picture itself, and its tests look the same way.
+89	🇬🇧 In the English tests the next question now comes by itself, and a voice praises you in English — twelve different phrases instead of four. The story covers no longer leave a white gap on a phone.
+90	📐 Four new stories about quantity and size: mye or mange, stor or liten, litt–lite–få, større and størst. They sit in a new category, “Grammar in real life”, and come with audio and tests like every other comic.
+91	👋 After you create an account, a short welcome now explains what is inside, lets you pick your language, and tells you that the first 100 users keep full access for good.
+92	📱 The apps are updated: Android and Windows, online and offline — with the fresh content and all eight languages.
+93	🌍 The app now really speaks eight languages: every line, every word and every comic’s description is translated into English, Ukrainian, Norwegian, Arabic, German, Polish, Turkish and Lithuanian. In German or Polish only about every third word used to be translated, and whole sentences almost never.
+94	🔎 Search engines can now find the comics in any of those languages: every comic and the tests page have their own address in each language, with the title, description and dialogue in that same language.
+95	🤖 The new translations were made by AI. If something reads oddly, write to us and we will fix it.
+96	📖 Four new comics: “I am ill” and “At my place” (A1), “Offers and a loyalty card” (A2), “An allergy at a restaurant” (B1). Every line is voiced in Norwegian — 295 new recordings.
+97	🔤 Six new word themes: allergies and ingredients, offers and prices, rooms at home, when you are ill, cleaning and small repairs, neighbours. 124 words in all.
+98	🔀 A new trainer, Word order: you build the sentence from its words — exactly where Norwegian trips most people up. The verb comes second, and after an adverbial the subject and verb swap places. Half the tasks are those inverted sentences, taken from the comics.
+99	📱 Reading on a phone now fits one screen, with no scrolling. The controls moved onto the picture itself: ▶ at the bottom reads the lines aloud, the arrows at the edges turn the panels, and the page numbers sit under the picture.
+100	🔤 A line’s translation now appears right under the sentence instead of a bubble above it: for the first line you used to see only half of it. And tapping a word shows its translation again — on a phone it could fail entirely.
+101	📖 Finished a story — “Take the test” and “Next” are right there: the next comic is picked by the level and theme of the one you just read. The home screen also got a button carrying the next story’s name, so you do not have to find it among eighty-one.
+102	🙈 Once you are signed in, the comics you have done are tucked into the “done” filter so the list shows only what is new. One tap brings them back.
+103	🔑 Without an account you can now take one test. After that you need to sign in — and everything you have done moves into the account: the stories you read, stars, your day streak and the words in your cards. Reading comics without an account stays unlimited.
+104	🔐 Two-factor authentication is now in the settings: at sign-in the site also asks for a six-digit code from an authenticator app. Any will do — Google Authenticator, Authy, 2FAS, Aegis.
+105	🔑 The moment you turn it on you get eight backup codes. Save them: each works once and it is the only way in if the phone is lost. We will not show them again — only hashes are stored.
+106	🔒 It covers all three ways in: by password, by the code from your email, and by the link. Turning it off needs a code too.
+107	📖 A comic now turns like a magazine: the panel swings aside, and you can see which way you are going — forward or back. With “reduce motion” on in your system there is no animation.
+108	🖼️ The panel frame is thinner, so on a phone the picture is noticeably bigger and you no longer scroll while reading.
+109	🪟 There is now a Windows installer (.exe): it adds a shortcut to the desktop and the Start menu, and the app opens in its own window without an address bar.
+110	📦 Two versions: a 2 MB light one that is a shortcut to the site, and a 120 MB full one that puts every comic and all audio on your disk and works with no internet at all.
+111	🔓 The installer asks for no administrator rights: it installs into your own user folder and uninstalls like any program.
+112	⏭️ In tests you no longer have to press “Next”: the test moves on by itself — after a second or two when the answer is right, and after four when there is a correct answer to read.
+113	👆 A bar shows how long is left, and touching the screen stops the countdown if you want to think longer or listen again. It can be switched off in the settings.
+114	🧩 A new game, Crossword: words from one theme cross in a grid, and the clue is the translation plus an emoji. Recognising the word is not enough here — you have to recall it and spell it out, which is what fixes å, ø, æ and double consonants.
+115	💡 There is a one-letter hint and a “show the answer” if you are properly stuck. Forty-seven themes to pick from.
+116	💬 A new question type in the tests — “What do they reply?”: you hear a line and choose the answer from the same comic. Other questions check a single sentence; this one checks whether you follow a conversation.
+117	🧩 And one more — “Which preposition?”: på, i, til, fra or med goes missing from a sentence. The options are always prepositions, so guessing by shape does not work.
+118	📱 The “Correct / Next” box no longer grows at the bottom of the page — it slides up as a sheet. It used to make the page taller than the screen, so you had to scroll; now the question stays put and “Next” sits under your thumb.
+119	📖 Six new comics: “Buying clothes” (A1), “At the train station” (A2), “Reporting a change of address” (B1), “The employment contract” (B2) and two parts of “Questions about your home country” (B1).
+120	🎯 “Questions about your home country” is the block they actually ask in the oral Norskprøven: capital, population, neighbours, language, currency, food, climate, holidays. The answers are short on purpose, so you can swap in your own country.
+121	🔊 Every new line is voiced in Norwegian — 328 new recordings.
+122	📦 The install page now offers an APK for Android: light (16 MB, with an account) and full (157 MB, works with no internet at all). No Google Play needed.
+123	💌 If you have not been back for a while, we may send you a reminder — with what is new, or a comic you have not read yet. Every such email carries a one-click “stop these emails”, no login required.
+124	🔑 Sign in without a password: enter your email and a message arrives with a link and a six-digit code. The link lets you straight in; the code is for when the email is on your phone and you want to sign in on a laptop.
+125	📱 The session stays on the device, so on your own laptop there is nothing to type again.
+126	🔒 If you already have a password, nothing changed: the “Sign in with a password” link sits right under the field.
+127	🖼️ In tests, picture answers now fill the whole button — no double frames, no padding; an odd third option stretches across both columns, so nothing hangs in an empty half.
+128	🔎 Every update now has its own page in search — in three languages, with screenshots.
+129	📱 A test on a phone now takes exactly one screen: the header and footer step aside, only the question and the answers stay.
+130	🎮 Answers look like a game: four colours and four shapes (▲ ◆ ● ■), full-height buttons you hit with your thumb first time.
+131	🖼️ Picture answers sit two in a row and fit without scrolling.
+132	📖 A comic is read on one screen too: the panel on top, the lines scrolling inside, “Next” always under your thumb.
+133	🎙️ Multi-voices are on by default: every character speaks with their own voice right away.
+134	🔇 The offer of a short Norwegian chat is off by default — switch it on in the settings.
+135	🧹 The “how many are online” counter is gone: the badge shows up only when a friend really is online or an invite is waiting.
+136	🌍 Four new languages: German, Polish, Turkish and Lithuanian. Menu, tests, cards, Pairs, the mock exam and the plan — all in your own language.
+137	📖 The comic tooltip can hold several languages at once: tick as many as you need in the settings and they appear one under another, inside the panel too.
+138	🧠 Pairs became a daily game: the words come from your weak spots, mistakes go straight into your mistake list, and you can race a friend over a QR code.
+139	✏️ Writing now has simple exercises without AI: translate a sentence, fill in a word, write down what you hear — checked instantly, even offline.
+140	🎁 Learning is completely free: no test limit and no payment any more.
+141	📷 The first photo comic “En dag i Oslo”: real frames with a bus stop, a shop and a café — read Norwegian signs and price tags.
+142	🏆 The player ranking moved to its own page, and the Friends page shows a mini ranking among your own friends.
+143	✅ Comics you have already passed now carry a “PASSED” stamp with a score out of 100: green from 60, gold from 90.
+144	🏁 A new results screen: a percentage ring that fills up in front of you, stars appearing one by one, a greeting with your name, a personal-best badge and mistakes shown as cards with a listen button.
+145	🏁 The Logic Race is clearer now: a “3–2–1–GO!” countdown, a line of rules before the first question, a visible “+1 step” for a right answer, a “you” marker on your lane and distance ticks on the track.
+146	🖼️ Ninety-five more drawn icons instead of emoji: animals, rooms, school supplies, weather. 240 drawn so far — more batches are coming.
+147	🔊 Sound in tests is fixed: in “What is this?”, “which word does not fit” and “match the word with the picture” the word was never spoken — now you hear it after answering, and immediately when you tap a word in the matching task.
+148	📱 The call screen now looks like a real phone: the bilohash network, clock and battery, large subtitles with a translation, evenly spaced keys and a separate red hang-up. A voice call no longer has a text field — it is a call, after all.
+149	📲 The burger menu on phones became personal: avatar, profile, friends, messages and friends’ updates at the top, with the small icons removed — they live in settings.
+150	➕ When the three daily tasks are done, “Today” offers an extra task of your choice.
+151	🧹 The desktop header is lighter: words, maths, alphabet, numbers, help and the voice switch moved to the menu, the footer and settings.
+152	📚 Seven new comics: the café, the park, the optician, buying second-hand, a ticket in the app, the emergency clinic at night and “saying no politely at work” — 72 stories in total.
+153	🔀 A new task, “build the sentence”: the words are shuffled and you put them in Norwegian order — the very V2 rule everybody trips over.
+154	🔗 A new task, “match the word with the picture”: four words, four drawn pictures.
+155	🧠 A new task, “which word does not fit”: three words from one topic, one from another.
+156	🖼️ A new task, “listen and choose the picture” — no text at all, only sound and images.
+157	🔔 Notifications from friends: “we are friends now”, “your friend passed a test”, “your friend reached B1”. The bell in the header shows how much is new.
+158	👥 Your friends now show up right on your profile: avatars, who is online and who is still waiting for approval.
+159	❤️ Friends’ results can be liked — and the author sees it in their own feed.
+160	#️⃣ Hashtags on your profile: add up to five words about what you are learning (#jobb, #norskproven, #barn) and like-minded learners will find you. Hashtags in wall posts are clickable now.
+161	🎯 Plan finished — the next level is offered right away: one tap and the plan is rebuilt.
+162	🎧 Live calls: when something goes wrong you now see why — the microphone, the daily limit or the service’s own answer, instead of a silent “try again”.
+163	📅 “Today” — a ten-minute session: words due for review, the next step of your plan and work on your mistakes. Three things and the day is done.
+164	📬 Email is fixed: confirmation and password-reset letters arrive again.
+165	🃏 Flashcards now know all 972 topic words, not just the comic glossary — what you learn by topic comes back for review exactly when you start forgetting it.
+166	✍️ Writing in Norwegian with feedback: write a few sentences and see the corrected text, every mistake explained in your language, and a model answer.
+167	🎧 Listening to whole sentences: the line is spoken, the text stays hidden — you have to hear it and pick the right sentence.
+168	🏁 A Norskprøven mock test: listening, reading and writing with an approximate level.
+169	🎯 A level test: twelve questions, and your plan starts where it actually should.
+170	🎙️ The pronunciation button is now on word cards too: say the word out loud and get a score.
+171	📲 A separate “App” page with steps for Windows, Android and iPhone — no App Store, no Google Play, it installs straight from the browser.
+172	📝 The word list has grown to 972 words in 47 topics: numbers, directions, question words, children and kindergarten, car and traffic, post, winter, cooking, digital services, safety, school and parents, NAV and rights.
+173	🖼️ Sixty more drawn icons instead of look-alike emoji: mother, father, brother, sister, son and daughter finally look different, and the new words have pictures of their own.
+174	🖼️ A new icon set: a crisp shortcut on the desktop and in the Start menu, a round icon on Android, a proper splash screen on iPhone, and a right-click menu with plan, words, call and tests.
+175	🎬 The verb room: a separate room with interactive comics — in the games list, in the tests and in the footer.
+176	⬆️ The header slides away as you scroll down and comes back at the slightest scroll up — more room for the text on a phone.
+177	🔊 Spoken praise (“Veldig bra!”, “Prøv igjen!”) now sounds in every test, not just a few.
+178	📚 Thirty new B1 and B2 comics: NAV, renting a flat, the dentist, the Norwegian exam, taxes, mortgages, insurance, parental leave, tenant rights and more — 65 stories in total.
+179	🔒 Strict mode for parents: the learner follows the plan step by step, everything else stays locked, and only the parent password switches it off.
+180	📱 A ready base for the App Store and Google Play apps — the same site inside.
+181	📝 The dictionary has grown to 2010 Norwegian words with translations.
+182	🖼️ New drawn icons instead of unclear emoji — in tests, word lists and flashcards.
+183	📖 Picture questions now show which comic they come from: one tap takes you to that panel.
+184	📲 An “Install the app” button: a shortcut on your phone or in the Start menu, the site runs like a normal app.
+185	🎁 The “30 free hours” promise is gone — the “first 100” offer and the subscription replace it.
+186	💌 The feedback form opens as a proper window again, not below the footer.
+187	📞 A call in Norwegian: a fictional character rings you — real ringing, a phone screen and a short talk. The voice is neural, like in the comics.
+188	📊 “My learning analysis”: your most frequent mistakes, the weakest tests and a repeat test built from them.
+189	📝 730 words to learn instead of 394: work, housing, money, public services, travel, technology, character, culture.
+190	📚 Two new comics: “At the pharmacy” (A2) and “The appraisal talk” (B2).
+191	🤖 Ten more virtual players — the ranking feels alive.
+192	💌 The “Feedback” button moved to the footer and the share block so it covers nothing.
+193	🏅 The first 100 members get Premium free forever — and may remove bad posts from walls.
+194	🎓 Teachers get Premium for free: send your proof from the “For teachers” page.
+195	💌 A “Feedback” button on every page: a bug, an idea or a learning topic — with a photo or a file.
+196	📚 Three new comics: synes/tror and the possessive words (min/mi/mitt/mine, sin/hans/hennes, vår, deres).
+197	🎚️ Two new test difficulties: 🔥 hard and 🏆 expert — with a timer on every question.
+198	🔎 Comics in Google search: every comic page now has drawings, a cover and data for image search.
+199	♟ Chess with 3D pieces: five bot levels, play a friend online and a class tournament with Elo rating.
+200	✉️ Private messages between players and a new “Privacy” page: who finds you in search and who can write to you.

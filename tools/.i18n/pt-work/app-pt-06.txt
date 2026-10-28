@@ -1,0 +1,196 @@
+1001	Feitos na mesma oficina dos quadrinhos, mas sem nenhum dever de casa.
+1002	Todos os jogos →
+1003	← Voltar
+1004	Mais jogos já estão a caminho.
+1005	🎁 Presente
+1006	Escolha um item para o avatar do seu amigo — ele não pode ser comprado nem ganho, só dado de presente. Os presentes são grátis: um por amigo por dia.
+1007	Um desejo (em norueguês)
+1008	🎁 Presentear
+1009	Você já deu um presente para este amigo hoje — tente de novo amanhã 🙂
+1010	Abrir
+1011	Um novo item para o avatar!
+1012	👕 Vestir
+1013	Depois
+1014	🎁 Retribuir
+1015	Fechar
+1016	📲 Instalar o app
+1017	Um atalho no celular ou no menu Iniciar — o site abre como um app comum, até sem internet.
+1018	📲 Como adicionar no iPhone
+1019	Toque em “Compartilhar” na parte de baixo do Safari e depois em “Adicionar à Tela de Início”.
+1020	Entendi
+1021	✅ O app está instalado
+1022	Instalando…
+1023	📲 O app Komiks·Lab
+1024	Sem App Store, sem Google Play: o site se instala direto do navegador. Um ícone na área de trabalho ou na tela de início, uma janela própria sem barra de endereço e lições que funcionam sem internet.
+1025	você está aqui
+1026	Se o seu navegador não oferecer a instalação
+1027	O Firefox e navegadores mais antigos não instalam web apps. Salve um atalho comum — e, se quiser, coloque nosso ícone nele: clique com o botão direito no atalho → “Propriedades” → “Alterar ícone” → escolha o arquivo baixado.
+1028	💻 Instalador para Windows
+1029	Um .exe comum: ele cria um atalho na área de trabalho e no menu Iniciar. O app abre numa janela própria, sem barra de endereço.
+1030	⚡ Leve — {s}
+1031	Um atalho para o site numa janela de app. As lições também funcionam sem internet — o navegador as guarda.
+1032	📚 Completo — {s}
+1033	Todos os quadrinhos, todo o áudio e todos os testes vão para o seu disco. Funciona sem nenhuma internet.
+1034	Como instalar
+1035	Aperte o botão — o arquivo vai para a pasta Downloads.
+1036	Abra o arquivo. O Windows pode avisar sobre um editor desconhecido: “Mais informações” → “Executar assim mesmo”.
+1037	Deixe marcado “Atalho na área de trabalho” e aperte Instalar.
+1038	O instalador não pede direitos de administrador e instala na sua própria pasta de usuário. Remova como qualquer programa, em Configurações → Aplicativos.
+1039	⚠️ Se o Windows mostrar uma janela azul
+1040	“O Windows protegeu o computador” aparece para todo programa que ainda foi baixado por poucas pessoas — não tem a ver com vírus. Clique em “Mais informações” e depois em “Executar assim mesmo”.
+1041	O aviso some sozinho quando gente suficiente instalar o app. Para tirá-lo antes, seria preciso um certificado caro emitido para uma empresa registrada — ainda não chegamos lá, e preferimos não fingir o contrário.
+1042	Se você não quer aviso nenhum, use o botão “Instalar o app” no topo desta página: o atalho é o mesmo, mas quem o cria é o próprio navegador.
+1043	📦 Arquivo APK para Android
+1044	Se você prefere não instalar pelo navegador, aqui está o app de verdade num único arquivo. Não precisa do Google Play.
+1045	⚡ Leve — {s}
+1046	Oito histórias e dez temas de palavras já dentro; o resto carrega do site. Inclui conta, amigos e ranking.
+1047	📚 Completo — {s}
+1048	Todos os quadrinhos, todo o áudio e todos os testes dentro. Funciona sem nenhuma internet; sem conta.
+1049	Como instalar
+1050	Aperte o botão — o arquivo vai para a pasta Downloads.
+1051	Abra o arquivo. O Android vai pedir permissão para instalar desta fonte — permita.
+1052	Aperte “Instalar” e depois “Abrir”.
+1053	O app é assinado por nós e não tem anúncios. O Android avisa que a fonte não é o Google Play — isso é normal para arquivos APK.
+1054	🔗 Baixar um atalho para Windows
+1055	🖼️ Baixar o ícone (.ico)
+1056	✅ O app já está instalado — você está usando numa janela própria.
+1057	🤖 O Robo aprende a programar
+1058	Monte um programa com blocos e o Robo executa passo a passo. Junte os bits de código 💎, chegue ao carregador ⚡ e ganhe estrelas pelo programa mais curto. Seu progresso fica salvo.
+1059	🗺️ Fases
+1060	▶ Executar
+1061	↺ Recomeçar
+1062	🗑️ Limpar
+1063	Programa
+1064	Função F
+1065	Próxima fase ▶
+1066	🔄 De novo
+1067	Termine primeiro a fase anterior
+1068	Toque num bloco do programa para tirá-lo. Toque em 🔁 para colocar blocos dentro do laço; toque no número para mudá-lo.
+1069	🎮 Jogar
+1070	▶ Continuar
+1071	🏆 Todas as fases concluídas!
+1072	Blocos demais para esta fase.
+1073	Adicionando ao programa
+1074	Adicionando à função F
+1075	Adicionando ao laço 🔁
+1076	Um exemplo pequeno
+1077	O código roda da esquerda para a direita — um comando por passo.
+1078	Mostre para mim
+1079	De novo
+1080	Programação
+1081	💻 Programação para crianças
+1082	Quadrinhos com o robô Robo e testes em que você guia um robô, lê programinhas, monta algoritmos e caça bugs. Tudo em norueguês — passe o mouse para ver a tradução.
+1083	O que é programar?
+1084	Programar é dar comandos exatos a um computador. Um programa são comandos na ordem certa. O computador não adivinha o que queríamos dizer: ele faz exatamente o que está escrito.
+1085	Grandes ideias
+1086	Linguagens de programação: para que serve cada uma?
+1087	para começar
+1088	Quadrinhos
+1089	Testes
+1090	Ler
+1091	Teste
+1092	Jogo: o Robo aprende a programar
+1093	🎲 Tudo
+1094	🤖 Guie o robô
+1095	💻 O que aparece na tela?
+1096	🧩 Algoritmos
+1097	🐞 Encontre o bug
+1098	🗂️ Linguagens de programação
+1099	🌐 HTML: como a página vai ficar?
+1100	tags, título, imagem, link
+1101	todos os tipos de tarefa
+1102	setas numa grade
+1103	pseudocódigo e Python
+1104	passos em ordem
+1105	depuração
+1106	para que serve cada uma
+1107	Dica para pais e professores: leia primeiro um quadrinho, depois faça o teste dele e termine com “Tudo”.
+1108	🤖 Jogo: o Robo aprende a programar
+1109	Monte um programa com blocos e o robô percorre o labirinto. 17 fases: comandos, laços, funções, bugs e um teste final.
+1110	▶ Começar o jogo
+1111	🏆 Todas as fases concluídas
+1112	🧭 Minha jornada na programação
+1113	Cada quadrinho é um passo: leia a história e passe no teste dela. Verde significa concluído.
+1114	Todos os passos
+1115	Jornada da programação concluída!
+1116	🎲 Teste final misto
+1117	ler
+1118	teste
+1119	🏅 Minhas medalhas
+1120	Iniciante
+1121	Aprendiz
+1122	Codificador
+1123	Programador
+1124	Mestre do código
+1125	Seu nível
+1126	📊 Meu estudo
+1127	Como está indo o seu estudo: resultados, eficiência, palavras e erros. Comparado com o período anterior de mesma duração.
+1128	Testes concluídos
+1129	Média de acertos
+1130	Dias de estudo
+1131	Palavras aprendidas
+1132	Erros corrigidos
+1133	Tempo ativo
+1134	testes no período
+1135	respostas certas
+1136	no site no total
+1137	📈 Resultados por dia
+1138	Barras — número de testes; linha — média de acertos.
+1139	testes
+1140	acertos
+1141	🗓 Calendário de estudo
+1142	Dias ativos nas últimas 17 semanas — quanto mais escuro, mais testes.
+1143	menos
+1144	mais
+1145	🎯 Eficiência por seção
+1146	Média de acertos e número de tentativas por seção no período.
+1147	Ainda não há testes neste período.
+1148	🃏 Palavras
+1149	Em que ponto da repetição espaçada estão suas palavras.
+1150	novas
+1151	aprendendo
+1152	revisando
+1153	sabidas
+1154	🃏 Revisar cartões
+1155	🔁 Trabalhando nos erros
+1156	Um erro conta como corrigido depois de respostas certas hoje, um dia depois e 3 dias depois.
+1157	para hoje
+1158	aguardando
+1159	corrigidos no período
+1160	Erros mais frequentes
+1161	🔁 Praticar os erros
+1162	📊 Análise completa
+1163	🧾 Testes recentes
+1164	Quando
+1165	Teste
+1166	Resultado
+1167	Tempo
+1168	Ainda não há testes — faça qualquer um e os gráficos vão aparecer aqui.
+1169	💡 O que fazer agora
+1170	Comece uma sequência: um teste por dia e o calendário vai se enchendo.
+1171	Ótimo ritmo! Experimente um teste do próximo nível.
+1172	Abrir →
+1173	🔥 Minha atividade
+1174	dias de estudo
+1175	sequência atual
+1176	maior sequência
+1177	nível
+1178	testes em 30 dias
+1179	📊 Análise detalhada do estudo →
+1180	Seg
+1182	Qua
+1184	Sex
+1187	menos
+1188	mais
+1189	Escolha sua aventura
+1190	📱 Tenho um código de sala
+1191	🏁
+1192	Corrida de Lógica
+1193	Uma mistura de números, relógios e enigmas de lógica.
+1194	🕵️
+1195	Detetive da Memória
+1196	Memorize os objetos. Um some — encontre-o!
+1197	🧩
+1198	Laboratório de Padrões
+1199	Descubra a regra e continue uma sequência de símbolos ou números.
+1200	🔎

@@ -1,0 +1,200 @@
+1	A Mia e o bolo mágico
+2	Primeiro dia na escola
+3	Um passeio na floresta
+4	No mercado
+5	O boneco de neve
+6	O aniversário da Nora
+7	Cadê o Pus?
+8	Prazer em conhecer você!
+9	No médico
+10	Primeiro dia no trabalho
+11	O apartamento
+12	Mutirão no condomínio
+13	A entrevista de emprego
+14	Café da manhã em família
+15	Que horas são?
+16	No ônibus
+17	O 17 de maio
+18	Natal na Noruega
+19	Vida ao ar livre e o direito de livre acesso à natureza
+20	Minha família
+21	O que você fez no fim de semana?
+22	Primeiro dia no curso de norueguês
+23	Nos correios
+24	Que tempo!
+25	Almoço no trabalho
+26	A viagem para a cabana
+27	O cartão de imposto
+28	Na creche
+29	O carro veloz
+30	O maluco da bicicleta
+31	Synes ou tror?
+32	Min, mi, mitt ou mine?
+33	Sin ou hans?
+34	Na farmácia
+35	A conversa de avaliação
+36	No escritório do NAV
+37	Visita a um apartamento
+38	Uma reunião de pais
+39	No dentista
+40	Primeiro dia num emprego novo
+41	Na biblioteca
+42	O ônibus está atrasado
+43	Reclamando de um produto
+44	A prova de norueguês
+45	Na academia
+46	Separando o lixo
+47	No cabeleireiro
+48	Na oficina mecânica
+49	Férias de inverno nas montanhas
+50	Uma conversa difícil com um vizinho
+51	Uma reunião do condomínio
+52	Candidatura de emprego e currículo
+53	O acerto do imposto
+54	Um financiamento imobiliário no banco
+55	Infiltração e seguro
+56	Home office ou escritório?
+57	Licença médica e acompanhamento
+58	Licença-maternidade e paternidade
+59	Um debate sobre o clima na escola
+60	Preço da eletricidade e economia
+61	Diferenças culturais no trabalho
+62	Fazendo uma apresentação
+63	Uma carta para o jornal local
+64	Seus direitos como inquilino
+65	Voluntário no clube esportivo
+66	No café
+67	No parque
+68	No oftalmologista
+69	Comprando usado
+70	Passagem e aplicativo
+71	No pronto-socorro de madrugada
+72	Dizendo não com educação
+73	Alto ou baixo?
+74	Como é o apartamento?
+75	Um dia em Oslo
+76	Comprando roupas
+77	Na estação de trem
+78	Comunicando a mudança de endereço
+79	O contrato de trabalho
+80	Perguntas sobre o seu país
+81	Mais sobre o seu país
+82	Estou doente
+83	Na minha casa
+84	Ofertas e um cartão fidelidade
+85	Uma alergia no restaurante
+86	Mye ou mange?
+87	Grande ou pequeno?
+88	Litt, lite e få
+89	Maior e o maior de todos
+90	Uma manhã corrida
+91	Treino de futebol
+92	Simulado de incêndio no trabalho
+93	Eleições e democracia na Noruega
+94	O que é programar?
+95	O algoritmo do sanduíche
+96	Repita! O Robo dança
+97	Se chover …
+98	Pontos na caixa
+99	Encontre o bug!
+100	Qual linguagem?
+101	Um modelo da escola
+102	Um site para o Pus: o básico do HTML
+103	Cores com CSS
+104	O botão que responde
+105	A primeira cena do jogo
+106	A raposa aprende a se mexer
+107	BUM! Colisão e pontos
+108	Por dentro do Blender
+109	O amigo robô em 3D
+110	Bem-vindo ao Unity
+111	Muitas estrelas com um só prefab
+112	A biblioteca secreta da escola
+113	Pergunte ao banco de dados com SQL
+114	O guardião dos dados
+115	O caminho seguro para casa
+116	Quando um estranho pede ajuda
+117	Perdido no shopping
+118	112: quando é uma emergência?
+119	A senha secreta
+120	Não clique na isca!
+121	O QR code no cartaz
+122	A foto que revelou demais
+123	Você ganhou!
+124	A voz que parecia a do papai
+125	O videogame barato
+126	O perfil falso
+127	O aplicativo quer tudo
+128	Atualize do jeito certo
+129	O Wi-Fi aberto da escola
+130	O backup que salvou o dia
+131	Você é humano?
+132	Não confie no formulário
+133	O cadeado no navegador
+134	As senhas viram hash
+135	Um site para todos
+136	Começar, pausar e jogar de novo
+137	Um padrão no robô
+138	O Unity escuta eventos
+139	As tabelas ficam amigas
+140	O ponto de encontro no passeio da escola
+141	Seguro no chat do jogo
+142	A voz que não era de verdade
+143	A chave de API escondida
+144	A caixa de ferramentas dos tipos de dados
+145	A máquina que pode ser usada de novo
+146	A mochila com muitos valores
+147	Divida o problema grande
+148	Caminhos entre páginas
+149	A página que cabe em todas as telas
+150	O site pede dados
+151	O formulário que ajuda o usuário
+152	O jogo ganha som
+153	O personagem ganha vida
+154	Difícil na medida certa
+155	Continue de onde parou
+156	Construa só metade do robô
+157	O cubo começa a dançar
+158	Modele argila na tela
+159	O modelo viaja até o jogo
+160	Pontos na tela
+161	Do menu para uma nova fase
+162	Quem pode colidir com quem?
+163	Música, fala e efeitos
+164	Criar, ler, atualizar, apagar
+165	O índice rápido do banco de dados
+166	Dados em pacotes organizados
+167	Mova os dados sem perder nada
+168	Quando o alarme toca
+169	Seguro na bicicleta
+170	Pare o jogo quando alguém se machucar
+171	Quem pode ver o perfil?
+172	A mensagem falsa da escola
+173	Não fique sozinho no chat
+174	Baixe do lugar certo
+175	O console barato demais
+176	O teste grátis que continuou
+177	O QR code com prêmio
+178	A lanterna precisa dos contatos?
+179	O celular que sumiu
+180	O carregador esquenta demais
+181	Saia da conta no tablet da escola
+182	Conectado sem compartilhar a senha
+183	Quem pode fazer o quê?
+184	O erro que não revela segredos
+185	SIS, expulsão e o que fazer depois
+186	Fogo! Saia, avise e vá ao ponto de encontro
+187	113 ou 116 117?
+188	Polícia: 112 ou 02800?
+189	O acidente de trânsito no cruzamento
+190	Líquido desconhecido na garrafa
+191	Quando alguém não acorda
+192	Ajuda quando a casa não é segura
+193	RCP com orientação do 113
+194	Quem é um hacker?
+195	A armadilha mexe com as emoções
+196	Alguém tomou conta da conta
+197	Quando os dados viraram uma máscara
+198	A ameaça no chat
+199	Arquivos atrás de um cadeado digital
+200	Uma trapaça grátis com preço escondido

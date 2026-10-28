@@ -1,0 +1,200 @@
+5201	teimoso
+5202	uma barba
+5203	na minha opinião
+5204	eu concordo
+5205	eu discordo
+5206	por um lado
+5207	depende de
+5208	pode repetir?
+5209	não entendo
+5210	pode falar mais devagar?
+5211	com licença, desculpe
+5212	tudo bem
+5213	em outras palavras
+5214	antes de tudo
+5215	além disso
+5216	por isso
+5217	boa noite (ao chegar)
+5218	tchau, até logo
+5219	até mais
+5220	muito obrigado
+5221	como vai?
+5222	tudo bem, tudo ótimo
+5223	qual é o seu nome?
+5224	de onde você é?
+5225	eu moro em …
+5226	prazer em conhecer você
+5227	pode me ajudar?
+5228	quanto custa?
+5229	onde fica o banheiro?
+5230	estou com fome
+5231	estou com sede
+5232	estou cansado
+5233	bom fim de semana
+5234	o meio ambiente
+5235	a poluição
+5236	clima
+5237	lixo, resíduos
+5238	reciclagem
+5239	plástico
+5240	papel
+5241	vidro
+5242	energia
+5243	renovável
+5244	energia hidrelétrica
+5245	emissões
+5246	economizar energia elétrica
+5247	jogar fora
+5248	sustentável
+5249	a natureza
+5250	uma trilha na montanha
+5251	uma barraca
+5252	uma mochila de trilha
+5253	uma garrafa térmica
+5254	uma trilha, uma pista de esqui
+5255	esquis
+5256	um patim de gelo
+5257	uma vara de pescar
+5258	ar fresco
+5259	passear, fazer uma caminhada
+5260	acampar
+5261	a constituição
+5262	o 17 de maio
+5263	um desfile
+5264	um traje folclórico
+5265	a comemoração do Natal
+5266	a Páscoa
+5267	um esforço coletivo, um mutirão
+5268	a Lei de Jante
+5269	uma escola popular superior (folkehøgskole)
+5270	um dialeto
+5271	nynorsk
+5272	bokmål
+5273	a cultura sámi
+5274	uma sociedade de bem-estar social
+5275	a liberdade de expressão
+5276	o voluntariado
+5277	uma consequência
+5278	um desenvolvimento
+5279	uma mudança
+5280	uma expectativa
+5281	uma atitude
+5282	uma constatação
+5283	um significado
+5284	uma relação, um contexto
+5285	uma semelhança
+5286	uma avaliação
+5287	troca de experiências
+5288	a verdade
+5289	a dúvida
+5290	a confiança
+5291	uma empresa
+5292	um departamento
+5293	um relatório
+5294	competência
+5295	a gestão, a direção
+5296	o ambiente de trabalho
+5297	eficiência
+5298	qualidade
+5299	delegar
+5300	coordenar
+5301	um plano para o futuro
+5302	um número
+5303	meio
+5304	um quarto (1/4)
+5305	uma dúzia
+5306	um par
+5307	demais
+5308	cerca de, mais ou menos
+5309	no máximo
+5310	dobro, duplo
+5311	uma metade
+5312	um terço
+5313	uma soma
+5314	aqui
+5315	na frente de
+5316	atrás
+5317	em cima de, acima
+5318	entre
+5319	dentro
+5320	lá em cima
+5321	lá embaixo
+5322	à direita
+5323	à esquerda
+5324	em frente, reto
+5325	longe
+5326	perto
+5327	através de
+5328	de volta
+5329	o que
+5330	quem
+5331	quando
+5332	qual
+5333	quantos
+5334	às vezes
+5335	raramente
+5336	já
+5337	ainda
+5338	mesmo assim
+5339	um professor de creche
+5340	um departamento, um grupo
+5341	uma fralda
+5342	uma chupeta
+5343	um carrinho de bebê
+5344	um brinquedo
+5345	uma boneca
+5346	uma caixa de areia
+5347	um balanço
+5348	um passeio
+5349	a hora do descanso
+5350	a hora de buscar
+5351	a entrega (na creche)
+5352	uma reunião individual com os pais
+5353	uma pensão alimentícia
+5354	uma vacina
+5355	uma chave do carro
+5356	um volante
+5357	um pneu com cravos
+5358	gasolina
+5359	o carregamento
+5360	um pedágio
+5361	um cruzamento
+5362	uma rotatória
+5363	uma fila, um engarrafamento
+5364	um estacionamento
+5365	uma multa
+5366	uma oficina
+5367	uma estrada escorregadia
+5368	dar ré
+5369	uma agência dos correios
+5370	um envelope
+5371	um selo
+5372	um código postal
+5373	um código de rastreamento
+5374	um prazo de retirada
+5375	um armário de encomendas
+5376	um carteiro
+5377	peso
+5378	um envio
+5379	uma devolução
+5380	imposto de importação, alfândega
+5381	entregar
+5382	um esqui
+5383	um bastão de esqui
+5384	uma pista de esqui
+5385	um patim
+5386	um trenó
+5387	um boneco de neve
+5388	um floco de neve
+5389	uma nevasca
+5390	a limpeza da neve
+5391	tirar neve com a pá
+5392	espalhar areia ou sal
+5393	névoa de frio sobre a água
+5394	uma camada de lã
+5395	luvas de dedão
+5396	um chocolate de trilha (Kvikk Lunsj)
+5397	as férias de inverno
+5398	uma lareira
+5399	um ingrediente
+5400	uma colherada

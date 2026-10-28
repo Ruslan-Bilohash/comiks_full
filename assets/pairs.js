@@ -221,6 +221,7 @@
       duel_note: 'Dvikovos žodžiai taip pat patenka į tavo atmintį: ko neprisiminei, keliauja į klaidas.'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'pairs.js:T');
   const tx = () => T[C().ui] || T.en;
   const g = (k, ...a) => { const tbl = tx(); const v = k in tbl ? tbl[k] : T.en[k]; return typeof v === 'function' ? v(...a) : v; };
 

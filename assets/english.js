@@ -260,6 +260,7 @@
       done: (a, b) => `Fullførte temaer: ${a} av ${b}`, next: '▶ Neste steg', all_done: '🏆 Alle temaene er fullført! Ta svake prøver på nytt eller lær ord etter tema.', rule: '📐 Regel', ex: '💬 Eksempler', st: '📚 Historier', ok: '✅ fullført', now: '▶ neste', wait: '⏳',
       level: l => `Nivå ${l}`, topic: 'Tema', journey: 'Min engelskreise', journey_hint: 'Hvert tema er ett steg. Les en tegneserie, lytt til ekte engelsk og ta prøven.', stories_done: (a, b) => `${a} av ${b} historier`, current: 'Ditt nåværende steg', level_progress: (a, b) => `${a}/${b} temaer`, open_topic: 'Åpne tema', home_hint: 'Du lærer engelsk. Bytt språk øverst eller i innstillingene.' },
   };
+  if (window.KL_T_FILL) KL_T_FILL(PT, 'english.js:PT');
   const pt = (k, ...a) => { const tbl = PT[C().ui] || PT.en; const v = k in tbl ? tbl[k] : PT.en[k]; return typeof v === 'function' ? v(...a) : v; };
   const plan = () => ((window.ENGLISH || {}).plan || []);
   const topicOf = id => plan().find(t => t.id === id);

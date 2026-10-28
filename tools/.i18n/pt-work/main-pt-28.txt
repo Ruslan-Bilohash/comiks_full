@@ -1,0 +1,128 @@
+5401	um grama
+5402	a fritura
+5403	o cozimento
+5404	o ato de assar
+5405	temperar
+5406	um tempero
+5407	fermento
+5408	uma massa
+5409	sobras
+5410	um login
+5411	uma verificação em dois fatores
+5412	o preenchimento
+5413	um app de pagamento
+5414	um internet banking
+5415	uma caixa de correio digital
+5416	o agendamento de horário
+5417	um download
+5418	o suporte ao usuário
+5419	sair da conta
+5420	o corpo de bombeiros
+5421	o pronto-atendimento
+5422	uma rota de fuga
+5423	um ferimento, um dano
+5424	um aviso, uma advertência
+5425	um colete salva-vidas
+5426	um furto
+5427	ligar para o 113
+5428	cuidar de
+5429	uma conversa sobre o desenvolvimento do aluno
+5430	um professor responsável pela turma
+5431	faltas
+5432	uma licença
+5433	uma nota
+5434	o contraturno escolar (SFO)
+5435	um ônibus escolar
+5436	o início das aulas
+5437	o bullying
+5438	o ambiente escolar
+5439	um mutirão voluntário
+5440	uma viagem da turma
+5441	uma escola-acampamento
+5442	um orientador
+5443	educação especial
+5444	um benefício
+5445	auxílio-doença
+5446	aposentadoria por invalidez
+5447	uma aposentadoria por idade
+5448	uma avaliação da capacidade de trabalho
+5449	um analista do caso
+5450	uma reclamação, um recurso
+5451	um direito
+5452	um dever
+5453	um relatório quinzenal do NAV
+5454	um plano de atividades
+5455	uma medida, um programa
+5456	orientação
+5457	auxílio-moradia
+5458	assistência social
+5459	uma noz
+5460	glúten
+5461	lactose
+5462	frutos do mar
+5463	soja
+5464	o conteúdo
+5465	a rotulagem
+5466	um vestígio, um traço
+5467	avisar
+5468	contaminação cruzada
+5469	uma reação
+5470	uma data de validade
+5471	um caixa
+5472	um corredor
+5473	um porão
+5474	um sótão
+5475	um teto, um telhado
+5476	um armário
+5477	um nariz escorrendo
+5478	um enjoo
+5479	ficar em casa
+5480	um consultório médico
+5481	um comprimido
+5482	uma pomada
+5483	uma gota
+5484	limpar, secar
+5485	passar o aspirador
+5486	poeira
+5487	uma lixeira
+5488	a louça (para lavar)
+5489	uma torneira
+5490	vazar
+5491	vedar
+5492	uma lâmpada
+5493	um fusível
+5494	um parafuso
+5495	uma chave de fenda
+5496	consertar
+5497	uma copropriedade
+5498	uma área comum
+5499	uma regra do prédio
+5500	o horário de silêncio
+5501	bater à porta
+5502	um balde
+5503	a limpeza da escada
+5504	uma assembleia anual
+5505	uma votação
+5506	uma despesa comum
+5507	atencioso
+5508	ser atencioso, levar os outros em conta
+5509	ajuda mútua
+5510	um martelo
+5511	uma parafusadeira
+5512	uma furadeira
+5513	um martelete
+5514	uma esmerilhadeira
+5515	uma serra tico-tico
+5516	uma serra circular
+5517	uma trena
+5518	um nível de bolha
+5519	um alicate
+5520	uma chave de boca
+5521	uma chave inglesa
+5522	um serrote
+5523	um formão
+5524	uma espátula
+5525	uma colher de pedreiro
+5526	um estilete
+5527	uma lixadeira
+5528	um nível a laser

@@ -1,0 +1,48 @@
+1	Muita coisa mudou no Komiks·Lab
+2	Quanto tempo, %s 👋
+3	Oi, %s! O seu norueguês continua esperando por você — e o app cresceu desde a sua última visita. Novos quadrinhos, novos testes e algumas coisas que agora simplesmente funcionam melhor.
+4	Ver as novidades
+5	Dez minutos por dia bastam para manter o que você aprendeu.
+6	Novidades do Komiks·Lab
+7	Fresquinho no app 📰
+8	Oi, %s! Aqui vai uma lista curta do que mudou recentemente — novas histórias, testes e pequenas melhorias.
+9	Ler as novidades
+10	Tudo funciona na hora, não é preciso instalar nada.
+11	Um quadrinho novo para você — Komiks·Lab
+12	Uma história para hoje 📖
+13	Oi, %s! Aqui está um quadrinho que você ainda não leu. Áudio em norueguês, tradução ao passar o mouse e um teste no final.
+14	Ler o quadrinho
+15	Uma história por dia é um hábito que pega.
+16	Parar de receber estes e-mails
+17	O seu código de acesso — Komiks·Lab
+18	Entre no Komiks·Lab 🔑
+19	Oi, %s! Toque no botão para entrar — não precisa de senha. Ou digite o código abaixo se você estiver em outro aparelho.
+20	Quero entrar
+21	O link e o código valem por 15 minutos e uma única vez. Se você não pediu para entrar, ignore este e-mail — ninguém consegue entrar sem ele.
+22	O seu código
+23	Confirme o seu e-mail — Komiks·Lab
+24	Confirme o seu e-mail 📬
+25	Oi, %s! Obrigado por entrar no Komiks·Lab. Toque no botão para confirmar o seu e-mail e ativar a sua conta.
+26	Confirmar o meu e-mail
+27	O link vale por 48 horas. Se você não se cadastrou, é só ignorar este e-mail — nada vai acontecer.
+28	Bem-vindo(a) ao Komiks·Lab! 🎉
+29	Seja bem-vindo(a), %s! 🎉
+30	O seu e-mail foi confirmado e a sua conta está pronta. Veja como começar:<br>📖 leia o seu primeiro quadrinho em norueguês com vozes de verdade,<br>🎨 crie o seu herói no estúdio de avatar,<br>🏁 apostem corrida na Corrida de Lógica e juntem medalhas.
+31	Começar a estudar
+32	O seu progresso agora fica salvo na sua conta e acompanha você em todos os aparelhos.
+33	Redefina a sua senha — Komiks·Lab
+34	Redefina a sua senha 🔑
+35	Oi, %s! Alguém (esperamos que você) pediu para redefinir a senha da sua conta no Komiks·Lab.
+36	Escolher uma nova senha
+37	O link vale por 1 hora. Se não foi você, ignore este e-mail — a sua senha continua a mesma.
+38	Você já tem uma conta no Komiks·Lab
+39	Você já tem uma conta 🙂
+40	Oi, %s! Alguém tentou se cadastrar com este e-mail, mas você já tem uma conta.
+41	Entrar
+42	Esqueceu a senha? Use “Esqueceu a senha?” na página de login.
+43	Uma conta foi criada para você — Komiks·Lab
+44	Boas-vindas, %s! 💎
+45	Uma conta grátis no Komiks·Lab foi criada para você. Escolha a sua própria senha e comece a aprender norueguês com quadrinhos.
+46	Escolher a minha senha
+47	O link vale por 7 dias. Depois disso, você pode usar “Esqueceu a senha?” na página de login.
+48	Você recebeu este e-mail porque este endereço foi usado no Komiks·Lab — aprenda norueguês com quadrinhos.

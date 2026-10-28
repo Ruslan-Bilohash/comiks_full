@@ -188,6 +188,7 @@
     de: ['Anfrage erhalten. Prüfe deinen Posteingang und Spamordner. Wenn keine E-Mail ankommt, warte oder melde dich mit deinem Passwort an.', 'Deine E-Mail ist bestätigt. Dein Konto ist aktiv und dein Fortschritt wird auf dem Server gespeichert.'],
     pl: ['Prośba została przyjęta. Sprawdź skrzynkę i spam. Jeśli wiadomość nie dotrze, poczekaj lub zaloguj się hasłem.', 'Adres e-mail jest potwierdzony. Konto jest aktywne, a postępy są zapisywane na serwerze.'],
     lt: ['Užklausa gauta. Patikrinkite paštą ir šlamšto aplanką. Jei laiškas neateina, palaukite arba prisijunkite slaptažodžiu.', 'El. paštas patvirtintas. Paskyra aktyvi, o pažanga saugoma serveryje.'],
+    pt: ['Pedido recebido. Confira sua caixa de entrada e a pasta de spam. Se o e-mail não chegar, aguarde ou entre com sua senha.', 'Seu e-mail foi confirmado. A conta está ativa e o progresso fica salvo no servidor.'],
     tr: ['İstek alındı. Gelen kutunuzu ve spam klasörünü kontrol edin. E-posta gelmezse bekleyin veya parolanızla giriş yapın.', 'E-postanız doğrulandı. Hesabınız etkin ve ilerlemeniz sunucuda kaydediliyor.'],
     ar: ['تم استلام الطلب. تحقّق من البريد الوارد ومجلد الرسائل غير المرغوب فيها. إذا لم تصل رسالة، انتظر أو سجّل الدخول بكلمة المرور.', 'تم تأكيد بريدك. حسابك نشط ويُحفظ تقدّمك على الخادم.']
   };
@@ -354,8 +355,9 @@
     en: { login: 'Sign in with Google', signup: 'Sign up with Google', link: 'Link Google', consent: 'Accept the terms above to create an account.', error: 'Google sign-in did not finish. Try again or use your password.', existing: 'First sign in to your existing account with your password or email code. Choose “Link Google” in your account to use Google next time.', create: 'Open registration, accept the terms and choose Google to create an account.', cancelled: 'Google sign-in was cancelled.', unavailable: 'Google sign-in is not configured yet.', linked: 'Google is linked. You can now sign in with Google.' },
     no: { login: 'Logg inn med Google', signup: 'Registrer deg med Google', link: 'Koble til Google', consent: 'Godta vilkårene ovenfor for å opprette en konto.', error: 'Google-innloggingen ble ikke fullført. Prøv igjen eller bruk passord.', existing: 'Logg først inn på den eksisterende kontoen med passord eller e-postkode. Velg «Koble til Google» på kontosiden.', create: 'Åpne registrering, godta vilkårene og velg Google.', cancelled: 'Google-innloggingen ble avbrutt.', unavailable: 'Google-innlogging er ikke konfigurert ennå.', linked: 'Google er koblet til. Du kan nå logge inn med Google.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(GOOGLE_TEXT, 'auth.js:GOOGLE_TEXT');
   const gx = key => (GOOGLE_TEXT[C().ui] || GOOGLE_TEXT.en)[key];
-  const OR = { uk: 'або', en: 'or', no: 'eller', de: 'oder', pl: 'lub', tr: 'veya', lt: 'arba', ar: 'أو' };
+  const OR = { uk: 'або', en: 'or', no: 'eller', de: 'oder', pl: 'lub', tr: 'veya', lt: 'arba', pt: 'ou', ar: 'أو' };
   /* Під кнопкою входу: людина має знати, що натиск може створити акаунт. */
   const GNOTE = {
     uk: 'Немає акаунта? Його буде створено на умовах використання, які ви вже прийняли.',
@@ -365,6 +367,7 @@
     pl: 'Nie masz konta? Zostanie utworzone zgodnie z regulaminem, który już zaakceptowano.',
     tr: 'Hesabınız yok mu? Daha önce kabul ettiğiniz kullanım koşullarıyla oluşturulur.',
     lt: 'Dar neturite paskyros? Ji bus sukurta pagal jau priimtas naudojimo sąlygas.',
+    pt: 'Ainda não tem conta? Ela será criada de acordo com os termos de uso que você já aceitou.',
     ar: 'ليس لديك حساب؟ سيُنشأ وفق شروط الاستخدام التي قبلتها بالفعل.',
   };
   /* Фірмова «G» без змін — так вимагають правила оформлення кнопок Google:

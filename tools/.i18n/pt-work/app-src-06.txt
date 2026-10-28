@@ -1,0 +1,200 @@
+1001	Made in the same workshop as the comics, but with no homework at all.
+1002	All games →
+1003	← Back
+1004	More games are already in the works.
+1005	🎁 Gift
+1006	Pick an item for your friend’s avatar — it cannot be bought or won, only given. Gifts are free: one per friend per day.
+1007	A wish (in Norwegian)
+1008	🎁 Give
+1009	You already gave this friend a gift today — try again tomorrow 🙂
+1010	Open
+1011	A new avatar item!
+1012	👕 Wear it
+1013	Later
+1014	🎁 Give one back
+1015	Close
+1016	📲 Install the app
+1017	A shortcut on your phone or in the Start menu — the site opens like a normal app, even offline.
+1018	📲 How to add it on iPhone
+1019	Tap “Share” at the bottom of Safari, then “Add to Home Screen”.
+1020	Got it
+1021	✅ The app is installed
+1022	Installing…
+1023	📲 The Komiks·Lab app
+1024	No App Store, no Google Play: the site installs straight from the browser. An icon on your desktop or home screen, its own window without an address bar, and lessons that work offline.
+1025	you are here
+1026	If your browser does not offer installing
+1027	Firefox and older browsers cannot install web apps. Save a plain shortcut instead — and give it our icon if you like: right-click the shortcut → “Properties” → “Change icon” → pick the downloaded file.
+1028	💻 Installer for Windows
+1029	A normal .exe: it puts a shortcut on your desktop and in the Start menu. The app opens in its own window, without an address bar.
+1030	⚡ Light — {s}
+1031	A shortcut to the site in an app window. Lessons work offline too — the browser keeps them.
+1032	📚 Full — {s}
+1033	Every comic, all audio and all tests go onto your disk. Works with no internet at all.
+1034	How to install
+1035	Press the button — the file goes to your Downloads.
+1036	Open it. Windows may warn about an unknown publisher: “More info” → “Run anyway”.
+1037	Keep “Shortcut on the desktop” ticked and press Install.
+1038	The installer asks for no administrator rights and installs into your own user folder. Remove it like any program, through Settings → Apps.
+1039	⚠️ If Windows shows a blue window
+1040	“Windows protected your PC” appears for every program that few people have downloaded yet — it is not about viruses. Click “More info”, then “Run anyway”.
+1041	The warning goes away on its own once enough people install the app. Removing it earlier takes an expensive certificate issued to a registered company — we are not there yet, and we would rather not pretend otherwise.
+1042	If you want no warnings at all, use the “Install the app” button at the top of this page: the shortcut is the same, but the browser puts it there itself.
+1043	📦 APK file for Android
+1044	If you would rather not install from the browser, here is the real app as a single file. No Google Play needed.
+1045	⚡ Light — {s}
+1046	Eight stories and ten word themes inside, the rest loads from the site. Includes account, friends and ranking.
+1047	📚 Full — {s}
+1048	Every comic, all audio and all tests inside. Works with no internet at all; no account.
+1049	How to install
+1050	Press the button — the file goes to your Downloads.
+1051	Open it. Android will ask for permission to install from this source — allow it.
+1052	Press “Install”, then “Open”.
+1053	The app is signed by us and has no ads. Android warns that the source is not Google Play — that is normal for APK files.
+1054	🔗 Download a Windows shortcut
+1055	🖼️ Download the icon (.ico)
+1056	✅ The app is already installed — you are running it in its own window.
+1057	🤖 Robo learns to code
+1058	Build a program from blocks and Robo runs it step by step. Collect code bits 💎, reach the charger ⚡ and earn stars for the shortest program. Your progress is saved.
+1059	🗺️ Levels
+1060	▶ Run
+1061	↺ Restart
+1062	🗑️ Clear
+1063	Program
+1064	Function F
+1065	Next level ▶
+1066	🔄 Again
+1067	Finish the previous level first
+1068	Tap a block in the program to remove it. Tap 🔁 to put blocks inside the loop; tap the number to change it.
+1069	🎮 Play
+1070	▶ Continue
+1071	🏆 All levels done!
+1072	Too many blocks for this level.
+1073	Adding to the program
+1074	Adding to function F
+1075	Adding to loop 🔁
+1076	Small example
+1077	Code runs from left to right — one command per step.
+1078	Show me
+1079	Again
+1080	Coding
+1081	💻 Coding for kids
+1082	Comics with Robo the robot and tests where you steer a robot, read tiny programs, build algorithms and hunt for bugs. Everything is in Norwegian — hover for a translation.
+1083	What is coding?
+1084	Coding means giving a computer exact commands. A program is commands in the right order. The computer does not guess what we meant: it does exactly what is written.
+1085	Big ideas
+1086	Programming languages: what is each for?
+1087	to start with
+1088	Comics
+1089	Tests
+1090	Read
+1091	Test
+1092	Game: Robo learns to code
+1093	🎲 Everything
+1094	🤖 Steer the robot
+1095	💻 What does it print?
+1096	🧩 Algorithms
+1097	🐞 Find the bug
+1098	🗂️ Programming languages
+1099	🌐 HTML: what will the page look like?
+1100	tags, heading, image, link
+1101	all task types
+1102	arrows on a grid
+1103	pseudocode and Python
+1104	steps in order
+1105	debugging
+1106	what each is for
+1107	Tip for parents and teachers: read a comic first, then take that comic’s test, and finish with “Everything”.
+1108	🤖 Game: Robo learns to code
+1109	Build a program from blocks and the robot walks the maze. 17 levels: commands, loops, functions, bugs and a master test.
+1110	▶ Start the game
+1111	🏆 All levels done
+1112	🧭 My coding journey
+1113	Each comic is a step: read the story and pass its test. Green means done.
+1114	All steps
+1115	Coding journey complete!
+1116	🎲 Final mixed test
+1117	read
+1118	test
+1119	🏅 My badges
+1120	Beginner
+1121	Learner
+1122	Coder
+1123	Programmer
+1124	Code master
+1125	Your rank
+1126	📊 My learning
+1127	How your learning is going: results, effectiveness, words and mistakes. Compared with the previous period of the same length.
+1128	Quizzes completed
+1129	Average accuracy
+1130	Study days
+1131	Words learned
+1132	Mistakes fixed
+1133	Active time
+1134	quizzes in the period
+1135	correct answers
+1136	on the site in total
+1137	📈 Results by day
+1138	Bars — number of quizzes, line — average accuracy.
+1139	quizzes
+1140	accuracy
+1141	🗓 Study calendar
+1142	Active days over 17 weeks — the darker, the more quizzes.
+1143	less
+1144	more
+1145	🎯 Effectiveness by section
+1146	Average accuracy and number of attempts per section in the period.
+1147	No quizzes in this period yet.
+1148	🃏 Words
+1149	Where your words are in spaced repetition.
+1150	new
+1151	learning
+1152	reviewing
+1153	known
+1154	🃏 Review cards
+1155	🔁 Working on mistakes
+1156	A mistake counts as fixed after correct answers today, a day later and 3 days later.
+1157	due today
+1158	waiting
+1159	fixed in the period
+1160	Most frequent mistakes
+1161	🔁 Practise mistakes
+1162	📊 Full analysis
+1163	🧾 Recent quizzes
+1164	When
+1165	Quiz
+1166	Result
+1167	Time
+1168	No quizzes yet — take any one and the charts will appear here.
+1169	💡 What to do next
+1170	Start a streak: one quiz a day and the calendar fills up.
+1171	Great pace! Try a quiz at the next level.
+1172	Open →
+1173	🔥 My activity
+1174	study days
+1175	current streak
+1176	longest streak
+1177	level
+1178	quizzes in 30 days
+1179	📊 Detailed learning analysis →
+1180	Mon
+1181	
+1182	Wed
+1183	
+1184	Fri
+1185	
+1186	
+1187	less
+1188	more
+1189	Choose your adventure
+1190	📱 I have a room code
+1191	🏁
+1192	Logic Race
+1193	A mix of numbers, clocks and logic puzzles.
+1194	🕵️
+1195	Memory Detective
+1196	Remember the objects. One disappears — find it!
+1197	🧩
+1198	Pattern Lab
+1199	Discover the rule and continue a row of symbols or numbers.
+1200	🔎

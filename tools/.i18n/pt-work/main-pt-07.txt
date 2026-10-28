@@ -1,0 +1,200 @@
+1201	Perigo considerável. Vamos só pelas trilhas sinalizadas.
+1202	Lista do que levar: lã por baixo, corta-vento por cima, touca e luvas.
+1203	E uma garrafa térmica com chocolate quente!
+1204	Lembre das regras da montanha: avise para onde vai e volte a tempo.
+1205	“Não tem vergonha nenhuma em voltar”, a vovó sempre diz.
+1206	À noite, a família se senta em frente à lareira com chocolate quente.
+1207	Estas são as melhores férias de todas!
+1208	É uma e meia da madrugada, e a música está estrondando através da parede.
+1209	Preciso falar alguma coisa, mas não quero brigar.
+1210	Oi! Você tem dois minutos? Eu queria conversar sobre uma coisa.
+1211	Claro. Aconteceu alguma coisa?
+1212	Ontem à noite vocês tocaram música até quase duas. Eu quase não dormi.
+1213	Nossa. Não achei que desse para ouvir tão bem pela parede.
+1214	Entendo que vocês estavam comemorando. Podemos combinar silêncio depois das onze nos dias de semana?
+1215	Tudo bem. Vou avisar os outros também.
+1216	E da próxima vez me fala na hora — não precisa esperar.
+1217	Obrigado. É mais fácil quando a gente conversa.
+1218	No sábado tem mutirão. Você vem? Eu levo o café.
+1219	Com prazer! Até lá.
+1220	Bem-vindos à reunião do condomínio. Vamos seguir a pauta, e hoje temos quatro itens.
+1221	Como eu peço a palavra?
+1222	Levante a mão, e você recebe a palavra na sua vez.
+1223	Proponho instalarmos dois pontos de recarga na garagem.
+1224	Boa proposta. Pode justificar brevemente?
+1225	Cada vez mais gente compra carro elétrico, e uma recarga coletiva sai mais barata do que instalações individuais.
+1226	Mas quem paga? Eu nem tenho carro.
+1227	Bem observado. Por isso proponho que quem usar pague por quilowatt-hora.
+1228	Então eu concordo. O investimento sai do fundo de manutenção?
+1229	Então vamos votar. Catorze a favor, três contra, nenhuma abstenção. A proposta foi aprovada.
+1230	Isso vai constar na ata?
+1231	Sim, a ata sai em até uma semana, e a diretoria vai pedir orçamentos.
+1232	Ótimo. Minha primeira reunião de condomínio foi mais fácil do que eu esperava.
+1233	Escrevi a candidatura três vezes, mas ela parece sem graça.
+1234	Deixa eu ler. Muitas vezes o problema é que o texto é genérico demais.
+1235	Aqui está escrito “sou organizada e motivada”. Todo mundo escreve isso.
+1236	O que eu escrevo no lugar?
+1237	Mostre com um exemplo: o que você fez e qual foi o resultado?
+1238	Introduzi uma nova rotina que reduziu o tempo de espera em vinte por cento.
+1239	Exatamente assim. É concreto, e você pode falar disso na entrevista.
+1240	O currículo deve ter uma página: formação, experiência e idiomas.
+1241	Devo colocar foto e data de nascimento?
+1242	Na Noruega não é necessário. Para as referências, escreva “disponíveis sob solicitação”.
+1243	E se eu não cumprir todos os requisitos do anúncio?
+1244	Candidate-se mesmo assim. Escreva o que você consegue aprender rápido e seja honesta sobre o resto.
+1245	Mande a candidatura hoje. Melhor ainda: ligue antes para a pessoa de contato e faça uma pergunta.
+1246	Assim vão se lembrar de mim. Obrigada pela ajuda!
+1247	Recebi o acerto do imposto e devo nove mil coroas.
+1248	Isso é imposto pago a menos. Você conferiu a declaração na primavera?
+1249	Entreguei sem mudar nada. Foi um erro?
+1250	Não é erro, mas os valores são só uma proposta. Você mesmo é responsável por eles.
+1251	Que deduções eu poderia ter declarado?
+1252	Dedução de deslocamento, mensalidade do sindicato e juros de empréstimos são as mais comuns.
+1253	Posso recorrer agora que o acerto já saiu?
+1254	Pode, você pode corrigir a declaração dos três últimos anos e receber o dinheiro de volta.
+1255	E mude o cartão de imposto agora, para o empregador descontar o valor certo todo mês.
+1256	Melhor do que ter uma surpresa desagradável no ano que vem.
+1257	Se quiser, você pode dividir o imposto devido em duas parcelas.
+1258	Então vou fazer isso. Agora entendo o sistema muito melhor.
+1259	Bem-vindos. Vocês querem pedir uma pré-aprovação de financiamento, certo?
+1260	Sim, estamos pensando em comprar um apartamento na primavera.
+1261	Quanto vocês têm de capital próprio?
+1262	Umas oitocentas mil. É suficiente?
+1263	A exigência é de quinze por cento do valor do imóvel, então dá para um imóvel de uns cinco milhões.
+1264	Qual vai ser o custo mensal?
+1265	Com a taxa de hoje, umas vinte e duas mil, mais as despesas de condomínio.
+1266	Devemos escolher juros fixos ou variáveis?
+1267	Os juros fixos dão previsibilidade; os variáveis costumam sair mais baratos com o tempo. É uma escolha.
+1268	E se os juros subirem muito?
+1269	Fazemos um teste de estresse nas finanças de vocês com juros cinco por cento mais altos antes de aprovar o empréstimo.
+1270	Vocês recebem a resposta em dois dias úteis, e a pré-aprovação vale por três meses.
+1271	Perfeito. Então vamos começar a visitar imóveis.
+1272	Um cano estourou durante a noite, e o chão do banheiro ficou debaixo d’água.
+1273	Primeiro fecho o registro geral, depois ligo para o seguro.
+1274	Obrigado por avisar rápido. Você tirou fotos do estrago?
+1275	Tirei, tanto do cômodo quanto do cano que estourou.
+1276	Quanto eu tenho que pagar do meu bolso?
+1277	A franquia é de quatro mil. O seguro cobre o resto se o dano foi repentino.
+1278	E se o cano era velho e mal conservado?
+1279	Aí a indenização pode ser reduzida. O perito avalia a causa.
+1280	Estou secando as paredes agora. Não jogue nada fora antes de a avaliação terminar.
+1281	Entendido. Também vou guardar todos os recibos.
+1282	O caso está registrado. Você recebe o pagamento quando o profissional mandar a nota.
+1283	Obrigada. Foi muito melhor do que eu temia.
+1284	O assunto de hoje é quantos dias devemos trabalhar de casa. O que vocês acham?
+1285	Eu rendo muito mais em casa. Ninguém me interrompe a cada quinze minutos.
+1286	Por outro lado, perdemos as conversinhas que criam confiança.
+1287	Bem lembrado, mas dá para resolver com dias fixos juntos.
+1288	E os novos funcionários precisam de alguém a quem perguntar. Pela tela é mais difícil.
+1289	Concordo. Talvez eles devam ficar mais no escritório nos primeiros meses.
+1290	Vamos resumir: dois dias fixos juntos, e o resto cada um escolhe.
+1291	Parece um meio-termo razoável.
+1292	Podemos avaliar o esquema daqui a três meses?
+1293	Sim, aí medimos os resultados e o bem-estar antes de decidir algo definitivo.
+1294	Obrigado por uma discussão objetiva. Todo mundo pôde dizer o que pensava.
+1295	E chegamos a um acordo sem brigar. Isso é raro em reuniões!
+1296	Suas costas precisam de repouso, mas uma licença médica total nem sempre é a melhor opção.
+1297	O que você quer dizer com isso?
+1298	Uma licença parcial: você trabalha cinquenta por cento e fortalece as costas aos poucos.
+1299	Pode, mesmo que eu não consiga levantar peso?
+1300	Pode, o empregador tem que adaptar o trabalho. Vou escrever quais tarefas você deve evitar.
+1301	Assim fica mais fácil falar com o chefe.
+1302	Obrigado por avisar cedo. Vamos fazer juntos um plano de acompanhamento.
+1303	Posso atender clientes e dar treinamentos, mas o depósito não.
+1304	Vamos anotar isso e conversar a cada duas semanas.
+1305	E se as costas piorarem de novo?
+1306	Aí ajustamos o plano. A saúde vem primeiro.
+1307	Eu tinha medo de perder o emprego, mas assim me sinto seguro.
+1308	Ninguém perde o emprego por ficar doente. A gente encontra soluções.
+1309	Precisamos pedir o auxílio parental antes de a licença começar.
+1310	Quanto tempo podemos ficar em casa no total?
+1311	Quarenta e nove semanas com salário integral, ou cinquenta e nove semanas com oitenta por cento.
+1312	O valor total fica mais ou menos o mesmo, né?
+1313	Fica, mas mais tempo em casa significa uma renda mensal menor.
+1314	Então vamos escolher cem por cento e uma licença mais curta.
+1315	Quantas semanas são reservadas para mim?
+1316	Quinze semanas são a cota do pai. Elas não podem ser transferidas para mim.
+1317	Quero tirar licença a partir de março. Com quanta antecedência preciso avisar?
+1318	Pelo menos doze semanas. Assim dá tempo de encontrar um substituto.
+1319	Então está tudo pronto: o pedido foi enviado, e o trabalho foi avisado.
+1320	Agora só estou ansiosa para ficar em casa com o bebê.
+1321	A afirmação de hoje: o refeitório deve servir comida vegetariana três dias por semana.
+1322	Sou a favor, e tenho números que confirmam.
+1323	A produção de carne responde por uma grande parte das emissões de gases de efeito estufa.
+1324	Mas muitos alunos já comem pouca proteína. E eles?
+1325	Um bom contra-argumento. Feijão, lentilha e ovos suprem a necessidade do mesmo jeito.
+1326	Então estou disposto a experimentar, se a comida for gostosa.
+1327	Lembrem de separar fatos de opiniões quando argumentarem.
+1328	Os números são fatos, mas “é mais gostoso” é uma opinião.
+1329	Podemos propor dois dias primeiro e avaliar até o Natal?
+1330	É um meio-termo sensato. Vou colocar isso no nosso texto.
+1331	Vocês ouviram uns aos outros e mudaram de posição no caminho. Isso é um bom debate.
+1332	Eu achava que debate era para ganhar. Agora vejo de outro jeito.
+1333	A conta de luz de dezembro está duas vezes mais alta que a do ano passado.
+1334	O seu contrato é com preço spot ou preço fixo?
+1335	Preço spot. Eu achava que era sempre o mais barato.
+1336	Com o tempo muitas vezes é, mas nas semanas frias ele oscila muito.
+1337	Existe algum auxílio?
+1338	Sim, o governo cobre uma parte quando o preço médio passa de um limite. Isso aparece automaticamente na conta.
+1339	O que eu mesmo posso fazer para gastar menos?
+1340	Baixe a temperatura à noite, lave a roupa à noite e vede as frestas em volta das janelas.
+1341	Vale a pena mudar para preço fixo agora?
+1342	É uma aposta. O preço fixo dá tranquilidade, mas você paga pela previsibilidade.
+1343	Vou começar pelas medidas de economia e acompanhar os preços por um mês.
+1344	Sábio. Pequenos hábitos muitas vezes fazem a maior diferença.
+1345	Perguntei ao chefe sobre as férias, e ele disse “vamos ver”. Isso quer dizer não?
+1346	Não necessariamente. Muitas vezes quer dizer que ele precisa conferir a equipe primeiro.
+1347	No meu país, o chefe teria respondido sim ou não na hora.
+1348	Aqui as decisões costumam ser coletivas. As pessoas querem que a equipe esteja de acordo.
+1349	E por que todo mundo chama o gerente pelo primeiro nome? Para mim parece falta de educação.
+1350	A hierarquia é horizontal. Usar o primeiro nome significa igualdade, não falta de respeito.
+1351	Mas nas reuniões as pessoas falam pouco. Elas discordam sem dizer?
+1352	Algumas, sim. Por isso é bom perguntar diretamente: “Hva tenker du om dette?”
+1353	E o papo no almoço? Nunca sei o que dizer.
+1354	O tempo e os planos para o fim de semana são sempre assuntos seguros. Ninguém espera conversas profundas.
+1355	Obrigado. Agora entendo “vamos ver” como “vou conferir”, e não como uma recusa.
+1356	Exatamente. E pergunte de novo daqui a dois dias — é totalmente normal.
+1357	Fiz vinte e quatro slides para uma apresentação de quinze minutos.
+1358	É demais. Conte com um slide a cada dois minutos.
+1359	Comece pela mensagem principal. O que as pessoas devem lembrar depois?
+1360	Que a nova rotina nos economiza duas horas por semana.
+1361	Perfeito. Diga isso na primeira frase e use o resto para mostrar como.
+1362	E palavras de ligação entre as partes: “em primeiro lugar”, “em seguida”, “por fim”.
+1363	E se alguém fizer uma pergunta que eu não sei responder?
+1364	Aí você diz isso com sinceridade e promete voltar com a resposta. Isso não enfraquece você.
+1365	Resumindo: a rotina nos economiza duas horas por semana e é fácil de implantar.
+1366	Claro e concreto. Você pensou em quanto custa implantá-la?
+1367	Boa pergunta — vou conferir os números e mando amanhã.
+1368	É assim que se faz. Você ficou calma o tempo todo.
+1369	Escrevi uma carta para o jornal sobre a faixa de pedestres perto da escola.
+1370	Ótimo. Qual é a sua ideia principal, numa frase?
+1371	Que a prefeitura precisa instalar semáforos e lombadas antes que aconteça um acidente.
+1372	Então essa frase deve ficar bem no começo, e não no final.
+1373	Você tem números concretos? Quantidade de carros, medições de velocidade, quase-acidentes?
+1374	Tenho, o grupo de pais contou os carros durante duas semanas.
+1375	Mais uma coisa: evite ataques pessoais. Critique a decisão, não o político.
+1376	Escrevi que ele não se importa. Vou tirar isso.
+1377	Qual pode ser o tamanho da carta?
+1378	No máximo três mil caracteres. Textos mais curtos são lidos com mais frequência — e compartilhados.
+1379	Vamos publicar na quinta, e a prefeitura vai ter a chance de responder.
+1380	Pelo menos começamos um debate.
+1381	O proprietário avisou que o aluguel vai subir quinze por cento a partir do mês que vem.
+1382	Isso não parece legal. O que diz o seu contrato?
+1383	Em regra, o aluguel só pode ser reajustado pelo índice de preços ao consumidor uma vez por ano.
+1384	E ele precisa avisar com antecedência?
+1385	Precisa, por escrito e com pelo menos um mês de antecedência.
+1386	Ele também aparece sem avisar, para “dar uma olhada no apartamento”.
+1387	Ele não tem esse direito. Enquanto você aluga, o imóvel é a sua casa.
+1388	A geladeira está quebrada há três semanas. Quem paga?
+1389	O proprietário tem o dever de manutenção. Você pode exigir o conserto ou um desconto no aluguel.
+1390	E se ele não fizer nada?
+1391	Aí você manda uma exigência por escrito com prazo e depois reclama ao tribunal de disputas de aluguel.
+1392	Escreva sempre por e-mail, assim você tem como comprovar.
+1393	Obrigado. Agora sei o que posso exigir e como.
+1394	Oi! Minha filha quer começar a jogar futebol. Tem vaga no time?
+1395	Com certeza. Aceitamos todo mundo, de qualquer nível.
+1396	A taxa de treino é de mil por ano, e o clube é mantido por voluntários.
+1397	O que se espera dos pais?
+1398	Alguns turnos na lanchonete por temporada e levar as crianças aos jogos fora de casa.
+1399	Isso eu consigo. Trabalho em turnos, mas os fins de semana muitas vezes estão livres.
+1400	Preciso de algum documento para ajudar como treinador?

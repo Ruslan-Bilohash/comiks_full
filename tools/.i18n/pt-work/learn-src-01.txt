@@ -1,0 +1,200 @@
+1	Personal pronouns
+2	A pronoun replaces a noun. Hun is for a woman or girl, han for a man or boy, den/det for things (den for en/ei words, det for et words). Dere is “you” (several people), de is “they”.
+3	I
+4	you (one person)
+5	he
+6	she
+7	it
+8	we
+9	you (several people)
+10	they
+11	Mia is seven. She goes to school.
+12	Leo and I are friends. We play football.
+13	Mum and Dad are at home. They are making dinner.
+14	Question words
+15	The question word comes first and the verb right after it: “Hvor bor du?”. Hva — what, hvem — who, hvor — where, når — when, hvorfor — why, hvordan — how, hvor mange — how many.
+16	what
+17	who
+18	where
+19	when
+20	why
+21	how
+22	how many
+23	which
+24	Where do you live? – I live in Bergen.
+25	When does school start?
+26	Verbs: present tense
+27	In the present tense add -r to the infinitive, and the form is the same for every person: jeg snakker, du snakker, de snakker. Irregular: være → er, gjøre → gjør, si → sier, vite → vet, ha → har.
+28	speak → speak(s)
+29	eat → eat(s)
+30	live → live(s)
+31	be → am/is/are
+32	have → have/has
+33	do → do/does
+34	I speak a little Norwegian.
+35	We live in Norway.
+36	Modal verbs
+37	After kan, vil, skal, må and bør the verb is in the infinitive without “å” and without -r: “Jeg kan snakke norsk”. After other verbs (liker, begynner, prøver) use “å”: “Jeg liker å lese”.
+38	can
+39	want to
+40	shall, am going to
+41	must
+42	should
+43	like to
+44	I can speak a little Norwegian.
+45	We are going to travel to Tromsø.
+46	I like to read.
+47	Nouns: en, ei, et
+48	Every noun has a gender: en (masculine), ei (feminine, can be replaced by en) and et (neuter). The definite form puts the article at the end: en bil → bilen, ei bok → boka (boken), et hus → huset.
+49	a car → the car
+50	a book → the book
+51	a house → the house
+52	a cat → the cat
+53	an apple → the apple
+54	I have a cat. The cat is called Pus.
+55	We live in a house. The house is yellow.
+56	Object pronouns
+57	When a pronoun is the object of the action it changes form: jeg → meg, du → deg, han → ham (han), hun → henne, vi → oss, dere → dere, de → dem. “Jeg ser henne”, “Hun hjelper oss”.
+58	I → me
+59	you → you
+60	he → him
+61	she → her
+62	we → us
+63	you → you (plural)
+64	they → them
+65	Can you help me?
+66	We will call her tonight.
+67	Grandma is visiting us on Sunday.
+68	Possessive pronouns
+69	A possessive agrees with the thing owned: min bil (en), mi bok (ei), mitt hus (et), mine bøker (plural). The same for din/di/ditt/dine and vår/vårt/våre. Hans, hennes and deres never change. It usually comes after the noun: “bilen min”.
+70	my
+71	your
+72	his
+73	her
+74	our
+75	your (pl.); their
+76	This is my car.
+77	Our house is yellow.
+78	Where are your shoes?
+79	My/your: min, mi, mitt, mine · din, di, ditt, dine
+80	The form follows the owned item, not its owner: en bil → bilen min/din, ei bok → boka mi/di, et hus → huset mitt/ditt, plural → vennene mine/dine.
+81	my car / your car
+82	my book / your book
+83	my house / your house
+84	my friends / your friends
+85	My backpack is blue.
+86	Is this your hat?
+87	My passport is here.
+88	Our/his/her/their: vår, vårt, våre · hans, hennes, deres
+89	Vår agrees with the item: vår bil, vårt hus, våre venner. Hans, hennes and deres do not change. Deres can mean plural “your” or “their”; context decides.
+90	our car / our street
+91	our house
+92	our friends
+93	his / her / their
+94	Her model lights up.
+95	Their books are here.
+96	Her bag is heavy.
+97	Her bag is heavy — with emphasis on the owner.
+98	Their child is capable.
+99	Their child is capable — with emphasis on the owners.
+100	Their children are capable.
+101	Bilen min or min bil? Word order
+102	Both orders are correct. After the noun: definite noun + possessive — bilen min, boka di, huset vårt. Before the noun: possessive + indefinite noun — min bil, di bok, vårt hus. The post-noun pattern is very common; front position often stresses the owner.
+103	my car
+104	MY car
+105	OUR house
+106	It is MY car, not his.
+107	Where are your books?
+108	Reason, result, addition and contrast
+109	Linking expressions show the logic of a text. Derfor, likevel and dessuten are adverbs: when placed first, the finite verb follows directly (Derfor sparer Liv). Ettersom introduces a subordinate clause with subject before verb. På grunn av and i motsetning til take a noun or pronoun. For å + infinitive explains purpose.
+110	therefore — result
+111	nevertheless — surprising contrast
+112	moreover — additional information
+113	since/as — reason in a subordinate clause
+114	because of + noun
+115	in order to + infinitive — purpose
+116	unlike / in contrast to + noun
+117	The rent is high. Therefore Liv makes a budget.
+118	The jacket is cheap. Nevertheless, Mia does not buy it.
+119	The kitchen is modern. Moreover, the living room has large windows.
+120	Liv waits since she wants to think first.
+121	Leo overslept because of a flat phone.
+122	Mia compares prices in order to choose the right jacket.
+123	Unlike the blue jacket, the green one is waterproof.
+124	Verbs: past tense
+125	The past tense (preteritum) is for finished actions in the past: “I går spiste jeg pizza”. Regular verbs take -et, -te, -de or -dde: snakket, spiste, levde, bodde. Many common verbs are irregular: gå → gikk, se → så, være → var, ha → hadde, gjøre → gjorde, si → sa, komme → kom.
+126	speak → spoke
+127	eat → ate
+128	live → lived
+129	go → went
+130	be → was
+131	have → had
+132	see → saw
+133	come → came
+134	Yesterday we went to the cinema.
+135	I lived in Kyiv before.
+136	Adjectives
+137	An adjective agrees with its noun: en stor bil, et stort hus (+t), store biler (+e in the plural). In the definite form it always takes -e: den store bilen, det store huset. Some never change: bra, gratis, moderne.
+138	a big car
+139	a big house
+140	big cars
+141	the big car
+142	a nice day / nice weather
+143	We have a big house.
+144	The red car is new.
+145	Prepositions
+146	I — inside (i Norge, i Oslo, i huset), på — on and at many places (på skolen, på jobb, på butikken, på kino), til — to (til byen), fra — from (fra Ukraina), med — with/by (med bussen), om — about (om morgenen — in the morning).
+147	in Norway / in Bergen
+148	at school / at work
+149	to the shop
+150	from Ukraine
+151	by bus
+152	in the morning
+153	I come from Ukraine, but I live in Norway.
+154	We are travelling to Bergen by train.
+155	Word order (V2)
+156	In a Norwegian statement the verb is always in SECOND place. If the sentence starts with something other than the subject (i dag, nå, i morgen), the subject moves after the verb: “Jeg går på jobb” → “I dag går jeg på jobb”.
+157	I am having breakfast now.
+158	Now I am having breakfast.
+159	Tomorrow we are leaving.
+160	In winter it is cold.
+161	Today I am going to work.
+162	After school Leo plays football.
+163	Conjunctions
+164	Og (and), men (but), eller (or) and så (so) join two main clauses. Fordi (because), at (that), når (when), hvis (if), selv om (although), mens (while) and før (before) start a subordinate clause — there ikke comes BEFORE the verb: “…fordi jeg ikke har tid”.
+165	and
+166	but
+167	or
+168	because
+169	that
+170	if
+171	although
+172	I am staying home because I am ill.
+173	He says that he does not have time.
+174	Sin/si/sitt/sine and reflexive verbs
+175	Sin/si/sitt/sine means “one’s own” when the owner is the third-person subject: “Kari ringer broren sin” (her own brother), but “Kari ringer broren hennes” (another woman’s brother). Reflexive verbs take seg/meg/deg/oss: “Jeg gleder meg”, “Vi setter oss”.
+176	Kari calls her (own) brother.
+177	Kari calls her (someone else’s) brother.
+178	I look forward
+179	he sits down
+180	we hurry
+181	Leo is looking for his ball.
+182	We are looking forward to the holiday.
+183	Present perfect
+184	The present perfect is har + past participle. Use it when the result matters now or the action is still going on: “Jeg har bodd i Norge i to år”. With a specific past time (i går, i 2020) use the past tense. Forms: snakket, spist, bodd, gått, vært, hatt, sett, kommet, gjort, sagt.
+185	have spoken
+186	have eaten
+187	have lived
+188	have gone
+189	have been
+190	have seen
+191	have done
+192	have said
+193	I have lived in Norway for two years.
+194	Have you been to Tromsø?
+195	The passive
+196	The passive shows that something is done to the subject. Bli + participle for a specific event: “Huset ble bygd i 1990”. The s-passive for rules and regular actions: “Butikken åpnes klokka ni”, “Det snakkes norsk her”. After modals: “Søknaden må sendes i dag”.
+197	The house was built in 1990.
+198	The shop opens at nine.
+199	The application must be sent today.
+200	The book was written by Ibsen.

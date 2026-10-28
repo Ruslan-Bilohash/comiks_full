@@ -1,0 +1,200 @@
+3001	claro, iluminado
+3002	metros quadrados
+3003	varanda
+3004	por mês
+3005	o aluguel
+3006	eletricidade, luz
+3007	incluído
+3008	bastante, bem
+3009	caro
+3010	a localização
+3011	pagar
+3012	caução, depósito
+3013	conta
+3014	permitido
+3015	animais de estimação
+3016	mudar-se para
+3017	as chaves
+3018	o contrato
+3019	assinado
+3020	mutirão
+3021	o condomínio
+3022	significa
+3023	na verdade, afinal
+3024	os vizinhos
+3025	sem
+3026	receber pagamento
+3027	arruma
+3028	pinta
+3029	planta
+3030	flores
+3031	junta folhas com o ancinho
+3032	carregar
+3033	os sacos de lixo
+3034	claro, com certeza
+3035	o estacionamento
+3036	mais pesados
+3037	achava, pensava
+3038	waffles
+3039	a parte
+3040	conhece (pessoas)
+3041	tradição
+3042	contar
+3043	formado
+3044	enfermeiro, enfermeira
+3045	hospital
+3046	por que
+3047	candidatou-se
+3048	o cargo, a vaga
+3049	deseja, quer
+3050	a experiência
+3051	ao mesmo tempo
+3052	desenvolver-me
+3053	lida com
+3054	estressante
+3055	manter a cabeça fria
+3056	priorizar
+3057	as tarefas
+3058	trabalhar em conjunto
+3059	os conhecimentos de norueguês
+3060	impressionante
+3061	aprovado
+3062	jornais
+3063	dia de trabalho
+3064	oportunidade
+3065	especialização
+3066	entrar em contato
+3067	até, dentro de
+3068	conseguiu o emprego
+3069	domingo
+3070	o café da manhã
+3071	pronto
+3072	com fome
+3073	queijo marrom
+3074	sim, por favor
+3075	um copo
+3076	suco
+3077	típico
+3078	tem gosto de
+3079	lembre-se
+3080	preparar a marmita
+3081	maçã
+3082	corram, depressa
+3083	minutos
+3084	tchau
+3085	que horas são
+3086	sete
+3087	levantar-se
+3088	oito e meia (8:30)
+3089	começa
+3090	logo, em breve
+3091	meio-dia e quinze (12:15)
+3092	às três horas
+3093	encontrar-se
+3094	quinze para as seis (5:45)
+3095	o jantar
+3096	o tempo
+3097	rápido
+3098	hora de dormir
+3099	boa noite
+3100	o ônibus
+3101	centro da cidade
+3102	trocar (de ônibus)
+3103	a estação de trem
+3104	comprar
+3105	passagem, bilhete
+3106	o aplicativo
+3107	embarcar, entrar
+3108	só um momento
+3109	passagem de adulto
+3110	sente-se
+3111	dirige, parte
+3112	curso de norueguês
+3113	próxima parada
+3114	descer
+3115	o bonde
+3116	obrigado pela ajuda
+3117	igualmente
+3118	boa sorte
+3119	dia nacional
+3120	hip, hip, hurra
+3121	comemora(m)
+3122	constituição
+3123	o desfile das crianças
+3124	as crianças
+3125	bandeiras
+3126	está usando, veste
+3127	bunad (traje folclórico)
+3128	tradicional
+3129	traje
+3130	determinado, específico
+3131	lindo
+3132	sorvete
+3133	cachorro-quente, salsicha
+3134	véspera de Natal
+3135	dezembro
+3136	Natal
+3137	pratos
+3138	costela de porco
+3139	pinnekjøtt (costela de cordeiro seca)
+3140	salgado
+3141	seco
+3142	carne de cordeiro
+3143	forte
+3144	delicioso, maravilhoso
+3145	provar
+3146	kutia
+3147	em volta de
+3148	a árvore de Natal
+3149	canções de Natal
+3150	os presentes
+3151	o Papai Noel, o duende de Natal
+3152	deixou
+3153	os dois, ambos
+3154	o direito de
+3155	livremente
+3156	terra particular
+3157	incrível
+3158	o direito de livre acesso à natureza
+3159	pressupõe, exige
+3160	é respeitoso
+3161	deixa para trás
+3162	lixo
+3163	deixar
+3164	montar a barraca
+3165	pelo menos
+3166	mais próximo
+3167	proibido
+3168	acender uma fogueira
+3169	o fogareiro
+3170	em vez disso
+3171	exatamente
+3172	faz parte
+3173	vida ao ar livre
+3174	realmente
+3175	qualquer tipo de tempo
+3176	roupas
+3177	a minha família
+3178	somos quatro
+3179	ela
+3180	ele
+3181	o hospital
+3182	marceneiro
+3183	me ajudar
+3184	a minha irmã
+3185	o meu irmão
+3186	a avó de vocês
+3187	visita(m)
+3188	gosta de você, ama você
+3189	animal de estimação
+3190	preto e branco
+3191	a foto
+3192	a tia
+3193	o tio
+3194	eles, elas
+3195	o mais importante de tudo
+3196	sempre
+3197	no fim de semana
+3198	a cabana
+3199	brilhava (o sol)
+3200	esquiou, foi esquiar

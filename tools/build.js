@@ -48,7 +48,7 @@ let I18N_STAT = null, I18N_PACKS = {};
   const packs = {};
   try {
     const w2 = {};
-    for (const f of ['data/arabic.js', 'data/lang-de.js', 'data/lang-pl.js', 'data/lang-tr.js', 'data/lang-lt.js']) {
+    for (const f of ['data/arabic.js', 'data/lang-de.js', 'data/lang-pl.js', 'data/lang-tr.js', 'data/lang-lt.js', 'data/lang-pt.js']) {
       try { new Function('window', rd(f))(w2); } catch (e) { /* файла може не бути */ }
     }
     if (w2.AR_EN) packs.ar = w2.AR_EN;
@@ -58,8 +58,8 @@ let I18N_STAT = null, I18N_PACKS = {};
   let I18N = null;
   try { const w3 = {}; new Function('window', rd('assets/i18n.js'))(w3); new Function('window', rd('assets/i18n-eu.js'))(w3); I18N = w3.I18N || null; } catch (e) { /* ignore */ }
 
-  const LANGS_ALL = ['uk', 'no', 'ar', 'de', 'pl', 'tr', 'lt'];
-  const NAMES = { uk: 'Українська', no: 'Norsk', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių' };
+  const LANGS_ALL = ['uk', 'no', 'ar', 'de', 'pl', 'tr', 'lt', 'pt'];
+  const NAMES = { uk: 'Українська', no: 'Norsk', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', pt: 'Português (Brasil)' };
   /* Вбудовані — переклад лежить у самих даних коміксу. Пакетні — у словнику,
      де ключ англійський рядок. Різниця важлива: вбудовану мову не можна
      «доперекласти» пакетом, її треба дописувати в дані. */
@@ -241,14 +241,14 @@ ${ROOT_LANGS.map(([hl, , dir]) => `<link rel="alternate" hreflang="${hl}" href="
   description: 'Online Norwegian course with voiced comics A1–B2, English translation of every word, grammar, vocabulary and tests. Made for expats moving to Norway.',
   /* Сторінок у нас три мови, але сам застосунок говорить вісьмома — це різні
      речі, і друге чесно називається тут. */
-  inLanguage: ['en', 'nb', 'uk', 'ar', 'de', 'pl', 'tr', 'lt'], isAccessibleForFree: true, url: base, image: base + 'og-image.png',
+  inLanguage: ['en', 'nb', 'uk', 'ar', 'de', 'pl', 'tr', 'lt', 'pt-BR'], isAccessibleForFree: true, url: base, image: base + 'og-image.png',
   teaches: 'Norwegian (Bokmål), A1–B2', educationalLevel: 'A1, A2, B1, B2',
   provider: { '@type': 'Organization', name: 'Komiks·Lab', url: base },
   hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT20M' }
 })}</script>
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org', '@type': 'WebSite', name: 'Komiks·Lab', alternateName: 'Комікс·Lab',
-  url: base, inLanguage: ['en', 'nb', 'uk', 'ar', 'de', 'pl', 'tr', 'lt'],
+  url: base, inLanguage: ['en', 'nb', 'uk', 'ar', 'de', 'pl', 'tr', 'lt', 'pt-BR'],
   description: 'Learn Norwegian with voiced comics: A1–B2 stories, tests, games and grammar.',
   publisher: { '@type': 'Organization', name: 'Komiks·Lab', url: base },
 })}</script>
@@ -309,7 +309,7 @@ const reg = W.KOMIKS_DATA;
 copy('assets/home-feature.js');
 copy('assets/downloads.js');
 copy('api/testing-mail.php');
-['assets/app.js', 'assets/art.js', 'assets/i18n.js', 'assets/i18n-eu.js', 'assets/a11y.js', 'assets/logo.js', 'assets/icons.js', 'assets/avatars.js', 'assets/profile.js', 'assets/game.js', 'game/index.html', 'assets/grammar.js', 'assets/words.js', 'assets/search.js', 'assets/today-fx.js', 'assets/english.js', 'assets/koding.js', 'assets/kodegame.js', 'assets/math.js', 'assets/fractions.js', 'assets/music.js', 'assets/rocket.js', 'assets/logic.js', 'assets/logic.css', 'assets/race.js', 'assets/chess.js', 'assets/messages.js', 'assets/pics.js', 'assets/pics2.js', 'assets/pics3.js', 'assets/pics4.js', 'assets/pics5.js', 'assets/pics6.js', 'assets/pics7.js', 'assets/news.js', 'assets/feedback.js', 'assets/premium.js', 'assets/teacher.js', 'assets/call.js', 'assets/write.js', 'assets/exam.js', 'assets/placement.js', 'assets/alerts.js', 'assets/pairs.js', 'assets/cross.js', 'assets/install.js', 'assets/bots.js', 'assets/players.js', 'assets/friends.js', 'assets/gifts.js', 'assets/hits.js', 'assets/learn-dash.js', 'assets/watch.js', 'api/watch.php', 'assets/auth.js', 'api/wall.php', 'api/players.php', 'api/lib.php', 'api/auth.php', 'api/google-auth.php', 'api/secret-box.php', 'api/admin-auth.php', 'api/google-settings.php', 'api/google-start.php', 'api/google-callback.php', 'api/mail-studio.php', 'api/mail-studio-controller.php', 'api/mail-studio-view.php', 'assets/mail-studio.js', 'assets/mail-studio.css', 'api/feedback.php', 'api/billing.php', 'api/teacher.php', 'api/call.php', 'api/write.php', 'api/notify.php', 'api/tts.php', 'api/realtime.php', 'api/health.php', 'api/diag.php', 'api/edge_tts.php', 'api/stripe-webhook.php', 'api/messages.php', 'api/gifts.php', 'api/hit.php', 'api/stats.php', 'api/mailimg.php', 'api/remind-mail.php', 'api/err.php', 'api/diag-view.php', 'api/mail-bounces.php', 'api/pulse.php', 'api/config.sample.php', 'api/.htaccess', 'api/admin_ui.php', 'api/admin-dash.php', 'api/admin-moderation.php', 'admin.php', 'assets/extras.js', 'assets/vendor/peerjs.min.js', 'assets/vendor/qrcode.js', 'assets/vendor/bootstrap.min.css', 'assets/vendor/bootstrap.bundle.min.js', 'assets/boot.js', 'assets/style.css', 'assets/games.js', 'data/games.js', 'data/characters.js', 'data/dictionary.js', 'data/basics.js', 'data/phonetics.js', 'data/grammar.js', 'data/words.js', 'data/words2.js', 'data/words3.js', 'data/words4.js', 'data/words-tools.js', 'data/word-photos.js', 'data/word-photos-gen.js', 'data/alphabet-pics.js', 'data/english.js', 'data/english2.js', 'data/english3.js', 'data/dictionary-en.js', 'data/arabic.js', 'data/lang-de.js', 'data/lang-pl.js', 'data/lang-tr.js', 'data/lang-lt.js', 'data/updates.js', 'data/updates-lang.js', 'data/seo.js', 'data/app-i18n-de.js', 'data/app-i18n-pl.js', 'data/app-i18n-tr.js', 'data/app-i18n-lt.js', 'data/app-i18n-ar.js', 'data/app-i18n-no.js', 'data/i18n-stats.json', 'manifest.webmanifest', '.htaccess', 'privacy.html', 'sw.js', 'og-image.png', 'browserconfig.xml'].forEach(copy);
+['assets/app.js', 'assets/art.js', 'assets/i18n.js', 'assets/i18n-eu.js', 'assets/a11y.js', 'assets/logo.js', 'assets/icons.js', 'assets/avatars.js', 'assets/profile.js', 'assets/game.js', 'game/index.html', 'assets/grammar.js', 'assets/words.js', 'assets/search.js', 'assets/today-fx.js', 'assets/english.js', 'assets/koding.js', 'assets/kodegame.js', 'assets/math.js', 'assets/fractions.js', 'assets/music.js', 'assets/rocket.js', 'assets/logic.js', 'assets/logic.css', 'assets/race.js', 'assets/chess.js', 'assets/messages.js', 'assets/pics.js', 'assets/pics2.js', 'assets/pics3.js', 'assets/pics4.js', 'assets/pics5.js', 'assets/pics6.js', 'assets/pics7.js', 'assets/news.js', 'assets/feedback.js', 'assets/premium.js', 'assets/teacher.js', 'assets/call.js', 'assets/write.js', 'assets/exam.js', 'assets/placement.js', 'assets/alerts.js', 'assets/pairs.js', 'assets/cross.js', 'assets/install.js', 'assets/bots.js', 'assets/players.js', 'assets/friends.js', 'assets/gifts.js', 'assets/hits.js', 'assets/learn-dash.js', 'assets/watch.js', 'api/watch.php', 'assets/auth.js', 'api/wall.php', 'api/players.php', 'api/lib.php', 'api/auth.php', 'api/google-auth.php', 'api/secret-box.php', 'api/admin-auth.php', 'api/google-settings.php', 'api/google-start.php', 'api/google-callback.php', 'api/mail-studio.php', 'api/mail-studio-controller.php', 'api/mail-studio-view.php', 'assets/mail-studio.js', 'assets/mail-studio.css', 'api/feedback.php', 'api/billing.php', 'api/teacher.php', 'api/call.php', 'api/write.php', 'api/notify.php', 'api/tts.php', 'api/realtime.php', 'api/health.php', 'api/diag.php', 'api/edge_tts.php', 'api/stripe-webhook.php', 'api/messages.php', 'api/gifts.php', 'api/hit.php', 'api/stats.php', 'api/mailimg.php', 'api/remind-mail.php', 'api/err.php', 'api/diag-view.php', 'api/mail-bounces.php', 'api/pulse.php', 'api/config.sample.php', 'api/.htaccess', 'api/admin_ui.php', 'api/admin-dash.php', 'api/admin-moderation.php', 'admin.php', 'assets/extras.js', 'assets/vendor/peerjs.min.js', 'assets/vendor/qrcode.js', 'assets/vendor/bootstrap.min.css', 'assets/vendor/bootstrap.bundle.min.js', 'assets/boot.js', 'assets/style.css', 'assets/games.js', 'data/games.js', 'data/characters.js', 'data/dictionary.js', 'data/basics.js', 'data/phonetics.js', 'data/grammar.js', 'data/words.js', 'data/words2.js', 'data/words3.js', 'data/words4.js', 'data/words-tools.js', 'data/word-photos.js', 'data/word-photos-gen.js', 'data/alphabet-pics.js', 'data/english.js', 'data/english2.js', 'data/english3.js', 'data/dictionary-en.js', 'data/arabic.js', 'data/lang-de.js', 'data/lang-pl.js', 'data/lang-tr.js', 'data/lang-lt.js', 'data/lang-pt.js', 'data/updates.js', 'data/updates-lang.js', 'data/seo.js', 'data/app-i18n-de.js', 'data/app-i18n-pl.js', 'data/app-i18n-tr.js', 'data/app-i18n-lt.js', 'data/app-i18n-pt.js', 'data/app-i18n-ar.js', 'data/app-i18n-no.js', 'data/i18n-stats.json', 'manifest.webmanifest', '.htaccess', 'privacy.html', 'sw.js', 'og-image.png', 'browserconfig.xml'].forEach(copy);
 copyDir('icons');
 copyDir('photo');
 copyDir('img/alphabet');                                 // 🔤 картинки до літер (data/alphabet-pics.js)
@@ -742,7 +742,7 @@ const updUrl = (lang, id) => `${base}${U10N[lang].dir}${U10N[lang].seg}/${id ? i
 /* 📣 Те саме для листів: адмінка розсилає статтю «Що нового» кожному підписаному його мовою
    (api/mail-studio.php читає data/updates.json). Текст — уже з урахуванням машинних перекладів. */
 {
-  const ML = ['uk', 'en', 'no', 'ar', 'de', 'pl', 'tr', 'lt'];
+  const ML = ['uk', 'en', 'no', 'ar', 'de', 'pl', 'tr', 'lt', 'pt'];
   const out = UPD.slice(0, 40).map(u => ({ id: u.id, icon: u.icon || '✨', link: u.link || '#/whatsnew', tags: (u.tags || []).filter(t => /^[\p{L}\p{N}_-]{2,24}$/u.test(t)),
     langs: Object.fromEntries(ML.map(l => [l, { lines: updLines(u, l), url: U10N[l] ? updUrl(l, u.id) : updUrl('en', u.id) }]).filter(([, v]) => v.lines && v.lines.length)) }));
   const json = JSON.stringify(out);

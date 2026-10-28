@@ -1,0 +1,61 @@
+1	Aprenda norueguês com quadrinhos →
+2	Todos os quadrinhos em norueguês
+3	🤖 Todas as histórias, personagens, desenhos e vozes são fictícios e criados com IA.
+4	Norueguês {l}
+5	📖 Leia o quadrinho com áudio em norueguês
+6	Diálogo em norueguês com tradução em português
+7	Palavras norueguesas deste quadrinho
+8	Mais quadrinhos em norueguês, nível {l}
+9	Aprenda norueguês com um quadrinho
+10	Aprenda norueguês com
+11	Áudio em norueguês e tradução em português.
+12	Quadrinhos em norueguês para estudantes (A1–B2) — Aprenda norueguês | Komiks·Lab
+13	{n} quadrinhos em norueguês com áudio e tradução em português, para iniciantes e para quem vai se mudar para a Noruega.
+14	Quadrinhos em norueguês para estudantes ({n})
+15	Histórias curtas sobre o dia a dia na Noruega, com áudio em norueguês e tradução em português.
+16	Nível {l}
+17	Testes de norueguês online (A1–B2) — prática grátis | Komiks·Lab
+18	Testes de norueguês grátis: testes de nível A1–B2, ordem das palavras, compreensão oral, vocabulário, alfabeto e números. Cada pergunta vem de um quadrinho narrado.
+19	Testes de norueguês online
+20	Todos os testes aqui são feitos com as mesmas histórias que você lê: as frases são reais, e as vozes são as que você já ouviu. Nada é inventado só para o exercício.
+21	Testes de nível A1–B2
+22	Prática por habilidade
+23	O básico
+24	Perguntas de todos os quadrinhos do nível {l}: compreensão oral, ordem das palavras, vocabulário e o sentido de falas inteiras.
+25	🔀 Ordem das palavras
+26	O erro mais comum em norueguês não é a palavra, e sim o lugar dela. O verbo vem em segundo lugar, e depois de um adjunto o sujeito e o verbo trocam de lugar. Metade das tarefas são exatamente essas frases invertidas.
+27	🎧 Compreensão oral
+28	Você ouve uma fala e escolhe o que foi dito. O texto fica escondido de propósito — é essa a habilidade que a prova oral de fato avalia.
+29	📝 Vocabulário
+30	Palavras dos quadrinhos, com imagens onde uma imagem explica melhor do que uma tradução.
+31	🧩 Palavras cruzadas
+32	Reconhecer uma palavra não basta: é preciso lembrá-la e soletrá-la. É isso que fixa å, ø, æ e as consoantes dobradas.
+33	🧠 Pares
+34	Um jogo diário curto que traz de volta as palavras que você já errou.
+35	✍️ Escrita
+36	Você escreve um texto curto e recebe a versão corrigida, com os erros explicados.
+37	🔤 O alfabeto norueguês
+38	Letras e sons, incluindo æ, ø e å.
+39	🔢 Números
+40	De zero a cem — de ouvido e por escrito.
+41	Vai fazer o Norskprøven?
+42	Há um simulado com as mesmas partes da prova de verdade e um teste de nível, se você não tem certeza de por onde começar.
+43	🏁 Simulado
+44	🎯 Teste de nível
+45	Abrir os testes →
+46	Todos os testes são grátis. Uma conta guarda o seu progresso em todos os aparelhos.
+47	Novidades do Komiks·Lab — registro de atualizações
+48	Todas as {n} atualizações do Komiks·Lab: novos quadrinhos, testes, jogos e idiomas para aprender norueguês.
+49	Atualização do Komiks·Lab de {d} — o que mudou
+50	Komiks·Lab, {d}: {first}
+51	← Todas as atualizações
+52	Atualização de
+53	Como ficou
+54	Abrir o Komiks·Lab →
+55	Notas curtas sobre o que mudou no app para aprender norueguês com quadrinhos.
+56	✨ Novidades
+57	Um registro curto das últimas atualizações do Komiks·Lab. Tudo funciona na hora — não é preciso instalar nada.
+58	NOVO
+59	Atualizações anteriores
+60	← Início
+61	Dar uma olhada

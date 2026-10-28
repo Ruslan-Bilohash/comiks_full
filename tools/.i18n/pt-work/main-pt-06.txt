@@ -1,0 +1,200 @@
+1001	Sim, obrigada. E se eu não melhorar?
+1002	Então é melhor marcar uma consulta com o seu médico de família.
+1003	Melhoras!
+1004	Muito obrigada pela ajuda. Tchau!
+1005	Uma vez por ano, todo funcionário tem uma conversa de avaliação com o chefe.
+1006	Bem-vindo, Denys. Sente-se. Como foi o ano para você?
+1007	Bom, no geral. Aprendi muito, principalmente depois que assumi o projeto.
+1008	Nós percebemos isso. Os clientes estão muito satisfeitos.
+1009	Tem alguma coisa difícil no seu dia a dia?
+1010	Sinto que a carga de trabalho aumentou bastante neste outono.
+1011	Dou conta das tarefas, mas muitas vezes preciso fazer hora extra às sextas.
+1012	Obrigado por avisar. Então devemos distribuir as tarefas de outro jeito.
+1013	Em que você gostaria de se desenvolver?
+1014	Eu gostaria de fazer um curso de gestão de projetos e, com o tempo, liderar uma equipe.
+1015	Eu apoio. Temos verba para cursos na primavera.
+1016	Podemos falar também de salário? Minha responsabilidade aumentou.
+1017	Tudo bem tocar nesse assunto. O salário é decidido na negociação anual, em maio.
+1018	Vou anotar três metas para o próximo ano. Você concorda com elas?
+1019	Concordo, mas eu gostaria de um retorno a cada trimestre.
+1020	Combinado. Vai ser uma boa rotina para nós dois.
+1021	Obrigado por uma conversa aberta e útil, Denys.
+1022	Eu que agradeço. Agora sei para onde devo trabalhar.
+1023	O Ruslan perdeu o emprego no mês passado. Hoje ele está no NAV.
+1024	Bem-vindo. Em que posso ajudar hoje?
+1025	A empresa precisou cortar custos, então fui demitido.
+1026	Sinto muito. Então você pode pedir o seguro-desemprego.
+1027	De que documentos eu preciso?
+1028	A carta de demissão, o contrato de trabalho e os três últimos contracheques.
+1029	Tenho tudo isso em casa.
+1030	Você faz o pedido pela internet com o BankID. Leva uns vinte minutos.
+1031	E quanto tempo tenho que esperar pela resposta?
+1032	Normalmente de três a quatro semanas. Você recebe a decisão na sua caixa de entrada.
+1033	Preciso fazer alguma coisa enquanto espero?
+1034	Sim, você precisa enviar o relatório a cada duas semanas e procurar emprego ativamente.
+1035	Obrigado. Agora entendo o que preciso fazer.
+1036	É só entrar em contato se algo não estiver claro. Boa sorte!
+1037	Oi, bem-vinda à visita! O apartamento tem cinquenta e cinco metros quadrados.
+1038	Parece claro e aconchegante. Quando fica livre?
+1039	A partir do dia primeiro de novembro. O aluguel é de doze mil por mês.
+1040	A luz e a internet estão incluídas?
+1041	A internet está incluída; a luz é à parte.
+1042	De quanto é a caução?
+1043	Três meses de aluguel numa conta de caução separada.
+1044	O contrato tem prazo determinado ou é indeterminado?
+1045	Indeterminado, com aviso prévio de três meses para as duas partes.
+1046	Pode ter gato aqui?
+1047	Pode, mas as regras do prédio pedem silêncio depois das onze.
+1048	Isso me serve bem.
+1049	Tenho muito interesse. Qual é o próximo passo?
+1050	Me mande um e-mail hoje à noite, e eu envio o contrato amanhã.
+1051	Bem-vindos à reunião de pais! Que bom que tanta gente pôde vir.
+1052	Obrigado. É a minha primeira vez.
+1053	A turma funciona bem, e os alunos se dão bem.
+1054	Neste semestre trabalhamos principalmente leitura e cooperação.
+1055	Tenho uma dúvida sobre as regras do celular. Os alunos levam celular?
+1056	Os celulares ficam numa caixa durante as aulas. Funciona bem.
+1057	Em maio a turma vai fazer um passeio. Precisamos de dois adultos para ir junto.
+1058	Posso ir, se for numa sexta-feira.
+1059	Ótimo. Vocês vão receber um comunicado com os horários e a lista do que levar.
+1060	Como aviso se o meu filho ficar doente?
+1061	Avise pelo aplicativo da escola antes das oito.
+1062	Obrigada por terem vindo. Entrem em contato quando quiserem.
+1063	Agora me sinto muito mais seguro. Obrigado!
+1064	Boa tarde, Denys. Qual é o problema hoje?
+1065	Estou com dor num dente há mais de uma semana.
+1066	Dói quando você bebe algo gelado?
+1067	Dói, e quando mastigo do lado esquerdo.
+1068	Vou fazer um raio-X … Aqui tem uma pequena cárie.
+1069	O dente vai ter que ser arrancado?
+1070	De jeito nenhum. Vamos perfurar e fazer uma obturação hoje.
+1071	Dói?
+1072	Primeiro você toma anestesia, então só vai sentir um pouco de pressão.
+1073	Quanto custa o tratamento?
+1074	Umas mil coroas. Os adultos pagam o dentista do próprio bolso.
+1075	Mas menores de dezoito anos têm tratamento grátis.
+1076	Pronto! Lembre de escovar os dentes duas vezes por dia e usar fio dental.
+1077	Obrigado. Então vou marcar uma revisão daqui a seis meses.
+1078	Bem-vinda, Alina! Que bom ter você na equipe.
+1079	Obrigada! Estou ansiosa para começar.
+1080	Aqui estão a sua mesa, o seu crachá e a senha do computador.
+1081	Devo trocar a senha agora mesmo?
+1082	Sim, é uma boa ideia.
+1083	Vamos repassar a segurança: saída de emergência, primeiros socorros e equipamentos de proteção.
+1084	A quem eu aviso se acontecer alguma coisa?
+1085	A mim ou à nossa representante de segurança, a Kari.
+1086	O almoço é às onze. A maioria traz marmita.
+1087	Que bom. É comum comer junto?
+1088	É, todo mundo se senta no refeitório por meia hora.
+1089	Como peço folga se o meu filho ficar doente?
+1090	Aí você usa o atestado próprio ou os dias para cuidar dos filhos. Mande uma mensagem antes das oito.
+1091	Pergunte tudo o que quiser saber. Ninguém espera que você saiba tudo hoje.
+1092	Obrigada, isso facilita muito.
+1093	Oi! Eu gostaria de pegar livros emprestados. Do que preciso?
+1094	Só de um documento. O cartão da biblioteca é grátis.
+1095	Aqui está o seu cartão. O prazo de empréstimo é de quatro semanas.
+1096	Posso renovar se não terminar?
+1097	Pode, duas vezes — no aplicativo ou aqui no balcão.
+1098	E o que acontece se eu devolver atrasado?
+1099	Você recebe um lembrete. Crianças não pagam multa nenhuma.
+1100	Às quartas temos um café de idiomas. Você pode praticar norueguês de graça.
+1101	Era exatamente disso que eu precisava!
+1102	Também posso me sentar e trabalhar aqui?
+1103	Pode, temos sala de leitura, Wi-Fi e salas de grupo que você pode reservar.
+1104	Então vou levar estes três livros e volto na quarta.
+1105	Boa leitura! Até mais.
+1106	Está nevando, e o ônibus está preso no trânsito.
+1107	Com licença, quanto estamos atrasados?
+1108	Uns vinte minutos. A pista está escorregadia hoje.
+1109	Então não vou pegar o meu trem das dez.
+1110	Tem um trem vinte minutos depois. Confira no aplicativo.
+1111	É mesmo, estou vendo. Preciso comprar outra passagem?
+1112	Não, a passagem vale o dia todo neste trecho.
+1113	E se eu tivesse precisado pegar um táxi?
+1114	Aí você pode pedir reembolso se o atraso passar de vinte minutos.
+1115	A Maria desce e encontra a plataforma.
+1116	Ainda bem que agora tenho bastante tempo.
+1117	Obrigada pela ajuda! Tenha um bom dia.
+1118	Igualmente. Cuidado aí fora!
+1119	Olá. Comprei estes fones de ouvido há dois meses.
+1120	Qual é o problema com eles?
+1121	O lado esquerdo parou de funcionar, e eu usei normalmente.
+1122	Então você tem direito a reclamar. Você tem a nota fiscal?
+1123	Está no aplicativo. Serve?
+1124	Serve, a nota digital vale do mesmo jeito.
+1125	Vamos mandar para o conserto. Leva umas duas semanas.
+1126	Eu poderia receber o dinheiro de volta?
+1127	Se o mesmo defeito acontecer de novo, você tem direito a isso.
+1128	Por quanto tempo vale o direito de reclamar?
+1129	Dois anos para produtos comuns, cinco para coisas feitas para durar.
+1130	Você recebe um SMS quando eles voltarem para a loja.
+1131	Ótimo. Obrigado pela ajuda!
+1132	Quero fazer a prova de norueguês na primavera. Por onde começo?
+1133	Primeiro você se inscreve pela internet, no máximo seis semanas antes.
+1134	A prova tem quatro partes: compreensão oral, leitura, escrita e conversação.
+1135	Todas as partes são no mesmo dia?
+1136	Não, a prova oral normalmente é em outro dia.
+1137	O que mais me dá medo é a prova oral. Fico muito nervosa.
+1138	Lembre que você pode pedir para repetirem: “Kan du si det en gang til?”
+1139	Pratique justificar suas opiniões: “Jeg mener … fordi …”.
+1140	E se eu não souber uma palavra?
+1141	Explique com outras palavras. Isso conta como boa comunicação.
+1142	De que nível eu preciso para continuar estudando?
+1143	Normalmente B2 para a universidade e B1 para muitos empregos.
+1144	Você já tem um bom vocabulário. É só continuar falando todo dia.
+1145	Obrigada! Então vou me inscrever hoje à noite.
+1146	Oi! Eu gostaria de me matricular. Quanto custa?
+1147	Quatrocentas por mês sem fidelidade, ou trezentas com fidelidade de um ano.
+1148	O que quer dizer fidelidade, afinal?
+1149	Que você não pode cancelar antes de terminar o ano, mesmo que pare de treinar.
+1150	As aulas em grupo estão incluídas?
+1151	Estão, todas as aulas: ioga, spinning e musculação. Você reserva no aplicativo.
+1152	Nunca treinei com pesos. Vou ter ajuda?
+1153	Na primeira semana você ganha uma introdução grátis com um instrutor.
+1154	E se eu me mudar para outra cidade?
+1155	Aí você cancela por escrito com um mês de antecedência. Guarde a confirmação.
+1156	Então vou começar com o plano sem fidelidade.
+1157	Escolha esperta. Bem-vindo — nos vemos no treino!
+1158	Com licença, qual saco devo usar para plástico?
+1159	O saco azul para plástico e o verde para resto de comida.
+1160	E o resto?
+1161	O lixo comum vai num saco normal. Papelão e papel vão num contêiner separado.
+1162	Garrafas e latas têm depósito. Você recebe dinheiro de volta no mercado.
+1163	Então a máquina imprime um comprovante?
+1164	Imprime, e você pode escolher doar o dinheiro para caridade.
+1165	Onde jogo tinta velha e eletrônicos?
+1166	No ponto de reciclagem. Lixo perigoso nunca pode ir no lixo comum.
+1167	O que acontece se a pessoa separar errado?
+1168	A coleta pode deixar o saco para trás, e o condomínio leva uma multa.
+1169	Agora entendi o sistema. Obrigada pela ajuda, vizinho!
+1170	De nada. Logo vira hábito.
+1171	Oi! Vocês têm um horário livre hoje?
+1172	Tivemos um cancelamento às duas. Serve para você?
+1173	Que tipo de corte você está pensando?
+1174	Só um pouco mais curto, uns três centímetros, e umas camadas.
+1175	Quer franja?
+1176	Não, obrigada, vou deixar assim. Mas talvez uma cor depois.
+1177	Quanto custam o corte e a lavagem?
+1178	Seiscentas coroas. A cor é cobrada à parte.
+1179	Devo dar gorjeta?
+1180	Aqui não é costume. O preço é o preço.
+1181	Pronto! Quer marcar de novo daqui a três meses?
+1182	Quero, sim, no mesmo dia e horário, se der.
+1183	Oi! Tenho horário para a revisão anual às nove.
+1184	Perfeito. Deixe o carro na vaga dois que já vamos levar para dentro.
+1185	Os freios estão fazendo um barulho estranho. Você percebeu?
+1186	Percebi, principalmente de manhã, quando está frio.
+1187	As pastilhas de freio estão gastas. Vou mandar um orçamento por SMS.
+1188	Por favor. Não quero nenhum serviço sem combinar antes.
+1189	Quanto tempo de garantia tem o serviço?
+1190	Dois anos para peças e mão de obra. Está tudo na nota fiscal.
+1191	Tenho que buscar as crianças às quatro. Vocês conseguem terminar?
+1192	Conseguimos. E se precisar de um carro reserva, temos um livre hoje.
+1193	O carro foi aprovado, e os freios estão como novos.
+1194	Muito obrigado pela ajuda rápida!
+1195	Vamos para a cabana nas férias de inverno. Sete dias na montanha!
+1196	Finalmente! Podemos levar o trenó?
+1197	A previsão diz dez graus negativos e vento forte na sexta.
+1198	Então é melhor fazer a trilha na quinta.
+1199	E o alerta de avalanche está no nível três. Vamos ficar longe das encostas íngremes.
+1200	O que significa nível três?

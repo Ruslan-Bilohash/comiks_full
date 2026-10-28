@@ -9,7 +9,7 @@ const fs = require('fs'), path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(__dirname, 'lang');
-const NAMES = { de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', ar: 'العربية' };
+const NAMES = { de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', pt: 'Português (Brasil)', ar: 'العربية' };
 /* Арабська старша за решту мов і живе в окремому файлі під власною назвою:
    застосунок вантажить її як AR_EN, а не як TR_PACK.ar. Переписувати застосунок
    заради однаковості не варто — дешевше описати виняток тут. */

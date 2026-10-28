@@ -1,0 +1,99 @@
+401	grave
+402	um resfriado
+403	descansar
+404	devo
+405	ficar em casa
+406	comprimidos
+407	três vezes ao dia
+408	mel
+409	um pouco melhor
+410	já
+411	Planos para o fim de semana
+412	Pai, o que vamos fazer neste fim de semana?
+413	Acho que vamos fazer um piquenique.
+414	Oba! Podemos ir ao lago?
+415	Boa ideia. Mas antes vamos ver a previsão do tempo.
+416	No sábado vai fazer sol e calor.
+417	Perfeito! Vou fazer os sanduíches.
+418	Posso convidar o meu amigo Humphrey também?
+419	Claro. Quanto mais, melhor!
+420	No sábado a família inteira foi ao lago.
+421	Que lugar lindo! Obrigado pelo convite.
+422	No próximo fim de semana vamos acampar.
+423	Mal posso esperar!
+424	fim de semana
+425	ir + verbo (futuro)
+426	piquenique
+427	lago
+428	primeiro, antes
+429	verificar
+430	ensolarado
+431	quente
+432	sanduíches
+433	quanto mais, melhor
+434	a família inteira
+435	lugar lindo
+436	o próximo fim de semana
+437	acampar
+438	mal posso esperar
+439	eu acho
+440	A entrevista de emprego
+441	Obrigada por ter vindo. Sente-se, por favor.
+442	Obrigado pelo convite para a entrevista.
+443	Pode falar um pouco sobre você?
+444	Sou engenheiro. Trabalho com logística há cinco anos.
+445	Você já gerenciou uma equipe?
+446	Sim, liderei uma equipe de oito pessoas em Kiev.
+447	Quais são os seus maiores pontos fortes?
+448	Sou confiável, aprendo rápido e trabalho bem sob pressão.
+449	Você tem alguma pergunta para nós?
+450	Tenho. Como seria um dia de trabalho típico?
+451	Entraremos em contato até o fim da semana.
+452	Obrigado pelo seu tempo. Aguardo o retorno de vocês.
+453	sente-se
+454	entrevista
+455	fale sobre você
+456	engenheiro
+457	tenho trabalhado, trabalhei
+458	logística
+459	você já
+460	gerenciar
+461	equipe
+462	pontos fortes
+463	confiável
+464	sob pressão
+465	um dia de trabalho típico
+466	entrar em contato
+467	até o fim da semana
+468	aguardo, estou ansioso por
+469	rapidamente
+470	Perdido na cidade
+471	Com licença, pode me ajudar? Acho que estou perdido.
+472	Claro. Aonde você quer ir?
+473	Estou procurando a biblioteca municipal.
+474	Siga em frente e vire à esquerda no semáforo.
+475	Depois passe pelo ponto de ônibus. A biblioteca fica em frente ao banco.
+476	É longe daqui?
+477	Não, leva só uns dez minutos a pé.
+478	Ótimo. E tem algum café perto da biblioteca?
+479	Mais tarde, o Ruslan pegou o ônibus errado.
+480	Este ônibus não vai para lá. Desça no próximo ponto e atravesse a rua.
+481	Finalmente! A biblioteca fica na esquina, como você disse.
+482	Muito bem! Agora você nunca mais vai se perder.
+483	estou perdido
+484	pode me ajudar
+485	procurando
+486	biblioteca
+487	siga em frente
+488	vire à esquerda
+489	semáforo
+490	passe por
+491	em frente a
+492	longe daqui
+493	a pé
+494	perto
+495	ônibus errado
+496	descer
+497	atravessar a rua
+498	na esquina
+499	finalmente

@@ -1,0 +1,200 @@
+801	🔄 De novo
+802	½ Para a lição
+803	Frações
+804	👥 Amigos
+805	Meu código de amigo
+806	📤 Enviar um convite
+807	Escaneie para virar amigos
+808	➕ Adicionar um amigo
+809	Código de amigo (6 caracteres)
+810	Adicionar
+811	online
+812	offline
+813	⏳ aguardando aprovação
+814	quer ser seu amigo
+815	✓ Aceitar
+816	✕
+817	Remover amigo
+818	⭐ Melhor amigo
+819	Melhores amigos se abraçam quando se encontram 🤗
+820	Ainda não há amigos. Mande seu código ou QR — e estudem juntos!
+821	Entre ou cadastre-se para adicionar amigos e ver quem está online.
+822	Entrar
+823	🎓 Estudar juntos
+824	🏁 Corrida de Lógica
+825	🎮 Minha sala
+826	🤗 Abraço
+827	✋ Toca aqui
+828	Entrar ▶
+829	Depois
+830	Pedido enviado. Seu amigo vai vê-lo quando estiver online.
+831	O código tem 6 caracteres.
+832	Esse é o seu próprio código 🙂
+833	Vocês já são amigos ou o pedido já foi enviado.
+834	Abra primeiro uma sala no “Jogar juntos”.
+835	⚠️ Sem conexão — status online indisponível.
+836	Só seus amigos veem seu status. Você pode trocar o código — os links antigos vão parar de funcionar.
+837	🔄 Novo código
+838	Os melhores amigos se encontraram!
+839	Os amigos se encontraram!
+840	Ocultar por uma hora
+841	🤗 Animação de amizade
+842	Automaticamente — no máximo 3 vezes por hora.
+843	👤 Perfil
+844	🔎 Encontrar jogadores
+845	Jogar juntos
+846	🎮
+847	Jogar juntos
+848	Salas com QR code para turmas e amigos
+849	Salas de jogo
+850	No “Jogar juntos”, os aparelhos se conectam diretamente via WebRTC; o servidor público do PeerJS é usado só para estabelecer a conexão. Entre os jogadores circulam apenas nomes, avatares e respostas. Nada fica guardado depois que a sala é fechada.
+851	🎮 Jogar juntos
+852	Crie uma sala numa tela grande ou num celular — os jogadores escaneiam o QR code, digitam o nome e fazem um quiz em norueguês contra o relógio. Pontos por respostas certas e rápidas!
+853	📺
+854	Criar uma sala
+855	para professores, pais ou quem apresenta o jogo
+856	📱
+857	Entrar num jogo
+858	Tenho um código de sala ou um QR code
+859	Quem apresenta cria uma sala e mostra o QR code.
+860	Os jogadores escaneiam o código com o celular e digitam um nome.
+861	Todos veem quem entrou — quem apresenta aperta “Começar”.
+862	Perguntas cronometradas em norueguês, com placar depois de cada uma.
+863	⚙️ Configurações do jogo
+864	Quiz
+865	Número de perguntas
+866	Tempo por pergunta
+867	Também vou jogar neste aparelho
+868	Áudio das perguntas nos celulares dos jogadores
+869	Criar sala ▶
+870	Alfabeto
+871	Números
+872	Um quadrinho só
+873	📱 Entrar num jogo
+874	Código da sala
+875	ex.: K7Q2M
+876	Seu nome
+877	Escolha um avatar
+878	Entrar na sala ▶
+879	Digite o código da sala (5 caracteres).
+880	Digite seu nome.
+881	Conectando…
+882	Criando a sala…
+883	Sala
+884	Escaneie o QR code ou abra o link:
+885	📋 Copiar
+886	Copiado ✓
+887	Esperando os jogadores… Peça para todos escanearem o QR code.
+888	🚀 Começar o jogo
+889	É preciso pelo menos um jogador.
+890	Remover
+891	✖ Fechar a sala
+892	Você está na sala!
+893	Espere quem apresenta começar o jogo…
+894	Resposta recebida! Esperando os outros…
+895	⏰ O tempo acabou!
+896	❌ Errado
+897	⏰ Sem resposta
+898	🏆 Placar
+899	Próxima pergunta ▶
+900	Resultados 🏁
+901	🏆 Vencedores
+902	🔄 Jogar de novo
+903	🚪 Sair
+904	Quem apresentava encerrou o jogo ou a conexão caiu.
+905	Quem apresenta removeu você da sala.
+906	Este navegador não consegue fazer conexões diretas. Se o link abriu dentro do Telegram, do Instagram ou do Facebook, toque em ⋮ / “…” → “Abrir no navegador”. Ou abra o jogo no Chrome, no Edge ou no Safari.
+907	Esse código já está em uso. Peça para quem apresenta criar a sala de novo.
+908	🔄 Tentar de novo
+909	Sala não encontrada. Confira o código — ou quem apresentava já fechou o jogo.
+910	Não foi possível conectar. É preciso uma conexão com a internet (e um navegador moderno).
+911	⚠️ A página foi aberta a partir de um arquivo — os celulares não conseguem entrar pelo QR code. Abra o jogo em https://bilohash.com/comiks/
+912	Quem apresenta
+913	← Voltar
+914	você
+915	⏱️ Quem já respondeu
+916	⏱️ Respostas a esta pergunta
+917	📊 Estatísticas dos alunos
+918	Aluno
+919	Resposta
+920	Tempo
+921	Pontos
+922	Certas
+923	Tempo médio
+924	Mais rápido
+925	Lugar
+926	Dica para professores: deixe “Também vou jogar” desmarcado — assim você acompanha o ranking e a rapidez dos alunos.
+927	🎲 Sala aleatória
+928	Um clique: uma mistura de palavras, imagens, gramática, relógio e números — sem precisar conhecer as histórias.
+929	🎲 Um pouco de tudo (sem precisar conhecer as histórias)
+930	🕒 Que horas são?
+931	📐 Gramática (todos os temas)
+932	Tema
+933	📖 Leiam o quadrinho juntos primeiro — aí entram as perguntas “Quem disse isso?”
+934	Antes do jogo
+935	🚀 Direto para as perguntas
+936	📖 Ler o quadrinho juntos primeiro
+937	✅ As perguntas são justas para todos — sem nomes e sem nada para decorar: palavras de ouvido, imagens e emojis, quadros dos quadrinhos (a resposta está visível no desenho), gramática, relógio e números. Vocês podem ler uma história juntos antes do jogo.
+938	📖 Leitura em grupo
+939	Próximo ▶
+940	◀ Voltar
+941	🚀 Para as perguntas
+942	Leia e ouça com atenção — as perguntas vêm a seguir!
+943	🔊 Ouvir o quadro
+944	Um quiz em inglês ou em norueguês
+945	Escolha um idioma e um jogo. Uma tela mostra o QR code, todos os outros escaneiam e competem.
+946	Que idioma estamos aprendendo?
+947	Escolha primeiro o idioma; depois você vai ver só as salas e os jogos dele.
+948	Escolher o idioma →
+949	← Trocar de idioma
+950	⚡ Escolha uma sala
+951	Toque num cartão e a sala com QR fica pronta.
+952	Norueguês
+953	Quadrinhos, palavras, gramática e pronúncia em norueguês
+954	Inglês
+955	Vocabulário em inglês por tema, com imagens e áudio
+956	Todas as palavras em inglês
+957	todos os temas juntos
+958	⚙️ Configurações detalhadas
+959	Tem um código?
+960	Entrar
+961	🎮 Jogue com a turma ou em grupo — palavras
+962	Escolha um tema e aparece uma sala com QR code. Os alunos escaneiam e respondem no celular — perguntas com imagens e áudio.
+963	Criar uma sala com QR
+964	🎲 Todos os temas
+965	Este tema
+966	Outro tema…
+967	com imagens
+968	🎮 Jogos
+969	🎮 Jogos
+970	Jogos da mesma oficina dos quadrinhos. Nada para instalar e nada para pagar: eles abrem numa aba do navegador e começam na hora.
+971	Jogos grátis no navegador — Duel 3D e mais | Komiks·Lab
+972	Duel 3D — um jogo de luta 3D grátis no navegador: sete lutadores, sete arenas, uma campanha e dois jogadores num só teclado. Sem instalação, sem conta.
+973	Jogos do Komiks·Lab
+974	🎮 Jogar
+975	Abrir o jogo
+976	Abre numa nova aba em bilohash.com
+977	📸 Como ele é
+978	O menu principal: modos de jogo
+979	Escolhendo um lutador e uma arena
+980	Uma luta numa das sete arenas
+981	A campanha: sete fases com uma história
+982	🎛️ Controles
+983	🥊 Os sete lutadores
+984	🏟️ As sete arenas
+985	🗺️ A campanha, fase por fase
+986	🎯 Modos de jogo
+987	ℹ️ Em resumo
+988	Preço
+989	Grátis, sem conta e sem anúncios
+990	Jogadores
+991	Um, ou dois num só teclado
+992	Tecnologia
+993	Tamanho
+994	Idiomas do jogo
+995	Idade
+996	Progresso
+997	Salvo no seu próprio navegador
+998	O jogo fala ucraniano, inglês e norueguês. Com qualquer outro idioma de interface, ele abre em inglês.
+999	Golpes de desenho animado e nada de sangue — mas continua sendo um jogo de luta, por isso indicamos 12+. Os quadrinhos e os testes não têm nenhuma violência.
+1000	🎮 Jogos

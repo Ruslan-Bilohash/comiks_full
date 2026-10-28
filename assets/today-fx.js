@@ -185,6 +185,7 @@
     en: { t: '⚡ Quick quiz of the day', d: 'Which word is it? 5 pictures — quick and easy.', go: 'Start', next: 'Next', done: (s, n) => `Done: ${s} of ${n}! Repeat these words or take the next set.`, again: 'Again', more: 'Next 5 words', set: n => `Set ${n}` },
     no: { t: '⚡ Dagens lynquiz', d: 'Hvilket ord er det? 5 bilder – raskt og enkelt.', go: 'Start', next: 'Neste', done: (s, n) => `Ferdig: ${s} av ${n}! Gjenta ordene eller ta neste sett.`, again: 'En gang til', more: 'Neste 5 ord', set: n => `Sett ${n}` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(QT, 'today-fx.js:QT');
   const qx = (k, ...a) => { const ui = (C() && C().ui) || 'uk'; const v = (QT[ui] || QT.en)[k]; return typeof v === 'function' ? v(...a) : v; };
   function quiz() {
     const K = C(), { h } = K, P = window.KomiksPics;

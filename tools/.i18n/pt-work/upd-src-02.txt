@@ -1,0 +1,77 @@
+201	🔎 Player search: compact cards on phones and a one-click switch to appear in search.
+202	🖼️ Clearer drawn icons in tests (desk, blackboard, eraser, knee…) instead of ambiguous emoji.
+203	🎉 More encouraging messages while learning; the “put the pictures in order” task is gone.
+204	👤 The account page is now one card: avatar, name, friend code and quick buttons.
+205	🔐 Server accounts: email confirmation, welcome letter, password recovery and progress synced across devices.
+206	🇸🇦 Arabic interface (right-to-left) and a choice of translation languages in comics: Ukrainian, English, Arabic.
+207	🎯 The study plan has its own page — switch off what you already know.
+208	🏁 Logic Race: an “Expert” level, new puzzle types (clock, shopping, Latin square), distance and time settings.
+209	🚀 Math Rocket: “Little one” and “Expert” levels, choose the round length.
+210	🐾 A 🔊 button next to the buddy and 22 new praise phrases in Norwegian.
+211	👥 Friends, a profile wall with comments, player search and a ranking.
+212	🏁 Logic Race and “Play together” with a QR code for the class.
+213	🎨 Avatar studio: animals, hats, glasses and rare items from chests.
+214	Komiks·Lab home screen
+215	Reading a Norwegian comic with audio
+216	A test after the comic
+217	Norwegian words by theme
+218	Pairs — a daily matching game
+219	Flashcards with spaced repetition
+220	Norwegian grammar topics
+221	The Norwegian alphabet
+222	All comics by level
+223	Reading a comic with audio
+224	The Pairs game
+225	Picture crossword with Norwegian words
+226	Norwegian grammar
+227	Numbers in Norwegian
+228	The plan for today
+229	A personal study plan
+230	A mock exam
+231	Writing practice
+232	A conversation in Norwegian
+233	The Logic Race game
+234	Player ranking
+235	Friends
+236	Profile and avatar
+237	Installing the app
+238	Signing in
+239	Creating an account
+240	The updates log
+241	English through comics
+242	Maths
+243	The games page: Duel 3D with screenshots, fighters and the campaign
+244	Play together — a quiz room with a QR code
+245	Гра разом
+246	Кросворд з картинками
+247	Тест «Дроби»
+248	Урок «Дроби»
+249	Доступність у налаштуваннях
+250	Вхід через Google
+251	Пригоди з аватарами
+252	Головна Комікс·Lab
+253	Встановлення застосунку
+254	Курс англійської
+255	Тест після історії
+256	Гра «Пари»
+257	Вибір мови перекладу
+258	Профіль і налаштування
+259	Рейтинг гравців
+260	Список коміксів
+261	Читання коміксу на телефоні
+262	Вхід у Комікс·Lab
+263	Читання коміксу
+264	Тест на телефоні
+265	Новий тип питання — відповідь у розмові
+266	Слова за темами
+267	Головна сторінка Комікс·Lab
+268	Читання коміксу з озвученням
+269	Тест на телефоні: кольорові відповіді на весь екран
+270	Розмова норвезькою
+271	Норвезькі слова за темами
+272	Друзі
+273	Профіль і аватар
+274	Особистий план навчання
+275	Картки з повторенням
+276	Логік-гонка
+277	Створення акаунта

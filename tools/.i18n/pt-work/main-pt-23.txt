@@ -1,0 +1,200 @@
+4401	um atendente, um operador
+4402	um ponto de referência
+4403	uma instrução
+4404	desligar (o telefone)
+4405	um serviço de emergência
+4406	verdadeiro
+4407	uma frase-senha
+4408	aleatório
+4409	uma conta
+4410	um vazamento de dados
+4411	um gerenciador de senhas
+4412	uma senha mestra
+4413	um código de uso único
+4414	proteção
+4415	phishing
+4416	um remetente
+4417	um domínio
+4418	um anexo
+4419	pressa
+4420	um sinal de alerta
+4421	falso
+4422	verificar, conferir
+4423	bloquear
+4424	um QR code
+4425	um cartaz
+4426	um prêmio
+4427	um adesivo
+4428	colar
+4429	escanear
+4430	um organizador
+4431	um número de cartão
+4432	suspeito
+4433	digitar
+4434	revelar
+4435	um número de rua
+4436	dados de localização
+4437	uma permissão
+4438	cortar (uma imagem)
+4439	um destinatário
+4440	uma configuração de privacidade
+4441	copiar
+4442	uma pegada digital
+4443	um concurso
+4444	pagamento adiantado
+4445	golpe, fraude
+4446	uma senha do banco
+4447	provavelmente
+4448	ativo
+4449	exigir
+4450	imitar
+4451	uma amostra de voz
+4452	pânico
+4453	respirar
+4454	uma palavra-código
+4455	um golpista
+4456	interromper, cortar
+4457	uma identidade
+4458	provar
+4459	um pedido de dinheiro
+4460	um videogame (console)
+4461	de segunda mão, usado
+4462	uma isca
+4463	uma avaliação
+4464	um histórico
+4465	um site de vendas, um marketplace
+4466	um pagamento
+4467	público
+4468	cancelar, interromper
+4469	um perfil
+4470	um código de login
+4471	um segredo
+4472	particular, privado
+4473	passar-se por outra pessoa
+4474	investigar
+4475	remover
+4476	avisar, alertar
+4477	um contato
+4478	uma permissão
+4479	um microfone
+4480	uma lista de contatos
+4481	uma localização
+4482	navegar
+4483	um desenvolvedor
+4484	crítico, com senso crítico
+4485	desnecessário
+4486	coletar
+4487	uma atualização
+4488	uma falha de segurança
+4489	uma fonte
+4490	instalar
+4491	um sistema operacional
+4492	uma loja de apps
+4493	um arquivo do sistema
+4494	confiável
+4495	no meio do caminho
+4496	uma correção
+4497	automático
+4498	uma rede
+4499	aberto
+4500	um nome de rede
+4501	sensível
+4502	dados móveis
+4503	HTTPS
+4504	um cadeado do navegador
+4505	automaticamente
+4506	um risco
+4507	separado
+4508	um meio, um suporte
+4509	danificar, estragar
+4510	trancar, bloquear
+4511	desconectar
+4512	ransomware
+4513	um responsável de TI
+4514	limpar, arrumar
+4515	regularmente
+4516	um CAPTCHA
+4517	automatizado
+4518	abuso
+4519	lixo
+4520	um robô (bot)
+4521	acessível
+4522	uma alternativa
+4523	registro (de eventos)
+4524	um código de verificação
+4525	validação
+4526	um cliente
+4527	um servidor
+4528	um tipo de dado
+4529	um tamanho, um comprimento
+4530	um formato
+4531	inválido
+4532	recusar, rejeitar
+4533	parametrizado
+4534	uma mensagem de erro
+4535	TLS
+4536	criptografar
+4537	proteção de transporte
+4538	um certificado
+4539	válido
+4540	ligar, vincular
+4541	um site
+4542	uma diferença de grafia
+4543	um destino
+4544	um hash
+4545	texto puro
+4546	um vazamento
+4547	de mão única
+4548	um sal
+4549	um valor armazenado
+4550	uma função de senha
+4551	reconhecido
+4552	uma tentativa
+4553	comparar
+4554	redefinir
+4555	acessibilidade
+4556	HTML semântico
+4557	texto alternativo
+4558	um leitor de tela
+4559	contraste
+4560	um teclado
+4561	foco
+4562	um rótulo
+4563	um campo de formulário
+4564	um estado de jogo
+4565	pausar
+4566	congelar
+4567	progresso
+4568	game over
+4569	jogar de novo
+4570	um mapa UV
+4571	uma costura
+4572	desdobrar
+4573	uma textura
+4574	um padrão
+4575	luz
+4576	esticamento
+4577	uma renderização
+4578	um script
+4579	Start
+4580	Update
+4581	um sinal
+4582	Play Mode
+4583	Console
+4584	uma relação
+4585	uma chave primária
+4586	uma chave estrangeira
+4587	uma matrícula, uma inscrição
+4588	apontar
+4589	JOIN
+4590	relacionado
+4591	uma duplicata
+4592	uma informação
+4593	um ponto de encontro
+4594	um passeio da escola
+4595	combinar
+4596	um parceiro de estudo
+4597	uma área
+4598	um cartão de contato
+4599	aleatoriamente, à toa
+4600	um chat de jogo

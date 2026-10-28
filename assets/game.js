@@ -853,6 +853,7 @@
     no: { hero_t: 'Quiz på engelsk eller norsk', hero_d: 'Velg språk og spill. Én skjerm viser QR-koden, alle andre skanner den med mobilen og konkurrerer.', pick: 'Hvilket språk lærer vi?', pick_d: 'Velg språket først. Deretter ser du bare rommene og spillene for dette språket.', choose: 'Velg språk →', change: '← Bytt språk', quick: '⚡ Velg et rom', quick_d: 'Trykk på et kort, så er QR-rommet klart.', no_t: 'Norsk', no_d: 'Tegneserier, ord, grammatikk og uttale på norsk', en_t: 'Engelsk', en_d: 'Engelske ord etter tema med bilder og lyd', en_all: 'Alle engelske ord', en_all_d: 'alle temaer sammen', adv: '⚙️ Flere innstillinger', join_t: 'Har du en kode?', go: 'Bli med',
       q: { mix: ['🎲', 'Litt av alt', 'ord, bilder, grammatikk'], pics: ['🖼️', 'Ord med bilder', 'best for barn'], grammar: ['📐', 'Grammatikk', 'Velg riktig ord'], numbers: ['🔢', 'Tall', 'på lyd'], clock: ['🕒', 'Klokka', 'Hva er klokka?'], alphabet: ['🔤', 'Alfabetet', 'bokstaver på lyd'], math: ['🧮', 'Matte', '+ − × ÷'], A1: ['🌱', 'Nivå A1', 'tegneserier og ord'] } }
   };
+  if (window.KL_T_FILL) KL_T_FILL(GH, 'game.js:GH');
   const gh = k => { const ui = (C() && C().ui) || 'uk'; return (GH[ui] || GH.en)[k] ?? GH.en[k]; };
   function languageGate() {
     const K = C(), { h } = K;
@@ -1027,6 +1028,7 @@
     en: { t: '🎮 Play as a class or together — words', d: 'Pick a topic and a room with a QR code appears. Students scan it and answer on their phones — questions with pictures and audio.', go: 'Create a QR room', all: '🎲 All topics', cur: 'This topic', more: 'Another topic…', pics: 'with pictures' },
     no: { t: '🎮 Spill med klassen eller sammen – ord', d: 'Velg et tema, så kommer et rom med QR-kode. Elevene skanner den og svarer på mobilen – spørsmål med bilder og lyd.', go: 'Lag et rom med QR', all: '🎲 Alle temaer', cur: 'Dette temaet', more: 'Et annet tema …', pics: 'med bilder' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(WR, 'game.js:WR');
   function wordRoomBox({ current = '' } = {}) {
     const K = C(), { h } = K, T = WR[K.ui] || WR.en;
     const W = window.KomiksWords, themes = W ? W.themes() : [];

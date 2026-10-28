@@ -1,0 +1,200 @@
+5001	fevereiro
+5002	março
+5003	abril
+5004	maio
+5005	junho
+5006	julho
+5007	agosto
+5008	setembro
+5009	outubro
+5010	novembro
+5011	ontem
+5012	uma semana
+5013	um ano
+5014	sol
+5015	vento
+5016	neblina
+5017	trovão
+5018	um relâmpago
+5019	um arco-íris
+5020	uma nuvem
+5021	inverno
+5022	primavera
+5023	verão
+5024	outono
+5025	um grau
+5026	aurora boreal
+5027	uma tempestade
+5028	feliz, contente
+5029	bravo, com raiva
+5030	com sede
+5031	orgulhoso
+5032	surpreso
+5033	apaixonado
+5034	envergonhado
+5035	ansioso, empolgado
+5036	preocupado
+5037	satisfeito
+5038	com ciúme
+5039	um ônibus
+5040	um bonde
+5041	um metrô
+5042	uma bicicleta
+5043	um avião
+5044	um barco
+5045	uma balsa
+5046	um táxi
+5047	um semáforo
+5048	um hospital
+5049	um banco
+5050	uma igreja
+5051	um ponto (de ônibus)
+5052	uma estação
+5053	um aeroporto
+5054	um médico
+5055	um enfermeiro, uma enfermeira
+5056	um cozinheiro
+5057	um policial
+5058	um bombeiro
+5059	um agricultor
+5060	um marceneiro
+5061	um eletricista
+5062	um piloto
+5063	um engenheiro
+5064	um caixa
+5065	um encanador
+5066	um faxineiro
+5067	um jornalista
+5068	uma floresta
+5069	uma árvore
+5070	grama
+5071	um lago
+5072	um rio
+5073	um mar
+5074	uma praia
+5075	uma ilha
+5076	uma cachoeira
+5077	uma pedra
+5078	uma geleira
+5079	um céu
+5080	uma lua
+5081	uma trilha
+5082	esqui
+5083	patinação
+5084	natação
+5085	handebol
+5086	ciclismo
+5087	corrida
+5088	dança
+5089	música
+5090	um violão
+5091	um piano
+5092	um filme
+5093	um passeio
+5094	pesca
+5095	leitura
+5096	uma festa de aniversário
+5097	um show
+5098	umas férias
+5099	dolorido, dói
+5100	um resfriado
+5101	um curativo
+5102	uma injeção
+5103	de licença médica
+5104	saudável, bem
+5105	pressão arterial
+5106	quebrado
+5107	comer
+5108	beber
+5109	andar, ir
+5110	ler
+5111	ouvir
+5112	ver
+5113	cozinhar
+5114	cantar
+5115	nadar
+5116	abrir
+5117	jovem
+5118	cheio
+5119	uma lista de compras
+5120	um carrinho
+5121	um caixa (de pagamento)
+5122	uma oferta
+5123	um desconto
+5124	em dinheiro
+5125	horário de funcionamento
+5126	consumir antes de
+5127	depósito de garrafas
+5128	um prato
+5129	um garfo
+5130	uma faca
+5131	uma colher
+5132	uma panela
+5133	uma frigideira
+5134	um forno
+5135	um freezer
+5136	uma pia
+5137	ferver, cozinhar
+5138	fritar
+5139	cortar
+5140	mexer
+5141	uma lava-louças
+5142	um emprego
+5143	um funcionário
+5144	um chefe
+5145	um contrato
+5146	um currículo
+5147	uma entrevista
+5148	um sindicato
+5149	uma quitinete, um quarto alugado
+5150	um contrato de aluguel
+5151	um aviso de rescisão
+5152	uma máquina de lavar
+5153	um piso, um chão
+5154	um telhado, um teto
+5155	sentir-se bem, adaptar-se
+5156	disponível, vago
+5157	ocupado
+5158	uma conta (a pagar)
+5159	um empréstimo
+5160	poupança
+5161	uma despesa
+5162	dinheiro vivo
+5163	pegar emprestado, emprestar
+5164	um escritório
+5165	pronto-atendimento
+5166	um posto de saúde infantil
+5167	uma autorização de residência
+5168	uma reclamação
+5169	serviço de intérpretes
+5170	o programa de introdução
+5171	auxílio-família por filho
+5172	um atestado médico
+5173	uma viagem
+5174	uma partida
+5175	uma chegada
+5176	bagagem
+5177	um hotel
+5178	uma reserva
+5179	uma fronteira
+5180	uma viagem circular
+5181	fazer as malas
+5182	hospedagem
+5183	um celular
+5184	uma tela
+5185	um e-mail
+5186	um arquivo
+5187	baixar (download)
+5188	enviar (upload)
+5189	pesquisar, buscar
+5190	rede sem fio
+5191	alto
+5192	forte
+5193	simpático, agradável
+5194	corajoso
+5195	tímido
+5196	preguiçoso
+5197	paciente
+5198	curioso
+5199	confiável
+5200	generoso

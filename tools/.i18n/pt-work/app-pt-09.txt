@@ -1,0 +1,143 @@
+1601	Criando a sala…
+1602	Você está na sala!
+1603	Espere o professor apertar “Começar”.
+1604	você
+1605	O tempo acabou! Esperando os resultados da turma…
+1606	A sala foi fechada ou a conexão caiu.
+1607	Sala não encontrada. Confira o código.
+1608	Não foi possível conectar. É preciso conexão com a internet.
+1609	⚠️ A página foi aberta a partir de um arquivo — os celulares não conseguem entrar. Abra o jogo no site.
+1610	Você foi removido da sala.
+1611	Remover
+1612	pontos
+1613	🔍 Buscar
+1614	Uma palavra, frase, quadrinho, seção… em qualquer idioma
+1615	Encontre uma palavra: em norueguês, ucraniano ou inglês
+1616	Tudo
+1617	Palavras
+1618	Do dicionário dos quadrinhos
+1619	Quadrinhos
+1620	Falas nos quadrinhos
+1621	Gramática
+1622	Histórias em inglês
+1623	Temas de palavras
+1624	Seções do site
+1625	Nada encontrado.
+1626	Você quis dizer:
+1627	Dica: digite do jeito que quiser — “hamer”, “молоток” ou “hammer” encontram a mesma coisa. Enter abre o primeiro resultado.
+1628	Experimente:
+1629	tema
+1630	nível
+1631	Abrir
+1632	Buscar
+1633	🎓 Para professores — ferramentas para a turma
+1634	Estudar no site é grátis para todos. Uma conta de professor acrescenta ferramentas para a turma: torneios com QR code, limites maiores nos exercícios de fala e convites para colegas. Basta confirmar que você dá aulas.
+1635	📝 Testes ilimitados para você e sua turma
+1636	🏁 Torneios da turma: Corrida de Lógica, Math Rocket e xadrez com QR code
+1637	🎯 Plano de estudos e ranking dos alunos
+1638	✉️ Convites para colegas
+1639	Confirme do jeito que for melhor para você:
+1640	um link para a página da escola que mostre seu nome;
+1641	uma foto do seu crachá ou cartão funcional (pode cobrir os dados pessoais);
+1642	um horário de aulas, um e-mail da escola, uma carta da direção;
+1643	qualquer outra coisa que nos convença.
+1644	Escola, curso ou creche *
+1645	O que você ensina (ex.: “Norueguês, 5º ano”)
+1646	País ou cidade
+1647	Conte rapidamente o que você ensina e como podemos confirmar *
+1648	Link (página da escola, perfil)
+1649	📎 Adicionar uma foto ou PDF
+1650	✕ Remover
+1651	Enviar o pedido
+1652	Cancelar o pedido
+1653	⏳ Seu pedido foi enviado. Nós o verificamos à mão — normalmente em um ou dois dias. A resposta chegará no seu e-mail.
+1654	🎓 Sua conta foi confirmada como conta de professor. As ferramentas para a turma estão ativas — obrigado pelo seu trabalho!
+1655	❌ Desta vez não conseguimos confirmar. Envie um novo pedido com uma comprovação mais clara.
+1656	Entre para enviar um pedido.
+1657	Entrar
+1658	Enviado
+1659	⚡ Quiz rápido do dia
+1660	Que palavra é esta? 5 imagens — rápido e fácil.
+1661	Começar
+1662	Próximo
+1663	De novo
+1664	Mais 5 palavras
+1665	👨‍👩‍👧 Meus alunos
+1666	beta
+1667	Pais e professores veem como vai o estudo: dias e sequências, testes, acertos e rapidez, palavras aprendidas, erros e gramática. Quem dá o acesso é o próprio aluno — com um código da conta dele.
+1668	➕ Adicionar um aluno
+1669	Código do aluno
+1670	Eu sou
+1671	👪 pai ou mãe
+1672	🎓 professor
+1673	Rótulo (turma, nome)
+1674	Ex.: 5B ou Dasha
+1675	Adicionar
+1676	Ninguém ainda. Peça ao aluno para abrir Conta → Estudo → “Acesso para pais e professor” e passar o código para você.
+1677	📊 Detalhes
+1678	Remover
+1679	dias
+1680	sequência
+1681	testes em 7 dias
+1682	acertos (30 d)
+1683	s por teste
+1684	palavras sabidas
+1685	erros em andamento
+1686	para hoje
+1687	gramática (30 d)
+1688	tempo ativo
+1689	ativo
+1690	O código não funcionou ou expirou. Peça um novo.
+1691	Este é o seu próprio código.
+1692	Entre para ver seus alunos.
+1693	Entrar
+1694	Funciona em bilohash.com.
+1695	Você é professor? Faça o pedido — tudo é grátis para a sua turma.
+1696	🎓 Pedido de professor
+1697	← Meus alunos
+1698	👨‍👩‍👧 Acesso para pais e professor
+1699	Crie um código e passe para um pai, mãe ou professor — eles vão ver seu progresso (testes, palavras, erros, dias). Mensagens, amigos e e-mail continuam privados.
+1700	🔑 Criar um código de acesso
+1701	Vale por 24 horas e uma única vez.
+1702	Podem ver meu progresso:
+1703	Ninguém.
+1704	✍️ Escrever em norueguês
+1705	✍️ Escrita
+1706	Escreva algumas frases em norueguês e receba seu texto corrigido, os erros explicados e uma resposta modelo. Escrever todo dia importa mais do que escrever muito.
+1707	Nível
+1708	Tarefa
+1709	🎲 Outra tarefa
+1710	Escreva em norueguês…
+1711	✅ Conferir
+1712	Conferindo…
+1713	Limpar
+1714	📋 Correção
+1715	Texto corrigido
+1716	Erros
+1717	✨ Nenhum erro encontrado — ótimo trabalho!
+1718	💡 Dica
+1719	📗 Resposta modelo
+1720	Mostrar a resposta modelo
+1721	🗂️ Meus textos
+1722	✍️ Escrever outro
+1723	A correção automática está desligada agora. Seu texto foi salvo — compare-o você mesmo com a resposta modelo.
+1724	🧩 Exercícios simples
+1725	✍️ Escrita livre
+1726	Exercícios curtos com base nos quadrinhos: traduza uma frase, complete uma palavra, escreva o que você ouve. Correção na hora, sem precisar de internet.
+1727	Escreva esta frase em norueguês
+1728	Complete a palavra que falta
+1729	Ouça e escreva o que você ouve
+1730	🔊 Ouvir
+1731	🔁 De novo
+1732	✅ Conferir
+1733	Próximo ▶
+1734	Não sei
+1735	▶ Começar os exercícios
+1736	✅ Certo!
+1737	A resposta certa é:
+1738	Você escreveu:
+1739	🏁 Pronto!
+1740	🔄 Mais exercícios
+1741	Escreva em norueguês. Pontuação e letras maiúsculas são ignoradas.
+1742	Ainda há poucas frases neste nível — escolha outro nível.
+1743	A correção por IA não está respondendo agora, então os exercícios simples foram abertos. Sua escrita livre foi salva — tente de novo mais tarde.

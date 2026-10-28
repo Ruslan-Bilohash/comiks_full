@@ -1,0 +1,200 @@
+1	Pronomes pessoais
+2	Um pronome substitui um substantivo. Hun é para uma mulher ou menina, han para um homem ou menino, den/det para coisas (den para palavras en/ei, det para palavras et). Dere é “vocês”, de é “eles/elas”.
+3	eu
+4	você (uma pessoa)
+5	ele
+6	ela
+7	ele/ela (coisa)
+8	nós
+9	vocês
+10	eles, elas
+11	A Mia tem sete anos. Ela vai à escola.
+12	O Leo e eu somos amigos. Nós jogamos futebol.
+13	A mamãe e o papai estão em casa. Eles estão fazendo o jantar.
+14	Palavras interrogativas
+15	A palavra interrogativa vem primeiro e o verbo logo depois: “Hvor bor du?”. Hva — o que, hvem — quem, hvor — onde, når — quando, hvorfor — por que, hvordan — como, hvor mange — quantos.
+16	o que
+17	quem
+18	onde
+19	quando
+20	por que
+21	como
+22	quantos
+23	qual
+24	Onde você mora? – Moro em Bergen.
+25	Quando começam as aulas?
+26	Verbos: presente
+27	No presente, acrescente -r ao infinitivo, e a forma é a mesma para todas as pessoas: jeg snakker, du snakker, de snakker. Irregulares: være → er, gjøre → gjør, si → sier, vite → vet, ha → har.
+28	falar → falo/fala
+29	comer → como/come
+30	morar → moro/mora
+31	ser/estar → sou/é/somos
+32	ter → tenho/tem
+33	fazer → faço/faz
+34	Eu falo um pouco de norueguês.
+35	Nós moramos na Noruega.
+36	Verbos modais
+37	Depois de kan, vil, skal, må e bør, o verbo fica no infinitivo, sem “å” e sem -r: “Jeg kan snakke norsk”. Depois de outros verbos (liker, begynner, prøver), use “å”: “Jeg liker å lese”.
+38	poder, conseguir
+39	querer
+40	ir (futuro), dever
+41	precisar, ter que
+42	deveria
+43	gostar de
+44	Eu sei falar um pouco de norueguês.
+45	Nós vamos viajar para Tromsø.
+46	Eu gosto de ler.
+47	Substantivos: en, ei, et
+48	Todo substantivo tem gênero: en (masculino), ei (feminino, pode ser trocado por en) e et (neutro). Na forma definida, o artigo vai para o fim: en bil → bilen, ei bok → boka (boken), et hus → huset.
+49	um carro → o carro
+50	um livro → o livro
+51	uma casa → a casa
+52	um gato → o gato
+53	uma maçã → a maçã
+54	Eu tenho um gato. O gato se chama Pus.
+55	Nós moramos numa casa. A casa é amarela.
+56	Pronomes objeto
+57	Quando o pronome é objeto da ação, ele muda de forma: jeg → meg, du → deg, han → ham (han), hun → henne, vi → oss, dere → dere, de → dem. “Jeg ser henne”, “Hun hjelper oss”.
+58	eu → me
+59	você → te, você
+60	ele → o, ele
+61	ela → a, ela
+62	nós → nos
+63	vocês → vocês
+64	eles → os, eles
+65	Você pode me ajudar?
+66	Vamos ligar para ela hoje à noite.
+67	A vovó vem nos visitar no domingo.
+68	Pronomes possessivos
+69	O possessivo concorda com a coisa possuída: min bil (en), mi bok (ei), mitt hus (et), mine bøker (plural). O mesmo vale para din/di/ditt/dine e vår/vårt/våre. Hans, hennes e deres nunca mudam. Normalmente ele vem depois do substantivo: “bilen min”.
+70	meu, minha
+71	seu, sua (de você)
+72	dele
+73	dela
+74	nosso, nossa
+75	de vocês; deles
+76	Este é o meu carro.
+77	A nossa casa é amarela.
+78	Onde estão os seus sapatos?
+79	Meu/seu: min, mi, mitt, mine · din, di, ditt, dine
+80	A forma acompanha a coisa possuída, e não o dono: en bil → bilen min/din, ei bok → boka mi/di, et hus → huset mitt/ditt, plural → vennene mine/dine.
+81	o meu carro / o seu carro
+82	o meu livro / o seu livro
+83	a minha casa / a sua casa
+84	os meus amigos / os seus amigos
+85	A minha mochila é azul.
+86	Este gorro é seu?
+87	O meu passaporte está aqui.
+88	Nosso/dele/dela/deles: vår, vårt, våre · hans, hennes, deres
+89	Vår concorda com a coisa: vår bil, vårt hus, våre venner. Hans, hennes e deres não mudam. Deres pode significar “de vocês” ou “deles”; o contexto decide.
+90	o nosso carro / a nossa rua
+91	a nossa casa
+92	os nossos amigos
+93	dele / dela / deles
+94	A maquete dela acende.
+95	Os livros deles estão aqui.
+96	A bolsa dela é pesada.
+97	A bolsa dela é pesada — com ênfase em quem é a dona.
+98	O filho deles é capaz.
+99	O filho deles é capaz — com ênfase nos donos.
+100	Os filhos deles são capazes.
+101	Bilen min ou min bil? A ordem das palavras
+102	As duas ordens estão certas. Depois do substantivo: substantivo definido + possessivo — bilen min, boka di, huset vårt. Antes do substantivo: possessivo + substantivo indefinido — min bil, di bok, vårt hus. A posição depois é muito comum; a posição antes costuma dar ênfase ao dono.
+103	o meu carro
+104	o MEU carro
+105	a NOSSA casa
+106	É o MEU carro, não o dele.
+107	Onde estão os seus livros?
+108	Causa, resultado, acréscimo e contraste
+109	As expressões de ligação mostram a lógica de um texto. Derfor, likevel e dessuten são advérbios: quando vêm primeiro, o verbo conjugado vem logo depois (Derfor sparer Liv). Ettersom introduz uma oração subordinada, com o sujeito antes do verbo. På grunn av e i motsetning til levam um substantivo ou pronome. For å + infinitivo explica a finalidade.
+110	por isso — resultado
+111	mesmo assim — contraste inesperado
+112	além disso — informação extra
+113	como, já que — causa numa oração subordinada
+114	por causa de + substantivo
+115	para + infinitivo — finalidade
+116	ao contrário de + substantivo
+117	O aluguel é alto. Por isso a Liv faz um orçamento.
+118	A jaqueta é barata. Mesmo assim, a Mia não a compra.
+119	A cozinha é moderna. Além disso, a sala tem janelas grandes.
+120	A Liv espera, já que quer pensar primeiro.
+121	O Leo perdeu a hora por causa do celular descarregado.
+122	A Mia compara preços para escolher a jaqueta certa.
+123	Ao contrário da jaqueta azul, a verde é impermeável.
+124	Verbos: passado
+125	O passado (preteritum) é para ações terminadas: “I går spiste jeg pizza”. Os verbos regulares recebem -et, -te, -de ou -dde: snakket, spiste, levde, bodde. Muitos verbos comuns são irregulares: gå → gikk, se → så, være → var, ha → hadde, gjøre → gjorde, si → sa, komme → kom.
+126	falar → falou
+127	comer → comeu
+128	viver → viveu
+129	ir → foi
+130	ser/estar → era/estava
+131	ter → tinha, teve
+132	ver → viu
+133	vir → veio
+134	Ontem fomos ao cinema.
+135	Antes eu morava em Kiev.
+136	Adjetivos
+137	O adjetivo concorda com o substantivo: en stor bil, et stort hus (+t), store biler (+e no plural). Na forma definida ele sempre recebe -e: den store bilen, det store huset. Alguns nunca mudam: bra, gratis, moderne.
+138	um carro grande
+139	uma casa grande
+140	carros grandes
+141	o carro grande
+142	um dia bonito / tempo bom
+143	Nós temos uma casa grande.
+144	O carro vermelho é novo.
+145	Preposições
+146	I — dentro (i Norge, i Oslo, i huset), på — em, sobre e em muitos lugares (på skolen, på jobb, på butikken, på kino), til — para (til byen), fra — de (fra Ukraina), med — com, de (med bussen), om — sobre, de (om morgenen — de manhã).
+147	na Noruega / em Bergen
+148	na escola / no trabalho
+149	para a loja
+150	da Ucrânia
+151	de ônibus
+152	de manhã
+153	Eu sou da Ucrânia, mas moro na Noruega.
+154	Vamos viajar para Bergen de trem.
+155	Ordem das palavras (V2)
+156	Numa afirmação em norueguês, o verbo fica sempre em SEGUNDO lugar. Se a frase começa com outra coisa que não o sujeito (i dag, nå, i morgen), o sujeito vai para depois do verbo: “Jeg går på jobb” → “I dag går jeg på jobb”.
+157	Estou tomando café da manhã agora.
+158	Agora estou tomando café da manhã.
+159	Amanhã nós vamos viajar.
+160	No inverno faz frio.
+161	Hoje vou trabalhar.
+162	Depois da aula, o Leo joga futebol.
+163	Conjunções
+164	Og (e), men (mas), eller (ou) e så (então) ligam duas orações principais. Fordi (porque), at (que), når (quando), hvis (se), selv om (embora), mens (enquanto) e før (antes que) iniciam uma oração subordinada — nela, ikke vem ANTES do verbo: “…fordi jeg ikke har tid”.
+165	e
+166	mas
+167	ou
+168	porque
+169	que
+170	se
+171	embora
+172	Vou ficar em casa porque estou doente.
+173	Ele diz que não tem tempo.
+174	Sin/si/sitt/sine e verbos reflexivos
+175	Sin/si/sitt/sine quer dizer “o próprio” quando o dono é o sujeito na terceira pessoa: “Kari ringer broren sin” (o próprio irmão dela), mas “Kari ringer broren hennes” (o irmão de outra mulher). Os verbos reflexivos levam seg/meg/deg/oss: “Jeg gleder meg”, “Vi setter oss”.
+176	A Kari liga para o (próprio) irmão.
+177	A Kari liga para o irmão dela (de outra pessoa).
+178	estou ansioso, mal posso esperar
+179	ele se senta
+180	nós nos apressamos
+181	O Leo está procurando a própria bola.
+182	Estamos ansiosos pelas férias.
+183	O perfeito (presente perfeito)
+184	O perfeito é har + particípio. Use quando o resultado importa agora ou a ação ainda continua: “Jeg har bodd i Norge i to år”. Com um momento específico do passado (i går, i 2020), use o pretérito. Formas: snakket, spist, bodd, gått, vært, hatt, sett, kommet, gjort, sagt.
+185	tenho falado, já falei
+186	já comi
+187	tenho morado, já morei
+188	já fui
+189	já estive
+190	já vi
+191	já fiz
+192	já disse
+193	Moro na Noruega há dois anos.
+194	Você já esteve em Tromsø?
+195	A voz passiva
+196	A voz passiva mostra que algo é feito com o sujeito. Bli + particípio para um acontecimento específico: “Huset ble bygd i 1990”. O passivo com -s para regras e ações habituais: “Butikken åpnes klokka ni”, “Det snakkes norsk her”. Depois de verbos modais: “Søknaden må sendes i dag”.
+197	A casa foi construída em 1990.
+198	A loja abre às nove.
+199	O pedido precisa ser enviado hoje.
+200	O livro foi escrito por Ibsen.

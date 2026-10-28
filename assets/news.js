@@ -13,7 +13,8 @@
     de: { title: '✨ Was gibt\'s Neues', intro: 'Ein kurzer Überblick über die neuesten Komiks·Lab-Updates. Alles funktioniert sofort — nichts zu installieren.', new: 'NEU', older: 'Ältere Updates', back: '← Startseite' },
     pl: { title: '✨ Co nowego', intro: 'Krótki zapis najnowszych aktualizacji Komiks·Lab. Wszystko działa od razu — niczego nie trzeba instalować.', new: 'NOWE', older: 'Starsze aktualizacje', back: '← Strona główna' },
     tr: { title: '✨ Yenilikler', intro: 'Komiks·Lab’ın en son güncellemelerinin kısa kaydı. Her şey hemen çalışır — hiçbir şey yüklemeniz gerekmez.', new: 'YENİ', older: 'Daha eski güncellemeler', back: '← Ana sayfa' },
-    lt: { title: '✨ Kas naujo', intro: 'Trumpas naujausių Komiks·Lab atnaujinimų žurnalas. Viskas veikia iš karto — nieko nereikia diegti.', new: 'NAUJA', older: 'Ankstesni atnaujinimai', back: '← Pagrindinis' }
+    lt: { title: '✨ Kas naujo', intro: 'Trumpas naujausių Komiks·Lab atnaujinimų žurnalas. Viskas veikia iš karto — nieko nereikia diegti.', new: 'NAUJA', older: 'Ankstesni atnaujinimai', back: '← Pagrindinis' },
+    pt: { title: '✨ Novidades', intro: 'Um registro curto das últimas atualizações do Komiks·Lab. Tudo funciona na hora — não é preciso instalar nada.', new: 'NOVO', older: 'Atualizações anteriores', back: '← Início' }
   };
   const tx = k => (T[C().ui] || T.en)[k];
   // Найновіше — зверху. id має бути унікальним і зростати.
@@ -40,7 +41,7 @@
         return isNaN(t) ? day : t.toLocaleDateString(C().locale(), { day: 'numeric', month: 'long', year: 'numeric' });
       } catch { return day; }
     };
-    const open = { uk: 'Подивитися', en: 'Take a look', no: 'Se det', ar: 'ألقِ نظرة', de: 'Schau vorbei', pl: 'Zobacz', tr: 'Göz atın', lt: 'Pažiūrėkite' }[ui] || 'Take a look';
+    const open = { uk: 'Подивитися', en: 'Take a look', no: 'Se det', ar: 'ألقِ نظرة', de: 'Schau vorbei', pl: 'Zobacz', tr: 'Göz atın', lt: 'Pažiūrėkite', pt: 'Dar uma olhada' }[ui] || 'Take a look';
     const entry = (e, i) => h('article', { class: 'news-item' + (i === 0 ? ' first' : ''), style: { '--i': i } },
       h('div', { class: 'news-when' }, h('span', { class: 'news-ico' }, e.icon || '✨'), h('time', {}, fmt(e.id)), i === 0 ? h('span', { class: 'news-new' }, tx('new')) : null),
       h('ul', {}, lines(e, ui).map(x => h('li', {}, x))),

@@ -1,0 +1,200 @@
+3601	estranho
+3602	perceber
+3603	um orçamento
+3604	um acordo, um combinado
+3605	uma garantia
+3606	uma nota fiscal, uma fatura
+3607	um carro reserva
+3608	aprovado
+3609	as férias de inverno
+3610	uma previsão do tempo
+3611	vento forte
+3612	um alerta de avalanche
+3613	íngreme
+3614	um perigo
+3615	sinalizado
+3616	uma trilha
+3617	lã
+3618	corta-vento
+3619	uma luva (de dedão)
+3620	as regras de segurança na montanha
+3621	voltar, dar meia-volta
+3622	uma vergonha
+3623	brigar, discutir
+3624	estrondar
+3625	uma parede
+3626	dormir
+3627	ser ouvido
+3628	comemorar
+3629	um dia de semana
+3630	tudo bem, sem problema
+3631	na hora, imediatamente
+3632	um mutirão
+3633	mais fácil
+3634	uma reunião de condomínio
+3635	uma pauta
+3636	um item da pauta, um assunto
+3637	pedir a palavra
+3638	uma proposta
+3639	apresentar uma proposta
+3640	justificar
+3641	um ponto de recarga
+3642	um investimento
+3643	um fundo de manutenção
+3644	votar
+3645	uma abstenção, voto em branco
+3646	aprovar
+3647	a ata
+3648	uma diretoria
+3649	uma candidatura de emprego
+3650	genérico, vago
+3651	um exemplo
+3652	um resultado
+3653	introduzir, implantar
+3654	um tempo de espera
+3655	concreto
+3656	formação
+3657	experiência
+3658	uma referência
+3659	uma solicitação
+3660	cumprir os requisitos
+3661	um anúncio
+3662	honesto
+3663	um acerto de imposto
+3664	imposto pago a menos
+3665	dever (dinheiro)
+3666	uma dedução
+3667	dedução de deslocamento
+3668	uma mensalidade sindical
+3669	juros
+3670	responsável
+3671	recorrer, reclamar
+3672	alterar, mudar
+3673	descontar, reter
+3674	um valor
+3675	uma parcela
+3676	desagradável
+3677	um financiamento imobiliário
+3678	uma pré-aprovação de financiamento
+3679	capital próprio
+3680	o preço de compra
+3681	um custo mensal
+3682	uma taxa de juros
+3683	juros fixos
+3684	juros variáveis
+3685	previsibilidade
+3686	uma escolha ponderada
+3687	despesas de condomínio
+3688	fazer um teste de estresse
+3689	aprovar
+3690	um dia útil
+3691	avaliar, considerar
+3692	um dano causado por água
+3693	um cano
+3694	estourar, rachar
+3695	o registro geral
+3696	um seguro
+3697	uma franquia
+3698	cobrir
+3699	repentino
+3700	conservado, com manutenção
+3701	uma indenização
+3702	reduzir
+3703	um perito
+3704	uma causa
+3705	um acerto, um pagamento
+3706	um profissional (prestador de serviço)
+3707	um home office
+3708	produtividade
+3709	uma comunidade, convivência
+3710	interromper
+3711	quinze minutos
+3712	por outro lado
+3713	confiança
+3714	um funcionário novo
+3715	resumir
+3716	razoável
+3717	um meio-termo
+3718	avaliar
+3719	um esquema, um arranjo
+3720	bem-estar
+3721	permanente
+3722	objetivo, sem rodeios
+3723	um atestado médico, uma licença médica
+3724	parcial, gradual
+3725	aos poucos
+3726	um levantamento de peso
+3727	adaptar
+3728	uma tarefa
+3729	evitar
+3730	um plano de acompanhamento
+3731	treinamento
+3732	um depósito, um armazém
+3733	ajustar
+3734	saúde
+3735	uma solução
+3736	seguro
+3737	licença parental
+3738	auxílio parental
+3739	a cota do pai
+3740	o período compartilhado
+3741	salário
+3742	o valor total
+3743	a renda mensal
+3744	reservado para
+3745	transferir
+3746	um substituto
+3747	avisar, notificar
+3748	um pedido, uma solicitação
+3749	um debate
+3750	uma afirmação
+3751	uma prova, um fundamento
+3752	um contra-argumento
+3753	uma conclusão
+3754	a produção de carne
+3755	as emissões de gases de efeito estufa
+3756	uma proteína
+3757	um feijão
+3758	uma lentilha
+3759	uma necessidade
+3760	disposto
+3761	distinguir entre
+3762	sensato
+3763	uma posição, um ponto de vista
+3764	um texto, uma publicação
+3765	uma conta de luz
+3766	um preço spot
+3767	um preço fixo
+3768	oscilar
+3769	auxílio na conta de luz
+3770	uma parte, uma parcela
+3771	um preço médio
+3772	ultrapassar
+3773	um limite
+3774	baixar
+3775	uma corrente de ar
+3776	valer a pena
+3777	uma aposta
+3778	uma medida de economia
+3779	um efeito
+3780	uma diferença cultural
+3781	o quadro de pessoal
+3782	uma decisão
+3783	coletivo
+3784	ancorar, ter o apoio de
+3785	uma hierarquia
+3786	horizontal, plano
+3787	um primeiro nome
+3788	igualdade
+3789	uma falta
+3790	mal-educado
+3791	em desacordo
+3792	conversa fiada, papo
+3793	interpretar
+3794	uma recusa
+3795	necessariamente
+3796	uma apresentação
+3797	um slide
+3798	uma fala, uma apresentação curta
+3799	a mensagem principal
+3800	economizar, poupar

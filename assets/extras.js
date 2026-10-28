@@ -341,7 +341,8 @@
     de: { play: 'Bei Google Play herunterladen', ms: 'Im Microsoft Store herunterladen', ios: 'iPhone – bald' },
     pl: { play: 'Pobierz z Google Play', ms: 'Pobierz ze sklepu Microsoft Store', ios: 'iPhone — wkrótce' },
     tr: { play: 'Google Play’den indir', ms: 'Microsoft Store’dan indir', ios: 'iPhone — yakında' },
-    lt: { play: 'Atsisiųsti iš Google Play', ms: 'Atsisiųsti iš Microsoft Store', ios: 'iPhone — netrukus' }
+    lt: { play: 'Atsisiųsti iš Google Play', ms: 'Atsisiųsti iš Microsoft Store', ios: 'iPhone — netrukus' },
+    pt: { play: 'Disponível no Google Play', ms: 'Baixe na Microsoft Store', ios: 'iPhone — em breve' }
   };
   const PLAY_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 2.6 13.6 12 4 21.4c-.4-.2-.6-.6-.6-1.1V3.7c0-.5.2-.9.6-1.1Z" fill="#00d7fe"/><path d="m16.9 8.7-3.3 3.3L4 2.6c.2-.1.5-.1.8 0l12.1 6.1Z" fill="#00f076"/><path d="M16.9 15.3 4.8 21.4c-.3.1-.6.1-.8 0l9.6-9.4 3.3 3.3Z" fill="#ff3a44"/><path d="m20.3 12.9-3.4 2.4-3.3-3.3 3.3-3.3 3.4 2.4c.7.5.7 1.3 0 1.8Z" fill="#ffd000"/></svg>';
   const WIN_SVG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 2h9.5v9.5H2z" fill="#f25022"/><path d="M12.5 2H22v9.5h-9.5z" fill="#7fba00"/><path d="M2 12.5h9.5V22H2z" fill="#00a4ef"/><path d="M12.5 12.5H22V22h-9.5z" fill="#ffb900"/></svg>';
@@ -674,7 +675,8 @@
       de: ['Erstelle deinen Helden', 'So spielt ihr zusammen', 'Raum öffnen', 'Freunde hinzufügen'],
       pl: ['Stwórz bohatera', 'Jak grać razem', 'Otwórz pokój', 'Dodaj znajomych'],
       tr: ['Kahramanını oluştur', 'Birlikte nasıl oynanır', 'Oda aç', 'Arkadaş ekle'],
-      lt: ['Sukurk savo veikėją', 'Kaip žaisti kartu', 'Atidaryti kambarį', 'Pridėti draugų']
+      lt: ['Sukurk savo veikėją', 'Kaip žaisti kartu', 'Atidaryti kambarį', 'Pridėti draugų'],
+      pt: ['Crie seu herói', 'Como jogar juntos', 'Abrir uma sala', 'Adicionar amigos']
     })[K.ui] || ['Create your hero', 'How to play together', 'Open a room', 'Add friends'];
     const me = window.KomiksProfile ? window.KomiksProfile.avatar() : '🦊';
     const custom = K.store.get('avatar', null);

@@ -1,0 +1,64 @@
+1	<b>O app offline não coleta absolutamente nada</b> <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) traz todas as histórias, testes e gravações dentro do próprio app instalado. Ele não tem contas nem código de rede — os módulos que conversariam com um servidor não estão só desligados, eles nem entram na versão. Funciona em modo avião. Nada sai do seu aparelho, então o resto desta política vale apenas para o site e para o app online.
+2	Quem somos
+3	O Komiks·Lab é um projeto para aprender norueguês: um site em <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> e dois apps para Android. Ele é mantido por Ruslan Bilohash, um desenvolvedor independente.
+4	Contato para qualquer questão de privacidade, inclusive a exclusão de dados: <a href="mailto:email@bilohash.com">email@bilohash.com</a>. Respondemos em até 30 dias.
+5	O que o site e o app online coletam
+6	Isto vale para <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> e para o <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).
+7	Só se você criar uma conta
+8	Dados
+9	Por quê
+10	Endereço de e-mail
+11	para entrar, confirmar a conta e redefinir a senha
+12	Nome de exibição e avatar
+13	mostrados aos seus amigos e no ranking
+14	Progresso de estudo: testes feitos, notas, sequências, erros
+15	para continuar de onde você parou e montar o seu plano de prática
+16	Amigos, mensagens, recados no mural
+17	só se você usar esses recursos
+18	A sua senha nunca é guardada. Guardamos apenas um hash de mão única dela (Argon2id), que não pode ser transformado de volta na senha.
+19	Sem conta
+20	As suas configurações e o seu progresso ficam no seu próprio navegador (<code>localStorage</code>) e nunca chegam até nós.
+21	Um cookie de sessão <code>kl_s</code> só é criado depois que você entra. Não há cookies de publicidade ou de análise, nem rastreadores de terceiros.
+22	O servidor guarda por pouco tempo uma forma com hash do seu endereço IP para limitar abusos (limitação de taxa). Ela não é ligada a uma pessoa e não é usada para mais nada.
+23	Estatísticas anônimas de visitas (nossas, sem terceiros): quais seções e quadrinhos são abertos, o tipo de aparelho, o idioma da interface, o site de onde você veio e a hora. Os visitantes únicos do dia são contados com um hash com sal, válido por um dia, do IP e do navegador; o IP em si nunca é guardado, e o sal é trocado e apagado todos os dias, então um visitante não pode ser reconhecido no dia seguinte. Sem cookies. Se o seu navegador enviar Do Not Track ou Global Privacy Control, nada é contado.
+24	Relatórios técnicos de falhas: se uma página quebra, o navegador nos envia o texto do erro, o arquivo e a linha, a seção do site, a versão da build e o tipo de navegador e de sistema — sem endereço IP, sem cookies e sem ligação com uma pessoa. Guardados por até 30 dias para corrigir os erros.
+25	Quem mais vê os dados
+26	Nunca vendemos dados e nunca os compartilhamos para publicidade. Os dados só chegam a outras empresas quando um recurso precisa disso tecnicamente:
+27	Serviço
+28	O que é enviado
+29	Quando
+30	Hostinger (hospedagem na UE)
+31	tudo o que é guardado: conta, progresso, mensagens
+32	sempre — é onde o site roda
+33	OpenAI
+34	o áudio do seu microfone e o texto da conversa
+35	só durante uma chamada de prática falada, e só enquanto ela durar
+36	OpenAI / Anthropic / Groq / xAI
+37	a frase que você escreveu, sem o seu nome nem o seu e-mail
+38	só quando você pede a correção do que escreveu
+39	Google Fonts
+40	o seu endereço IP, como em qualquer fonte da web
+41	quando uma página carrega as fontes
+42	Stripe
+43	dados de pagamento, tratados inteiramente pelo Stripe
+44	não está em uso — estudar é grátis e não há nada para pagar
+45	Esses recursos existem apenas no site e no app online. O app offline não tem nenhum deles.
+46	Por quanto tempo guardamos
+47	<b>Conta e progresso</b> — até você excluir a conta.
+48	<b>Mensagens e recados no mural</b> — até você ou um moderador os apagar.
+49	<b>Sessões de login</b> — 30 dias, depois elas expiram.
+50	<b>Histórico de logins bem-sucedidos</b> — endereço IP, horário, forma de entrada e aparelho/navegador por 30 dias. O IP fica criptografado, visível só para os administradores por segurança da conta, e é apagado junto com a conta. Isso é separado das estatísticas anônimas de visitas.
+51	<b>Registros de limitação de taxa</b> — algumas horas, depois são sobrescritos.
+52	<b>Prática falada</b> — o áudio não é gravado nem guardado do nosso lado.
+53	Os seus direitos
+54	Pelo GDPR (RGPD), você pode pedir uma cópia dos seus dados, pedir a correção deles ou pedir que os apaguemos.
+55	<b>Exclua você mesmo a sua conta:</b> abra o seu perfil no app ou no site → <i>Conta</i> → <i>Excluir a conta</i>. Isso remove a conta, o progresso, os amigos e as mensagens.
+56	<b>Ou escreva para <a href="mailto:email@bilohash.com">email@bilohash.com</a></b> e faremos isso por você.
+57	Você também pode reclamar à autoridade de proteção de dados do seu país.
+58	Crianças
+59	Os apps são classificados como livres para todos, mas as contas, os amigos e as mensagens são para usuários a partir de 13 anos. Não criamos conscientemente contas para crianças menores. Um responsável que acredite que o filho criou uma conta pode nos escrever, e nós a removeremos.
+60	Os estudantes mais novos podem usar o <b>app offline</b>, que não tem conta e não envia nada para lugar nenhum.
+61	Segurança
+62	Todo o tráfego usa HTTPS. As senhas recebem hash com Argon2id. O banco de dados e a configuração com as credenciais ficam fora da pasta pública do site e fechados ao acesso direto. Só o dono do site tem acesso administrativo.
+63	Alterações
+64	Se esta política mudar de um jeito que importe, a data no topo muda e a atualização é anunciada na página “Novidades” do site.

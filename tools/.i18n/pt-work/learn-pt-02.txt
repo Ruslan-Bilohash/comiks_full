@@ -1,0 +1,200 @@
+201	Em Oslo se falam muitas línguas.
+202	A vaga foi anunciada em março.
+203	Palavras de ligação formais
+204	Para redações, cartas e debates: derfor (por isso), likevel (mesmo assim), dessuten (além disso), ettersom (como, já que), selv om (embora), i motsetning til (ao contrário de), på grunn av (por causa de) + substantivo, for å (para) + infinitivo. Derfor/likevel/dessuten no começo provocam inversão: “Derfor må vi…”.
+205	por isso
+206	mesmo assim
+207	além disso
+208	como, já que
+209	por causa de
+210	para, a fim de
+211	ao contrário de
+212	Estava chovendo. Mesmo assim fizemos a trilha.
+213	O trem atrasou por causa da neve.
+214	soa como o “é” aberto de “pé”
+215	como um “e” dito com os lábios arredondados, igual ao “eu” do francês
+216	soa como o “ó” de “avó”
+217	Dia a dia
+218	Família
+219	Escola
+220	Comida
+221	Natureza
+222	Lazer
+223	Compras
+224	Saúde
+225	Trabalho
+226	Moradia
+227	Cultura norueguesa
+228	Gramática na vida real
+229	Programação
+230	Narrador
+231	Som
+232	Mia
+233	Leo
+234	Nora
+235	O gato Pus
+236	Mamãe
+237	Papai
+238	Professora Ingrid
+239	Ola, o caixa
+240	Vovó
+241	Humphrey
+242	do Quênia (África)
+243	Ruslan
+244	Alina
+245	Denys
+246	Maria
+247	de Bergen
+248	Kari, a motorista
+249	de Oslo
+250	Musa
+251	do Reino Unido
+252	Professor Morten
+253	da Noruega
+254	Filha mais velha
+255	Filha mais nova
+256	Robo
+257	Um amigo novo na escola
+258	Bom dia! Bem-vindo à nossa turma.
+259	Olá! Obrigado.
+260	Oi! Qual é o seu nome?
+261	Meu nome é Nora. Qual é o seu nome?
+262	Eu sou o Leo. Prazer em conhecer você!
+263	O prazer é meu.
+264	Quantos anos você tem?
+265	Tenho nove anos. E você?
+266	Eu tenho dez. De onde você é, Humphrey?
+267	Sou do Quênia, mas agora moro aqui.
+268	Podemos brincar juntos depois da aula?
+269	Claro! Até as três.
+270	olá
+271	bom dia
+272	bem-vindo
+273	obrigado
+274	qual é o seu nome
+275	meu nome é
+276	prazer em conhecer você
+277	quantos anos você tem
+278	anos de idade
+279	de onde você é
+280	eu moro aqui
+281	brincar juntos
+282	depois da aula
+283	claro
+284	até logo
+285	amigo
+286	turma
+287	também
+288	No supermercado
+289	Precisamos de leite, pão e seis maçãs.
+290	Eu consigo achar as maçãs!
+291	As maçãs estão na prateleira.
+292	Uma, duas, três, quatro, cinco, seis. Pronto!
+293	Com licença, quanto custa o pão?
+294	Custa duas libras e cinquenta.
+295	Dá oito libras no total, por favor.
+296	Aqui está. Tenho uma nota de dez libras.
+297	O seu troco são duas libras. Obrigado!
+298	Muito obrigado. Tchau!
+299	Muito bem! Você comprou tudo sozinha.
+300	Fazer compras em inglês é fácil!
+301	precisamos de
+302	leite
+303	pão
+304	maçã
+305	prateleira
+306	quanto custa
+307	libra
+308	no total
+309	aqui está
+310	troco
+311	muito obrigado
+312	tchau
+313	com licença
+314	por favor
+315	muito bem
+316	fácil
+317	comprar
+318	você mesmo
+319	Um dia de chuva em Londres
+320	Ah, não, está chovendo de novo!
+321	Bem-vindo a Londres. Você trouxe guarda-chuva?
+322	Trouxe, mas o vento está muito forte.
+323	Hoje não dá para passear no parque.
+324	Vamos pegar o ônibus para o museu, então.
+325	Ótima ideia! Que ônibus vai para lá?
+326	O número vinte e quatro. Leva quinze minutos.
+327	Perfeito. O museu é grátis aos domingos.
+328	Olha este mapa antigo da cidade!
+329	Adoro dias de chuva em que descobrimos algo novo.
+330	À tarde o sol apareceu.
+331	Olha, um arco-íris! Aqui o tempo muda rápido.
+332	está chovendo
+333	guarda-chuva
+334	vento
+335	forte
+336	não podemos
+337	em vez disso
+338	vamos pegar
+339	museu
+340	que ônibus
+341	leva (tempo)
+342	grátis
+343	mapa
+344	cidade
+345	dia de chuva
+346	algo novo
+347	arco-íris
+348	tempo (clima)
+349	mudar
+350	A minha festa de aniversário
+351	O meu aniversário é no sábado. Posso convidar os meus amigos?
+352	Claro. Quantas pessoas?
+353	Você quer vir à minha festa?
+354	Adoraria! A que horas começa?
+355	Começa às quatro da tarde.
+356	Então até sábado!
+357	Feliz aniversário, Nora! Este presente é para você.
+358	Obrigada! Posso abrir agora?
+359	Faça um pedido e apague as velas!
+360	Desejo um ano feliz para todo mundo!
+361	Obrigada a todos por terem vindo. Foi uma festa ótima!
+362	Até segunda na escola. Boa noite!
+363	aniversário
+364	convidar
+365	amigos
+366	você gostaria de
+367	festa
+368	a que horas
+369	começa
+370	à tarde
+371	feliz aniversário
+372	presente
+373	abrir
+374	fazer um pedido
+375	velas
+376	todo mundo
+377	obrigado a todos
+378	ótimo
+379	boa noite
+380	No médico
+381	Boa tarde. Qual parece ser o problema?
+382	Estou com dor de garganta e dor de cabeça.
+383	Há quanto tempo você está assim?
+384	Desde terça. Também me sinto muito cansada.
+385	Vou medir a sua temperatura. Você está com febre.
+386	É grave, doutor?
+387	Não, é só um resfriado. Beba bastante água e descanse.
+388	Devo ficar em casa amanhã?
+389	Olá, preciso de alguma coisa para dor de garganta, por favor.
+390	Tome um destes comprimidos três vezes ao dia.
+391	Fiz um chá quente com mel para você.
+392	Obrigada! Já me sinto um pouco melhor.
+393	qual parece ser o problema
+394	dor de garganta
+395	dor de cabeça
+396	quanto tempo
+397	desde
+398	cansado
+399	temperatura
+400	febre

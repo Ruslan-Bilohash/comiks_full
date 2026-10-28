@@ -75,6 +75,7 @@
       why: 'Taisyklė paprasta: lygis laikomas išlaikytu, kai teisingai atsakai bent į du iš trijų jo klausimų.',
       listen: '🔊 Klausyk ir pasirink žodį', blank: 'Kurio žodžio trūksta?', tf: 'Tiesa ar netiesa?', yes: '✅ Tiesa', no: '❌ Netiesa' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'placement.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
 
   /* Три питання з кожного рівня: слухання, пропущене слово, «правда чи ні». */

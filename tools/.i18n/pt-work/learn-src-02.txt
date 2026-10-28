@@ -1,0 +1,200 @@
+201	Many languages are spoken in Oslo.
+202	The position was advertised in March.
+203	Formal linking words
+204	For essays, letters and debates: derfor (therefore), likevel (nevertheless), dessuten (moreover), ettersom (since), selv om (although), i motsetning til (unlike), på grunn av (because of) + noun, for å (in order to) + infinitive. Derfor/likevel/dessuten at the start trigger inversion: “Derfor må vi…”.
+205	therefore
+206	nevertheless
+207	moreover
+208	since, as
+209	because of
+210	in order to
+211	unlike
+212	It was raining. Nevertheless we went hiking.
+213	The train was delayed because of the snow.
+214	sounds like the “a” in “cat”
+215	like the “u” in “burn” with rounded lips
+216	sounds like the “o” in “more”
+217	Everyday life
+218	Family
+219	School
+220	Food
+221	Nature
+222	Free time
+223	Shopping
+224	Health
+225	Work
+226	Housing
+227	Norwegian culture
+228	Grammar in real life
+229	Coding
+230	Narrator
+231	Sound
+232	Mia
+233	Leo
+234	Nora
+235	Pus the cat
+236	Mum
+237	Dad
+238	Teacher Ingrid
+239	Cashier Ola
+240	Grandma
+241	Humphrey
+242	from Kenya (Africa)
+243	Ruslan
+244	Alina
+245	Denys
+246	Maria
+247	from Bergen
+248	Kari the driver
+249	from Oslo
+250	Musa
+251	from the UK
+252	Teacher Morten
+253	from Norway
+254	Older daughter
+255	Younger daughter
+256	Robo
+257	A New Friend at School
+258	Good morning! Welcome to our class.
+259	Hello! Thank you.
+260	Hi! What is your name?
+261	My name is Nora. What is your name?
+262	I am Leo. Nice to meet you!
+263	Nice to meet you too.
+264	How old are you?
+265	I am nine years old. And you?
+266	I am ten. Where are you from, Humphrey?
+267	I am from Kenya, but I live here now.
+268	Can we play together after school?
+269	Yes, of course! See you at three.
+270	hello
+271	good morning
+272	welcome
+273	thank you
+274	what is your name
+275	my name is
+276	nice to meet you
+277	how old are you
+278	years old
+279	where are you from
+280	I live here
+281	play together
+282	after school
+283	of course
+284	see you
+285	friend
+286	class
+287	too
+288	At the Supermarket
+289	We need milk, bread and six apples.
+290	I can find the apples!
+291	The apples are on the shelf.
+292	One, two, three, four, five, six. Done!
+293	Excuse me, how much is the bread?
+294	It is two pounds fifty.
+295	That is eight pounds altogether, please.
+296	Here you are. I have a ten pound note.
+297	Your change is two pounds. Thank you!
+298	Thank you very much. Goodbye!
+299	Well done! You bought everything yourself.
+300	Shopping in English is easy!
+301	we need
+302	milk
+303	bread
+304	apple
+305	shelf
+306	how much is it
+307	pound
+308	altogether
+309	here you are
+310	change
+311	thank you very much
+312	goodbye
+313	excuse me
+314	please
+315	well done
+316	easy
+317	to buy
+318	yourself
+319	A Rainy Day in London
+320	Oh no, it is raining again!
+321	Welcome to London. Did you bring an umbrella?
+322	Yes, but the wind is very strong.
+323	We cannot walk in the park today.
+324	Let us take the bus to the museum instead.
+325	Great idea! Which bus goes there?
+326	Number twenty-four. It takes fifteen minutes.
+327	Perfect. The museum is free on Sundays.
+328	Look at this old map of the city!
+329	I love rainy days when we find something new.
+330	In the evening the sun came out.
+331	Look, a rainbow! The weather here changes fast.
+332	it is raining
+333	umbrella
+334	wind
+335	strong
+336	we cannot
+337	instead
+338	let us take
+339	museum
+340	which bus
+341	it takes
+342	free
+343	map
+344	city
+345	rainy day
+346	something new
+347	rainbow
+348	weather
+349	to change
+350	My Birthday Party
+351	My birthday is on Saturday. Can I invite my friends?
+352	Of course. How many people?
+353	Would you like to come to my party?
+354	I would love to! What time does it start?
+355	It starts at four o'clock in the afternoon.
+356	See you on Saturday then!
+357	Happy birthday, Nora! This present is for you.
+358	Thank you! Can I open it now?
+359	Make a wish and blow out the candles!
+360	I wish for a happy year for everyone!
+361	Thank you all for coming. It was a great party!
+362	See you at school on Monday. Goodnight!
+363	birthday
+364	to invite
+365	friends
+366	would you like to
+367	party
+368	what time
+369	it starts
+370	in the afternoon
+371	happy birthday
+372	present
+373	to open
+374	make a wish
+375	candles
+376	everyone
+377	thank you all
+378	great
+379	goodnight
+380	At the Doctor’s
+381	Good afternoon. What seems to be the problem?
+382	I have a sore throat and a headache.
+383	How long have you felt like this?
+384	Since Tuesday. I also feel very tired.
+385	Let me check your temperature. You have a fever.
+386	Is it serious, doctor?
+387	No, it is just a cold. Drink a lot of water and rest.
+388	Should I stay at home tomorrow?
+389	Hello, I need something for a sore throat, please.
+390	Take one of these tablets three times a day.
+391	I made you some hot tea with honey.
+392	Thank you! I already feel a little better.
+393	what seems to be the problem
+394	sore throat
+395	headache
+396	how long
+397	since
+398	tired
+399	temperature
+400	fever

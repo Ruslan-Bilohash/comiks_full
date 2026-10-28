@@ -1,0 +1,200 @@
+1401	Nome ou código de amigo…
+1402	Todos
+1403	Qualquer nível
+1404	Só online
+1405	Mostrar mais
+1406	Ninguém encontrado — mude os filtros.
+1407	A busca compartilhada funciona em bilohash.com. Abaixo estão os jogadores deste aparelho.
+1408	Você ainda não aparece na busca — os outros não conseguem encontrar você.
+1409	🔎 Mostrar-me na busca
+1410	Para a minha conta
+1411	💻 Neste aparelho
+1412	👤 Perfil
+1413	➕ Adicionar amigo
+1414	✓ Amigo
+1415	⏳ Pedido enviado
+1416	🏁 Disputar
+1417	este é você
+1418	🟢 online
+1419	Pedido de amizade enviado — disputem assim que ele aceitar e estiver online.
+1420	⏳ Procurando…
+1421	estrelas
+1422	medalhas
+1423	dias seguidos
+1424	jogadores
+1425	✨ seu nível
+1426	💎 Premium
+1427	Os 100 primeiros membros ganharam Premium grátis para sempre. Depois disso, é uma assinatura: todos os testes e jogos sem limites.
+1428	📝 Testes ilimitados (plano grátis: 25 por mês)
+1429	🎮 Todos os jogos: Corrida de Lógica, Math Rocket, xadrez
+1430	🃏 Flashcards com repetição e seu próprio plano de estudos
+1431	✉️ Mensagens para amigos e o mural do seu perfil
+1432	❤️ Apoie o projeto — sem anúncios
+1433	Assinar
+1434	Abrindo o Stripe…
+1435	⚙️ Gerenciar a assinatura
+1436	Cancele quando quiser — o Premium continua até o fim do mês pago.
+1437	🏅 Você tem Premium para sempre
+1438	Entre primeiro, por favor
+1439	Entrar
+1440	🎉 Obrigado! O Premium está ativo.
+1441	Verificando o pagamento…
+1442	Os pagamentos ainda não estão configurados no servidor.
+1443	🔒 O pagamento é feito na página do Stripe. Os dados do cartão nunca chegam ao nosso servidor.
+1444	Você já usou os testes grátis deste mês.
+1445	🎁 Tudo é grátis
+1446	Quadrinhos, áudio, testes, cartões, palavras, gramática e jogos — sem limites e sem pagamento. A conta só guarda seu progresso, suas estrelas e seus amigos.
+1447	📖 Todos os 75 quadrinhos A1–B2 com áudio
+1448	🧩 Testes, cartões e Pares sem limite
+1449	🎮 Jogos com a turma ou a família
+1450	👥 Amigos, murais e mensagens
+1451	📅 Começar a lição de hoje
+1452	🏠 Início
+1453	🎨 Meu avatar
+1454	Escolha um animal e vista-o! Novos itens são liberados com as estrelas que você ganha nos testes. O avatar pertence à sua conta e aparece em todos os jogos.
+1455	🎁 de um amigo
+1456	Isto só pode ser ganho de presente de um amigo. Dê algo a um amigo — ele pode retribuir.
+1457	🎁 dos jogos
+1458	Um item raro — ele sai de baús nos jogos (Corrida de Lógica, Math Rocket, Jogar juntos).
+1459	Natural
+1460	🎁 Um baú!
+1461	Abrir
+1462	Item novo!
+1463	👕 Vestir
+1464	Depois
+1465	Nada
+1466	🎲 Aleatório
+1467	Salvo ✓
+1468	Entre ou cadastre-se e o avatar ficará salvo na sua conta.
+1469	🎨 Personalizar o avatar
+1470	Todos veem este avatar no “Jogar juntos” e no Math Rocket.
+1471	🎨 Mudar na minha conta
+1472	Seu avatar
+1473	Escolher outro animal
+1474	🎁 Grátis — 30 horas
+1475	Só conta o tempo de estudo ativo no site com a conta conectada.
+1476	🎁 Depois do cadastro — 30 horas de estudo grátis.
+1477	🎉 Suas 30 horas grátis acabaram!
+1478	Obrigado por estudar com o Komiks·Lab. Você pode continuar usando o site — vamos avisar sobre novas opções.
+1479	Entendi
+1480	h
+1481	min
+1482	🏁 Corrida de Lógica
+1483	Um enigma e quatro respostas aparecem na tela. Escolha a certa e seu herói dá um passo à frente; escolha errado e ele tropeça por um segundo e meio. Vence quem chegar primeiro.
+1484	📺 Corrida com a turma
+1485	A pista na tela grande, os alunos respondem no celular
+1486	🤖 Corrida contra robôs
+1487	Jogue sozinho contra três adversários
+1488	Distância
+1489	Limite de tempo
+1490	Nível
+1491	🟢 Fácil
+1492	🟡 Médio
+1493	🔴 Difícil
+1494	🟣 Especialista
+1495	Um enigma e quatro respostas na tela.
+1496	Resposta certa = um passo à frente.
+1497	Erro = tropeço de 1,5 segundo.
+1498	Vence quem chega primeiro. Cinco certas seguidas dão um 🎁 baú.
+1499	Escaneie o QR code ou abra o link:
+1500	Código
+1501	Esperando os jogadores…
+1502	🏁 Largada!
+1503	✖ Fechar
+1504	← Voltar
+1505	Vai!
+1506	CHEGADA
+1507	Líder
+1508	🏆 Resultados da corrida
+1509	🔄 Correr de novo
+1510	Tempo
+1511	você
+1512	🏁 Corrida de Lógica
+1513	Seu nome
+1514	Entrar ▶
+1515	Digite o código (5 caracteres).
+1516	Digite seu nome.
+1517	Você está na linha de largada!
+1518	Espere o sinal do professor…
+1519	Conectando…
+1520	Montando a pista…
+1521	A corrida terminou ou a conexão caiu.
+1522	Sala não encontrada.
+1523	Sem conexão com a internet.
+1524	Prepare-se…
+1525	VAI!
+1526	Escolha a resposta certa e você dá um passo. Vence quem chega primeiro.
+1527	+1 passo
+1528	LARGADA
+1529	CHEGADA
+1530	você
+1531	Ops! Você tropeçou…
+1532	🏁 Chegou! Esperando os outros…
+1533	Robo
+1534	Botto
+1535	Pixel
+1536	⚠️ A página foi aberta a partir de um arquivo — os celulares não conseguem entrar.
+1537	NOVO · 60 segundos
+1538	Math Rocket
+1539	Um jogo espacial de velocidade: atire no asteroide com a resposta certa antes que ele chegue ao seu foguete.
+1540	▶ Jogar
+1541	Duração da rodada
+1542	👥 Jogar com a turma
+1543	Escolha um nível
+1544	🐣
+1545	Pequenos
+1546	somar e tirar até 10, devagar
+1547	🟣
+1548	Especialista
+1549	tudo misturado, o mais rápido + “? × 7 = 56”
+1550	🟢
+1551	Fácil
+1552	adição e subtração até 20
+1553	🟡
+1554	Médio
+1555	tabuada
+1556	🔴
+1557	Difícil
+1558	+ − × ÷ misturados e mais rápido
+1559	Como jogar
+1560	Toque no asteroide com a resposta certa — o foguete atira.
+1561	As teclas 1–4 também atiram (da esquerda para a direita).
+1562	Um erro ou um asteroide perto do foguete custa 3 segundos.
+1563	Uma sequência de respostas certas aumenta o multiplicador até ×5.
+1564	← Voltar à matemática
+1565	📱 Abrir o jogo no celular
+1566	Pontos
+1567	Sequência
+1568	Tempo
+1569	Nível
+1570	Fim do voo!
+1571	🏆 Novo recorde!
+1572	🔄 Jogar de novo
+1573	⚙️ Nível
+1574	Certas
+1575	Acertos
+1576	Tempo médio
+1577	Melhor
+1578	−3 s
+1579	Vai!
+1580	Prepare-se…
+1581	👥 Math Rocket com a turma
+1582	Mostre o QR code na tela — os alunos escaneiam com o celular e entram em segundos. Todos recebem as mesmas contas e você vê aqui um ranking ao vivo.
+1583	Escaneie o QR code ou abra o link:
+1584	📋 Copiar
+1585	Copiado ✓
+1586	Esperando os jogadores…
+1587	🚀 Começar para todos
+1588	É preciso pelo menos um jogador.
+1589	📡 Ranking ao vivo
+1590	🏆 Resultados
+1591	🔄 Outra rodada
+1592	✖ Fechar a sala
+1593	👥 Math Rocket com a turma
+1594	Seu nome
+1595	Avatar
+1596	Entrar ▶
+1597	Código da sala
+1598	Digite o código (5 caracteres).
+1599	Digite seu nome.
+1600	Conectando…

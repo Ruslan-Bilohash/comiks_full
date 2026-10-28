@@ -17,8 +17,8 @@ const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const WORK = path.join(__dirname, '.i18n');
 const PAGE = path.join(ROOT, 'privacy.html');
-const NAMES = { no: 'Norwegian (Bokmål)', ar: 'Arabic', de: 'German', pl: 'Polish', tr: 'Turkish', lt: 'Lithuanian' };
-const LABEL = { no: 'Norsk', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių' };
+const NAMES = { no: 'Norwegian (Bokmål)', ar: 'Arabic', de: 'German', pl: 'Polish', tr: 'Turkish', lt: 'Lithuanian', pt: 'Brazilian Portuguese (pt-BR)' };
+const LABEL = { no: 'Norsk', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', pt: 'Português' };
 const RTL = new Set(['ar']);
 
 const BLOCK = /<(h2|h3|p|li|th|td)\b([^>]*)>([\s\S]*?)<\/\1>/g;

@@ -1,0 +1,200 @@
+401	Escreva sua resposta em norueguês…
+402	💡 Tradução
+403	📵 Desligar
+404	📞 Chamada encerrada
+405	🔄 Mais uma ligação
+406	Foi isto que foi dito:
+407	Palavras novas da ligação
+408	Uma ligação curta em norueguês — um minuto.
+409	Agora não
+410	Conversa roteirizada (não há chave de IA no servidor).
+411	Sem microfone — digite, por favor.
+412	🎧 Voz ao vivo
+413	Uma conversa de voz de verdade: o personagem ouve você e responde sozinho.
+414	🎧 Chamada de voz
+415	Conectando…
+416	Fale — estão ouvindo você
+417	🔊 Alto-falante
+418	🔇 Silenciar
+419	🎙️ Ativar o som
+420	⌨️ Digitar em vez disso
+421	Com quem você está falando
+422	🤖 Robô com roteiro
+423	Uma conversa pronta, com dicas. Sempre funciona, até sem internet.
+424	💬 Conversa ao vivo (IA)
+425	Responde sozinho e lê em voz alta. Você fala ou digita.
+426	🎧 Voz ao vivo
+427	Uma ligação de voz de verdade: o personagem ouve você e responde na hora.
+428	indisponível agora
+429	✅ pronto
+430	♟ Xadrez
+431	Xadrez de verdade com peças em 3D: jogue contra robôs, contra um amigo ou organize um torneio para a turma toda. Os lances são escritos em norueguês — você aprende enquanto joga!
+432	🤖 Jogar contra um robô
+433	Escolha um adversário na escada do ranking
+434	👥 Dois jogadores, um aparelho
+435	Passem o celular ou o tablet um para o outro
+436	🌐 Jogar online com um amigo
+437	Um link ou QR — e vocês jogam em aparelhos diferentes
+438	📺 Torneio da turma
+439	Um monitor com QR code, os alunos jogam no celular, rodadas e uma tabela
+440	Ranking
+441	Seu rating Elo
+442	🏆 Escada do ranking
+443	você
+444	▶ Jogar
+445	Sua cor
+446	⚪ Brancas
+447	⚫ Pretas
+448	🎲 Aleatória
+449	Tempo por partida
+450	Sem relógio
+451	🔊 As peças em norueguês
+452	Toque para ouvir o nome. As mesmas letras são usadas na lista de lances.
+453	Vez das brancas
+454	Vez das pretas
+455	Sua vez!
+456	Xeque!
+457	Xeque-mate!
+458	Empate
+459	🏆 Você venceu!
+460	Você perdeu
+461	🤝 Empate
+462	🔄 Outra partida
+463	♟ Menu do xadrez
+464	🏳 Desistir
+465	Desistir mesmo?
+466	↩ Desfazer
+467	🔄 Girar
+468	🧊 3D
+469	▦ 2D
+470	🤝 Empate?
+471	Proposta de empate enviada
+472	Aceitar
+473	Não
+474	Lances
+475	Escolha uma peça
+476	Escaneie o QR code ou abra o link:
+477	Código
+478	Esperando os jogadores…
+479	▶ Começar a rodada
+480	🏁 Encerrar o torneio
+481	✖ Fechar
+482	📊 Classificação
+483	pts
+484	Partidas
+485	jogando
+486	🏆 Resultados do torneio
+487	Eu também jogo
+488	São necessários pelo menos dois jogadores.
+489	♟ Torneio de xadrez
+490	Seu nome
+491	Entrar ▶
+492	Digite o código (5 caracteres).
+493	Digite seu nome.
+494	Você está na sala!
+495	Espere a rodada começar…
+496	Fim de jogo. Esperando a próxima rodada…
+497	Conectando…
+498	Criando a sala…
+499	A sala foi fechada ou a conexão caiu.
+500	Sala não encontrada.
+501	Sem conexão com a internet.
+502	Mande o link para seu amigo — o jogo começa assim que ele entrar.
+503	📋 Copiar
+504	Copiado ✓
+505	⚠️ A página foi aberta a partir de um arquivo — outros aparelhos não conseguem entrar.
+506	x
+507	Capturadas
+508	Dica: desenvolva primeiro os cavalos e os bispos e proteja seu rei com o roque (O-O).
+509	🧩 Palavras cruzadas
+510	Olhe a imagem, lembre a palavra norueguesa e digite-a letra por letra. É isso que fixa a escrita, e não só a aparência da palavra.
+511	Tema
+512	Horizontais
+513	Verticais
+514	✓ Conferir
+515	🔄 Outras palavras cruzadas
+516	💡 Dica
+517	Revelar uma letra
+518	👁️ Mostrar a resposta
+519	🎉 Pronto! Todas as palavras estão no lugar.
+520	As letras vermelhas precisam ser corrigidas.
+521	Preencha pelo menos uma palavra.
+522	palavras
+523	Escolha um tema
+524	← Voltar aos temas
+525	Olhe a imagem, lembre a palavra norueguesa e digite-a nos quadradinhos com o mesmo número. Toque num cartão e o cursor vai para o início da palavra.
+526	🔤 Dica: primeira letra de cada palavra
+527	Ouvir a palavra
+528	Palavra anterior
+529	Próxima palavra
+530	letras
+531	Existe um app para Android
+532	Instale pelo Google Play — mais rápido, com áudio e sem navegador.
+533	Abrir no Google Play
+534	Existe um app para Windows
+535	Instale pela Microsoft Store — numa janela própria, como um programa comum.
+536	Abrir na Microsoft Store
+537	App para iPhone — em breve
+538	Por enquanto, adicione o Komiks·Lab à tela de início: Safari → Compartilhar → “Adicionar à Tela de Início”.
+539	Mostrar como
+540	Instalar o Komiks·Lab
+541	O app numa janela própria — um clique no seu navegador.
+542	Como instalar
+543	Ocultar
+544	Ocultar por 3 dias
+545	Inglês
+546	🇬🇧
+547	Inglês
+548	um curso à parte, com outro estilo de quadrinho
+549	🇬🇧 Inglês com quadrinhos
+550	Um curso à parte: outro estilo de desenho, histórias em inglês e testes em inglês. Passe o mouse sobre uma palavra para ver a tradução em ucraniano e em norueguês.
+551	📖 Ler
+552	🧩 Teste
+553	🇬🇧 Testes de inglês
+554	Parar
+555	🔁 Trabalhar nos erros
+556	Nenhum erro ainda — faça um teste, e as palavras que você errar vão se juntar aqui.
+557	◀ Voltar
+558	Próximo ▶
+559	🔊 Ler o quadro
+560	▶️ Quadrinho inteiro
+561	🧩 Ir para o teste
+562	← Todas as histórias
+563	🇬🇧 Esta seção é em inglês. A parte norueguesa do site continua como está.
+564	📚 Histórias
+565	📝 Palavras em inglês por tema
+566	Os mesmos 19 temas da seção norueguesa — agora em inglês. Toque num cartão para ouvir a palavra e marque ✓ se você já a sabe.
+567	📝 Palavras por tema
+568	🧩 Teste com todas as palavras
+569	Eu sei
+570	🙈 Esconder a tradução
+571	👀 Mostrar a tradução
+572	🔊 Ouvir todas
+573	🧩 Teste do tema
+574	← Todos os temas
+575	O curso de inglês do Komiks·Lab
+576	Inglês que as crianças podem usar na hora
+577	Letras, palavras, gramática e histórias animadas formam um caminho claro. Ouça a pronúncia britânica, responda aos testes e avance do A1 ao B1.
+578	Começar pela primeira história
+579	Continuar estudando
+580	Por onde começar
+581	Histórias por nível
+582	Alfabeto inglês
+583	26 letras, palavras de exemplo e áudio
+584	Teste as palavras pelo som e pelas imagens
+585	🔤 O alfabeto inglês
+586	26 letras de A a Z. Toque num cartão para ouvir o nome da letra e depois uma palavra de exemplo em inglês.
+587	Ouvir o alfabeto inteiro
+588	Teste do alfabeto inglês
+589	Letras que vale a pena lembrar
+590	Quem diz isso?
+591	De que quadro é esta fala?
+592	Ouça e escolha a palavra
+593	O que é isto?
+594	Qual palavra está faltando?
+595	O que é isto? Escolha a palavra em inglês
+596	Que letra inglesa você ouve?
+597	Com que letra esta palavra começa?
+598	← Sair
+599	Pergunta {i} de {n}
+600	{s} de {n} certas · {p} %

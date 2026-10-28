@@ -714,5 +714,316 @@ window.KOMIKS_UPDATES_TR = {
   "2026-10-07": [
    "🔁 Dabar anglų kalbos kursas turi atskirą darbą su klaidomis: žodžiai, kuriuos atsakei neteisingai, grįžta kaip atskiras testas. Jie yra atskirai nuo norvegiškų — Pairs ir kryžiažodis vis dar grąžina tik norvegiškus žodžius."
   ]
+ },
+ "pt": {
+  "2026-10-28": [
+   "🇳🇴 Novas páginas temáticas sobre aprender norueguês do zero, os testes, o treinador de prática, o app e uma comparação justa com o Duolingo em oito idiomas.",
+   "🔎 Todas as 40 páginas têm conteúdo próprio, URLs canônicas, hreflang, dados estruturados, links internos e entradas no sitemap; as rotas principais estão no rodapé.",
+   "🛡️ O perfil de administrador de um usuário agora inclui um histórico protegido de 30 dias dos logins bem-sucedidos, com IP criptografado, horário, aparelho e método."
+  ],
+  "2026-10-27-4": [
+   "🤖 Abrir o link de teste do Android agora começa com um formulário curto que pede um e-mail e uma verificação anti-spam.",
+   "📬 Os pedidos aparecem numa categoria própria do Android no painel de comentários. Depois da verificação, o link de teste fica disponível."
+  ],
+  "2026-10-27-3": [
+   "⚡ O quiz rápido do dia agora continua depois das cinco primeiras: escolha “Mais 5 palavras” e continue praticando sem limite.",
+   "🔁 Você ainda pode repetir o conjunto atual. As palavras não se repetem dentro de um ciclo, e os botões ficam um embaixo do outro no celular."
+  ],
+  "2026-10-27-2": [
+   "🏡 Três novos quadrinhos A2 falam sobre achar um lugar para morar e fazer um orçamento, escolher uma jaqueta numa loja e dar conta de uma manhã em que tudo atrasa.",
+   "🧩 Chegam 24 perguntas de compreensão escritas à mão e um novo conjunto de gramática para derfor, likevel, dessuten, ettersom, på grunn av, for å e i motsetning til."
+  ],
+  "2026-10-27": [
+   "🎒 Oito novos quadrinhos ensinam os possessivos noruegueses: min/mi/mitt/mine, din/di/ditt/dine, vår/vårt/våre, hans/hennes/deres e sin/si/sitt/sine.",
+   "📐 A gramática ganhou três conjuntos de prática: meu e seu, nosso/dele/dela/deles e a ordem bilen min / min bil. Cada quadrinho tem seis cenas, quatro perguntas novas e vocabulário em três idiomas.",
+   "🗂️ O painel de materiais agora lê o catálogo completo, então todas as séries de quadrinhos aparecem."
+  ],
+  "2026-10-26-6": [
+   "🕵️ Uma nova trilha, Hackers e defesa digital: oito quadrinhos explicam quem são os hackers, como um teste de segurança autorizado se diferencia de um crime e como funcionam a engenharia social, a invasão de contas e o roubo de dados.",
+   "🛡️ Histórias próprias tratam de extorsão digital, ransomware, apps maliciosos e recuperação depois de um ataque. Cada quadrinho tem seis cenas, quatro testes e vocabulário em três idiomas."
+  ],
+  "2026-10-26-5": [
+   "🚨 Oito novos quadrinhos práticos sobre emergências na Noruega: incêndio, ambulância, polícia, acidentes de trânsito, intoxicação, inconsciência, perigo em casa e RCP.",
+   "☎️ Crianças e adultos praticam escolher certo entre 110, 112, 113, 02800, 116 117, 22 59 13 00 e 116 006. Cada quadrinho tem seis cenas, quatro testes, vocabulário e orientações oficiais conferidas."
+  ],
+  "2026-10-26-4": [
+   "📘 O novo quadrinho “SIS, expulsão e o que fazer depois” explica a diferença entre a obrigação de deixar o país, a recusa de entrada, a expulsão, a proibição de entrada e a saída forçada feita pela polícia.",
+   "⚖️ Cenas próprias explicam o direito de acessar os dados do SIS, corrigir erros, apagar informações guardadas ilegalmente e recorrer de uma decisão. Os fatos foram conferidos com a UDI, a polícia norueguesa e as orientações da Comissão Europeia."
+  ],
+  "2026-10-26-3": [
+   "💻 Mais cinquenta quadrinhos educativos entraram no curso de programação. Minha jornada na programação agora tem 91 lições em 11 trilhas: fundamentos, HTML e web, criação de jogos, Blender, Unity, bancos de dados e cinco trilhas de segurança.",
+   "🎓 A gramática agora tem um painel pessoal com os testes concluídos, os melhores e os últimos resultados, o número de tentativas e uma lista dos temas para revisar."
+  ],
+  "2026-10-26-2": [
+   "💻 Uma nova seção, Programação para crianças, está na página inicial: um curso básico com 41 quadrinhos em 11 trilhas, uma introdução clara, progresso no perfil, medalhas e um único botão “Experimentar o curso”.",
+   "🇳🇴🇬🇧 A escolha de idioma do “Jogar juntos” agora é visual: norueguês e inglês têm ilustrações próprias com bandeiras. Os cartões ficam empilhados no celular e lado a lado no computador."
+  ],
+  "2026-10-26": [
+   "🛡️ 20 novos quadrinhos educativos sobre segurança para crianças: quatro lições em cada tema — Segurança no dia a dia, Segurança na internet, Reconhecer golpes, Aparelhos seguros e Código seguro. Cada quadrinho tem seis cenas ilustradas, um teste e um vocabulário norueguês–ucraniano–inglês.",
+   "🚨 As crianças praticam o que fazer diante de estranhos, quando se perdem e ao ligar para o 112, e aprendem a reconhecer phishing, QR codes perigosos, prêmios falsos, vozes clonadas e perfis falsos.",
+   "🔐 Quadrinhos próprios explicam CAPTCHA, validação no servidor, HTTPS e hash seguro de senhas em linguagem simples. Minha jornada na programação agora tem 11 categorias, com um seletor compacto e fácil de tocar no celular."
+  ],
+  "2026-10-25-9": [
+   "🛠️ “Jogar juntos”: um link de sala com tema (por exemplo “Mat og drikke”, pelo QR da página de palavras) agora sempre abre uma sala exatamente com esse tema — antes, a sala anterior, com outro tema, podia continuar aberta.",
+   "🧮 A sala de matemática voltou a ter um jogo completo: 10 contas diferentes em vez de uma.",
+   "📱 O bloco do topo do “Jogar juntos” não sai mais da tela no celular."
+  ],
+  "2026-10-25-8": [
+   "🧩 As palavras cruzadas agora têm imagens, como as palavras cruzadas ilustradas de verdade: uma miniatura fica no quadradinho logo antes de cada palavra, e acima da grade aparece uma imagem grande da palavra que você está escrevendo (com 🔊 e os botões ‹ ›). Os cartões de dica mostram imagem, número, seta e um quadradinho por letra.",
+   "🔤 Nova dica “primeira letra de cada palavra” — ligue com um clique e ela fica lembrada. Você pode digitar a palavra inteira, incluindo a letra já dada."
+  ],
+  "2026-10-25-7": [
+   "🌄 O “Hoje” ganhou vida: uma cena de fiorde ao vivo nas cores da hora atual — manhã, dia, tarde, noite com aurora boreal, neve no inverno. O Robo anda pela trilha de tarefa em tarefa; toque numa bandeira para abrir a tarefa. E ainda um “⚡ Quiz rápido do dia”: 5 palavras com imagens.",
+   "🎮 Um novo “Jogar juntos”: uma tela grande com QR code e jogadores, “Comece com um toque” (palavras com imagens, gramática, números, relógio, alfabeto, matemática) e os jogos recentes deste aparelho."
+  ],
+  "2026-10-25-6": [
+   "💻 Uma nova página de Programação: um cartão do jogo com o seu progresso, “Minha jornada na programação” — 9 quadrinhos como passos (ler / testar) — e 10 medalhas, de “Primeiro programa” a “Mestre do código”. O seu nível cresce de Iniciante a Mestre do código.",
+   "🏆 “O Robo aprende a programar” ganhou um novo capítulo, o Teste final: um labirinto sinuoso onde laços e uma função trabalham juntos, mais um último bug. Agora são 17 fases.",
+   "🖼️ Mais umas cem imagens de palavras: palavras abstratas, linguagem profissional, frases do dia a dia, conversa, meio ambiente, cultura norueguesa, pessoas e personalidade."
+  ],
+  "2026-10-25-5": [
+   "🤖 Novo jogo “O Robo aprende a programar”: monte um programa com blocos — passos, laços “gjenta”, a sua própria função F — e o Robo o executa no tabuleiro. 15 fases em 4 capítulos: comandos, laços, funções, depuração. Estrelas pelo programa mais curto; o progresso fica salvo na sua conta.",
+   "🖼️ Agora há imagens em Dias e meses e em Vida ao ar livre, e todos os 24 animais ganharam desenhos novos."
+  ],
+  "2026-10-25-4": [
+   "🎮 “Jogar com a turma ou em grupo” agora fica no topo do “Jogar juntos” e das páginas de Palavras: escolha um tema e uma sala com QR aparece na hora. Os temas com imagens têm a marca 🖼️ e começam com um toque.",
+   "📱 “Jogar juntos”, a Corrida de Lógica, o Math Rocket com a turma, o xadrez e os amigos agora também funcionam nos navegadores internos do Telegram, do Instagram, do Facebook e no iPhone — antes, aparecia “Este navegador não consegue fazer conexões diretas”.",
+   "🖼️ Imagens novas no lugar dos emojis: Cores, Tempo e estações, Escola. Doze temas já têm imagens, e palavras com vários significados ganham a imagem certa: “is” é sorvete em Comida e gelo em Tempo.",
+   "🔍 A busca no cabeçalho (🔍 ou a tecla “/”) encontra palavras, quadrinhos, falas, gramática e seções em qualquer idioma — até com erros de digitação."
+  ],
+  "2026-10-25-3": [
+   "🔍 Busca inteligente no site inteiro: palavras, quadrinhos e falas, gramática, seções. Digite em norueguês, ucraniano ou inglês — ela perdoa erros (“hamer” encontra hammer) e funciona sem æ/ø/å. O botão 🔍 no cabeçalho ou a tecla “/”.",
+   "📝 A página de Palavras tem uma busca rápida de palavras com imagens e áudio.",
+   "🖼️ Imagens novas no lugar dos emojis em Família, Roupas, Corpo, Comida, Frutas e legumes, Animais, Casa, Escola, Tempo e Cores."
+  ],
+  "2026-10-25-2": [
+   "🔨 Um novo tema de palavras, “Ferramentas” — 20 fotos reais: martelo, parafusadeira, martelete, esmerilhadeira, trena, nível de bolha e mais. O teste “Hva er dette?” mostra a foto, e cada palavra tem áudio em norueguês.",
+   "🎮 Uma sala com um clique: cada tema de palavras agora tem o botão “Jogar juntos (QR)” — os alunos escaneiam o código e respondem no celular. As fotos das ferramentas também aparecem nos celulares.",
+   "🌐 Um novo quadrinho, “Um site para o Pus: o básico do HTML”, e um teste em que você lê código HTML e escolhe como a página vai ficar.",
+   "🗺️ Um mapa do site atualizado: a seção de Programação, todos os temas de palavras por nível e todos os quadrinhos."
+  ],
+  "2026-10-25": [
+   "💻 Uma nova categoria “Programação” para crianças: 8 quadrinhos com o robô Robo — comandos e programas, algoritmos, laços, condições “se”, variáveis, depuração, linguagens de programação e modelagem.",
+   "🤖 Um novo estilo de desenho: um laboratório de informática, a moldura de uma janela de programa, e o robô fala “no terminal” — em letras verdes.",
+   "🧩 Novos tipos de teste: guiar um robô numa grade, dizer o que um programa imprime (pseudocódigo e Python), ordenar os passos de um algoritmo, encontrar o bug e descobrir para que servem Scratch, Python, JavaScript, Swift, Kotlin e C#.",
+   "📖 Uma página de “Programação” com explicações para pais e professores. Tudo em norueguês, com tradução ao passar o mouse."
+  ],
+  "2026-10-24-3": [
+   "🇬🇧 20 novas histórias em inglês (A1–B1) com áudio e testes — 28 no total. Cada uma ensina um tema de gramática, e o novo “Plano de inglês” leva você do “I am” até a voz passiva: 22 temas com regras e exemplos.",
+   "🔀 “O que estou aprendendo”: escolha norueguês ou inglês nas configurações ou na sua conta — a página inicial abre o curso certo.",
+   "📅 Uma página “Hoje” renovada: um anel de progresso diário, a sua sequência da semana e uma “Palavra do dia” que dá para virar e ouvir.",
+   "🎮 Meu lobby: sua conta agora tem um QR code permanente. Os amigos escaneiam e caem direto na sua sala, e você escolhe um quiz para todos assim que eles entram. Cada um responde no próprio aparelho — mais rápido e mais certo significa mais alto no ranking.",
+   "📊 Um novo painel de estudo na sua conta: testes, acertos, dias de estudo, palavras aprendidas e erros corrigidos — comparados com o período anterior, com gráficos, eficiência por seção e dicas do que fazer a seguir.",
+   "🔥 O plano de estudos agora mostra um ano de atividade como no GitHub, além do seu nível e das sequências de dias.",
+   "📈 Uma nova página de “Estatísticas” (link no rodapé): o que foi acrescentado ao site neste mês e como isso se compara ao mês passado.",
+   "🔔 As notificações mostram primeiro os 10 eventos mais novos, e o resto com “Mostrar mais”."
+  ],
+  "2026-10-24-2": [
+   "📣 Compartilhe o seu sucesso: depois de um teste aparecem botões de Facebook, Messenger, Telegram, WhatsApp, Viber, X e e-mail com uma mensagem pronta sobre o seu resultado, além de “Comentário sobre este teste”.",
+   "🛡 Uma comunidade mais segura: recados e mensagens que parecem perigosos para crianças, compartilham dados de contato ou usam palavrões agora são sinalizados na hora e removidos mais rápido. Denuncie uma mensagem com o botão 🚩.",
+   "📲 No celular, o seu código de amigo agora fica logo abaixo do QR code, e os selos do Google Play e da Microsoft Store ficam lado a lado, bem alinhados.",
+   "✉️ Os e-mails do Komiks·Lab têm um visual novo e links para o app de Android e Windows."
+  ],
+  "2026-10-24": [
+   "📚 Quatro novos quadrinhos: “En travel morgen” (A1), “Fotballtrening” (A2), “Brannøvelse på jobben” (B1) e “Valg og demokrati i Norge” (B2) — com áudio, glossário e testes.",
+   "🧠 Revisão inteligente: um erro só sai do seu registro depois que você acerta três vezes, em dias diferentes. Os flashcards agora têm “Não sei”, “Revisar de novo” e “✅ Eu sei” — uma palavra aprendida não aparece mais. “Minha análise” mostra o que revisar hoje, o seu progresso nos testes, onde você erra e a etapa de cada palavra.",
+   "½ Frações em Matemática: numerador e denominador, um montador de frações numa pizza e numa barra, os nomes em norueguês (“tre fjerdedeler”), frações equivalentes e a fração de um número. Mais um teste de Frações separado, com 10 tarefas — tudo com áudio.",
+   "👤 A sua conta e o seu perfil de jogador agora são uma página só, com abas: Perfil, Conquistas, Estudo e Conta. Há um botão de compartilhar, e você pode excluir a conta sem senha, com um código por e-mail. O Google pode ser desconectado nas Configurações.",
+   "😊 Emoções nas mensagens: um painel de emojis, reações à mensagem de um amigo e emojis grandes animados.",
+   "♿ As opções de acessibilidade foram para as Configurações e abrem numa janela própria.",
+   "🎁 Presentes grátis para os amigos: na página de Amigos, escolha um item e um desejo em norueguês. Corações, confete, coroa de flores, laço de presente, um pingente de melhores amigos e a cor bala só podem ser recebidos de um amigo.",
+   "✨ Avatares mais legais: uma nova seção de Efeitos (brilhos, música, órbita de estrelas, brilho de arco-íris, aura de fogo, aurora boreal) e molduras de raridade, do comum ao lendário.",
+   "👥 O seu QR “Vamos ser amigos” na página inicial: um amigo escaneia e é adicionado na hora. Os selos do Google Play e da Microsoft Store ficam bem ao lado."
+  ],
+  "2026-10-23": [
+   "🔑 Entrar com o Google: um botão nas páginas de login e de cadastro. Uma conta nova é criada na hora, e uma existente com o Gmail confirmado é vinculada automaticamente. Se a autenticação em dois fatores estiver ligada, o código continua sendo pedido.",
+   "Três aventuras com avatares: Detetive da Memória, Laboratório de Padrões e Olheiro de Detalhes. Treine com robôs ou convide a turma para uma sala por QR code.",
+   "Uma seção compacta “Crie seu herói” e um carrossel da revista. Agora há guias de download separados para Windows e Android.",
+   "Confirmação de e-mail melhorada: pedir outra mensagem não cancela mais o link anterior."
+  ],
+  "2026-10-22": [
+   "Uma página inicial mais compacta: Alfabeto, Palavras, Plano de estudos e Testes aparecem na hora; as outras seções se abrem em “Todas as seções”.",
+   "“Abrir uma sala” leva às configurações do jogo. Mais jogos, ferramentas de avatar, amigos e artigos da revista Komiks·Lab se abrem quando você quiser."
+  ],
+  "2026-10-21": [
+   "📱 O Learning Norwegian para Android está no Google Play. Leia quadrinhos, ouça norueguês e estude com a sua conta. Os recursos online precisam de internet; a disponibilidade da instalação depende do país e do canal de lançamento.",
+   "✨ Um seletor de idioma compacto na primeira abertura, quadrinhos que se alternam na página inicial e um botão de áudio no quadro."
+  ],
+  "2026-10-07": [
+   "🔁 O curso de inglês agora tem o seu próprio trabalho nos erros: as palavras que você errou voltam como um teste separado. Elas ficam à parte das norueguesas — Pares e as palavras cruzadas continuam trazendo de volta só palavras em norueguês."
+  ],
+  "2026-10-04": [
+   "🌍 O app inteiro agora fala o seu idioma: botões, explicações, os jogos e o ranking de jogadores — 1093 textos que antes ficavam em inglês para alemão, polonês, turco, lituano e, em parte, árabe.",
+   "⚡ Trocar de idioma funciona na hora, sem recarregar a página, e cada idioma carrega separado — então o app não ficou mais pesado para ninguém.",
+   "📧 As mensagens do site — confirmação do e-mail, código de login, boas-vindas — agora chegam no seu idioma, e não em inglês.",
+   "📐 A seção de gramática também fala o seu idioma: as regras, as tabelas de formas e todos os exemplos.",
+   "📜 A política de privacidade agora está escrita nos oito idiomas, e no curso de inglês as dicas embaixo de cada fala e palavra também estão no seu idioma — e não em ucraniano.",
+   "🇬🇧 O curso de inglês agora se lê como os quadrinhos noruegueses: no celular cabe numa tela sem rolagem, os controles ficam na própria imagem, e os testes têm o mesmo visual.",
+   "🇬🇧 Nos testes de inglês, a próxima pergunta agora vem sozinha, e uma voz elogia você em inglês — doze frases diferentes em vez de quatro. As capas das histórias não deixam mais um espaço branco no celular.",
+   "📐 Quatro novas histórias sobre quantidade e tamanho: mye ou mange, stor ou liten, litt–lite–få, større e størst. Elas ficam numa nova categoria, “Gramática na vida real”, com áudio e testes como todos os outros quadrinhos.",
+   "👋 Depois de criar uma conta, uma breve boas-vindas explica o que tem dentro, deixa você escolher o idioma e conta que os 100 primeiros usuários ficam com acesso total para sempre.",
+   "📱 Os apps foram atualizados: Android e Windows, online e offline — com o conteúdo novo e os oito idiomas."
+  ],
+  "2026-10-03-3": [
+   "🌍 O app agora fala de verdade oito idiomas: cada fala, cada palavra e a descrição de cada quadrinho estão traduzidas para inglês, ucraniano, norueguês, árabe, alemão, polonês, turco e lituano. Em alemão ou polonês, antes só uma em cada três palavras era traduzida, e frases inteiras quase nunca.",
+   "🔎 Os buscadores agora encontram os quadrinhos em qualquer um desses idiomas: cada quadrinho e a página de testes têm um endereço próprio em cada idioma, com título, descrição e diálogo nesse mesmo idioma.",
+   "🤖 As novas traduções foram feitas por IA. Se algo soar estranho, escreva para nós e vamos corrigir."
+  ],
+  "2026-10-03-2": [
+   "📖 Quatro novos quadrinhos: “Estou doente” e “Na minha casa” (A1), “Ofertas e um cartão fidelidade” (A2), “Uma alergia no restaurante” (B1). Todas as falas são narradas em norueguês — 295 gravações novas.",
+   "🔤 Seis novos temas de palavras: alergias e ingredientes, ofertas e preços, cômodos da casa, quando você está doente, limpeza e pequenos consertos, vizinhos. 124 palavras ao todo.",
+   "🔀 Um novo treinador, Ordem das palavras: você monta a frase com as palavras dela — exatamente onde o norueguês mais faz as pessoas tropeçarem. O verbo vem em segundo lugar, e depois de um adjunto o sujeito e o verbo trocam de lugar. Metade das tarefas são essas frases invertidas, tiradas dos quadrinhos.",
+   "📱 Ler no celular agora cabe numa tela, sem rolagem. Os controles foram para a própria imagem: ▶ embaixo lê as falas em voz alta, as setas nas bordas passam os quadros, e os números das páginas ficam embaixo da imagem.",
+   "🔤 A tradução de uma fala agora aparece logo abaixo da frase, e não num balão por cima: na primeira fala você só via metade dela. E tocar numa palavra volta a mostrar a tradução — no celular isso podia falhar completamente.",
+   "📖 Terminou uma história — “Fazer o teste” e “Próximo” estão logo ali: o próximo quadrinho é escolhido pelo nível e pelo tema do que você acabou de ler. A tela inicial também ganhou um botão com o nome da próxima história, para você não precisar procurá-la entre oitenta e uma.",
+   "🙈 Com a conta conectada, os quadrinhos que você já fez ficam guardados no filtro “concluídos”, e a lista mostra só o que é novo. Um toque e eles voltam.",
+   "🔑 Sem conta, agora dá para fazer um teste. Depois disso é preciso entrar — e tudo o que você fez vai para a conta: as histórias lidas, as estrelas, a sequência de dias e as palavras dos seus cartões. Ler quadrinhos sem conta continua ilimitado."
+  ],
+  "2026-10-03-1": [
+   "🔐 A autenticação em dois fatores agora está nas configurações: no login, o site também pede um código de seis dígitos de um app autenticador. Qualquer um serve — Google Authenticator, Authy, 2FAS, Aegis.",
+   "🔑 Assim que você liga, recebe oito códigos reserva. Guarde-os: cada um funciona uma vez e é a única forma de entrar se você perder o celular. Não vamos mostrá-los de novo — guardamos só os hashes.",
+   "🔒 Ela vale para as três formas de entrar: por senha, pelo código do e-mail e pelo link. Para desligar, também é preciso um código.",
+   "📖 Um quadrinho agora vira como uma revista: o quadro gira para o lado, e você vê para que lado está indo — para a frente ou para trás. Com “reduzir movimento” ligado no sistema, não há animação.",
+   "🖼️ A moldura do quadro ficou mais fina, então no celular a imagem fica visivelmente maior e você não precisa mais rolar enquanto lê."
+  ],
+  "2026-10-02-4": [
+   "🪟 Agora existe um instalador para Windows (.exe): ele cria um atalho na área de trabalho e no menu Iniciar, e o app abre numa janela própria, sem barra de endereço.",
+   "📦 Duas versões: uma leve, de 2 MB, que é um atalho para o site, e uma completa, de 120 MB, que coloca todos os quadrinhos e todo o áudio no seu disco e funciona sem nenhuma internet.",
+   "🔓 O instalador não pede direitos de administrador: ele instala na sua própria pasta de usuário e desinstala como qualquer programa.",
+   "⏭️ Nos testes você não precisa mais apertar “Próximo”: o teste avança sozinho — depois de um ou dois segundos quando a resposta está certa, e depois de quatro quando há uma resposta certa para ler.",
+   "👆 Uma barra mostra quanto tempo falta, e tocar na tela para a contagem se você quiser pensar mais ou ouvir de novo. Dá para desligar nas configurações."
+  ],
+  "2026-10-02-3": [
+   "🧩 Um novo jogo, Palavras cruzadas: palavras de um tema se cruzam numa grade, e a dica é a tradução mais um emoji. Aqui não basta reconhecer a palavra — é preciso lembrá-la e soletrá-la, e é isso que fixa å, ø, æ e as consoantes dobradas.",
+   "💡 Há uma dica de uma letra e um “mostrar a resposta” se você empacar de vez. Quarenta e sete temas para escolher.",
+   "💬 Um novo tipo de pergunta nos testes — “O que respondem?”: você ouve uma fala e escolhe a resposta do mesmo quadrinho. As outras perguntas verificam uma frase; esta verifica se você acompanha uma conversa.",
+   "🧩 E mais um — “Qual preposição?”: på, i, til, fra ou med some da frase. As opções são sempre preposições, então chutar pela forma não funciona.",
+   "📱 A caixa “Certo / Próximo” não cresce mais no fim da página — ela sobe como uma gaveta. Antes ela deixava a página mais alta que a tela, e era preciso rolar; agora a pergunta fica parada e o “Próximo” fica embaixo do seu polegar."
+  ],
+  "2026-10-02-2": [
+   "📖 Seis novos quadrinhos: “Comprando roupas” (A1), “Na estação de trem” (A2), “Comunicando a mudança de endereço” (B1), “O contrato de trabalho” (B2) e duas partes de “Perguntas sobre o seu país” (B1).",
+   "🎯 “Perguntas sobre o seu país” é o bloco que de fato perguntam na prova oral do Norskprøven: capital, população, vizinhos, idioma, moeda, comida, clima, feriados. As respostas são curtas de propósito, para você trocar pelo seu próprio país.",
+   "🔊 Todas as falas novas são narradas em norueguês — 328 gravações novas.",
+   "📦 A página de instalação agora oferece um APK para Android: leve (16 MB, com conta) e completo (157 MB, funciona sem nenhuma internet). Não precisa do Google Play.",
+   "💌 Se você ficar um tempo sem aparecer, podemos mandar um lembrete — com as novidades ou um quadrinho que você ainda não leu. Todo e-mail assim tem um “parar estes e-mails” com um clique, sem precisar entrar."
+  ],
+  "2026-10-02": [
+   "🔑 Entrar sem senha: digite o seu e-mail e chega uma mensagem com um link e um código de seis dígitos. O link deixa você entrar direto; o código é para quando o e-mail está no celular e você quer entrar no notebook.",
+   "📱 A sessão fica no aparelho, então no seu próprio notebook não há nada para digitar de novo.",
+   "🔒 Se você já tem uma senha, nada mudou: o link “Entrar com senha” fica logo abaixo do campo.",
+   "🖼️ Nos testes, as respostas com imagem agora preenchem o botão inteiro — sem molduras duplas, sem espaços; uma terceira opção ímpar se estica pelas duas colunas, para nada ficar pendurado numa metade vazia.",
+   "🔎 Cada atualização agora tem a sua própria página nos buscadores — em três idiomas, com capturas de tela."
+  ],
+  "2026-10-01": [
+   "📱 Um teste no celular agora ocupa exatamente uma tela: o cabeçalho e o rodapé saem do caminho, e ficam só a pergunta e as respostas.",
+   "🎮 As respostas parecem um jogo: quatro cores e quatro formas (▲ ◆ ● ■), botões de altura total que você acerta de primeira com o polegar.",
+   "🖼️ As respostas com imagem ficam duas por linha e cabem sem rolagem.",
+   "📖 Um quadrinho também se lê numa tela só: o quadro em cima, as falas rolando dentro dele, e o “Próximo” sempre embaixo do polegar.",
+   "🎙️ As várias vozes vêm ligadas por padrão: cada personagem fala com a própria voz desde o início.",
+   "🔇 O convite para uma conversa curta em norueguês vem desligado por padrão — ligue nas configurações.",
+   "🧹 O contador “quantos estão online” saiu: o selo só aparece quando um amigo está mesmo online ou quando há um convite esperando."
+  ],
+  "2026-09-30": [
+   "🌍 Quatro idiomas novos: alemão, polonês, turco e lituano. Menu, testes, cartões, Pares, o simulado e o plano — tudo no seu idioma.",
+   "📖 A dica dos quadrinhos pode mostrar vários idiomas ao mesmo tempo: marque quantos quiser nas configurações e eles aparecem um embaixo do outro, também dentro do quadro.",
+   "🧠 Pares virou um jogo diário: as palavras vêm dos seus pontos fracos, os erros vão direto para a sua lista de erros, e você pode disputar com um amigo por QR code.",
+   "✏️ A escrita agora tem exercícios simples sem IA: traduzir uma frase, completar uma palavra, escrever o que você ouve — com correção na hora, até sem internet.",
+   "🎁 Estudar é totalmente grátis: sem limite de testes e sem pagamento.",
+   "📷 O primeiro quadrinho de fotos, “En dag i Oslo”: quadros reais com um ponto de ônibus, uma loja e um café — leia placas e etiquetas de preço em norueguês.",
+   "🏆 O ranking de jogadores ganhou uma página própria, e a página de Amigos mostra um mini-ranking entre os seus amigos."
+  ],
+  "2026-09-29": [
+   "✅ Os quadrinhos em que você já passou agora levam um carimbo “APROVADO” com uma nota de 0 a 100: verde a partir de 60, dourado a partir de 90.",
+   "🏁 Uma nova tela de resultados: um anel de porcentagem que se enche na sua frente, estrelas que aparecem uma a uma, uma saudação com o seu nome, uma medalha de recorde pessoal e os erros em cartões com botão para ouvir.",
+   "🏁 A Corrida de Lógica ficou mais clara: uma contagem “3–2–1–VAI!”, uma linha de regras antes da primeira pergunta, um “+1 passo” visível a cada acerto, uma marca “você” na sua raia e marcações de distância na pista.",
+   "🖼️ Mais noventa e cinco ícones desenhados no lugar dos emojis: animais, cômodos, material escolar, tempo. São 240 desenhados até agora — e vêm mais.",
+   "🔊 O som nos testes foi corrigido: em “O que é isto?”, “qual palavra não combina” e “ligue a palavra à imagem” a palavra nunca era falada — agora você a ouve depois de responder, e na hora ao tocar numa palavra na tarefa de ligar.",
+   "📱 A tela de chamada agora parece um celular de verdade: a rede bilohash, relógio e bateria, legendas grandes com tradução, teclas bem espaçadas e um botão vermelho separado para desligar. Uma chamada de voz não tem mais campo de texto — afinal, é uma ligação.",
+   "📲 O menu do celular ficou pessoal: avatar, perfil, amigos, mensagens e as novidades dos amigos no topo, sem os iconezinhos — eles ficam nas configurações.",
+   "➕ Quando as três tarefas do dia terminam, o “Hoje” oferece uma tarefa extra à sua escolha.",
+   "🧹 O cabeçalho do computador ficou mais leve: palavras, matemática, alfabeto, números, ajuda e o botão de voz foram para o menu, o rodapé e as configurações."
+  ],
+  "2026-09-28": [
+   "📚 Sete novos quadrinhos: o café, o parque, o oftalmologista, comprar usado, a passagem no aplicativo, o pronto-socorro de madrugada e “dizer não com educação no trabalho” — 72 histórias no total.",
+   "🔀 Uma nova tarefa, “monte a frase”: as palavras estão embaralhadas e você as coloca na ordem norueguesa — justamente a regra V2 em que todo mundo tropeça.",
+   "🔗 Uma nova tarefa, “ligue a palavra à imagem”: quatro palavras, quatro imagens desenhadas.",
+   "🧠 Uma nova tarefa, “qual palavra não combina”: três palavras de um tema e uma de outro.",
+   "🖼️ Uma nova tarefa, “ouça e escolha a imagem” — sem texto nenhum, só som e imagens."
+  ],
+  "2026-09-27": [
+   "🔔 Notificações dos amigos: “agora somos amigos”, “seu amigo passou num teste”, “seu amigo chegou ao B1”. O sino no cabeçalho mostra quanto há de novo.",
+   "👥 Os seus amigos agora aparecem direto no seu perfil: avatares, quem está online e quem ainda espera aprovação.",
+   "❤️ Dá para curtir os resultados dos amigos — e o autor vê isso no próprio feed.",
+   "#️⃣ Hashtags no seu perfil: acrescente até cinco palavras sobre o que você está aprendendo (#jobb, #norskproven, #barn) e alunos com os mesmos interesses vão encontrar você. As hashtags nos recados do mural agora são clicáveis.",
+   "🎯 Plano concluído — o próximo nível é oferecido na hora: um toque e o plano é refeito.",
+   "🎧 Chamadas ao vivo: quando algo dá errado, agora você vê o porquê — o microfone, o limite diário ou a própria resposta do serviço, em vez de um “tente de novo” mudo."
+  ],
+  "2026-09-26": [
+   "📅 “Hoje” — uma sessão de dez minutos: palavras para revisar, o próximo passo do seu plano e o trabalho nos erros. Três coisas e o dia está feito.",
+   "📬 O e-mail foi consertado: as mensagens de confirmação e de redefinição de senha voltaram a chegar.",
+   "🃏 Os flashcards agora conhecem todas as 972 palavras dos temas, e não só o glossário dos quadrinhos — o que você aprende por tema volta para revisão exatamente quando você começa a esquecer.",
+   "✍️ Escrever em norueguês com correção: escreva algumas frases e veja o texto corrigido, cada erro explicado no seu idioma e uma resposta modelo.",
+   "🎧 Ouvir frases inteiras: a fala é dita, o texto fica escondido — você precisa ouvir e escolher a frase certa.",
+   "🏁 Um simulado do Norskprøven: compreensão oral, leitura e escrita, com um nível aproximado.",
+   "🎯 Um teste de nível: doze perguntas, e o seu plano começa onde realmente deve começar.",
+   "🎙️ O botão de pronúncia agora também está nos cartões de palavras: diga a palavra em voz alta e receba uma nota."
+  ],
+  "2026-09-25": [
+   "📲 Uma página “App” separada, com passos para Windows, Android e iPhone — sem App Store, sem Google Play, instala direto do navegador.",
+   "📝 A lista de palavras cresceu para 972 palavras em 47 temas: números, direções, palavras interrogativas, crianças e creche, carro e trânsito, correio, inverno, culinária, serviços digitais, segurança, escola e pais, NAV e direitos.",
+   "🖼️ Mais sessenta ícones desenhados no lugar de emojis parecidos: mãe, pai, irmão, irmã, filho e filha finalmente são diferentes, e as palavras novas ganharam imagens próprias.",
+   "🖼️ Um novo conjunto de ícones: um atalho nítido na área de trabalho e no menu Iniciar, um ícone redondo no Android, uma tela de abertura certinha no iPhone e um menu de clique direito com plano, palavras, chamada e testes.",
+   "🎬 A sala dos verbos: uma sala separada com quadrinhos interativos — na lista de jogos, nos testes e no rodapé.",
+   "⬆️ O cabeçalho some quando você rola para baixo e volta ao menor movimento para cima — mais espaço para o texto no celular.",
+   "🔊 Os elogios falados (“Veldig bra!”, “Prøv igjen!”) agora soam em todos os testes, e não só em alguns."
+  ],
+  "2026-09-24": [
+   "📚 Trinta novos quadrinhos B1 e B2: NAV, aluguel de apartamento, dentista, a prova de norueguês, impostos, financiamento, seguro, licença parental, direitos do inquilino e mais — 65 histórias no total.",
+   "🔒 Modo rigoroso para os pais: o aluno segue o plano passo a passo, o resto fica bloqueado, e só a senha dos pais desliga o modo.",
+   "📱 Uma base pronta para os apps da App Store e do Google Play — com o mesmo site dentro.",
+   "📝 O dicionário cresceu para 2010 palavras norueguesas com tradução.",
+   "🖼️ Novos ícones desenhados no lugar de emojis pouco claros — nos testes, nas listas de palavras e nos flashcards.",
+   "📖 As perguntas com imagem agora mostram de que quadrinho elas vêm: um toque leva você àquele quadro.",
+   "📲 Um botão “Instalar o app”: um atalho no celular ou no menu Iniciar, e o site funciona como um app comum.",
+   "🎁 A promessa das “30 horas grátis” saiu — a oferta dos “100 primeiros” e a assinatura tomam o lugar dela.",
+   "💌 O formulário de comentários voltou a abrir como uma janela de verdade, e não embaixo do rodapé."
+  ],
+  "2026-09-23": [
+   "📞 Uma ligação em norueguês: um personagem fictício liga para você — com toque de verdade, tela de celular e uma conversa curta. A voz é neural, como nos quadrinhos.",
+   "📊 “Análise do meu estudo”: os seus erros mais frequentes, os testes mais fracos e um teste de repetição montado com eles.",
+   "📝 730 palavras para aprender em vez de 394: trabalho, moradia, dinheiro, serviços públicos, viagem, tecnologia, personalidade, cultura.",
+   "📚 Dois novos quadrinhos: “Na farmácia” (A2) e “A conversa de avaliação” (B2).",
+   "🤖 Mais dez jogadores virtuais — o ranking parece vivo.",
+   "💌 O botão “Comentários” foi para o rodapé e para o bloco de compartilhar, para não cobrir nada."
+  ],
+  "2026-09-22": [
+   "🏅 Os 100 primeiros membros ganham Premium grátis para sempre — e podem remover recados ruins dos murais.",
+   "🎓 Os professores ganham Premium de graça: mande a sua comprovação pela página “Para professores”.",
+   "💌 Um botão “Comentários” em todas as páginas: um erro, uma ideia ou um tema de estudo — com foto ou arquivo.",
+   "📚 Três novos quadrinhos: synes/tror e os possessivos (min/mi/mitt/mine, sin/hans/hennes, vår, deres).",
+   "🎚️ Duas novas dificuldades de teste: 🔥 difícil e 🏆 especialista — com um cronômetro em cada pergunta.",
+   "🔎 Quadrinhos na busca do Google: cada página de quadrinho agora tem desenhos, capa e dados para a busca de imagens."
+  ],
+  "2026-09-21": [
+   "♟ Xadrez com peças em 3D: cinco níveis de robôs, partidas online com um amigo e um torneio da turma com rating Elo.",
+   "✉️ Mensagens privadas entre jogadores e uma nova página de “Privacidade”: quem encontra você na busca e quem pode escrever para você.",
+   "🔎 Busca de jogadores: cartões compactos no celular e um botão de um clique para aparecer na busca.",
+   "🖼️ Ícones desenhados mais claros nos testes (carteira, quadro-negro, borracha, joelho…) no lugar de emojis ambíguos.",
+   "🎉 Mais mensagens de incentivo durante o estudo; a tarefa “coloque as imagens em ordem” saiu.",
+   "👤 A página da conta agora é um cartão só: avatar, nome, código de amigo e botões rápidos."
+  ],
+  "2026-09-19": [
+   "🔐 Contas no servidor: confirmação de e-mail, mensagem de boas-vindas, recuperação de senha e progresso sincronizado entre os aparelhos.",
+   "🇸🇦 Interface em árabe (da direita para a esquerda) e escolha dos idiomas de tradução nos quadrinhos: ucraniano, inglês, árabe.",
+   "🎯 O plano de estudos ganhou uma página própria — desligue o que você já sabe.",
+   "🏁 Corrida de Lógica: um nível “Especialista”, novos tipos de enigma (relógio, compras, quadrado latino) e configurações de distância e de tempo.",
+   "🚀 Math Rocket: os níveis “Pequenos” e “Especialista” e a escolha da duração da rodada.",
+   "🐾 Um botão 🔊 ao lado do companheiro e 22 novas frases de elogio em norueguês."
+  ],
+  "2026-09-10": [
+   "👥 Amigos, um mural no perfil com comentários, busca de jogadores e um ranking.",
+   "🏁 A Corrida de Lógica e o “Jogar juntos” com QR code para a turma.",
+   "🎨 Estúdio de avatar: animais, chapéus, óculos e itens raros que saem de baús."
+  ]
  }
 };

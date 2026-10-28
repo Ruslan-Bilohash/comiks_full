@@ -1,0 +1,664 @@
+a mother	uma mãe
+a father	um pai
+a brother	um irmão
+a sister	uma irmã
+a son	um filho
+a daughter	uma filha
+a grandmother	uma avó
+a grandfather	um avô
+an uncle	um tio
+an aunt	uma tia
+a (male) cousin	um primo
+a (female) cousin	uma prima
+a man, husband	um homem, um marido
+a wife	uma esposa
+a child	uma criança
+a baby	um bebê
+parents	pais
+siblings	irmãos
+a boyfriend, girlfriend	um namorado, uma namorada
+a grandchild	um neto, uma neta
+blue	azul
+yellow	amarelo
+green	verde
+black	preto
+brown	marrom
+orange	laranja
+purple	roxo
+pink	rosa
+grey	cinza
+light blue	azul-claro
+gold	dourado, ouro
+silver	prateado, prata
+a sweater	um suéter
+trousers	uma calça
+a skirt	uma saia
+a dress	um vestido
+a T-shirt	uma camiseta
+a shirt	uma camisa
+a boot	uma bota
+a sock	uma meia
+a woolly hat	um gorro de lã
+a scarf	um cachecol
+pyjamas	um pijama
+a swimsuit	um maiô
+a belt	um cinto
+a bunad	um bunad (traje folclórico)
+hair	cabelo
+a nose	um nariz
+a mouth	uma boca
+a throat, neck	uma garganta, um pescoço
+an arm	um braço
+a hand	uma mão
+a finger	um dedo
+a stomach	uma barriga
+a back	umas costas
+a leg	uma perna
+a foot	um pé
+a knee	um joelho
+a heart	um coração
+a face	um rosto
+cheese	queijo
+meat	carne
+chicken	frango
+a pizza	uma pizza
+soup	sopa
+rice	arroz
+pasta	macarrão
+chocolate	chocolate
+an apple	uma maçã
+a banana	uma banana
+an orange	uma laranja
+a pear	uma pera
+a grape	uma uva
+a strawberry	um morango
+a blueberry	um mirtilo
+a lemon	um limão
+a melon	um melão
+a pineapple	um abacaxi
+a carrot	uma cenoura
+a potato	uma batata
+a tomato	um tomate
+a cucumber	um pepino
+an onion	uma cebola
+a pepper	um pimentão
+a mushroom	um cogumelo
+corn	milho
+broccoli	brócolis
+lettuce, salad	alface, salada
+a cat	um gato
+a horse	um cavalo
+a cow	uma vaca
+a pig	um porco
+a sheep	uma ovelha
+a goat	uma cabra
+a hen	uma galinha
+a bird	um pássaro
+a mouse	um rato
+a rabbit	um coelho
+a bear	um urso
+a wolf	um lobo
+a fox	uma raposa
+a reindeer	uma rena
+a whale	uma baleia
+a seal	uma foca
+an owl	uma coruja
+a lion	um leão
+an elephant	um elefante
+a snake	uma cobra
+a butterfly	uma borboleta
+a chair	uma cadeira
+a bed	uma cama
+a fridge	uma geladeira
+a cooker	um fogão
+a shower	um chuveiro
+a toilet	um vaso sanitário
+a garden	um jardim
+a teacher	um professor
+a pupil	um aluno
+a classroom	uma sala de aula
+a pencil	um lápis
+a pen	uma caneta
+an eraser	uma borracha
+a ruler	uma régua
+scissors	uma tesoura
+a school bag	uma mochila escolar
+a desk	uma carteira escolar
+maths	matemática
+Norwegian (subject)	norueguês (matéria)
+PE	educação física
+a timetable	um horário de aulas
+Monday	segunda-feira
+Tuesday	terça-feira
+Wednesday	quarta-feira
+Thursday	quinta-feira
+Friday	sexta-feira
+January	janeiro
+February	fevereiro
+March	março
+April	abril
+May	maio
+June	junho
+July	julho
+August	agosto
+September	setembro
+October	outubro
+November	novembro
+yesterday	ontem
+a week	uma semana
+a year	um ano
+sun	sol
+wind	vento
+fog	neblina
+thunder	trovão
+lightning	um relâmpago
+a rainbow	um arco-íris
+a cloud	uma nuvem
+winter	inverno
+spring	primavera
+summer	verão
+autumn	outono
+a degree	um grau
+northern lights	aurora boreal
+a storm	uma tempestade
+happy	feliz, contente
+angry	bravo, com raiva
+thirsty	com sede
+proud	orgulhoso
+surprised	surpreso
+in love	apaixonado
+embarrassed	envergonhado
+excited	ansioso, empolgado
+worried	preocupado
+satisfied	satisfeito
+jealous	com ciúme
+a bus	um ônibus
+a tram	um bonde
+an underground train	um metrô
+a bicycle	uma bicicleta
+a plane	um avião
+a boat	um barco
+a ferry	uma balsa
+a taxi	um táxi
+traffic lights	um semáforo
+a hospital	um hospital
+a bank	um banco
+a church	uma igreja
+a stop	um ponto (de ônibus)
+a station	uma estação
+an airport	um aeroporto
+a doctor	um médico
+a nurse	um enfermeiro, uma enfermeira
+a cook	um cozinheiro
+a police officer	um policial
+a firefighter	um bombeiro
+a farmer	um agricultor
+a carpenter	um marceneiro
+an electrician	um eletricista
+a pilot	um piloto
+an engineer	um engenheiro
+a cashier	um caixa
+a plumber	um encanador
+a cleaner	um faxineiro
+a journalist	um jornalista
+a forest	uma floresta
+a tree	uma árvore
+grass	grama
+a lake	um lago
+a river	um rio
+a sea	um mar
+a beach	uma praia
+an island	uma ilha
+a waterfall	uma cachoeira
+a stone	uma pedra
+a glacier	uma geleira
+a sky	um céu
+a moon	uma lua
+a path	uma trilha
+skiing	esqui
+skating	patinação
+swimming	natação
+handball	handebol
+cycling	ciclismo
+running	corrida
+dancing	dança
+music	música
+a guitar	um violão
+a piano	um piano
+a film	um filme
+a trip, walk	um passeio
+fishing	pesca
+reading	leitura
+a birthday party	uma festa de aniversário
+a concert	um show
+a holiday	umas férias
+painful, it hurts	dolorido, dói
+a cold	um resfriado
+a plaster	um curativo
+an injection	uma injeção
+on sick leave	de licença médica
+healthy, well	saudável, bem
+blood pressure	pressão arterial
+broken	quebrado
+to eat	comer
+to drink	beber
+to walk, go	andar, ir
+to read	ler
+to hear	ouvir
+to see	ver
+to cook	cozinhar
+to sing	cantar
+to swim	nadar
+to open	abrir
+young	jovem
+full	cheio
+a shopping list	uma lista de compras
+a trolley	um carrinho
+a checkout	um caixa (de pagamento)
+a special offer	uma oferta
+a discount	um desconto
+in cash	em dinheiro
+opening hours	horário de funcionamento
+best before	consumir antes de
+deposit on bottles	depósito de garrafas
+a plate	um prato
+a fork	um garfo
+a knife	uma faca
+a spoon	uma colher
+a pot	uma panela
+a frying pan	uma frigideira
+an oven	um forno
+a freezer	um freezer
+a sink	uma pia
+to boil	ferver, cozinhar
+to fry	fritar
+to cut	cortar
+to stir	mexer
+a dishwasher	uma lava-louças
+a job	um emprego
+an employee	um funcionário
+a boss	um chefe
+a contract	um contrato
+a CV	um currículo
+an interview	uma entrevista
+a trade union	um sindicato
+a bedsit	uma quitinete, um quarto alugado
+a lease	um contrato de aluguel
+a notice to quit	um aviso de rescisão
+a washing machine	uma máquina de lavar
+a floor	um piso, um chão
+a roof, ceiling	um telhado, um teto
+to feel at home, thrive	sentir-se bem, adaptar-se
+available, vacant	disponível, vago
+occupied, busy	ocupado
+a bill	uma conta (a pagar)
+a loan	um empréstimo
+savings	poupança
+an expense	uma despesa
+cash	dinheiro vivo
+to borrow, lend	pegar emprestado, emprestar
+an office	um escritório
+emergency clinic	pronto-atendimento
+a health clinic	um posto de saúde infantil
+a residence permit	uma autorização de residência
+a complaint	uma reclamação
+interpreting service	serviço de intérpretes
+the introduction programme	o programa de introdução
+child benefit	auxílio-família por filho
+a medical certificate	um atestado médico
+a journey	uma viagem
+a departure	uma partida
+an arrival	uma chegada
+luggage	bagagem
+a hotel	um hotel
+a booking	uma reserva
+a border	uma fronteira
+a round trip	uma viagem circular
+to pack	fazer as malas
+accommodation	hospedagem
+a mobile	um celular
+a screen	uma tela
+an email	um e-mail
+a file	um arquivo
+to download	baixar (download)
+to upload	enviar (upload)
+to search	pesquisar, buscar
+wireless network	rede sem fio
+tall	alto
+strong	forte
+pleasant	simpático, agradável
+brave	corajoso
+shy	tímido
+lazy	preguiçoso
+patient	paciente
+curious	curioso
+reliable	confiável
+generous	generoso
+stubborn	teimoso
+a beard	uma barba
+in my opinion	na minha opinião
+I agree	eu concordo
+I disagree	eu discordo
+on the one hand	por um lado
+it depends on	depende de
+can you repeat?	pode repetir?
+I do not understand	não entendo
+can you speak slower?	pode falar mais devagar?
+excuse me, sorry	com licença, desculpe
+it is fine	tudo bem
+in other words	em outras palavras
+first of all	antes de tudo
+besides	além disso
+therefore	por isso
+good evening	boa noite (ao chegar)
+goodbye	tchau, até logo
+see you	até mais
+thank you very much	muito obrigado
+how are you?	como vai?
+just fine	tudo bem, tudo ótimo
+what is your name?	qual é o seu nome?
+where are you from?	de onde você é?
+I live in …	eu moro em …
+nice to meet you	prazer em conhecer você
+can you help me?	pode me ajudar?
+how much is it?	quanto custa?
+where is the toilet?	onde fica o banheiro?
+I am hungry	estou com fome
+I am thirsty	estou com sede
+I am tired	estou cansado
+have a nice weekend	bom fim de semana
+the environment	o meio ambiente
+pollution	a poluição
+climate	clima
+waste	lixo, resíduos
+recycling	reciclagem
+plastic	plástico
+paper	papel
+glass	vidro
+energy	energia
+renewable	renovável
+hydropower	energia hidrelétrica
+emissions	emissões
+to save electricity	economizar energia elétrica
+to throw away	jogar fora
+sustainable	sustentável
+nature	a natureza
+a mountain hike	uma trilha na montanha
+a tent	uma barraca
+a rucksack	uma mochila de trilha
+a thermos	uma garrafa térmica
+a trail, ski track	uma trilha, uma pista de esqui
+skis	esquis
+an ice skate	um patim de gelo
+a fishing rod	uma vara de pescar
+fresh air	ar fresco
+to go for a walk	passear, fazer uma caminhada
+to camp	acampar
+the constitution	a constituição
+the 17th of May	o 17 de maio
+a parade	um desfile
+a national costume	um traje folclórico
+Christmas celebration	a comemoração do Natal
+Easter	a Páscoa
+a communal effort	um esforço coletivo, um mutirão
+the Law of Jante	a Lei de Jante
+a folk high school	uma escola popular superior (folkehøgskole)
+a dialect	um dialeto
+Nynorsk	nynorsk
+Bokmål	bokmål
+Sámi culture	a cultura sámi
+a welfare society	uma sociedade de bem-estar social
+freedom of speech	a liberdade de expressão
+volunteering	o voluntariado
+a consequence	uma consequência
+development	um desenvolvimento
+a change	uma mudança
+an expectation	uma expectativa
+an attitude	uma atitude
+a realisation	uma constatação
+a meaning	um significado
+a connection, context	uma relação, um contexto
+a similarity	uma semelhança
+an assessment	uma avaliação
+exchange of experience	troca de experiências
+truth	a verdade
+doubt	a dúvida
+confidence, trust	a confiança
+a company	uma empresa
+a department	um departamento
+a report	um relatório
+competence	competência
+management	a gestão, a direção
+the working environment	o ambiente de trabalho
+efficiency	eficiência
+quality	qualidade
+to delegate	delegar
+to coordinate	coordenar
+a plan for the future	um plano para o futuro
+a number	um número
+half	meio
+a quarter	um quarto (1/4)
+a dozen	uma dúzia
+a pair	um par
+too much	demais
+about, roughly	cerca de, mais ou menos
+at most	no máximo
+double	dobro, duplo
+a half	uma metade
+a third	um terço
+a sum	uma soma
+here	aqui
+in front of	na frente de
+behind	atrás
+above	em cima de, acima
+between	entre
+inside	dentro
+up there	lá em cima
+down there	lá embaixo
+to the right	à direita
+to the left	à esquerda
+straight ahead	em frente, reto
+far	longe
+near	perto
+through	através de
+back	de volta
+what	o que
+who	quem
+when	quando
+which	qual
+how many	quantos
+sometimes	às vezes
+rarely	raramente
+already	já
+yet, still	ainda
+anyway, still	mesmo assim
+a kindergarten teacher	um professor de creche
+a department, group	um departamento, um grupo
+a nappy	uma fralda
+a dummy	uma chupeta
+a pram	um carrinho de bebê
+a toy	um brinquedo
+a doll	uma boneca
+a sandpit	uma caixa de areia
+a swing	um balanço
+a walk, an outing	um passeio
+nap time	a hora do descanso
+pick-up	a hora de buscar
+drop-off	a entrega (na creche)
+a parent meeting	uma reunião individual com os pais
+child support	uma pensão alimentícia
+a vaccine	uma vacina
+a car key	uma chave do carro
+a steering wheel	um volante
+a studded tyre	um pneu com cravos
+petrol	gasolina
+charging	o carregamento
+a toll	um pedágio
+a crossroads	um cruzamento
+a roundabout	uma rotatória
+a queue, a jam	uma fila, um engarrafamento
+parking	um estacionamento
+a fine	uma multa
+a garage, workshop	uma oficina
+a slippery road	uma estrada escorregadia
+to reverse	dar ré
+a post office	uma agência dos correios
+an envelope	um envelope
+a stamp	um selo
+a postcode	um código postal
+a tracking number	um código de rastreamento
+a pick-up deadline	um prazo de retirada
+a parcel locker	um armário de encomendas
+a postman	um carteiro
+weight	peso
+a shipment	um envio
+a return	uma devolução
+customs duty	imposto de importação, alfândega
+to deliver, hand in	entregar
+a ski	um esqui
+a ski pole	um bastão de esqui
+a ski track	uma pista de esqui
+a skate	um patim
+a sledge	um trenó
+a snowman	um boneco de neve
+a snowflake	um floco de neve
+a snowfall	uma nevasca
+snow clearing	a limpeza da neve
+shovelling	tirar neve com a pá
+gritting	espalhar areia ou sal
+frost smoke	névoa de frio sobre a água
+a layer of wool	uma camada de lã
+mittens	luvas de dedão
+a hiking chocolate bar	um chocolate de trilha (Kvikk Lunsj)
+winter holiday	as férias de inverno
+a fireplace	uma lareira
+an ingredient	um ingrediente
+a spoonful	uma colherada
+a gram	um grama
+frying	a fritura
+boiling	o cozimento
+baking	o ato de assar
+to season	temperar
+a spice	um tempero
+yeast	fermento
+dough	uma massa
+leftovers	sobras
+a login	um login
+two-factor check	uma verificação em dois fatores
+filling in	o preenchimento
+a payment app	um app de pagamento
+online banking	um internet banking
+a digital mailbox	uma caixa de correio digital
+booking an appointment	o agendamento de horário
+a download	um download
+user support	o suporte ao usuário
+to log out	sair da conta
+the fire service	o corpo de bombeiros
+the emergency clinic	o pronto-atendimento
+an escape route	uma rota de fuga
+an injury	um ferimento, um dano
+a warning	um aviso, uma advertência
+a life vest	um colete salva-vidas
+a theft	um furto
+to call 113	ligar para o 113
+to look after	cuidar de
+a progress talk	uma conversa sobre o desenvolvimento do aluno
+a form teacher	um professor responsável pela turma
+absence	faltas
+leave of absence	uma licença
+a grade	uma nota
+after-school club	o contraturno escolar (SFO)
+a school bus	um ônibus escolar
+the start of school	o início das aulas
+bullying	o bullying
+the school environment	o ambiente escolar
+voluntary work day	um mutirão voluntário
+a class trip	uma viagem da turma
+a camp school	uma escola-acampamento
+a counsellor	um orientador
+special education	educação especial
+a benefit	um benefício
+sick pay	auxílio-doença
+disability benefit	aposentadoria por invalidez
+a retirement pension	uma aposentadoria por idade
+work assessment	uma avaliação da capacidade de trabalho
+a caseworker	um analista do caso
+a complaint, appeal	uma reclamação, um recurso
+a right	um direito
+a duty	um dever
+a NAV report card	um relatório quinzenal do NAV
+an activity plan	um plano de atividades
+a measure, programme	uma medida, um programa
+guidance	orientação
+housing benefit	auxílio-moradia
+social assistance	assistência social
+a walnut	uma noz
+gluten	glúten
+lactose	lactose
+shellfish	frutos do mar
+soy	soja
+contents	o conteúdo
+labelling	a rotulagem
+a trace	um vestígio, um traço
+to let know	avisar
+cross-contamination	contaminação cruzada
+a reaction	uma reação
+a use-by date	uma data de validade
+a till	um caixa
+a hallway	um corredor
+a basement	um porão
+an attic	um sótão
+a ceiling, roof	um teto, um telhado
+a cupboard	um armário
+a runny nose	um nariz escorrendo
+nausea	um enjoo
+to stay home	ficar em casa
+a doctor’s office	um consultório médico
+a pill	um comprimido
+an ointment	uma pomada
+a drop	uma gota
+to wipe	limpar, secar
+to vacuum	passar o aspirador
+dust	poeira
+a bin	uma lixeira
+the washing-up	a louça (para lavar)
+a tap	uma torneira
+to leak	vazar
+to seal	vedar
+a light bulb	uma lâmpada
+a fuse	um fusível
+a screw	um parafuso
+a screwdriver	uma chave de fenda
+to repair	consertar
+a joint ownership	uma copropriedade
+a common area	uma área comum
+a house rule	uma regra do prédio
+quiet hours	o horário de silêncio
+to knock	bater à porta
+a bucket	um balde
+stairwell cleaning	a limpeza da escada
+an annual meeting	uma assembleia anual
+a vote	uma votação
+a shared cost	uma despesa comum
+considerate	atencioso
+to be considerate	ser atencioso, levar os outros em conta
+mutual help	ajuda mútua
+a hammer	um martelo
+a cordless drill	uma parafusadeira
+a power drill	uma furadeira
+a rotary hammer	um martelete
+an angle grinder	uma esmerilhadeira
+a jigsaw	uma serra tico-tico
+a circular saw	uma serra circular
+a tape measure	uma trena
+a spirit level	um nível de bolha
+pliers	um alicate
+a spanner	uma chave de boca
+an adjustable spanner	uma chave inglesa
+a handsaw	um serrote
+a chisel	um formão
+a putty knife	uma espátula
+a trowel	uma colher de pedreiro
+a utility knife	um estilete
+a sander	uma lixadeira
+a laser level	um nível a laser

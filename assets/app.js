@@ -18,7 +18,7 @@
     for (const lang of ['no', 'uk', 'en']) window.DICT[lang] = Object.assign(window.DICT[lang] || {}, c.words[lang] || {});
   }
   const L = 'no';
-  const LANGS = [['no', '🇳🇴 Norsk'], ['uk', '🇺🇦 Українська'], ['en', '🇬🇧 English'], ['de', '🇩🇪 Deutsch'], ['pl', '🇵🇱 Polski'], ['tr', '🇹🇷 Türkçe'], ['lt', '🇱🇹 Lietuvių'], ['ar', '🇸🇦 العربية']];
+  const LANGS = [['no', '🇳🇴 Norsk'], ['uk', '🇺🇦 Українська'], ['en', '🇬🇧 English'], ['de', '🇩🇪 Deutsch'], ['pl', '🇵🇱 Polski'], ['tr', '🇹🇷 Türkçe'], ['lt', '🇱🇹 Lietuvių'], ['pt', '🇧🇷 Português (Brasil)'], ['ar', '🇸🇦 العربية']];
   const canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
   /* 📴 Офлайн-збірка застосунку: немає сервера, тож немає акаунтів, друзів, стін,
      повідомлень, рейтингу, спільних ігор і ШІ. Лишається все, що працює на самому
@@ -77,7 +77,7 @@
   /* Формат дати — мовою інтерфейсу. Доти кожне місце вирішувало це власним
      ланцюжком «uk? no? — ні, en-GB», і німець із поляком бачили британську
      дату, а подекуди й українську. */
-  const LOCALE = { uk: 'uk-UA', no: 'nb-NO', ar: 'ar', de: 'de-DE', pl: 'pl-PL', tr: 'tr-TR', lt: 'lt-LT', en: 'en-GB' };
+  const LOCALE = { uk: 'uk-UA', no: 'nb-NO', ar: 'ar', de: 'de-DE', pl: 'pl-PL', tr: 'tr-TR', lt: 'lt-LT', pt: 'pt-BR', en: 'en-GB' };
   const locale = () => LOCALE[ui] || 'en-GB';
   const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(locale()); } catch { return iso.slice(0, 10); } };
 
@@ -158,7 +158,7 @@
   const both = (uk, en, ar) => {
     if (!uk && !en && !ar) return null;
     const tr = { uk, en, ar: ar || arFor(en) };
-    for (const l of ['de', 'pl', 'tr', 'lt']) { const v = packFor(l, en); if (v) tr[l] = v; }
+    for (const l of ['de', 'pl', 'tr', 'lt', 'pt']) { const v = packFor(l, en); if (v) tr[l] = v; }
     return tr;
   };
   const qtr = k => {
@@ -167,11 +167,11 @@
     for (const l of TR_ALL) { const v = ((I18N[l] || {}).qtr || {})[k]; if (v) tr[l] = v; }
     return tr;
   };
-  const TR_ALL = ['uk', 'en', 'ar', 'de', 'pl', 'tr', 'lt'];
+  const TR_ALL = ['uk', 'en', 'ar', 'de', 'pl', 'tr', 'lt', 'pt'];
   // назви мов їхньою ж мовою — так їх упізнають навіть ті, хто не читає інтерфейс
-  const TR_NAME = { uk: 'Українська', en: 'English', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių' };
+  const TR_NAME = { uk: 'Українська', en: 'English', ar: 'العربية', de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', pt: 'Português (Brasil)' };
   // словники перекладів вантажимо окремими файлами й лише ті, які обрали
-  const PACK_FILE = { ar: 'data/arabic.js', de: 'data/lang-de.js', pl: 'data/lang-pl.js', tr: 'data/lang-tr.js', lt: 'data/lang-lt.js' };
+  const PACK_FILE = { ar: 'data/arabic.js', de: 'data/lang-de.js', pl: 'data/lang-pl.js', tr: 'data/lang-tr.js', lt: 'data/lang-lt.js', pt: 'data/lang-pt.js' };
   const packLoading = {};
   function ensurePacks() {
     const need = TR_ALL.filter(l => PACK_FILE[l] && (ui === l || trLangs().includes(l)));
@@ -214,7 +214,7 @@
   const nameOf = id => ch(id).no;
 
   // текст норвезькою, переклад — при наведенні (або дотику на телефоні)
-  const FLAG = { uk: ['UA', ''], en: ['EN', ' en'], ar: ['AR', ' ar'], de: ['DE', ' de'], pl: ['PL', ' pl'], tr: ['TR', ' tr'], lt: ['LT', ' lt'] };
+  const FLAG = { uk: ['UA', ''], en: ['EN', ' en'], ar: ['AR', ' ar'], de: ['DE', ' de'], pl: ['PL', ' pl'], tr: ['TR', ' tr'], lt: ['LT', ' lt'], pt: ['BR', ' pt'] };
   const tipBody = tr => {
     if (typeof tr === 'string') return tr;
     let langs = trLangs().filter(l => tr[l]);
@@ -1045,7 +1045,7 @@
   }
   /* 📖 Підказка «з якого коміксу питання». Малюнки в тестах бувають незрозумілі без контексту,
      тому даємо посилання прямо на потрібний кадр — подивився й повернувся до тесту. */
-  const SRC_T = { uk: c => `📖 З коміксу «${c}»`, en: c => `📖 From the comic “${c}”`, no: c => `📖 Fra tegneserien «${c}»`, ar: c => `📖 من قصة «${c}»` };
+  const SRC_T = { uk: c => `📖 З коміксу «${c}»`, en: c => `📖 From the comic “${c}”`, no: c => `📖 Fra tegneserien «${c}»`, ar: c => `📖 من قصة «${c}»`, pt: c => `📖 Do quadrinho “${c}”` };
   function srcLink(q) {
     const c = q.c || COMICS.find(x => x.id === (q.quiz || '')) || (COMICS.find(x => x.id === srcLink.key) || null);
     if (!c) return null;
@@ -1740,6 +1740,7 @@
       uv: 'besøkende', pv: 'sidevisninger', reg: 'nye kontoer', quiz: 'fullførte prøver', learn: 'elever lærte',
       vs: (p, n) => `${p}: ${n}`, all: (p, n) => `hele ${p}: ${n}`, fresh: 'nytt', total: n => `Kontoer totalt: ${n}` },
   };
+  if (window.KL_T_FILL) KL_T_FILL(PULSE, 'app.js:PULSE');
   let pulseCache = null;
   // 📈 окрема сторінка «Статистика» (посилання у футері)
   function renderStats() {
@@ -2021,6 +2022,7 @@
       en: ['Listen to this panel', 'Stop', 'Read the story'],
       no: ['Lytt til ruten', 'Stopp', 'Les historien'],
       lt: ['Klausyti kadro', 'Sustabdyti', 'Skaityti istoriją'],
+      pt: ['Ouvir este quadro', 'Parar', 'Ler a história'],
       de: ['Bild anhören', 'Stoppen', 'Geschichte lesen'],
       pl: ['Posłuchaj kadru', 'Zatrzymaj', 'Czytaj historię'],
       tr: ['Kareyi dinle', 'Durdur', 'Hikâyeyi oku'],
@@ -2052,7 +2054,7 @@
   /* 🇳🇴/🇬🇧 Що я вчу: перемикає головну між норвезьким курсом і англійським (settings.learnLang).
      Той самий перемикач — у налаштуваннях, кабінеті й на головній англійського курсу. */
   const LEARN_T = { uk: ['Що я вчу', '🇳🇴 Норвезьку', '🇬🇧 Англійську'], en: ['What I am learning', '🇳🇴 Norwegian', '🇬🇧 English'], no: ['Hva jeg lærer', '🇳🇴 Norsk', '🇬🇧 Engelsk'],
-    ar: ['ماذا أتعلّم', '🇳🇴 النرويجية', '🇬🇧 الإنجليزية'], de: ['Was ich lerne', '🇳🇴 Norwegisch', '🇬🇧 Englisch'], pl: ['Czego się uczę', '🇳🇴 Norweski', '🇬🇧 Angielski'], tr: ['Ne öğreniyorum', '🇳🇴 Norveççe', '🇬🇧 İngilizce'], lt: ['Ko mokausi', '🇳🇴 Norvegų', '🇬🇧 Anglų'] };
+    ar: ['ماذا أتعلّم', '🇳🇴 النرويجية', '🇬🇧 الإنجليزية'], de: ['Was ich lerne', '🇳🇴 Norwegisch', '🇬🇧 Englisch'], pl: ['Czego się uczę', '🇳🇴 Norweski', '🇬🇧 Angielski'], tr: ['Ne öğreniyorum', '🇳🇴 Norveççe', '🇬🇧 İngilizce'], lt: ['Ko mokausi', '🇳🇴 Norvegų', '🇬🇧 Anglų'], pt: ['O que estou aprendendo', '🇳🇴 Norueguês', '🇬🇧 Inglês'] };
   const COURSE_SUB = {
     uk: { no: 'Вчимо норвезьку', en: 'Вчимо англійську' },
     en: { no: 'Learn Norwegian', en: 'Learn English' },
@@ -2061,6 +2063,7 @@
     pl: { no: 'Uczymy się norweskiego', en: 'Uczymy się angielskiego' },
     tr: { no: 'Norveççe öğren', en: 'İngilizce öğren' },
     lt: { no: 'Mokomės norvegų', en: 'Mokomės anglų' },
+    pt: { no: 'Aprender norueguês', en: 'Aprender inglês' },
     ar: { no: 'نتعلم النرويجية', en: 'نتعلم الإنجليزية' }
   };
   const learnLang = () => (settings.learnLang === 'en' && window.KomiksEnglish ? 'en' : 'no');
@@ -2082,7 +2085,8 @@
     de: { fresh: 'NEU', title: 'Programmieren für Kinder', desc: 'Ein Grundkurs erklärt Befehle, Algorithmen, Webseiten, Spiele, Datenbanken und digitale Sicherheit mit kurzen Comics und Tests.', profile: 'Im Profil siehst du gelesene Lektionen, Testergebnisse, Abzeichen und den nächsten Schritt.', try: 'Kurs ausprobieren', progress: 'Dein Fortschritt', paths: n => `${n} Lernwege`, lessons: n => `${n} Comics`, badge: 'Profil und Abzeichen' },
     pl: { fresh: 'NOWOŚĆ', title: 'Programowanie dla dzieci', desc: 'Kurs podstawowy wyjaśnia polecenia, algorytmy, strony, gry, bazy danych i bezpieczeństwo cyfrowe w krótkich komiksach i testach.', profile: 'Profil pokazuje przeczytane lekcje, wyniki testów, odznaki i kolejny krok.', try: 'Wypróbuj kurs', progress: 'Twój postęp', paths: n => `${n} ścieżek`, lessons: n => `${n} komiksów`, badge: 'Profil i odznaki' },
     tr: { fresh: 'YENİ', title: 'Çocuklar için kodlama', desc: 'Temel kurs; komutları, algoritmaları, web sitelerini, oyunları, veritabanlarını ve dijital güvenliği kısa çizgi roman ve testlerle açıklar.', profile: 'Profilin tamamlanan dersleri, test sonuçlarını, rozetleri ve sıradaki adımı gösterir.', try: 'Kursu dene', progress: 'İlerlemen', paths: n => `${n} yol`, lessons: n => `${n} çizgi roman`, badge: 'Profil ve rozetler' },
-    lt: { fresh: 'NAUJIENA', title: 'Programavimas vaikams', desc: 'Pagrindų kursas trumpais komiksais ir testais paaiškina komandas, algoritmus, svetaines, žaidimus, duomenų bazes ir skaitmeninį saugumą.', profile: 'Profilyje matysi perskaitytas pamokas, testų rezultatus, ženklelius ir kitą žingsnį.', try: 'Išbandyti kursą', progress: 'Tavo pažanga', paths: n => `${n} kryptys`, lessons: n => `${n} komiksai`, badge: 'Profilis ir ženkleliai' }
+    lt: { fresh: 'NAUJIENA', title: 'Programavimas vaikams', desc: 'Pagrindų kursas trumpais komiksais ir testais paaiškina komandas, algoritmus, svetaines, žaidimus, duomenų bazes ir skaitmeninį saugumą.', profile: 'Profilyje matysi perskaitytas pamokas, testų rezultatus, ženklelius ir kitą žingsnį.', try: 'Išbandyti kursą', progress: 'Tavo pažanga', paths: n => `${n} kryptys`, lessons: n => `${n} komiksai`, badge: 'Profilis ir ženkleliai' },
+    pt: { fresh: 'NOVIDADE', title: 'Programação para crianças', desc: 'Um curso básico explica comandos, algoritmos, sites, jogos, bancos de dados e segurança digital com quadrinhos curtos e testes.', profile: 'No seu perfil aparecem as lições concluídas, os resultados dos testes, as medalhas e o próximo passo.', try: 'Experimentar o curso', progress: 'Seu progresso', paths: n => `${n} trilhas`, lessons: n => `${n} quadrinhos`, badge: 'Perfil e medalhas' }
   };
   function homeCodingPromo() {
     if (!window.KomiksKoding) return null;
@@ -2148,7 +2152,7 @@
     const mods = tx('modules');
     const modules = h('section', { class: 'home-modules' }, h('h2', { class: 'sec-title' }, t('modules_title')),
       h('div', { class: 'module-grid' }, ['alphabet', 'words', 'koding', 'plan', 'tests'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2])))),
-      h('details', { class: 'home-disclosure' }, h('summary', {}, ({"uk":"Усі розділи","en":"All sections","no":"Alle seksjoner","ar":"جميع الأقسام","de":"Alle Bereiche","pl":"Wszystkie sekcje","tr":"Tüm bölümler","lt":"Visi skyriai"})[ui] || 'All sections'), h('div', { class: 'module-grid' }, ['numbers', 'grammar', 'english', 'math', 'game', 'race', 'chess', 'rating'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2]))))));
+      h('details', { class: 'home-disclosure' }, h('summary', {}, ({"uk":"Усі розділи","en":"All sections","no":"Alle seksjoner","ar":"جميع الأقسام","de":"Alle Bereiche","pl":"Wszystkie sekcje","tr":"Tüm bölümler","lt":"Visi skyriai","pt":"Todas as seções"})[ui] || 'All sections'), h('div', { class: 'module-grid' }, ['numbers', 'grammar', 'english', 'math', 'game', 'race', 'chess', 'rating'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2]))))));
 
     const how = h('section', { class: 'how' }, h('h2', { class: 'sec-title' }, t('how_title')),
       h('ol', { class: 'how-grid' }, tx('how').map(([icon, title, text], i) => h('li', { class: 'how-step' }, h('span', { class: 'how-num' }, i + 1), h('span', { class: 'how-icon' }, icon), h('b', {}, title), h('span', {}, text)))),
@@ -3478,7 +3482,7 @@
   /* ================= налаштування ================= */
   const SAMPLE = { cheerful: ['mia', 'Hei hei! Nå leser jeg med glad stemme!'], characters: ['pappa', 'Nå har alle figurene sin egen stemme.'], multi: ['nora', 'Nå snakker alle med forskjellige stemmer!'] };
   function sayCheer() { const [who, text] = SAMPLE[settings.voiceMode] || SAMPLE.cheerful; stopAll(); Speech.speak(text, who); }
-  const BUDDY_T = { uk: ['🐾 Тамагочі в кутку', 'Озвучувати похвалу («Veldig bra!», «Prøv igjen!»)'], en: ['🐾 Corner buddy', 'Speak the praise out loud (“Veldig bra!”, “Prøv igjen!”)'], no: ['🐾 Kompisen i hjørnet', 'Si rosen høyt («Veldig bra!», «Prøv igjen!»)'], ar: ['🐾 الرفيق في الزاوية', 'انطق المديح بصوت عالٍ («Veldig bra!»، «Prøv igjen!»)'] };
+  const BUDDY_T = { uk: ['🐾 Тамагочі в кутку', 'Озвучувати похвалу («Veldig bra!», «Prøv igjen!»)'], en: ['🐾 Corner buddy', 'Speak the praise out loud (“Veldig bra!”, “Prøv igjen!”)'], no: ['🐾 Kompisen i hjørnet', 'Si rosen høyt («Veldig bra!», «Prøv igjen!»)'], ar: ['🐾 الرفيق في الزاوية', 'انطق المديح بصوت عالٍ («Veldig bra!»، «Prøv igjen!»)'], pt: ['🐾 Companheiro no canto', 'Falar os elogios em voz alta (“Veldig bra!”, “Prøv igjen!”)'] };
   function setCheerVoice(on) { settings.cheerVoice = !!on; saveSettings(); document.dispatchEvent(new CustomEvent('cheervoice')); }
   function renderSettings() {
     const root = h('section', { class: 'settings' }, pageHead(t('settings_title')), window.KomiksEnglish ? h('div', { class: 'box' }, learnSwitch()) : null);
@@ -3513,9 +3517,10 @@
       de: ['🌍 Übersetzungssprachen in den Comics', 'Hake alle Sprachen an, die du im Hinweis sehen willst — sie erscheinen gleichzeitig untereinander. Standard: Oberflächensprache und Englisch.'],
       pl: ['🌍 Języki tłumaczenia w komiksach', 'Zaznacz wszystkie języki, które chcesz widzieć w podpowiedzi — pokażą się naraz, jeden pod drugim. Domyślnie: język interfejsu i angielski.'],
       tr: ['🌍 Çizgi romanlarda çeviri dilleri', 'İpucunda görmek istediğin bütün dilleri işaretle — hepsi aynı anda, alt alta görünür. Varsayılan: arayüz dili ve İngilizce.'],
-      lt: ['🌍 Vertimo kalbos komiksuose', 'Pažymėk visas kalbas, kurias nori matyti užuominoje — jos rodomos kartu, viena po kita. Numatyta: sąsajos kalba ir anglų.']
+      lt: ['🌍 Vertimo kalbos komiksuose', 'Pažymėk visas kalbas, kurias nori matyti užuominoje — jos rodomos kartu, viena po kita. Numatyta: sąsajos kalba ir anglų.'],
+      pt: ['🌍 Idiomas de tradução nos quadrinhos', 'Marque todos os idiomas que você quer ver na dica — eles aparecem juntos, um embaixo do outro. Padrão: o idioma da interface e o inglês.']
     }[ui] || ['🌍 Translation', ''];
-    const TR_LABEL = { uk: '🇺🇦 Українська', en: '🇬🇧 English', ar: '🇸🇦 العربية', de: '🇩🇪 Deutsch', pl: '🇵🇱 Polski', tr: '🇹🇷 Türkçe', lt: '🇱🇹 Lietuvių' };
+    const TR_LABEL = { uk: '🇺🇦 Українська', en: '🇬🇧 English', ar: '🇸🇦 العربية', de: '🇩🇪 Deutsch', pl: '🇵🇱 Polski', tr: '🇹🇷 Türkçe', lt: '🇱🇹 Lietuvių', pt: '🇧🇷 Português (Brasil)' };
     /* Можна лишити кілька мов увімкненими — тоді підказка покаже кілька рядків.
        Порядок рядків завжди такий, як у TR_ALL, щоб він не стрибав від порядку кліків.
        Останню галочку зняти не даємо: без жодної мови підказка була б порожня. */
@@ -3621,8 +3626,8 @@
           h('p', {}, F.about), h('p', { class: 'ai' }, F.ai)),
         col('📚 ' + F.learn, [link('#/today', td('title')), link('#/write', window.KomiksWrite ? window.KomiksWrite.text('nav') : '✍️'), link('#/exam', window.KomiksExam ? window.KomiksExam.text('nav') : '🏁'), link('#/placement', window.KomiksPlacement ? window.KomiksPlacement.text('nav') : '🎯'), link('#/analysis', AN_T().title), link('#/', navT('comics')), link('#/words', navT('words')), link('#/grammar', navT('grammar')), link('#/english', navT('english')), link('#/math', navT('math')), window.KomiksKoding ? link('#/koding', '💻 ' + window.KomiksKoding.text('nav')) : null, link('#/alphabet', navT('alphabet')), link('#/numbers', navT('numbers')), link('#/cards', navT('cards')), link('#/pairs', window.KomiksPairs ? window.KomiksPairs.text('nav') : '🧠'), link('#/cross', window.KomiksCross ? window.KomiksCross.text('title') : '🧩'), link('#/plan', navT('plan'))]),
         col(FX.games, [NO_EXTERNAL || !window.KomiksGames ? null : h('li', {}, h('a', { href: '#/games' }, window.KomiksGames.text('nav'))), OFFLINE ? null : h('li', {}, h('a', { href: 'https://bilohash.com/comiks/room_1/' }, ({ uk: '🎬 Кімната дієслів', en: '🎬 Verb room', no: '🎬 Verbrommet', ar: '🎬 غرفة الأفعال' })[ui] || '🎬 Verb room')), link('#/call', window.KomiksCall ? window.KomiksCall.text().title : '📞'), link('#/race', '🏁 ' + navT('race')), link('#/chess', '♟ ' + navT('chess')), link('#/math/rocket', '🚀 Math Rocket'), link('#/math/race', window.KomiksRocket ? window.KomiksRocket.text('with_class') : '👥 Math Rocket'), link('#/game', navT('game')), link('#/tests', navT('tests')), link('#/rating', navT('rating'))]),
-        OFFLINE ? null : col(FX.community, [link('#/friends', navT('friends')), link('#/players', FX.players), link('#/watch', '👨‍👩‍👧 ' + (({ uk: 'Батькам і вчителям', en: 'For parents & teachers', no: 'For foreldre og lærere', ar: 'للآباء والمعلمين', de: 'Für Eltern & Lehrkräfte', pl: 'Dla rodziców i nauczycieli', tr: 'Ebeveynler ve öğretmenler için', lt: 'Tėvams ir mokytojams' })[ui] || 'For parents & teachers')), ...(u ? [link('#/account', '👤 ' + navT('account')), h('li', {}, h('a', { href: '#/', onclick: e => { e.preventDefault(); logoutAll(); } }, navT('logout')))] : [link('#/login', navT('login')), link('#/register', navT('register'))]), link('#/settings', navT('settings'))]),
-        col('ℹ️ ' + F.info, [window.KomiksFeedback ? h('li', {}, h('a', { href: '#', onclick: e => { e.preventDefault(); window.KomiksFeedback.open(); } }, window.KomiksFeedback ? '💌 ' + (({ uk: 'Відгук', en: 'Feedback', no: 'Tilbakemelding', ar: 'ملاحظات' })[ui] || 'Feedback') : '')) : null, link('#/help', navT('help')), link('#/whatsnew', FX.news), OFFLINE ? null : link('#/stats', '📈 ' + (({ uk: 'Статистика', en: 'Statistics', no: 'Statistikk', ar: 'الإحصاءات', de: 'Statistik', pl: 'Statystyki', tr: 'İstatistikler', lt: 'Statistika' })[ui] || 'Statistics')), link('#/install', '📲 ' + ({ uk: 'Застосунок', en: 'Get the app', no: 'Få appen', ar: 'التطبيق' }[ui] || 'Get the app')), link('#/teacher', '🎓 ' + ({ uk: 'Для вчителів', en: 'For teachers', no: 'For lærere', ar: 'للمعلّمين' }[ui] || 'For teachers')), link('#/terms', navT('terms')), link('#/sitemap', '🗺️ Sitemap')], [h('h4', {}, F.langs), langBtns])),
+        OFFLINE ? null : col(FX.community, [link('#/friends', navT('friends')), link('#/players', FX.players), link('#/watch', '👨‍👩‍👧 ' + (({ uk: 'Батькам і вчителям', en: 'For parents & teachers', no: 'For foreldre og lærere', ar: 'للآباء والمعلمين', de: 'Für Eltern & Lehrkräfte', pl: 'Dla rodziców i nauczycieli', tr: 'Ebeveynler ve öğretmenler için', lt: 'Tėvams ir mokytojams', pt: 'Para pais e professores' })[ui] || 'For parents & teachers')), ...(u ? [link('#/account', '👤 ' + navT('account')), h('li', {}, h('a', { href: '#/', onclick: e => { e.preventDefault(); logoutAll(); } }, navT('logout')))] : [link('#/login', navT('login')), link('#/register', navT('register'))]), link('#/settings', navT('settings'))]),
+        col('ℹ️ ' + F.info, [window.KomiksFeedback ? h('li', {}, h('a', { href: '#', onclick: e => { e.preventDefault(); window.KomiksFeedback.open(); } }, window.KomiksFeedback ? '💌 ' + (({ uk: 'Відгук', en: 'Feedback', no: 'Tilbakemelding', ar: 'ملاحظات', pt: 'Comentários' })[ui] || 'Feedback') : '')) : null, link('#/help', navT('help')), link('#/whatsnew', FX.news), OFFLINE ? null : link('#/stats', '📈 ' + (({ uk: 'Статистика', en: 'Statistics', no: 'Statistikk', ar: 'الإحصاءات', de: 'Statistik', pl: 'Statystyki', tr: 'İstatistikler', lt: 'Statistika', pt: 'Estatísticas' })[ui] || 'Statistics')), link('#/install', '📲 ' + ({ uk: 'Застосунок', en: 'Get the app', no: 'Få appen', ar: 'التطبيق', pt: 'Baixe o app' }[ui] || 'Get the app')), link('#/teacher', '🎓 ' + ({ uk: 'Для вчителів', en: 'For teachers', no: 'For lærere', ar: 'للمعلّمين', pt: 'Para professores' }[ui] || 'For teachers')), link('#/terms', navT('terms')), link('#/sitemap', '🗺️ Sitemap')], [h('h4', {}, F.langs), langBtns])),
       h('div', { class: 'foot-bottom' }, h('span', {}, F.rights ? F.rights(new Date().getFullYear()) : ''), h('a', { class: 'made', href: 'https://bilohash.com/news/', target: '_blank', rel: 'noopener' }, F.made)));   // підказку про клавіші з футера прибрано на прохання — клавіші в читалці працюють
     if (window.KomiksExtras) window.KomiksExtras.qrPromo();
   }

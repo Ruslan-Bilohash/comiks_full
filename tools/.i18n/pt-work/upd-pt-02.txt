@@ -1,0 +1,77 @@
+201	🔎 Busca de jogadores: cartões compactos no celular e um botão de um clique para aparecer na busca.
+202	🖼️ Ícones desenhados mais claros nos testes (carteira, quadro-negro, borracha, joelho…) no lugar de emojis ambíguos.
+203	🎉 Mais mensagens de incentivo durante o estudo; a tarefa “coloque as imagens em ordem” saiu.
+204	👤 A página da conta agora é um cartão só: avatar, nome, código de amigo e botões rápidos.
+205	🔐 Contas no servidor: confirmação de e-mail, mensagem de boas-vindas, recuperação de senha e progresso sincronizado entre os aparelhos.
+206	🇸🇦 Interface em árabe (da direita para a esquerda) e escolha dos idiomas de tradução nos quadrinhos: ucraniano, inglês, árabe.
+207	🎯 O plano de estudos ganhou uma página própria — desligue o que você já sabe.
+208	🏁 Corrida de Lógica: um nível “Especialista”, novos tipos de enigma (relógio, compras, quadrado latino) e configurações de distância e de tempo.
+209	🚀 Math Rocket: os níveis “Pequenos” e “Especialista” e a escolha da duração da rodada.
+210	🐾 Um botão 🔊 ao lado do companheiro e 22 novas frases de elogio em norueguês.
+211	👥 Amigos, um mural no perfil com comentários, busca de jogadores e um ranking.
+212	🏁 A Corrida de Lógica e o “Jogar juntos” com QR code para a turma.
+213	🎨 Estúdio de avatar: animais, chapéus, óculos e itens raros que saem de baús.
+214	A tela inicial do Komiks·Lab
+215	Lendo um quadrinho norueguês com áudio
+216	Um teste depois do quadrinho
+217	Palavras norueguesas por tema
+218	Pares — um jogo diário de memória
+219	Flashcards com repetição espaçada
+220	Temas de gramática norueguesa
+221	O alfabeto norueguês
+222	Todos os quadrinhos por nível
+223	Lendo um quadrinho com áudio
+224	O jogo Pares
+225	Palavras cruzadas com imagens e palavras norueguesas
+226	Gramática norueguesa
+227	Números em norueguês
+228	O plano de hoje
+229	Um plano de estudos pessoal
+230	Um simulado
+231	Prática de escrita
+232	Uma conversa em norueguês
+233	O jogo Corrida de Lógica
+234	O ranking de jogadores
+235	Amigos
+236	Perfil e avatar
+237	Instalando o app
+238	Entrando na conta
+239	Criando uma conta
+240	O registro de novidades
+241	Inglês com quadrinhos
+242	Matemática
+243	A página de jogos: Duel 3D com capturas de tela, lutadores e a campanha
+244	Jogar juntos — uma sala de quiz com QR code
+245	🎮 Jogar juntos
+246	🧩 Palavras cruzadas com imagens
+247	Teste “Frações”
+248	Lição “Frações”
+249	Acessibilidade nas configurações
+250	Entrar com o Google
+251	Aventuras com avatares
+252	A página inicial do Komiks·Lab
+253	Instalando o app
+254	O curso de inglês
+255	O teste depois da história
+256	O jogo Pares
+257	🌐 Escolha do idioma de tradução
+258	Perfil e configurações
+259	Ranking de jogadores
+260	📚 Lista de quadrinhos
+261	Lendo um quadrinho no celular
+262	Entrando no Komiks·Lab
+263	Lendo um quadrinho
+264	Um teste no celular
+265	Um novo tipo de pergunta — a resposta numa conversa
+266	Palavras por tema
+267	A página inicial do Komiks·Lab
+268	Lendo um quadrinho com áudio
+269	Um teste no celular: respostas coloridas em tela cheia
+270	Uma conversa em norueguês
+271	Palavras norueguesas por tema
+272	Amigos
+273	Perfil e avatar
+274	Um plano de estudos pessoal
+275	Cartões com repetição
+276	Corrida de Lógica
+277	Criando uma conta

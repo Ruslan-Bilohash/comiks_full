@@ -1,0 +1,200 @@
+601	Next ▶
+602	Result 🏁
+603	Correct answer: 
+604	🔄 Try again
+605	📖 Read again
+606	🏠 Home
+607	🗺 English plan
+608	🗺 English plan: grammar step by step
+609	From “I am” to the passive — 22 topics, each one shown in real comic dialogues. Read the story, take the quiz and the topic counts as done.
+610	▶ Next step
+611	🏆 All topics done! Repeat weak quizzes or learn words by topic.
+612	📐 Rule
+613	💬 Examples
+614	📚 Stories
+615	✅ done
+616	▶ next
+617	⏳
+618	Topic
+619	My English journey
+620	Each topic is one step. Read a comic, listen to real English and take the quiz.
+621	Your current step
+622	Open topic
+623	You are learning English. Switch the language at the top or in the settings.
+624	🏁 Norskprøven mock test
+625	🏁 Mock exam
+626	Practice in the format of the Norwegian exam: listening, reading and writing. Do the parts one after another and see your approximate level.
+627	⚠️ This is practice, not the official exam. The result is a rough guide to where you are now.
+628	Level
+629	Start
+630	Take it again
+631	Open
+632	Done
+633	🎧 Part 1 — listening
+634	10 spoken lines, the text stays hidden.
+635	📖 Part 2 — reading
+636	10 reading comprehension questions.
+637	✍️ Part 3 — writing
+638	One short text with feedback.
+639	🏁 Your result
+640	%
+641	Total
+642	Tip: if a part scored under 60 %, go back to the comics at your level and revise the words.
+643	Not done yet
+644	Ranking
+645	🏆
+646	Ranking
+647	players, winners and students
+648	🌍 Global ranking
+649	Logged-in players with a public profile. Tap a player to see their profile, badges and results.
+650	View profile
+651	🔎 Find players
+652	🏆 Ranking and players
+653	Who knows Norwegian best? Here are the winners of “Play together” and the students with accounts on this device.
+654	💾 The ranking is stored on this device (in the browser). Games appear here when you host a room or play in one.
+655	🎮 “Play together” players
+656	👩‍🎓 Students on this device
+657	🕹️ Recent games
+658	#
+659	Player
+660	Games
+661	🥇 Wins
+662	Points
+663	Accuracy
+664	Avg time
+665	Student
+666	⭐ Stars
+667	Tests
+668	Study days
+669	Score
+670	No games yet. Create a room in “Play together” and the winners will show up here!
+671	🎮 Play together
+672	Guest (no account)
+673	Sign up to appear in the student ranking.
+674	✍️ Sign up
+675	🗑️ Clear game history
+676	Delete the game history on this device?
+677	Score = test stars × 10 + tests × 5 + games × 3 + race wins × 10 + Math Rocket (max 200). Same rules for everyone.
+678	you
+679	📱 Open Komiks·Lab on your phone
+680	Scan the QR code with your phone camera and the site opens at once. Great for lessons: show the code on the screen and every student is in within seconds.
+681	📋 Copy link
+682	Copied ✓
+683	📤 Share
+684	❓ Help: how to use Komiks·Lab
+685	Komiks·Lab is a free Norwegian trainer for children and adults. Everything is explained briefly here: where to start, how to read, take tests and play together.
+686	🚀 Quick start in 5 steps
+687	💬 FAQ
+688	🧭 Site sections
+689	Open →
+690	👥 Be friends — scan my QR
+691	A friend points their phone camera at the code and you are friends at once: play together, race each other and send messages.
+692	📱 Site QR
+693	👥 My friend QR
+694	📣 Share your result
+695	Feedback on this test
+696	Copy
+697	Copied ✓
+698	More…
+699	Komiks·Lab Magazine
+700	Games and new features worth trying today
+701	Try it →
+702	🏁 GAME
+703	Logic Race
+704	Live avatars race along the track: solve logic puzzles faster to overtake. The track on the monitor, answers on phones. You can also race bots!
+705	#/race
+706	🏁 Open
+707	🎮 PLAY TOGETHER
+708	Create your hero — and compete with family or friends
+709	Pick an animal, colour, hat and glasses — your hero is tied to your account and runs, flies and stands on the podium in every game. Rare items drop from chests when you win.
+710	✨ Create a hero
+711	🎨 Edit your hero
+712	Create your hero
+713	Open a game on the TV or laptop
+714	Family scans the QR with phones — go!
+715	👨‍👩‍👧 Together
+716	🙋 Solo
+717	🏆 Best player
+718	Fair ranking from tests and games
+719	Best player
+720	🏆 Player ranking
+721	Stars come from comics, tests and games you finish — the same rules for everyone.
+722	Full ranking →
+723	The ranking appears as soon as the first players take a test.
+724	👋 New players
+725	The latest to join — say hello and add them as friends.
+726	👋 Say hello
+727	today
+728	yesterday
+729	No new players yet.
+730	👥 Friends’ ranking
+731	The same stars, but only among the friends you added.
+732	Add friends and you will see who is ahead.
+733	Counting…
+734	this is you
+735	👥 All players
+736	Point a camera — and we are friends
+737	Point a camera — it opens on the phone
+738	🗺️ Site map
+739	🎓 Learning
+740	🎮 Games
+741	👤 Account
+742	💻 Coding
+743	💌 Feedback
+744	💌 Write to the developer
+745	Found a bug, want a fix or a new learning topic? Write to me — I read everything myself.
+746	Email (optional — so I can reply)
+747	Send
+748	Close
+749	How much is
+750	🧮 Solve the sum — and your message flies!
+751	✅ Thank you! Your message has been sent.
+752	📎 Add a photo or file
+753	A screenshot, drawing, PDF or text — photos are compressed automatically. Materials and ideas can be sent as a file too.
+754	Drop a file here
+755	✕ Remove
+756	The file is too big — 4 MB maximum.
+757	Only images, PDF or text files are allowed.
+758	📝 Draft saved
+759	💌 Write to me right from here
+760	Found a bug, want a change or a new learning topic? The “💌 Feedback” button is at the bottom of the page, next to the QR code. Teachers — tell me what your class needs.
+761	Got it
+762	🤖 Test the Android app
+763	Enter your email and complete the short anti-spam check. We will save your testing request, then you can open the link.
+764	Your email (for example, name@gmail.com)
+765	Your email is used only for test access and replying to this request.
+766	Get the test link
+767	Open the testing link
+768	Close
+769	Anti-spam check
+770	✅ Request received. You can now open the link.
+771	Enter a valid email address.
+772	Choose the correct answer.
+773	The request could not be sent. Please try again.
+774	½ Fractions
+775	Fractions
+776	parts of a whole, Norwegian names and a test
+777	A fraction is a part of a whole: a pizza cut into 4 slices, you ate 3 — that is 3/4, in Norwegian “tre fjerdedeler”. Tap anything to hear it in Norwegian.
+778	🍕 What is a fraction
+779	The bottom number (nevner — denominator) says into how many equal parts the whole is cut. The top number (teller — numerator) says how many parts you take. Between them is the brøkstrek, the fraction bar.
+780	teller — numerator: parts taken
+781	nevner — denominator: equal parts in the whole
+782	🧩 Fraction builder
+783	Change the numbers to see the fraction on a pizza and a bar and hear its name.
+784	🗣️ Fraction names
+785	Most names are the ordinal number + “-del”: tredjedel, fjerdedel… Exceptions: en halv (1/2) and en tidel (1/10). For more than one part use “-deler”: to tredjedeler.
+786	⚖️ Equal fractions
+787	Different numbers, the same amount: 1/2 = 2/4 = 3/6 = 4/8 = 5/10. Compare the coloured bars.
+788	🍎 A fraction of a number
+789	To find 1/3 of 12, split 12 into 3 equal groups — each group has 4. And 2/3 is two such groups, so 8.
+790	🔄 Another example
+791	📖 Words
+792	▶️ Fractions test
+793	10 tasks: pictures, names, comparing and a fraction of a number.
+794	← Maths
+795	Which fraction is coloured?
+796	Which fraction is it?
+797	How do you say it in Norwegian?
+798	Which fraction is bigger?
+799	What is the answer?
+800	Which fraction is equal to this?

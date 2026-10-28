@@ -1,0 +1,200 @@
+2001	Só as pessoas que precisam de acesso.
+2002	Uma senha curta é fácil de adivinhar.
+2003	Use uma senha longa e única e a autenticação em dois fatores.
+2004	E se alguém roubar o arquivo?
+2005	A criptografia deixa o conteúdo ilegível sem a chave.
+2006	Também podemos perder dados por engano.
+2007	Uma cópia de segurança permite recuperá-los.
+2008	Dados seguros são mais do que um cadeado.
+2009	Planejamos a privacidade antes de o app ser lançado.
+2010	Volto para casa todo dia pelo mesmo caminho seguro.
+2011	Um adulto em casa conhece o seu caminho.
+2012	Eu aviso quando saio da escola.
+2013	Assim a família sabe quando esperar você.
+2014	Escolha ruas iluminadas e com outras pessoas.
+2015	Evite atalhos desertos quando estiver sozinho.
+2016	Um carro desconhecido para do meu lado.
+2017	Mantenha distância e vá em direção a um lugar seguro.
+2018	Ligo para um adulto de confiança.
+2019	Entre numa loja se não se sentir seguro.
+2020	Agora estou em casa, em segurança.
+2021	Um plano simples facilita agir com calma.
+2022	Um estranho me pergunta se quero procurar um cachorro.
+2023	Crianças não devem ir embora com adultos desconhecidos.
+2024	Fico a vários passos de distância.
+2025	A distância dá tempo e uma visão do que está acontecendo.
+2026	Posso dizer não com firmeza.
+2027	Você não precisa ser educado quando algo parece errado.
+2028	Vou em direção à professora no portão.
+2029	Escolha um adulto conhecido ou um funcionário.
+2030	Conto tudo o que aconteceu.
+2031	Nunca é culpa da criança quando um adulto se comporta de um jeito estranho.
+2032	Lembro de três passos: dizer não, sair e contar.
+2033	Esse é um plano de segurança forte.
+2034	Não estou mais vendo a minha família.
+2035	Primeiro pare. Não saia correndo para qualquer lado.
+2036	Fico perto do grande painel de informações.
+2037	Assim fica mais fácil encontrar você.
+2038	Ali tem uma funcionária com crachá.
+2039	Peça para ela entrar em contato com a sua família ou com o segurança.
+2040	Sei o nome e o telefone da minha mãe.
+2041	Decore um número de contato.
+2042	Um desconhecido se oferece para me levar até o carro.
+2043	Fique com a funcionária no lugar combinado.
+2044	A minha família me encontrou no balcão de informações.
+2045	Pare, fique onde está e peça ajuda a um funcionário.
+2046	O 112 é para perigo imediato e situações graves.
+2047	Não é um número para brincadeiras nem para perguntas comuns.
+2048	Primeiro me afasto do perigo.
+2049	Ajude sem se colocar em perigo.
+2050	O atendente pergunta o que aconteceu.
+2051	Responda de forma curta e verdadeira.
+2052	Digo o endereço ou um ponto de referência claro.
+2053	O local é importante para mandar ajuda.
+2054	Sigo as instruções.
+2055	Não desligue até o atendente mandar.
+2056	O serviço de emergência encontra o lugar certo.
+2057	Informações dadas com calma podem economizar tempo.
+2058	A minha senha curta é fácil de adivinhar.
+2059	Nomes e datas de aniversário também não são boas escolhas.
+2060	Escolho várias palavras aleatórias numa frase longa.
+2061	O tamanho deixa a senha mais forte.
+2062	Posso usar a mesma senha em todo lugar?
+2063	Não. Um vazamento não pode abrir todas as contas.
+2064	Um gerenciador de senhas lembra senhas únicas.
+2065	Proteja-o com uma senha mestra forte.
+2066	Agora a conta também pede uma confirmação extra.
+2067	Nunca compartilhe o código de uso único com ninguém.
+2068	A minha conta tem várias camadas de proteção.
+2069	Senhas longas e únicas e a autenticação em dois fatores funcionam juntas.
+2070	Recebi uma mensagem assustadora com um link.
+2071	Muita pressa é um sinal de alerta comum.
+2072	O nome parece conhecido, mas o endereço é estranho.
+2073	Confira o endereço completo do remetente e o domínio.
+2074	Paro antes de tocar.
+2075	Não abra links nem anexos em que você não confia.
+2076	Eu mesmo digito o endereço do serviço.
+2077	Assim você usa um canal que já conhece.
+2078	Ligo para o número que já salvei.
+2079	O remetente verdadeiro diz que a mensagem é falsa.
+2080	Apago, bloqueio e denuncio a mensagem.
+2081	Pare, confira e use um canal conhecido.
+2082	O cartaz promete um prêmio grátis.
+2083	Uma boa oferta ainda pode ser falsa.
+2084	O código parece um adesivo novo.
+2085	Alguém pode ter colado um código falso por cima do verdadeiro.
+2086	O celular mostra o endereço antes de abrir.
+2087	Leia o domínio com atenção.
+2088	A página pede senha e número do cartão.
+2089	Pare. Um QR code qualquer não deve receber dados assim.
+2090	Encontro a oferta no site oficial do organizador.
+2091	Lá não tem nada sobre o prêmio.
+2092	Conto para um adulto e para o dono do cartaz.
+2093	Confira antes de escanear, abrir ou digitar.
+2094	Quero postar uma foto do pátio da escola.
+2095	Olhe a foto inteira antes de compartilhar.
+2096	O nome da escola e o número da rua aparecem no fundo.
+2097	Eles podem revelar onde você está.
+2098	A câmera também gravou a localização.
+2099	Desligue os dados de localização quando não forem necessários.
+2100	Meu amigo também está na foto.
+2101	Peça permissão antes de compartilhar fotos de outras pessoas.
+2102	Corto os detalhes e escolho um público pequeno.
+2103	As configurações de privacidade ajudam, mas ainda assim pense antes de compartilhar.
+2104	Uma foto compartilhada pode ser copiada adiante.
+2105	Compartilhe só o que você vai continuar defendendo depois.
+2106	A mensagem diz que ganhei um celular.
+2107	Mas você nunca participou de um concurso.
+2108	Eles pedem uma pequena taxa antes de mandar o prêmio.
+2109	Pagamento adiantado é um sinal comum de golpe.
+2110	O formulário pede dados muito pessoais.
+2111	Um prêmio de verdade não precisa da senha do seu banco.
+2112	Procuro o concurso no site oficial.
+2113	Ele não existe lá.
+2114	Não respondo nem pago.
+2115	Uma resposta pode confirmar que o seu número está ativo.
+2116	Denuncio o concurso falso.
+2117	Se você não participou, provavelmente não ganhou.
+2118	A voz parece a do papai e pede dinheiro.
+2119	A inteligência artificial consegue imitar pequenas amostras de voz.
+2120	A mensagem tenta me deixar com medo e com pressa.
+2121	Respire, pare e não pague.
+2122	Pergunto a palavra-código secreta da família.
+2123	O golpista não sabe qual é.
+2124	A ligação cai, e eu ligo para o número salvo do papai.
+2125	Nunca use o número que o desconhecido passar.
+2126	O papai atende e está bem.
+2127	Uma voz parecida, sozinha, não prova a identidade.
+2128	A família pratica um plano simples.
+2129	Sempre confirme pedidos de dinheiro por outro canal conhecido.
+2130	Este console novo custa quase nada.
+2131	Um preço bom demais para ser verdade pode ser uma isca.
+2132	O perfil do vendedor foi criado hoje.
+2133	Procure histórico, avaliações e fotos reais.
+2134	O vendedor quer o pagamento por um link particular.
+2135	Mantenha o pagamento no sistema seguro do site de vendas.
+2136	Não marco um encontro sozinho.
+2137	Leve um adulto e escolha um lugar público.
+2138	Testamos o produto antes de comprar, quando possível.
+2139	Não se deixe pressionar por um prazo artificial.
+2140	O vendedor recusa o pagamento seguro, então desistimos.
+2141	Vão aparecer outras ofertas.
+2142	Um perfil novo usa o nome e a foto do meu amigo.
+2143	Fotos e nomes podem ser copiados.
+2144	O perfil pede um código que chegou no meu celular.
+2145	Um amigo de verdade nunca precisa do seu código de login.
+2146	Não mando nem código, nem senha, nem fotos particulares.
+2147	Segredos dão mais controle ao golpista.
+2148	Ligo para o meu amigo no número que já tenho.
+2149	Ele diz que o perfil novo é falso.
+2150	Denunciamos o perfil por se passar por outra pessoa.
+2151	A plataforma pode investigar e removê-lo.
+2152	Meu amigo avisa os contatos dele.
+2153	Confirme quem é a pessoa antes de confiar no perfil.
+2154	Um simples jogo de lanterna quer acesso a tudo.
+2155	Pergunte por que cada permissão é necessária.
+2156	O jogo não precisa dos meus contatos.
+2157	Dê o mínimo de acesso possível.
+2158	O mapa precisa da localização enquanto eu navego.
+2159	Escolha “só enquanto o app estiver em uso”.
+2160	Vejo quem fez o app.
+2161	Baixe de uma loja oficial e leia as avaliações com senso crítico.
+2162	Posso mudar as permissões depois.
+2163	Tire os acessos que não são mais necessários.
+2164	Agora o mapa funciona sem dados desnecessários.
+2165	Um app deve explicar o que coleta.
+2166	O celular mostra uma notificação normal do sistema.
+2167	As atualizações podem corrigir falhas de segurança.
+2168	Um anúncio oferece a mesma atualização num site desconhecido.
+2169	Não instale arquivos do sistema a partir de links aleatórios.
+2170	Abro as próprias configurações do aparelho.
+2171	Use o sistema operacional ou a loja oficial de apps.
+2172	Os arquivos importantes têm cópia de segurança.
+2173	Assim eles podem ser recuperados se algo der errado.
+2174	Ligo o carregador e uma rede de confiança.
+2175	Não interrompa uma atualização do sistema no meio.
+2176	O aparelho reinicia com as correções de segurança mais recentes.
+2177	As atualizações automáticas facilitam manter tudo em dia.
+2178	Duas redes têm quase o mesmo nome.
+2179	Pergunte à escola qual é o nome certo.
+2180	Uma rede aberta nem sempre usa uma boa proteção.
+2181	Tome cuidado com o que você envia.
+2182	O navegador mostra um cadeado e HTTPS.
+2183	Confira também se o domínio está certo.
+2184	Deixo as tarefas sensíveis para depois.
+2185	Use os dados móveis ou uma rede de confiança quando for urgente.
+2186	O celular não deve se conectar automaticamente depois.
+2187	Escolha “esquecer rede” quando terminar.
+2188	Confirmo o nome e limito o que faço.
+2189	Uma rede conhecida e o HTTPS reduzem o risco.
+2190	O computador tem arquivos que eu não quero perder.
+2191	Então você precisa de mais de uma cópia.
+2192	Seguimos um plano simples de cópias de segurança.
+2193	Uma cópia deve ficar separada do aparelho.
+2194	De repente todos os arquivos ganham nomes estranhos.
+2195	Pare e desconecte o aparelho da rede.
+2196	Uma mensagem exige dinheiro pelos arquivos.
+2197	Peça ajuda a um adulto ou ao responsável de TI da escola.
+2198	Um profissional limpa o aparelho antes da recuperação.
+2199	Não conecte a cópia de segurança a um aparelho inseguro.
+2200	A cópia separada salva o trabalho da escola.

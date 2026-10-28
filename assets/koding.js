@@ -47,6 +47,7 @@
       tip: 'Tips til foreldre og lærere: les en tegneserie først, ta testen til tegneserien, og avslutt med «Alt sammen».'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'koding.js:T');
   const tx = k => { const ui = (K() && K().ui) || 'uk'; return (T[ui] || T.en)[k] ?? T.en[k]; };
 
   /* ---------- зміст: ідеї, мови, алгоритми ---------- */
@@ -397,6 +398,7 @@
     no: { game_t: '🤖 Spill: Robo lærer å kode', game_d: 'Lag et program av blokker, så går roboten gjennom labyrinten. 17 nivåer: kommandoer, løkker, funksjoner, bugs og en mesterprøve.', cont: n => `▶ Fortsett · nivå ${n}`, start: '▶ Start spillet', done: '🏆 Alle nivåene er klare', stars: (a, b) => `★ ${a} av ${b}`, lv: (a, b) => `Nivåer: ${a} av ${b}`,
       path_t: '🧭 Min kodereise', path_d: 'Hver tegneserie er et steg: les historien og ta testen. Grønt er ferdig.', progress: (a, b) => `${a} av ${b} fullført`, all: 'Vis alle steg', complete: 'Kodereisen er fullført!', mixed: '🎲 Avsluttende test', read: 'lest', test: 'test', badges_t: '🏅 Merkene mine', got: n => `Samlet ${n}`, rank: ['Nybegynner', 'Elev', 'Koder', 'Programmerer', 'Kodemester'], rank_t: 'Nivået ditt' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(HX, 'koding.js:HX');
   const hx = (k, ...a) => { const ui = (K() && K().ui) || 'uk'; const v = (HX[ui] || HX.en)[k] ?? HX.en[k]; return typeof v === 'function' ? v(...a) : v; };
   // значки: [іконка, назва no, uk, en, умова]
   const BADGES = [
@@ -593,7 +595,7 @@
   }
 
   // плитка на головній («Розділи») і в меню — тими ж мовами, що й інтерфейс
-  const MOD = { uk: ['💻', 'Програмування', 'комікси з роботом, код і алгоритми'], en: ['💻', 'Coding', 'robot comics, code and algorithms'], no: ['💻', 'Programmering', 'tegneserier med robot, kode og algoritmer'], ar: ['💻', 'البرمجة', 'قصص مصوّرة مع روبوت وشيفرة وخوارزميات'] };
+  const MOD = { uk: ['💻', 'Програмування', 'комікси з роботом, код і алгоритми'], en: ['💻', 'Coding', 'robot comics, code and algorithms'], no: ['💻', 'Programmering', 'tegneserier med robot, kode og algoritmer'], ar: ['💻', 'البرمجة', 'قصص مصوّرة مع روبوت وشيفرة وخوارزميات'], pt: ['💻', 'Programação', 'quadrinhos com robô, código e algoritmos'] };
   for (const [l, I] of Object.entries(window.I18N || {})) if (I && typeof I === 'object') { I.modules = I.modules || {}; I.modules.koding = MOD[l] || MOD.en; }
 
   window.KomiksKoding = { types: TYPES, questions, quiz, render, page: render_, text: tx, title: k => ({ robot: 'Styr roboten', code: 'Les koden', algo: 'Algoritmer', bug: 'Finn feilen', lang: 'Programmeringsspråk', html: 'HTML' })[k] || 'Programmering', LANGS, IDEAS, TRACKS, journeyModel, curriculumModel };

@@ -1,0 +1,99 @@
+401	serious
+402	a cold
+403	to rest
+404	should I
+405	stay at home
+406	tablets
+407	three times a day
+408	honey
+409	a little better
+410	already
+411	Weekend Plans
+412	Dad, what are we going to do this weekend?
+413	I think we are going to have a picnic.
+414	Yes! Can we go to the lake?
+415	Good idea. But first let us check the weather.
+416	It is going to be sunny and warm on Saturday.
+417	Perfect! I am going to make sandwiches.
+418	Can I invite my friend Humphrey too?
+419	Of course. The more, the merrier!
+420	On Saturday the whole family went to the lake.
+421	What a beautiful place! Thank you for inviting me.
+422	Next weekend we are going to go camping.
+423	I cannot wait!
+424	weekend
+425	going to
+426	picnic
+427	lake
+428	first
+429	to check
+430	sunny
+431	warm
+432	sandwiches
+433	the more, the merrier
+434	whole family
+435	beautiful place
+436	next weekend
+437	go camping
+438	I cannot wait
+439	I think
+440	The Job Interview
+441	Thank you for coming. Please, take a seat.
+442	Thank you for inviting me to the interview.
+443	Could you tell me a little about yourself?
+444	I am an engineer. I have worked in logistics for five years.
+445	Have you ever managed a team?
+446	Yes, I have led a team of eight people in Kyiv.
+447	What are your greatest strengths?
+448	I am reliable, I learn quickly and I work well under pressure.
+449	Do you have any questions for us?
+450	Yes. What would a typical working day look like?
+451	We will contact you by the end of the week.
+452	Thank you for your time. I look forward to hearing from you.
+453	take a seat
+454	interview
+455	tell me about yourself
+456	engineer
+457	I have worked
+458	logistics
+459	have you ever
+460	to manage
+461	team
+462	strengths
+463	reliable
+464	under pressure
+465	typical working day
+466	to contact
+467	by the end of the week
+468	I look forward to
+469	quickly
+470	Lost in the City
+471	Excuse me, could you help me? I think I am lost.
+472	Of course. Where do you want to go?
+473	I am looking for the city library.
+474	Go straight on and turn left at the traffic lights.
+475	Then walk past the bus stop. The library is opposite the bank.
+476	Is it far from here?
+477	No, it only takes about ten minutes on foot.
+478	Great. And is there a café near the library?
+479	Later, Ruslan took the wrong bus.
+480	This bus does not go there. Get off at the next stop and cross the road.
+481	Finally! The library is on the corner, just like you said.
+482	Well done! Now you will never get lost again.
+483	I am lost
+484	could you help me
+485	looking for
+486	library
+487	go straight on
+488	turn left
+489	traffic lights
+490	walk past
+491	opposite
+492	far from here
+493	on foot
+494	near
+495	wrong bus
+496	get off
+497	cross the road
+498	on the corner
+499	finally

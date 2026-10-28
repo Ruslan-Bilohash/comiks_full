@@ -22,7 +22,7 @@ const ROOT = path.join(__dirname, '..');
 /* Адреса — не переклад, тож лежить у коді, а не в словнику. Арабська
    лишається латиницею з тієї самої причини, що й решта розділів: кирилиця й
    арабиця в шляху виглядають у видачі як набір відсотків. */
-const SEG = { en: 'games', no: 'spill', uk: 'ihry', de: 'spiele', pl: 'gry', tr: 'oyunlar', lt: 'zaidimai', ar: 'games' };
+const SEG = { en: 'games', no: 'spill', uk: 'ihry', de: 'spiele', pl: 'gry', tr: 'oyunlar', lt: 'zaidimai', pt: 'jogos', ar: 'games' };
 const LANG_NAME = { uk: 'Українська', en: 'English', no: 'Norsk' };
 
 const catalogue = () => {

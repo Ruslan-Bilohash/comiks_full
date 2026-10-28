@@ -1,0 +1,200 @@
+4601	um nome de usuário
+4602	neutro
+4603	informações pessoais
+4604	desagradável
+4605	ameaçador
+4606	uma captura de tela
+4607	um deepfake
+4608	uma voz
+4609	pressa, pressão de tempo
+4610	medo
+4611	uma prova
+4612	um canal conhecido
+4613	uma pergunta de verificação
+4614	uma chave de API
+4615	uma variável de ambiente
+4616	uma configuração
+4617	um repositório de código
+4618	privilégio mínimo
+4619	desativar
+4620	um registro (log)
+4621	um erro
+4622	dividir em partes
+4623	um teste
+4624	decomposição
+4625	um navegador
+4626	uma página
+4627	um usuário
+4628	um elemento
+4629	validar
+4630	responsivo
+4631	design responsivo
+4632	uma chamada de API
+4633	validação de formulário
+4634	um efeito sonoro
+4635	uma configuração
+4636	uma animação
+4637	equilíbrio do jogo
+4638	salvar o progresso
+4639	um modificador Mirror
+4640	um objeto
+4641	uma forma
+4642	exportar
+4643	um quadro-chave
+4644	escultura digital
+4645	um formato de arquivo
+4646	um Canvas
+4647	depurar
+4648	gerenciamento de cenas
+4649	uma camada de física
+4650	um mixer de áudio
+4651	CRUD
+4652	um índice
+4653	JSON
+4654	uma migração de dados
+4655	um plano de evacuação
+4656	um capacete de bicicleta
+4657	cyberbullying
+4658	um download seguro
+4659	um vendedor falso
+4660	um golpe
+4661	uma assinatura
+4662	um prêmio falso
+4663	uma permissão de app
+4664	um aparelho, um dispositivo
+4665	proteger
+4666	um bloqueio de tela
+4667	carregamento seguro
+4668	um aparelho compartilhado
+4669	uma sessão
+4670	uma verificação
+4671	limitar
+4672	autorização
+4673	uma mensagem de erro segura
+4674	o Sistema de Informação Schengen (SIS)
+4675	um registro (cadastro)
+4676	uma obrigação de deixar o país
+4677	um prazo para sair do país
+4678	uma recusa de entrada ou de permanência
+4679	uma expulsão com proibição de entrada
+4680	uma proibição de entrada
+4681	uma saída forçada executada pela polícia
+4682	registrar a saída
+4683	controle de fronteira
+4684	um documento de viagem
+4685	acesso aos próprios dados
+4686	corrigir
+4687	apagar, excluir
+4688	um prazo para recorrer
+4689	um advogado
+4690	um intérprete
+4691	uma autoridade
+4692	individual
+4693	avisar, alertar
+4694	um incêndio
+4695	fumaça
+4696	um detector de fumaça
+4697	evacuar
+4698	tóxico
+4699	voltar para dentro
+4700	uma ambulância
+4701	um pronto-atendimento
+4702	com risco de vida
+4703	urgente, agudo
+4704	um sintoma
+4705	inconsciente
+4706	a polícia
+4707	uma emergência
+4708	ajuda imediata
+4709	registrar uma ocorrência
+4710	um furto, um roubo
+4711	uma ameaça
+4712	uma testemunha
+4713	um acidente de trânsito
+4714	o local do acidente
+4715	um colete refletivo
+4716	um triângulo de sinalização
+4717	um ferido
+4718	aviso conjunto aos três serviços de emergência
+4719	hemorragia interna
+4720	manter aquecido
+4721	uma intoxicação
+4722	o Centro de Informação sobre Venenos
+4723	um produto químico
+4724	a embalagem original
+4725	engolir
+4726	enxaguar a boca
+4727	provocar vômito
+4728	consciência
+4729	uma via aérea
+4730	respiração normal
+4731	a posição lateral de segurança
+4732	reanimação cardiopulmonar
+4733	uma compressão torácica
+4734	o viva-voz
+4735	acompanhar, monitorar
+4736	violência
+4737	um centro de crise
+4738	a linha de apoio contra a violência doméstica
+4739	anônimo
+4740	apoiar
+4741	RCP
+4742	uma parada cardíaca
+4743	uma compressão
+4744	uma ventilação (respiração boca a boca)
+4745	o tórax, o peito
+4746	um desfibrilador
+4747	uma superfície firme
+4748	assumir
+4749	roubar
+4750	um criminoso
+4751	um hacker
+4752	segurança digital
+4753	legal
+4754	ilegal
+4755	um testador de segurança
+4756	engenharia social
+4757	um canal oficial
+4758	uma falsa autoridade
+4759	invasão de conta
+4760	um login
+4761	um aparelho desconhecido
+4762	recuperação
+4763	um formulário de suporte
+4764	uma sessão ativa
+4765	roubo de identidade
+4766	um número de identidade nacional
+4767	um documento de identidade
+4768	uma transação
+4769	um bloqueio de crédito
+4770	extorsão digital
+4771	conteúdo privado
+4772	denunciar à polícia
+4773	culpa
+4774	malware
+4775	um resgate
+4776	isolar
+4777	uma modificação de jogo
+4778	uma fonte oficial
+4779	acesso de administrador
+4780	uma brecha de segurança
+4781	um plano de resposta a incidentes
+4782	um incidente digital
+4783	guardar as provas
+4784	suporte oficial
+4785	recuperar
+4786	um boletim de ocorrência
+4787	uma lição aprendida
+4788	possuir, ser dono de
+4789	um dono
+4790	uma coisa, um objeto
+4791	pertencer
+4792	singular
+4793	masculino
+4794	feminino
+4795	neutro
+4796	forma definida
+4797	uma mala
+4798	um suéter
+4799	o meu suéter
+4800	a minha touca

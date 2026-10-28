@@ -7,7 +7,7 @@ function ms_badge(string $status): string {
   $labels=['draft'=>'Чернетка','running'=>'Черга запущена','paused'=>'Призупинено','completed'=>'Завершено','queued'=>'У черзі','sending'=>'Потребує перевірки','sent'=>'Прийнято сервером','failed'=>'Помилка','skipped'=>'Пропущено'];
   return '<span class="ms-badge ms-'.e($status).'">'.e($labels[$status]??$status).'</span>';
 }
-function ms_langs(): array {return ['uk'=>'Українська','en'=>'English','no'=>'Norsk','de'=>'Deutsch','pl'=>'Polski','lt'=>'Lietuvių','tr'=>'Türkçe','ar'=>'العربية'];}
+function ms_langs(): array {return ['uk'=>'Українська','en'=>'English','no'=>'Norsk','de'=>'Deutsch','pl'=>'Polski','lt'=>'Lietuvių','tr'=>'Türkçe','pt'=>'Português','ar'=>'العربية'];}
 function ms_options(array $options,string $value): string { $html='';foreach($options as $k=>$label)$html.='<option value="'.e($k).'"'.($k===$value?' selected':'').'>'.e($label).'</option>';return $html; }
 function ms_action(string $action,int $id,string $label,string $class='',string $confirm=''): string {
   global $csrf;

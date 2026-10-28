@@ -15,6 +15,7 @@
     no: { title: '🔍 Søk', ph: 'Et ord, en setning, en tegneserie, en side … på hvilket som helst språk', words_ph: 'Finn et ord: på norsk, ukrainsk eller engelsk', all: 'Alt', words: 'Ord', dict: 'Fra ordlista i tegneseriene', comics: 'Tegneserier', lines: 'Replikker i tegneseriene', grammar: 'Grammatikk', english: 'Engelske historier', topics: 'Ordtemaer', pages: 'Sider på nettstedet',
       none: 'Fant ingenting.', mean: 'Mente du:', hint: 'Tips: skriv som du vil – «hamer», «молоток» eller «hammer» finner det samme. Enter åpner det første treffet.', try: 'Prøv:', more: n => `${n} til …`, theme: 'tema', level: 'nivå', open: 'Åpne', btn: 'Søk' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'search.js:T');
   const tx = k => { const ui = (C() && C().ui) || 'uk'; return (T[ui] || T.en)[k] ?? T.en[k]; };
 
   /* ---------- нормалізація й «розумне» порівняння ---------- */

@@ -60,22 +60,22 @@ window.BASICS = {
   ],
   levels: ['A1', 'A2', 'B1', 'B2'],
   categories: {
-    hverdag: { icon: '🏘️', uk: 'Повсякдення', en: 'Everyday life', no: 'Hverdag', ar: 'الحياة اليومية' },
-    familie: { icon: '👨‍👩‍👧', uk: 'Сім’я', en: 'Family', no: 'Familie', ar: 'العائلة' },
-    skole: { icon: '🏫', uk: 'Школа', en: 'School', no: 'Skole', ar: 'المدرسة' },
-    mat: { icon: '🍰', uk: 'Їжа', en: 'Food', no: 'Mat', ar: 'الطعام' },
-    natur: { icon: '🌲', uk: 'Природа', en: 'Nature', no: 'Natur', ar: 'الطبيعة' },
-    fritid: { icon: '⛄', uk: 'Дозвілля', en: 'Free time', no: 'Fritid', ar: 'وقت الفراغ' },
-    butikk: { icon: '🛒', uk: 'Покупки', en: 'Shopping', no: 'Handel', ar: 'التسوّق' },
-    helse: { icon: '🩺', uk: 'Здоров’я', en: 'Health', no: 'Helse', ar: 'الصحة' },
-    jobb: { icon: '💼', uk: 'Робота', en: 'Work', no: 'Jobb', ar: 'العمل' },
-    bolig: { icon: '🏠', uk: 'Житло', en: 'Housing', no: 'Bolig', ar: 'السكن' },
-    kultur: { icon: '🇳🇴', uk: 'Норвезька культура', en: 'Norwegian culture', no: 'Norsk kultur', ar: 'الثقافة النرويجية' },
+    hverdag: { icon: '🏘️', uk: 'Повсякдення', en: 'Everyday life', no: 'Hverdag', ar: 'الحياة اليومية', pt: 'Dia a dia' },
+    familie: { icon: '👨‍👩‍👧', uk: 'Сім’я', en: 'Family', no: 'Familie', ar: 'العائلة', pt: 'Família' },
+    skole: { icon: '🏫', uk: 'Школа', en: 'School', no: 'Skole', ar: 'المدرسة', pt: 'Escola' },
+    mat: { icon: '🍰', uk: 'Їжа', en: 'Food', no: 'Mat', ar: 'الطعام', pt: 'Comida' },
+    natur: { icon: '🌲', uk: 'Природа', en: 'Nature', no: 'Natur', ar: 'الطبيعة', pt: 'Natureza' },
+    fritid: { icon: '⛄', uk: 'Дозвілля', en: 'Free time', no: 'Fritid', ar: 'وقت الفراغ', pt: 'Lazer' },
+    butikk: { icon: '🛒', uk: 'Покупки', en: 'Shopping', no: 'Handel', ar: 'التسوّق', pt: 'Compras' },
+    helse: { icon: '🩺', uk: 'Здоров’я', en: 'Health', no: 'Helse', ar: 'الصحة', pt: 'Saúde' },
+    jobb: { icon: '💼', uk: 'Робота', en: 'Work', no: 'Jobb', ar: 'العمل', pt: 'Trabalho' },
+    bolig: { icon: '🏠', uk: 'Житло', en: 'Housing', no: 'Bolig', ar: 'السكن', pt: 'Moradia' },
+    kultur: { icon: '🇳🇴', uk: 'Норвезька культура', en: 'Norwegian culture', no: 'Norsk kultur', ar: 'الثقافة النرويجية', pt: 'Cultura norueguesa' },
     /* Історії, де сюжетом є сама граматика: скільки, якого розміру, що більше.
        Окрема категорія, бо шукають їх інакше — не «про що», а «що саме вчимо». */
-    grammatikk: { icon: '📐', uk: 'Граматика в житті', en: 'Grammar in real life', no: 'Grammatikk i hverdagen', ar: 'القواعد في الحياة' },
+    grammatikk: { icon: '📐', uk: 'Граматика в житті', en: 'Grammar in real life', no: 'Grammatikk i hverdagen', ar: 'القواعد في الحياة', pt: 'Gramática na vida real' },
     // 💻 основи програмування для дітей: алгоритми, цикли, умови, змінні, помилки, мови, моделі
-    koding: { icon: '💻', uk: 'Програмування', en: 'Coding', no: 'Programmering', ar: 'البرمجة' }
+    koding: { icon: '💻', uk: 'Програмування', en: 'Coding', no: 'Programmering', ar: 'البرمجة', pt: 'Programação' }
   },
   // ідеї наступних історій (показуються в плані навчання як «Скоро»)
   upcoming: [

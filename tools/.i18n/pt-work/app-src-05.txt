@@ -1,0 +1,200 @@
+801	🔄 Again
+802	½ To the lesson
+803	Fractions
+804	👥 Friends
+805	My friend code
+806	📤 Send an invite
+807	Scan to become friends
+808	➕ Add a friend
+809	Friend code (6 characters)
+810	Add
+811	online
+812	offline
+813	⏳ waiting for approval
+814	wants to be friends
+815	✓ Accept
+816	✕
+817	Remove friend
+818	⭐ Best friend
+819	Best friends hug when they meet 🤗
+820	No friends yet. Send your code or QR — and learn together!
+821	Log in or sign up to add friends and see who is online.
+822	Log in
+823	🎓 Learn together
+824	🏁 Logic Race
+825	🎮 My room
+826	🤗 Hug
+827	✋ High five
+828	Join ▶
+829	Later
+830	Request sent. Your friend will see it when online.
+831	The code has 6 characters.
+832	That is your own code 🙂
+833	You are already friends or the request is sent.
+834	Open a room in “Play together” first.
+835	⚠️ No connection — online status unavailable.
+836	Only your friends see your status. You can change the code — old links will stop working.
+837	🔄 New code
+838	Best friends met!
+839	Friends met!
+840	Hide for an hour
+841	🤗 Friendship animation
+842	Automatically — at most 3 times an hour.
+843	👤 Profile
+844	🔎 Find players
+845	Play together
+846	🎮
+847	Play together
+848	QR-code rooms for classes and friends
+849	Game rooms
+850	In “Play together”, devices connect directly via WebRTC; the public PeerJS server is used only to set up the connection. Only names, avatars and answers are exchanged between players. Nothing is stored after the room is closed.
+851	🎮 Play together
+852	Create a room on a big screen or a phone — players scan the QR code, enter their name and take a Norwegian quiz against the clock. Points for correct and fast answers!
+853	📺
+854	Create a room
+855	for teachers, parents or a game host
+856	📱
+857	Join a game
+858	I have a room code or QR code
+859	The host creates a room and shows the QR code.
+860	Players scan the code with a phone and enter a name.
+861	Everyone sees who joined — the host presses “Start”.
+862	Timed questions in Norwegian with a leaderboard after each one.
+863	⚙️ Game settings
+864	Quiz
+865	Number of questions
+866	Time per question
+867	I am playing on this device too
+868	Question audio on players’ phones
+869	Create room ▶
+870	Alphabet
+871	Numbers
+872	Single comic
+873	📱 Join a game
+874	Room code
+875	e.g. K7Q2M
+876	Your name
+877	Pick an avatar
+878	Enter the room ▶
+879	Enter the room code (5 characters).
+880	Enter your name.
+881	Connecting…
+882	Creating the room…
+883	Room
+884	Scan the QR code or open the link:
+885	📋 Copy
+886	Copied ✓
+887	Waiting for players… Ask everyone to scan the QR code.
+888	🚀 Start the game
+889	At least one player is needed.
+890	Remove
+891	✖ Close the room
+892	You are in the room!
+893	Wait for the host to start the game…
+894	Answer received! Waiting for the others…
+895	⏰ Time is up!
+896	❌ Wrong
+897	⏰ No answer
+898	🏆 Leaderboard
+899	Next question ▶
+900	Results 🏁
+901	🏆 Winners
+902	🔄 Play again
+903	🚪 Leave
+904	The host ended the game or the connection was lost.
+905	The host removed you from the room.
+906	This browser cannot make direct connections. If the link opened inside Telegram, Instagram or Facebook, tap ⋮ / “…” → “Open in browser”. Or open the game in Chrome, Edge or Safari.
+907	That code is already taken. Ask the host to create the room again.
+908	🔄 Try again
+909	Room not found. Check the code — or the host has already closed the game.
+910	Could not connect. An internet connection (and a modern browser) is required.
+911	⚠️ The page is opened from a file — phones can’t join with the QR code. Open the game on https://bilohash.com/comiks/
+912	Host
+913	← Back
+914	you
+915	⏱️ Who has answered
+916	⏱️ Answers to this question
+917	📊 Student statistics
+918	Student
+919	Answer
+920	Time
+921	Points
+922	Correct
+923	Average time
+924	Fastest
+925	Place
+926	Tip for teachers: leave “I am playing too” unticked — then you can watch the ranking and the students’ speed.
+927	🎲 Random room
+928	One click: a mix of words, pictures, grammar, clock and numbers — no need to know the stories.
+929	🎲 Mix of everything (no story knowledge)
+930	🕒 What time is it?
+931	📐 Grammar (all topics)
+932	Topic
+933	📖 Read the comic together first — then “Who said this?” questions are included
+934	Before the game
+935	🚀 Straight to the questions
+936	📖 Read the comic together first
+937	✅ Questions are fair for everyone — no names and nothing to memorise: words by ear, pictures and emoji, comic panels (the answer is visible in the drawing), grammar, the clock and numbers. You can read a story together before the game.
+938	📖 Reading together
+939	Next ▶
+940	◀ Back
+941	🚀 To the questions
+942	Read and listen carefully — questions come next!
+943	🔊 Listen to the panel
+944	A quiz show in English or Norwegian
+945	Choose a language and a game. One screen shows the QR code, everyone else scans it and competes.
+946	Which language are we learning?
+947	Choose the language first, then you will see only its rooms and games.
+948	Choose language →
+949	← Change language
+950	⚡ Choose a room
+951	Tap a card and the QR room is ready.
+952	Norwegian
+953	Comics, words, grammar and pronunciation in Norwegian
+954	English
+955	English vocabulary by topic with pictures and audio
+956	All English words
+957	all topics together
+958	⚙️ Detailed settings
+959	Got a code?
+960	Join
+961	🎮 Play as a class or together — words
+962	Pick a topic and a room with a QR code appears. Students scan it and answer on their phones — questions with pictures and audio.
+963	Create a QR room
+964	🎲 All topics
+965	This topic
+966	Another topic…
+967	with pictures
+968	🎮 Games
+969	🎮 Games
+970	Games from the same workshop as the comics. Nothing to install and nothing to pay for: they open in a browser tab and start right away.
+971	Free browser games — Duel 3D and more | Komiks·Lab
+972	Duel 3D — a free 3D fighting game in the browser: seven fighters, seven arenas, a campaign and two players on one keyboard. No install, no account.
+973	Games from Komiks·Lab
+974	🎮 Play
+975	Open the game
+976	Opens in a new tab on bilohash.com
+977	📸 How it looks
+978	The main menu: ways to play
+979	Choosing a fighter and an arena
+980	A fight in one of the seven arenas
+981	The campaign: seven stages with a story
+982	🎛️ Controls
+983	🥊 The seven fighters
+984	🏟️ The seven arenas
+985	🗺️ The campaign, stage by stage
+986	🎯 Ways to play
+987	ℹ️ In short
+988	Price
+989	Free, no account and no ads
+990	Players
+991	One, or two on one keyboard
+992	Technology
+993	Size
+994	Game languages
+995	Age
+996	Progress
+997	Saved in your own browser
+998	The game speaks Ukrainian, English and Norwegian. With any other interface language it opens in English.
+999	Cartoon punches and no blood — but it is still a fighting game, so we mark it 12+. The comics and the tests have no violence at all.
+1000	🎮 Games

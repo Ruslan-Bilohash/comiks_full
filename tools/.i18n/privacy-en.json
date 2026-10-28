@@ -88,6 +88,14 @@
   "kind": "li"
  },
  {
+  "text": "Anonymous visit statistics (our own, no third parties): which sections and comics are opened, the device type, interface language, the website you came from and the hour. Daily unique visitors are counted with a one-day salted hash of the IP address and browser; the IP itself is never stored and the salt is replaced and erased every day, so a visitor cannot be recognised on the next day. No cookies. If your browser sends Do Not Track or Global Privacy Control, nothing is counted.",
+  "kind": "li"
+ },
+ {
+  "text": "Technical crash reports: if a page breaks, the browser sends us the error text, the file and line, the section of the site, the build version and the browser and system type — no IP address, cookies or link to a person. Kept for up to 30 days to fix bugs.",
+  "kind": "li"
+ },
+ {
   "text": "Who else sees the data",
   "kind": "h2"
  },
@@ -185,6 +193,10 @@
  },
  {
   "text": "<b>Sign-in sessions</b> — 30 days, then they expire.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Successful sign-in history</b> — IP address, time, sign-in method and device/browser for 30 days. The IP is encrypted at rest, visible only to administrators for account security, and erased with the account. This is separate from anonymous visit statistics.",
   "kind": "li"
  },
  {

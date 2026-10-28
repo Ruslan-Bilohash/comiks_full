@@ -1,0 +1,200 @@
+1	Acessibilidade
+2	♿ Acessibilidade
+3	Tamanho do texto
+4	Texto menor
+5	Texto maior
+6	Alto contraste
+7	Fonte fácil de ler
+8	Mais espaço entre linhas
+9	Sublinhar links
+10	Parar animações
+11	Cursor grande
+12	Tons de cinza
+13	↺ Restaurar tudo
+14	Fechar
+15	As configurações ficam salvas neste aparelho.
+16	Texto maior, alto contraste, fonte fácil de ler, sem animações, cursor grande — para pessoas com deficiência visual, dificuldade de leitura ou limitação motora.
+17	✓ Ligado
+18	🔔 Notificações
+19	🔔 Notificações
+20	O que seus amigos andaram fazendo. Aqui aparecem só as pessoas que você adicionou como amigos — e só se elas permitirem mostrar o perfil.
+21	Por enquanto está tudo calmo. Adicione amigos e você vai vê-los passando nos testes e subindo de nível.
+22	👥 Meus amigos
+23	Entre para ver as notificações dos seus amigos.
+24	Entrar
+25	Curtir
+26	Curtido
+27	Abrir
+28	Mostrar mais
+29	As notificações funcionam em bilohash.com — aqui não há servidor.
+30	🔥 Três seguidas! Continue assim!
+31	⚡ Cinco certas — você está pegando fogo!
+32	🌟 Sete sem errar! Incrível!
+33	👋 Que bom ver você de novo!
+34	🏆 Perfeito! Três estrelas!
+35	🎉 Sem nenhum erro! Você sabe isso!
+36	👏 Muito bem! Quase sem erros.
+37	💪 Muito bom! Quase três estrelas.
+38	🙂 Bom começo! Tente mais uma vez.
+39	🌱 Passo a passo — você vai conseguir!
+40	🏅 Nova medalha!
+41	🔑 Esta é uma conta de demonstração
+42	Criar uma conta
+43	← Início
+44	🎟️ Os testes grátis acabaram
+45	Sem conta, você pode fazer um teste. Crie uma conta grátis — o progresso, as estrelas e os amigos ficam guardados, e você ganha mais testes.
+46	Criar uma conta
+47	📖 Cinco quadrinhos lidos
+48	Sem conta, você pode ler 0 quadrinhos diferentes. Crie uma conta grátis e leia todos os {n}.
+49	✅ Tudo o que você fez vai junto: as histórias que leu, as estrelas dos testes, sua sequência de dias e as palavras dos seus cartões.
+50	Agora seu progresso existe só neste navegador: se você limpar os dados ou pegar outro celular, ele some. Numa conta ele fica guardado para sempre e abre em qualquer aparelho.
+51	📥 Criar uma conta e levar meu progresso
+52	Já tenho uma conta
+53	👋 Bem-vindo(a) ao Komiks·Lab!
+54	Aqui aprendemos norueguês com quadrinhos divertidos. O texto e as vozes são em norueguês, e a tradução para o seu idioma aparece assim que você toca no texto.
+55	Idioma
+56	📖 Quadrinhos narrados
+57	A1–B2, vozes reais, cada palavra traduzida
+58	🧩 Testes e flashcards
+59	eles trazem de volta justamente as palavras que você erra
+60	🔤 Palavras por tema
+61	com imagem e áudio — do básico ao trabalho e à moradia
+62	🎮 Jogar juntos
+63	uma sala com QR code para a turma, a família ou os amigos
+64	🎁 Os 100 primeiros usuários ganham acesso total para sempre
+65	Você é um deles. Não há nada a pagar: a conta libera tudo, sem limites.
+66	✨ Novidades
+67	📘 Como funciona
+68	🐞 Escreva para nós
+69	Achou um erro ou quer sugerir um tema para um novo quadrinho? Escreva para nós direto do app.
+70	🚀 Começar
+71	Todos
+72	✏️ Desenhos
+73	📷 Fotos reais
+74	Ilustrações
+75	📷 foto
+76	✏️ desenho
+77	APROVADO
+78	de 100
+79	melhor resultado
+80	🏅 Só para os 100 primeiros
+81	Uma medalha PRO para os cem primeiros
+82	Estudar aqui é grátis para todos. Os 100 primeiros membros do Komiks·Lab ganham também uma medalha PRO, o direito de remover recados ruins dos murais e convites para amigos.
+83	🏅 Uma medalha “PRO #N” no seu perfil — para sempre
+84	🛡 O direito de remover recados ruins dos murais
+85	✉️ Convites para amigos
+86	💬 Seu nome entre os que estavam aqui desde o começo
+87	Garantir uma vaga
+88	As 100 vagas foram preenchidas
+89	Todas as medalhas já foram distribuídas. Estudar continua grátis para todos.
+90	📈 O Komiks·Lab este mês
+91	visitantes
+92	visualizações de página
+93	contas novas
+94	testes concluídos
+95	alunos estudaram
+96	novo
+97	📊 Análise do meu estudo
+98	📊 Meus erros
+99	Aqui você vê como está indo o seu estudo: quantos testes você fez, o que vai bem e o que vale a pena repetir. Tudo é calculado a partir dos seus próprios testes.
+100	testes
+101	certas
+102	dias seguidos
+103	palavras aprendidas
+104	quadrinhos lidos
+105	estrelas
+106	📈 Seus últimos testes estão melhores do que os anteriores — continue assim!
+107	📉 Seus últimos testes estão mais fracos — revise o material com calma.
+108	➡️ Seus resultados estão estáveis.
+109	🔁 Erros mais frequentes
+110	Palavras e tarefas que você mais erra. Toque em 🔊 para ouvir.
+111	✨ Nenhum erro ainda — faça alguns testes e sua análise vai aparecer aqui.
+112	🎯 Pontos fracos
+113	Os testes com a menor nota — vale a pena fazê-los de novo.
+114	🔁 Repetir meus erros
+115	Um teste feito só com as palavras que você errou.
+116	🃏 Adicionar aos flashcards
+117	✓ Adicionado
+118	✓ Eu sei
+119	💡 O que fazer agora
+120	Fazer de novo
+121	Leia o quadrinho de novo antes do teste — as palavras se fixam melhor numa história do que numa lista.
+122	Coloque as palavras difíceis nos flashcards: alguns minutos por dia valem mais que uma hora uma vez por semana.
+123	Ligue o 🔊 e repita em voz alta — pronúncia e compreensão oral crescem juntas.
+124	Siga o plano de estudos: o próximo passo já está escolhido para o seu nível.
+125	📅 Para revisar hoje
+126	✨ Tudo revisado por hoje. Novos erros e palavras vão aparecer aqui.
+127	Um erro desaparece quando você acerta a resposta três vezes em dias diferentes: hoje, amanhã e daqui a três dias.
+128	📈 Progresso nos testes
+129	🧩 Onde eu erro
+130	Os tipos de tarefa mais difíceis para você.
+131	✅ Erros corrigidos
+132	erros corrigidos
+133	🗂 Palavras por etapa
+134	novas
+135	aprendendo
+136	revisando
+137	aprendidas
+138	Todas as palavras dos quadrinhos e dos temas. “Aprendidas” são as que você marcou como “Eu sei”.
+139	😕 Não sei
+140	🔁 Revisar de novo
+141	✅ Eu sei
+142	não mostrar de novo
+143	Teclas: Espaço — virar · 1 — não sei · 2 — revisar de novo · 3 — eu sei
+144	Estas palavras não aparecem mais nos flashcards. Mudou de ideia? Devolva a palavra ao estudo.
+145	↩ Devolver
+146	✅ Aprendida — não vamos mostrá-la de novo
+147	Todas as palavras deste baralho estão aprendidas ou esperando o dia delas. Volte amanhã!
+148	novas
+149	aprendendo
+150	revisando
+151	aprendidas
+152	🎯 Meu plano de estudos
+153	Desligue o que você já sabe — o plano e a lista ficam mais curtos.
+154	O que o plano inclui
+155	↺ Mostrar tudo
+156	✓ Eu sei
+157	Já sei isto — tirar do plano
+158	⚙️ Configurar o plano
+159	Abrir o plano →
+160	testes concluídos
+161	tentativas
+162	nota média
+163	com 3 estrelas
+164	Todos
+165	🔁 Precisa praticar
+166	🌟 Excelente
+167	melhor
+168	último
+169	hoje
+170	ontem
+171	🔁 Melhorar
+172	▶ De novo
+173	⭐⭐⭐ — 90 %+ · ⭐⭐ — 60 %+ · ⭐ — 30 %+
+174	Nada aqui — ótimo trabalho!
+175	🏁 Corrida de Lógica
+176	🚀 Math Rocket
+177	🔒 Modo rigoroso
+178	O aluno segue o plano passo a passo: os próximos temas só abrem depois do atual. Só a senha dos pais desliga este modo.
+179	Ligar
+180	Desligar
+181	Senha dos pais
+182	Repita a senha
+183	A senha precisa ter pelo menos 4 caracteres.
+184	As senhas não são iguais.
+185	Senha incorreta.
+186	🔒 Termine primeiro o passo atual
+187	O modo rigoroso está ligado: siga o plano em ordem. Este é o seu passo:
+188	Ir para o passo
+189	🎯 Meu plano
+190	👤 Sou o adulto
+191	Liberar tudo por 30 minutos
+192	🔓 Tudo liberado por 30 minutos
+193	Pronto
+194	Cancelar
+195	🔒 O modo rigoroso está ligado
+196	O modo rigoroso está desligado
+197	📅 Hoje
+198	Hoje
+199	Uma sessão curta para hoje: revise palavras, dê o próximo passo do seu plano e trabalhe nos seus erros. Dez minutos por dia valem mais que uma hora uma vez por semana.
+200	🃏 Revisar palavras

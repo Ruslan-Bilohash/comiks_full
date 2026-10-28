@@ -1,0 +1,200 @@
+601	Próximo ▶
+602	Resultado 🏁
+603	Resposta certa:
+604	🔄 Tentar de novo
+605	📖 Ler de novo
+606	🏠 Início
+607	🗺 Plano de inglês
+608	🗺 Plano de inglês: gramática passo a passo
+609	Do “I am” à voz passiva — 22 temas, cada um mostrado em diálogos reais de quadrinhos. Leia a história, faça o teste e o tema conta como concluído.
+610	▶ Próximo passo
+611	🏆 Todos os temas concluídos! Repita os testes mais fracos ou aprenda palavras por tema.
+612	📐 Regra
+613	💬 Exemplos
+614	📚 Histórias
+615	✅ feito
+616	▶ próximo
+617	⏳
+618	Tema
+619	Minha jornada no inglês
+620	Cada tema é um passo. Leia um quadrinho, ouça inglês de verdade e faça o teste.
+621	Seu passo atual
+622	Abrir o tema
+623	Você está aprendendo inglês. Mude o idioma no topo ou nas configurações.
+624	🏁 Simulado do Norskprøven
+625	🏁 Simulado
+626	Pratique no formato da prova norueguesa: compreensão oral, leitura e escrita. Faça as partes uma depois da outra e veja seu nível aproximado.
+627	⚠️ Isto é um treino, não a prova oficial. O resultado é só uma ideia aproximada de onde você está agora.
+628	Nível
+629	Começar
+630	Fazer de novo
+631	Abrir
+632	Feito
+633	🎧 Parte 1 — compreensão oral
+634	10 falas, o texto fica oculto.
+635	📖 Parte 2 — leitura
+636	10 perguntas de interpretação de texto.
+637	✍️ Parte 3 — escrita
+638	Um texto curto com correção.
+639	🏁 Seu resultado
+640	%
+641	Total
+642	Dica: se uma parte ficou abaixo de 60 %, volte aos quadrinhos do seu nível e revise as palavras.
+643	Ainda não feito
+644	Ranking
+645	🏆
+646	Ranking
+647	jogadores, vencedores e alunos
+648	🌍 Ranking geral
+649	Jogadores conectados com perfil público. Toque num jogador para ver o perfil, as medalhas e os resultados.
+650	Ver perfil
+651	🔎 Encontrar jogadores
+652	🏆 Ranking e jogadores
+653	Quem sabe mais norueguês? Aqui estão os vencedores do “Jogar juntos” e os alunos com conta neste aparelho.
+654	💾 O ranking fica salvo neste aparelho (no navegador). Os jogos aparecem aqui quando você cria uma sala ou joga numa.
+655	🎮 Jogadores do “Jogar juntos”
+656	👩‍🎓 Alunos neste aparelho
+657	🕹️ Jogos recentes
+658	#
+659	Jogador
+660	Jogos
+661	🥇 Vitórias
+662	Pontos
+663	Acertos
+664	Tempo médio
+665	Aluno
+666	⭐ Estrelas
+667	Testes
+668	Dias de estudo
+669	Pontuação
+670	Ainda não há jogos. Crie uma sala no “Jogar juntos” e os vencedores vão aparecer aqui!
+671	🎮 Jogar juntos
+672	Visitante (sem conta)
+673	Cadastre-se para aparecer no ranking de alunos.
+674	✍️ Cadastrar-se
+675	🗑️ Limpar o histórico de jogos
+676	Apagar o histórico de jogos deste aparelho?
+677	Pontuação = estrelas dos testes × 10 + testes × 5 + jogos × 3 + vitórias na corrida × 10 + Math Rocket (máx. 200). As mesmas regras para todos.
+678	você
+679	📱 Abra o Komiks·Lab no celular
+680	Escaneie o QR code com a câmera do celular e o site abre na hora. Ótimo para as aulas: mostre o código na tela e em segundos todos os alunos estão dentro.
+681	📋 Copiar o link
+682	Copiado ✓
+683	📤 Compartilhar
+684	❓ Ajuda: como usar o Komiks·Lab
+685	O Komiks·Lab é um treinador de norueguês grátis para crianças e adultos. Aqui está tudo explicado de forma curta: por onde começar, como ler, fazer testes e jogar juntos.
+686	🚀 Começo rápido em 5 passos
+687	💬 Perguntas frequentes
+688	🧭 Seções do site
+689	Abrir →
+690	👥 Vamos ser amigos — escaneie meu QR
+691	Seu amigo aponta a câmera do celular para o código e vocês viram amigos na hora: joguem juntos, apostem corrida e troquem mensagens.
+692	📱 QR do site
+693	👥 Meu QR de amigo
+694	📣 Compartilhe seu resultado
+695	Comentário sobre este teste
+696	Copiar
+697	Copiado ✓
+698	Mais…
+699	Revista Komiks·Lab
+700	Jogos e novidades que vale a pena experimentar hoje
+701	Experimentar →
+702	🏁 JOGO
+703	Corrida de Lógica
+704	Avatares vivos correm pela pista: resolva enigmas de lógica mais rápido para ultrapassar. A pista no monitor, as respostas no celular. Dá para correr contra robôs também!
+705	#/race
+706	🏁 Abrir
+707	🎮 JOGAR JUNTOS
+708	Crie seu herói — e dispute com a família ou os amigos
+709	Escolha um animal, uma cor, um chapéu e óculos — seu herói fica ligado à sua conta e corre, voa e sobe no pódio em todos os jogos. Itens raros saem de baús quando você vence.
+710	✨ Criar um herói
+711	🎨 Editar seu herói
+712	Crie seu herói
+713	Abra um jogo na TV ou no notebook
+714	A família escaneia o QR com o celular — vai!
+715	👨‍👩‍👧 Juntos
+716	🙋 Sozinho
+717	🏆 Melhor jogador
+718	Ranking justo com base nos testes e jogos
+719	Melhor jogador
+720	🏆 Ranking de jogadores
+721	As estrelas vêm dos quadrinhos, testes e jogos que você conclui — as mesmas regras para todos.
+722	Ranking completo →
+723	O ranking aparece assim que os primeiros jogadores fizerem um teste.
+724	👋 Novos jogadores
+725	Os que chegaram por último — diga oi e adicione-os como amigos.
+726	👋 Dizer oi
+727	hoje
+728	ontem
+729	Ainda não há novos jogadores.
+730	👥 Ranking dos amigos
+731	As mesmas estrelas, mas só entre os amigos que você adicionou.
+732	Adicione amigos e você vai ver quem está na frente.
+733	Calculando…
+734	este é você
+735	👥 Todos os jogadores
+736	Aponte a câmera — e somos amigos
+737	Aponte a câmera — abre no celular
+738	🗺️ Mapa do site
+739	🎓 Estudo
+740	🎮 Jogos
+741	👤 Conta
+742	💻 Programação
+743	💌 Comentários
+744	💌 Escreva para o desenvolvedor
+745	Achou um erro, quer uma correção ou um novo tema de estudo? Escreva para mim — eu mesmo leio tudo.
+746	E-mail (opcional — para eu poder responder)
+747	Enviar
+748	Fechar
+749	Quanto é
+750	🧮 Resolva a conta — e sua mensagem voa!
+751	✅ Obrigado! Sua mensagem foi enviada.
+752	📎 Adicionar uma foto ou um arquivo
+753	Uma captura de tela, um desenho, um PDF ou um texto — as fotos são comprimidas automaticamente. Materiais e ideias também podem ser enviados como arquivo.
+754	Solte um arquivo aqui
+755	✕ Remover
+756	O arquivo é grande demais — no máximo 4 MB.
+757	Só são permitidos imagens, PDF ou arquivos de texto.
+758	📝 Rascunho salvo
+759	💌 Escreva para mim direto daqui
+760	Achou um erro, quer uma mudança ou um novo tema de estudo? O botão “💌 Comentários” fica no fim da página, ao lado do QR code. Professores — contem o que a turma de vocês precisa.
+761	Entendi
+762	🤖 Teste o app para Android
+763	Digite seu e-mail e faça a rápida verificação anti-spam. Vamos registrar seu pedido de teste, e então você poderá abrir o link.
+764	Seu e-mail (por exemplo, name@gmail.com)
+765	Seu e-mail é usado só para o acesso de teste e para responder a este pedido.
+766	Receber o link de teste
+767	Abrir o link de teste
+768	Fechar
+769	Verificação anti-spam
+770	✅ Pedido recebido. Agora você já pode abrir o link.
+771	Digite um endereço de e-mail válido.
+772	Escolha a resposta certa.
+773	Não foi possível enviar o pedido. Tente de novo.
+774	½ Frações
+775	Frações
+776	partes de um todo, os nomes em norueguês e um teste
+777	Uma fração é uma parte de um todo: uma pizza cortada em 4 pedaços, você comeu 3 — isso é 3/4, em norueguês “tre fjerdedeler”. Toque em qualquer coisa para ouvir em norueguês.
+778	🍕 O que é uma fração
+779	O número de baixo (nevner — denominador) diz em quantas partes iguais o todo foi dividido. O número de cima (teller — numerador) diz quantas partes você pega. Entre eles fica a brøkstrek, o traço da fração.
+780	teller — numerador: as partes que você pega
+781	nevner — denominador: as partes iguais do todo
+782	🧩 Montador de frações
+783	Mude os números para ver a fração numa pizza e numa barra e ouvir o nome dela.
+784	🗣️ Nomes das frações
+785	A maioria dos nomes é o número ordinal + “-del”: tredjedel, fjerdedel… Exceções: en halv (1/2) e en tidel (1/10). Para mais de uma parte, use “-deler”: to tredjedeler.
+786	⚖️ Frações equivalentes
+787	Números diferentes, a mesma quantidade: 1/2 = 2/4 = 3/6 = 4/8 = 5/10. Compare as barras coloridas.
+788	🍎 A fração de um número
+789	Para achar 1/3 de 12, divida 12 em 3 grupos iguais — cada grupo tem 4. E 2/3 são dois desses grupos, ou seja, 8.
+790	🔄 Outro exemplo
+791	📖 Palavras
+792	▶️ Teste de frações
+793	10 tarefas: imagens, nomes, comparações e a fração de um número.
+794	← Matemática
+795	Que fração está pintada?
+796	Que fração é esta?
+797	Como se diz em norueguês?
+798	Qual fração é maior?
+799	Qual é a resposta?
+800	Qual fração é igual a esta?

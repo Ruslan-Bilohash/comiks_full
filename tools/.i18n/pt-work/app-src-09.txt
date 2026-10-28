@@ -1,0 +1,143 @@
+1601	Creating the room…
+1602	You are in the room!
+1603	Wait for the teacher to press “Start”.
+1604	you
+1605	Time is up! Waiting for the class results…
+1606	The room was closed or the connection was lost.
+1607	Room not found. Check the code.
+1608	Could not connect. An internet connection is required.
+1609	⚠️ The page is opened from a file — phones cannot join. Open the game on the website.
+1610	You were removed from the room.
+1611	Remove
+1612	points
+1613	🔍 Search
+1614	A word, phrase, comic, section… in any language
+1615	Find a word: in Norwegian, Ukrainian or English
+1616	All
+1617	Words
+1618	From the comics dictionary
+1619	Comics
+1620	Lines in comics
+1621	Grammar
+1622	English stories
+1623	Word topics
+1624	Site sections
+1625	Nothing found.
+1626	Did you mean:
+1627	Tip: type however you like — “hamer”, “молоток” or “hammer” find the same thing. Enter opens the first result.
+1628	Try:
+1629	topic
+1630	level
+1631	Open
+1632	Search
+1633	🎓 For teachers — tools for the class
+1634	Learning on the site is free for everyone. A teacher account adds tools for the class: QR-code tournaments, wider limits on the speaking exercises and invitations for colleagues. You only need to confirm that you teach.
+1635	📝 Unlimited tests for you and your class
+1636	🏁 Class tournaments: Logic Race, Math Rocket, chess with a QR code
+1637	🎯 Study plan and pupil ranking
+1638	✉️ Invitations for colleagues
+1639	Confirm it in any way that suits you:
+1640	a link to the school page that shows your name;
+1641	a photo of your staff card or badge (you may cover private details);
+1642	a timetable, a school email address, a letter from the administration;
+1643	anything else that convinces us.
+1644	School, course or kindergarten *
+1645	What you teach (e.g. “Norwegian, year 5”)
+1646	Country or town
+1647	Tell us briefly what you teach and how we can check it *
+1648	Link (school page, profile)
+1649	📎 Add a photo or PDF
+1650	✕ Remove
+1651	Send the application
+1652	Cancel the application
+1653	⏳ Your application has been sent. We check it by hand — usually within a day or two. The answer will come to your email.
+1654	🎓 Your account is confirmed as a teacher account. The class tools are on — thank you for your work!
+1655	❌ We could not confirm it this time. Please send a new application with clearer proof.
+1656	Please sign in to send an application.
+1657	Sign in
+1658	Sent
+1659	⚡ Quick quiz of the day
+1660	Which word is it? 5 pictures — quick and easy.
+1661	Start
+1662	Next
+1663	Again
+1664	Next 5 words
+1665	👨‍👩‍👧 My learners
+1666	beta
+1667	Parents and teachers see how learning goes: days and streaks, quizzes, accuracy and speed, learned words, mistakes and grammar. Access is given by the learner — with a code from their account.
+1668	➕ Add a learner
+1669	Code from the learner
+1670	I am a
+1671	👪 parent
+1672	🎓 teacher
+1673	Label (class, name)
+1674	E.g. 5B or Dasha
+1675	Add
+1676	Nobody yet. Ask the learner to open Account → Learning → “Access for parents and teacher” and give you the code.
+1677	📊 Details
+1678	Remove
+1679	days
+1680	streak
+1681	quizzes in 7 days
+1682	accuracy (30 d)
+1683	s per quiz
+1684	words known
+1685	mistakes in progress
+1686	due today
+1687	grammar (30 d)
+1688	active time
+1689	active
+1690	The code did not work or has expired. Ask for a new one.
+1691	This is your own code.
+1692	Sign in to see your learners.
+1693	Sign in
+1694	Works on bilohash.com.
+1695	Are you a teacher? Apply — everything is free for your class.
+1696	🎓 Teacher application
+1697	← My learners
+1698	👨‍👩‍👧 Access for parents and teacher
+1699	Create a code and give it to a parent or teacher — they will see your progress (quizzes, words, mistakes, days). Messages, friends and e-mail stay private.
+1700	🔑 Create an access code
+1701	Valid for 24 hours and only once.
+1702	Can see my progress:
+1703	Nobody.
+1704	✍️ Writing in Norwegian
+1705	✍️ Writing
+1706	Write a few sentences in Norwegian and get your text corrected, your mistakes explained and a model answer. Writing every day matters more than writing a lot.
+1707	Level
+1708	Task
+1709	🎲 Another task
+1710	Write in Norwegian…
+1711	✅ Check
+1712	Checking…
+1713	Clear
+1714	📋 Feedback
+1715	Corrected text
+1716	Mistakes
+1717	✨ No mistakes found — great work!
+1718	💡 Tip
+1719	📗 Model answer
+1720	Show the model answer
+1721	🗂️ My writing
+1722	✍️ Write another
+1723	Automatic checking is off right now. Your text is saved — compare it with the model answer yourself.
+1724	🧩 Simple exercises
+1725	✍️ Free writing
+1726	Short exercises from the comics: translate a sentence, fill in a word, write down what you hear. Checked instantly, no internet needed.
+1727	Write this sentence in Norwegian
+1728	Fill in the missing word
+1729	Listen and write what you hear
+1730	🔊 Listen
+1731	🔁 Again
+1732	✅ Check
+1733	Next ▶
+1734	I don’t know
+1735	▶ Start the exercises
+1736	✅ Correct!
+1737	The correct answer is:
+1738	You wrote:
+1739	🏁 Done!
+1740	🔄 More exercises
+1741	Write in Norwegian. Punctuation and capital letters are ignored.
+1742	Too few sentences at this level yet — pick another level.
+1743	The AI check is not responding right now, so the simple exercises are open instead. Your free writing is saved — try again later.

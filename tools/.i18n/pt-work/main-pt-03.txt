@@ -1,0 +1,200 @@
+401	A Mia isola o local, liga para o 113 e deixa os serviços de emergência se coordenarem.
+402	A Nora aprende o que fazer numa possível intoxicação e quando ligar para o Centro de Informação sobre Venenos ou para o 113.
+403	O Leo confere a segurança, a consciência e a respiração e recebe do 113 orientação sobre a posição lateral de segurança ou a RCP.
+404	A Maria ajuda uma amiga a encontrar apoio seguro contra violência e ameaças, sem julgar nem pressionar.
+405	A Nora aprende a sequência simples para adultos: ligar para o 113, usar o viva-voz e fazer 30 compressões e 2 ventilações.
+406	A Nora aprende que o conhecimento técnico pode proteger ou prejudicar, e que a permissão é o que separa um teste de segurança de uma invasão ilegal.
+407	O Leo vê como um atacante usa a pressa, o medo e uma falsa autoridade para enganar as pessoas e conseguir senhas e códigos.
+408	A Nora descobre uma conta invadida e usa a recuperação oficial, senhas novas e proteção extra no login.
+409	O Leo aprende como dados pessoais roubados podem ser usados para se passar por outra pessoa e quem precisa ser avisado.
+410	A Nora aprende que a extorsão digital nunca é culpa da vítima e que um adulto de confiança, o serviço e a polícia podem ajudar.
+411	A turma aprende o que o ransomware faz, como anexos suspeitos espalham malware e por que as cópias de segurança e um aviso rápido importam.
+412	O Leo aprende que mods de jogos e aplicativos falsos podem esconder malware que rouba dados, mostra anúncios ou assume o controle do aparelho.
+413	A Nora e o Leo seguem um plano simples: parar, avisar, guardar as provas, recuperar pelos canais oficiais e aprender com o incidente.
+414	A Mia organiza as coisas de uma mala aberta e aprende a escolher min, mi, mitt e mine conforme o gênero e o número do objeto.
+415	O Leo ajuda no vestiário e encontra os donos certos usando din, di, ditt e dine.
+416	A família faz um mapa e pratica vår, vårt e våre com lugares do bairro novo.
+417	Na exposição, a turma distingue os trabalhos do Leo, da Nora e dos gêmeos usando hans, hennes e deres.
+418	Um passeio na chuva mostra a diferença entre o objeto do próprio sujeito e o objeto de outra pessoa.
+419	A Nora faz placas para lojas e descobre por que o norueguês diz bilen min, mas min bil.
+420	Num brechó, as crianças usam todos os possessivos para descobrir a quem pertencem as coisas.
+421	Numa mudança corrida, a família precisa usar bem a concordância, a ordem das palavras e sin/hans para evitar confusões.
+422	A Nora e o Leo ajudam a tia Liv a avaliar um apartamento disponível sem esquecer a renda, a poupança e a reforma.
+423	A Mia compara tamanhos e preços antes de um passeio da escola, enquanto o Amir aprende por que uma oferta nem sempre é a melhor escolha.
+424	O Leo perde a hora antes de um dia corrido na escola e aprende a priorizar, pedir ajuda e procurar de forma organizada.
+425	É sábado de manhã.
+426	Quero fazer um bolo para a mamãe!
+427	Posso te ajudar?
+428	Pode! Precisamos de farinha, ovos e açúcar.
+429	Miau!
+430	Pus, não come a manteiga!
+431	PUF!
+432	Ah, não! Farinha pela cozinha toda!
+433	O bolo está pronto. Ficou meio torto...
+434	Mas o cheiro está tão bom!
+435	Muito obrigada, meus amores! Este é o melhor bolo do mundo!
+436	Miau, miau!
+437	Bom dia, Leo! Hoje é o seu primeiro dia na escola.
+438	Estou com um pouco de medo, mamãe.
+439	Oi, seja bem-vindo! Meu nome é Ingrid. Qual é o seu nome?
+440	Meu nome é Leo. Eu sou da Ucrânia.
+441	Oi, Leo! Quer sentar do meu lado?
+442	Quero, sim!
+443	Quanto é um mais dois?
+444	Três!
+445	Como você é esperto!
+446	TRIIIM!
+447	Recreio!
+448	Vem, vamos jogar futebol!
+449	Como foi na escola?
+450	Superdivertido! A Nora é minha nova amiga!
+451	Hoje vamos passear na floresta!
+452	Oba! Eu levo a cesta.
+453	Olha, ali tem um cogumelo!
+454	Esse cogumelo é venenoso. Não come!
+455	Aqui tem um monte de mirtilos!
+456	Hum! Eles são tão docinhos!
+457	CREC!
+458	O que foi isso?
+459	Um alce! Ele é enorme!
+460	Aí começa a chover.
+461	Fiquem quietos. Agora vamos voltar para casa com calma.
+462	Agora vamos tomar chocolate quente.
+463	Que passeio gostoso!
+464	E a gente viu um alce de verdade!
+465	Mia, você pode fazer as compras para mim?
+466	Posso! Do que você precisa?
+467	Precisamos de leite, pão e maçãs. Aqui estão cem coroas.
+468	Obrigada, mamãe!
+469	Com licença, onde fica o leite?
+470	O leite fica ali, perto do pão.
+471	Vou levar seis maçãs vermelhas.
+472	Dá oitenta coroas.
+473	Aqui está, cem.
+474	Vinte coroas de troco. Tenha um bom dia!
+475	Como você é esperta, Mia! Muito obrigada.
+476	Foi fácil!
+477	Miau! Leite?
+478	Está nevando! Está tudo branco.
+479	Vem, Nora! Vamos fazer um boneco de neve!
+480	Primeiro a gente rola uma bola de neve grande.
+481	Ufa, que pesada!
+482	Agora precisamos de uma cabeça.
+483	E dois olhos e uma cenoura!
+484	Pronto! O nome dele é Senhor Neve.
+485	Ele está com a touca do papai!
+486	PLAFT!
+487	Ai! Que gelado!
+488	Guerra de bolas de neve!
+489	Entrem para se esquentar!
+490	Estamos molhados, mas felizes!
+491	Hoje é o aniversário da Nora.
+492	Ah, não! Eu não tenho presente!
+493	Você pode fazer um desenho bonito para ela.
+494	Boa ideia! Vou desenhar um alce.
+495	Feliz aniversário, Nora!
+496	Muito obrigada! Hoje eu faço oito anos.
+497	Aqui está o meu presente. Eu mesmo desenhei.
+498	Um alce! Que fofo! Vou pendurar no meu quarto.
+499	Agora vamos cantar!
+500	Viva você, que está fazendo aniversário!
+501	Este é o melhor aniversário de todos!
+502	Hip, hip, hurra!
+503	Papai! Não estou achando o Pus!
+504	Ele está embaixo do sofá?
+505	Não, ele não está lá.
+506	Ele está na cozinha?
+507	Não. Mas a comida dele sumiu!
+508	Será que ele está no jardim?
+509	Pus! Pus! Cadê você?
+510	MIAU!
+511	Olha ele ali! Está sentado na árvore!
+512	Bem-vindo de volta, Pus! Agora você vai dormir na cestinha.
+513	Miau... zzz
+514	O Ruslan e a Alina se mudaram para a Noruega.
+515	Oi! Vocês são novos aqui?
+516	Somos, moramos no número quatro.
+517	Meu nome é Alina, e este é o Ruslan.
+518	Prazer em conhecer vocês! Meu nome é Maria.
+519	De onde vocês são?
+520	Somos da Ucrânia, de Kiev.
+521	Estudamos norueguês todos os dias.
+522	Vocês falam muito bem!
+523	Obrigado! Pouco a pouco.
+524	Vocês querem vir tomar um café amanhã?
+525	Queremos, sim! Muito obrigada.
+526	Olá, tenho uma consulta às dez horas.
+527	Bem-vinda! Sou o doutor Humphrey. Em que posso ajudar?
+528	Estou com dor de garganta e com febre.
+529	Há quanto tempo você está doente?
+530	Há três dias. Durmo mal à noite.
+531	Pode abrir a boca e dizer “ah”?
+532	Aaaah...
+533	Sua garganta está um pouco vermelha, mas não é grave.
+534	Você precisa beber bastante água e descansar por alguns dias.
+535	Preciso de remédio?
+536	Pode tomar paracetamol se doer. Melhoras!
+537	Muito obrigada, doutor. Tenha um bom dia!
+538	Bom dia, Denys! Bem-vindo à equipe.
+539	Obrigado! Estou ansioso para começar.
+540	Este é o Humphrey. Ele vai ajudar você na primeira semana.
+541	Oi! Sou do Quênia, mas moro na Noruega há dez anos.
+542	Aqui estão a sua mesa e o seu computador.
+543	Qual é a senha?
+544	Você mesmo cria uma senha nova.
+545	A gente almoça junto ao meio-dia. Você trouxe marmita?
+546	Marmita? Não, esqueci!
+547	Sem problema. Pode pegar um dos meus sanduíches.
+548	Que gentileza! Agora entendo a cultura norueguesa.
+549	Como foi o primeiro dia?
+550	Muito bom! Os colegas são simpáticos.
+551	Bem-vindos! O apartamento tem três cômodos, cozinha e banheiro.
+552	Que claro e bonito! Qual é o tamanho?
+553	Tem sessenta e cinco metros quadrados, e tem varanda.
+554	Quanto custa por mês?
+555	O aluguel é de doze mil coroas, e a luz não está incluída.
+556	É bem caro, mas a localização é boa.
+557	Precisamos pagar caução?
+558	Sim, três meses de aluguel. O dinheiro fica numa conta separada.
+559	Pode ter animais de estimação? Temos um gato.
+560	Um gato tudo bem, desde que seja tranquilo.
+561	Vamos ficar com ele! Quando podemos nos mudar?
+562	No dia primeiro de outubro. Vocês recebem as chaves quando o contrato estiver assinado.
+563	No sábado tem mutirão no condomínio.
+564	O que quer dizer “dugnad”, afinal?
+565	Quer dizer que os vizinhos trabalham juntos sem receber nada.
+566	A gente arruma, pinta e planta flores.
+567	Eu vou juntar as folhas. Você pode levar os sacos de lixo?
+568	Claro! Para onde vão?
+569	Para a caçamba perto do estacionamento.
+570	Ufa, são mais pesados do que eu pensava.
+571	Quando terminarmos, vai ter waffle e café para todo mundo!
+572	Essa é a melhor parte do mutirão.
+573	Agora conheço todos os vizinhos. O dugnad é uma tradição bonita!
+574	Bem-vindo à Noruega, Denys!
+575	Obrigado por ter vindo. Pode falar um pouco sobre você?
+576	Sou enfermeira formada e trabalhei num hospital na Ucrânia por oito anos.
+577	Por que você se candidatou a esta vaga?
+578	Quero usar minha experiência e, ao mesmo tempo, continuar me desenvolvendo.
+579	Como você lida com situações estressantes?
+580	Procuro manter a cabeça fria, priorizar as tarefas e trabalhar em conjunto com os colegas.
+581	Seu norueguês é impressionante. Há quanto tempo você estuda norueguês?
+582	Há dois anos. Passei na prova de norueguês e leio jornal todos os dias.
+583	Você tem alguma pergunta para nós?
+584	Como é um dia de trabalho comum, e existe a possibilidade de fazer especialização?
+585	Boas perguntas! Entraremos em contato até sexta-feira.
+586	Uma semana depois...
+587	Consegui o emprego! Começo na segunda-feira.
+588	É domingo de manhã.
+589	Bom dia! O café da manhã está pronto.
+590	Estou com tanta fome!
+591	Quer pão com queijo marrom?
+592	Quero, por favor! E um copo de leite.
+593	Eu quero ovo e suco.
+594	O queijo marrom é típico da Noruega. É docinho e gostoso.
+595	Tem gosto de caramelo!
+596	Lembrem de preparar a marmita para a escola.
+597	Vou levar uma maçã também.
+598	Corram, o ônibus sai em dez minutos!
+599	Tchau, mamãe e papai!
+600	Vovó, que horas são?

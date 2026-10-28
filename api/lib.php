@@ -21,11 +21,11 @@ header('Cache-Control: no-store');
    підказки в розмові. Список був на чотири мови й лежав у п'яти файлах, тож
    про німецьку та решту там ніхто не знав — лист ішов англійською навіть тому,
    хто зареєструвався німецькою. Тепер він один і тут. */
-const KL_LANGS = ['en', 'no', 'uk', 'ar', 'de', 'pl', 'tr', 'lt'];
+const KL_LANGS = ['en', 'no', 'uk', 'ar', 'de', 'pl', 'tr', 'lt', 'pt'];
 /* Назва мови англійською — її розуміє ШІ, коли просимо пояснити помилку або
    підказати слово мовою учня. */
 const KL_LANG_NAME = ['en' => 'English', 'no' => 'simple Norwegian', 'uk' => 'Ukrainian', 'ar' => 'Arabic',
-  'de' => 'German', 'pl' => 'Polish', 'tr' => 'Turkish', 'lt' => 'Lithuanian'];
+  'de' => 'German', 'pl' => 'Polish', 'tr' => 'Turkish', 'lt' => 'Lithuanian', 'pt' => 'Brazilian Portuguese'];
 function kl_lang(?string $v, string $def = 'en'): string { return in_array((string)$v, KL_LANGS, true) ? (string)$v : $def; }
 
 /* ---------- 📱 доступ із мобільного застосунку ----------
@@ -1272,6 +1272,7 @@ function mail_apps_text(string $lang): array {
     'pl' => ['📲 Komiks·Lab na telefonie i komputerze', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — wkrótce'],
     'tr' => ['📲 Komiks·Lab telefonda ve bilgisayarda', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — yakında'],
     'lt' => ['📲 Komiks·Lab telefone ir kompiuteryje', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — netrukus'],
+    'pt' => ['📲 Komiks·Lab no celular e no computador', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — em breve'],
   ];
   return $L[$lang] ?? $L['en'];
 }
@@ -1608,6 +1609,56 @@ function mail_texts(string $lang): array {
       'setpass_after' => 'Nuoroda veikia 7 dienas. Po to prisijungimo puslapyje gali naudoti „Pamiršau slaptažodį“.',
       'footer' => 'Šį el. laišką gavai todėl, kad šis adresas buvo naudojamas Komiks·Lab — mokykis norvegų kalbos su komiksais.',
     ],
+    'pt' => [
+      'back_subject' => 'Muita coisa mudou no Komiks·Lab',
+      'back_title' => 'Quanto tempo, %s 👋',
+      'back_intro' => 'Oi, %s! O seu norueguês continua esperando por você — e o app cresceu desde a sua última visita. Novos quadrinhos, novos testes e algumas coisas que agora simplesmente funcionam melhor.',
+      'back_btn' => 'Ver as novidades',
+      'back_after' => 'Dez minutos por dia bastam para manter o que você aprendeu.',
+      'news_subject' => 'Novidades do Komiks·Lab',
+      'news_title' => 'Fresquinho no app 📰',
+      'news_intro' => 'Oi, %s! Aqui vai uma lista curta do que mudou recentemente — novas histórias, testes e pequenas melhorias.',
+      'news_btn' => 'Ler as novidades',
+      'news_after' => 'Tudo funciona na hora, não é preciso instalar nada.',
+      'comic_subject' => 'Um quadrinho novo para você — Komiks·Lab',
+      'comic_title' => 'Uma história para hoje 📖',
+      'comic_intro' => 'Oi, %s! Aqui está um quadrinho que você ainda não leu. Áudio em norueguês, tradução ao passar o mouse e um teste no final.',
+      'comic_btn' => 'Ler o quadrinho',
+      'comic_after' => 'Uma história por dia é um hábito que pega.',
+      'unsub' => 'Parar de receber estes e-mails',
+      'magic_subject' => 'O seu código de acesso — Komiks·Lab',
+      'magic_title' => 'Entre no Komiks·Lab 🔑',
+      'magic_intro' => 'Oi, %s! Toque no botão para entrar — não precisa de senha. Ou digite o código abaixo se você estiver em outro aparelho.',
+      'magic_btn' => 'Quero entrar',
+      'magic_after' => 'O link e o código valem por 15 minutos e uma única vez. Se você não pediu para entrar, ignore este e-mail — ninguém consegue entrar sem ele.',
+      'magic_code' => 'O seu código',
+      'verify_subject' => 'Confirme o seu e-mail — Komiks·Lab',
+      'verify_title' => 'Confirme o seu e-mail 📬',
+      'verify_intro' => 'Oi, %s! Obrigado por entrar no Komiks·Lab. Toque no botão para confirmar o seu e-mail e ativar a sua conta.',
+      'verify_btn' => 'Confirmar o meu e-mail',
+      'verify_after' => 'O link vale por 48 horas. Se você não se cadastrou, é só ignorar este e-mail — nada vai acontecer.',
+      'welcome_subject' => 'Bem-vindo(a) ao Komiks·Lab! 🎉',
+      'welcome_title' => 'Seja bem-vindo(a), %s! 🎉',
+      'welcome_intro' => 'O seu e-mail foi confirmado e a sua conta está pronta. Veja como começar:<br>📖 leia o seu primeiro quadrinho em norueguês com vozes de verdade,<br>🎨 crie o seu herói no estúdio de avatar,<br>🏁 apostem corrida na Corrida de Lógica e juntem medalhas.',
+      'welcome_btn' => 'Começar a estudar',
+      'welcome_after' => 'O seu progresso agora fica salvo na sua conta e acompanha você em todos os aparelhos.',
+      'reset_subject' => 'Redefina a sua senha — Komiks·Lab',
+      'reset_title' => 'Redefina a sua senha 🔑',
+      'reset_intro' => 'Oi, %s! Alguém (esperamos que você) pediu para redefinir a senha da sua conta no Komiks·Lab.',
+      'reset_btn' => 'Escolher uma nova senha',
+      'reset_after' => 'O link vale por 1 hora. Se não foi você, ignore este e-mail — a sua senha continua a mesma.',
+      'exists_subject' => 'Você já tem uma conta no Komiks·Lab',
+      'exists_title' => 'Você já tem uma conta 🙂',
+      'exists_intro' => 'Oi, %s! Alguém tentou se cadastrar com este e-mail, mas você já tem uma conta.',
+      'exists_btn' => 'Entrar',
+      'exists_after' => 'Esqueceu a senha? Use “Esqueceu a senha?” na página de login.',
+      'setpass_subject' => 'Uma conta foi criada para você — Komiks·Lab',
+      'setpass_title' => 'Boas-vindas, %s! 💎',
+      'setpass_intro' => 'Uma conta grátis no Komiks·Lab foi criada para você. Escolha a sua própria senha e comece a aprender norueguês com quadrinhos.',
+      'setpass_btn' => 'Escolher a minha senha',
+      'setpass_after' => 'O link vale por 7 dias. Depois disso, você pode usar “Esqueceu a senha?” na página de login.',
+      'footer' => 'Você recebeu este e-mail porque este endereço foi usado no Komiks·Lab — aprenda norueguês com quadrinhos.',
+    ],
   ];
   return $T[$lang] ?? $T['en'];
 }
@@ -1725,6 +1776,7 @@ function apps_mail_text(string $lang): array {
     'pl' => ['📲 Komiks·Lab jest teraz aplikacją', 'Zainstaluj Komiks·Lab na telefonie lub komputerze', 'Cześć %s! Komiks·Lab możesz teraz zainstalować jako aplikację: na Androidzie z Google Play, a na Windows ze Sklepu Microsoft. Wersja na iPhone’a już wkrótce! Postępy, słowa i znajomi zostają te same — wystarczy zalogować się na swoje konto.', 'Pobierz aplikację', 'Linki do wszystkich wersji znajdziesz poniżej. Na iPhonie możesz już dodać stronę do ekranu początkowego: Safari → Udostępnij → „Do ekranu początk.”.'],
     'tr' => ['📲 Komiks·Lab artık bir uygulama', 'Komiks·Lab’i telefonuna veya bilgisayarına kur', 'Merhaba %s! Komiks·Lab’i artık uygulama olarak kurabilirsin: Android’de Google Play’den, Windows’ta Microsoft Store’dan. iPhone sürümü çok yakında! İlerlemen, kelimelerin ve arkadaşların aynı kalır — sadece hesabınla giriş yap.', 'Uygulamayı indir', 'Tüm sürümlerin bağlantıları aşağıda. iPhone’da siteyi şimdiden ana ekrana ekleyebilirsin: Safari → Paylaş → “Ana Ekrana Ekle”.'],
     'lt' => ['📲 Komiks·Lab dabar yra programėlė', 'Įdiekite Komiks·Lab telefone ar kompiuteryje', 'Sveiki, %s! Komiks·Lab dabar galima įdiegti kaip programėlę: „Android“ — iš „Google Play“, „Windows“ — iš „Microsoft Store“. „iPhone“ versija jau netrukus! Pažanga, žodžiai ir draugai išlieka tie patys — tiesiog prisijunkite prie savo paskyros.', 'Atsisiųsti programėlę', 'Nuorodos į visas versijas — žemiau. „iPhone“ jau dabar galite pridėti svetainę prie pradžios ekrano: „Safari“ → „Bendrinti“ → „Pridėti prie pradžios ekrano“.'],
+    'pt' => ['📲 O Komiks·Lab agora é um app', 'Instale o Komiks·Lab no celular ou no computador', 'Oi, %s! Agora você pode instalar o Komiks·Lab como app: no Android pelo Google Play e no Windows pela Microsoft Store. A versão para iPhone vem em breve! O seu progresso, as suas palavras e os seus amigos continuam os mesmos — é só entrar na sua conta.', 'Baixar o app', 'Os links para todas as versões estão abaixo. No iPhone você já pode adicionar o site à tela de início: Safari → Compartilhar → “Adicionar à Tela de Início”.'],
   ];
   [$subject, $title, $intro, $btn, $after] = $T[$lang] ?? $T['en'];
   return ['subject' => $subject, 'title' => $title, 'intro' => $intro, 'btn' => $btn, 'after' => $after];
@@ -1778,6 +1830,7 @@ function send_delete_code(array $user, string $code): bool {
     'pl' => ['Kod usunięcia konta — Komiks·Lab', 'Usuń konto', 'Cześć %s! Ktoś (mamy nadzieję, że Ty) chce usunąć konto Komiks·Lab. Wpisz ten kod na stronie konta:', 'Kod', 'Otwórz moje konto', 'Kod działa 15 minut. Jeśli to nie Ty, zignoruj wiadomość — konto pozostanie bez zmian.'],
     'tr' => ['Hesap silme kodu — Komiks·Lab', 'Hesabı sil', 'Merhaba %s! Biri (umarız sensin) bir Komiks·Lab hesabını silmek istiyor. Bu kodu hesap sayfasına gir:', 'Kod', 'Hesabımı aç', 'Kod 15 dakika geçerlidir. Bunu sen istemediysen e-postayı yok say — hesabın olduğu gibi kalır.'],
     'lt' => ['Paskyros ištrynimo kodas — Komiks·Lab', 'Ištrinti paskyrą', 'Sveiki, %s! Kažkas (tikimės, jūs) nori ištrinti Komiks·Lab paskyrą. Įveskite šį kodą paskyros puslapyje:', 'Kodas', 'Atidaryti paskyrą', 'Kodas galioja 15 minučių. Jei to neprašėte, ignoruokite laišką — paskyra liks tokia pati.'],
+    'pt' => ['Código para excluir a conta — Komiks·Lab', 'Excluir a conta', 'Oi, %s! Alguém (esperamos que você) quer excluir uma conta do Komiks·Lab. Digite este código na página da conta:', 'Código', 'Abrir a minha conta', 'O código vale por 15 minutos. Se não foi você, ignore este e-mail — a sua conta continua como está.'],
   ];
   $lang = kl_lang($user['lang'] ?? 'en');
   [$subject, $title, $intro, $label, $btn, $after] = $L[$lang] ?? $L['en'];

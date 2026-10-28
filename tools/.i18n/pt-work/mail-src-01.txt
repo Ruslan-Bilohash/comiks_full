@@ -1,0 +1,48 @@
+1	A lot has changed in Komiks·Lab
+2	Long time no see, %s 👋
+3	Hi %s! Your Norwegian is still waiting for you — and the app has grown since your last visit. New comics, new tests and a few things that simply work better now.
+4	See what is new
+5	Ten minutes a day is enough to keep what you have learned.
+6	What’s new in Komiks·Lab
+7	Fresh in the app 📰
+8	Hi %s! Here is a short list of what changed recently — new stories, tests and small improvements.
+9	Read the updates
+10	Everything works right away, nothing to install.
+11	A new comic for you — Komiks·Lab
+12	A story for today 📖
+13	Hi %s! Here is a comic you have not read yet. Norwegian audio, translation on hover, and a quiz at the end.
+14	Read the comic
+15	One story a day is a habit that holds.
+16	Stop these emails
+17	Your sign-in code — Komiks·Lab
+18	Sign in to Komiks·Lab 🔑
+19	Hi %s! Tap the button to sign in — no password needed. Or type the code below if you are on another device.
+20	Sign me in
+21	The link and the code work for 15 minutes and only once. If you did not ask to sign in, ignore this email — nobody can get in without it.
+22	Your code
+23	Confirm your email — Komiks·Lab
+24	Confirm your email 📬
+25	Hi %s! Thanks for joining Komiks·Lab. Tap the button to confirm your email and activate your account.
+26	Confirm my email
+27	The link works for 48 hours. If you did not sign up, just ignore this email — nothing will happen.
+28	Welcome to Komiks·Lab! 🎉
+29	Welcome aboard, %s! 🎉
+30	Your email is confirmed and your account is ready. Here is how to start:<br>📖 read your first Norwegian comic with real voices,<br>🎨 create your hero in the avatar studio,<br>🏁 race friends in the Logic Race and collect badges.
+31	Start learning
+32	Your progress is now saved in your account and follows you on every device.
+33	Reset your password — Komiks·Lab
+34	Reset your password 🔑
+35	Hi %s! Someone (hopefully you) asked to reset the password for your Komiks·Lab account.
+36	Choose a new password
+37	The link works for 1 hour. If it was not you, ignore this email — your password stays the same.
+38	You already have a Komiks·Lab account
+39	You already have an account 🙂
+40	Hi %s! Someone tried to sign up with this email, but you already have an account.
+41	Log in
+42	Forgot your password? Use “Forgot password” on the login page.
+43	An account was created for you — Komiks·Lab
+44	Welcome, %s! 💎
+45	A free Komiks·Lab account has been created for you. Choose your own password and start learning Norwegian with comics.
+46	Choose my password
+47	The link works for 7 days. After that you can use “Forgot password” on the login page.
+48	You got this email because this address was used on Komiks·Lab — learn Norwegian with comics.

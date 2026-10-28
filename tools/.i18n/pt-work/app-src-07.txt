@@ -1,0 +1,200 @@
+1201	Detail Scout
+1202	Spot a change or count the matching objects.
+1203	A correct answer moves your avatar forward. Each choice reveals an explanation. The whole class gets the same challenges.
+1204	Ages 6–8 · first steps
+1205	Ages 8–10 · more details
+1206	Ages 10–12 · trickier rules
+1207	Ages 12+ · challenge
+1208	Study the objects first. When one disappears, choose it from four answers.
+1209	Find the repeating part or the step between numbers. Which item comes next?
+1210	Compare two shelves and choose the number of the changed position. Or count all objects matching the example.
+1211	Remember!
+1212	What disappeared?
+1213	Yes! +1 step
+1214	Let’s work it out
+1215	🤖 Practise with bots
+1216	📺 Create a classroom room
+1217	Game
+1218	Refresh the page to play this new mode.
+1219	Maths
+1220	🧮
+1221	Maths
+1222	times tables, trainer and a game
+1223	🧮 Maths in Norwegian
+1224	Count and learn numbers at the same time: every sum is read aloud in Norwegian (“tre ganger fire er tolv”). Times tables with pictures, a trainer and a space speed game.
+1225	✖️ Times tables
+1226	Tap a cell to see a picture and hear the sum in Norwegian.
+1227	🧩 Practise this row
+1228	➕ Trainer
+1229	Operation
+1230	Numbers
+1231	up to 10
+1232	up to 20
+1233	up to 100
+1234	▶️ Start
+1235	🚀 Math Rocket
+1236	A 60-second space game: solve sums and shoot the asteroid with the right answer. A mistake costs 3 seconds.
+1237	🟢 Easy (+ −)
+1238	🟡 Medium (×)
+1239	🔴 Hard (all)
+1240	🚀 Flight over!
+1241	🔄 Play again
+1242	🎉 New record!
+1243	🗣️ Maths words in Norwegian
+1244	🧮 Maths
+1245	Times tables
+1246	Addition and subtraction
+1247	← Back
+1248	✉️ Messages
+1249	No conversations yet. Open a friend’s profile and tap “✉️ Message”.
+1250	✉️ Message
+1251	Write a message…
+1252	Send
+1253	you
+1254	Log in to message your friends.
+1255	← Conversations
+1256	🚫 Block
+1257	✅ Unblock
+1258	🚩 Report
+1259	Reported to the moderators. Thank you!
+1260	🗑 Remove conversation
+1261	Block this player? They will not be able to message you.
+1262	Remove this conversation from the list?
+1263	🔒 Privacy
+1264	Decide who can see you and who can message you. Nobody ever sees your email or password.
+1265	🔎 Show me in player search
+1266	Others can find you by name, see your avatar, level, stars and badges and add you as a friend.
+1267	✉️ Who can message me
+1268	💬 Open wall on my profile
+1269	Others can leave comments on your wall (with a captcha and moderation).
+1270	🚫 Blocked players
+1271	Nobody is blocked.
+1272	Saved ✓
+1273	Messages work for server accounts on bilohash.com.
+1274	Emoji
+1275	React
+1276	🧠 Pairs
+1277	🧠 Pairs
+1278	Turn two cards and match the Norwegian word with its translation. The words come from your weak spots, so every day is different.
+1279	📅 Daily game
+1280	🔁 Work on mistakes
+1281	No mistakes — all clear!
+1282	🤝 Play with a friend
+1283	One phone shows a QR code, the other scans it — then you race
+1284	📖 Words from the comic
+1285	Start ▶
+1286	← Back
+1287	← Exit
+1288	🏠 Home
+1289	🔄 Again
+1290	🔁 Repeat these words
+1291	🃏 To the cards
+1292	✅ Played today
+1293	Start your streak today
+1294	The Norwegian word is read aloud when you turn a card. Match it first try and the word moves one step further.
+1295	👣
+1296	⏱
+1297	All pairs found!
+1298	New record!
+1299	Not a single mistake!
+1300	These words have not settled yet:
+1301	🎨 Game topic
+1302	All words
+1303	Not enough words yet. Read a comic or open the Words page and come back.
+1304	🤝 Pairs for two
+1305	📺 Create a game
+1306	📱 Join
+1307	Let your friend scan the code or open the link:
+1308	Game code
+1309	Waiting for your friend…
+1310	Your friend is connected!
+1311	🚀 Start
+1312	You both get the same cards. The first to match them all wins.
+1313	You
+1314	Friend
+1315	🏆 You win!
+1316	Your friend was faster
+1317	A draw!
+1318	Your friend left the game.
+1319	Could not connect. An internet connection and a modern browser are required.
+1320	Game not found. Check the code — or your friend has closed it.
+1321	e.g. K7Q2M
+1322	Enter ▶
+1323	📋 Copy
+1324	Copied ✓
+1325	⚠️ The page is opened from a file — phones cannot join. Open the game on bilohash.com/comiks/
+1326	Words from the duel go into your memory too: whatever you miss lands in your mistakes.
+1327	🎯 Level test
+1328	🎯 Level test
+1329	Twelve short questions — three from each level. Do not guess: press “I don’t know” if you are unsure. Then your plan starts exactly where it should.
+1330	▶️ Start
+1331	I don’t know
+1332	🏁 Result
+1333	We suggest starting from the very beginning — the alphabet and first words.
+1334	✅ Use this level in my plan
+1335	Done! Your plan is updated.
+1336	🎯 My plan
+1337	🔄 Again
+1338	The rule is simple: a level counts as passed when you answer at least two of its three questions correctly.
+1339	🔊 Listen and choose the word
+1340	Which word is missing?
+1341	True or false?
+1342	✅ True
+1343	❌ False
+1344	👤 Player profile
+1345	My profile
+1346	🔒 This player keeps the profile private.
+1347	Player not found.
+1348	The usual reason is privacy: a player appears in search and in friend lists only after they allow their profile to be shown. Check the friend code again — and ask your friend to turn sharing on in settings.
+1349	To let friends see you, turn your own profile sharing on:
+1350	🔎 Show me in search
+1351	🔒 Privacy and settings
+1352	✅ You are visible in search now
+1353	📈 Latest results
+1354	No results yet.
+1355	👥 My friends
+1356	No friends yet. Send your friend code and learn together.
+1357	All friends
+1358	➕ Add a friend
+1359	online
+1360	waiting for approval
+1361	#️⃣ My hashtags
+1362	A few words about what you are learning and why: #norskproven, #jobb, #barn, #uttale. Others find you by them — but only while profile sharing is on.
+1363	Add a hashtag…
+1364	Add
+1365	Seven hashtags at most. Remove one (✕) or tap a tag to replace it.
+1366	Tap to replace
+1367	The tag is in the field — edit it and press “Add”.
+1368	Saved ✓
+1369	No hashtags yet.
+1370	🌍 Profile visibility
+1371	Let others see my profile, progress and results
+1372	Other players on this device and anyone you send the link to will see your avatar, name, stars, badges and test results. E-mail and password are never shown.
+1373	📤 Share my profile
+1374	👁️ View profile
+1375	📚 Open Komiks·Lab
+1376	💬 Wall
+1377	Write something nice…
+1378	Post
+1379	Log in or sign up to write on the wall.
+1380	Comments are stored on this device.
+1381	🌍 Everyone who opens this profile sees the comments. Be kind!
+1382	Nothing here yet — be the first!
+1383	Delete
+1384	The wall lives on the player’s device. Here you see their results.
+1385	🧮 Solve the sum — and your comment flies!
+1386	Oops, not quite! Here is a new one 🙂
+1387	Cancel
+1388	👥 Players
+1389	Accounts on this device with a public profile.
+1390	Profile →
+1391	you
+1392	🗑 Remove
+1393	⚠️ Warn
+1394	Done ✓
+1395	Apply to the author of this comment?
+1396	🛡 Moderation
+1397	💬 official account
+1398	🤖 virtual player
+1399	🔎 Players
+1400	Find other learners, view their profiles, add friends and compete in games.

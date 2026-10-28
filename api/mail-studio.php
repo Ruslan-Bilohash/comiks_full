@@ -88,6 +88,7 @@ function ms_news_text(string $lang): array {
     'pl' => ['✨ Nowości w Komiks·Lab', 'Co nowego w Komiks·Lab', 'Cześć {{name}}! Oto co zmieniło się w Komiks·Lab:', 'Zobacz nowości', 'Zespół Komiks·Lab'],
     'tr' => ['✨ Komiks·Lab’de yenilikler', 'Komiks·Lab’de neler yeni', 'Merhaba {{name}}! Komiks·Lab’de değişenler:', 'Yenilikleri gör', 'Komiks·Lab ekibi'],
     'lt' => ['✨ Kas naujo Komiks·Lab', 'Kas naujo Komiks·Lab', 'Sveiki, {{name}}! Štai kas pasikeitė Komiks·Lab:', 'Peržiūrėti naujienas', 'Komiks·Lab komanda'],
+    'pt' => ['✨ Novidades do Komiks·Lab', 'O que há de novo no Komiks·Lab', 'Oi, {{name}}! Veja o que mudou no Komiks·Lab:', 'Ver as novidades', 'Equipe Komiks·Lab'],
   ];
   return $T[$lang] ?? $T['en'];
 }
@@ -104,7 +105,7 @@ function ms_news_content(array $upd, string $lang): array {
 }
 // хештеги (ведуть на пошук однодумців на сайті) і посилання на статтю мовою одержувача: [html, текст]
 function ms_news_extra(array $upd, string $lang): array {
-  $read = ['uk' => 'Читати статтю на сайті', 'en' => 'Read the article on the website', 'no' => 'Les artikkelen på nettsiden', 'ar' => 'اقرأ المقال على الموقع', 'de' => 'Artikel auf der Website lesen', 'pl' => 'Przeczytaj artykuł na stronie', 'tr' => 'Yazıyı sitede oku', 'lt' => 'Skaityti straipsnį svetainėje'][$lang] ?? 'Read the article on the website';
+  $read = ['uk' => 'Читати статтю на сайті', 'en' => 'Read the article on the website', 'no' => 'Les artikkelen på nettsiden', 'ar' => 'اقرأ المقال على الموقع', 'de' => 'Artikel auf der Website lesen', 'pl' => 'Przeczytaj artykuł na stronie', 'tr' => 'Yazıyı sitede oku', 'lt' => 'Skaityti straipsnį svetainėje', 'pt' => 'Ler o artigo no site'][$lang] ?? 'Read the article on the website';
   $page = (string)($upd['langs'][$lang]['url'] ?? $upd['langs']['en']['url'] ?? site_url() . '#/whatsnew');
   $e = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8');
   $tags = array_values(array_filter((array)($upd['tags'] ?? []), fn($t) => is_string($t) && preg_match('/^[\p{L}\p{N}_-]{2,24}$/u', $t)));
@@ -344,7 +345,7 @@ function ms_render(array $data,array $user,string $unsubscribe=''): array {
   $replace=['{{name}}'=>(string)($user['name']??'Олено'),'{{email}}'=>(string)($user['email']??'olena@example.test')];
   foreach (['subject','preheader','heading','body','button','footer','image_caption'] as $k) $t[$k]=strtr($t[$k],$replace);
   $t['subject']=mb_substr(preg_replace('/[\r\n\x00-\x1f]/',' ',$t['subject']),0,200);
-  $unsub=['uk'=>'Відписатися від розсилки','no'=>'Meld deg av nyhetsbrevet','en'=>'Unsubscribe','de'=>'Abmelden','pl'=>'Zrezygnuj z subskrypcji','ar'=>'إلغاء الاشتراك','tr'=>'Abonelikten çık','lt'=>'Atsisakyti prenumeratos'][$t['lang']];
+  $unsub=['uk'=>'Відписатися від розсилки','no'=>'Meld deg av nyhetsbrevet','en'=>'Unsubscribe','de'=>'Abmelden','pl'=>'Zrezygnuj z subskrypcji','ar'=>'إلغاء الاشتراك','tr'=>'Abonelikten çık','lt'=>'Atsisakyti prenumeratos','pt'=>'Cancelar a inscrição'][$t['lang']];
   $e=fn($s)=>ms_esc((string)$s);
   /* Лист у стилі сайту: жовта шапка з логотипом, чорна рамка, червона кнопка-пігулка; внизу —
      значки застосунку (якщо не вимкнено) і відписка. Таблиці й інлайн-стилі — інакше пошта зламає верстку. */

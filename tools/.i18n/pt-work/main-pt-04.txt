@@ -1,0 +1,200 @@
+601	São sete horas. Você precisa levantar.
+602	São oito e meia.
+603	Agora começa a aula!
+604	Já está na hora do almoço?
+605	Sim, é meio-dia e quinze.
+606	Vamos jogar futebol às três?
+607	Vamos! A gente se encontra no parque.
+608	Nora! São quinze para as seis. O jantar está pronto!
+609	Nossa, o tempo passa tão rápido!
+610	São oito horas. Agora é hora de dormir.
+611	Boa noite, vovó!
+612	Com licença, este ônibus vai para o centro?
+613	Vai, mas você precisa trocar na estação de trem.
+614	Posso comprar a passagem com você?
+615	Não, você precisa comprar a passagem no aplicativo antes de entrar.
+616	Só um momento… Pronto, comprei uma passagem de adulto.
+617	Ótimo. Pode se sentar, vamos sair agora.
+618	Oi, Denys! Está indo para o trabalho?
+619	Não, estou indo para o curso de norueguês. Começa às nove.
+620	Próxima parada: Estação de trem.
+621	Aqui você precisa descer e pegar o bonde.
+622	Obrigado pela ajuda! Tenha um bom dia!
+623	Igualmente! Boa sorte no curso!
+624	O 17 de maio é o dia nacional da Noruega.
+625	Hip, hip, hurra para a Noruega!
+626	Por que vocês estão comemorando hoje?
+627	A Noruega ganhou sua própria constituição em 17 de maio de 1814.
+628	Olha, o desfile das crianças está chegando!
+629	Todas as crianças desfilam com bandeiras e cantam.
+630	Muita gente está usando bunad hoje.
+631	O que é um bunad?
+632	É um traje tradicional de uma determinada região da Noruega.
+633	É muito bonito!
+634	No 17 de maio as crianças podem tomar quanto sorvete quiserem!
+635	Eu quero três sorvetes e um cachorro-quente!
+636	Bem-vindos! Comemoramos a véspera de Natal no dia vinte e quatro de dezembro.
+637	Na Ucrânia também comemoramos o Natal, com doze pratos na véspera.
+638	Aqui na Noruega muita gente come costela de porco ou pinnekjøtt.
+639	O que é pinnekjøtt?
+640	É carne de cordeiro salgada e seca. O cheiro é forte, mas o sabor é delicioso!
+641	Preciso provar! Trouxemos kutia da Ucrânia.
+642	Depois do jantar, damos a volta na árvore de Natal cantando músicas natalinas.
+643	Lá em casa cantamos koliadky, canções de Natal ucranianas.
+644	E então chega a hora de abrir os presentes!
+645	O Papai Noel passou por aqui?
+646	Passou, e deixou um presente para vocês dois.
+647	Muito obrigada! Este é o Natal mais bonito que já tivemos na Noruega.
+648	Na Noruega todo mundo tem o direito de andar livremente pela natureza, até em terras particulares.
+649	Que incrível. Isso não se chama direito de livre acesso?
+650	Sim, mas exige que você seja respeitoso e não deixe lixo para trás.
+651	A gente deve deixar a natureza do jeito que encontrou.
+652	Podemos montar a barraca aqui perto do lago?
+653	Podemos, desde que fiquemos a pelo menos cento e cinquenta metros da casa mais próxima.
+654	Lembre que é proibido fazer fogueira em florestas e campos no verão.
+655	Então vamos usar o fogareiro?
+656	Isso mesmo. E chocolate quente na garrafa térmica faz parte de toda trilha!
+657	A vida ao ar livre é mesmo uma parte importante da cultura norueguesa.
+658	Entendo bem por que os noruegueses adoram ficar ao ar livre em qualquer tempo.
+659	Não existe tempo ruim, só roupa ruim!
+660	Esta é a minha família.
+661	Somos quatro na família, e também temos o gato Pus.
+662	Esta é a mamãe. Ela é enfermeira.
+663	Oi! Eu trabalho no hospital.
+664	E este é o papai. Ele é marceneiro.
+665	Eu construo casas. Quer me ajudar hoje?
+666	A Mia é minha irmã. Ela tem nove anos.
+667	E o Leo é meu irmão. Ele tem sete anos.
+668	Eu sou a avó de vocês. Vocês me visitam todo domingo.
+669	A gente te ama, vovó!
+670	Vocês têm animais de estimação?
+671	Temos, o gato se chama Pus. Ele é preto e branco.
+672	Quem são eles na foto?
+673	São a minha tia e o meu tio. Eles moram em Bergen.
+674	Nossa família não é grande, mas estamos sempre juntos.
+675	E isso é o mais importante!
+676	Bom dia! O que vocês fizeram no fim de semana?
+677	Eu fui para a cabana com a minha família.
+678	Estava frio, mas fazia sol.
+679	A gente esquiou e tomou chocolate quente.
+680	Que legal! E você, Leo — o que você fez?
+681	Eu joguei futebol no sábado. Ganhamos de três a zero!
+682	Eu também estava lá! O Leo fez dois gols.
+683	E o Ruslan defendeu a bola três vezes.
+684	Eu ajudei a mamãe em casa. A gente fez pão.
+685	Depois a Alina lavou a cozinha inteira.
+686	À noite vimos um filme na TV.
+687	O filme se chamava “A viagem para a montanha”. Foi emocionante!
+688	No domingo pegamos o ônibus para a cidade e compramos sapatos novos.
+689	Custaram quatrocentas coroas, mas estavam em promoção.
+690	Muito bem, pessoal! Vocês ouviram os verbos? Var, gikk, spilte, bakte.
+691	Isso é o pretérito — algo que já aconteceu.
+692	Oi, seja bem-vindo! Meu nome é Morten. Sou seu professor.
+693	Oi! Meu nome é Musa.
+694	De onde você é, Musa?
+695	Sou do Reino Unido. Agora moro em Drammen.
+696	Que idiomas você fala?
+697	Falo inglês e um pouco de francês. E agora estou aprendendo norueguês!
+698	Que ótimo! Com o que você trabalha?
+699	Sou engenheiro. Consegui um emprego novo na Noruega.
+700	E tenho dois filhos. Eles estudam aqui.
+701	O norueguês é difícil! Como se diz “kj”?
+702	Diga “kjøkken”. É mais fácil do que parece!
+703	Agora vamos praticar os números. Você consegue contar até cinco?
+704	Um, dois, três, quatro, cinco! Fácil!
+705	Muito bem! E o sete? Também podemos dizer “syv”.
+706	Duas palavras para o mesmo número? O norueguês é estranho!
+707	Que dia é hoje?
+708	Hoje é segunda-feira. Ontem foi domingo.
+709	Depois de uma hora, a turma faz um intervalo.
+710	Morten, os noruegueses tomam muito café?
+711	Sim! A gente toma café o dia inteiro — à noite também.
+712	Até quinta-feira você precisa escrever cinco frases sobre a sua família.
+713	Isso eu consigo. Vou escrever sobre os meus filhos.
+714	Quanto tempo dura o curso?
+715	O curso dura dez semanas, duas noites por semana.
+716	Ótimo trabalho hoje! Até quinta.
+717	Muito obrigado, Morten! Tchau!
+718	O Musa recebe uma mensagem no celular.
+719	Ah, minha encomenda chegou!
+720	Olá! Em que posso ajudar?
+721	Olá! Vim retirar uma encomenda.
+722	Você tem o código de retirada?
+723	Tenho, aqui está o código no celular.
+724	Obrigada. Posso ver um documento?
+725	Claro. Aqui está o meu passaporte.
+726	Aqui está. A encomenda é bem pesada!
+727	Muito obrigado! Tenha um bom dia!
+728	Você também quer enviar alguma coisa hoje?
+729	Quero, sim! Quero mandar uma carta para Londres.
+730	Uma carta para a Inglaterra custa trinta e cinco coroas.
+731	Posso pagar com cartão?
+732	Pode, com cartão ou com Vipps.
+733	Vipps? O que é isso?
+734	É um aplicativo para pagar pelo celular. Todo mundo na Noruega usa!
+735	O Musa leva a encomenda pesada para casa.
+736	Ufa, é mais pesada do que eu pensava!
+737	Papai! O que tem na encomenda?
+738	É surpresa. Vamos abrir em casa.
+739	Em casa, o Musa abre a encomenda.
+740	Chá e biscoitos da mamãe em Londres! Agora me sinto em casa.
+741	Agora vou fazer uma xícara de chá inglês de verdade.
+742	Com leite, papai? Que estranho!
+743	Não, é britânico!
+744	O Musa está visitando Bergen.
+745	Oi! Que tempo hoje!
+746	Pois é, chove sem parar!
+747	Você não é norueguês, é?
+748	Não, sou de Londres, mas agora moro em Drammen.
+749	Aqui em Bergen chove quase todo dia.
+750	Então já estou acostumado. Em Londres também chove!
+751	Ha ha! Então preciso comprar uma boa capa de chuva.
+752	O Musa entra numa loja para comprar roupa de chuva.
+753	Olá! Está procurando alguma coisa?
+754	Estou, uma capa de chuva e botas boas.
+755	Esta jaqueta é impermeável e quente. Custa duas mil coroas.
+756	Duas mil? A Noruega é cara!
+757	Mas vou levar. Não quero ficar molhado todo dia.
+758	Boa escolha! Agora você está pronto para Bergen.
+759	Agora pode chover à vontade! Estou seco e quentinho!
+760	Viu? Só existe roupa ruim!
+761	Quer uma xícara de café e um skillingsbolle?
+762	Quero muito! O que é um skillingsbolle?
+763	Um pãozinho doce de canela. Bergen é famosa por eles.
+764	No dia seguinte, faz sol.
+765	Finalmente, sol! Eu amo a Noruega!
+766	Aproveite! Amanhã talvez neve.
+767	Neve? Em maio?!
+768	No dia seguinte neva mesmo.
+769	Neve em maio! Agora acredito em qualquer coisa na Noruega!
+770	São onze e meia. Vamos almoçar?
+771	Onze e meia? Tão cedo! Mas tudo bem, estou com fome.
+772	No refeitório, todos tiram a marmita.
+773	Eu trouxe fatias de pão com queijo marrom.
+774	Queijo marrom? O que é isso?
+775	É um queijo doce e marrom. Você precisa provar!
+776	Hum, tem gosto quase de caramelo!
+777	Ha ha, agora você é quase norueguês!
+778	O que você fez no fim de semana, Musa?
+779	Esquiei pela primeira vez. Caí várias vezes!
+780	É totalmente normal cair no começo!
+781	Dizem que os noruegueses nascem com esquis nos pés.
+782	Então vou ter que nascer de novo!
+783	O que as pessoas comem no almoço na Inglaterra?
+784	Muitas vezes um sanduíche ou uma comida quente. Não fatias de pão com queijo todo dia!
+785	Aqui a gente leva marmita quase todo dia. É barato e prático.
+786	Talvez eu também faça uma marmita amanhã.
+787	No dia seguinte, o Musa chega com a própria marmita.
+788	Olha! Fatias de pão com queijo marrom — e um pouco de geleia!
+789	Queijo marrom com geleia? Agora você é mais norueguês do que eu!
+790	Bem-vindo à turma, Musa!
+791	O almoço acabou. Agora temos que voltar ao trabalho.
+792	Obrigado pelo papo! Nos vemos na reunião à uma.
+793	A reunião começa em cinco minutos. Preciso me preparar.
+794	Boa sorte! Você consegue.
+795	Neste fim de semana vamos para uma cabana. Quer vir junto?
+796	Quero, sim! Mas o que é uma “hytte”?
+797	É uma casinha nas montanhas. Lá não tem eletricidade.
+798	Sem eletricidade? E o meu celular?
+799	Faltam mais dois quilômetros. Está cansado?
+800	Um pouco, mas a vista é fantástica!

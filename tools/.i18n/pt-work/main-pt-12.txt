@@ -1,0 +1,200 @@
+2201	Teste a cópia de segurança com frequência, não basta só criá-la.
+2202	Um programa envia milhares de formulários em poucos segundos.
+2203	O abuso automatizado pode encher o serviço de lixo.
+2204	O site acrescenta uma verificação humana.
+2205	O CAPTCHA tenta distinguir pessoas de robôs automáticos.
+2206	O usuário recebe um desafio curto.
+2207	Ele não deve coletar mais dados pessoais do que o necessário.
+2208	E se alguém não conseguir ver as imagens?
+2209	Ofereça uma alternativa acessível, como áudio ou outra verificação.
+2210	Podemos confiar só no CAPTCHA?
+2211	Não. Use também limites, registros e verificações no servidor.
+2212	Um bom CAPTCHA freia o abuso sem excluir pessoas.
+2213	Nunca compartilhe códigos de verificação com desconhecidos.
+2214	O formulário espera um número, mas recebe uma palavra.
+2215	Toda entrada precisa ser verificada antes de ser usada.
+2216	O navegador pode verificar primeiro para ajudar o usuário.
+2217	O servidor precisa verificar de novo, porque o cliente pode ser alterado.
+2218	Aceitamos só o tipo, o tamanho e o formato esperados.
+2219	Recuse dados inválidos com uma mensagem clara.
+2220	Os dados não devem ser colocados diretamente na consulta ao banco.
+2221	Use consultas parametrizadas do framework.
+2222	O usuário precisa saber o que corrigir.
+2223	Mas não revele detalhes secretos do servidor.
+2224	Agora só entram dados válidos.
+2225	A validação protege o usuário e o sistema.
+2226	Uma página sem HTTPS envia dados sem a proteção moderna de transporte.
+2227	Não digite informações sensíveis ali.
+2228	O HTTPS usa TLS para criptografar a conexão.
+2229	Ninguém no caminho deve conseguir ler o conteúdo.
+2230	O navegador verifica o certificado do site.
+2231	Um certificado válido liga uma chave a um domínio.
+2232	As duas páginas podem mostrar um cadeado.
+2233	O cadeado significa conexão criptografada, não que todo o conteúdo seja honesto.
+2234	Leio o domínio antes da barra.
+2235	Pequenas diferenças de grafia podem levar a um site falso.
+2236	As duas verificações precisam bater.
+2237	A criptografia protege a viagem, e o domínio mostra o destino.
+2238	Aqui todas as senhas estão legíveis no banco de dados.
+2239	Isso é perigoso se o banco de dados vazar.
+2240	Um hash de senha é um resultado de mão única.
+2241	O serviço não precisa guardar a senha em si.
+2242	Acrescentamos um sal aleatório para cada conta.
+2243	Senhas iguais ganham então valores armazenados diferentes.
+2244	Um hash comum e rápido não foi feito para senhas.
+2245	Use uma função de senha reconhecida da plataforma.
+2246	No login, a tentativa passa pelo hash do mesmo jeito.
+2247	O sistema compara os resultados sem revelar a senha.
+2248	Se o usuário esquecer a senha, ele cria uma nova.
+2249	Um serviço seguro não manda a senha antiga de volta.
+2250	Construímos a página com seções claras.
+2251	O HTML semântico explica o que o conteúdo significa.
+2252	A imagem precisa de uma descrição curta.
+2253	O texto alternativo ajuda quando a imagem não pode ser vista.
+2254	Letras claras sobre o branco são difíceis de ler.
+2255	Um bom contraste deixa o texto mais claro.
+2256	Consigo chegar a todos os botões sem mouse.
+2257	O foco visível mostra onde o teclado está.
+2258	O campo do formulário ganha um rótulo visível.
+2259	Assim todos sabem o que digitar.
+2260	Testamos o site com teclado e leitor de tela.
+2261	O design acessível ajuda muita gente.
+2262	O jogo abre com um botão de começar.
+2263	O menu é o primeiro estado do jogo.
+2264	Quando aperto começar, mudamos de estado.
+2265	Agora o personagem se mexe e o tempo corre.
+2266	Preciso parar um instante.
+2267	A pausa congela o jogo sem perder o progresso.
+2268	O personagem não tem mais vidas.
+2269	Então o jogo vai para GAME OVER.
+2270	A tela de resultado mostra os pontos e a melhor tentativa.
+2271	O jogador entende o que aconteceu.
+2272	O botão zera os pontos, as vidas e a posição.
+2273	Um ciclo claro deixa a gente jogar de novo.
+2274	O robô está modelado, mas está todo cinza.
+2275	Agora a superfície vai ganhar cor e padrão.
+2276	Marcamos onde o modelo pode ser aberto.
+2277	As costuras ajudam a desdobrar a forma.
+2278	A superfície 3D vira um mapa plano.
+2279	Isso se chama mapa UV.
+2280	Colocamos as cores no mapa.
+2281	A textura acompanha as partes de volta para o modelo.
+2282	O material decide como a luz bate na superfície.
+2283	A textura acrescenta detalhes e padrões.
+2284	Giramos o modelo e procuramos partes esticadas.
+2285	Um mapa UV organizado dá um resultado bonito.
+2286	Colocamos um script no GameObject do jogador.
+2287	O script vira um componente com comportamento.
+2288	Start roda uma vez, quando o objeto fica pronto.
+2289	Aqui colocamos os pontos em zero.
+2290	Update roda a cada quadro do jogo.
+2291	Aqui podemos ler a entrada e mover o jogador.
+2292	O jogador acerta uma estrela.
+2293	O evento de colisão diz com qual objeto nos encontramos.
+2294	O script aumenta os pontos e envia um sinal.
+2295	O texto da pontuação é atualizado na hora.
+2296	Testamos o início, o movimento e as colisões.
+2297	O Console mostra mensagens se algo der errado.
+2298	A primeira tabela tem aluno_id e nome.
+2299	Cada aluno ganha uma chave primária única.
+2300	A segunda tabela descreve os cursos.
+2301	Cada curso também tem seu próprio ID.
+2302	Como mostramos em qual curso a Nora está?
+2303	Uma matrícula liga aluno_id a curso_id.
+2304	Uma chave estrangeira aponta para outra tabela.
+2305	O banco de dados pode verificar se o ID existe.
+2306	O JOIN busca o nome e o curso num só resultado.
+2307	Evitamos escrever o mesmo nome muitas vezes.
+2308	Relações organizadas reduzem erros e duplicatas.
+2309	Assim os dados ficam mais fáceis de atualizar.
+2310	A professora mostra um ponto de encontro bem claro.
+2311	Todos repetem onde e quando vão se encontrar.
+2312	Ando junto com o meu parceiro de estudo.
+2313	Avisamos antes de ir para outra área.
+2314	O cartão de contato está guardado na mochila.
+2315	Nele estão o número da professora e o nome da escola.
+2316	De repente não vemos mais o resto da turma.
+2317	Não saímos correndo para qualquer lado.
+2318	Voltamos com calma até a placa vermelha.
+2319	Ali esperamos juntos, num lugar visível.
+2320	A professora liga e nos encontra, seguindo o plano.
+2321	Um ponto de encontro combinado deixa a situação mais segura.
+2322	Não uso meu nome completo no jogo.
+2323	Um nome de usuário neutro protege a privacidade.
+2324	Um jogador pergunta onde eu moro e onde estudo.
+2325	Informações pessoais não têm lugar no chat do jogo.
+2326	Paro de responder perguntas particulares.
+2327	Você não deve explicações a um estranho.
+2328	As mensagens ficam feias e ameaçadoras.
+2329	Bloqueio o jogador para o contato parar.
+2330	Guardo as provas sem compartilhá-las publicamente.
+2331	Depois denuncio a conta ao jogo.
+2332	Mostro o que aconteceu a um adulto de confiança.
+2333	A ajuda importa quando algo parece ameaçador.
+2334	O celular toca a voz do meu tio.
+2335	Mas o número é desconhecido e a mensagem é urgente.
+2336	Emoções fortes podem fazer a gente agir rápido.
+2337	Os golpistas usam o medo e a pressa.
+2338	A inteligência artificial consegue imitar uma voz.
+2339	Por isso, um som conhecido, sozinho, não é prova.
+2340	Ligo para o meu tio no número que já tenho.
+2341	Não use o número nem o link da mensagem.
+2342	A família tem uma pergunta de verificação combinada.
+2343	Ela ajuda a confirmar quem é a pessoa.
+2344	O meu tio está bem e nunca mandou a mensagem.
+2345	Pare, confirme e denuncie o contato falso.
+2346	A chave de API está escrita direto no código da página.
+2347	Tudo o que está no navegador pode ser lido pelo usuário.
+2348	Um texto escondido no JavaScript não é um segredo.
+2349	A chave precisa sair do cliente.
+2350	O navegador pede os dados ao nosso servidor.
+2351	O servidor usa a chave sem mandá-la de volta.
+2352	A chave fica guardada numa configuração protegida.
+2353	O repositório de código só contém um nome de exemplo.
+2354	A chave recebe acesso só ao que precisa.
+2355	Limitá-la reduz o estrago se ela vazar.
+2356	Se a chave vazar, nós a desativamos.
+2357	Depois criamos uma chave nova e conferimos os registros.
+2358	Começamos entendendo o problema.
+2359	Descubra o que o valor significa.
+2360	Um objetivo claro facilita o próximo passo.
+2361	Escolha número, texto ou booleano.
+2362	Faça uma mudança controlada de cada vez.
+2363	Testamos com um exemplo pequeno.
+2364	Um exemplo pequeno mostra se a ideia funciona.
+2365	O tipo certo evita muitos erros.
+2366	Compare o resultado com o objetivo.
+2367	Consigo explicar e tentar sozinho.
+2368	Agora você consegue explicar a regra com as suas palavras.
+2369	Dê à função uma única tarefa clara.
+2370	Passe um valor e devolva uma resposta.
+2371	Reutilizar deixa o programa mais curto e mais organizado.
+2372	Junte as coisas que andam juntas.
+2373	Leia, acrescente e remova itens.
+2374	Um laço pode processar a lista inteira.
+2375	Descreva o objetivo antes de começar.
+2376	Faça e resolva uma parte pequena de cada vez.
+2377	No fim, as partes podem ser juntadas.
+2378	Diga para onde o link leva.
+2379	Use href e um texto de link que faça sentido.
+2380	Uma boa navegação deixa o site fácil de entender.
+2381	Comece pela tela mais estreita.
+2382	Use tamanhos flexíveis e media queries.
+2383	O conteúdo deve ser legível sem rolagem horizontal.
+2384	Decida de que dados a página precisa.
+2385	Busque os dados e trate a espera e os erros.
+2386	Mostre só conteúdo seguro e relevante.
+2387	Marque claramente os campos obrigatórios.
+2388	Valide tanto no navegador quanto no servidor.
+2389	Mensagens de erro precisas mostram como resolver o problema.
+2390	Escolha sons curtos que combinem com a ação.
+2391	Toque o som quando acontecer o evento certo.
+2392	O controle de volume deixa o jogo agradável para mais gente.
+2393	Desenhe poses-chave claras.
+2394	Mostre os quadros na ordem e na velocidade certas.
+2395	Um ciclo suave deixa o personagem vivo.
+2396	Decida o que o jogador deve aprender primeiro.
+2397	Aumente a velocidade e os obstáculos aos poucos.
+2398	Teste com vários jogadores e ajuste as fases.
+2399	Escolha só os dados realmente necessários.
+2400	Salve num momento seguro e confira o formato.

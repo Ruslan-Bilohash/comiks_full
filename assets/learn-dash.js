@@ -51,6 +51,7 @@
       t_streak0: 'Start en rekke: én prøve om dagen, så fylles kalenderen.', t_good: 'Flott tempo! Prøv en prøve på neste nivå.', open: 'Åpne →',
       area: { comics: '📖 Tegneserier', level: '🏆 Nivåprøver', grammar: '📐 Grammatikk', words: '📝 Ord', basics: '🔤 Alfabet og tall', math: '🧮 Matte og logikk', english: '🇬🇧 Engelsk', games: '🎮 Spill sammen', chess: '♟ Sjakk', mistakes: '🔁 Feil', other: '🧩 Annet' } },
   };
+  if (window.KL_T_FILL) KL_T_FILL(L, 'learn-dash.js:L');
   const AREA_HREF = { comics: '#/', level: '#/tests', grammar: '#/grammar', words: '#/words', basics: '#/numbers', math: '#/math', english: '#/english', games: '#/game', chess: '#/chess', mistakes: '#/analysis', other: '#/tests' };
   const pad = n => String(n).padStart(2, '0');
   const dayOf = d => { const x = d instanceof Date ? d : new Date(d); return isNaN(x) ? '' : x.getFullYear() + '-' + pad(x.getMonth() + 1) + '-' + pad(x.getDate()); };
@@ -246,6 +247,7 @@
     en: { t: '🔥 My activity', days: 'study days', streak: 'current streak', best: 'longest streak', level: 'level', tests: 'quizzes in 30 days', more: '📊 Detailed learning analysis →', wd: ['Mon', '', 'Wed', '', 'Fri', '', ''], tip: (d, n) => `${d}: ${n ? n + ' quiz(zes)' : 'active day'}`, none: d => `${d}: no study`, less: 'less', moreL: 'more' },
     no: { t: '🔥 Min aktivitet', days: 'læringsdager', streak: 'rekke nå', best: 'lengste rekke', level: 'nivå', tests: 'prøver siste 30 dager', more: '📊 Detaljert læringsanalyse →', wd: ['Ma', '', 'Ons', '', 'Fre', '', ''], tip: (d, n) => `${d}: ${n ? n + ' prøve(r)' : 'aktiv dag'}`, none: d => `${d}: ingen læring`, less: 'mindre', moreL: 'mer' },
   };
+  if (window.KL_T_FILL) KL_T_FILL(ACT, 'learn-dash.js:ACT');
   function levelNow() {
     const { store, COMICS } = K(), order = ['A1', 'A2', 'B1', 'B2'];
     let best = -1;

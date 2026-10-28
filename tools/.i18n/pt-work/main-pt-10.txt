@@ -1,0 +1,200 @@
+1801	O Robo pensa como um computador.
+1802	Se eu arrumar o quarto, então ganho sorvete?
+1803	Isso! É uma boa regra.
+1804	Estamos fazendo um jogo! Cada vez que o gato pega um peixe, ganhamos um ponto.
+1805	Mas onde o computador vai lembrar os pontos?
+1806	Numa variável. Uma variável é como uma caixa com um nome.
+1807	A caixa se chama “pontos”. Agora tem zero na caixa.
+1808	O gato pegou um peixe!
+1809	Então escrevemos: pontos é igual a pontos mais um.
+1810	Pontos é um. Pontos é dois. Pontos é três!
+1811	O valor na caixa muda!
+1812	Podemos ter mais caixas?
+1813	Podemos. Nome, vidas e velocidade… Um jogo tem muitas variáveis.
+1814	Temos dez pontos! Ganhamos!
+1815	A variável “alegria” agora está em cem.
+1816	O Robo precisa andar até a estrela. Eu escrevi o programa.
+1817	Vou rodar o programa agora.
+1818	Ai! Bati direto na parede.
+1819	Opa! O programa tem um erro.
+1820	Um erro num programa a gente chama de bug.
+1821	Encontrar e corrigir o erro se chama depuração.
+1822	Vamos ler o programa linha por linha: frente, frente, direita…
+1823	Ali! Era para estar escrito esquerda, e não direita.
+1824	Agora vou corrigir o bug e tentar de novo.
+1825	Cheguei na estrela! O programa funciona.
+1826	Todos os programadores erram. O importante é tentar de novo.
+1827	Os erros fazem parte do aprendizado!
+1828	Robo, que língua você fala? Norueguês?
+1829	Eu entendo linguagens de programação. Existem muitas!
+1830	As crianças muitas vezes começam pelo Scratch. Lá a gente move blocos coloridos.
+1831	Parece Lego!
+1832	O Python é fácil de ler. Ele é usado em jogos, dados e inteligência artificial.
+1833	Inteligência artificial? Como o Robo?
+1834	O HTML constrói páginas da web, e o CSS as deixa bonitas. O JavaScript faz elas se mexerem.
+1835	Então o site da escola é feito com elas?
+1836	Os apps para iPhone a gente faz com Swift, e os apps para Android, com Kotlin.
+1837	E os jogos?
+1838	Muitos jogos são feitos com C#.
+1839	Que linguagem eu devo aprender primeiro?
+1840	Comece com Scratch ou Python. O mais importante é pensar de forma lógica.
+1841	Hoje vamos fazer um modelo do pátio da escola.
+1842	O que é um modelo?
+1843	Um modelo é uma cópia simples de algo real. Um mapa também é um modelo.
+1844	Como o mapa de um jogo!
+1845	Desenhamos só o que é importante: a escola, o portão e o campo de futebol.
+1846	Não precisamos desenhar cada folhinha.
+1847	Num programa, descrevemos as coisas com propriedades. Uma bola tem cor, tamanho e velocidade.
+1848	Então a bola é branca e rápida!
+1849	E um fluxograma mostra o que acontece, passo a passo.
+1850	Primeiro desenhamos o plano, depois escrevemos o código.
+1851	Fiz um modelo do Leo: com fome, feliz e gosta de futebol.
+1852	Ha ha! É verdade!
+1853	Quero fazer um site sobre o nosso gato, o Pus!
+1854	Então precisamos de HTML.
+1855	O HTML constrói páginas da web. Ele é feito de tags.
+1856	O que é uma tag?
+1857	Uma tag é uma palavra curta entre os sinais de menor e maior, por exemplo p.
+1858	A maioria das tags tem um começo e um fim. A tag de fechamento tem uma barra.
+1859	Como um sanduíche!
+1860	Escrevo h1 e “Pus”. Vira um título grande!
+1861	Isso. h1 quer dizer título número um.
+1862	Com p fazemos um parágrafo, e com img mostramos uma imagem.
+1863	Olha, uma foto do Pus!
+1864	Por fim, um link. A tag a leva a gente para outra página.
+1865	O site está pronto! Da próxima vez vamos deixá-lo bonito com CSS.
+1866	A página funciona, mas está meio sem graça.
+1867	Então precisamos de CSS. O CSS decide como a página vai ficar.
+1868	Escolho roxo para o título.
+1869	Uma regra de CSS tem um seletor, uma propriedade e um valor.
+1870	A página inteira pode ter um fundo de cor quente?
+1871	Pode. O seletor body quer dizer todo o conteúdo.
+1872	O texto está pequeno demais no celular.
+1873	font-size deixa as letras maiores. px é uma unidade de medida.
+1874	O botão precisa de espaço em volta do texto.
+1875	padding cria espaço dentro do elemento.
+1876	Agora a página está clara e bonita!
+1877	Um bom design ajuda o usuário a entender a página.
+1878	O meu botão não faz nada.
+1879	O HTML cria o botão, mas o JavaScript pode dar uma ação a ele.
+1880	Primeiro encontramos o botão no documento.
+1881	Guardamos ele numa variável chamada knapp.
+1882	O que quer dizer click?
+1883	É um evento: algo que o usuário faz.
+1884	Então a função roda quando eu clico?
+1885	Exatamente. Uma função agrupa comandos.
+1886	Mudo o texto para “Miau!”.
+1887	Agora a página dá uma resposta na hora.
+1888	HTML, CSS e JavaScript trabalham juntos.
+1889	Conteúdo, aparência e comportamento — um site inteiro!
+1890	Quero fazer um jogo com uma raposa.
+1891	Comece pelo objetivo: a raposa precisa encontrar a estrela.
+1892	Do que a cena precisa?
+1893	De um fundo, de plataformas e de um personagem do jogador.
+1894	A raposa é o jogador.
+1895	O jogador é o personagem que o usuário controla.
+1896	A estrela mostra o objetivo com clareza.
+1897	Um bom objetivo é fácil de entender.
+1898	Agora precisamos de uma regra.
+1899	Quando a raposa pega a estrela, o jogador vence.
+1900	Agora podemos fazer um protótipo.
+1901	Um protótipo testa a ideia antes de tudo estar pronto.
+1902	O jogador aperta a seta para a direita.
+1903	Isso se chama entrada (input).
+1904	O código confere qual tecla está pressionada.
+1905	Então colocamos a velocidade horizontal em cinco.
+1906	A velocidade muda a posição.
+1907	Isso acontece muitas vezes por segundo.
+1908	A barra de espaço deve fazer a raposa pular.
+1909	Damos ao personagem uma velocidade para cima.
+1910	Por que a raposa cai de novo?
+1911	A gravidade puxa o personagem para o chão.
+1912	O controle parece suave e rápido.
+1913	Um bom controle dá controle ao jogador.
+1914	A raposa atravessa a parede!
+1915	Está faltando colisão.
+1916	O jogo precisa verificar se duas formas se tocam.
+1917	Na colisão, paramos o movimento.
+1918	O que acontece quando a raposa pega a estrela?
+1919	Aumentamos a pontuação em um.
+1920	A pontuação é uma variável.
+1921	Ela lembra quantas estrelas o jogador tem.
+1922	Três estrelas abrem a próxima fase.
+1923	As fases dão novos desafios ao jogador.
+1924	Agora paredes, pontos e fases funcionam.
+1925	Sempre testamos várias vezes.
+1926	Por que este mundo tem três eixos?
+1927	3D significa largura, altura e profundidade.
+1928	As cores ajudam a gente a achar a direção.
+1929	X, Y e Z são os eixos do espaço.
+1930	Seleciono o cubo e aperto G.
+1931	Assim você pode mover o objeto.
+1932	O R me deixa girar o cubo.
+1933	A rotação muda para onde o objeto aponta.
+1934	Com S deixo o cubo maior.
+1935	A escala muda o tamanho.
+1936	Formas básicas podem virar quase qualquer coisa.
+1937	O primeiro passo é ver o modelo de todos os lados.
+1938	Começo com um cubo para o corpo.
+1939	Formas grandes primeiro, detalhes pequenos depois.
+1940	Duas esferinhas viram olhos.
+1941	Duplicar faz uma cópia rapidinho.
+1942	Agora o robô está cinza.
+1943	Um material define a cor e a superfície.
+1944	A luz cria lados claros e sombras.
+1945	Assim a forma fica mais fácil de ver.
+1946	A câmera escolhe o que vemos.
+1947	Mova a câmera até o robô ficar bem enquadrado.
+1948	Aperto render e recebo uma imagem pronta.
+1949	Modelo, material, luz e câmera trabalham juntos.
+1950	Aqui está uma cena vazia no Unity.
+1951	A cena é o lugar onde o jogo acontece.
+1952	Coloco o jogador.
+1953	Tudo na cena é um GameObject.
+1954	O Inspector mostra o Transform.
+1955	O Transform tem posição, rotação e escala.
+1956	Como a raposa ganha uma imagem?
+1957	O Sprite Renderer é um componente que desenha o personagem.
+1958	A raposa também precisa de física.
+1959	Um Rigidbody acrescenta gravidade e movimento.
+1960	Um GameObject é como uma caixa vazia.
+1961	Os componentes dão habilidades à caixa.
+1962	Fiz uma estrela bonita.
+1963	Transforme-a num prefab antes de copiar.
+1964	O que é um prefab?
+1965	Um modelo reutilizável para um GameObject.
+1966	Agora arrasto o modelo para dentro dez vezes.
+1967	Todas as cópias começam iguais.
+1968	Deixo o original azul.
+1969	Então todas as cópias podem ser atualizadas juntas.
+1970	O jogo precisa de várias partes.
+1971	Usamos uma cena para o menu e uma cena para cada fase.
+1972	Os prefabs economizam muito trabalho.
+1973	Reutilizar deixa o projeto organizado e rápido de mudar.
+1974	A biblioteca tem milhares de livros.
+1975	Um banco de dados ajuda a gente a manter a ordem.
+1976	Criamos uma tabela chamada livros.
+1977	Uma tabela reúne o mesmo tipo de informação.
+1978	Cada livro ganha a sua própria linha.
+1979	A linha descreve um registro.
+1980	As colunas se chamam campos.
+1981	Um campo guarda uma propriedade específica.
+1982	Por que cada livro precisa de um ID?
+1983	Um ID único distingue registros que, fora isso, são parecidos.
+1984	Agora achamos o livro certo sem procurar em todas as estantes.
+1985	Uma boa estrutura torna os dados úteis.
+1986	Quero ver todos os alunos.
+1987	SELECT pede dados ao banco de dados.
+1988	Posso escolher só os nomes?
+1989	Pode. Escreva o campo de que você precisa.
+1990	Quero ver só os que têm mais de sete pontos.
+1991	WHERE filtra as linhas.
+1992	As maiores pontuações podem vir primeiro?
+1993	ORDER BY ordena o resultado.
+1994	A consulta não muda necessariamente a tabela.
+1995	Ela mostra um resultado que responde à pergunta.
+1996	Agora temos uma pergunta precisa.
+1997	Um bom SQL busca só os dados de que precisamos.
+1998	O app precisa guardar tudo sobre o usuário?
+1999	Não. Guarde só o que for necessário.
+2000	Quem pode ler a lista de alunos?

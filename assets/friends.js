@@ -71,7 +71,7 @@
   const actNow = () => ((location.hash || '#/').split('/')[1] || '').slice(0, 12);
 
   /* ---------- мережа ---------- */
-  const N = { peer: null, uid: null, conns: new Map(), online: new Map(), met: new Set(), ok: false, netErr: false, poll: 0, listeners: new Set() };
+  const N = { peer: null, uid: null, conns: new Map(), online: new Map(), miss: new Map(), met: new Set(), ok: false, netErr: false, poll: 0, listeners: new Set() };
   const emit = () => N.listeners.forEach(f => { try { f(); } catch { /* ignore */ } });
   let libs = null;
   function loadPeer() {
@@ -95,6 +95,12 @@
     if (window.KomiksBots && window.KomiksBots.isBot(code)) return;
     if (!N.peer || N.peer.destroyed || N.peer.disconnected) return;
     const c = N.conns.get(code); if (c && c.open) return;
+    /* Друг офлайн — не стукаємо частіше ніж раз на 2 хвилини, а недовідкрите
+       з'єднання закриваємо. Раніше кожне опитування (25 с) лишало по новому
+       RTCPeerConnection на кожного офлайн-друга, і за годину браузер падав
+       з «Cannot create so many PeerConnections». */
+    if (Date.now() - (N.miss.get(code) || 0) < 120000) return;
+    if (c) { try { c.close(); } catch { /* ignore */ } N.conns.delete(code); }
     try { const conn = N.peer.connect(PREFIX + code, { reliable: true }); N.conns.set(code, conn); attach(conn, code); } catch { /* ignore */ }
   }
   function onMsg(conn, m) {
@@ -143,7 +149,7 @@
   }
   function markOnline(code, act, greet) {
     const first = !N.online.has(code);
-    N.online.set(code, { act: clean(act, 12), at: Date.now() });
+    N.online.set(code, { act: clean(act, 12), at: Date.now() }); N.miss.delete(code);
     emit();
     // перша зустріч за сесію — обійми (близькі) або «дай п’ять»
     if (first && greet && !N.met.has(code)) { N.met.add(code); const f = find(code); if (f) { toast(fx('t_online', f.name), null, f.avatar); if (f.best) meet(f, false); } }
@@ -163,7 +169,7 @@
       peer.on('connection', conn => attach(conn, null));
       peer.on('disconnected', () => { N.ok = false; emit(); setTimeout(() => { try { if (N.peer === peer && !peer.destroyed) peer.reconnect(); } catch { /* ignore */ } }, 5000); });
       peer.on('error', err => {
-        if (err.type === 'peer-unavailable') { const m = /komiks-lab-u-([A-Z0-9]{6})/.exec(err.message || ''); if (m) { N.conns.delete(m[1]); if (N.online.delete(m[1])) emit(); } return; }
+        if (err.type === 'peer-unavailable') { const m = /komiks-lab-u-([A-Z0-9]{6})/.exec(err.message || ''); if (m) { const dead = N.conns.get(m[1]); if (dead) { try { dead.close(); } catch { /* ignore */ } } N.conns.delete(m[1]); N.miss.set(m[1], Date.now()); if (N.online.delete(m[1])) emit(); } return; }
         if (err.type === 'unavailable-id') { N.ok = false; emit(); return; } // той самий акаунт уже онлайн в іншій вкладці
         if (err.type === 'network' || err.type === 'server-error' || err.type === 'socket-error') { N.netErr = true; emit(); }
       });

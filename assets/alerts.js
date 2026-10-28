@@ -99,6 +99,7 @@
       ago: { now: 'ką tik', m: n => `prieš ${n} min.`, h: n => `prieš ${n} val.`, d: n => `prieš ${n} d.` },
       more: 'Rodyti daugiau', off: 'Pranešimai veikia bilohash.com — čia serverio nėra.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'alerts.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
   const AV = (code, o) => (window.KomiksAvatars ? window.KomiksAvatars.el(code, o) : document.createTextNode(String(code || '🙂').split('|')[0]));
 

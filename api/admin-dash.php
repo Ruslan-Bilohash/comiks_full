@@ -233,7 +233,7 @@ function dash_render(int $range): void {
   $refN = ['direct' => '🔗 Прямий / джерело приховане', 'google' => '🔎 Google', 'bing' => '🔎 Bing', 'duckduckgo' => '🦆 DuckDuckGo', 'facebook' => '📘 Facebook', 'instagram' => '📸 Instagram', 'x' => '𝕏 X / Twitter', 'youtube' => '▶️ YouTube', 'telegram' => '✈️ Telegram', 'whatsapp' => '💬 WhatsApp', 'chatgpt' => '🤖 ChatGPT', 'reddit' => '🟠 Reddit', 'linkedin' => '💼 LinkedIn', 'email' => '✉️ Email / розсилка', 'play' => '▶️ Google Play', 'bilohash' => '🌐 bilohash.com', 'other' => 'Інше'];
   $sources = hit_merge_sources(hits_group($days, 'ref:', 100));
   echo '<section class="card"><h2>🌐 Звідки приходять</h2><p class="muted sub">UTM-мітка має пріоритет, далі — адреса попередньої сторінки. Застосунки, які приховали джерело, входять у «Прямий».</p>' . dash_hbars($sources, DASH_C[0], fn($k) => $refN[$k] ?? $k) . '</section>';
-  $langN = ['uk' => '🇺🇦 Українська', 'en' => '🇬🇧 English', 'no' => '🇳🇴 Norsk', 'ar' => '🇸🇦 العربية', 'de' => '🇩🇪 Deutsch', 'pl' => '🇵🇱 Polski', 'tr' => '🇹🇷 Türkçe', 'lt' => '🇱🇹 Lietuvių'];
+  $langN = ['uk' => '🇺🇦 Українська', 'en' => '🇬🇧 English', 'no' => '🇳🇴 Norsk', 'ar' => '🇸🇦 العربية', 'de' => '🇩🇪 Deutsch', 'pl' => '🇵🇱 Polski', 'tr' => '🇹🇷 Türkçe', 'lt' => '🇱🇹 Lietuvių', 'pt' => '🇧🇷 Português'];
   echo '<section class="card"><h2>🗣️ Мова інтерфейсу</h2>' . dash_hbars(hits_group($days, 'lang:', 8), DASH_C[0], fn($k) => $langN[$k] ?? $k) . '</section>';
   echo '<section class="card"><h2>🕐 Коли заходять</h2><p class="muted sub">Перегляди за годиною доби (час Осло), за весь період.</p>' . dash_hours(hits_group($days, 'hour:', 24)) . '</section>';
 

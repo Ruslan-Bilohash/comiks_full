@@ -1,0 +1,200 @@
+4801	o meu passaporte
+4802	uma garrafa
+4803	uma toalha
+4804	óculos de natação
+4805	a sua mochila
+4806	a sua garrafa
+4807	a sua toalha
+4808	os seus óculos
+4809	uma estrada, um caminho
+4810	uma rua
+4811	uma casa
+4812	vizinhos
+4813	a nossa estrada
+4814	a nossa casa
+4815	os nossos vizinhos
+4816	uma exposição
+4817	gêmeos
+4818	o projeto dele
+4819	a maquete dela
+4820	o cartaz deles
+4821	uma capa de chuva
+4822	uma coleira
+4823	um cachorro
+4824	a própria jaqueta
+4825	a própria coleira
+4826	os próprios brinquedos
+4827	forma indefinida
+4828	depois do substantivo
+4829	antes do substantivo
+4830	o meu carro
+4831	o MEU carro
+4832	um brechó
+4833	de quem?
+4834	um ursinho de pelúcia
+4835	a nossa cesta
+4836	o ursinho dela
+4837	os livros deles
+4838	um dia de mudança
+4839	um móvel
+4840	misturar, confundir
+4841	uma etiqueta com nome
+4842	a minha caixa
+4843	o nosso móvel
+4844	o próprio quarto
+4845	um dia comum, o dia a dia
+4846	planejar
+4847	decidir-se
+4848	um preço
+4849	um compromisso, um combinado
+4850	felizmente
+4851	mesmo assim
+4852	uma renda
+4853	sentir-se bem
+4854	alugar
+4855	moderno
+4856	reformar
+4857	ter dinheiro para
+4858	dar uma olhada
+4859	fazer compras
+4860	pagar para alguém
+4861	perder a hora
+4862	tarde demais
+4863	ocupado
+4864	um alarme
+4865	uma mãe
+4866	um pai
+4867	um irmão
+4868	uma irmã
+4869	um filho
+4870	uma filha
+4871	uma avó
+4872	um avô
+4873	um tio
+4874	uma tia
+4875	um primo
+4876	uma prima
+4877	um homem, um marido
+4878	uma esposa
+4879	uma criança
+4880	um bebê
+4881	pais
+4882	irmãos
+4883	um namorado, uma namorada
+4884	um neto, uma neta
+4885	azul
+4886	amarelo
+4887	verde
+4888	preto
+4889	marrom
+4890	laranja
+4891	roxo
+4892	rosa
+4893	cinza
+4894	azul-claro
+4895	dourado, ouro
+4896	prateado, prata
+4897	um suéter
+4898	uma calça
+4899	uma saia
+4900	um vestido
+4901	uma camiseta
+4902	uma camisa
+4903	uma bota
+4904	uma meia
+4905	um gorro de lã
+4906	um cachecol
+4907	um pijama
+4908	um maiô
+4909	um cinto
+4910	um bunad (traje folclórico)
+4911	cabelo
+4912	um nariz
+4913	uma boca
+4914	uma garganta, um pescoço
+4915	um braço
+4916	uma mão
+4917	um dedo
+4918	uma barriga
+4919	umas costas
+4920	uma perna
+4921	um pé
+4922	um joelho
+4923	um coração
+4924	um rosto
+4925	queijo
+4926	carne
+4927	frango
+4928	uma pizza
+4929	sopa
+4930	arroz
+4931	macarrão
+4932	chocolate
+4933	uma maçã
+4934	uma banana
+4935	uma laranja
+4936	uma pera
+4937	uma uva
+4938	um morango
+4939	um mirtilo
+4940	um limão
+4941	um melão
+4942	um abacaxi
+4943	uma cenoura
+4944	uma batata
+4945	um tomate
+4946	um pepino
+4947	uma cebola
+4948	um pimentão
+4949	um cogumelo
+4950	milho
+4951	brócolis
+4952	alface, salada
+4953	um gato
+4954	um cavalo
+4955	uma vaca
+4956	um porco
+4957	uma ovelha
+4958	uma cabra
+4959	uma galinha
+4960	um pássaro
+4961	um rato
+4962	um coelho
+4963	um urso
+4964	um lobo
+4965	uma raposa
+4966	uma rena
+4967	uma baleia
+4968	uma foca
+4969	uma coruja
+4970	um leão
+4971	um elefante
+4972	uma cobra
+4973	uma borboleta
+4974	uma cadeira
+4975	uma cama
+4976	uma geladeira
+4977	um fogão
+4978	um chuveiro
+4979	um vaso sanitário
+4980	um jardim
+4981	um professor
+4982	um aluno
+4983	uma sala de aula
+4984	um lápis
+4985	uma caneta
+4986	uma borracha
+4987	uma régua
+4988	uma tesoura
+4989	uma mochila escolar
+4990	uma carteira escolar
+4991	matemática
+4992	norueguês (matéria)
+4993	educação física
+4994	um horário de aulas
+4995	segunda-feira
+4996	terça-feira
+4997	quarta-feira
+4998	quinta-feira
+4999	sexta-feira
+5000	janeiro

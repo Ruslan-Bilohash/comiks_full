@@ -485,7 +485,7 @@
     /* Мови підказки на бульбашці — ті самі, що обрані в налаштуваннях: якщо учень
        увімкнув німецьку, вона має бути і в кадрі, а не лише в спливній підказці.
        Для мов зі словника (de/pl/tr/lt/ar) текст добуває KomiksCore.both за англійським рядком. */
-    const TIP_FLAG = { uk: 'UA', en: 'EN', ar: 'AR', de: 'DE', pl: 'PL', tr: 'TR', lt: 'LT' };
+    const TIP_FLAG = { uk: 'UA', en: 'EN', ar: 'AR', de: 'DE', pl: 'PL', tr: 'TR', lt: 'LT', pt: 'BR' };
     const tipLangs = () => {
       const K = window.KomiksCore;
       const v = K && K.trLangs ? K.trLangs() : ['uk', 'en'];

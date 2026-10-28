@@ -1,0 +1,200 @@
+2601	Invadir um sistema sem permissão é ilegal.
+2602	Isso pode estragar arquivos, a privacidade e a confiança.
+2603	Hackers criminosos podem roubar dados ou contas.
+2604	Eles também podem usar o que encontram para golpes ou extorsão.
+2605	O mesmo conhecimento pode proteger a escola e a família.
+2606	Ética significa seguir regras, ter permissão e não prejudicar os outros.
+2607	Só pratico em ambientes de aprendizado legais.
+2608	Se tiver dúvida, pergunte antes a um professor ou a um adulto de confiança.
+2609	O Leo recebe uma mensagem: sua conta será fechada em dez minutos.
+2610	A pressa serve para ele agir antes de pensar.
+2611	O link parece quase verdadeiro, mas o endereço é diferente.
+2612	Isso é phishing, um tipo de engenharia social.
+2613	O remetente pede a senha e o código de uso único.
+2614	Atendentes de verdade não precisam dos seus códigos secretos.
+2615	O Leo para, pensa e confere.
+2616	Ele mesmo abre o app em vez de usar o link.
+2617	Ele entra em contato com o serviço pelo site oficial.
+2618	Eles confirmam que a mensagem era falsa.
+2619	Emoções não provam que uma mensagem é verdadeira.
+2620	Nunca compartilhe senhas, BankID ou códigos de segurança.
+2621	A Nora recebe um alerta de um login que ela não reconhece.
+2622	Ao mesmo tempo, uma amiga dela recebe uma mensagem estranha desse perfil.
+2623	Isso pode ser uma invasão de conta.
+2624	Um perfil invadido pode ser usado para enganar os amigos ou pressionar o dono.
+2625	A Nora vai direto à página oficial de ajuda do serviço.
+2626	Ela escolhe “Minha conta foi hackeada” e segue a recuperação.
+2627	Num aparelho de confiança, ela troca primeiro a senha do e-mail.
+2628	Depois cria uma senha nova e única para o perfil.
+2629	Ela encerra as sessões desconhecidas e liga a autenticação em dois fatores.
+2630	Os dados de contato e as opções de segurança são conferidos.
+2631	A Nora avisa os amigos que mensagens falsas podem ter sido enviadas.
+2632	Um adulto de confiança a ajuda com o resto.
+2633	Nome, endereço, número de identidade e fotos de documentos são dados pessoais.
+2634	Eles não devem ser compartilhados só porque alguém pediu.
+2635	Um criminoso usa dados roubados para se passar pelo Leo.
+2636	Isso é roubo de identidade e pode levar a golpes.
+2637	A família vê uma conta e uma compra que não reconhece.
+2638	Eles guardam as mensagens, as datas e outros comprovantes.
+2639	Eles entram em contato com o banco ou o serviço pelos canais oficiais.
+2640	As contas e os cartões usados indevidamente são bloqueados rapidamente.
+2641	O roubo de identidade deve ser denunciado à polícia.
+2642	Um adulto ajuda o Leo com os comprovantes e os bloqueios necessários.
+2643	O Leo compartilha menos, usa senhas únicas e a autenticação em dois fatores.
+2644	Ele fica de olho em alertas de atividade desconhecida.
+2645	Uma pessoa ameaça compartilhar conteúdo privado se a Nora não obedecer.
+2646	Isso é extorsão digital, e não é culpa da Nora.
+2647	Ela não manda mais fotos, dinheiro nem códigos.
+2648	Obedecer à ameaça não faz necessariamente a pressão parar.
+2649	A Nora guarda o nome de usuário, as mensagens, os horários e os links.
+2650	Ela não encaminha o material sensível para os amigos.
+2651	Ela conta imediatamente a um adulto de confiança.
+2652	Uma criança não deve ter que lidar sozinha com uma ameaça assim.
+2653	Eles denunciam o perfil ao serviço e entram em contato com a polícia.
+2654	Em perigo imediato, eles ligam para o 112.
+2655	Depois de guardar as provas, eles bloqueiam o contato.
+2656	A vergonha é de quem ameaça, não da criança que pede ajuda.
+2657	Um e-mail inesperado tem um anexo que parece importante.
+2658	Anexos e links falsos podem espalhar malware.
+2659	O ransomware pode criptografar arquivos ou travar a tela.
+2660	Depois os criminosos exigem um resgate.
+2661	O Leo para de clicar e chama a professora.
+2662	Ele não tenta soluções aleatórias que possam piorar as coisas.
+2663	A professora desconecta da rede o computador afetado.
+2664	O responsável de TI da escola é avisado na hora.
+2665	Uma cópia de segurança separada e conferida pode ajudar na recuperação.
+2666	Não há garantia de que pagar traga os arquivos de volta.
+2667	Atualizações, cuidado e cópias de segurança reduzem o risco.
+2668	Um ataque é assunto para adultos, para o suporte de TI e, quando for o caso, para a polícia.
+2669	Um anúncio promete dinheiro grátis no jogo e funções secretas.
+2670	O download vem de um site desconhecido.
+2671	O app quer ler contatos, mensagens, fotos e o microfone.
+2672	As permissões não combinam com um simples complemento de jogo.
+2673	Apps falsos podem conter malware.
+2674	Ele pode roubar dados, mostrar anúncios ou controlar o aparelho.
+2675	O Leo cancela a instalação e não dá acesso de administrador.
+2676	Ele pergunta a um adulto antes de baixar algo desconhecido.
+2677	Eles usam só a loja oficial ou o site do desenvolvedor.
+2678	Eles conferem o nome, o desenvolvedor, as avaliações e as permissões necessárias.
+2679	O celular e os apps recebem atualizações de segurança.
+2680	Sistemas atualizados fecham falhas de segurança conhecidas.
+2681	Tem algo errado: mensagens desconhecidas estão sendo enviadas da conta.
+2682	A Nora para o que está fazendo e não usa mais links aleatórios.
+2683	Ela avisa um adulto de confiança, a professora ou o responsável de TI.
+2684	Uma ajuda rápida muitas vezes limita o estrago.
+2685	Eles anotam os horários, os nomes de usuário, os alertas e o que aconteceu.
+2686	Eles evitam mudanças desnecessárias até um adulto entender a situação.
+2687	Eles usam o suporte oficial do serviço e um aparelho de confiança.
+2688	As senhas são trocadas, as sessões desconhecidas encerradas e a autenticação em dois fatores ativada.
+2689	Em casos de golpe, ameaça ou crime digital, dá para contatar a polícia.
+2690	Em caso de perigo imediato para a vida ou a saúde, use o número de emergência.
+2691	Por fim, eles conferem as cópias de segurança, as atualizações e as opções de segurança.
+2692	Um incidente é mais fácil de resolver quando o plano é conhecido de antemão.
+2693	Uma mala se abre na balsa, e as coisas saem rolando.
+2694	A Mia precisa mostrar quais coisas são dela.
+2695	“Genseren min”, diz a Mia sobre um suéter.
+2696	Um substantivo masculino leva min.
+2697	“Lua mi” combina com ei lue.
+2698	Um substantivo feminino pode levar mi.
+2699	“Passet mitt” combina com et pass.
+2700	Um substantivo neutro leva mitt.
+2701	“Skoene mine” fala de vários sapatos.
+2702	O plural leva mine, qualquer que seja o gênero.
+2703	A Mia coloca todas as coisas de volta na mala.
+2704	Ela olha a coisa: en→min, ei→mi, et→mitt, várias→mine.
+2705	Ficaram quatro coisas para trás depois da aula de natação.
+2706	O Leo pergunta a cada aluno em vez de chutar.
+2707	“Er dette sekken din?”, ele pergunta ao Amir.
+2708	En sekk combina com din.
+2709	“Er flaska di blå?”, ele pergunta à Nora.
+2710	Ei flaske combina com di.
+2711	“Håndkleet ditt er her!”, diz o Leo.
+2712	Et håndkle combina com ditt.
+2713	“Svømmebrillene dine estão no banco.”
+2714	O plural combina com dine.
+2715	Todos recebem de volta a coisa certa.
+2716	A pergunta fica fácil quando o Leo olha para o substantivo.
+2717	A família se mudou e desenha um mapa junta.
+2718	Eles querem explicar onde fica cada coisa.
+2719	“Veien vår vai até o parque.”
+2720	En vei leva vår.
+2721	“Gata vår tem muitas árvores.”
+2722	Vår também é usado com substantivos femininos.
+2723	“Huset vårt tem uma porta vermelha.”
+2724	Et hus leva vårt.
+2725	“Naboene våre se chamam Liv e Per.”
+2726	O plural leva våre.
+2727	Agora todos sabem descrever o seu bairro.
+2728	Vår, vårt ou våre acompanha o que temos juntos.
+2729	Três projetos estão expostos sem etiquetas com nome.
+2730	A professora pede à turma que encontre os donos.
+2731	O Leo construiu o robô. É o projeto dele.
+2732	Hans não muda conforme o substantivo.
+2733	A Nora fez a cidade. A maquete dela acende.
+2734	Hennes tem a mesma forma no singular e no plural.
+2735	Os gêmeos desenharam o cartaz. As cores deles são fortes.
+2736	Deres é usado quando várias pessoas são donas de algo.
+2737	Dizemos huset hans, boka hans e bildene hans.
+2738	Quem escolhe a palavra é o dono, e não o gênero do substantivo.
+2739	Cada projeto ganha a etiqueta de nome certa.
+2740	Hans, hennes e deres deixam claro quem é o dono.
+2741	O Leo e a Nora arrumam as roupas molhadas depois do passeio.
+2742	O cachorro Max fareja uma capinha de chuva pequena.
+2743	O Max encontra jakka si, ou seja, a própria jaqueta.
+2744	Si remete ao Max, que é o sujeito.
+2745	O Max coloca halsbåndet sitt.
+2746	Et halsbånd faz a gente escolher sitt.
+2747	Depois o Max junta lekene sine.
+2748	O plural faz a gente escolher sine.
+2749	O Max leva jakka hennes para a Nora.
+2750	Hennes quer dizer que a jaqueta é de outra pessoa, uma menina, e não do sujeito, o Max.
+2751	Primeiro pergunte quem é o sujeito e quem é o dono da coisa.
+2752	Aí a diferença entre sin e hans ou hennes fica clara.
+2753	A Nora escreve “sykkelen min” e também “min sykkel”.
+2754	As duas formas estão certas, mas a forma do substantivo muda.
+2755	Quando o possessivo vem depois, usamos a forma definida.
+2756	Por isso dizemos “bilen min”.
+2757	Quando o possessivo vem antes, usamos a forma indefinida.
+2758	Por isso dizemos “min bil”.
+2759	A posição depois é muito comum: boka di, huset vårt.
+2760	A posição antes pode dar mais ênfase: é a MINHA xícara!
+2761	A Nora corrige “bil min” para “bilen min”.
+2762	Ela corrige “min bilen” para “min bil”.
+2763	As placas ficam certas e claras.
+2764	A posição do possessivo define a forma do substantivo.
+2765	Algumas etiquetas caem no brechó.
+2766	As crianças viram detetives de donos.
+2767	O Leo pergunta: “Esta xícara é sua?”
+2768	A Nora responde: “Não, a minha xícara é amarela.”
+2769	A cesta da turma toda é kurven vår.
+2770	Vários donos podem dizer vår, vårt ou våre.
+2771	A Mia reconhece o ursinho da Nora.
+2772	“Det er bamsen hennes”, ela diz.
+2773	Dois irmãos são donos de uma caixa de livros.
+2774	São bøkene deres.
+2775	Cada coisa ganha uma etiqueta nova e clara.
+2776	Pergunte “de quem é?” e “que tipo de substantivo é?”
+2777	O caminhão de mudança está cheio de caixas sem o nome dos cômodos.
+2778	A família precisa descrever com precisão tanto o dono quanto o lugar.
+2779	A Mia diz “eska mi”, mas “bordet mitt”.
+2780	A forma acompanha a coisa, e não a Mia.
+2781	Os pais apontam para møbelet vårt e stolene våre.
+2782	Vårt é neutro; våre é plural.
+2783	O Leo leva a própria cama para o próprio quarto.
+2784	Si e sitt remetem ao sujeito, o Leo.
+2785	A Mia leva a cama dele até o Leo.
+2786	Hans se refere ao Leo, e não ao sujeito, a Mia.
+2787	Etiquetas e frases precisas acabam com a confusão.
+2788	Agora a família consegue explicar quem é dono de quê.
+2789	A tia Liv gosta de morar perto do rio, mas o apartamento dela ficou pequeno demais.
+2790	A Nora encontra o anúncio de um apartamento disponível na mesma região.
+2791	A cozinha é moderna, e a sala tem janelas grandes.
+2792	O quarto precisa de reforma, mas o Leo diz que eles podem pintar juntos.
+2793	A Liv gostaria de ter um imóvel próprio um dia, mas por enquanto precisa alugar.
+2794	Ela pergunta quanto é o aluguel e se a luz está incluída.
+2795	A Liv tem uma renda fixa, mas quer saber se consegue pagar o apartamento.
+2796	Eles colocam aluguel, luz, comida e ônibus num orçamento.
+2797	O orçamento mostra que a Liv consegue economizar um pouco todo mês.
+2798	Mesmo assim, ela quer pensar com calma antes de decidir.
+2799	No dia seguinte, a Liv aceita o apartamento e mantém o plano de economia.
+2800	Ela escolheu com o coração e com o orçamento.

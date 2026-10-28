@@ -1,0 +1,200 @@
+801	Vamos fazer uma pausa. Quer chocolate quente?
+802	Quero, obrigado! Na Inglaterra a gente toma chá, mas isto também é gostoso.
+803	Finalmente eles chegam à cabana.
+804	É tão pequena! Onde fica o banheiro?
+805	A casinha fica lá fora.
+806	Um banheiro lá fora, no frio?
+807	Sim! Faz parte da vida na cabana.
+808	Agora temos que buscar água no riacho e rachar lenha.
+809	Isto parece um acampamento de treinamento!
+810	Hoje à noite vamos fazer waffles e jogar cartas.
+811	Que aconchegante!
+812	À noite eles saem e olham para o céu.
+813	Olha! É a aurora boreal!
+814	Você tem sorte. Isso não se vê todo dia.
+815	Quer saber? Não estou sentindo nenhuma falta do celular.
+816	Bem-vindo à Noruega, Musa!
+817	No domingo eles descem a montanha.
+818	No próximo fim de semana quero ir para a cabana de novo!
+819	Então você vai ter que comprar seus próprios esquis.
+820	Esquis, pneus com cravos, capa de chuva… A Noruega é um país caro, mas fantástico!
+821	Bem-vindo ao trabalho, Musa! Você já pediu o cartão de imposto?
+822	Cartão de imposto? Não, o que é isso?
+823	Sem o cartão de imposto, temos que descontar cinquenta por cento de imposto do seu salário.
+824	Cinquenta por cento? É demais!
+825	Você pede pela internet na Receita norueguesa. Precisa de um número de identidade nacional ou de um número D.
+826	Tenho um número D. Recebi quando cheguei à Noruega.
+827	Preciso entrar com o BankID. O que é isso?
+828	É uma identidade eletrônica. Você recebe no banco.
+829	O Musa vai ao banco abrir uma conta.
+830	Bem-vindo! Você tem passaporte e número D?
+831	Tenho, aqui estão os dois.
+832	Em uma semana você recebe o cartão do banco e o BankID.
+833	Uma semana? Na Inglaterra leva um dia!
+834	Bem-vindo à Noruega!
+835	Aqui perguntam quanto vou ganhar este ano. Não tenho muita certeza.
+836	Escreva o que você acha. Sempre dá para mudar depois.
+837	Lembre também de conferir a declaração de imposto toda primavera.
+838	Declaração de imposto? Mais uma palavra nova!
+839	Ali você vê quanto imposto pagou. Talvez receba dinheiro de volta!
+840	Dinheiro de volta? Disso eu gosto!
+841	O salário cai no dia vinte de cada mês, direto na sua conta.
+842	Preciso ter uma conta em banco norueguês?
+843	Precisa, é o mais fácil.
+844	Um mês depois.
+845	Meu primeiro salário na Noruega! Agora finalmente posso comprar uma boa capa de chuva.
+846	O Musa vai direto para a loja de esportes.
+847	Uma capa de chuva — e pneus novos para a minha bicicleta!
+848	De novo? Você esteve aqui no mês passado!
+849	É segunda de manhã. A Alina leva a Mia para a creche.
+850	Pegou sua mochila, Mia?
+851	Peguei, mamãe!
+852	Bom dia, Mia! Que bom te ver!
+853	Oi! Posso brincar lá fora?
+854	Pode, mas primeiro você precisa vestir a roupa de chuva. Hoje está chovendo.
+855	A roupa de chuva está na mochila.
+856	Hoje vamos fazer uma fogueira e assar salsichas na floresta.
+857	Oba! Eu adoro salsicha!
+858	Vocês fazem fogueira com crianças tão pequenas?
+859	Fazemos, com segurança e com adultos. As crianças aprendem muito ao ar livre, na natureza.
+860	A Mia está um pouco resfriada. Ela pode ficar lá fora hoje?
+861	Pode, sem problema. Se ela tiver febre, ligamos para você.
+862	A que horas preciso buscá-la?
+863	A creche fecha às cinco, mas muitos buscam às quatro.
+864	Lembre que temos reunião de pais na quinta-feira.
+865	Obrigada! Sobre o que vamos falar?
+866	Sobre passeios, comida e o novo ano.
+867	Está faltando alguma coisa no cantinho da Mia?
+868	Sim, meias extras, um suéter e uma touca.
+869	Tchau, mamãe! Eu te amo!
+870	Tchau, querida! Divirta-se!
+871	Às quatro horas a Alina volta.
+872	Mamãe! Fiquei lá fora o dia todo!
+873	Você está toda suja! Mas parece tão feliz.
+874	A gente assou salsichas e viu um alce na floresta!
+875	Um alce? Que aventura! Agora vamos para casa jantar.
+876	O Musa mora em Drammen com as duas filhas.
+877	Olhem, crianças! Comprei um carro novo!
+878	Uau! Ele é vermelho e superlegal!
+879	Ele é elétrico, papai?
+880	É, como a maioria dos carros novos na Noruega. Vai de zero a cem em quatro segundos!
+881	Mais rápido, papai! Corre mais!
+882	Não, aqui o limite de velocidade é oitenta. Na Noruega as multas são muito caras.
+883	Caras quanto?
+884	Muitos milhares de coroas! E dá para perder a carteira de motorista.
+885	De repente o Musa vê um radar.
+886	Opa, um radar! Ainda bem que estou dirigindo devagar.
+887	Papai, por que tem tantos túneis na Noruega?
+888	Porque tem muitas montanhas! A Noruega tem mais de mil túneis.
+889	Agora precisamos carregar o carro. A bateria está com vinte por cento.
+890	Quanto tempo leva?
+891	Uns vinte minutos. Vamos comprar sorvete enquanto esperamos!
+892	Eu quero sorvete de chocolate!
+893	E eu quero de morango!
+894	No sábado eles vão até um autódromo fora da cidade.
+895	Aqui na pista posso andar tão rápido quanto quiser!
+896	Cento e oitenta quilômetros por hora! Uau!
+897	Bela pilotagem, Musa! Mas lembre de frear nas curvas!
+898	O papai é o mais rápido do mundo!
+899	E o melhor motorista do mundo — na estrada eu sempre sigo as regras!
+900	Na volta para casa, o Musa dirige com calma e cuidado.
+901	Papai, agora você está dirigindo igual à vovó!
+902	Pois é — na estrada eu sou um pai tranquilo!
+903	O Musa vai de bicicleta para todo lugar — para o trabalho, para a loja e para a escola.
+904	Carro é divertido, mas bicicleta é a melhor!
+905	Você veio de bicicleta hoje também? Está dez graus negativos!
+906	Claro! Não tenho medo do frio.
+907	Ah, não! Pneu furado de novo!
+908	Papai, é a terceira vez este mês!
+909	Sem problema. Tenho ferramentas na mochila.
+910	Posso te ajudar, papai?
+911	Pode! Segure a bicicleta enquanto eu tiro a roda.
+912	Hum, o pneu está completamente estragado. Precisamos ir à loja de bicicletas.
+913	De novo?!
+914	Oi de novo, Musa! Precisa de pneus novos?
+915	Preciso, como sempre. Troco os pneus todo mês.
+916	No inverno, recomendo pneus com cravos. Assim você não escorrega no gelo.
+917	Perfeito! Então posso pedalar ainda mais rápido.
+918	Você também precisa de luzes e refletores. No inverno é escuro.
+919	Tenho três lanternas e um colete refletivo amarelo!
+920	Então todo mundo vai te ver!
+921	Dá mil e duzentas coroas no total.
+922	Posso pagar com Vipps?
+923	Claro! Obrigado, e bom passeio!
+924	Neve, gelo e escuridão — nada me para!
+925	Os vizinhos o chamam de “o maluco da bicicleta de Drammen”.
+926	Como foi o passeio de bicicleta hoje?
+927	Fantástico! Passei de três carros no engarrafamento.
+928	Você é completamente doido, Musa!
+929	Na primavera tem uma corrida de bicicleta em Drammen.
+930	Vou ganhar! Tenho pneus novos — de novo!
+931	Vai, papai!
+932	Musa, não entendo. Synes ou tror?
+933	É fácil. Synes é a minha opinião. Tror é o meu palpite.
+934	Eu provei o bolo. Acho (é a minha opinião) que está gostoso.
+935	Então synes é sobre algo que você conhece?
+936	Exatamente. Eu sei qual é o gosto.
+937	Eu não provei a sopa. Acho (é um palpite) que está gostosa.
+938	Ah! Tror é quando você não sabe com certeza.
+939	Acho este livro engraçado. Li duas vezes.
+940	E acho que o livro novo também é engraçado.
+941	Você não leu, então é um palpite. Certo!
+942	Você acha que vai fazer sol amanhã?
+943	Acho que sim. Mas não sei com certeza.
+944	Acho a chuva chata!
+945	Acho as maçãs daqui baratas.
+946	Obrigado! Acho que amanhã vão chegar maçãs novas.
+947	Lembre: synes é sobre algo que eu conheço; tror, sobre algo que eu não sei.
+948	E “jeg tror på deg” quer dizer “eu acredito em você”!
+949	Agora entendi! Acho o norueguês divertido.
+950	E eu acho que você vai ficar muito bom!
+951	Ei! Essa é a minha mochila!
+952	Não, esta é a minha mochila. A sua mochila é azul.
+953	En sekk é masculino. Por isso dizemos min sekk.
+954	E sekken min quer dizer a mesma coisa?
+955	Quer! As duas formas estão certas. Sekken min é a mais comum.
+956	Ei bok é feminino. Então é boka mi!
+957	Isso mesmo. Mi bok ou boka mi.
+958	Et pennal é neutro. Então dizemos mitt pennal.
+959	E o seu estojo está em cima da sua carteira.
+960	Cadê os meus sapatos? Só tenho um pé!
+961	Muitas coisas = mine. Os seus sapatos estão perto da porta.
+962	Esta é a sua xícara ou a minha?
+963	É a minha xícara. A sua é vermelha!
+964	Lembre: min, mi, mitt, mine. E para você: din, di, ditt, dine.
+965	Parece uma musiquinha!
+966	Agora eu sei: sekken min, boka mi, pennalet mitt!
+967	E os meus sapatos estão perto da porta!
+968	O Musa pega a própria bicicleta. Ou ele está pegando a minha?
+969	Calma! Estou pegando a minha própria bicicleta — ou seja, sykkelen sin.
+970	A regra é simples. Sin aponta para quem está fazendo a ação.
+971	Nora leser boka si. É o livro dela mesma?
+972	É, exatamente!
+973	Mas “Nora leser boka hans” quer dizer o livro de outra pessoa.
+974	Hans é do menino, e hennes é da menina?
+975	Certo. Hans = dele. Hennes = dela.
+976	O Leo joga a própria bola. A Nora joga a bola dele.
+977	Duas bolas, duas palavras. Agora vejo a diferença!
+978	Esta é a nossa casa, e o jardim é nosso.
+979	E os nossos livros estão na estante!
+980	Deres quer dizer tanto “de vocês” quanto “deles”.
+981	Este estojo é de vocês?
+982	Não, é o estojo deles — das crianças da turma 2B.
+983	O Musa lava o próprio carro. Eu lavo o carro dele também!
+984	Obrigado, vizinho! Você é o melhor.
+985	Sin é do próprio sujeito; hans e hennes são de outra pessoa.
+986	E vår é nosso — de toda a nossa família!
+987	A Maria está com dor de garganta e vai à farmácia.
+988	Olá! Em que posso ajudar?
+989	Estou com dor de garganta e um pouco de febre.
+990	Já faz três dias.
+991	Você também tem tosse ou dor de cabeça?
+992	Um pouco de tosse, mas não dor de cabeça.
+993	Então sugiro estes comprimidos e pastilhas para a garganta.
+994	Preciso de receita?
+995	Não, estes você leva sem receita.
+996	Com que frequência devo tomar?
+997	Um comprimido três vezes ao dia, depois das refeições.
+998	Beba bastante água e descanse. Você tem alergia a alguma coisa?
+999	Não, não tenho alergia.
+1000	Dá 149 coroas. Vai pagar com cartão?

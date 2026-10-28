@@ -74,7 +74,7 @@ step('Каталог ігор', () => {
   vm.runInContext(fs.readFileSync(f, 'utf8'), w, { filename: 'games.js' });
   const games = w.KOMIKS_GAMES || [];
   const text = require('./games-text.js')();
-  const LANGS = ['en', 'no', 'uk', 'de', 'pl', 'tr', 'lt', 'ar'];
+  const LANGS = ['en', 'no', 'uk', 'de', 'pl', 'tr', 'lt', 'pt', 'ar'];
   const bad = [];
   for (const l of LANGS) {
     if (!text[l]) { bad.push(`немає тексту мовою «${l}»`); continue; }

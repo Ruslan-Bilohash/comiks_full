@@ -1,0 +1,200 @@
+1601	Mãe, estou doente.
+1602	Ah, não! O que você tem?
+1603	Estou com dor de cabeça.
+1604	Está com febre também?
+1605	Acho que sim. Estou quente.
+1606	Então hoje você fica em casa.
+1607	Vou ligar para a escola agora.
+1608	Olá, a Mia está doente hoje.
+1609	Aqui está um chá com mel.
+1610	Muito obrigada, mãe.
+1611	Amanhã já vou estar boa.
+1612	Repouso e chá quentinho ajudam.
+1613	Bem-vindo à minha casa!
+1614	Obrigado! O apartamento é bonito.
+1615	Aqui é a cozinha. A gente come aqui.
+1616	A mesa é grande!
+1617	Esta é a sala. Aqui a gente vê TV.
+1618	O sofá é macio.
+1619	O meu quarto é ali.
+1620	Eu leio todas as noites.
+1621	Vocês têm varanda?
+1622	Temos, com flores. Vem ver!
+1623	Eu também quero morar aqui!
+1624	Você é sempre bem-vindo.
+1625	Com licença, quanto custam as maçãs?
+1626	Vinte e cinco coroas o quilo.
+1627	Hoje é leve três, pague dois.
+1628	Que ótimo! Vale para tudo?
+1629	Não, só para frutas e verduras.
+1630	Certo. Vou levar três sacos.
+1631	Este queijo vence logo?
+1632	Ele dura até sexta.
+1633	Você tem o nosso cartão fidelidade?
+1634	Não, mas eu gostaria de ter um.
+1635	Assim você economiza dez por cento nas frutas.
+1636	Fica mais barato do que eu pensava.
+1637	Já decidiram?
+1638	Quase. Antes preciso avisar sobre uma alergia.
+1639	Não posso comer nozes de jeito nenhum.
+1640	Isso é importante. Vou anotar no pedido.
+1641	A salada tem nozes?
+1642	Tem, tem nozes no molho.
+1643	Vocês podem trocar por queijo?
+1644	Pode, sim. A cozinha vai fazer uma porção nova.
+1645	Vocês usam a mesma faca e a mesma tábua?
+1646	Não, temos utensílios separados para alergias.
+1647	Obrigado por levarem isso a sério.
+1648	Avise sempre — assim a comida fica segura.
+1649	Vamos fazer um bolo. Temos muito leite?
+1650	Sim, temos muito leite.
+1651	E temos muitos ovos?
+1652	Temos quatro ovos. É o suficiente.
+1653	Dizemos “mye” para leite, farinha e açúcar.
+1654	E “mange” para ovos, maçãs e bolos?
+1655	Exatamente. “Mange” é para o que contamos; “mye”, para o que medimos.
+1656	De quanto açúcar precisamos?
+1657	Não muito. Só um pouquinho.
+1658	E de quantas maçãs?
+1659	Três maçãs. Agora vamos assar!
+1660	Vou contar: uma, duas, três.
+1661	Oi! Preciso de um saco grande.
+1662	Aqui tem um saco grande e um saco pequeno.
+1663	O grande, por favor.
+1664	Aqui está.
+1665	Vocês têm um pão pequeno também?
+1666	Temos, um pão pequeno e um pão grande.
+1667	O pequeno, por favor.
+1668	Certo. Mais alguma coisa?
+1669	Por que dizemos “liten pose”, mas “lite brød”?
+1670	Porque “pose” é uma palavra en, e “brød” é uma palavra et.
+1671	Um saco pequeno, um pão pequeno, sapatos pequenos.
+1672	Agora vou lembrar. Obrigado!
+1673	Quer um pouco de café?
+1674	Quero, obrigado, só um pouquinho.
+1675	Sobrou pouco açúcar.
+1676	É, “lite” quer dizer quase nada.
+1677	E temos poucas maçãs na cesta.
+1678	“Få” é como “lite”, mas para coisas que dá para contar.
+1679	Então: um pouco de café, pouco açúcar, poucas maçãs.
+1680	Exatamente.
+1681	“Litt” é positivo: um pouco de café é bom.
+1682	E “lite kaffe” soa triste.
+1683	Então vou comer um pouco de bolo também.
+1684	Só um pouquinho, tá.
+1685	Esta montanha é grande.
+1686	É, mas aquela é maior.
+1687	E a mais alta é a maior de todas.
+1688	Stor, større, størst. Entendi.
+1689	Tenho muitas fotos da trilha.
+1690	Eu tenho mais do que você.
+1691	Mas o Leo tem mais que todo mundo. Ele tira foto o tempo todo.
+1692	Muitos, mais, o maior número.
+1693	E como fica com “lite”?
+1694	Pouco, menos, o mínimo.
+1695	Está vendo a cabaninha? Ela é a menor daqui.
+1696	Mas a trilha é o melhor de tudo. God, bedre, best!
+1697	São sete da manhã.
+1698	Leo, levanta! Você tem que ir para a escola.
+1699	Estou com tanto sono…
+1700	Primeiro eu me lavo e escovo os dentes.
+1701	Muito bem! Depois você precisa se vestir.
+1702	Bom dia! Você quer pão ou mingau de aveia?
+1703	Pão com queijo, por favor. E um copo de leite.
+1704	Ah, não! São quinze para as oito!
+1705	O ônibus sai às oito e dez!
+1706	Cadê a minha mochila?
+1707	Olha! O Pus está dormindo na sua mochila.
+1708	Miau.
+1709	Tchau, mãe! Peguei o ônibus!
+1710	Tenha um bom dia na escola!
+1711	Bem-vindos ao treino! Primeiro vamos correr duas voltas.
+1712	Duas voltas? Isso é fácil!
+1713	Ah, não, esqueci a minha garrafinha de água…
+1714	Agora vamos treinar passes. Passem a bola uns para os outros!
+1715	Leo, lá vai!
+1716	Não tão forte, Leo! Agora a bola foi parar no arbusto.
+1717	Desculpa! Eu vou buscar.
+1718	Agora vamos jogar uma partida: três contra três. A Nora está no gol do time vermelho.
+1719	Ninguém vai fazer gol em mim!
+1720	Gol! Eu fiz gol!
+1721	Nããão! Mas foi um belo chute.
+1722	Muito bem hoje! Lembrem de beber água. O próximo treino é na quinta.
+1723	Pai, posso pegar a sua garrafinha emprestada?
+1724	Segunda-feira, dez horas, no escritório.
+1725	Maria, você ficou sabendo? Hoje vai ter simulado de incêndio.
+1726	Hoje? Eu nem sei onde fica a saída de emergência.
+1727	Eu sou o representante de segurança. A saída de emergência fica perto da escada. Não use o elevador – ele pode parar se houver um incêndio.
+1728	Obrigada! É bom saber.
+1729	BIIIP! BIIIP!
+1730	Lá vai o alarme! Largamos tudo e saímos com calma.
+1731	Não devo levar o notebook?
+1732	Não. Vidas valem mais do que coisas.
+1733	Todos se encontram no ponto de encontro perto do estacionamento. Eu vou marcando na lista.
+1734	Estão todos aqui?
+1735	Não, falta o Denys!
+1736	Desculpem, eu só precisei pegar o meu café…
+1737	Denys! Era exatamente isso que não devíamos fazer.
+1738	O simulado levou quatro minutos. Da próxima vez saímos mais rápido – sem café.
+1739	Agora sei onde ficam a saída de emergência e o extintor.
+1740	Em setembro tem eleição municipal.
+1741	Recebi um cartão de eleitor pelo correio. Eu posso votar?
+1742	Pode! Depois de três anos de residência legal, você pode votar na eleição municipal.
+1743	A eleição para o parlamento é diferente. Nela é preciso ser cidadão norueguês.
+1744	No Storting há cento e sessenta e nove representantes. Eles são eleitos a cada quatro anos.
+1745	Ontem votei antecipadamente na biblioteca. Levou cinco minutos.
+1746	Dá para votar antecipadamente? Eu não sabia.
+1747	Dá, é só levar um documento.
+1748	O voto é secreto. Ninguém pode ver a sua cédula – nem a sua família.
+1749	Isso é importante. Nem sempre foi assim no lugar de onde eu venho.
+1750	Mas como escolho um partido? Não conheço todos.
+1751	Leia os programas dos partidos e experimente um aplicativo de orientação de voto. Pense no que é importante para você no seu município.
+1752	Para mim, creches e transporte público são o mais importante. Vou usar o meu direito de voto pela primeira vez!
+1753	Bem dito. A democracia funciona melhor quando muita gente participa.
+1754	Olha, Nora! A escola ganhou um robô.
+1755	Oi, robô! Qual é o seu nome?
+1756	Oi! Meu nome é Robo. Eu faço o que vocês mandarem.
+1757	O Robo só entende comandos. Isso se chama programação.
+1758	O que é um comando?
+1759	Um comando é uma instrução curta, por exemplo “ande” ou “vire”.
+1760	Robo, dê dois passos para a frente!
+1761	Andando. Um, dois. Pronto!
+1762	Robo, faz uma pizza para mim!
+1763	Erro! Não conheço o comando “pizza”.
+1764	Um programa são muitos comandos na ordem certa.
+1765	Então a gente precisa pensar passo a passo!
+1766	Quero aprender a programar!
+1767	E eu quero aprender a fazer pizza.
+1768	Pai, vou ensinar o Robo a fazer um sanduíche.
+1769	Então você precisa de um algoritmo.
+1770	O que é um algoritmo?
+1771	Um algoritmo é como uma receita: passo a passo, na ordem certa.
+1772	Passo um: pegue o pão. Passo dois: passe manteiga.
+1773	Manteiga na… mesa? Feito!
+1774	Ha ha! Você precisa dizer exatamente o que o Robo deve fazer.
+1775	Novo passo dois: passe manteiga na fatia de pão!
+1776	Passo três: coloque queijo. Passo quatro: dê o sanduíche para o Leo.
+1777	Feito! Aqui está.
+1778	Hum! O algoritmo funciona!
+1779	E lembre: a ordem é importante. Primeiro a manteiga, depois o queijo.
+1780	Robo, pula! Bate palma! Pula! Bate palma! Pula! Bate palma!
+1781	Pula. Palma. Pula. Palma…
+1782	Ufa, é muita coisa para escrever.
+1783	Use um laço! Um laço repete comandos.
+1784	Escreva: repita quatro vezes: pular e bater palma.
+1785	Que curto!
+1786	Pula, palma! Pula, palma! Pula, palma! Pula, palma!
+1787	O Robo está dançando!
+1788	Dá para repetir cem vezes?
+1789	Dá. Computadores nunca se cansam.
+1790	Mas o Robo está ficando tonto…
+1791	Ha ha! Vamos parar o laço agora.
+1792	Robo, vamos sair. Leve um guarda-chuva.
+1793	Por quê? Está fazendo sol.
+1794	Você tem razão, Robo. Precisamos de uma regra.
+1795	Se chover, levamos guarda-chuva.
+1796	Se chover, então levamos guarda-chuva. Senão, levamos óculos de sol.
+1797	Se… então… senão. Entendido!
+1798	Está chovendo. Vou levar o guarda-chuva.
+1799	Muito bem, Robo!
+1800	Agora está fazendo sol. Vou levar os óculos de sol.

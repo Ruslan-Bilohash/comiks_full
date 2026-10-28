@@ -1,0 +1,200 @@
+3201	bebeu, tomou
+3202	jogou
+3203	ganhou, venceu
+3204	marcou (gol)
+3205	gol, meta
+3206	defendeu, salvou
+3207	vezes
+3208	ajudou
+3209	assou
+3210	lavou
+3211	depois
+3212	à noite
+3213	chamava-se
+3214	custou
+3215	em promoção
+3216	os verbos
+3217	o pretérito
+3218	aconteceu
+3219	chamar-se
+3220	ser de, vir de
+3221	morar
+3222	idioma, língua
+3223	falar
+3224	aprender
+3225	trabalhar
+3226	engenheiro
+3227	difícil
+3228	professor
+3229	o Reino Unido
+3230	uma criança – duas crianças
+3231	contar
+3232	hoje – ontem
+3233	um intervalo
+3234	uma lição de casa
+3235	uma frase
+3236	durar
+3237	uma encomenda
+3238	buscar, retirar
+3239	um código de retirada
+3240	uma mensagem
+3241	documento de identidade
+3242	um passaporte
+3243	ajudar
+3244	chá
+3245	biscoitos
+3246	enviar
+3247	uma carta
+3248	pagar com cartão
+3249	carregar
+3250	uma surpresa
+3251	uma xícara
+3252	o tempo (clima)
+3253	chover
+3254	o sol
+3255	neve
+3256	ruim
+3257	uma capa de chuva
+3258	acostumado a
+3259	finalmente
+3260	aproveitar
+3261	procurar
+3262	botas
+3263	impermeável
+3264	molhado – seco
+3265	um pãozinho de canela
+3266	um almoço
+3267	uma marmita
+3268	uma fatia de pão
+3269	provar
+3270	um refeitório
+3271	uma reunião
+3272	o fim de semana
+3273	um colega
+3274	onze e meia
+3275	esquiar
+3276	nascido
+3277	as pernas
+3278	barato
+3279	prático
+3280	geleia
+3281	preparar-se
+3282	uma cabana
+3283	uma viagem para a cabana
+3284	uma montanha
+3285	cansado
+3286	uma vista
+3287	chocolate quente
+3288	aconchegante
+3289	sentir falta de
+3290	ir junto
+3291	uma casinha (banheiro externo)
+3292	um riacho
+3293	rachar lenha
+3294	a aurora boreal
+3295	sortudo
+3296	o céu
+3297	um cartão de imposto
+3298	imposto
+3299	um salário
+3300	descontar
+3301	encomendar, pedir
+3302	um número de identidade nacional
+3303	um número D
+3304	ganhar (dinheiro)
+3305	mudar
+3306	uma conta bancária
+3307	por cento
+3308	pela internet
+3309	BankID (identidade eletrônica)
+3310	abrir uma conta
+3311	um cartão do banco
+3312	uma declaração de imposto
+3313	dinheiro de volta
+3314	o mês passado
+3315	uma creche
+3316	uma mochila
+3317	roupa de chuva
+3318	brincar
+3319	lá fora
+3320	resfriado
+3321	uma febre
+3322	fechar
+3323	acompanhar alguém (até)
+3324	amar, gostar muito de
+3325	divertir-se, aproveitar
+3326	uma fogueira
+3327	uma salsicha
+3328	uma reunião de pais
+3329	meias
+3330	uma touca
+3331	sujo
+3332	um alce
+3333	um carro
+3334	um carro elétrico
+3335	dirigir
+3336	rápido – mais rápido
+3337	um limite de velocidade
+3338	uma multa – multas
+3339	uma carteira de motorista
+3340	perder
+3341	um autódromo
+3342	um motorista
+3343	regras
+3344	comprar
+3345	um radar
+3346	devagar
+3347	um túnel
+3348	carregar (bateria)
+3349	uma bateria
+3350	frear
+3351	com cuidado
+3352	uma bicicleta
+3353	andar de bicicleta
+3354	um pneu
+3355	um pneu furado
+3356	pneus com cravos
+3357	gelo
+3358	escorregar
+3359	o frio
+3360	dez graus negativos
+3361	recomendar
+3362	em todo lugar
+3363	ferramentas
+3364	uma roda
+3365	quebrado, estragado
+3366	um refletor
+3367	uma lanterna
+3368	uma fila, um engarrafamento
+3369	uma corrida de bicicleta
+3370	achar (ter uma opinião)
+3371	achar, supor; acreditar
+3372	uma opinião
+3373	um palpite
+3374	conhecer
+3375	com certeza
+3376	uma sopa
+3377	engraçado
+3378	chato
+3379	confiar em
+3380	duas vezes
+3381	bom em, esperto
+3382	meu / minha / meus / minhas
+3383	seu / sua / seus / suas (de você)
+3384	masculino (en)
+3385	feminino (ei)
+3386	neutro (et)
+3387	plural
+3388	um livro
+3389	um estojo
+3390	um sapato
+3391	uma porta
+3392	comum, normal
+3393	o mesmo
+3394	o próprio (do sujeito)
+3395	dele (de outra pessoa)
+3396	dela
+3397	nosso / nossa / nossos
+3398	de vocês; deles
+3399	uma regra
+3400	simples

@@ -10,7 +10,7 @@
  */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
-const LANGS = ['de', 'pl', 'tr', 'lt'];
+const LANGS = ['de', 'pl', 'tr', 'lt', 'pt'];
 let problems = 0;
 const say = (s) => { console.log(s); };
 const bad = (s) => { problems++; console.log('   ❌ ' + s); };
@@ -37,7 +37,7 @@ const NAMES = (() => {
   } catch (e) { return []; }
 })();
 // літери, без яких мова виглядає «англізованою»: якщо їх немає взагалі — варто глянути
-const MARKS = { de: /[äöüßÄÖÜ]/, pl: /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/, tr: /[çğıöşüÇĞİÖŞÜ]/, lt: /[ąčęėįšųūžĄČĘĖĮŠŲŪŽ]/ };
+const MARKS = { de: /[äöüßÄÖÜ]/, pl: /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/, tr: /[çğıöşüÇĞİÖŞÜ]/, lt: /[ąčęėįšųūžĄČĘĖĮŠŲŪŽ]/, pt: /[ãõçáéíóúâêôàÃÕÇÁÉÍÓÚÂÊÔÀ]/ };
 
 say('🔎 Словники перекладу (data/lang-*.js)\n');
 for (const l of LANGS) {
@@ -49,7 +49,9 @@ for (const l of LANGS) {
   const SAME_OK = {
     // назви мовних норм — власні назви, однакові в усіх мовах
     de: ['orange', 'a pizza', 'April', 'August', 'September', 'November', 'warm', 'Nynorsk', 'Bokmål'],
-    pl: ['a pizza', 'Nynorsk', 'Bokmål', 'kutia'], tr: ['a pizza', 'Nynorsk', 'Bokmål'], lt: ['a pizza', 'Nynorsk', 'Bokmål']
+    pl: ['a pizza', 'Nynorsk', 'Bokmål', 'kutia'], tr: ['a pizza', 'Nynorsk', 'Bokmål'], lt: ['a pizza', 'Nynorsk', 'Bokmål'],
+    // у португальській ці слова й технічні терміни справді пишуться так само
+    pt: ['Aaaah...', 'waffles', 'hospital', 'kutia', 'plural', 'zero', 'horizontal', 'Inspector', 'Transform', 'SELECT', 'FROM', 'WHERE', 'ORDER BY', 'phishing', 'HTTPS', 'ransomware', 'TLS', 'game over', 'Start', 'Update', 'Play Mode', 'Console', 'JOIN', 'CRUD', 'JSON', 'cyberbullying', 'individual', 'legal', 'malware', 'singular', 'chocolate', 'lactose', 'Nynorsk', 'Bokmål']
   };
   /* Слова, однакові в усіх наших мовах: міжнародні запозичення й звуки. Доти
      перевірка видавала їх за неперекладені, і через цей шум вона ніколи не

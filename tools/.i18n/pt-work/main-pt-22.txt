@@ -1,0 +1,200 @@
+4201	um peixe
+4202	cada vez
+4203	zero
+4204	uma vida
+4205	uma velocidade
+4206	ganhar, vencer
+4207	uma alegria
+4208	guardar, cuidar de
+4209	uma estrela
+4210	começar, iniciar
+4211	direto para dentro de
+4212	um erro
+4213	um bug
+4214	depuração
+4215	corrigir
+4216	direita
+4217	tentar de novo
+4218	um programador
+4219	aprendizado
+4220	uma parte de
+4221	uma linguagem de programação
+4222	existir
+4223	muitas vezes, com frequência
+4224	mover
+4225	colorido
+4226	um bloco
+4227	simples, fácil
+4228	inteligência artificial
+4229	dados
+4230	uma página da web, um site
+4231	de forma lógica
+4232	o mais importante
+4233	um modelo
+4234	um pátio de escola
+4235	uma cópia
+4236	desenhar
+4237	um portão
+4238	um campo de futebol
+4239	uma folha
+4240	descrever
+4241	uma propriedade
+4242	uma cor
+4243	um fluxograma
+4244	um plano
+4245	um código
+4246	isso mesmo, é verdade
+4247	um site, uma página da web
+4248	HTML — a linguagem das páginas da web
+4249	uma tag
+4250	sinais de menor e maior < >
+4251	consistir em
+4252	um começo
+4253	um fim
+4254	uma tag de fechamento
+4255	uma barra /
+4256	um título
+4257	um parágrafo
+4258	uma imagem, uma foto
+4259	um link
+4260	mostrar
+4261	da próxima vez
+4262	CSS — linguagem de estilo
+4263	um seletor
+4264	um fundo
+4265	uma fonte (letra)
+4266	espaço, respiro
+4267	parecer, ter a aparência de
+4268	JavaScript — linguagem de programação
+4269	um botão
+4270	um clique
+4271	um evento
+4272	uma função
+4273	um documento
+4274	encontrar
+4275	guardar, salvar
+4276	comportamento
+4277	uma cena de jogo
+4278	um jogador
+4279	controlar
+4280	um protótipo
+4281	uma ideia
+4282	controles
+4283	entrada (input)
+4284	uma tecla
+4285	uma seta
+4286	velocidade
+4287	uma posição
+4288	horizontal
+4289	para cima
+4290	gravidade
+4291	suave
+4292	controle
+4293	uma colisão
+4294	tocar
+4295	uma pontuação
+4296	aumentar
+4297	um desafio
+4298	testar
+4299	Blender — programa de 3D
+4300	um objeto 3D
+4301	um eixo
+4302	largura
+4303	altura
+4304	profundidade
+4305	um cubo
+4306	uma esfera
+4307	girar
+4308	escalar (mudar o tamanho)
+4309	uma direção
+4310	um corpo
+4311	um olho
+4312	um detalhe
+4313	duplicação
+4314	um material
+4315	uma superfície
+4316	uma sombra
+4317	uma câmera
+4318	posicionar
+4319	renderizar
+4320	Unity — motor de jogos
+4321	uma cena
+4322	um GameObject
+4323	um componente
+4324	Inspector
+4325	Transform
+4326	uma rotação
+4327	uma escala
+4328	um sprite
+4329	física
+4330	uma habilidade
+4331	um prefab
+4332	um modelo (molde)
+4333	reutilizável
+4334	um original
+4335	atualizar
+4336	um menu
+4337	um projeto
+4338	organizado
+4339	melhorar
+4340	construir
+4341	um banco de dados
+4342	informação
+4343	uma linha (de tabela)
+4344	uma coluna
+4345	um campo
+4346	um registro
+4347	um ID
+4348	único
+4349	organizar
+4350	uma estrutura
+4351	útil
+4352	SQL — linguagem de consulta
+4353	uma consulta
+4354	selecionar
+4355	filtrar
+4356	ordenar
+4357	preciso
+4358	SELECT
+4359	FROM
+4360	WHERE
+4361	ORDER BY
+4362	privacidade
+4363	dados pessoais
+4364	necessário
+4365	acesso
+4366	uma senha
+4367	autenticação em dois fatores
+4368	criptografia
+4369	ilegível
+4370	uma cópia de segurança
+4371	restaurar, recuperar
+4372	lançar
+4373	conhecido
+4374	visível
+4375	um poste de luz
+4376	um atalho
+4377	deserto, isolado
+4378	uma distância
+4379	uma loja
+4380	avisar, contar
+4381	um estranho
+4382	desconhecido
+4383	recusar
+4384	um adulto
+4385	um funcionário
+4386	comportar-se
+4387	perder-se
+4388	um shopping
+4389	um balcão de informações
+4390	um crachá
+4391	um segurança
+4392	entrar em contato
+4393	um número de telefone
+4394	de cor (decorado)
+4395	combinado
+4396	esperar
+4397	um número de emergência
+4398	urgente, imediato
+4399	um perigo
+4400	grave, sério

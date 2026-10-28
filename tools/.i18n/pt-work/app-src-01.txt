@@ -1,0 +1,200 @@
+1	Accessibility
+2	♿ Accessibility
+3	Text size
+4	Smaller text
+5	Bigger text
+6	High contrast
+7	Easy-to-read font
+8	More line spacing
+9	Underline links
+10	Stop animations
+11	Big cursor
+12	Greyscale
+13	↺ Reset all
+14	Close
+15	Settings are saved on this device.
+16	Bigger text, high contrast, an easy-to-read font, no animations, a big cursor — for people with visual, reading or motor impairments.
+17	✓ On
+18	🔔 Notifications
+19	🔔 Notifications
+20	What your friends have been up to. Only people you added as friends show up here — and only if they allow their profile to be shown.
+21	Quiet for now. Add friends and you will see them passing tests and moving up levels.
+22	👥 My friends
+23	Log in to see notifications from your friends.
+24	Log in
+25	Like
+26	Liked
+27	Open
+28	Show more
+29	Notifications work on bilohash.com — there is no server here.
+30	🔥 Three in a row! Keep going!
+31	⚡ Five correct — you are on fire!
+32	🌟 Seven without a mistake! Amazing!
+33	👋 Great to see you again!
+34	🏆 Perfect! Three stars!
+35	🎉 Flawless! You know this!
+36	👏 Well done! Almost no mistakes.
+37	💪 Very good! Nearly three stars.
+38	🙂 Good start! Try once more.
+39	🌱 Step by step — you will get there!
+40	🏅 New badge!
+41	🔑 This is a demo account
+42	Create an account
+43	← Home
+44	🎟️ Free tests are used up
+45	Without an account you can take one test. Create a free account — progress, stars and friends are kept, and you get more tests.
+46	Create an account
+47	📖 Five comics read
+48	Without an account you can read 0 different comics. Create a free account and read all {n}.
+49	✅ Everything you have done comes with you: the stories you read, stars from tests, your day streak and the words in your cards.
+50	Right now your progress lives only in this browser: clear its data or pick up another phone and it is gone. In an account it is kept for good and opens on any device.
+51	📥 Create an account and move my progress
+52	I already have an account
+53	👋 Welcome to Komiks·Lab!
+54	Here we learn Norwegian through funny comics. The text and the voices are Norwegian, and the translation into your language appears the moment you tap the text.
+55	Language
+56	📖 Voiced comics
+57	A1–B2, real voices, every word translated
+58	🧩 Tests and flashcards
+59	they bring back exactly the words you get wrong
+60	🔤 Words by topic
+61	with a picture and audio — from the basics to work and housing
+62	🎮 Play together
+63	a room with a QR code for a class, a family or friends
+64	🎁 The first 100 users get full access for good
+65	You are one of them. Nothing to pay: the account opens everything, with no limits.
+66	✨ What’s new
+67	📘 How it works
+68	🐞 Write to us
+69	Found a mistake, or want a topic for a new comic — write to us straight from the app.
+70	🚀 Start
+71	All
+72	✏️ Drawn
+73	📷 Real photos
+74	Artwork
+75	📷 photo
+76	✏️ drawn
+77	PASSED
+78	of 100
+79	best score
+80	🏅 First 100 only
+81	A PRO badge for the first hundred
+82	Learning here is free for everyone. The first 100 members of Komiks·Lab also get a PRO badge, the right to remove bad posts on walls and invites for friends.
+83	🏅 A “PRO #N” badge on your profile — forever
+84	🛡 The right to remove bad posts on walls
+85	✉️ Invites for friends
+86	💬 Your name among those who were here from the start
+87	Claim a seat
+88	All 100 seats are taken
+89	All the badges are taken. Learning stays free for everyone.
+90	📈 Komiks·Lab this month
+91	visitors
+92	page views
+93	new accounts
+94	quizzes completed
+95	learners studied
+96	new
+97	📊 My learning analysis
+98	📊 My mistakes
+99	Here you can see how your learning is going: how many tests you have taken, what works well and what is worth repeating. Everything is counted from your own tests.
+100	tests
+101	correct
+102	day streak
+103	words learned
+104	comics read
+105	stars
+106	📈 Your latest tests are better than the earlier ones — keep going!
+107	📉 Your latest tests are weaker — take a calm look at the material again.
+108	➡️ Your results are steady.
+109	🔁 Most frequent mistakes
+110	Words and tasks you get wrong most often. Tap 🔊 to listen.
+111	✨ No mistakes yet — take a few tests and your analysis will appear here.
+112	🎯 Weak spots
+113	The tests with the lowest score — worth taking again.
+114	🔁 Repeat my mistakes
+115	A test made only of the words you got wrong.
+116	🃏 Add to flashcards
+117	✓ Added
+118	✓ I know it
+119	💡 What to do next
+120	Take it again
+121	Read the comic again before the test — words stick better inside a story than in a list.
+122	Put the hard words into flashcards: a few minutes a day beats an hour once a week.
+123	Turn on 🔊 and repeat out loud — pronunciation and listening grow together.
+124	Follow the study plan: the next step is already chosen for your level.
+125	📅 Due for review today
+126	✨ Everything is reviewed for today. New mistakes and words will appear here.
+127	A mistake disappears when you answer it correctly three times on different days: today, tomorrow and three days later.
+128	📈 Test progress
+129	🧩 Where I make mistakes
+130	The kinds of tasks that are hardest for you.
+131	✅ Fixed mistakes
+132	mistakes fixed
+133	🗂 Words by stage
+134	new
+135	learning
+136	reviewing
+137	learned
+138	All words from comics and topics. “Learned” are the ones you marked “I know it”.
+139	😕 Don’t know
+140	🔁 Review again
+141	✅ I know it
+142	don’t show again
+143	Keys: Space — flip · 1 — don’t know · 2 — review again · 3 — I know it
+144	These words no longer appear in flashcards. Changed your mind? Put a word back into learning.
+145	↩ Put back
+146	✅ Learned — we won’t show it again
+147	Every word in this deck is learned or waiting for its day. Come back tomorrow!
+148	new
+149	learning
+150	reviewing
+151	learned
+152	🎯 My study plan
+153	Switch off what you already know — the plan and checklist get shorter.
+154	What the plan includes
+155	↺ Show everything
+156	✓ I know
+157	I already know this — remove from the plan
+158	⚙️ Set up the plan
+159	Open the plan →
+160	tests completed
+161	attempts
+162	average score
+163	with 3 stars
+164	All
+165	🔁 Needs practice
+166	🌟 Excellent
+167	best
+168	last
+169	today
+170	yesterday
+171	🔁 Improve
+172	▶ Again
+173	⭐⭐⭐ — 90 %+ · ⭐⭐ — 60 %+ · ⭐ — 30 %+
+174	Nothing here — great job!
+175	🏁 Logic Race
+176	🚀 Math Rocket
+177	🔒 Strict mode
+178	The learner follows the plan step by step: the next topics open only after the current one. Only the parent password switches it off.
+179	Turn on
+180	Turn off
+181	Parent password
+182	Repeat the password
+183	The password needs at least 4 characters.
+184	The passwords do not match.
+185	Wrong password.
+186	🔒 Finish the current step first
+187	Strict mode is on: follow the plan in order. Here is your step:
+188	Go to the step
+189	🎯 My plan
+190	👤 I am the adult
+191	Open everything for 30 minutes
+192	🔓 Everything is open for 30 minutes
+193	Done
+194	Cancel
+195	🔒 Strict mode is on
+196	Strict mode is off
+197	📅 Today
+198	Today
+199	A short session for today: review words, take the next step of your plan and work on your mistakes. Ten minutes a day beats an hour once a week.
+200	🃏 Review words

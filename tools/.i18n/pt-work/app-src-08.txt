@@ -1,0 +1,200 @@
+1401	Name or friend code…
+1402	All
+1403	Any level
+1404	Online only
+1405	Show more
+1406	Nobody found — change the filters.
+1407	Shared search works on bilohash.com. Below are the players on this device.
+1408	You are not visible in search yet — others cannot find you.
+1409	🔎 Show me in search
+1410	To my account
+1411	💻 On this device
+1412	👤 Profile
+1413	➕ Add friend
+1414	✓ Friend
+1415	⏳ Request sent
+1416	🏁 Compete
+1417	this is you
+1418	🟢 online
+1419	Friend request sent — compete as soon as they accept and are online.
+1420	⏳ Searching…
+1421	stars
+1422	badges
+1423	day streak
+1424	players
+1425	✨ your level
+1426	💎 Premium
+1427	The first 100 members got Premium free forever. After that it is a subscription: all tests and games without limits.
+1428	📝 Unlimited tests (free plan: 25 a month)
+1429	🎮 All games: Logic Race, Math Rocket, chess
+1430	🃏 Flashcards with repetition and your own study plan
+1431	✉️ Messages to friends and your profile wall
+1432	❤️ Support the project — no ads
+1433	Subscribe
+1434	Opening Stripe…
+1435	⚙️ Manage subscription
+1436	Cancel any time — Premium stays until the end of the paid month.
+1437	🏅 You have Premium forever
+1438	Please sign in first
+1439	Sign in
+1440	🎉 Thank you! Premium is on.
+1441	Checking the payment…
+1442	Payments are not configured on the server yet.
+1443	🔒 Payment happens on Stripe’s page. Card details never reach our server.
+1444	You have used the free tests for this month.
+1445	🎁 Everything is free
+1446	Comics, audio, tests, cards, words, grammar and games — no limits, no payment. An account only keeps your progress, stars and friends.
+1447	📖 All 75 comics A1–B2 with audio
+1448	🧩 Tests, cards and Pairs without a limit
+1449	🎮 Games with your class or family
+1450	👥 Friends, walls and messages
+1451	📅 Start today’s lesson
+1452	🏠 Home
+1453	🎨 My avatar
+1454	Pick an animal and dress it up! New items unlock with the stars you earn in tests. The avatar belongs to your account and appears in every game.
+1455	🎁 from a friend
+1456	You can only get this as a gift from a friend. Give a friend something — they can return the favour.
+1457	🎁 from games
+1458	A rare item — it drops from chests in games (Logic Race, Math Rocket, Play together).
+1459	Natural
+1460	🎁 A chest!
+1461	Open
+1462	New item!
+1463	👕 Wear it
+1464	Later
+1465	Nothing
+1466	🎲 Random
+1467	Saved ✓
+1468	Log in or sign up and the avatar will be saved to your account.
+1469	🎨 Customise avatar
+1470	Everyone sees this avatar in “Play together” and Math Rocket.
+1471	🎨 Change in my account
+1472	Your avatar
+1473	Pick another animal
+1474	🎁 Free — 30 hours
+1475	Only active learning time on the site while logged in is counted.
+1476	🎁 After signing up — 30 hours of learning for free.
+1477	🎉 Your 30 free hours are used up!
+1478	Thank you for learning with Komiks·Lab. You can keep using the site — we will let you know about new options.
+1479	Got it
+1480	h
+1481	min
+1482	🏁 Logic Race
+1483	A puzzle and four answers appear on the screen. Pick the right one and your hero takes a step forward; pick wrong and you trip for a second and a half. The first to reach the finish wins.
+1484	📺 Race with the class
+1485	The track on the big screen, students answer on their phones
+1486	🤖 Race against bots
+1487	Play alone against three rivals
+1488	Distance
+1489	Time limit
+1490	Level
+1491	🟢 Easy
+1492	🟡 Medium
+1493	🔴 Hard
+1494	🟣 Expert
+1495	One puzzle and four answers on the screen.
+1496	A right answer = one step forward.
+1497	A mistake = tripping for 1.5 seconds.
+1498	First to the finish wins. Five right in a row brings a 🎁 chest.
+1499	Scan the QR code or open the link:
+1500	Code
+1501	Waiting for players…
+1502	🏁 Start!
+1503	✖ Close
+1504	← Back
+1505	Go!
+1506	FINISH
+1507	Leader
+1508	🏆 Race results
+1509	🔄 Race again
+1510	Time
+1511	you
+1512	🏁 Logic Race
+1513	Your name
+1514	Join ▶
+1515	Enter the code (5 characters).
+1516	Enter your name.
+1517	You are on the start line!
+1518	Wait for the teacher’s signal…
+1519	Connecting…
+1520	Building the track…
+1521	The race ended or the connection was lost.
+1522	Room not found.
+1523	No internet connection.
+1524	Get ready…
+1525	GO!
+1526	Pick the right answer and you take a step. First to the finish wins.
+1527	+1 step
+1528	START
+1529	FINISH
+1530	you
+1531	Oops! You tripped…
+1532	🏁 Finished! Waiting for the others…
+1533	Robo
+1534	Botto
+1535	Pixel
+1536	⚠️ The page is opened from a file — phones cannot join.
+1537	NEW · 60 seconds
+1538	Math Rocket
+1539	A space speed game: shoot the asteroid with the right answer before it reaches your rocket.
+1540	▶ Play
+1541	Round length
+1542	👥 Play with the class
+1543	Choose a level
+1544	🐣
+1545	Little one
+1546	adding and taking away to 10, slowly
+1547	🟣
+1548	Expert
+1549	everything mixed, fastest + “? × 7 = 56”
+1550	🟢
+1551	Easy
+1552	addition and subtraction to 20
+1553	🟡
+1554	Medium
+1555	times tables
+1556	🔴
+1557	Hard
+1558	+ − × ÷ mixed and faster
+1559	How to play
+1560	Tap the asteroid with the right answer — the rocket fires.
+1561	Keys 1–4 fire too (left to right).
+1562	A mistake or an asteroid near the rocket costs 3 seconds.
+1563	A streak of right answers raises the multiplier up to ×5.
+1564	← Back to maths
+1565	📱 Open the game on a phone
+1566	Score
+1567	Streak
+1568	Time
+1569	Level
+1570	Flight over!
+1571	🏆 New record!
+1572	🔄 Play again
+1573	⚙️ Level
+1574	Correct
+1575	Accuracy
+1576	Avg time
+1577	Best
+1578	−3 s
+1579	Go!
+1580	Get ready…
+1581	👥 Math Rocket with the class
+1582	Show the QR code on the screen — students scan it with their phones and join in seconds. Everyone gets the same sums and you see a live ranking here.
+1583	Scan the QR code or open the link:
+1584	📋 Copy
+1585	Copied ✓
+1586	Waiting for players…
+1587	🚀 Start for everyone
+1588	At least one player is needed.
+1589	📡 Live ranking
+1590	🏆 Results
+1591	🔄 Another round
+1592	✖ Close the room
+1593	👥 Math Rocket with the class
+1594	Your name
+1595	Avatar
+1596	Join ▶
+1597	Room code
+1598	Enter the code (5 characters).
+1599	Enter your name.
+1600	Connecting…

@@ -1,0 +1,200 @@
+3801	uma palavra de ligação
+3802	em primeiro lugar
+3803	fazer uma pergunta
+3804	com sinceridade
+3805	prometer
+3806	enfraquecer
+3807	resumindo
+3808	claro, nítido
+3809	calmo
+3810	uma carta de leitor
+3811	um jornal local
+3812	uma faixa de pedestres
+3813	a ideia principal
+3814	um município, uma prefeitura
+3815	uma lombada
+3816	um acidente
+3817	uma medição de velocidade
+3818	um grupo de pais
+3819	um ataque pessoal
+3820	criticar
+3821	um caractere
+3822	imprimir, publicar
+3823	uma oportunidade
+3824	um inquilino
+3825	um proprietário (que aluga)
+3826	o índice de preços ao consumidor
+3827	em regra
+3828	avisar
+3829	com antecedência
+3830	legal, permitido por lei
+3831	um dever de manutenção
+3832	um desconto no aluguel
+3833	uma exigência
+3834	um prazo
+3835	comprovação, documentação
+3836	um voluntário; voluntário
+3837	um clube esportivo
+3838	uma taxa de treino
+3839	administrar, manter
+3840	esperar (expectativa)
+3841	um turno na lanchonete
+3842	uma temporada
+3843	um jogo fora de casa
+3844	trabalho em turnos
+3845	uma certidão de antecedentes criminais
+3846	entregar, apresentar
+3847	dar-se ao trabalho
+3848	uma cola
+3849	um bairro
+3850	espírito de mutirão
+3851	uma oferta
+3852	um café
+3853	um waffle
+3854	no total
+3855	pagar
+3856	um cartão
+3857	uma mesa
+3858	livre, disponível
+3859	pagar para alguém, convidar
+3860	um parque
+3861	uma bola
+3862	chutar, atirar
+3863	dividir, compartilhar
+3864	uma jaqueta
+3865	uma frutinha
+3866	crescer
+3867	escuro
+3868	um oftalmologista, uma ótica
+3869	um exame de vista
+3870	uma placa
+3871	uma linha
+3872	óculos
+3873	direção (dirigir um carro)
+3874	uma armação
+3875	um empregador
+3876	trabalho em frente à tela
+3877	usado, de segunda mão
+3878	um anúncio
+3879	um vendedor
+3880	combinar
+3881	experimentar
+3882	pechinchar
+3883	um cadeado
+3884	uma luz, um farol
+3885	um acordo, negócio fechado
+3886	um capacete
+3887	uma passagem
+3888	um aplicativo
+3889	uma zona
+3890	uma passagem infantil
+3891	grátis
+3892	ativar
+3893	fiscalização de passagens
+3894	a bordo
+3895	esquecer
+3896	uma multa, uma taxa
+3897	um mapa
+3898	em ordem
+3899	um pronto-atendimento
+3900	uma orelha, um ouvido
+3901	uma dor
+3902	pior
+3903	esperar a vez
+3904	uma inflamação
+3905	antibióticos
+3906	eletronicamente
+3907	entrar em contato
+3908	no meio da noite
+3909	educado
+3910	ser urgente
+3911	a ordem, a sequência
+3912	um orçamento
+3913	uma reunião com cliente
+3914	o mais importante
+3915	priorizar
+3916	escutar
+3917	justo, razoável
+3918	esgotar
+3919	planejamento
+3920	alto
+3921	baixo
+3922	fino, magro
+3923	grosso, gordo
+3924	pequeno
+3925	comprido
+3926	curto
+3927	leve, fácil
+3928	lento
+3929	velho
+3930	mais alto
+3931	o mais alto
+3932	claro, iluminado
+3933	limpo
+3934	barulhento
+3935	vazio
+3936	apertado
+3937	mais velho, mais antigo
+3938	menor
+3939	seco
+3940	um depósito (despensa)
+3941	caber
+3942	chegar a tempo
+3943	uma janela
+3944	uma etiqueta de preço
+3945	custar
+3946	uma coroa (moeda)
+3947	um banco (para sentar)
+3948	uma cidade
+3949	um fiorde
+3950	comum
+3951	um tamanho
+3952	experimentar (roupa)
+3953	um provador
+3954	grande demais
+3955	pequeno demais
+3956	uma liquidação
+3957	trocar
+3958	em até uma semana
+3959	à esquerda
+3960	um trem
+3961	uma plataforma, uma linha
+3962	trocar de trem
+3963	um vagão
+3964	um assento, um lugar
+3965	chegou, lá
+3966	comunicar a mudança de endereço
+3967	o Registro Nacional
+3968	um endereço
+3969	em até oito dias
+3970	uma identidade eletrônica
+3971	um formulário
+3972	uma notificação, um comunicado
+3973	redirecionamento de correspondência
+3974	uma caixa de correio
+3975	um médico de família
+3976	estar certo, bater
+3977	um cargo fixo
+3978	contratado temporariamente
+3979	um período de experiência
+3980	um aviso prévio
+3981	a jornada de trabalho
+3982	um adicional
+3983	dinheiro de férias
+3984	assinar
+3985	organizado, em ordem
+3986	um país de origem
+3987	uma capital
+3988	uma população
+3989	cerca de, aproximadamente
+3990	um milhão
+3991	fazer fronteira com
+3992	um país vizinho
+3993	oficial
+3994	uma língua
+3995	uma moeda
+3996	um presidente
+3997	conhecido por
+3998	a agricultura
+3999	um prato (comida)
+4000	um clima

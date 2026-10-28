@@ -1,0 +1,200 @@
+401	Write your answer in Norwegian…
+402	💡 Translation
+403	📵 Hang up
+404	📞 Call ended
+405	🔄 One more call
+406	Here is what was said:
+407	New words from the call
+408	A short call in Norwegian — one minute.
+409	Not now
+410	Scripted conversation (no AI key on the server).
+411	No microphone — please type instead.
+412	🎧 Live voice
+413	A real voice conversation: the character hears you and answers by itself.
+414	🎧 Voice call
+415	Connecting…
+416	Speak — they can hear you
+417	🔊 Speaker
+418	🔇 Mute
+419	🎙️ Unmute
+420	⌨️ Type instead
+421	Who are you talking to
+422	🤖 Scripted bot
+423	A ready-made conversation with hints. Always works, even offline.
+424	💬 Live conversation (AI)
+425	It answers by itself and reads aloud. You speak or type.
+426	🎧 Live voice
+427	A real voice call: the character hears you and answers at once.
+428	not available now
+429	✅ ready
+430	♟ Chess
+431	Real chess with 3D pieces: play bots, a friend, or run a tournament for the whole class. Moves are written in Norwegian — you learn while you play!
+432	🤖 Play a bot
+433	Pick an opponent from the rating ladder
+434	👥 Two players, one device
+435	Pass the phone or tablet in turns
+436	🌐 Play a friend online
+437	A link or QR — and you play on different devices
+438	📺 Class tournament
+439	A monitor with a QR code, students play on phones, rounds and a table
+440	Rating
+441	Your Elo rating
+442	🏆 Rating ladder
+443	you
+444	▶ Play
+445	Your colour
+446	⚪ White
+447	⚫ Black
+448	🎲 Random
+449	Time per game
+450	No clock
+451	🔊 The pieces in Norwegian
+452	Tap to hear the name. The same letters are used in the move list.
+453	White to move
+454	Black to move
+455	Your move!
+456	Check!
+457	Checkmate!
+458	Draw
+459	🏆 You won!
+460	You lost
+461	🤝 Draw
+462	🔄 Another game
+463	♟ Chess menu
+464	🏳 Resign
+465	Really resign?
+466	↩ Undo
+467	🔄 Flip
+468	🧊 3D
+469	▦ 2D
+470	🤝 Draw?
+471	Draw offer sent
+472	Accept
+473	No
+474	Moves
+475	Choose a piece
+476	Scan the QR code or open the link:
+477	Code
+478	Waiting for players…
+479	▶ Start round
+480	🏁 Finish tournament
+481	✖ Close
+482	📊 Standings
+483	pts
+484	Games
+485	playing
+486	🏆 Tournament results
+487	I play too
+488	At least two players are needed.
+489	♟ Chess tournament
+490	Your name
+491	Join ▶
+492	Enter the code (5 characters).
+493	Enter your name.
+494	You are in the room!
+495	Wait for the round to start…
+496	Game over. Waiting for the next round…
+497	Connecting…
+498	Creating the room…
+499	The room was closed or the connection was lost.
+500	Room not found.
+501	No internet connection.
+502	Send your friend the link — the game starts as soon as they join.
+503	📋 Copy
+504	Copied ✓
+505	⚠️ The page is opened from a file — other devices cannot join.
+506	vs
+507	Captured
+508	Tip: develop knights and bishops first and keep your king safe by castling (O-O).
+509	🧩 Crossword
+510	Look at the picture, recall the Norwegian word and type it letter by letter. That is what fixes the spelling, not just the look of the word.
+511	Theme
+512	Across
+513	Down
+514	✓ Check
+515	🔄 Another crossword
+516	💡 Hint
+517	Reveal one letter
+518	👁️ Show the answer
+519	🎉 Done! Every word is in place.
+520	The red letters need fixing.
+521	Fill in at least one word.
+522	words
+523	Choose a theme
+524	← Back to themes
+525	Look at the picture, recall the Norwegian word and type it into the squares with the same number. Tap a card and the cursor jumps to the start of the word.
+526	🔤 Hint: first letter of every word
+527	Listen to the word
+528	Previous word
+529	Next word
+530	letters
+531	There is an Android app
+532	Install it from Google Play — faster, with audio and no browser.
+533	Open in Google Play
+534	There is a Windows app
+535	Install it from the Microsoft Store — its own window, like a normal program.
+536	Open in Microsoft Store
+537	iPhone app — coming soon
+538	For now, add Komiks·Lab to your Home Screen: Safari → Share → “Add to Home Screen”.
+539	Show me how
+540	Install Komiks·Lab
+541	The app in its own window — one click in your browser.
+542	How to install
+543	Hide
+544	Hide for 3 days
+545	English
+546	🇬🇧
+547	English
+548	a separate course in a different comic style
+549	🇬🇧 English through comics
+550	A separate course: a different drawing style, stories in English and tests in English. Hover over a word to see the Ukrainian and Norwegian translation.
+551	📖 Read
+552	🧩 Test
+553	🇬🇧 English tests
+554	Stop
+555	🔁 Work on mistakes
+556	No mistakes yet — take a test, and the words you get wrong will gather here.
+557	◀ Back
+558	Next ▶
+559	🔊 Read the panel
+560	▶️ Whole comic
+561	🧩 Go to the test
+562	← All stories
+563	🇬🇧 This section is in English. The Norwegian part of the site stays as it is.
+564	📚 Stories
+565	📝 English words by topic
+566	The same 19 topics as in the Norwegian section — now in English. Tap a card to hear the word and tick ✓ if you already know it.
+567	📝 Words by topic
+568	🧩 Test on all words
+569	I know it
+570	🙈 Hide translation
+571	👀 Show translation
+572	🔊 Listen to all
+573	🧩 Topic test
+574	← All topics
+575	The Komiks·Lab English course
+576	English children can use right away
+577	Letters, words, grammar and lively stories form one clear path. Listen to British pronunciation, answer quizzes and move from A1 to B1.
+578	Start with the first story
+579	Continue learning
+580	Where to start
+581	Stories by level
+582	English alphabet
+583	26 letters, example words and audio
+584	Test words by sound and pictures
+585	🔤 The English alphabet
+586	26 letters from A to Z. Tap a card to hear the letter name followed by an English example word.
+587	Listen to the whole alphabet
+588	English alphabet quiz
+589	Letters worth remembering
+590	Who says this?
+591	Which picture is this line from?
+592	Listen and choose the word
+593	What is this?
+594	Which word is missing?
+595	What is this? Choose the English word
+596	Which English letter do you hear?
+597	Which letter does this word start with?
+598	← Exit
+599	Question {i} of {n}
+600	{s} of {n} correct · {p} %

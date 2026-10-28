@@ -1,0 +1,200 @@
+2401	Um valor reserva ajuda se o salvamento estiver danificado.
+2402	Coloque o centro do objeto no lugar certo.
+2403	Modele um lado e deixe o Mirror fazer o outro.
+2404	A simetria economiza tempo e mantém a forma uniforme.
+2405	Escolha a posição inicial e coloque o primeiro quadro-chave.
+2406	Avance o tempo, mude o objeto e coloque o próximo.
+2407	O Blender preenche o movimento entre os quadros.
+2408	Comece com uma forma simples e um pincel grande.
+2409	Construa as formas grandes antes dos detalhes pequenos.
+2410	Uma topologia uniforme deixa o modelo mais fácil de usar depois.
+2411	Confira o tamanho, a direção e os nomes.
+2412	Exporte como glTF ou FBX com os dados necessários.
+2413	Importe e teste os materiais e a animação no destino.
+2414	Decida o que o jogador precisa ver sempre.
+2415	Posicione o texto dos pontos e os botões com âncoras.
+2416	Um Canvas responsivo se adapta a vários tamanhos de tela.
+2417	Coloque as cenas na ordem certa de build.
+2418	Carregue a próxima cena quando o objetivo for alcançado.
+2419	Uma tela de carregamento pode mostrar o progresso em fases pesadas.
+2420	Separe jogadores, inimigos e fundo em camadas.
+2421	Desative as combinações de camadas desnecessárias.
+2422	Menos verificações deixam a física mais clara e mais rápida.
+2423	Divida música, fala e efeitos em grupos.
+2424	Crie opções de volume e abaixe a música durante falas importantes.
+2425	Uma boa mixagem deixa a informação fácil de ouvir.
+2426	Escolha qual registro a ação afeta.
+2427	Valide os dados antes de criar ou atualizar.
+2428	Confirme a exclusão e mostre o resultado com clareza.
+2429	Encontre os campos usados com frequência nas buscas.
+2430	Crie um índice adequado e meça a consulta.
+2431	Índices demais podem deixar a gravação mais lenta.
+2432	Combine nomes de campos e tipos de dados claros.
+2433	Leia a resposta e confira se faltam campos.
+2434	Um formato estável facilita ligar sistemas.
+2435	Faça uma cópia de segurança e descreva a mudança.
+2436	Teste a migração numa cópia antes da produção.
+2437	Confira as quantidades e o conteúdo depois da mudança.
+2438	Encontre antes a saída segura mais próxima.
+2439	Siga a professora, deixe as coisas e use a escada.
+2440	Vá ao lugar combinado e espere as instruções.
+2441	Confira o capacete, os freios e as luzes antes do passeio.
+2442	Olhe para os dois lados e sinalize antes de virar.
+2443	Ser visto e fazer escolhas com calma evita acidentes.
+2444	Confira se o lugar é seguro e chame um adulto.
+2445	Ligue para a emergência em caso de perigo grave e siga as orientações.
+2446	Ajuda calma e informações corretas economizam tempo.
+2447	Revise as configurações padrão com um adulto.
+2448	Limite o perfil e aprove só os seguidores que você conhece.
+2449	Confira de novo as configurações depois das atualizações.
+2450	Pare diante de pressa, ameaças e um remetente desconhecido.
+2451	Abra o site da escola a partir de um favorito salvo.
+2452	Denuncie a mensagem e troque a senha se você chegou a digitá-la.
+2453	Não responda com mais ofensas.
+2454	Bloqueie, denuncie e guarde as provas necessárias.
+2455	Um adulto de confiança e a escola podem ajudar daí em diante.
+2456	Confirme o desenvolvedor, o domínio e o tipo de arquivo.
+2457	Escaneie o arquivo e recuse permissões inesperadas.
+2458	Uma proteção atualizada reduz o risco.
+2459	Confira o perfil, o histórico, as fotos e o preço normal.
+2460	Use o pagamento da plataforma e a proteção ao comprador.
+2461	Desista se o vendedor exigir pagamento secreto ou com pressa.
+2462	Leia o preço, o período e as condições de cancelamento antes de começar.
+2463	Tire um print e crie um lembrete antes da renovação.
+2464	Confira os recibos e cancele pela conta oficial.
+2465	Pense em quem está por trás e se você participou.
+2466	Veja o endereço antes e abra você mesmo o site do organizador.
+2467	Um prêmio de verdade não exige taxa secreta nem PIN.
+2468	Leia por que o app pede câmera, localização ou contatos.
+2469	Permita só o necessário, de preferência só enquanto usar o app.
+2470	Remova permissões antigas nas configurações.
+2471	Use um código forte e esconda as notificações na tela de bloqueio.
+2472	Localize, bloqueie e marque o aparelho pelo serviço oficial.
+2473	Troque as senhas importantes se o celular não voltar.
+2474	Procure danos, descoloração e mau contato.
+2475	Carregue sobre uma superfície dura e pare se houver muito calor ou cheiro.
+2476	Um adulto deve verificar um carregador danificado.
+2477	Use uma sessão privada quando a escola permitir.
+2478	Saia da conta, apague os downloads e não salve senhas.
+2479	Confira se o próximo usuário não consegue ver a sua conta.
+2480	Crie um novo ID de sessão depois de um login bem-sucedido.
+2481	Use Secure, HttpOnly, SameSite e um prazo de expiração.
+2482	Apague a sessão no servidor ao sair da conta.
+2483	Defina claramente os papéis e quem é dono de quê.
+2484	Verifique o usuário e o recurso antes de ler ou alterar.
+2485	Esconda o botão na interface, mas proteja também a API.
+2486	Decida do que o usuário precisa para continuar.
+2487	Registre os detalhes técnicos sem senhas, chaves ou dados pessoais.
+2488	Um ID de incidente liga a mensagem do usuário ao registro certo.
+2489	Recebi uma decisão com as palavras “obrigação de deixar o país” e “SIS”. Isso quer dizer que fui condenada por alguma coisa?
+2490	Não. O SIS é um registro digital usado pelas autoridades dos países do Schengen. Primeiro, leia com atenção qual decisão você recebeu.
+2491	A obrigação de deixar o país pode ser registrada no SIS para que os países possam verificar se a pessoa saiu da área Schengen.
+2492	Uma proibição de entrada também pode ser registrada. A decisão diz onde a proibição vale e quanto tempo dura.
+2493	Bortvisning significa recusa de entrada ou de permanência e obrigação de sair. Utvisning também inclui uma proibição de entrada.
+2494	Uttransportering significa que a polícia executa a saída. Os termos são diferentes, então use a palavra que está escrita na decisão.
+2495	Se a decisão tiver um prazo de saída, você precisa cumpri-lo e garantir que a saída seja registrada no controle de fronteira.
+2496	Se a saída não foi registrada, posso enviar comprovantes à autoridade que cuida do caso.
+2497	Posso saber quais informações sobre mim estão no SIS?
+2498	Pode. Você pode pedir acesso. Também pode exigir a correção de dados errados ou a exclusão de informações guardadas de forma ilegal.
+2499	A decisão explica como e até quando você pode recorrer. Um recurso nem sempre suspende a obrigação de sair, então pergunte à UDI, à polícia ou a um advogado.
+2500	Sigo a minha própria decisão, uso fontes oficiais e peço um intérprete se não entender. Informações gerais não substituem uma ajuda individual.
+2501	O detector de fumaça apita, e está saindo fumaça da cozinha.
+2502	Grito “Fogo!” e aviso todo mundo na hora.
+2503	O número de emergência dos bombeiros é o 110.
+2504	Digo o endereço exato e o que está pegando fogo.
+2505	Primeiro ajudamos uns aos outros a chegar a um lugar seguro.
+2506	No ponto de encontro conferimos rapidamente se todos saíram.
+2507	Digo ao 110 o endereço, onde está a fumaça e se falta alguém.
+2508	O atendente dá instruções e manda a ajuda certa.
+2509	Nunca volto para dentro para buscar coisas.
+2510	Só apago o fogo se ele for pequeno e for seguro fazer isso.
+2511	Lembre: salvar, avisar e apagar quando for seguro.
+2512	A fumaça é tóxica, então o mais importante é sair.
+2513	Um homem desmaia e não responde quando o Leo fala com ele.
+2514	Isso pode ser risco de vida, então o Leo liga para o 113.
+2515	O 113 é o número de emergência médica para doenças ou ferimentos graves.
+2516	É melhor ligar uma vez a mais do que uma vez a menos.
+2517	Quando a ajuda é urgente, mas não há risco de vida, ligamos para o pronto-atendimento no 116 117.
+2518	No horário de funcionamento, o médico de família costuma ser o primeiro contato.
+2519	O Leo diz o próprio nome, o local, o telefone e os sintomas.
+2520	O 113 avalia a situação e o orienta enquanto a ambulância está a caminho.
+2521	O Leo não desliga e não move o homem sem motivo.
+2522	Ele segue as instruções e garante que o local está seguro.
+2523	113 é risco de vida; 116 117 é quando a ajuda não pode esperar.
+2524	O médico de família ajuda com problemas de saúde comuns no horário de funcionamento.
+2525	A Alina vê alguém sendo ameaçado na rua naquele momento.
+2526	Ela vai para um lugar seguro e liga para o número de emergência da polícia, o 112.
+2527	O 112 é usado quando alguém precisa de ajuda imediata.
+2528	Ligar para o número de emergência é grátis.
+2529	Para perguntas e ocorrências que não são urgentes, ligamos para o 02800.
+2530	Furtos e vandalismo muitas vezes também podem ser registrados em politiet.no.
+2531	A Alina descreve o local, o que está acontecendo e como a pessoa é.
+2532	Ela responde com calma às perguntas do atendente.
+2533	Ela não chega mais perto e não tenta deter sozinha uma pessoa perigosa.
+2534	A própria segurança vem primeiro; observe de um lugar seguro.
+2535	112 é para emergências. 02800 é o número da polícia quando não é urgente.
+2536	Em caso de perigo, seguimos as orientações da polícia e de outras autoridades.
+2537	Dois carros bateram, e uma pessoa está ferida.
+2538	A Mia para a uma distância segura e observa o trânsito antes de se aproximar.
+2539	Ela liga para o 113 porque pode haver risco de vida.
+2540	Se for preciso, a central coloca a polícia e os bombeiros na mesma ligação.
+2541	Primeiro ela se protege e evita outro acidente, se puder fazer isso com segurança.
+2542	Ela usa um colete refletivo e avisa os outros motoristas sem se colocar em perigo.
+2543	A Mia diz o nome da estrada, o sentido, o número de feridos e o que aconteceu.
+2544	O atendente dá orientações de primeiros socorros até a ambulância chegar.
+2545	Ela não move uma pessoa gravemente ferida, a não ser que haja perigo imediato.
+2546	Ela mantém a pessoa aquecida e segue as instruções do 113.
+2547	Proteja o local, avise e ajude sem se colocar em perigo.
+2548	Os serviços de emergência trabalham juntos quando é preciso mais de um.
+2549	Uma criança provou um líquido de uma garrafa sem rótulo.
+2550	A Nora tira os restos da boca e chama um adulto na hora.
+2551	O Centro de Informação sobre Venenos atende 24 horas no 22 59 13 00.
+2552	Em caso de sintomas graves, ligamos imediatamente para o 113.
+2553	Primeiro eles enxáguam a boca e seguem as orientações que recebem.
+2554	Produtos químicos devem sempre ficar na embalagem original e fora do alcance das crianças.
+2555	Eles informam o produto, a quantidade, o horário, a idade e os sintomas.
+2556	A embalagem ou uma foto ajuda o atendente a avaliar o risco.
+2557	Normalmente não se provoca vômito em casa.
+2558	Carvão ativado só é dado com orientação do Centro de Informação sobre Venenos ou de um médico.
+2559	O 22 59 13 00 orienta em caso de possível intoxicação; o 113 é para sintomas graves.
+2560	Salve o número e guarde os produtos perigosos com segurança.
+2561	O Leo encontra uma pessoa deitada, parada, que não responde.
+2562	Primeiro ele confere se é seguro se aproximar.
+2563	Uma pessoa inconsciente precisa de ajuda rápida, então o Leo liga para o 113.
+2564	Ele usa o viva-voz e segue as orientações passo a passo.
+2565	Ele chama a pessoa, observa se há reação e libera as vias aéreas.
+2566	Depois confere se a respiração está normal por até dez segundos.
+2567	O Leo conta ao 113 sobre a reação, a respiração e o local exato.
+2568	O atendente consegue ouvir os sons da respiração e ajuda a avaliá-los.
+2569	Ele não dá comida nem bebida a uma pessoa inconsciente.
+2570	Com respiração normal, ele segue a orientação de posição lateral de segurança; sem respiração normal, começa a RCP.
+2571	Confira a segurança, a reação, as vias aéreas e a respiração, e ligue para o 113.
+2572	Acompanhe a respiração até os profissionais de saúde assumirem.
+2573	Uma amiga conta à Maria que tem medo em casa.
+2574	A Maria ouve, acredita nela e diz que a violência nunca é culpa dela.
+2575	Em perigo imediato, elas ligam para a polícia no 112 ou para a ambulância no 113.
+2576	Elas vão para um lugar seguro antes de fazer qualquer outra coisa.
+2577	A linha de apoio 116 006 oferece ajuda grátis 24 horas.
+2578	Um centro de crise oferece proteção, orientação e ajuda a adultos e crianças de todos os gêneros.
+2579	A Maria pergunta do que a amiga precisa e se ela quer ajuda para ligar.
+2580	Dá para entrar em contato direto com um centro de crise, mesmo sem ficar lá.
+2581	A Maria não promete guardar segredo sobre um risco imediato de vida.
+2582	Ela não confronta uma pessoa perigosa e não cria mais risco.
+2583	Perigo imediato é 112 ou 113. Orientação e apoio estão disponíveis no 116 006 e nos centros de crise.
+2584	Pedir ajuda é um ato de coragem, e a ajuda pode ser anônima.
+2585	Um adulto está inconsciente e não respira normalmente.
+2586	A Nora liga para o 113, coloca o celular no viva-voz e começa a RCP.
+2587	O 113 a orienta e manda uma ambulância.
+2588	Outra pessoa busca um desfibrilador, se houver um por perto.
+2589	A pessoa está deitada de costas numa superfície firme.
+2590	A Nora coloca as mãos no centro do peito, como o 113 explica.
+2591	Ela faz 30 compressões no peito e 2 ventilações.
+2592	O 113 ajuda com o ritmo, a técnica e os próximos passos.
+2593	Ela não para para procurar equipamentos por muito tempo.
+2594	Se o desfibrilador chegar, ela segue as instruções faladas do aparelho.
+2595	Ela continua com 30 + 2 até a pessoa acordar ou os profissionais de saúde assumirem.
+2596	Um curso de primeiros socorros dá uma prática segura antes de uma emergência real.
+2597	A palavra hacker não significa automaticamente um vilão.
+2598	Um hacker usa conhecimento técnico para examinar sistemas de computador.
+2599	Um testador de segurança tem permissão clara do dono.
+2600	O objetivo é encontrar falhas e ajudar a corrigi-las.

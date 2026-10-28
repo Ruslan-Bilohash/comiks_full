@@ -26,6 +26,33 @@
    "on": 1
   }
  },
+ "alerts.js:T": {
+  "n": 12,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "title": 1,
+   "nav": 1,
+   "lead": 1,
+   "empty": 1,
+   "friends": 1,
+   "guest": 1,
+   "login": 1,
+   "like": 1,
+   "liked": 1,
+   "open": 1,
+   "more": 1,
+   "off": 1
+  }
+ },
  "app.js:PRAISE": {
   "n": 11,
   "langs": [
@@ -926,6 +953,41 @@
    "home_hint": 1
   }
  },
+ "exam.js:T": {
+  "n": 20,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "title": 1,
+   "nav": 1,
+   "lead": 1,
+   "disclaimer": 1,
+   "level": 1,
+   "start": 1,
+   "again": 1,
+   "open": 1,
+   "done": 1,
+   "p1": 1,
+   "p1d": 1,
+   "p2": 1,
+   "p2d": 1,
+   "p3": 1,
+   "p3d": 1,
+   "res": 1,
+   "of": 1,
+   "total": 1,
+   "lvl_d": 1,
+   "notyet": 1
+  }
+ },
  "extras.js:EX": {
   "n": 46,
   "langs": [
@@ -1455,6 +1517,49 @@
    "close": 1
   }
  },
+ "grammar.js:GX": {
+  "n": 32,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "de",
+   "pl",
+   "tr",
+   "pt",
+   "lt"
+  ],
+  "keys": {
+   "nav": 1,
+   "module": 3,
+   "title": 1,
+   "intro": 1,
+   "rule": 1,
+   "forms": 1,
+   "examples": 1,
+   "test": 1,
+   "mix_test": 1,
+   "tests": 1,
+   "clock": 3,
+   "clock_title": 1,
+   "clock_rule": 1,
+   "topics": 1,
+   "q_grammar": 1,
+   "q_clock": 1,
+   "cabinet": 1,
+   "cabinet_d": 1,
+   "completed": 1,
+   "average": 1,
+   "review_count": 1,
+   "history": 1,
+   "history_empty": 1,
+   "review": 1,
+   "review_empty": 1,
+   "repeat": 1,
+   "mixed_review": 1,
+   "clock_name": 1
+  }
+ },
  "install.js:T": {
   "n": 7,
   "langs": [
@@ -1790,6 +1895,104 @@
    "local": 1,
    "emoji": 1,
    "react": 1
+  }
+ },
+ "pairs.js:T": {
+  "n": 51,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "nav": 1,
+   "title": 1,
+   "lead": 1,
+   "daily": 1,
+   "mist": 1,
+   "mist_none": 1,
+   "duel": 1,
+   "duel_d": 1,
+   "comic": 1,
+   "start": 1,
+   "back": 1,
+   "exit": 1,
+   "home": 1,
+   "again": 1,
+   "again_bad": 1,
+   "to_cards": 1,
+   "done_today": 1,
+   "streak0": 1,
+   "hint": 1,
+   "moves": 1,
+   "time": 1,
+   "win": 1,
+   "record": 1,
+   "perfect": 1,
+   "missed": 1,
+   "theme": 1,
+   "theme_all": 1,
+   "no_words": 1,
+   "duel_title": 1,
+   "duel_host": 1,
+   "duel_join": 1,
+   "duel_scan": 1,
+   "duel_code": 1,
+   "duel_wait": 1,
+   "duel_ready": 1,
+   "duel_go": 1,
+   "duel_rules": 1,
+   "duel_you": 1,
+   "duel_friend": 1,
+   "duel_win": 1,
+   "duel_lose": 1,
+   "duel_draw": 1,
+   "duel_left": 1,
+   "duel_err": 1,
+   "duel_err_room": 1,
+   "duel_code_ph": 1,
+   "duel_enter": 1,
+   "duel_copy": 1,
+   "duel_copied": 1,
+   "duel_local": 1,
+   "duel_note": 1
+  }
+ },
+ "placement.js:T": {
+  "n": 17,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "title": 1,
+   "nav": 1,
+   "lead": 1,
+   "start": 1,
+   "dunno": 1,
+   "res": 1,
+   "rec0": 1,
+   "apply": 1,
+   "applied": 1,
+   "plan": 1,
+   "again": 1,
+   "why": 1,
+   "listen": 1,
+   "blank": 1,
+   "tf": 1,
+   "yes": 1,
+   "no": 1
   }
  },
  "players.js:TX": {
@@ -2243,6 +2446,111 @@
    "sh_exp": 1,
    "sh_who": 1,
    "sh_none": 1
+  }
+ },
+ "words.js:WX": {
+  "n": 22,
+  "langs": [
+   "uk",
+   "en",
+   "de",
+   "pl",
+   "tr",
+   "pt",
+   "lt",
+   "no"
+  ],
+  "keys": {
+   "room": 1,
+   "room_hint": 1,
+   "nav": 1,
+   "module": 3,
+   "title": 1,
+   "intro": 1,
+   "themes": 1,
+   "learn": 1,
+   "show": 1,
+   "play_all": 1,
+   "test": 1,
+   "all_test": 1,
+   "tip": 1,
+   "back": 1,
+   "tests": 1,
+   "gender": 1,
+   "say": 1,
+   "know": 1,
+   "know_hint": 1,
+   "reset_known": 1
+  }
+ },
+ "write.js:T": {
+  "n": 20,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "title": 1,
+   "nav": 1,
+   "lead": 1,
+   "level": 1,
+   "task": 1,
+   "other": 1,
+   "ph": 1,
+   "check": 1,
+   "checking": 1,
+   "clear": 1,
+   "res": 1,
+   "fixed": 1,
+   "errs": 1,
+   "no_errs": 1,
+   "tip": 1,
+   "sample": 1,
+   "show_sample": 1,
+   "hist": 1,
+   "again": 1,
+   "noai": 1
+  }
+ },
+ "write.js:S": {
+  "n": 20,
+  "langs": [
+   "uk",
+   "en",
+   "no",
+   "ar",
+   "de",
+   "pl",
+   "tr",
+   "lt"
+  ],
+  "keys": {
+   "tab_easy": 1,
+   "tab_free": 1,
+   "easy_lead": 1,
+   "q_type": 1,
+   "q_blank": 1,
+   "q_dict": 1,
+   "listen": 1,
+   "again": 1,
+   "check": 1,
+   "next": 1,
+   "skip": 1,
+   "start": 1,
+   "right": 1,
+   "wrong": 1,
+   "yours": 1,
+   "res": 1,
+   "more": 1,
+   "hint_type": 1,
+   "none": 1,
+   "ai_off": 1
   }
  }
 }

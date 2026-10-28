@@ -21,6 +21,7 @@ const META = {
   lt: { dir: 'lt/', html: 'lt', hl: 'lt', locale: 'lt_LT', flag: '🇱🇹 Lietuvių', seg: 'norvegu-testai', useg: 'naujienos' },
   /* Арабська адреса лишається латиницею: кирилиця й арабиця в шляху виглядають
      у пошуковій видачі як набір відсотків, а сам шлях ніхто не читає. */
+  pt: { dir: 'pt/', html: 'pt-BR', hl: 'pt-BR', locale: 'pt_BR', flag: '🇧🇷 Português', seg: 'testes-de-noruegues', useg: 'novidades' },
   ar: { dir: 'ar/', html: 'ar', hl: 'ar', locale: 'ar_AR', flag: '🌐 العربية', seg: 'norwegian-tests', useg: 'updates', rtl: true },
 };
 

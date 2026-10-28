@@ -1,0 +1,200 @@
+201	Depois do ataque: retome o controle
+202	A mala na balsa
+203	Depois da aula de natação
+204	O mapa do nosso bairro
+205	Três projetos na mesma mesa
+206	O Max achou a jaqueta dele
+207	A oficina de placas
+208	Os detetives de donos do brechó
+209	Dia de mudança: de quem é isto?
+210	A visita perto do rio
+211	A jaqueta para a trilha
+212	A manhã que saiu correndo
+213	A Mia e o Leo fazem um bolo para a mamãe, mas o gato Pus faz a maior bagunça.
+214	O Leo começa numa escola norueguesa. Dá medo? Só no começo!
+215	O papai, a Mia e o Leo vão colher mirtilos na floresta — e encontram um alce de verdade!
+216	A Mia vai às compras sozinha: leite, pão e maçãs — e precisa contar as coroas direitinho.
+217	Está nevando! O Leo e a Nora fazem um boneco de neve — e depois começa uma guerra de bolas de neve.
+218	A Nora faz oito anos! Um presente, bolo e a canção norueguesa de aniversário.
+219	O gato Pus sumiu! A Mia e o papai procuram em todo lugar: embaixo do sofá, no jardim, numa árvore...
+220	O Ruslan e a Alina, da Ucrânia, se mudaram para a Noruega e conhecem a vizinha Maria.
+221	A Alina está doente e vai ao doutor Humphrey. Como explicar o que dói?
+222	O Denys começa num emprego novo. O colega Humphrey mostra o escritório e a marmita norueguesa.
+223	O Ruslan e a Alina visitam um apartamento: aluguel, caução, animais de estimação e o contrato.
+224	O Denys participa do seu primeiro “dugnad” norueguês — vizinhos trabalhando juntos. E no fim tem waffles!
+225	A Alina, enfermeira da Ucrânia, tem uma entrevista de emprego em norueguês: experiência, estresse e perguntas para o empregador.
+226	Café da manhã de domingo: queijo marrom, leite, ovos — e uma marmita norueguesa para a escola.
+227	Um dia na vida da Nora, de manhã até a noite — aprenda a dizer as horas: “halv ni”, “kvart over”, “kvart på”.
+228	O Denys pega o ônibus para o curso de norueguês: compra a passagem no aplicativo, troca de ônibus e desce no ponto certo.
+229	O Ruslan comemora pela primeira vez o dia nacional da Noruega: o desfile das crianças, os bunads, as bandeiras e muito sorvete.
+230	A Maria convida a Alina e o Ruslan para uma véspera de Natal norueguesa: pinnekjøtt, a árvore, os presentes — e a kutia ucraniana.
+231	Uma trilha nas montanhas com barraca: o que o direito norueguês de livre acesso à natureza permite, onde acampar e quando é proibido fazer fogueira.
+232	A Mia apresenta a família — e, de quebra, mostra os pronomes hun, han, vi, dere, de, oss, meg.
+233	Segunda-feira na aula: todo mundo conta do fim de semana — e pratica o passado (var, gikk, spilte, bakte).
+234	O Musa, do Reino Unido, que mora em Drammen com os dois filhos, começa um curso de norueguês. O professor Morten mostra como se apresentar.
+235	O Musa retira uma encomenda da mãe dele em Londres: o código de retirada, o documento e uma bela surpresa.
+236	Numa viagem a Bergen, o Musa conversa sobre o tempo com uma senhora. Para um britânico, chuva não é novidade!
+237	O Musa almoça pela primeira vez com colegas noruegueses: a marmita, o queijo marrom e o papo sobre o fim de semana.
+238	A Maria convida o Musa para passar o fim de semana numa cabana na montanha — sem eletricidade, mas com chocolate quente, waffles e aconchego norueguês.
+239	A primeira semana do Musa no trabalho: o cartão de imposto, o número D, uma conta no banco e o primeiro salário na Noruega.
+240	A Alina deixa a Mia na creche: roupa de chuva, um resfriadinho e a hora de buscá-la.
+241	O Musa adora carros velozes, então compra um elétrico esportivo. As duas filhas gritam “mais rápido!”, mas a Noruega tem limites de velocidade rígidos — por isso a corrida de verdade acontece na pista.
+242	O Musa anda de bicicleta para todo lado — até com dez graus negativos. Ele troca os pneus todo mês, e os vizinhos o chamam de “o maluco da bicicleta de Drammen”.
+243	A Nora não consegue decidir: “eu acho” é synes ou tror? O Musa explica de um jeito simples: synes é a minha opinião sobre algo que eu conheço; tror é um palpite sobre algo que eu ainda não sei.
+244	Está tudo misturado na escola: de quem é a mochila, de quem é o livro e de quem são os sapatos? O Leo e a Mia aprendem a dizer “meu” e “seu” em norueguês — a forma depende do gênero e do número da coisa.
+245	O Musa pegou uma bicicleta — a dele mesmo ou a do vizinho? Uma palavra muda tudo: sin quer dizer “a dele mesmo”, hans quer dizer “dele” (de outra pessoa). A família organiza hans, hennes, vår e deres com exemplos simples.
+246	A Maria está com dor de garganta e vai à farmácia. O farmacêutico pergunta sobre os sintomas, sugere comprimidos e explica como tomá-los — e se é preciso receita.
+247	Uma vez por ano, todo funcionário na Noruega tem uma conversa com o chefe: o que deu certo, o que está difícil e para onde seguir. O Denys se prepara, fala da carga de trabalho e de cursos — e, com cuidado, toca no assunto do salário.
+248	O Ruslan perdeu o emprego e vai ao NAV pela primeira vez. A orientadora explica como fazer o pedido, quais documentos são necessários e quanto tempo leva a decisão.
+249	A Alina está procurando apartamento e vai a uma visita. Ela pergunta sobre as contas, a caução e as regras do prédio — e descobre que o contrato pode ter prazo fixo.
+250	O Musa vai a uma reunião de pais pela primeira vez. A professora fala da turma, de um passeio e das regras do celular, e os pais combinam quem faz o quê.
+251	O Denys está com dor de dente. A dentista encontra uma cárie, explica o tratamento e o preço e lembra que o tratamento dentário é grátis para menores de dezoito anos.
+252	A Alina começa num emprego novo. A gerente mostra o local de trabalho e explica as regras de segurança, o almoço e como pedir folga.
+253	A Nora quer pegar livros emprestados e descobre que a biblioteca norueguesa também oferece cursos grátis, um café de idiomas e um lugar para trabalhar.
+254	A neve deixa o ônibus vinte minutos atrasado. O motorista explica a conexão, e a Maria fica sabendo da regra de reembolso do táxi.
+255	Os fones de ouvido do Ruslan quebraram depois de dois meses. Ele aprende o que é uma reclamação formal, por que a nota fiscal importa e que esse direito vale por dois anos.
+256	A Alina está se preparando para a prova de norueguês. A professora explica as quatro partes, como se inscrever e o que fazer se bater o nervosismo na prova oral.
+257	O Leo quer entrar numa academia. O instrutor explica os tipos de plano, o período de fidelidade, as aulas em grupo — e como cancelar do jeito certo.
+258	Um vizinho explica a separação do lixo para a Maria: sacos azuis para plástico, verdes para resto de comida, garrafas com depósito e uma ida ao ponto de reciclagem.
+259	A Nora marca um corte de cabelo. Ela aprende a descrever o que quer, pergunta o preço e descobre que na Noruega não se espera gorjeta.
+260	O Musa vai fazer a revisão anual, mas o mecânico ouve um barulho estranho nos freios. Eles conversam sobre o orçamento, a garantia e um carro reserva.
+261	Uma família planeja uma semana numa cabana. O pai confere a previsão do tempo e o alerta de avalanche, e as crianças fazem a lista do que levar e aprendem as regras da montanha.
+262	O Denys não consegue dormir por causa da música tarde da noite. Ele aprende a levantar o assunto com calma: descrever o fato, dizer como se sente e sugerir uma solução.
+263	Os moradores decidem se vão instalar carregadores para carros elétricos. O Musa aprende como funciona uma reunião formal: fazer uma proposta, argumentar e votar.
+264	A Alina escreve uma candidatura de emprego, e a Maria mostra como torná-la convincente: exemplos concretos em vez de frases vagas, e um currículo de uma página.
+265	O Denys recebe o acerto do imposto e está devendo. Um colega explica como conferir a declaração, que deduções existem e como mudar o cartão de imposto.
+266	O Musa e a Maria querem comprar um apartamento. O gerente do banco calcula quanto eles podem pedir emprestado e explica juros fixos e variáveis.
+267	Um cano estoura no apartamento da Nora. Ela comunica à seguradora, aprende sobre a franquia, espera o perito e entende por que as fotos importam.
+268	Numa reunião, a equipe discute o trabalho remoto: produtividade contra convivência. Eles praticam como argumentar e chegam a um meio-termo.
+269	O Ruslan está com dor nas costas. O médico sugere uma licença médica parcial, e o chefe faz um plano de volta ao trabalho — sem pressão, mas com combinados claros.
+270	O Musa e a Maria vão ter um bebê e planejam a licença: a cota do pai, o período compartilhado e a escolha entre 80 e 100 por cento do salário.
+271	A turma debate se o refeitório da escola deve tirar a carne do cardápio. Os alunos aprendem a montar um argumento: afirmação, prova, contra-argumento e conclusão.
+272	A conta de dezembro foi um susto. Um vizinho explica o preço spot, o subsídio do governo e jeitos simples de gastar menos.
+273	O Ruslan não entende por que os colegas dizem “talvez” em vez de “não”, nem por que todo mundo chama o chefe pelo primeiro nome. A Maria explica a cultura de trabalho norueguesa.
+274	A Alina faz uma apresentação para o departamento pela primeira vez. Uma colega a ajuda a cortar slides, preparar a abertura e responder com calma a perguntas difíceis.
+275	A Maria quer escrever sobre uma faixa de pedestres perigosa perto da escola. O editor explica como deixar o texto forte: fatos, uma proposta de solução e nada de ataques pessoais.
+276	O proprietário quer aumentar o aluguel e entrar sem avisar. Um advogado explica o que a lei permite e onde reclamar.
+277	O Musa inscreve a filha no futebol e descobre que o clube funciona graças a pais voluntários: a lanchonete, levar as crianças aos jogos, a certidão de antecedentes e o espírito de mutirão.
+278	A Mia e o Leo entram num café. Eles pedem café, chocolate quente e um waffle, perguntam o preço e pagam com cartão.
+279	O Leo e a Nora estão no parque. Eles jogam bola, dividem as coisas, se acostumam com o tempo norueguês e vão para casa quando escurece.
+280	O Ruslan não enxerga bem as placas da rua. Ele vai ao oftalmologista, faz o exame de vista, escolhe uma armação e fica sabendo quando os óculos ficam prontos.
+281	A Alina achou uma bicicleta usada num anúncio. Ela marca um encontro, confere a bicicleta, pechincha um pouco e paga por um aplicativo.
+282	O Musa pega ônibus numa cidade nova pela primeira vez. Ele compra a passagem no aplicativo, entende as zonas e a tarifa infantil — e então entra um fiscal.
+283	A Maria tem uma forte dor de ouvido de madrugada. Ela liga para o 116 117, vai ao pronto-socorro, explica os sintomas, espera a vez dela e recebe uma receita.
+284	O Denys recebe a terceira tarefa seguida. Ele aprende a recusar com educação: diz quanta coisa já tem, pede ao chefe para escolher as prioridades e oferece uma alternativa.
+285	A Mia e o Leo se medem, comparam cachecóis, mochilas e cachorros — e aprendem a descrever tudo à volta: alto e baixo, comprido e curto, grande e pequeno, pesado e leve.
+286	O Musa visita um apartamento e descreve tudo o que vê: claro ou escuro, limpo ou sujo, silencioso ou barulhento, caro ou barato. No caminho, ele aprende a dizer com educação o que não serve para ele.
+287	Um quadrinho de fotos: o Musa e a Kari passam por um dia comum em Oslo — o ponto de ônibus, a rua, a loja, o café, o parque e o fiorde à noite. Os quadros são fotos reais, então você também aprende a ler placas, etiquetas de preço e painéis de partida.
+288	A Nora e a mãe estão comprando uma jaqueta. Elas perguntam o tamanho, experimentam, olham o preço e descobrem que dá para trocar em até uma semana.
+289	O Musa precisa pegar um trem, mas ele está vinte minutos atrasado. A Kari o ajuda a achar a plataforma, entender o aviso e mesmo assim pegar a conexão.
+290	O Ruslan se mudou e não está recebendo cartas. A Alina explica: você muda o endereço no Registro Nacional em até oito dias, pede o redirecionamento da correspondência à parte e avisa o empregador e o banco.
+291	O Denys recebeu um contrato e o lê com a Maria. Eles olham o período de experiência, o emprego fixo e o temporário, a jornada, o dinheiro de férias e o aviso prévio.
+292	A primeira metade da prova oral: capital, população, vizinhos, idioma, moeda, presidente e pelo que o país é conhecido. A Alina responde sobre a Ucrânia — use as frases dela como modelo para o seu país.
+293	A segunda metade da prova oral: comida, clima, pontos turísticos, o dia nacional, esportes, tradições e recursos naturais. Sete perguntas com respostas modelo curtas.
+294	As primeiras palavras sobre como você está: dor de cabeça, febre, ficar em casa, ligar para a creche. Tudo no presente e em frases curtas.
+295	Os cômodos de uma casa em palavras simples: cozinha, sala, quarto, banheiro, varanda. O Musa mostra o apartamento dele para o Leo.
+296	O que acontece toda semana na Noruega: o preço por quilo, o leve três e pague dois, a data de validade e o cartão fidelidade no caixa.
+297	A conversa que muita gente evita por falta de palavras: avisar sobre uma alergia, perguntar o que tem num prato, pedir uma substituição e ter certeza de que entenderam.
+298	A Mia e a mamãe fazem um bolo e descobrem quando o norueguês diz “mye” e quando diz “mange”.
+299	O Leo vai às compras e aprende por que o norueguês diz “en liten pose”, mas “et lite brød”.
+300	A Nora e o papai fazem um piquenique no parque e organizam três palavras que significam “não muito”.
+301	O Musa e a Kari fazem uma trilha na montanha e praticam stor–større–størst, mange–flere–flest e god–bedre–best.
+302	O Leo não quer levantar, o café da manhã demora e o gato Pus está dormindo em cima da mochila. Será que o Leo pega o ônibus?
+303	O papai treina o time das crianças. O Leo esqueceu a garrafinha de água, chutou a bola num arbusto e no fim fez um gol na Nora.
+304	A Maria acabou de começar no escritório quando começa um simulado de incêndio. O Ruslan explica as regras, e o Denys volta para buscar o café.
+305	A Alina recebeu um cartão de eleitor. O professor Morten e a Maria explicam quem pode votar, como votar antecipadamente e por que o voto é secreto.
+306	A escola ganhou um robô chamado Robo. Ele só segue comandos exatos, e as crianças aprendem que um programa são comandos na ordem certa.
+307	O Leo ensina o robô Robo a fazer um sanduíche. O Robo faz tudo ao pé da letra, então o Leo aprende que um algoritmo precisa ser exato e estar na ordem certa.
+308	A Nora quer que o Robo dance, mas são comandos demais. A professora mostra um laço: “repita 4 vezes” — e o programa fica curto.
+309	O Robo não sabe quando levar guarda-chuva. O Leo e a mamãe escrevem uma regra para ele: se chover — guarda-chuva; senão — óculos de sol.
+310	A Nora e o Leo fazem um jogo: um gato pega peixes e ganha pontos. A professora explica uma variável — uma caixa com nome onde o computador guarda um número.
+311	O Robo precisa chegar até a estrela, mas bate numa parede. As crianças leem o programa linha por linha, encontram o bug e o corrigem.
+312	O Leo pergunta ao Robo que língua ele fala. A professora explica as linguagens de programação: Scratch, Python, JavaScript, HTML e CSS, Swift, Kotlin e C#.
+313	A turma faz um modelo do pátio da escola. As crianças aprendem que um modelo é uma cópia simples, que as coisas num programa têm propriedades e que desenhamos o plano antes do código.
+314	A Nora e o Leo fazem um site sobre o gato Pus. O Robo explica o HTML: tags entre sinais de menor e maior, um título <h1>, um parágrafo <p>, uma imagem <img> e um link <a>.
+315	A Nora dá ao site cores, espaçamento e botões claros com CSS.
+316	O JavaScript faz a página reagir quando o usuário clica.
+317	As crianças planejam uma cena com um jogador, um objetivo e regras.
+318	As teclas pressionadas viram velocidade e movimento no jogo.
+319	O jogo detecta o contato, dá pontos e abre a próxima fase.
+320	O Robo mostra o espaço 3D, os eixos e as principais formas básicas.
+321	Um modelo simples ganha forma, material, luz e câmera.
+322	Uma cena é construída com GameObjects e componentes.
+323	Os prefabs criam objetos reutilizáveis, e as cenas dividem o jogo em partes.
+324	Um banco de dados organiza informações em tabelas, linhas e campos.
+325	Uma consulta SQL seleciona, filtra e ordena dados.
+326	As crianças aprendem minimização de dados, controle de acesso, senhas fortes e cópias de segurança.
+327	A Nora planeja um caminho movimentado e sabe a quem pedir ajuda.
+328	As crianças aprendem a manter distância, dizer não e chamar um adulto de confiança.
+329	A Nora para, fica num lugar visível e pede ajuda a um funcionário.
+330	As crianças aprendem quando ligar para o 112 e quais informações o atendente precisa.
+331	A Nora cria senhas longas e únicas e protege a conta com autenticação em dois fatores.
+332	As crianças reconhecem o phishing e conferem a mensagem por um canal conhecido.
+333	Um QR code colado por cima pode esconder um link falso, então a Nora confere o endereço antes de abrir.
+334	A Nora confere o lugar, o emblema da escola e outros detalhes privados antes de compartilhar uma foto.
+335	Um prêmio falso tenta conseguir dinheiro e dados pessoais antes de o prêmio sequer existir.
+336	Uma voz artificial causa pânico, mas uma palavra-código da família e ligar de volta desmascaram o golpe.
+337	A Nora avalia o vendedor, o preço, o pagamento e o local de encontro antes de comprar usado.
+338	Um perfil copiado pede segredos, mas a Nora confirma quem é o amigo por um canal conhecido.
+339	A Nora dá ao aplicativo só as permissões necessárias para a função que ela usa.
+340	As atualizações de segurança corrigem falhas conhecidas quando vêm de uma fonte oficial.
+341	A Nora distingue a rede verdadeira das cópias e evita ações sensíveis em redes abertas.
+342	Cópias de segurança regulares e separadas ajudam quando os arquivos são danificados ou bloqueados.
+343	O CAPTCHA freia o abuso automatizado, mas precisa ser acessível e é só uma entre várias camadas de proteção.
+344	O programa valida os dados no servidor, usa consultas seguras e mostra mensagens de erro inofensivas.
+345	O HTTPS criptografa a conexão, enquanto o domínio certo confirma que se está no site pretendido.
+346	O serviço guarda um hash de senha com sal e compara as novas tentativas sem guardar o texto puro.
+347	A Nora deixa um site claro para teclado, leitores de tela e diferentes capacidades visuais.
+348	O Robo organiza o jogo em estados claros: menu, jogo, pausa e resultado.
+349	A Nora desdobra um modelo 3D, aplica uma textura e confere o resultado sob a luz.
+350	Um script reage ao início, à atualização e à colisão e envia os pontos para a interface.
+351	A Nora liga alunos e cursos com chaves e busca dados relacionados sem duplicar nada.
+352	A turma combina um ponto de encontro, anda em duplas e sabe o que fazer se o grupo sumir.
+353	A Nora protege suas informações pessoais, interrompe mensagens desagradáveis e usa o bloqueio e a denúncia.
+354	Uma voz falsa pede dinheiro, mas a Nora para e confirma a história por um canal conhecido.
+355	A Nora aprende que as chaves secretas ficam no servidor, precisam de permissões limitadas e devem poder ser trocadas.
+356	Números, texto e verdadeiro/falso representam tipos diferentes de informação.
+357	Uma função agrupa comandos e pode receber argumentos.
+358	Uma lista guarda vários valores numa ordem determinada.
+359	Tarefas grandes ficam mais fáceis quando divididas em partes pequenas.
+360	Os links ligam páginas e precisam de um texto claro e do endereço certo.
+361	Um layout responsivo se adapta ao celular, ao tablet e ao computador.
+362	Uma API permite que um site peça informações estruturadas.
+363	Um bom formulário explica as exigências e encontra erros antes do envio.
+364	O som dá um retorno quando o jogador pula, acerta ou vence.
+365	Vários quadros em sequência criam movimento.
+366	Um bom equilíbrio desafia sem deixar o jogador sem saída.
+367	Um jogo pode salvar a fase, os pontos e as configurações entre as sessões.
+368	O Mirror cria uma cópia simétrica enquanto o modelo muda.
+369	Os quadros-chave dizem onde um objeto deve estar em determinados momentos.
+370	As ferramentas de escultura empurram e alisam uma superfície digital.
+371	O formato de exportação certo leva um modelo do Blender para um motor de jogo.
+372	O Canvas do Unity guarda botões, textos e outros elementos de interface.
+373	O gerenciamento de cenas abre menus e fases sem misturar tudo.
+374	As camadas de física decidem quais grupos devem colidir.
+375	Um Audio Mixer agrupa os sons com controles de volume separados.
+376	CRUD descreve quatro ações comuns com dados armazenados.
+377	Um índice ajuda o banco de dados a encontrar linhas específicas mais rápido.
+378	O JSON transporta objetos, listas, texto, números e valores booleanos.
+379	Uma migração muda a estrutura do banco de dados de forma controlada.
+380	Um plano de evacuação claro ajuda todos a sair com calma e rapidez.
+381	Capacete, luzes e sinais claros deixam o passeio de bicicleta mais seguro.
+382	As crianças devem chamar ajuda e fazer escolhas simples e seguras de primeiros socorros.
+383	As configurações de privacidade controlam quem vê publicações, fotos e dados de contato.
+384	Um e-mail falso tenta roubar a senha da escola com uma cópia da página de login.
+385	Mensagens ofensivas repetidas devem ser interrompidas, guardadas como prova e mostradas a um adulto.
+386	Downloads seguros vêm de fontes oficiais e precisam ser conferidos antes de abrir.
+387	Um anúncio num site de vendas usa preço baixo, pressa e pagamento fora da plataforma.
+388	Uma oferta esconde a renovação automática e um cancelamento difícil nas letras miúdas.
+389	Um QR code promete um prêmio, mas leva a uma página que pede os dados do cartão.
+390	As permissões de um aplicativo devem combinar com a função que o usuário realmente escolheu.
+391	O bloqueio de tela, a cópia de segurança e a localização do aparelho protegem um celular perdido.
+392	Um cabo inteiro, o carregador certo e ventilação livre reduzem o risco ao carregar.
+393	Em aparelhos compartilhados, é preciso limpar a conta, os arquivos e os dados do navegador depois de usar.
+394	Uma sessão segura usa um cookie aleatório depois do login.
+395	A autorização confere as permissões no servidor a cada ação.
+396	O usuário recebe uma mensagem simples, enquanto os detalhes ficam guardados com segurança para o desenvolvedor.
+397	A Alina recebe uma carta difícil. Com o orientador Morten, ela aprende o que significam SIS, obrigação de deixar o país, expulsão e proibição de entrada, e quais direitos uma pessoa tem.
+398	A Nora descobre fumaça e aprende a regra salvar–avisar–apagar sem se colocar em perigo.
+399	O Leo aprende a diferença entre a emergência médica, o pronto-atendimento e o médico de família.
+400	A Alina aprende qual número da polícia usar numa emergência e numa situação que não é urgente.

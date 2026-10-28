@@ -1,0 +1,200 @@
+1201	Olheiro de Detalhes
+1202	Encontre uma mudança ou conte os objetos iguais ao modelo.
+1203	Uma resposta certa faz seu avatar avançar. Cada escolha mostra uma explicação. A turma inteira recebe os mesmos desafios.
+1204	6–8 anos · primeiros passos
+1205	8–10 anos · mais detalhes
+1206	10–12 anos · regras mais difíceis
+1207	12+ anos · desafio
+1208	Observe primeiro os objetos. Quando um sumir, escolha-o entre quatro respostas.
+1209	Encontre a parte que se repete ou o passo entre os números. Que item vem a seguir?
+1210	Compare duas prateleiras e escolha o número da posição que mudou. Ou conte todos os objetos iguais ao modelo.
+1211	Memorize!
+1212	O que sumiu?
+1213	Isso! +1 passo
+1214	Vamos entender juntos
+1215	🤖 Treinar com robôs
+1216	📺 Criar uma sala para a turma
+1217	Jogo
+1218	Recarregue a página para jogar este novo modo.
+1219	Matemática
+1220	🧮
+1221	Matemática
+1222	tabuada, treinador e um jogo
+1223	🧮 Matemática em norueguês
+1224	Conte e aprenda os números ao mesmo tempo: cada conta é lida em voz alta em norueguês (“tre ganger fire er tolv”). Tabuada com imagens, um treinador e um jogo espacial de velocidade.
+1225	✖️ Tabuada
+1226	Toque numa casa para ver uma imagem e ouvir a conta em norueguês.
+1227	🧩 Praticar esta linha
+1228	➕ Treinador
+1229	Operação
+1230	Números
+1231	até 10
+1232	até 20
+1233	até 100
+1234	▶️ Começar
+1235	🚀 Math Rocket
+1236	Um jogo espacial de 60 segundos: resolva as contas e atire no asteroide com a resposta certa. Um erro custa 3 segundos.
+1237	🟢 Fácil (+ −)
+1238	🟡 Médio (×)
+1239	🔴 Difícil (tudo)
+1240	🚀 Fim do voo!
+1241	🔄 Jogar de novo
+1242	🎉 Novo recorde!
+1243	🗣️ Palavras de matemática em norueguês
+1244	🧮 Matemática
+1245	Tabuada
+1246	Adição e subtração
+1247	← Voltar
+1248	✉️ Mensagens
+1249	Ainda não há conversas. Abra o perfil de um amigo e toque em “✉️ Mensagem”.
+1250	✉️ Mensagem
+1251	Escreva uma mensagem…
+1252	Enviar
+1253	você
+1254	Entre para mandar mensagens aos seus amigos.
+1255	← Conversas
+1256	🚫 Bloquear
+1257	✅ Desbloquear
+1258	🚩 Denunciar
+1259	Denunciado aos moderadores. Obrigado!
+1260	🗑 Remover a conversa
+1261	Bloquear este jogador? Ele não vai poder mandar mensagens para você.
+1262	Remover esta conversa da lista?
+1263	🔒 Privacidade
+1264	Decida quem pode ver você e quem pode mandar mensagens. Ninguém nunca vê seu e-mail nem sua senha.
+1265	🔎 Mostrar-me na busca de jogadores
+1266	Os outros podem encontrar você pelo nome, ver seu avatar, nível, estrelas e medalhas e adicionar você como amigo.
+1267	✉️ Quem pode me mandar mensagens
+1268	💬 Mural aberto no meu perfil
+1269	Os outros podem deixar comentários no seu mural (com captcha e moderação).
+1270	🚫 Jogadores bloqueados
+1271	Ninguém está bloqueado.
+1272	Salvo ✓
+1273	As mensagens funcionam para contas do servidor em bilohash.com.
+1274	Emoji
+1275	Reagir
+1276	🧠 Pares
+1277	🧠 Pares
+1278	Vire duas cartas e ligue a palavra norueguesa à tradução dela. As palavras vêm dos seus pontos fracos, então cada dia é diferente.
+1279	📅 Jogo do dia
+1280	🔁 Trabalhar nos erros
+1281	Nenhum erro — tudo certo!
+1282	🤝 Jogar com um amigo
+1283	Um celular mostra um QR code, o outro escaneia — e vocês apostam corrida
+1284	📖 Palavras do quadrinho
+1285	Começar ▶
+1286	← Voltar
+1287	← Sair
+1288	🏠 Início
+1289	🔄 De novo
+1290	🔁 Repetir estas palavras
+1291	🃏 Para os cartões
+1292	✅ Jogado hoje
+1293	Comece sua sequência hoje
+1294	A palavra norueguesa é lida em voz alta quando você vira uma carta. Acerte o par na primeira tentativa e a palavra avança um passo.
+1295	👣
+1296	⏱
+1297	Todos os pares encontrados!
+1298	Novo recorde!
+1299	Nenhum erro!
+1300	Estas palavras ainda não se fixaram:
+1301	🎨 Tema do jogo
+1302	Todas as palavras
+1303	Ainda não há palavras suficientes. Leia um quadrinho ou abra a página de Palavras e volte depois.
+1304	🤝 Pares a dois
+1305	📺 Criar um jogo
+1306	📱 Entrar
+1307	Peça para seu amigo escanear o código ou abrir o link:
+1308	Código do jogo
+1309	Esperando seu amigo…
+1310	Seu amigo está conectado!
+1311	🚀 Começar
+1312	Vocês dois recebem as mesmas cartas. Ganha quem formar todos os pares primeiro.
+1313	Você
+1314	Amigo
+1315	🏆 Você venceu!
+1316	Seu amigo foi mais rápido
+1317	Empate!
+1318	Seu amigo saiu do jogo.
+1319	Não foi possível conectar. É preciso conexão com a internet e um navegador moderno.
+1320	Jogo não encontrado. Confira o código — ou seu amigo já o fechou.
+1321	ex.: K7Q2M
+1322	Entrar ▶
+1323	📋 Copiar
+1324	Copiado ✓
+1325	⚠️ A página foi aberta a partir de um arquivo — os celulares não conseguem entrar. Abra o jogo em bilohash.com/comiks/
+1326	As palavras do duelo também vão para a sua memória: o que você errar vai para os seus erros.
+1327	🎯 Teste de nível
+1328	🎯 Teste de nível
+1329	Doze perguntas curtas — três de cada nível. Não chute: aperte “Não sei” se não tiver certeza. Assim seu plano começa exatamente onde deve.
+1330	▶️ Começar
+1331	Não sei
+1332	🏁 Resultado
+1333	Sugerimos começar do começo — o alfabeto e as primeiras palavras.
+1334	✅ Usar este nível no meu plano
+1335	Pronto! Seu plano foi atualizado.
+1336	🎯 Meu plano
+1337	🔄 De novo
+1338	A regra é simples: um nível conta como aprovado quando você acerta pelo menos duas das três perguntas dele.
+1339	🔊 Ouça e escolha a palavra
+1340	Qual palavra está faltando?
+1341	Verdadeiro ou falso?
+1342	✅ Verdadeiro
+1343	❌ Falso
+1344	👤 Perfil do jogador
+1345	Meu perfil
+1346	🔒 Este jogador mantém o perfil privado.
+1347	Jogador não encontrado.
+1348	O motivo mais comum é a privacidade: um jogador só aparece na busca e nas listas de amigos depois de permitir que o perfil seja exibido. Confira o código de amigo de novo — e peça ao seu amigo para ligar o compartilhamento nas configurações.
+1349	Para seus amigos verem você, ligue o compartilhamento do seu próprio perfil:
+1350	🔎 Mostrar-me na busca
+1351	🔒 Privacidade e configurações
+1352	✅ Agora você aparece na busca
+1353	📈 Resultados recentes
+1354	Ainda não há resultados.
+1355	👥 Meus amigos
+1356	Ainda não há amigos. Mande seu código de amigo e estudem juntos.
+1357	Todos os amigos
+1358	➕ Adicionar um amigo
+1359	online
+1360	aguardando aprovação
+1361	#️⃣ Minhas hashtags
+1362	Algumas palavras sobre o que você está aprendendo e por quê: #norskproven, #jobb, #barn, #uttale. Os outros encontram você por elas — mas só enquanto o compartilhamento do perfil estiver ligado.
+1363	Adicionar uma hashtag…
+1364	Adicionar
+1365	No máximo sete hashtags. Remova uma (✕) ou toque numa tag para substituí-la.
+1366	Toque para substituir
+1367	A tag está no campo — edite e aperte “Adicionar”.
+1368	Salvo ✓
+1369	Ainda não há hashtags.
+1370	🌍 Visibilidade do perfil
+1371	Deixar os outros verem meu perfil, progresso e resultados
+1372	Outros jogadores neste aparelho e qualquer pessoa para quem você mandar o link vão ver seu avatar, nome, estrelas, medalhas e resultados dos testes. E-mail e senha nunca são exibidos.
+1373	📤 Compartilhar meu perfil
+1374	👁️ Ver o perfil
+1375	📚 Abrir o Komiks·Lab
+1376	💬 Mural
+1377	Escreva algo legal…
+1378	Publicar
+1379	Entre ou cadastre-se para escrever no mural.
+1380	Os comentários ficam salvos neste aparelho.
+1381	🌍 Todos que abrem este perfil veem os comentários. Seja gentil!
+1382	Ainda não há nada aqui — seja o primeiro!
+1383	Apagar
+1384	O mural fica no aparelho do jogador. Aqui você vê os resultados dele.
+1385	🧮 Resolva a conta — e seu comentário voa!
+1386	Ops, quase! Aqui vai outra 🙂
+1387	Cancelar
+1388	👥 Jogadores
+1389	Contas neste aparelho com perfil público.
+1390	Perfil →
+1391	você
+1392	🗑 Remover
+1393	⚠️ Advertir
+1394	Feito ✓
+1395	Aplicar ao autor deste comentário?
+1396	🛡 Moderação
+1397	💬 conta oficial
+1398	🤖 jogador virtual
+1399	🔎 Jogadores
+1400	Encontre outros alunos, veja os perfis deles, adicione amigos e dispute nos jogos.

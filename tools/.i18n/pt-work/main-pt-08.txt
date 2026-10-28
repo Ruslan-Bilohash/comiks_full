@@ -1,0 +1,200 @@
+1401	Sim, uma certidão de antecedentes criminais. Todos que trabalham com crianças precisam apresentar.
+1402	Por que as pessoas se dão ao trabalho de gastar tanto tempo livre com isso?
+1403	Porque o clube é o que une o bairro. Sem trabalho voluntário, não haveria nada para oferecer.
+1404	Me coloque na lanchonete em setembro. Vou levar baklava também.
+1405	Então você vai ser o pai mais popular do ano!
+1406	Oi! Em que posso ajudar?
+1407	Oi! A gente queria um café e um chocolate quente.
+1408	E um waffle, por favor. Com geleia!
+1409	Waffle com geleia e queijo marrom. Mais alguma coisa?
+1410	Não, obrigado. Quanto dá tudo?
+1411	Cento e vinte coroas.
+1412	Sim, claro. Aproxime o cartão aqui.
+1413	Vamos sentar perto da janela?
+1414	Vamos, tem uma mesa livre ali.
+1415	O waffle está uma delícia. Obrigada por hoje!
+1416	De nada. Da próxima vez quem paga é você!
+1417	Oi, Nora! Quer jogar bola?
+1418	Quero! Eu fico no gol.
+1419	Olha só! Vou chutar!
+1420	Opa! Passou direto por cima de mim.
+1421	Posso jogar também? Não tenho ninguém para brincar.
+1422	Claro que pode! A gente sempre divide.
+1423	Está começando a chover um pouco.
+1424	Não tem problema. A gente tem casacos bons.
+1425	Olha, tem frutinhas crescendo aqui!
+1426	Vamos levar algumas para a mamãe.
+1427	Está escurecendo. Precisamos ir para casa agora.
+1428	Obrigado por hoje! Até amanhã!
+1429	Olá. Estou enxergando mal as placas quando dirijo.
+1430	Então vamos fazer um exame de vista. Sente-se aqui, por favor.
+1431	Leia a última linha, por favor.
+1432	Só consigo ler a terceira linha.
+1433	Você precisa de óculos para dirigir.
+1434	Preciso usar o tempo todo?
+1435	Não, só quando dirigir e ler placas.
+1436	Certo. Qual armação combina comigo?
+1437	A preta é simples e barata — duas mil coroas.
+1438	O meu seguro cobre alguma parte?
+1439	Pergunte ao seu empregador — muitos pagam óculos para trabalho em frente à tela.
+1440	Boa dica! Quando os óculos ficam prontos?
+1441	Olha aqui — uma bicicleta usada por oitocentas coroas.
+1442	A Alina manda uma mensagem para o vendedor.
+1443	Oi! Aqui está a bicicleta. Ela tem três anos.
+1444	Posso experimentar um pouco?
+1445	O freio de trás está funcionando mal.
+1446	É verdade. Precisa ser regulado.
+1447	Então podemos fechar em seiscentas?
+1448	Setecentas, e você leva o farol e o cadeado junto.
+1449	Fechado. Vou pagar pelo aplicativo agora.
+1450	Ótimo. Me avise se tiver algum problema.
+1451	Obrigada! Agora vou de bicicleta para o trabalho todo dia.
+1452	Boa sorte! Não esqueça o capacete.
+1453	Preciso comprar a passagem no aplicativo antes de entrarmos.
+1454	Eu preciso de passagem também, papai?
+1455	Precisa, mas crianças com menos de seis anos viajam de graça.
+1456	Eu tenho sete. Então você tem que comprar passagem infantil.
+1457	O aplicativo pergunta a zona. Em que zona estamos?
+1458	Ele olha o mapa no aplicativo: zona 1.
+1459	Bom dia, fiscalização. Posso ver a sua passagem?
+1460	Pode, aqui. Foi ativada há dois minutos.
+1461	Tudo certo. Lembre de ativar antes de embarcar.
+1462	O que acontece se a gente esquecer?
+1463	Aí tem multa — mil e cem coroas.
+1464	Nossa! Papai, compre sempre a passagem!
+1465	Estou com dor de ouvido e febre. É grave?
+1466	Ela liga para o pronto-atendimento no 116 117.
+1467	Há quanto tempo você está com a dor?
+1468	Desde ontem à noite. Piorou durante a madrugada.
+1469	Você vai ter que esperar um pouco. Os casos mais graves são atendidos primeiro.
+1470	Entendo. Mais ou menos quanto tempo vai demorar?
+1471	Vou olhar o ouvido. Sim, é uma inflamação.
+1472	Preciso de antibiótico?
+1473	Precisa. Vou enviar a receita eletronicamente para a farmácia.
+1474	Posso receber um atestado para amanhã?
+1475	Pode, dois dias. Entre em contato se a febre continuar.
+1476	Muito obrigada pela ajuda no meio da madrugada.
+1477	Você pode cuidar do relatório também? É um pouco urgente.
+1478	Eu gostaria de ajudar, mas então precisamos ver a ordem das coisas.
+1479	Agora estou com o orçamento para sexta e a reunião com o cliente amanhã.
+1480	É verdade, eu tinha esquecido.
+1481	Das três coisas, qual é a mais importante para você?
+1482	A reunião com o cliente, com certeza.
+1483	Então faço o relatório na segunda, ou a Kari pode começar.
+1484	Boa solução. Vou perguntar à Kari.
+1485	Obrigado por ouvir. Não estou dizendo não para você, e sim para a hora extra.
+1486	Totalmente justo. Não queremos esgotar você.
+1487	Da próxima vez também avise cedo — facilita o planejamento.
+1488	Combinado. Um não claro é melhor do que meio sim.
+1489	Olha! Eu sou alta. Você é baixo.
+1490	Não, eu não sou baixo. Só sou um pouco mais baixo que você.
+1491	Quem é o mais alto da família?
+1492	O papai é o mais alto, e o Leo é mais alto que eu.
+1493	A sua mochila é pesada. A minha é leve.
+1494	Ela é pesada porque está cheia de livros.
+1495	O meu cachecol é comprido. O seu é curto.
+1496	É, mas o meu é grosso e quentinho. O seu é fino.
+1497	Aquele cachorro é grande, e aquele é pequeno.
+1498	O pequeno é rápido. O grande é lento.
+1499	A minha bicicleta é velha, mas é boa.
+1500	A minha é nova e rápida. Estamos igualmente felizes!
+1501	Bem-vindo! O apartamento é claro e limpo.
+1502	É, mas o corredor é bem escuro.
+1503	Aqui é silencioso à noite?
+1504	A rua é um pouco barulhenta, mas as janelas são novas e bem vedadas.
+1505	O depósito está vazio. Ele é grande o bastante para bicicletas?
+1506	Cabem duas bicicletas. Três fica apertado demais.
+1507	O aluguel é de doze mil por mês.
+1508	É caro para mim. Tem alguma coisa mais barata?
+1509	Temos um apartamento menor no mesmo prédio. Ele é mais antigo.
+1510	Antigo tudo bem, se for quente e seco.
+1511	Ele é quente e mais barato. Quer ver?
+1512	Quero! Pequeno e quente é melhor do que grande e frio.
+1513	Olhe o painel. O ônibus sai em três minutos.
+1514	Então dá tempo. Você tem passagem no aplicativo?
+1515	O que diz a placa na vitrine?
+1516	Diz que abre das nove às vinte nos dias de semana.
+1517	Quanto custa o leite aqui?
+1518	A etiqueta diz dezenove coroas. É barato.
+1519	Um café e um pãozinho de canela, por favor.
+1520	Vou querer o mesmo. Podemos pagar com cartão?
+1521	Vamos nos sentar um pouco no banco.
+1522	Vamos. Aqui é tranquilo, bem no meio da cidade.
+1523	Olha, o sol está se pondo sobre o fiorde.
+1524	Um dia completamente comum, mas muito bonito.
+1525	Mãe, olha aquela jaqueta azul!
+1526	É bonita. Vamos perguntar o tamanho.
+1527	Com licença, vocês têm esta jaqueta no tamanho dez?
+1528	Temos, temos dez e doze. Ela quer experimentar?
+1529	Quero! Onde fica o provador?
+1530	Bem atrás de você, à esquerda.
+1531	Serviu! Não está grande demais.
+1532	Muito bem. Quanto custa?
+1533	Quatrocentas coroas. Está em liquidação.
+1534	Está ótimo. Podemos trocar se tiver algum problema?
+1535	Podem, em até uma semana. Guarde a nota fiscal.
+1536	Obrigada! Agora tenho uma jaqueta nova.
+1537	O trem para Bergen sai às dez. De qual plataforma?
+1538	Está no painel. Plataforma três, eu acho.
+1539	Espera — agora está escrito “atrasado, vinte minutos”.
+1540	Ah, não. Preciso trocar de trem em Hønefoss.
+1541	Com licença, vou conseguir pegar a conexão em Hønefoss?
+1542	Vai, o próximo trem espera por nós. Isso é normal.
+1543	O aplicativo diz o mesmo. A passagem vale o trajeto todo.
+1544	Ótimo. Então não preciso comprar outra passagem.
+1545	Onde fica o vagão cinco? Meu assento é o vinte e dois.
+1546	No meio do trem. Siga as placas na plataforma.
+1547	Obrigado pela ajuda! Ligo quando chegar.
+1548	Boa viagem. Lembre de olhar o painel mais uma vez!
+1549	Eu me mudei há três semanas, mas não estou recebendo nenhuma carta.
+1550	Você comunicou a mudança ao Registro Nacional?
+1551	Não. Achei que o correio acompanharia automaticamente.
+1552	Infelizmente não. Você mesmo tem que fazer isso, em até oito dias.
+1553	Entre com a sua identidade eletrônica e preencha o formulário.
+1554	A família inteira tem que estar no mesmo comunicado?
+1555	Tem, se vocês se mudarem juntos. Senão, cada um comunica separadamente.
+1556	E as cartas antigas que já foram enviadas?
+1557	Peça o redirecionamento da correspondência nos Correios. Custa um pouco, mas ajuda.
+1558	Tem mais alguma coisa que eu esteja esquecendo?
+1559	Avise o empregador, o banco e o médico de família. Assim fica tudo certo.
+1560	Obrigado. Agora entendo por que a caixa de correio ficou em silêncio.
+1561	Recebi o contrato hoje. Você pode olhar comigo?
+1562	Claro. A primeira coisa que eu procuro é se o cargo é fixo.
+1563	Aqui está escrito “cargo fixo, cem por cento”.
+1564	Ótimo. Então você não é temporário, e isso é mais seguro.
+1565	O período de experiência é de seis meses. Durante ele, o aviso prévio é mais curto.
+1566	Mais curto quanto? Quero saber o que estou arriscando.
+1567	Catorze dias durante a experiência, um mês depois disso. É o normal.
+1568	E a jornada? Está escrito trinta e sete horas e meia.
+1569	Normal. Confira também as horas extras: elas devem ser pagas com adicional.
+1570	O dinheiro de férias está aqui — doze vírgula dois por cento.
+1571	Então está tudo certo. Só assine quando tudo isso estiver por escrito.
+1572	Concordo. Vou perguntar mais um ponto ao RH e assino amanhã.
+1573	Qual é a capital do seu país?
+1574	A capital da Ucrânia é Kiev.
+1575	Quantas pessoas moram no país?
+1576	Moram cerca de trinta e sete milhões de pessoas na Ucrânia.
+1577	Quais países fazem fronteira com o seu?
+1578	A Ucrânia faz fronteira com a Polônia, a Eslováquia, a Hungria, a Romênia, a Moldávia, a Belarus e a Rússia.
+1579	Que língua as pessoas falam no seu país?
+1580	A língua oficial é o ucraniano.
+1581	Que moeda o país usa?
+1582	A Ucrânia usa a hryvnia.
+1583	Como se chama o rei ou o presidente do país?
+1584	O presidente se chama Volodymyr Zelensky.
+1585	Pelo que o país é mais conhecido?
+1586	A Ucrânia é conhecida pela natureza, pela cultura e pela agricultura.
+1587	Quais pratos tradicionais são populares?
+1588	O borscht, os varenyky e os holubtsi são populares.
+1589	Como é o clima ao longo do ano?
+1590	O verão é quente, e o inverno é frio.
+1591	Quais são os pontos turísticos mais famosos?
+1592	Kiev, Lviv e os Cárpatos são populares.
+1593	Qual é o dia nacional do país e como ele é comemorado?
+1594	O dia da independência da Ucrânia é vinte e quatro de agosto.
+1595	Quais esportes são populares?
+1596	Futebol e boxe são populares.
+1597	Quais tradições são importantes para a população?
+1598	O Natal, a Páscoa e as tradições de família são importantes.
+1599	Por quais recursos naturais o país é conhecido?
+1600	A Ucrânia é conhecida pelo solo fértil, pelo minério de ferro e pelo carvão.

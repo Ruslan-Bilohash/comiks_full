@@ -12,7 +12,7 @@ const load = require('./load.js');
 const ROOT = load.ROOT;
 const W = load();
 
-const PACK_LANGS = ['de', 'pl', 'tr', 'lt'];
+const PACK_LANGS = ['de', 'pl', 'tr', 'lt', 'pt'];
 const want = process.argv.slice(2).filter(x => !x.startsWith('-'));
 const showMiss = process.argv.includes('--miss');
 const langs = want.length ? want.filter(l => PACK_LANGS.includes(l)) : PACK_LANGS;

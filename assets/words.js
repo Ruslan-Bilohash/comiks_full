@@ -48,6 +48,15 @@
       step: x => `Kelimeler: ${x}`, gender: 'en — eril, ei — dişil, et — nötr',
       say: 'Yüksek sesle söyle', know: 'Biliyorum', know_hint: 'Bildiğin kelimeleri işaretle — sayaç hesabında görünür.', known_n: (a, b) => `✅ Bilinen: ${b} içinden ${a}`, known_all: n => `✅ Bilinen: ${n}`, reset_known: '↩️ Bu konudaki işaretleri temizle'
     },
+    pt: {
+      room: '🎮 Jogar juntos (QR)', room_hint: 'Crie uma sala com este tema: os alunos escaneiam o QR code e respondem no celular',
+      nav: 'Palavras', module: ['📝', 'Palavras', 'mais de {n} palavras por tema, com áudio'],
+      title: '📝 Palavras por tema', intro: 'As palavras norueguesas mais úteis: família, comida, roupas, animais, cidade, profissões, sentimentos… Toque num cartão para ouvir a palavra. Os substantivos mostram o gênero: en, ei ou et.',
+      themes: '🗂️ Temas', words_n: n => `${n} palavras`, learn: '🙈 Esconder a tradução', show: '👀 Mostrar a tradução', play_all: '🔊 Ouvir todas', test: '🧩 Teste do tema',
+      all_test: '🧩 Teste com todas as palavras', tip: 'Dica: esconda a tradução e tente lembrar o significado; depois toque no cartão para conferir.', back: '← Todos os temas', tests: '📝 Palavras por tema',
+      step: x => `Palavras: ${x}`, gender: 'en — masculino, ei — feminino, et — neutro',
+      say: 'Diga em voz alta', know: 'Eu sei', know_hint: 'Marque as palavras que você já sabe — o contador aparece na sua conta.', known_n: (a, b) => `✅ Sei: ${a} de ${b}`, known_all: n => `✅ Sei: ${n}`, reset_known: '↩️ Limpar as marcas deste tema'
+    },
     lt: {
       room: '🎮 Žaiskime kartu (QR)', room_hint: 'Sukurti kambarį šia tema: mokiniai nuskaito QR kodą ir atsako telefonais',
       nav: 'Žodžiai', module: ['📝', 'Žodžiai', '{n}+ žodžių pagal temas su garsu'],
@@ -67,8 +76,9 @@
       say: 'Si det høyt', know: 'Jeg kan det', know_hint: 'Merk ordene du allerede kan – telleren vises på siden din.', known_n: (a, b) => `✅ Kan: ${a} av ${b}`, known_all: n => `✅ Kan: ${n}`, reset_known: '↩️ Fjern merkene i temaet'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(WX, 'words.js:WX');
   const wordCount = () => { const set = new Set(); for (const th of ((window.WORDS || {}).themes || [])) for (const w of th.words) set.add(String(w[0]).toLowerCase()); return Math.floor(set.size / 10) * 10; };
-  if (window.I18N) for (const l of ['uk', 'en', 'no', 'de', 'pl', 'tr', 'lt']) {
+  if (window.I18N) for (const l of ['uk', 'en', 'no', 'de', 'pl', 'tr', 'lt', 'pt']) {
     const I = window.I18N[l]; if (!I) continue;
     I.nav = Object.assign({}, I.nav, { words: WX[l].nav });
     /* скільки слів насправді: рахуємо унікальні слова всіх тем у момент показу (теми дописують
@@ -98,7 +108,7 @@
   const themes = () => (window.WORDS || { themes: [] }).themes;
   const LEVELS = ['A1', 'A2', 'B1', 'B2'];
   const stars = key => (((C().store.get('progress', {}))[key]) || {}).stars || 0;
-  const PACK_UI = ['de', 'pl', 'tr', 'lt'];
+  const PACK_UI = ['de', 'pl', 'tr', 'lt', 'pt'];
   // обкладинка теми: перша картинка з самої теми (якщо є), інакше емодзі теми
   const themePic = th => {
     const P = window.KomiksPics; if (!P || !P.photo) return null;

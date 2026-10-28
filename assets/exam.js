@@ -90,6 +90,7 @@
       lvl_d: 'Patarimas: jei dalis davė mažiau nei 60 %, grįžk prie savo lygio komiksų ir pakartok žodžius.',
       notyet: 'Dar neatlikta', time: m => `Laikas: ${m} min` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'exam.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
   const LEVELS = ['A1', 'A2', 'B1', 'B2'];
   const levelKey = 'examLevel';

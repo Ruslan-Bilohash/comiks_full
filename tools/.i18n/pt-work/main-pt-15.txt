@@ -1,0 +1,200 @@
+2801	A Mia precisa de uma capa de chuva leve para a trilha da turma.
+2802	O Amir vai junto para olhar e comparar preços.
+2803	A vendedora mostra a jaqueta em três tamanhos.
+2804	A Mia leva duas delas para o provador.
+2805	A jaqueta mais barata está apertada nos ombros.
+2806	Outro tamanho serve e tem espaço para um suéter quente.
+2807	A loja tem vinte por cento de desconto na jaqueta que serviu.
+2808	Mesmo assim, a Mia confere o preço e a qualidade antes de decidir.
+2809	A Mia paga com cartão e guarda a nota fiscal na mochila.
+2810	Ela sabe que vai precisar da nota se tiver que trocar a jaqueta.
+2811	Depois das compras, o Amir paga um chocolate quente.
+2812	A Mia comprou o que precisava, e não só o que era mais barato.
+2813	O Leo perde a hora porque o celular descarregou durante a noite.
+2814	Ele precisa chegar à escola e buscar a irmã mais nova depois da aula.
+2815	O Leo procura o cartão do ônibus, mas só acha uma passagem velha.
+2816	A Nora diz: “Procure um lugar de cada vez.”
+2817	Eles olham no bolso da jaqueta, na escrivaninha e, por fim, na mochila.
+2818	Ali o Leo encontra o cartão, ao lado da lancheira.
+2819	O Leo perde o primeiro ônibus.
+2820	Ele manda uma mensagem curta para a professora em vez de fingir que nada aconteceu.
+2821	Depois da escola a Nora está ocupada, mas o vovô está livre.
+2822	O vovô pode buscar a irmãzinha se o Leo não conseguir.
+2823	O Leo chega e cumpre os dois compromissos com uma ajudinha.
+2824	À noite ele carrega o celular e coloca um despertador extra.
+2825	sábado
+2826	manhã
+2827	assar (bolo, pão)
+2828	bolo
+2829	ajudar
+2830	precisar de
+2831	farinha
+2832	ovos
+2833	açúcar
+2834	não
+2835	coma! (ordem)
+2836	a manteiga
+2837	a cozinha
+2838	pronto, terminado
+2839	torto
+2840	cheira
+2841	bom, gostoso
+2842	muito obrigado
+2843	meus amores, tesouros
+2844	melhor
+2845	mundo
+2846	bom dia
+2847	hoje
+2848	primeiro
+2849	a escola
+2850	com medo
+2851	bem-vindo
+2852	se chama
+2853	vem de, é de
+2854	sentar
+2855	ao lado de
+2856	com prazer, quero sim
+2857	quanto
+2858	mais (soma)
+2859	três
+2860	esperto, bom em
+2861	recreio
+2862	joga
+2863	futebol
+2864	como
+2865	superdivertido
+2866	amigo
+2867	passeio
+2868	a floresta
+2869	a cesta
+2870	cogumelo
+2871	venenoso
+2872	muitos
+2873	mirtilos
+2874	doces
+2875	alce
+2876	enorme
+2877	quieto
+2878	com calma
+2879	chover
+2880	para casa
+2881	beber
+2882	quente
+2883	chocolate quente
+2884	bonito, legal
+2885	de verdade
+2886	fazer compras
+2887	leite
+2888	pão
+2889	maçãs
+2890	cem
+2891	coroas (dinheiro norueguês)
+2892	com licença, desculpe
+2893	onde
+2894	ali, lá
+2895	perto de, junto a
+2896	seis
+2897	vermelhas
+2898	dá, fica (o total)
+2899	oitenta
+2900	vinte
+2901	de volta, troco
+2902	aqui está, por favor
+2903	tenha um bom dia
+2904	fácil
+2905	está nevando
+2906	branco
+2907	faz, prepara
+2908	boneco de neve
+2909	rola
+2910	grande
+2911	bola de neve
+2912	pesado
+2913	cabeça
+2914	olhos
+2915	cenoura
+2916	touca, gorro
+2917	frio
+2918	guerra de bolas de neve
+2919	esquentem-se
+2920	molhados
+2921	felizes, contentes
+2922	aniversário
+2923	presente
+2924	nenhum
+2925	desenhar
+2926	desenho
+2927	para ela
+2928	boa ideia
+2929	feliz aniversário
+2930	oito
+2931	ano(s)
+2932	mesmo (eu mesmo, você mesmo)
+2933	fofo, doce
+2934	pendurar
+2935	o quarto
+2936	cantar
+2937	faz aniversário
+2938	de todos os tempos, nunca antes
+2939	encontra
+2940	embaixo de
+2941	o sofá
+2942	lá, ali
+2943	a comida
+2944	sumido
+2945	talvez
+2946	o jardim
+2947	está sentado
+2948	a árvore
+2949	bem-vindo de volta
+2950	dormir
+2951	prazer em conhecer
+2952	mudaram-se
+2953	novos
+2954	mora(m)
+2955	número
+2956	de onde … vem
+2957	aprende(m)
+2958	todos os dias
+2959	fala(m)
+2960	muito bem
+2961	pouco a pouco
+2962	café
+2963	amanhã
+2964	com prazer
+2965	consulta, horário marcado
+2966	às dez horas
+2967	dor de garganta
+2968	febre
+2969	quanto tempo
+2970	doente
+2971	dormir mal
+2972	à noite
+2973	a boca
+2974	perigoso
+2975	água
+2976	descansar
+2977	alguns dias
+2978	remédio
+2979	melhoras
+2980	bem-vindo à equipe
+2981	estou ansioso, mal posso esperar
+2982	começar
+2983	a semana
+2984	morado
+2985	a carteira, a mesa de trabalho
+2986	o computador
+2987	a senha
+2988	almoço
+2989	juntos
+2990	marmita
+2991	esquecido
+2992	fatias de pão, sanduíches
+2993	gentil
+2994	entende
+2995	os colegas
+2996	simpáticos
+2997	o apartamento
+2998	cômodos
+2999	cozinha
+3000	banheiro

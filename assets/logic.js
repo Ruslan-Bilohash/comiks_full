@@ -62,6 +62,7 @@
       practice: '🤖 تدريب مع الروبوتات', room: '📺 إنشاء غرفة للصف', mode: 'اللعبة', update: 'حدّث الصفحة للعب هذا النمط الجديد.'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TEXT, 'logic.js:TEXT');
   const mode = value => MODES.includes(value) ? value : 'mixed';
   const text = (key, lang) => (TEXT[lang || ((window.KomiksCore || {}).ui)] || TEXT.en)[key] || TEXT.en[key];
   const info = value => text(mode(value));

@@ -84,6 +84,7 @@
       noai: 'Automatinė patikra dabar išjungta. Tavo tekstas išsaugotas — palygink jį su pavyzdžiu pats.',
       err: { short: 'Parašyk bent vieną pilną sakinį.', write_limit: 'Šiandien patikrų nebeliko. Grįžk rytoj.', no_ai: 'Patikra serveryje dar nesukonfigūruota.', ai: 'Patikra nepavyko. Bandyk dar kartą.', net: 'Nėra ryšio su serveriu.' } }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'write.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
 
   /* Прості вправи: жодного сервера й жодного ШІ — усе перевіряється в браузері
@@ -138,6 +139,7 @@
       more: '🔄 Daugiau užduočių', hint_type: 'Rašyk norvegiškai. Skyryba ir didžiosios raidės neskaičiuojamos.',
       none: 'Šiame lygyje dar per mažai sakinių — pasirink kitą lygį.', ai_off: 'DI patikra dabar neatsako, todėl atidarytos paprastos užduotys. Tavo tekstas išsaugotas — pabandyk vėliau.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(S, 'write.js:S');
   const sx = () => S[(C() || {}).ui] || S.en;
 
   // порівняння відповіді: розділові знаки, регістр і подвійні пробіли не рахуються

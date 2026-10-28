@@ -101,7 +101,9 @@ function scan() {
   for (const f of fs.readdirSync(ASSETS).filter(x => x.endsWith('.js'))) {
     const src = fs.readFileSync(path.join(ASSETS, f), 'utf8');
     for (const t of tables(src)) {
-      if (t.obj.de) continue;                       // мову вже дописали руками
+      // мову вже дописали руками — пропускаємо лише таблицю, де написані всі мови;
+      // інакше нова мова (pt) не отримала б таблиць, які мають ручну німецьку
+      if (LANGS.every(l => t.obj[l])) continue;
       const vals = {};
       for (const [k, v] of Object.entries(t.obj.en)) {
         if (simple(v)) { vals[k] = v; nStr += Array.isArray(v) ? v.length : 1; }

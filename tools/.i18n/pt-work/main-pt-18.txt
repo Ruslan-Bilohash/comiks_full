@@ -1,0 +1,200 @@
+3401	próprio
+3402	uma diferença
+3403	apontar para
+3404	jogar, atirar
+3405	lavar
+3406	um vizinho
+3407	uma prateleira
+3408	uma farmácia
+3409	um farmacêutico
+3410	uma dor de garganta
+3411	uma tosse
+3412	uma dor de cabeça
+3413	um comprimido
+3414	uma pastilha
+3415	uma receita médica
+3416	uma dose
+3417	descansar
+3418	alérgico
+3419	marcar uma consulta
+3420	um médico de família
+3421	uma conversa de avaliação
+3422	um gerente, um chefe
+3423	uma carga de trabalho
+3424	exigente, difícil
+3425	sentir que
+3426	dar conta a tempo
+3427	hora extra
+3428	avisar, falar
+3429	distribuir
+3430	gestão de projetos
+3431	a longo prazo
+3432	uma responsabilidade
+3433	uma negociação
+3434	um retorno, um feedback
+3435	uma meta
+3436	uma rotina
+3437	satisfeito
+3438	perder o emprego
+3439	uma carta de demissão
+3440	seguro-desemprego
+3441	um contrato de trabalho
+3442	um contracheque
+3443	fazer o pedido pela internet
+3444	uma decisão oficial
+3445	um relatório quinzenal para o NAV
+3446	uma caixa de entrada
+3447	cortar custos
+3448	um orientador
+3449	pouco claro
+3450	ativamente
+3451	a cada duas semanas
+3452	uma visita (a um imóvel)
+3453	um metro quadrado
+3454	disponível, livre
+3455	além disso, à parte
+3456	uma caução
+3457	uma conta de caução
+3458	com prazo determinado
+3459	por prazo indeterminado
+3460	aviso prévio
+3461	uma parte (num contrato)
+3462	regras do prédio
+3463	um passo
+3464	sentir-se bem
+3465	uma cooperação
+3466	um semestre
+3467	regras do celular
+3468	horário de aula
+3469	um comunicado por escrito
+3470	uma lista do que levar
+3471	avisar alguém
+3472	comunicar, avisar
+3473	seguro, confiante
+3474	a qualquer momento
+3475	perguntar-se, ter dúvida
+3476	um dentista
+3477	um dente
+3478	estar com dor
+3479	mastigar
+3480	um raio-X
+3481	uma cárie
+3482	arrancar um dente
+3483	perfurar
+3484	uma obturação
+3485	uma anestesia
+3486	uma pressão
+3487	um tratamento
+3488	escovar os dentes
+3489	fio dental
+3490	uma revisão, um controle
+3491	uma equipe
+3492	estar ansioso por
+3493	um crachá de acesso
+3494	saúde e segurança no trabalho
+3495	uma saída de emergência
+3496	primeiros socorros
+3497	equipamento de proteção
+3498	um representante de segurança
+3499	pedir folga
+3500	atestado de doença próprio
+3501	dias para cuidar dos filhos
+3502	avisar, comunicar
+3503	esperto, sensato
+3504	uma biblioteca
+3505	pegar emprestado
+3506	um cartão da biblioteca
+3507	um prazo de empréstimo
+3508	prorrogar, renovar
+3509	um balcão de atendimento
+3510	devolver, entregar
+3511	um lembrete
+3512	uma taxa, uma multa
+3513	um café de idiomas
+3514	praticar
+3515	uma sala de leitura
+3516	uma sala de grupo
+3517	reservar
+3518	atrasado
+3519	um atraso
+3520	ficar preso
+3521	escorregadio
+3522	conseguir pegar, chegar a tempo
+3523	uma conexão (transporte)
+3524	um trecho
+3525	valer
+3526	um reembolso
+3527	uma plataforma
+3528	felizmente
+3529	descer
+3530	reclamar
+3531	fazer uma reclamação formal
+3532	o direito de reclamar
+3533	uma nota fiscal, um recibo
+3534	uma mercadoria, um produto
+3535	um defeito
+3536	um conserto
+3537	ter direito a
+3538	digital
+3539	fones de ouvido
+3540	normalmente
+3541	uma prova, um exame
+3542	inscrever-se numa prova
+3543	no máximo, o mais tardar
+3544	uma parte
+3545	oral
+3546	escrito
+3547	nervoso
+3548	repetir
+3549	justificar
+3550	explicar
+3551	comunicação
+3552	um nível
+3553	vocabulário
+3554	continuar
+3555	uma academia
+3556	um membro
+3557	uma assinatura, um plano
+3558	um período de fidelidade
+3559	cancelar, rescindir
+3560	uma aula em grupo
+3561	um peso
+3562	uma introdução
+3563	um instrutor
+3564	por escrito
+3565	uma confirmação
+3566	uma escolha
+3567	treinar
+3568	separação do lixo
+3569	um saco, uma sacola
+3570	resto de comida (lixo orgânico)
+3571	lixo comum
+3572	papelão
+3573	um contêiner
+3574	depósito retornável de garrafas
+3575	uma máquina de devolução de garrafas
+3576	beneficente
+3577	um ponto de reciclagem
+3578	lixo perigoso
+3579	coleta de lixo
+3580	um condomínio residencial
+3581	um hábito
+3582	um cabeleireiro
+3583	um horário livre
+3584	um cancelamento
+3585	um corte de cabelo
+3586	mais curto
+3587	uma camada
+3588	uma franja
+3589	uma cor
+3590	uma lavagem
+3591	à parte, além disso
+3592	gorjeta
+3593	comum, habitual
+3594	mais tarde
+3595	uma oficina mecânica
+3596	a vistoria anual do veículo
+3597	um freio
+3598	uma pastilha de freio
+3599	gasto
+3600	um som, um barulho

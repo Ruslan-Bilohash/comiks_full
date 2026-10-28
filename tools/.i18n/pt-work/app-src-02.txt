@@ -1,0 +1,200 @@
+201	All reviewed — nothing is due
+202	▶️ Next step
+203	Plan finished — pick a new level in the plan
+204	Open
+205	🔁 Work on mistakes
+206	No mistakes — clean!
+207	Done ✓
+208	🎉 Everything is done for today. See you tomorrow!
+209	🔥 Start your streak today
+210	Want more?
+211	📞 Call a character
+212	✍️ Write in Norwegian
+213	🎯 The whole plan
+214	🎉 Plan finished!
+215	Every step is ticked off. Take the next level — the plan is rebuilt, and what you have done stays marked.
+216	⚙️ Build a new plan
+217	You have finished every level up to B2. Build your own plan — or repeat what you want to lock in.
+218	➕ An extra task
+219	The daily set is finished — but you can take one more. Pick what you feel like.
+220	🎲 Another task
+221	🎨 Avatar
+222	Friend code
+223	Copied ✓
+224	🔒 Privacy
+225	Who can find me in search and who can message me.
+226	✉️ Messages
+227	🔔 Updates
+228	👤 Profile
+229	🏅 Achievements
+230	📊 Learning
+231	🔐 Account
+232	⚙️ Admin panel
+233	🎟 Invite a friend
+234	🎁 Everything is free
+235	Comics, tests, cards, games, words and grammar — no limits, no payment.
+236	You are one of the first hundred — the PRO badge stays with you.
+237	🎮 Games
+238	👥 Community
+239	🔎 Find players
+240	✨ What’s new
+241	👤 My profile
+242	👥 Friends
+243	✉️ Messages
+244	🔔 Friends’ updates
+245	⚙️ Settings
+246	🚪 Log out
+247	Log in
+248	Log in to keep your progress on all your devices.
+249	Email
+250	Password
+251	Repeat password
+252	Name or nickname
+253	Log in
+254	No account yet?
+255	Sign up
+256	Forgot password?
+257	Try without a password
+258	👀 Look around with a demo account
+259	Class demo pupils. Tap a name and you are in.
+260	This is a shared demo account with no password. Do not store anything personal here.
+261	Create your account
+262	Free. Your progress, avatar and friends — on every device.
+263	Create account
+264	Already have an account?
+265	I agree to the terms of use (a parent agrees for a child).
+266	Terms
+267	Move my current progress into the new account
+268	very weak
+269	weak
+270	okay
+271	strong
+272	very strong
+273	At least 8 characters. A phrase of several words is best.
+274	Check your email 📬
+275	It usually arrives within a minute.
+276	Can’t see it? Check Spam or Promotions.
+277	The link works for 48 hours.
+278	Send again
+279	Done! Check your inbox again.
+280	Wrong address? Sign up again
+281	Your account is active and a welcome email is on its way. Your progress is now saved on the server and available on any device.
+282	Where to start
+283	To my account
+284	That link didn’t work 😕
+285	The confirmation link has already been used or has expired. Enter your email and we will send a new one.
+286	Send a new link
+287	🔐 Two-factor authentication
+288	An extra code from an authenticator app at sign-in. Even if someone learns your password or gets into your email, they cannot sign in without your phone.
+289	✅ On. We ask for a code from your app at every sign-in.
+290	Turn on
+291	1. Scan this code in your app
+292	Any will do: Google Authenticator, Microsoft Authenticator, Authy, 2FAS, Aegis.
+293	Not scanning? Type the key by hand:
+294	2. Enter the six-digit code from the app
+295	Confirm
+296	That code did not work. Check that the clock on your phone is exact.
+297	✅ Done — two-factor is on.
+298	🔑 Backup codes — save them now
+299	Each works once and saves you if the phone is lost. We will not show them again: only hashes are stored.
+300	Copy
+301	Copied
+302	Turn off
+303	Enter a code from the app or a backup code to turn it off:
+304	New backup codes
+305	Confirmation code
+306	Open your authenticator app and enter the six-digit code. Or use a backup code.
+307	Sign in
+308	Sign in without a password →
+309	Sign in with a password →
+310	Sign in with a password
+311	If you already have a password, enter your email and password. Or go back and sign in with a code from the email.
+312	Sign in with a code
+313	Enter your email — we will send a link and a code. No password needed.
+314	Send the code
+315	If that email is registered, the message is on its way. Open the link or type the code below — it works for 15 minutes.
+316	Code from the email
+317	Sign in
+318	That code did not work or has expired. Send a new one.
+319	Send again
+320	Signing you in…
+321	The link has expired or was already used. Send a new code.
+322	Forgot your password?
+323	Enter your account email and we will send a link to set a new password.
+324	Send link
+325	If that email is registered, the message is on its way. The link works for 1 hour.
+326	New password 🔑
+327	Save password
+328	Password changed — you are logged in.
+329	🔐 Account & security
+330	✅ Email confirmed
+331	Change password
+332	Current password
+333	New password
+334	Save
+335	Saved ✓
+336	🚪 Log out
+337	Delete account
+338	Your account, progress, profile and comments will be deleted. This cannot be undone.
+339	Delete forever
+340	Really delete your account and all data?
+341	☁️ Progress syncs with the server
+342	🔎 Show me in player search
+343	Other learners can find you by name, see your avatar and stars and invite you to play. Your email is never shown. Change it any time in “🔒 Privacy”.
+344	This invitation is already used or expired — you can still sign up normally.
+345	💎 Premium — free forever
+346	🎟 Invite a friend
+347	Friends you invite get a free account forever. Each link works once and lasts 30 days.
+348	🎟 Create a link
+349	📋 Copy
+350	Copied ✓
+351	📤 Share
+352	⌛ expired
+353	My invitations
+354	📥 Move progress from this device
+355	Stars, finished tests, words, avatar and friend code from the local account move into your server account — the best results are kept.
+356	Guest progress
+357	That is not OK 🙅
+358	A moderator removed your comment from a wall. Be kind to others — write things that are nice to read.
+359	Wall pause ⏸️
+360	A moderator removed your comment and paused your wall writing for a while. You can still play and learn!
+361	Your comment:
+362	Got it 👍
+363	A message from the team ✉️
+364	We have something to tell you:
+365	Sign in with Google
+366	Sign up with Google
+367	Link Google
+368	Accept the terms above to create an account.
+369	Google sign-in did not finish. Try again or use your password.
+370	First sign in to your existing account with your password or email code. Choose “Link Google” in your account to use Google next time.
+371	Open registration, accept the terms and choose Google to create an account.
+372	Google sign-in was cancelled.
+373	Google sign-in is not configured yet.
+374	Google is linked. You can now sign in with Google.
+375	Sign in with Google
+376	✅ Google is connected — sign in with one tap.
+377	Connect Google to sign in without a password.
+378	Disconnect Google
+379	Disconnect Google from this account? Progress stays. You can sign in with your password or an email code.
+380	Google disconnected ✓
+381	Confirm with your password or a code from email.
+382	📧 Email me a code
+383	Code from the email
+384	Password
+385	or
+386	No password? Set one
+387	The code is wrong or has expired. Send a new one.
+388	Wrong password.
+389	Google is connected in a browser: open bilohash.com/comiks.
+390	📞 A call in Norwegian
+391	A short, live phone call. Choose who calls and what about — then speak out loud or type.
+392	Who is calling
+393	What about
+394	📞 Call me
+395	Incoming call
+396	✅ Answer
+397	✖ Decline
+398	🎙️ Speak
+399	🎙️ Listening…
+400	Send

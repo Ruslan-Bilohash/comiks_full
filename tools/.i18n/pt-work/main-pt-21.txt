@@ -1,0 +1,200 @@
+4001	ao longo do ano
+4002	um ponto turístico
+4003	um dia nacional
+4004	um dia da independência
+4005	um esporte
+4006	uma tradição
+4007	um recurso natural
+4008	solo fértil
+4009	minério de ferro
+4010	carvão
+4011	doente
+4012	uma cabeça
+4013	quente
+4014	ficar em casa
+4015	ligar, telefonar
+4016	mel
+4017	saudável, curado
+4018	um apartamento
+4019	uma cozinha
+4020	uma sala de estar
+4021	um quarto
+4022	um banheiro
+4023	uma varanda
+4024	um sofá
+4025	macio
+4026	uma flor
+4027	um preço por quilo
+4028	leve três, pague dois
+4029	valer
+4030	frutas e verduras
+4031	vencer (validade)
+4032	um cartão fidelidade
+4033	um por cento
+4034	uma alergia
+4035	tolerar
+4036	uma noz
+4037	conter
+4038	um molho para salada
+4039	trocar por outra coisa
+4040	uma porção
+4041	uma tábua, uma bandeja
+4042	um utensílio
+4043	levar a sério
+4044	muito (para o que se mede)
+4045	muitos (para o que se conta)
+4046	um ovo
+4047	assar
+4048	um bolo
+4049	suficiente
+4050	medir
+4051	um pouco
+4052	pequeno (palavra en)
+4053	pequeno (palavra et)
+4054	pequenos (plural)
+4055	um pão
+4056	sapatos
+4057	precisar de
+4058	porque
+4059	lembrar
+4060	mais alguma coisa
+4061	pouco
+4062	poucos
+4063	sobrando, de sobra
+4064	significar
+4065	quase
+4066	nada
+4067	uma cesta
+4068	soar
+4069	triste
+4070	maior
+4071	o maior
+4072	mais (em número)
+4073	a maior parte, os mais numerosos
+4074	o menor
+4075	melhor
+4076	levantar-se
+4077	cansado, com sono
+4078	lavar-se
+4079	escovar os dentes
+4080	vestir-se
+4081	então, depois
+4082	café da manhã
+4083	mingau de aveia, aveia
+4084	pão com queijo
+4085	um copo de leite
+4086	quinze para as oito
+4087	oito e dez
+4088	o ônibus sai
+4089	pegar o ônibus a tempo
+4090	um treino
+4091	um treinador
+4092	uma volta
+4093	uma garrafa de água
+4094	um passe
+4095	um ao outro
+4096	receber
+4097	forte (com força)
+4098	ir parar
+4099	um arbusto
+4100	buscar
+4101	uma partida
+4102	ficar no gol
+4103	marcar um gol
+4104	um chute
+4105	muito bem
+4106	na quinta-feira
+4107	um simulado de incêndio
+4108	um alarme de incêndio
+4109	uma escada
+4110	um elevador
+4111	queimar, pegar fogo
+4112	largar tudo
+4113	levar junto
+4114	mais importante que
+4115	um ponto de encontro
+4116	marcar (na lista)
+4117	uma lista
+4118	faltar
+4119	ter que
+4120	mais rápido
+4121	um extintor de incêndio
+4122	nem mesmo, sequer
+4123	uma eleição; uma escolha
+4124	uma eleição municipal
+4125	uma eleição parlamentar
+4126	o direito de voto
+4127	um cartão de eleitor
+4128	legalmente
+4129	uma residência, uma estadia
+4130	um cidadão
+4131	um representante
+4132	o Storting (parlamento norueguês)
+4133	a cada quatro anos
+4134	votar antecipadamente
+4135	secreto
+4136	uma cédula de votação
+4137	uma urna
+4138	um programa de partido
+4139	um aplicativo de orientação de voto
+4140	transporte público
+4141	participar
+4142	uma democracia
+4143	um robô
+4144	programação
+4145	programar
+4146	um comando
+4147	um programa
+4148	uma mensagem, uma instrução
+4149	entender
+4150	para a frente
+4151	virar, dar a volta
+4152	pronto, terminado
+4153	erro; errado
+4154	conhecer
+4155	uma ordem, uma sequência
+4156	certo, correto
+4157	passo a passo
+4158	por exemplo
+4159	um algoritmo
+4160	uma fatia de pão, um sanduíche
+4161	uma receita
+4162	manteiga
+4163	um queijo
+4164	colocar por cima
+4165	feito, executado
+4166	importante
+4167	aqui está
+4168	um laço
+4169	pular
+4170	bater palmas
+4171	dançar
+4172	muito
+4173	escrever
+4174	usar
+4175	quatro vezes
+4176	cem
+4177	um computador
+4178	nunca
+4179	tonto
+4180	parar
+4181	se
+4182	senão
+4183	um guarda-chuva
+4184	óculos de sol
+4185	o sol está brilhando
+4186	sair
+4187	levar junto
+4188	ter razão
+4189	entendido
+4190	pensar
+4191	arrumar
+4192	um quarto, um cômodo
+4193	um sorvete
+4194	um jogo
+4195	um ponto
+4196	uma variável
+4197	uma caixa
+4198	um nome
+4199	um valor
+4200	pegar, capturar
