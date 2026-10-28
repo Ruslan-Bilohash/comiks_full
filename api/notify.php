@@ -38,14 +38,17 @@ if (method() === 'GET') {
   if ((string)($_GET['action'] ?? '') !== 'feed') fail('action', 404);
   $me = ev_me();
   $since = max(0, (int)($_GET['since'] ?? 0));
+  // сторінки: спершу 10, далі «показати ще» по 30 — старші за before
+  $before = max(0, (int)($_GET['before'] ?? 0));
+  $limit = isset($_GET['limit']) ? min(50, max(1, (int)$_GET['limit'])) : EV_FEED;
   $rows = q('SELECT e.id, e.owner_id, e.kind, e.ref, e.text, e.likes, e.created_at, t.seen_at,
                     u.friend_code, u.name AS owner_name,
                     (SELECT COUNT(*) FROM kl_event_likes l WHERE l.event_id = e.id AND l.user_id = ?) AS liked
              FROM kl_event_to t
              JOIN kl_events e ON e.id = t.event_id
              JOIN kl_users u ON u.id = e.owner_id
-             WHERE t.user_id = ? AND e.id > ?
-             ORDER BY e.id DESC LIMIT ' . EV_FEED, [(int)$me['id'], (int)$me['id'], $since])->fetchAll();
+             WHERE t.user_id = ? AND e.id > ?' . ($before ? ' AND e.id < ' . $before : '') . '
+             ORDER BY e.id DESC LIMIT ' . $limit, [(int)$me['id'], (int)$me['id'], $since])->fetchAll();
   $items = [];
   foreach ($rows as $r) {
     $items[] = [

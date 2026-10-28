@@ -36,13 +36,37 @@
   };
   const KEYS = Object.keys(P);   // поповнюється через add()
   const norm = w => String(w || '').toLowerCase().replace(/^(en|ei|et|å)\s+/, '').trim();
-  const has = w => Object.prototype.hasOwnProperty.call(P, norm(w));
-  const svg = (w, size = 96) => {
-    const k = norm(w); if (!has(k)) return '';
+  /* 📷 Фото замість мальованої іконки (інструменти тощо): ключ → шлях до .webp
+     або { src, uk } — для слів із кількома значеннями (is: морозиво / лід, vann: вода / озеро):
+     тоді фото показуємо лише там, де переклад збігається (якщо переклад відомий). */
+  const PH = {};
+  const same = (a, b) => String(a || '').toLowerCase().split(/[,;(]/)[0].trim() === String(b || '').toLowerCase().split(/[,;(]/)[0].trim();
+  // одне слово — кілька значень (is: морозиво / лід): тоді в PH масив { src, uk }, обираємо за перекладом
+  const photo = (w, uk) => {
+    const e = PH[norm(w)]; if (!e) return ''; if (typeof e === 'string') return e;
+    const list = Array.isArray(e) ? e : [e];
+    const hit = uk ? list.find(x => !x.uk || same(uk, x.uk)) : list[0];
+    return hit ? hit.src : '';
+  };
+  const has = (w, uk) => Object.prototype.hasOwnProperty.call(P, norm(w)) || !!photo(w, uk);
+  const svg = (w, size = 96, uk) => {
+    const k = norm(w); if (!has(k, uk)) return '';
+    const ph = photo(k, uk);
+    if (ph) return `<img class="pic-photo" src="${ph}" width="${Math.round(size * 4 / 3)}" height="${size}" alt="" loading="${size < 100 ? 'lazy' : 'eager'}" decoding="async">`;
     return `<svg class="pic-svg" viewBox="0 0 64 64" width="${size}" height="${size}" role="img" aria-hidden="true" fill="none" stroke="${INK}" stroke-width="3" stroke-linejoin="round">${P[k]}</svg>`;
   };
-  const el = (w, size = 96) => { const d = document.createElement('span'); d.className = 'pic'; d.innerHTML = svg(w, size); return d.firstChild ? d : null; };
+  const el = (w, size = 96, uk) => { const d = document.createElement('span'); d.className = 'pic'; d.innerHTML = svg(w, size, uk); return d.firstChild ? d : null; };
   // інші файли можуть дописувати свої іконки (див. pics2.js)
-  function add(more) { Object.assign(P, more); KEYS.length = 0; KEYS.push(...Object.keys(P)); }
-  window.KomiksPics = { has, svg, el, add, get keys() { return KEYS; } };
+  function add(more) { Object.assign(P, more); KEYS.length = 0; KEYS.push(...Object.keys(P), ...Object.keys(PH)); }
+  function addPhotos(more) {
+    for (const [k, v] of Object.entries(more)) {
+      const cur = PH[k];
+      // сирий PNG генератора (img/words/…png) не перебиває вже очищену картинку .webp
+      if (cur && typeof v === 'string' && /^img\/words\/.*\.png$/i.test(v)) continue;
+      // друге значення того самого слова дописуємо поруч, а не замість першого
+      if (cur && typeof cur === 'object' && typeof v === 'object') PH[k] = [].concat(cur, v); else PH[k] = v;
+    }
+    add({});
+  }
+  window.KomiksPics = { has, svg, el, add, addPhotos, photo, get keys() { return KEYS; } };
 })();

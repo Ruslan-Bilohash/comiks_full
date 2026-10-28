@@ -26,7 +26,7 @@
       rank: (r, n) => `Твоє місце: ${r} з ${n}`, score: n => `${n} балів`, board: '🏆 Таблиця лідерів', next: 'Наступне питання ▶', auto: s => `автоматично через ${s} с`,
       results: 'Результати 🏁', podium: '🏆 Переможці', again: '🔄 Зіграти ще раз', leave: '🚪 Вийти', final_place: (r, n) => `Ти на ${r}-му місці з ${n}!`,
       host_left: 'Ведучий завершив гру або з’єднання втрачено.', kicked: 'Ведучий прибрав тебе з кімнати.',
-      err_browser: 'Цей браузер не вміє прямих з’єднань. Відкрий гру в Chrome, Edge або Safari.', err_busy: 'Такий код уже зайнятий. Попроси ведучого створити кімнату заново.', err_why: t => ` (${t})`, retry: '🔄 Спробувати ще раз',
+      err_browser: 'Цей браузер не вміє прямих з’єднань. Якщо посилання відкрилося всередині Telegram, Instagram чи Facebook — натисни ⋮ / «…» → «Відкрити в браузері». Або відкрий гру в Chrome, Edge чи Safari.', err_busy: 'Такий код уже зайнятий. Попроси ведучого створити кімнату заново.', err_why: t => ` (${t})`, retry: '🔄 Спробувати ще раз',
       err_room: 'Кімнату не знайдено. Перевір код — або ведучий уже закрив гру.', err_net: 'Не вдалося з’єднатися. Потрібен інтернет (і сучасний браузер).',
       local_warn: '⚠️ Сторінку відкрито з файлу — телефони не зможуть приєднатися за QR-кодом. Відкрий гру на сайті https://bilohash.com/comiks/',
       host_name: 'Ведучий', back: '← Назад', you: 'ти',
@@ -58,7 +58,7 @@
       rank: (r, n) => `Your place: ${r} of ${n}`, score: n => `${n} points`, board: '🏆 Leaderboard', next: 'Next question ▶', auto: s => `automatically in ${s} s`,
       results: 'Results 🏁', podium: '🏆 Winners', again: '🔄 Play again', leave: '🚪 Leave', final_place: (r, n) => `You finished ${r} of ${n}!`,
       host_left: 'The host ended the game or the connection was lost.', kicked: 'The host removed you from the room.',
-      err_browser: 'This browser cannot make direct connections. Open the game in Chrome, Edge or Safari.', err_busy: 'That code is already taken. Ask the host to create the room again.', err_why: t => ` (${t})`, retry: '🔄 Try again',
+      err_browser: 'This browser cannot make direct connections. If the link opened inside Telegram, Instagram or Facebook, tap ⋮ / “…” → “Open in browser”. Or open the game in Chrome, Edge or Safari.', err_busy: 'That code is already taken. Ask the host to create the room again.', err_why: t => ` (${t})`, retry: '🔄 Try again',
       err_room: 'Room not found. Check the code — or the host has already closed the game.', err_net: 'Could not connect. An internet connection (and a modern browser) is required.',
       local_warn: '⚠️ The page is opened from a file — phones can’t join with the QR code. Open the game on https://bilohash.com/comiks/',
       host_name: 'Host', back: '← Back', you: 'you',
@@ -90,7 +90,7 @@
       rank: (r, n) => `Din plass: ${r} av ${n}`, score: n => `${n} poeng`, board: '🏆 Resultatliste', next: 'Neste spørsmål ▶', auto: s => `automatisk om ${s} s`,
       results: 'Resultater 🏁', podium: '🏆 Vinnere', again: '🔄 Spill igjen', leave: '🚪 Gå ut', final_place: (r, n) => `Du kom på ${r}. plass av ${n}!`,
       host_left: 'Spillederen avsluttet spillet, eller forbindelsen ble brutt.', kicked: 'Spillederen fjernet deg fra rommet.',
-      err_browser: 'Denne nettleseren klarer ikke direkte tilkoblinger. Åpne spillet i Chrome, Edge eller Safari.', err_busy: 'Koden er allerede i bruk. Be spillederen lage rommet på nytt.', err_why: t => ` (${t})`, retry: '🔄 Prøv igjen',
+      err_browser: 'Denne nettleseren klarer ikke direkte tilkoblinger. Åpnet lenken seg inne i Telegram, Instagram eller Facebook, trykk ⋮ / «…» → «Åpne i nettleser». Eller åpne spillet i Chrome, Edge eller Safari.', err_busy: 'Koden er allerede i bruk. Be spillederen lage rommet på nytt.', err_why: t => ` (${t})`, retry: '🔄 Prøv igjen',
       err_room: 'Fant ikke rommet. Sjekk koden — eller spillederen har stengt spillet.', err_net: 'Kunne ikke koble til. Du trenger internett (og en moderne nettleser).',
       local_warn: '⚠️ Siden er åpnet fra en fil — mobiler kan ikke bli med via QR-koden. Åpne spillet på https://bilohash.com/comiks/',
       host_name: 'Spilleder', back: '← Tilbake', you: 'deg',
@@ -103,6 +103,7 @@
       story_title: '📖 Vi leser sammen', story_of: (i, n) => `Rute ${i} av ${n}`, story_next: 'Neste ▶', story_prev: '◀ Tilbake', story_go: '🚀 Til spørsmålene', story_wait: 'Les og lytt godt — så kommer spørsmålene!', story_play: '🔊 Lytt til ruten',
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(GT, 'game.js:GT');
   // підмішуємо тексти гри в загальний i18n (меню, модуль на головній, умови використання)
   if (window.I18N) for (const l of ['uk', 'en', 'no']) {
     const I = window.I18N[l]; if (!I) continue;
@@ -137,7 +138,7 @@
     rank: (r, n) => `مركزك: ${r} من ${n}`, score: n => `${n} نقطة`, board: '🏆 المتصدّرون', next: 'السؤال التالي ▶', auto: s => `تلقائيًا بعد ${s} ث`,
     results: 'النتائج 🏁', podium: '🏆 الفائزون', again: '🔄 العب مجددًا', leave: '🚪 غادر', final_place: (r, n) => `أنهيت في المركز ${r} من ${n}!`,
     host_left: 'أنهى المضيف اللعبة أو انقطع الاتصال.', kicked: 'أخرجك المضيف من الغرفة.',
-    err_browser: 'هذا المتصفح لا يدعم الاتصال المباشر. افتح اللعبة في Chrome أو Edge أو Safari.', err_busy: 'هذا الرمز مستخدم بالفعل. اطلب من المضيف إنشاء الغرفة من جديد.', err_why: t => ` (${t})`, retry: '🔄 حاول مرة أخرى',
+    err_browser: 'هذا المتصفح لا يدعم الاتصال المباشر. إذا فُتح الرابط داخل Telegram أو Instagram أو Facebook فاضغط ⋮ / «…» ← «فتح في المتصفح». أو افتح اللعبة في Chrome أو Edge أو Safari.', err_busy: 'هذا الرمز مستخدم بالفعل. اطلب من المضيف إنشاء الغرفة من جديد.', err_why: t => ` (${t})`, retry: '🔄 حاول مرة أخرى',
     err_room: 'لم يُعثر على الغرفة. تحقّق من الرمز — أو ربما أغلق المضيف اللعبة.', err_net: 'تعذّر الاتصال. يلزم اتصال بالإنترنت ومتصفح حديث.',
     local_warn: '⚠️ الصفحة مفتوحة من ملف — لن تتمكن الهواتف من الانضمام برمز QR. افتح اللعبة على https://bilohash.com/comiks/',
     host_name: 'المضيف', back: '→ رجوع', you: 'أنت',
@@ -149,6 +150,17 @@
     fair_hint: '✅ الأسئلة عادلة للجميع — بلا أسماء ولا حفظ: كلمات بالسمع، صور ورموز، لقطات من القصص (الإجابة ظاهرة في الرسم)، قواعد، الساعة والأرقام.',
     story_title: '📖 القراءة معًا', story_of: (i, n) => `اللقطة ${i} من ${n}`, story_next: '◀ التالي', story_prev: 'السابق ▶', story_go: '🚀 إلى الأسئلة', story_wait: 'اقرأ واستمع جيدًا — الأسئلة قادمة!', story_play: '🔊 استمع إلى اللقطة'
   };
+  /* 🎮 Лобі: постійна кімната власника акаунта. QR лежить у кабінеті — друг сканує й одразу заходить,
+     а тест ведучий обирає, коли всі вже зібралися. */
+  Object.assign(GT.uk, { lobby_title: '🎮 Моє лобі — граємо разом', lobby_d: 'Друзі сканують цей QR і одразу потрапляють у твою кімнату. Коли всі зібралися — обираєш тест на всіх, і кожен відповідає на своєму пристрої. Хто швидше й точніше — той вище в рейтингу.',
+    lobby_steps: ['Відкрий лобі', 'Друзі сканують QR (або вводять код)', 'Обери тест і натисни «Почати»'], lobby_open: '🎮 Відкрити моє лобі', lobby_busy: 'Твоє лобі вже відкрите в іншій вкладці чи на іншому пристрої. Закрий його там і спробуй ще раз.',
+    lobby_pick: '🎯 Тест для всіх', lobby_code: 'Код лобі', lobby_link: '🔗 Скопіювати посилання', add_friend: '👥 у друзі', lobby_auto: 'Підключаємо до лобі…' });
+  Object.assign(GT.en, { lobby_title: '🎮 My lobby — play together', lobby_d: 'Friends scan this QR and land straight in your room. When everyone is in, pick a quiz for all — each answers on their own device. Faster and more accurate means higher in the ranking.',
+    lobby_steps: ['Open the lobby', 'Friends scan the QR (or type the code)', 'Pick a quiz and press “Start”'], lobby_open: '🎮 Open my lobby', lobby_busy: 'Your lobby is already open in another tab or device. Close it there and try again.',
+    lobby_pick: '🎯 Quiz for everyone', lobby_code: 'Lobby code', lobby_link: '🔗 Copy link', add_friend: '👥 add friend', lobby_auto: 'Joining the lobby…' });
+  Object.assign(GT.no, { lobby_title: '🎮 Min lobby — spill sammen', lobby_d: 'Venner skanner denne QR-koden og havner rett i rommet ditt. Når alle er inne, velger du en prøve for alle — hver svarer på sin egen enhet. Raskest og mest riktig kommer høyest.',
+    lobby_steps: ['Åpne lobbyen', 'Venner skanner QR-koden (eller skriver koden)', 'Velg en prøve og trykk «Start»'], lobby_open: '🎮 Åpne lobbyen min', lobby_busy: 'Lobbyen din er allerede åpen i en annen fane eller på en annen enhet. Lukk den der og prøv igjen.',
+    lobby_pick: '🎯 Prøve for alle', lobby_code: 'Lobbykode', lobby_link: '🔗 Kopier lenke', add_friend: '👥 legg til venn', lobby_auto: 'Kobler til lobbyen…' });
   const g = (k, ...a) => { const tbl = GT[C().ui] || GT.en || GT.uk; const v = k in tbl ? tbl[k] : (GT.en || GT.uk)[k]; return typeof v === 'function' ? v(...a) : v; };
   const PREFIX = 'komiks-lab-room-';
   const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -168,7 +180,18 @@
     const t = String((err && err.type) || '');
     if (t === 'peer-unavailable') return g('err_room');
     if (t === 'unavailable-id') return g('err_busy');
-    if (t === 'browser-incompatible') return g('err_browser');
+    if (t === 'browser-incompatible') {
+      // у журнал діагностики — щоб бачити, які саме браузери не можуть грати
+      // коротка технічна довідка під повідомленням: який браузер і чи є WebRTC — щоб одразу бачити причину
+      const ua = navigator.userAgent || '';
+      const br = (/FBAN|FBAV/.test(ua) && 'Facebook') || (/Instagram/.test(ua) && 'Instagram') || (/Telegram/i.test(ua) && 'Telegram') || (/EdgA?\//.test(ua) && 'Edge') || (/Firefox|FxiOS/.test(ua) && 'Firefox') || (/CriOS|Chrome\//.test(ua) && 'Chrome') || (/Safari\//.test(ua) && 'Safari') || 'browser';
+      const os = (/iPhone|iPad|iPod/.test(ua) && 'iOS') || (/Android/.test(ua) && 'Android') || (/Windows/.test(ua) && 'Windows') || (/Mac OS X/.test(ua) && 'macOS') || '';
+      const rtc = typeof RTCPeerConnection === 'function' ? 'WebRTC ✓' : 'WebRTC ✗';
+      const s = (window.peerjs && window.peerjs.util && window.peerjs.util.supports) || {};
+      const info = `${br}${os ? ' · ' + os : ''} · ${rtc}${s.data ? '' : ' · data ✗'}`;
+      try { window.KomiksReport && window.KomiksReport('e', 'game: browser-incompatible · ' + info + ' · ' + ua.slice(0, 140), 'assets/game.js', 0, 0, ''); } catch { /* ignore */ }
+      return g('err_browser') + ` [${info}]`;
+    }
     if (['network', 'socket-error', 'socket-closed', 'server-error', 'ssl-unavailable', 'disconnected'].includes(t)) return g('err_net');
     return g('err_net') + g('err_why')(t || 'error');
   };
@@ -176,12 +199,33 @@
 
   /* ---------------- бібліотеки (вантажимо лише для гри) ---------------- */
   let libs = null;
+  let peerRepair = null;
+  function loadScript(src, extra = '') {
+    const v = (window.KOMIKS_DATA || {}).version || '';
+    const query = [v ? 'v=' + encodeURIComponent(v) : '', extra].filter(Boolean).join('&');
+    return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src + (query ? '?' + query : ''); s.onload = res; s.onerror = () => rej(new Error(src)); document.head.appendChild(s); });
+  }
   function loadLibs() {
     if (libs) return libs;
-    const v = (window.KOMIKS_DATA || {}).version || '';
-    const load = src => new Promise((res, rej) => { const s = document.createElement('script'); s.src = src + (v ? '?v=' + v : ''); s.onload = res; s.onerror = () => rej(new Error(src)); document.head.appendChild(s); });
-    libs = Promise.all([window.Peer ? null : load('assets/vendor/peerjs.min.js'), window.qrcode ? null : load('assets/vendor/qrcode.js')]).catch(e => { libs = null; throw e; });
+    libs = Promise.all([window.Peer ? null : loadScript('assets/vendor/peerjs.min.js'), window.qrcode ? null : loadScript('assets/vendor/qrcode.js')]).catch(e => { libs = null; throw e; });
     return libs;
+  }
+  function nativeDataWorks() {
+    let pc = null, dc = null;
+    try { pc = new RTCPeerConnection(); dc = pc.createDataChannel('komiks-repair'); return true; }
+    catch { return false; }
+    finally { try { dc && dc.close(); } catch { /* ignore */ } try { pc && pc.close(); } catch { /* ignore */ } }
+  }
+  // Старий PeerJS міг лишитися в семиденному HTTP-кеші, навіть коли браузер уже вміє data channels.
+  // На хибний browser-incompatible один раз беремо той самий локальний файл з новим cache key.
+  function repairPeerLib() {
+    if (!nativeDataWorks()) return Promise.reject(new Error('webrtc-data-unavailable'));
+    if (peerRepair) return peerRepair;
+    peerRepair = loadScript('assets/vendor/peerjs.min.js', 'rtc=2').then(() => {
+      const supports = window.peerjs && window.peerjs.util && window.peerjs.util.supports;
+      if (!window.Peer || !supports || !supports.data) throw new Error('peerjs-data-unavailable');
+    }).catch(e => { peerRepair = null; throw e; });
+    return peerRepair;
   }
 
   /* ---------------- поточна сесія ---------------- */
@@ -259,7 +303,8 @@
     else if (src === 'en-words' || src.startsWith('en-word:')) qs = window.KomiksEnglish ? window.KomiksEnglish.wordQuestions(src === 'en-words' ? null : src.slice(8), want * 2) : [];
     else {
       const comics = comicsOf(src);
-      qs.push(...speakerQuestions(comics, Math.ceil(want / 4)));
+      // «хто це сказав / з якого кадру» — лише після спільного читання коміксу: хто не читав, не вгадає
+      if (story) qs.push(...speakerQuestions(comics, Math.ceil(want / 4)));
       const rounds = Math.max(1, Math.min(8, Math.ceil(want * 3 / Math.max(1, comics.length * 8))));
       for (let k = 0; k < rounds; k++) comics.forEach(c => qs.push(...K.buildComicQuiz(c)));
       const easy = src === 'level:A1' || K.settings.level === 'kids';
@@ -269,9 +314,10 @@
       if (!story) { qs.push(...grammarQs(lvl ? 'level:' + lvl : null, Math.ceil(want / 4))); qs.push(...wordQs(lvl ? 'level:' + lvl : null, Math.ceil(want / 3))); }
       if (src === 'mix') { qs.push(...K.sample(K.buildNumbersQuiz(), 2), ...K.sample(K.buildAlphabetQuiz(), 2)); }
     }
-    qs = qs.filter(q => MULTI_TYPES.has(q.type));
+    qs = qs.filter(q => MULTI_TYPES.has(q.type) && (story || !STORY_TYPES.has(q.type)));
     const seen = new Set();
-    qs = qs.filter(q => { const key = q.type + '|' + JSON.stringify(q.line ? q.line.no : q.item || q.n || q.sentence || (q.hh + ':' + q.mm)) + '|' + (q.word || ''); if (seen.has(key)) return false; seen.add(key); return true; });
+    // у прикладів математики немає item/n/sentence — без expr усі вони мали один ключ, і лишалося одне питання
+    qs = qs.filter(q => { const key = q.type + '|' + JSON.stringify(q.line ? q.line.no : q.item || q.n || q.sentence || q.expr || (q.hh != null ? q.hh + ':' + q.mm : [q.answer, q.options])) + '|' + (q.word || ''); if (seen.has(key)) return false; seen.add(key); return true; });
     let out = interleave(qs, want);
     if (story) { // після спільного читання — питання про кадри першими, поки історія свіжа
       out = [...out.filter(q => STORY_TYPES.has(q.type)), ...out.filter(q => !STORY_TYPES.has(q.type))];
@@ -290,11 +336,18 @@
     if (q.lang) o.lang = q.lang;
     if (q.type === 'math') { o.expr = q.expr; o.a = q.a; o.b = q.b; o.op = q.op; o.askText = q.askText; }
     if (q.type === 'listen') o.say = q.item.no;
-    if (q.type === 'emoji') o.emoji = q.item.emoji;
+    if (q.type === 'emoji') {
+      o.emoji = q.item.emoji;
+      /* В англійських питаннях item.no — англійська відповідь, а item.nb —
+         норвезький ключ спільної бібліотеки картинок. */
+      const pictureKey = q.item.nb || q.item.no;
+      const ph = window.KomiksPics && window.KomiksPics.photo ? window.KomiksPics.photo(pictureKey, q.item.uk) : '';
+      if (ph) o.photo = ph;
+    }
     if (q.type === 'picture') o.pict = q.item.type;
     if (q.type === 'blank') { const at = q.line.no.indexOf(q.word); o.before = q.line.no.slice(0, at); o.after = q.line.no.slice(at + q.word.length); delete o.line.no; o.sayLine = q.line.no; }
     if (q.type === 'letter') o.say = q.item[1];
-    if (q.type === 'firstletter') { o.say = q.item[2]; o.emoji = q.item[3]; o.mask = '?' + q.item[2].slice(1).replace(/./g, '_'); }
+    if (q.type === 'firstletter') { o.say = q.item[2]; o.emoji = q.item[3]; o.mask = '?' + q.item[2].slice(1).replace(/./g, '_'); const ap = (window.ALPHA_PICS || {})[q.item[0]]; if (ap && ap[1] === q.item[2]) o.photo = ap[0]; }
     if (q.type === 'number') o.say = K.B.numberWord(q.n);
     if (q.type === 'numword') o.show = K.B.numberWord(q.n);
     if (q.type === 'clock') o.time = q.hh + ':' + String(q.mm).padStart(2, '0');
@@ -316,9 +369,10 @@
     else if (pq.type === 'picture') prompt = [h('div', { class: 'pict' }, K.svgEl(K.ART ? K.ART.propSVG(pq.pict) : '<svg/>'))];
     else if (pq.type === 'blank') prompt = [playBtn, h('div', { class: 'say' }, K.wordSpans(comic, pq.before), h('span', { class: 'blank' }, reveal != null ? pq.options[reveal] : '?'), K.wordSpans(comic, pq.after))];
     else if (pq.type === 'truefalse') prompt = [comic ? h('div', { class: 'panel-mini' }, K.panelView(comic, pq.line.pi, { bubbles: false })) : null, h('div', { class: 'say' }, K.wordSpans(comic, pq.statement))];
-    else if (pq.type === 'firstletter') prompt = [playBtn, h('div', { class: 'say big' }, pq.emoji + ' ' + pq.mask)];
+    else if (pq.type === 'firstletter') prompt = typeof pq.photo === 'string' && /^img\/[a-z0-9_\/-]+\.(webp|png|jpg)$/.test(pq.photo) ? [playBtn, h('div', { class: 'game-photo' }, h('img', { src: pq.photo, alt: '', width: 300, height: 300 })), h('div', { class: 'say big' }, pq.mask)] : [playBtn, h('div', { class: 'say big' }, pq.emoji + ' ' + pq.mask)];
     else if (pq.type === 'numword') prompt = [h('div', { class: 'say big' }, pq.show)];
-    else if (pq.type === 'emoji') prompt = [h('div', { class: 'emoji-big' }, pq.emoji)];
+    // фото приходить від ведучого: приймаємо лише власні картинки сайту (img/…​.webp), а не будь-яку адресу
+    else if (pq.type === 'emoji') prompt = [typeof pq.photo === 'string' && /^img\/[a-z0-9_\/-]+\.(webp|png|jpg)$/.test(pq.photo) ? h('div', { class: 'game-photo' }, h('img', { src: pq.photo, alt: '', width: 400, height: 300 })) : h('div', { class: 'emoji-big' }, pq.emoji)];
     else if (pq.type === 'math') prompt = [h('div', { class: 'math-expr' }, pq.expr + ' = ?'), window.KomiksMath ? h('div', { class: 'mul-pic' }, K.svgEl(window.KomiksMath.pictureSVG(pq.a, pq.op, pq.b))) : null];
     else if (pq.type === 'clock') prompt = [h('div', { class: 'pict clock-pict' }, K.svgEl(window.KomiksGrammar.clockSVG(pq.time)))];
     else if (pq.type === 'grammar') prompt = [h('span', { class: 'gram-q-ico' }, '📐'), h('div', { class: 'say' }, K.wordSpans(null, pq.before), h('span', { class: 'blank' }, reveal != null ? pq.options[reveal] : '___'), K.wordSpans(null, pq.after)), reveal != null ? h('button', { class: 'big-play', type: 'button', 'aria-label': 'Lytt', onclick: () => K.claim().then(() => K.Speech.speak(pq.sentence, 'narrator', { rate: 0.9 })) }, '🔊') : null];
@@ -415,7 +469,7 @@
   function startHost(cfg) {
     const K = C(), { h } = K;
     const root = h('section', { class: 'game host' });
-    const S = { role: 'host', view: 'game', root, cfg, code: genCode(), peer: null, phase: 'creating', error: null, players: new Map(), qs: [], i: -1, answers: new Map(), qStart: 0, timer: null, autoTimer: null, lastReveal: null, board: [] };
+    const S = { role: 'host', view: 'game', root, cfg, code: cfg.code || genCode(), peer: null, phase: 'creating', error: null, players: new Map(), qs: [], i: -1, answers: new Map(), qStart: 0, timer: null, autoTimer: null, lastReveal: null, board: [] };
     session = S;
     const u = K.currentUser();
     if (cfg.hostPlays) S.players.set('host', { pid: 'host', name: (u && u.name) || g('host_name'), avatar: '👑', score: 0, online: true, local: true });
@@ -435,7 +489,14 @@
       S.peer = new window.Peer(PREFIX + S.code, { debug: 0 });
       S.peer.on('open', () => { S.phase = 'lobby'; draw(); });
       S.peer.on('error', err => {
+        if (err.type === 'unavailable-id' && S.cfg.lobby) { S.phase = 'error'; S.error = g('lobby_busy'); draw(); return; }
         if (err.type === 'unavailable-id') { try { S.peer.destroy(); } catch { /* ignore */ } S.code = genCode(); openPeer(); return; }
+        if (err.type === 'browser-incompatible' && !S.peerRepaired && nativeDataWorks()) {
+          S.peerRepaired = true;
+          try { S.peer.destroy(); } catch { /* ignore */ }
+          repairPeerLib().then(() => { if (session === S) openPeer(); }).catch(() => { if (session === S) { S.phase = 'error'; S.error = peerMsg(err); draw(); } });
+          return;
+        }
         if (S.phase === 'creating') { S.phase = 'error'; S.error = peerMsg(err); draw(); }
       });
       S.peer.on('connection', conn => {
@@ -561,6 +622,7 @@
     function draw() {
       if (session !== S) return;
       gameMode(S.phase);
+      root.classList.toggle('lobby-open', S.phase === 'lobby');
       const kids = [];
       const head = h('div', { class: 'q-head' }, h('a', { class: 'btn', href: '#/game', onclick: () => endSession() }, g('close_room')), h('h2', {}, g('title')), S.code && S.phase !== 'creating' ? h('span', { class: 'room-code small' }, S.code) : null);
       kids.push(head);
@@ -573,18 +635,29 @@
         const copyBtn = h('button', { class: 'btn small', type: 'button', onclick: async () => { try { await navigator.clipboard.writeText(url); copyBtn.textContent = g('copied'); } catch { /* ignore */ } } }, g('copy'));
         const plist = [...S.players.values()];
         kids.push(h('div', { class: 'lobby-grid' },
-          h('div', { class: 'qr-box' }, h('div', { class: 'qr' }, qrSvg ? K.svgEl(qrSvg) : null),
+          h('div', { class: 'qr-box lobby-room' }, h('div', { class: 'qr' }, qrSvg ? K.svgEl(qrSvg) : null),
             h('p', { class: 'hint' }, g('scan')), h('code', { class: 'join-url' }, url), copyBtn,
             h('div', { class: 'room-code' }, S.code),
             location.protocol === 'file:' ? h('p', { class: 'warn-inline' }, g('local_warn')) : null),
-          h('div', { class: 'players-box' },
-            h('p', { class: 'topic-chip' }, g('topic') + ': ', h('b', {}, sourceLabel(S.cfg.source)), K.COMICS.some(c => c.id === S.cfg.source) ? ' · ' + g('sm_' + storyModeOf(S.cfg)) : ''),
-            h('h3', {}, g('players', plist.filter(p => p.online).length)),
-            plist.length ? h('ul', { class: 'players' }, plist.map(p => h('li', { class: p.online ? '' : 'off' }, h('span', { class: 'p-ava' }, AV(p.avatar, { size: 44 })), h('span', { class: 'p-name' }, p.name),
-              p.local ? null : h('button', { class: 'p-kick', type: 'button', title: g('remove'), onclick: () => { send(p, { t: 'kick' }); S.players.delete(p.pid); setTimeout(() => { try { p.conn.close(); } catch { /* ignore */ } }, 100); broadcast({ t: 'lobby', players: lobbyList() }); draw(); } }, '✕'))))
-              : h('p', { class: 'hint' }, g('waiting_players')),
-            h('button', { class: 'btn accent big', type: 'button', disabled: !online().length, onclick: startGame }, g('start')),
-            !online().length ? h('p', { class: 'hint' }, g('need_players')) : null)));
+          h('div', { class: 'players-box lobby-control' },
+            S.cfg.lobby ? (() => {
+              const sel = sourceSelect(S.cfg.source, S.cfg.gameLang || '');
+              const cnt = h('select', {}, [5, 10, 15, 20].map(n => h('option', { value: n, selected: S.cfg.count === n }, n)));
+              const tm = h('select', {}, [10, 15, 20, 30].map(n => h('option', { value: n, selected: S.cfg.time === n }, g('sec', n))));
+              const save = () => { S.cfg.source = sel.value; S.cfg.count = parseInt(cnt.value, 10); S.cfg.time = parseInt(tm.value, 10); S.cfg.storyMode = 'none'; K.store.set('gameCfg', Object.assign({}, K.store.get('gameCfg', {}), { source: S.cfg.source, count: S.cfg.count, time: S.cfg.time })); };
+              [sel, cnt, tm].forEach(x => x.addEventListener('change', save));
+              return h('div', { class: 'lobby-pick lobby-settings' }, h('label', { class: 'field' }, h('span', {}, g('lobby_pick')), sel),
+                h('div', { class: 'two-fields' }, h('label', { class: 'field' }, h('span', {}, g('count')), cnt), h('label', { class: 'field' }, h('span', {}, g('time')), tm)));
+            })() : h('p', { class: 'topic-chip' }, g('topic') + ': ', h('b', {}, sourceLabel(S.cfg.source)), K.COMICS.some(c => c.id === S.cfg.source) ? ' · ' + g('sm_' + storyModeOf(S.cfg)) : ''),
+            h('div', { class: 'lobby-players-scroll' },
+              h('h3', {}, g('players', plist.filter(p => p.online).length)),
+              plist.length ? h('ul', { class: 'players' }, plist.map(p => h('li', { class: p.online ? '' : 'off' }, h('span', { class: 'p-ava' }, AV(p.avatar, { size: 44 })), h('span', { class: 'p-name' }, p.name),
+                S.cfg.lobby && /^[A-Z0-9]{6}$/.test(p.fc || '') ? h('a', { class: 'btn small p-friend', href: '#/friends/add/' + p.fc, target: '_blank', rel: 'noopener' }, g('add_friend')) : null,
+                p.local ? null : h('button', { class: 'p-kick', type: 'button', title: g('remove'), onclick: () => { send(p, { t: 'kick' }); S.players.delete(p.pid); setTimeout(() => { try { p.conn.close(); } catch { /* ignore */ } }, 100); broadcast({ t: 'lobby', players: lobbyList() }); draw(); } }, '✕'))))
+                : h('p', { class: 'hint' }, g('waiting_players'))),
+            h('div', { class: 'lobby-actions' },
+              h('button', { class: 'btn accent big lobby-start', type: 'button', disabled: !online().length, onclick: startGame }, g('start')),
+              !online().length ? h('p', { class: 'hint' }, g('need_players')) : null))));
       } else if (S.phase === 'story') {
         const c = storyComic(), last = S.storyIdx + 1 >= c.panels.length;
         kids.push(h('div', { class: 'g-bar' }, h('b', {}, g('story_title')), h('span', { class: 'answered' }, g('story_of', S.storyIdx + 1, c.panels.length))));
@@ -647,7 +720,16 @@
         S.conn.on('data', onMessage);
         S.conn.on('close', () => { if (S.phase !== 'error' && S.phase !== 'kicked') fail(g('host_left')); });
       });
-      S.peer.on('error', err => { clearTimeout(guard); fail(peerMsg(err)); });
+      S.peer.on('error', err => {
+        clearTimeout(guard);
+        if (err.type === 'browser-incompatible' && !S.peerRepaired && nativeDataWorks()) {
+          S.peerRepaired = true;
+          try { S.peer.destroy(); } catch { /* ignore */ }
+          repairPeerLib().then(() => { if (session === S) connect(); }).catch(() => fail(peerMsg(err)));
+          return;
+        }
+        fail(peerMsg(err));
+      });
     }
     function onMessage(msg) {
       if (!msg || typeof msg !== 'object') return;
@@ -709,21 +791,138 @@
   }
 
   /* ================= СТОРІНКИ ================= */
-  function renderGameHome() {
+  /* Список тестів для гри: мікс, рівні, теми, слова, математика, англійська, граматика, основи, окремі комікси.
+     Ним користуються і налаштування кімнати, і лобі (там тест обирають, коли всі вже зібралися). */
+  function sourceSelect(cur, gameLang = '') {
     const K = C(), { h } = K;
-    const cfg = Object.assign({ source: 'mix', count: 10, time: 20, hostPlays: false, sound: true, readFirst: true }, K.store.get('gameCfg', {}));
     const levels = K.B.levels.filter(l => K.COMICS.some(c => c.level === l));
     const G = window.KomiksGrammar;
-    const src = h('select', {},
-      h('option', { value: 'mix', selected: cfg.source === 'mix' }, g('src_mix')),
-      h('optgroup', { label: '🎓' }, levels.map(l => h('option', { value: 'level:' + l, selected: cfg.source === 'level:' + l }, g('src_level', l)))),
-      h('optgroup', { label: '🏷️' }, K.uniq(K.COMICS.map(c => c.category)).filter(Boolean).map(cat => h('option', { value: 'cat:' + cat, selected: cfg.source === 'cat:' + cat }, g('src_cat', K.catLabel(cat))))),
-      h('optgroup', { label: '📝' }, h('option', { value: 'words', selected: cfg.source === 'words' }, '📝 ' + (window.KomiksWords ? window.KomiksWords.text('all_test').replace(/^🧩\s*/, '') : 'Ord')), window.KomiksWords ? window.KomiksWords.themes().map(th => h('option', { value: 'word:' + th.id, selected: cfg.source === 'word:' + th.id }, th.icon + ' ' + th.no)) : null),
-      window.KomiksMath ? h('optgroup', { label: '🧮' }, [['math:mul', '🧮 ✖️ ×'], ['math:add', '🧮 ➕ + −'], ['math:all', '🧮 + − × ÷']].map(([v, l]) => h('option', { value: v, selected: cfg.source === v }, l))) : null,
-      window.KomiksEnglish ? h('optgroup', { label: '🇬🇧 English' }, h('option', { value: 'en-words', selected: cfg.source === 'en-words' }, '🇬🇧 English: all words'), window.WORDS ? window.WORDS.themes.map(th => h('option', { value: 'en-word:' + th.id, selected: cfg.source === 'en-word:' + th.id }, `🇬🇧 ${th.icon} ${th.en}`)) : null) : null,
-      h('optgroup', { label: '📐' }, h('option', { value: 'grammar', selected: cfg.source === 'grammar' }, g('src_grammar')), G ? G.topics().map(tp => h('option', { value: 'gram:' + tp.id, selected: cfg.source === 'gram:' + tp.id }, '📐 ' + G.label(tp.id))) : null),
-      h('optgroup', { label: '🔤' }, h('option', { value: 'alphabet', selected: cfg.source === 'alphabet' }, g('src_alpha')), h('option', { value: 'numbers', selected: cfg.source === 'numbers' }, g('src_numbers')), h('option', { value: 'clock', selected: cfg.source === 'clock' }, g('src_clock'))),
-      h('optgroup', { label: '📚 ' + g('src_comics') }, K.COMICS.map(c => h('option', { value: c.id, selected: cfg.source === c.id }, `${c.level} · ${c.title}`))));
+    if (gameLang === 'en') return h('select', {},
+      h('option', { value: 'en-words', selected: cur === 'en-words' }, '🇬🇧 ' + gh('en_all')),
+      window.WORDS ? window.WORDS.themes.map(th => h('option', { value: 'en-word:' + th.id, selected: cur === 'en-word:' + th.id }, `🇬🇧 ${th.icon} ${th.en} · ${th.level}`)) : null);
+    return h('select', {},
+      h('option', { value: 'mix', selected: cur === 'mix' }, g('src_mix')),
+      h('optgroup', { label: '🎓' }, levels.map(l => h('option', { value: 'level:' + l, selected: cur === 'level:' + l }, g('src_level', l)))),
+      h('optgroup', { label: '🏷️' }, K.uniq(K.COMICS.map(c => c.category)).filter(Boolean).map(cat => h('option', { value: 'cat:' + cat, selected: cur === 'cat:' + cat }, g('src_cat', K.catLabel(cat))))),
+      h('optgroup', { label: '📝' }, h('option', { value: 'words', selected: cur === 'words' }, '📝 ' + (window.KomiksWords ? window.KomiksWords.text('all_test').replace(/^🧩\s*/, '') : 'Ord')), window.KomiksWords ? window.KomiksWords.themes().map(th => h('option', { value: 'word:' + th.id, selected: cur === 'word:' + th.id }, th.icon + ' ' + th.no)) : null),
+      window.KomiksMath ? h('optgroup', { label: '🧮' }, [['math:mul', '🧮 ✖️ ×'], ['math:add', '🧮 ➕ + −'], ['math:all', '🧮 + − × ÷']].map(([v, l]) => h('option', { value: v, selected: cur === v }, l))) : null,
+      gameLang ? null : (window.KomiksEnglish ? h('optgroup', { label: '🇬🇧 English' }, h('option', { value: 'en-words', selected: cur === 'en-words' }, '🇬🇧 English: all words'), window.WORDS ? window.WORDS.themes.map(th => h('option', { value: 'en-word:' + th.id, selected: cur === 'en-word:' + th.id }, `🇬🇧 ${th.icon} ${th.en}`)) : null) : null),
+      h('optgroup', { label: '📐' }, h('option', { value: 'grammar', selected: cur === 'grammar' }, g('src_grammar')), G ? G.topics().map(tp => h('option', { value: 'gram:' + tp.id, selected: cur === 'gram:' + tp.id }, '📐 ' + G.label(tp.id))) : null),
+      h('optgroup', { label: '🔤' }, h('option', { value: 'alphabet', selected: cur === 'alphabet' }, g('src_alpha')), h('option', { value: 'numbers', selected: cur === 'numbers' }, g('src_numbers')), h('option', { value: 'clock', selected: cur === 'clock' }, g('src_clock'))),
+      h('optgroup', { label: '📚 ' + g('src_comics') }, K.COMICS.map(c => h('option', { value: c.id, selected: cur === c.id }, `${c.level} · ${c.title}`))));
+  }
+  /* Код лобі виводимо з коду друга (або з постійного зерна цього пристрою для гостя): той самий щоразу,
+     тож QR у кабінеті можна навіть роздрукувати. 25 біт FNV-1a → 5 знаків з алфавіту кімнат. */
+  function lobbyCode() {
+    const K = C(), u = K.currentUser();
+    let seed = u ? K.raw.get(`comiks.u.${u.id}.friendCode`, null) : null;
+    if (!seed) { seed = K.raw.get('comiks.lobbySeed', null); if (!seed) { seed = genCode() + genCode(); K.raw.set('comiks.lobbySeed', seed); } }
+    let x = 0x811c9dc5;
+    for (const ch of 'lobby:' + seed) { x ^= ch.charCodeAt(0); x = Math.imul(x, 0x01000193) >>> 0; }
+    let out = '';
+    for (let i = 0; i < 5; i++) out += CODE_CHARS[(x >>> (i * 5)) & 31];
+    return out;
+  }
+  function startLobby() {
+    const K = C();
+    const cfg = Object.assign({ source: 'mix', count: 10, time: 20, sound: true, readFirst: true }, K.store.get('gameCfg', {}), { hostPlays: true, lobby: true, code: lobbyCode() });
+    endSession();
+    return startHost(cfg);
+  }
+  // блок у кабінеті: QR лобі, код і кнопка
+  function lobbyBox() {
+    const K = C(), { h } = K;
+    const code = lobbyCode(), url = joinUrl(code);
+    const qr = h('div', { class: 'qr lobby-qr', 'aria-label': 'QR' });
+    const loadQr = window.qrcode ? Promise.resolve() : new Promise((res, rej) => { const sc = document.createElement('script'); const v = (window.KOMIKS_DATA || {}).version || ''; sc.src = 'assets/vendor/qrcode.js' + (v ? '?v=' + v : ''); sc.onload = res; sc.onerror = rej; document.head.appendChild(sc); });
+    loadQr.then(() => { try { const q = window.qrcode(0, 'M'); q.addData(url); q.make(); qr.replaceChildren(K.svgEl(q.createSvgTag({ cellSize: 6, margin: 2, scalable: true }))); } catch { /* без QR лишається код */ } }).catch(() => {});
+    const copy = h('button', { class: 'btn small', type: 'button', onclick: async () => { try { await navigator.clipboard.writeText(url); copy.textContent = g('copied'); } catch { /* ignore */ } } }, g('lobby_link'));
+    return h('div', { class: 'box lobby-box' },
+      h('div', { class: 'lobby-qr-wrap' }, qr, h('small', {}, g('lobby_code')), h('b', { class: 'room-code' }, code)),
+      h('div', { class: 'lobby-txt' }, h('h3', {}, g('lobby_title')), h('p', { class: 'hint' }, g('lobby_d')),
+        h('ol', { class: 'lobby-steps' }, g('lobby_steps').map(t => h('li', {}, t))),
+        h('div', { class: 'row-left' }, h('a', { class: 'btn accent big', href: '#/game/lobby' }, g('lobby_open')), copy)));
+  }
+  /* 🎮 Новий верх «Гри разом»: сцена (великий екран із QR + гравці-тваринки, що підскакують)
+     і «Почни за один натиск» (кімната одразу з QR). */
+  const GH = {
+    uk: { hero_t: 'Вікторина англійською або норвезькою', hero_d: 'Обери мову й гру. Один екран показує QR-код, усі інші сканують його телефонами та змагаються.', pick: 'Яку мову вчимо?', pick_d: 'Спочатку обери мову — далі побачиш лише її кімнати та ігри.', choose: 'Обрати мову →', change: '← Змінити мову', quick: '⚡ Обери кімнату', quick_d: 'Натисни картку — і кімната з QR-кодом готова.', no_t: 'Норвезька', no_d: 'Комікси, слова, граматика й вимова норвезькою', en_t: 'Англійська', en_d: 'Англійські слова за темами з картинками й озвученням', en_all: 'Усі англійські слова', en_all_d: 'усі теми разом', adv: '⚙️ Детальні налаштування', join_t: 'Маєш код?', go: 'Увійти',
+      q: { mix: ['🎲', 'Усього потроху', 'слова, картинки, граматика'], pics: ['🖼️', 'Слова з картинками', 'найкраще для дітей'], grammar: ['📐', 'Граматика', 'Velg riktig ord'], numbers: ['🔢', 'Числа', 'на слух'], clock: ['🕒', 'Годинник', 'Hva er klokka?'], alphabet: ['🔤', 'Алфавіт', 'літери на слух'], math: ['🧮', 'Математика', '+ − × ÷'], A1: ['🌱', 'Рівень A1', 'комікси й слова'] } },
+    en: { hero_t: 'A quiz show in English or Norwegian', hero_d: 'Choose a language and a game. One screen shows the QR code, everyone else scans it and competes.', pick: 'Which language are we learning?', pick_d: 'Choose the language first, then you will see only its rooms and games.', choose: 'Choose language →', change: '← Change language', quick: '⚡ Choose a room', quick_d: 'Tap a card and the QR room is ready.', no_t: 'Norwegian', no_d: 'Comics, words, grammar and pronunciation in Norwegian', en_t: 'English', en_d: 'English vocabulary by topic with pictures and audio', en_all: 'All English words', en_all_d: 'all topics together', adv: '⚙️ Detailed settings', join_t: 'Got a code?', go: 'Join',
+      q: { mix: ['🎲', 'A bit of everything', 'words, pictures, grammar'], pics: ['🖼️', 'Words with pictures', 'best for kids'], grammar: ['📐', 'Grammar', 'Velg riktig ord'], numbers: ['🔢', 'Numbers', 'by ear'], clock: ['🕒', 'The clock', 'Hva er klokka?'], alphabet: ['🔤', 'Alphabet', 'letters by ear'], math: ['🧮', 'Maths', '+ − × ÷'], A1: ['🌱', 'Level A1', 'comics and words'] } },
+    no: { hero_t: 'Quiz på engelsk eller norsk', hero_d: 'Velg språk og spill. Én skjerm viser QR-koden, alle andre skanner den med mobilen og konkurrerer.', pick: 'Hvilket språk lærer vi?', pick_d: 'Velg språket først. Deretter ser du bare rommene og spillene for dette språket.', choose: 'Velg språk →', change: '← Bytt språk', quick: '⚡ Velg et rom', quick_d: 'Trykk på et kort, så er QR-rommet klart.', no_t: 'Norsk', no_d: 'Tegneserier, ord, grammatikk og uttale på norsk', en_t: 'Engelsk', en_d: 'Engelske ord etter tema med bilder og lyd', en_all: 'Alle engelske ord', en_all_d: 'alle temaer sammen', adv: '⚙️ Flere innstillinger', join_t: 'Har du en kode?', go: 'Bli med',
+      q: { mix: ['🎲', 'Litt av alt', 'ord, bilder, grammatikk'], pics: ['🖼️', 'Ord med bilder', 'best for barn'], grammar: ['📐', 'Grammatikk', 'Velg riktig ord'], numbers: ['🔢', 'Tall', 'på lyd'], clock: ['🕒', 'Klokka', 'Hva er klokka?'], alphabet: ['🔤', 'Alfabetet', 'bokstaver på lyd'], math: ['🧮', 'Matte', '+ − × ÷'], A1: ['🌱', 'Nivå A1', 'tegneserier og ord'] } }
+  };
+  const gh = k => { const ui = (C() && C().ui) || 'uk'; return (GH[ui] || GH.en)[k] ?? GH.en[k]; };
+  function languageGate() {
+    const K = C(), { h } = K;
+    const artAlt = lang => lang === 'no'
+      ? ({ uk: 'Вивчення норвезької: фіорд, книжка й норвезький прапор', no: 'Lær norsk: fjord, bok og norsk flagg', en: 'Learn Norwegian: fjord, book and Norwegian flag' }[K.ui] || 'Learn Norwegian: fjord, book and Norwegian flag')
+      : ({ uk: 'Вивчення англійської: Лондон, книжка й британський прапор', no: 'Lær engelsk: London, bok og britisk flagg', en: 'Learn English: London, book and British flag' }[K.ui] || 'Learn English: London, book and British flag');
+    const choice = (lang, flag, title, desc) => h('a', { class: 'gh-language-choice gh-choice-' + lang, href: '#/game/' + lang },
+      h('span', { class: 'gh-choice-art' }, h('img', { src: 'img/game-language-' + lang + '.svg', alt: artAlt(lang), width: 640, height: 300 }), h('span', { class: 'gh-choice-flag', 'aria-hidden': 'true' }, flag)),
+      h('span', { class: 'gh-choice-copy' }, h('b', {}, title), h('small', {}, desc), h('strong', {}, gh('choose'))),
+      h('span', { class: 'gh-choice-arrow', 'aria-hidden': 'true' }, '›'));
+    return h('section', { class: 'game-home game-language-gate' }, K.pageHead(g('title')),
+      h('div', { class: 'gh-pick-head' }, h('span', { 'aria-hidden': 'true' }, '🎮'), h('div', {}, h('h2', {}, gh('pick')), h('p', {}, gh('pick_d')))),
+      h('div', { class: 'gh-language-pick' },
+        choice('no', '🇳🇴', gh('no_t'), gh('no_d')),
+        choice('en', '🇬🇧', gh('en_t'), gh('en_d'))));
+  }
+  function homeHero() {
+    const K = C(), { h } = K;
+    const codeIn = h('input', { type: 'text', maxlength: 5, autocapitalize: 'characters', placeholder: g('code_ph'), class: 'code-input', 'aria-label': gh('join_t') });
+    codeIn.addEventListener('input', () => { codeIn.value = codeIn.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
+    codeIn.addEventListener('keydown', e => { if (e.key === 'Enter' && codeIn.value.length === 5) location.hash = '#/join/' + codeIn.value; });
+    const AVS = ['🦊', '🐼', '🐸', '🦁', '🐧', '🐯'];
+    const crowd = h('div', { class: 'gh-crowd', 'aria-hidden': 'true' }, AVS.map((a, i) => h('span', { class: 'gh-p', style: { '--i': i } }, AV(a, { size: 54, mood: i % 3 ? 'happy' : 'cheer' }))));
+    const screen = h('div', { class: 'gh-screen', 'aria-hidden': 'true' },
+      h('div', { class: 'gh-scr-top' }, h('i'), h('i'), h('i'), h('b', {}, 'KOMIKS·LAB · LIVE')),
+      h('div', { class: 'gh-scr-body' },
+        h('div', { class: 'gh-qr' }, Array.from({ length: 49 }, (_, k) => h('i', { class: [0, 1, 2, 7, 9, 14, 15, 16, 4, 5, 6, 11, 13, 18, 19, 20, 28, 29, 30, 35, 37, 42, 43, 44, 24, 17, 31, 39, 47, 33, 25].includes(k) ? 'on' : '' }))),
+        h('div', { class: 'gh-lb' }, [['🥇', 'Nora', 2840], ['🥈', 'Ali', 2410], ['🥉', 'Leo', 1990]].map(([m, n, s]) => h('div', {}, h('span', {}, m), h('b', {}, n), h('small', {}, s))))));
+    const go = h('button', { class: 'btn primary', type: 'button', onclick: () => { if (codeIn.value.length === 5) location.hash = '#/join/' + codeIn.value; } }, gh('go'));
+    return h('section', { class: 'gh-hero' },
+      h('div', { class: 'gh-hero-txt' }, h('h2', {}, gh('hero_t')), h('p', {}, gh('hero_d')),
+        h('div', { class: 'gh-join' }, h('span', {}, gh('join_t')), codeIn, go)),
+      h('div', { class: 'gh-stage' }, screen, crowd));
+  }
+  function quickStart(gameLang) {
+    const K = C(), { h } = K, Q = gh('q');
+    const P = window.KomiksPics, W = window.KomiksWords;
+    // тема слів, де найбільше картинок — для «Слова з картинками»
+    let picTheme = '';
+    if (P && W) { let best = 0; for (const th of W.themes()) { const n = th.words.filter(w => P.photo && P.photo(w[0], w[1])).length; if (n > best && th.level === 'A1') { best = n; picTheme = th.id; } } }
+    const items = [['mix', 'mix'], ['pics', picTheme ? 'word:' + picTheme : 'words'], ['A1', 'level:A1'], ['grammar', 'grammar'], ['numbers', 'numbers'], ['clock', 'clock'], ['alphabet', 'alphabet'], window.KomiksMath ? ['math', 'math:all'] : null].filter(Boolean);
+    const tile = (src, icon, title, desc, i) => h('a', { class: 'gh-tile', href: '#/game/src:' + src, style: { '--i': i } },
+      h('span', { class: 'gh-ic' }, icon), h('b', {}, title), h('small', {}, desc));
+    const noTiles = items.map(([k, src], i) => tile(src, Q[k][0], Q[k][1], Q[k][2], i));
+    /* Англійська гра вже має власне джерело питань. Показуємо всі слова й
+       найнаочніші теми A1, щоб вибір мови не ховався в довгому select нижче. */
+    const enThemes = W ? [...W.themes()].filter(th => th.level === 'A1').sort((a, b) => {
+      const images = th => th.words.filter(w => P && P.has(w[0], w[1])).length;
+      return images(b) - images(a);
+    }).slice(0, 4) : [];
+    const themeDesc = th => K.ui === 'uk' ? th.uk : K.ui === 'no' ? th.no : `${th.level} · English vocabulary`;
+    const enTiles = [tile('en-words', '🎲', gh('en_all'), gh('en_all_d'), 0),
+      ...enThemes.map((th, i) => tile('en-word:' + th.id, th.icon, th.en, themeDesc(th), i + 1))];
+    const english = gameLang === 'en';
+    return h('section', { class: 'gh-quick gh-language-rooms' },
+      h('div', { class: 'gh-room-head' }, h('div', {}, h('h3', {}, gh('quick')), h('p', { class: 'hint' }, gh('quick_d'))), h('a', { class: 'btn', href: '#/game' }, gh('change'))),
+      h('section', { class: 'gh-lang ' + (english ? 'gh-lang-en' : 'gh-lang-no'), 'data-lang': english ? 'en' : 'no' },
+        h('header', { class: 'gh-lang-head' }, h('span', { class: 'gh-lang-flag', 'aria-hidden': 'true' }, english ? '🇬🇧' : '🇳🇴'),
+          h('div', {}, h('h4', {}, english ? gh('en_t') : gh('no_t')), h('p', {}, english ? gh('en_d') : gh('no_d')))),
+        h('div', { class: 'gh-tiles' }, english ? enTiles : noTiles)));
+  }
+  function renderGameHome(gameLang) {
+    const K = C(), { h } = K;
+    const defaultSource = gameLang === 'en' ? 'en-words' : 'mix';
+    const savedCfg = K.store.get('gameCfg', {});
+    const savedSourceFits = gameLang === 'en' ? /^en-/.test(savedCfg.source || '') : !/^en-/.test(savedCfg.source || '');
+    const cfg = Object.assign({ source: defaultSource, count: 10, time: 20, hostPlays: false, sound: true, readFirst: true }, savedCfg, savedSourceFits ? {} : { source: defaultSource });
+    const levels = K.B.levels.filter(l => K.COMICS.some(c => c.level === l));
+    const G = window.KomiksGrammar;
+    const src = sourceSelect(cfg.source, gameLang);
     const count = h('select', {}, [5, 10, 15, 20, 25, 30].map(n => h('option', { value: n, selected: cfg.count === n }, n)));
     const time = h('select', {}, [5, 10, 15, 20, 30, 45, 60].map(n => h('option', { value: n, selected: cfg.time === n }, g('sec', n))));
     const hostPlays = h('input', { type: 'checkbox', checked: cfg.hostPlays });
@@ -734,9 +933,9 @@
     const syncRead = () => { readRow.hidden = !K.COMICS.some(c => c.id === src.value); };
     src.addEventListener('change', syncRead); syncRead();
     const create = random => {
-      const c2 = { source: src.value, count: parseInt(count.value, 10), time: parseInt(time.value, 10), hostPlays: hostPlays.checked, sound: sound.checked, storyMode: storySel.value };
+      const c2 = { source: src.value, gameLang, count: parseInt(count.value, 10), time: parseInt(time.value, 10), hostPlays: hostPlays.checked, sound: sound.checked, storyMode: storySel.value };
       K.store.set('gameCfg', c2);
-      if (random) c2.source = 'mix';
+      if (random) c2.source = gameLang === 'en' ? 'en-words' : 'mix';
       endSession();
       const root = startHost(c2);
       const app = document.getElementById('app');
@@ -747,6 +946,9 @@
     codeIn.addEventListener('input', () => { codeIn.value = codeIn.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
     const [hi, ht, hd] = g('host_card'), [ji, jt, jd] = g('join_card');
     return h('section', { class: 'game-home' }, K.pageHead(g('title')),
+      homeHero(), quickStart(gameLang),
+      gameLang === 'no' ? wordRoomBox() : null,
+      h('h3', { class: 'gh-adv' }, gh('adv')),
       h('p', { class: 'lead-p' }, g('intro')),
       h('ol', { class: 'how-grid game-how' }, g('how').map((text, i) => h('li', { class: 'how-step' }, h('span', { class: 'how-num' }, i + 1), h('span', {}, text)))),
       h('div', { class: 'game-choice' },
@@ -791,16 +993,62 @@
       h('div', { class: 'field' }, h('span', {}, g('avatar')), avas),
       err, h('button', { class: 'btn accent big', type: 'submit' }, g('join_go')));
     setTimeout(() => (codeIn.value ? nameIn : codeIn).focus(), 50);
+    if (code && code.length === 5 && nameIn.value.trim() && !renderJoin.auto) { renderJoin.auto = true; err.textContent = g('lobby_auto'); setTimeout(() => { if (document.body.contains(form)) go(); renderJoin.auto = false; }, 600); }
     return h('section', { class: 'auth-wrap' }, form);
   }
 
   function render(view, id) {
     // активна гра переживає перемальовування (наприклад, зміну мови)
+    // нове посилання #/game/src:<тема> замінює відкриту кімнату з іншою темою (раніше лишалася стара — напр. математика)
+    if (session && view === 'game' && session.role === 'host' && id && id.startsWith('src:') && session.srcLink !== id.slice(4)) endSession();
     if (session && ((view === 'game' && session.role === 'host') || (view === 'join' && session.role === 'player' && (!id || id === session.code)))) { session.draw(); return session.root; }
     if (view === 'join') return renderJoin(id);
-    return renderGameHome();
+    if (view === 'game' && id === 'lobby') return startLobby();
+    if (view === 'game' && (id === 'no' || id === 'en')) return renderGameHome(id);
+    if (view === 'game' && id && id.startsWith('src:')) {
+      const src = id.slice(4);
+      if (/^(mix|words|word:[a-z0-9_-]+|level:[A-C][12]|cat:[a-z0-9]+|grammar|gram:[a-z0-9_-]+|alphabet|numbers|clock|math:(mul|add|all)|en-words|en-word:[a-z0-9_-]+|p\d+)$/.test(src)) {
+        const K = C(), cfg = Object.assign({ source: 'mix', count: 10, time: 20, hostPlays: false, sound: true, readFirst: true }, K.store.get('gameCfg', {}), { source: src });
+        endSession();
+        const el = startHost(cfg);
+        // запам'ятовуємо посилання, з якого відкрили кімнату: зміна теми всередині лобі його не міняє
+        if (session) session.srcLink = src;
+        return el;
+      }
+    }
+    return languageGate();
   }
 
   const roomCode = () => (session && session.role === 'host' && session.code && !['creating', 'error'].includes(session.phase) ? session.code : null);
-  window.KomiksGame = { render, onRoute, end: endSession, roomCode };
+  /* 🎮 «Гра класом або разом» зі словами: обираєш тему — одразу кімната з QR-кодом
+     (#/game/src:word:<тема>). Стоїть нагорі «Гри разом» і сторінок «Слова»; current — тема сторінки. */
+  const WR = {
+    uk: { t: '🎮 Гра класом або разом — слова', d: 'Обери тему: одразу з’явиться кімната з QR-кодом. Учні сканують його й відповідають з телефонів — питання з картинками й озвученням.', go: 'Створити кімнату з QR', all: '🎲 Усі теми разом', cur: 'Ця тема', more: 'Інша тема…', pics: 'з картинками' },
+    en: { t: '🎮 Play as a class or together — words', d: 'Pick a topic and a room with a QR code appears. Students scan it and answer on their phones — questions with pictures and audio.', go: 'Create a QR room', all: '🎲 All topics', cur: 'This topic', more: 'Another topic…', pics: 'with pictures' },
+    no: { t: '🎮 Spill med klassen eller sammen – ord', d: 'Velg et tema, så kommer et rom med QR-kode. Elevene skanner den og svarer på mobilen – spørsmål med bilder og lyd.', go: 'Lag et rom med QR', all: '🎲 Alle temaer', cur: 'Dette temaet', more: 'Et annet tema …', pics: 'med bilder' }
+  };
+  function wordRoomBox({ current = '' } = {}) {
+    const K = C(), { h } = K, T = WR[K.ui] || WR.en;
+    const W = window.KomiksWords, themes = W ? W.themes() : [];
+    if (!themes.length) return null;
+    const P = window.KomiksPics;
+    // скільки слів теми мають картинку — такі теми найкращі для гри на телефонах
+    const picN = th => (P ? th.words.filter(w => P.photo && P.photo(w[0], w[1])).length : 0);
+    const go = src => { location.hash = '#/game/src:' + src; };
+    const sel = h('select', { class: 'wr-sel', 'aria-label': T.more },
+      h('option', { value: 'words' }, T.all),
+      themes.map(th => h('option', { value: 'word:' + th.id, selected: th.id === current }, `${th.icon} ${W.name(th)} · ${th.level}${picN(th) >= th.words.length * 0.7 ? ' 🖼️' : ''}`)));
+    const cur = current && themes.find(x => x.id === current);
+    const chips = themes.filter(th => picN(th) >= th.words.length * 0.7 && th.id !== current).slice(0, 12)
+      .map(th => h('button', { type: 'button', class: 'wr-chip', onclick: () => go('word:' + th.id) }, h('span', {}, th.icon), W.name(th)));
+    return h('section', { class: 'word-room' },
+      h('div', { class: 'wr-qr', 'aria-hidden': 'true' }, h('span', {}, '▦'), h('b', {}, 'QR')),
+      h('div', { class: 'wr-body' },
+        h('h3', {}, T.t), h('p', {}, T.d),
+        cur ? h('button', { type: 'button', class: 'btn accent big', onclick: () => go('word:' + cur.id) }, `${cur.icon} ${T.cur}: ${W.name(cur)} — ${T.go}`) : null,
+        h('div', { class: 'wr-row' }, sel, h('button', { type: 'button', class: 'btn yellow', onclick: () => go(sel.value) }, T.go)),
+        chips.length ? h('div', { class: 'wr-chips' }, h('small', {}, '🖼️ ' + T.pics + ':'), chips) : null));
+  }
+
+  window.KomiksGame = { render, onRoute, end: endSession, roomCode, lobbyBox, lobbyCode, wordRoomBox };
 })();

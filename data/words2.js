@@ -16,7 +16,9 @@
       ['å betale', 'платити', 'to pay', '💳'], ['kontant', 'готівкою', 'in cash', '💵'], ['et kort', 'картка', 'a card', '💳'],
       ['ei hylle', 'полиця', 'a shelf', '🗄️'], ['en vare', 'товар', 'an item', '📦'], ['en kø', 'черга', 'a queue', '🚶'],
       ['åpningstid', 'години роботи', 'opening hours', '🕘'], ['å bytte', 'обміняти', 'to exchange', '🔄'],
-      ['holdbar til', 'придатний до', 'best before', '📅'], ['pant', 'застава за тару', 'deposit on bottles', '♻️']
+      ['holdbar til', 'придатний до', 'best before', '📅'], ['pant', 'застава за тару', 'deposit on bottles', '♻️'],
+      ['et prøverom', 'примірочна', 'a fitting room', '🪞'], ['å kikke', 'дивитися, зазирати', 'to have a look', '👀'],
+      ['en størrelse', 'розмір', 'a size', '📏'], ['å handle', 'робити покупки', 'to shop', '🛒']
     ] },
     { id: 'kjokken', icon: '🍳', level: 'A1', no: 'På kjøkkenet', uk: 'На кухні', en: 'In the kitchen', words: [
       ['en kopp', 'чашка', 'a cup', '☕'], ['et glass', 'склянка', 'a glass', '🥛'], ['en tallerken', 'тарілка', 'a plate', '🍽️'],
@@ -35,7 +37,8 @@
       ['en søknad', 'заявка', 'an application', '✉️'], ['en CV', 'резюме', 'a CV', '📃'], ['et intervju', 'співбесіда', 'an interview', '🗣️'],
       ['ei ferie', 'відпустка', 'a holiday', '🏖️'], ['sykemelding', 'лікарняний', 'a sick note', '🤒'], ['overtid', 'понаднормові', 'overtime', '🌙'],
       ['en fagforening', 'профспілка', 'a trade union', '🛡️'], ['ei skiftordning', 'змінний графік', 'shift work', '🔁'],
-      ['en verneombud', 'уповноважений з охорони праці', 'a safety representative', '🦺'], ['å søke', 'подавати заявку', 'to apply', '📨']
+      ['en verneombud', 'уповноважений з охорони праці', 'a safety representative', '🦺'], ['å søke', 'подавати заявку', 'to apply', '📨'],
+      ['å forsove seg', 'проспати', 'to oversleep', '😴'], ['for sent', 'запізно', 'too late', '⏰']
     ] },
     { id: 'bolig2', icon: '🏠', level: 'A2', no: 'Bolig og leie', uk: 'Житло й оренда', en: 'Housing and renting', words: [
       ['ei leilighet', 'квартира', 'a flat', '🏢'], ['et hus', 'будинок', 'a house', '🏠'], ['ei hybel', 'кімната для оренди', 'a bedsit', '🚪'],
@@ -45,7 +48,11 @@
       ['en bod', 'комірчина', 'a storage room', '📦'], ['en balkong', 'балкон', 'a balcony', '🌇'], ['ei trapp', 'сходи', 'stairs', '🪜'],
       ['en heis', 'ліфт', 'a lift', '🛗'], ['et gulv', 'підлога', 'a floor', '🧹'], ['et tak', 'дах, стеля', 'a roof, ceiling', '🏚️'],
       ['ei dugnad', 'громадський суботник', 'a communal work day', '🧑‍🤝‍🧑'], ['husordensregler', 'правила будинку', 'house rules', '📜'],
-      ['å flytte', 'переїжджати', 'to move', '🚚'], ['ei nøkkel', 'ключ', 'a key', '🔑']
+      ['å flytte', 'переїжджати', 'to move', '🚚'], ['ei nøkkel', 'ключ', 'a key', '🔑'],
+      ['å trives', 'добре почуватися, подобатися жити', 'to feel at home, thrive', '😊'], ['å leie', 'орендувати', 'to rent', '🔑'],
+      ['å eie', 'володіти', 'to own', '🏡'], ['moderne', 'сучасний', 'modern', '🏙️'],
+      ['å pusse opp', 'робити ремонт', 'to renovate', '🛠️'], ['å ha råd til', 'мати змогу собі дозволити', 'to be able to afford', '💳'],
+      ['ledig', 'вільний, доступний', 'available, vacant', '🟢'], ['opptatt', 'зайнятий', 'occupied, busy', '🔴']
     ] },
     { id: 'penger', icon: '🏦', level: 'A2', no: 'Penger og bank', uk: 'Гроші й банк', en: 'Money and the bank', words: [
       ['en bank', 'банк', 'a bank', '🏦'], ['en konto', 'рахунок', 'an account', '🧾'], ['et bankkort', 'банківська картка', 'a bank card', '💳'],
@@ -55,7 +62,8 @@
       ['ei inntekt', 'дохід', 'an income', '💰'], ['ei utgift', 'витрата', 'an expense', '📉'], ['et budsjett', 'бюджет', 'a budget', '🧮'],
       ['ei krone', 'крона', 'a krone', '🪙'], ['kontanter', 'готівка', 'cash', '💵'], ['ei forsikring', 'страхування', 'insurance', '🛡️'],
       ['å overføre', 'переказати', 'to transfer', '🔁'], ['å tjene', 'заробляти', 'to earn', '🧑‍💼'],
-      ['å spare', 'заощаджувати', 'to save', '🏦'], ['å låne', 'позичати', 'to borrow, lend', '🤝']
+      ['å spare', 'заощаджувати', 'to save', '🏦'], ['å låne', 'позичати', 'to borrow, lend', '🤝'],
+      ['å spandere', 'пригощати, платити за когось', 'to treat someone', '🎁']
     ] },
     { id: 'offentlig', icon: '🏛️', level: 'B1', no: 'Det offentlige', uk: 'Державні установи', en: 'Public services', words: [
       ['ei kommune', 'комуна (муніципалітет)', 'a municipality', '🏛️'], ['et kontor', 'офіс', 'an office', '🏢'], ['en fastlege', 'сімейний лікар', 'a GP', '🩺'],

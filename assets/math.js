@@ -37,6 +37,7 @@
       tests: '🧮 Matte', test_mul: 'Gangetabellen', test_add: 'Pluss og minus', back: '← Tilbake'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(MX, 'math.js:MX');
   if (window.I18N) for (const l of ['uk', 'en', 'no']) {
     const I = window.I18N[l]; if (!I) continue;
     I.nav = Object.assign({}, I.nav, { math: MX[l].nav });
@@ -171,6 +172,7 @@
       h('h3', { class: 'sec-sub' }, mx('table')),
       h('div', { class: 'mul-wrap' }, grid, detail),
       trainerBox,
+      window.KomiksFractions ? window.KomiksFractions.promo() : null,
       h('div', { class: 'box' }, h('h3', {}, mx('words')), h('div', { class: 'ph-grid' }, mx('words_list').map(([w, s]) => h('button', { class: 'ph-chip', type: 'button', onclick: () => say(w) }, h('b', {}, s), h('small', {}, w))))));
     if (section === 'table') setTimeout(() => grid.scrollIntoView({ behavior: 'smooth' }), 60);
     return root;
@@ -180,6 +182,7 @@
   function quiz(mode, max) {
     const K = C(), { h } = K;
     const m = decodeURIComponent(mode || 'mul'), mxv = parseInt(max, 10) || 20;
+    if (m === 'frac' && window.KomiksFractions) return window.KomiksFractions.quiz();   // ½ окремий тест дробів
     const drillRow = m.startsWith('row') ? parseInt(m.slice(3), 10) : 0;
     const build = () => drillRow
       ? K.shuffle(K.range(10).map(i => { const b = i + 1, c = drillRow * b; const t = { a: drillRow, op: '×', b, answer: c }; const near = new Set([c]); while (near.size < 4) { const v = c + K.pick([-drillRow, drillRow, -1, 1, 2, -2, 10]); if (v > 0) near.add(v); } return { type: 'math', ...t, expr: `${drillRow} × ${b}`, sayText: phrase(drillRow, '×', b, c), askText: ask(drillRow, '×', b), options: K.shuffle([...near]) }; }))
@@ -222,7 +225,8 @@
       if (pct >= 60) { K.confetti(); K.Sfx.win(); }
       root.replaceChildren(h('div', { class: 'q-card result' }, h('div', { class: 'big-stars' }, K.stars(pct >= 90 ? 3 : pct >= 60 ? 2 : pct >= 30 ? 1 : 0)),
         h('h2', {}, mx('result', S.score, S.qs.length)),
-        h('div', { class: 'row-center' }, h('button', { class: 'btn accent', type: 'button', onclick: () => { S.qs = build(); S.i = 0; S.score = 0; draw(); } }, mx('again')), h('a', { class: 'btn', href: '#/math' }, mx('back')))));
+        h('div', { class: 'row-center' }, h('button', { class: 'btn accent', type: 'button', onclick: () => { S.qs = build(); S.i = 0; S.score = 0; draw(); } }, mx('again')), h('a', { class: 'btn', href: '#/math' }, mx('back'))),
+        window.KomiksExtras && window.KomiksExtras.shareResult ? window.KomiksExtras.shareResult({ title: '🧮 ' + (drillRow ? mx('row', drillRow) : mx('tests')), score: S.score, total: S.qs.length }) : null));
     };
     draw();
     return root;
@@ -233,6 +237,7 @@
     if (id === 'rocket' && RK) return RK.solo();
     if (id === 'race' && RK) return RK.host();
     if (id === 'join' && RK) return RK.join(arg);
+    if (id === 'fractions' && window.KomiksFractions) return window.KomiksFractions.render();
     if (id === 'drill') { location.replace('#/quiz/math/row' + (parseInt(arg, 10) || 2) + '/10'); return render(); }
     return render(id);
   }

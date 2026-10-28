@@ -20,6 +20,7 @@
       ios_t: '📲 كيف تضيفه على iPhone', ios: 'اضغط «مشاركة» أسفل Safari ثم «إضافة إلى الشاشة الرئيسية».', ok: 'فهمت',
       done: '✅ تم تثبيت التطبيق', installing: 'جارٍ التثبيت…' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'install.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
 
   let deferred = null;
@@ -84,7 +85,7 @@
       title: '📲 Застосунок Komiks·Lab',
       lead: 'Без App Store і Google Play: сайт ставиться просто з браузера. Іконка на робочому столі або в меню «Пуск», окреме вікно без адресного рядка, уроки працюють і без інтернету.',
       here: 'ви зараз тут',
-      win: ['🪟 Windows', [
+      win: ['💻 Windows', [
         'Відкрийте сайт у Microsoft Edge або Google Chrome.',
         'Натисніть «Встановити застосунок» угорі цієї сторінки — або значок ⊕ у рядку адреси.',
         'Підтвердьте «Встановити». Ярлик із нашою іконкою з’явиться на робочому столі й у меню «Пуск».',
@@ -108,7 +109,7 @@
       ]],
       extra_t: 'Якщо браузер не пропонує встановлення',
       extra: 'Firefox і старі браузери не вміють ставити застосунок. Тоді збережіть звичайний ярлик — і за бажання підставте нашу іконку: правий клік по ярлику → «Властивості» → «Змінити значок» → виберіть завантажений файл.',
-      exe_t: '🪟 Інсталятор для Windows',
+      exe_t: '💻 Інсталятор для Windows',
       exe_d: 'Звичайний .exe: ставить ярлик на робочий стіл і в меню «Пуск». Відкривається окремим вікном, без адресного рядка.',
       exe_light: '⚡ Легкий — {s}',
       exe_light_d: 'Ярлик на сайт у вікні застосунку. Уроки працюють і без мережі — браузер тримає їх у себе.',
@@ -142,7 +143,7 @@
       title: '📲 The Komiks·Lab app',
       lead: 'No App Store, no Google Play: the site installs straight from the browser. An icon on your desktop or home screen, its own window without an address bar, and lessons that work offline.',
       here: 'you are here',
-      win: ['🪟 Windows', [
+      win: ['💻 Windows', [
         'Open the site in Microsoft Edge or Google Chrome.',
         'Press “Install the app” at the top of this page — or the ⊕ icon in the address bar.',
         'Confirm “Install”. A shortcut with our icon appears on the desktop and in the Start menu.',
@@ -166,7 +167,7 @@
       ]],
       extra_t: 'If your browser does not offer installing',
       extra: 'Firefox and older browsers cannot install web apps. Save a plain shortcut instead — and give it our icon if you like: right-click the shortcut → “Properties” → “Change icon” → pick the downloaded file.',
-      exe_t: '🪟 Installer for Windows',
+      exe_t: '💻 Installer for Windows',
       exe_d: 'A normal .exe: it puts a shortcut on your desktop and in the Start menu. The app opens in its own window, without an address bar.',
       exe_light: '⚡ Light — {s}',
       exe_light_d: 'A shortcut to the site in an app window. Lessons work offline too — the browser keeps them.',
@@ -200,7 +201,7 @@
       title: '📲 Appen Komiks·Lab',
       lead: 'Uten App Store og Google Play: siden installeres rett fra nettleseren. Et ikon på skrivebordet eller hjem-skjermen, eget vindu uten adressefelt, og leksjoner som virker uten nett.',
       here: 'du er her',
-      win: ['🪟 Windows', [
+      win: ['💻 Windows', [
         'Åpne siden i Microsoft Edge eller Google Chrome.',
         'Trykk «Installer appen» øverst på denne siden – eller ⊕-ikonet i adressefeltet.',
         'Bekreft «Installer». Snarveien med ikonet vårt havner på skrivebordet og i Start-menyen.',
@@ -224,7 +225,7 @@
       ]],
       extra_t: 'Hvis nettleseren ikke tilbyr installering',
       extra: 'Firefox og eldre nettlesere kan ikke installere nettapper. Lagre en vanlig snarvei i stedet – og gi den gjerne ikonet vårt: høyreklikk snarveien → «Egenskaper» → «Endre ikon» → velg den nedlastede fila.',
-      exe_t: '🪟 Installasjonsfil for Windows',
+      exe_t: '💻 Installasjonsfil for Windows',
       exe_d: 'En vanlig .exe: den legger en snarvei på skrivebordet og i Start-menyen. Appen åpnes i eget vindu, uten adressefelt.',
       exe_light: '⚡ Lett — {s}',
       exe_light_d: 'Snarvei til nettsiden i et appvindu. Leksjonene virker også uten nett – nettleseren tar vare på dem.',
@@ -258,7 +259,7 @@
       title: '📲 تطبيق Komiks·Lab',
       lead: 'بدون App Store أو Google Play: يُثبَّت الموقع من المتصفح مباشرة. أيقونة على سطح المكتب أو الشاشة الرئيسية، ونافذة خاصة بلا شريط عنوان، ودروس تعمل دون إنترنت.',
       here: 'أنت هنا',
-      win: ['🪟 Windows', [
+      win: ['💻 Windows', [
         'افتح الموقع في Microsoft Edge أو Google Chrome.',
         'اضغط «ثبّت التطبيق» أعلى هذه الصفحة — أو أيقونة ⊕ في شريط العنوان.',
         'أكّد «تثبيت». سيظهر الاختصار بأيقونتنا على سطح المكتب وفي قائمة ابدأ.',
@@ -282,7 +283,7 @@
       ]],
       extra_t: 'إذا لم يعرض المتصفح التثبيت',
       extra: 'لا تستطيع Firefox والمتصفحات القديمة تثبيت تطبيقات الويب. احفظ اختصارًا عاديًا — ويمكنك وضع أيقونتنا عليه: زر أيمن ← «خصائص» ← «تغيير الأيقونة» ← اختر الملف المحمَّل.',
-      exe_t: '🪟 مثبّت لنظام Windows',
+      exe_t: '💻 مثبّت لنظام Windows',
       exe_d: 'ملف .exe عادي: يضع اختصارًا على سطح المكتب وفي قائمة ابدأ، ويفتح التطبيق في نافذة خاصة بلا شريط عنوان.',
       exe_light: '⚡ خفيف — {s}',
       exe_light_d: 'اختصار إلى الموقع في نافذة تطبيق. الدروس تعمل بلا إنترنت أيضًا.',
@@ -313,6 +314,7 @@
       done: '✅ التطبيق مثبَّت بالفعل — أنت تستخدمه في نافذته الخاصة.'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(P, 'install.js:P');
   const px = () => P[(C() || {}).ui] || P.en;
   const isAndroid = () => /android/i.test(navigator.userAgent);
   const isMac = () => /macintosh|mac os x/i.test(navigator.userAgent) && !isIOS();
@@ -330,6 +332,7 @@
   }
 
   function page() {
+    if (window.KomiksDownloads) return window.KomiksDownloads.section(true);
     const K = C(); if (!K) return null;
     const { h } = K, L = px();
     const mine = isIOS() ? 'ios' : isAndroid() ? 'and' : isMac() ? 'mac' : isWin() ? 'win' : '';
@@ -362,6 +365,12 @@
        ховаємо кнопку, щоб людина не тиснула в нікуди. */
     setTimeout(() => {
       for (const a of apkBox.querySelectorAll('a[data-apk]')) {
+        a.addEventListener('click', e => {
+          if (!window.KomiksFeedback || !window.KomiksFeedback.openAndroid) return;
+          e.preventDefault();
+          const name = a.getAttribute('download') || '';
+          window.KomiksFeedback.openAndroid(a.getAttribute('href'), 'apk-' + a.dataset.apk, name);
+        });
         fetch(a.getAttribute('href'), { method: 'HEAD' }).then(r => {
           if (!r.ok) { a.parentElement.hidden = true; return; }
           const n = Number(r.headers.get('content-length') || 0);

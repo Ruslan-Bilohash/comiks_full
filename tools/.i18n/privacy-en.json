@@ -1,0 +1,246 @@
+[
+ {
+  "text": "<b>The offline app collects nothing at all</b>\n    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) contains every story, test and\n    recording inside the installed app. It has no accounts and no network code — the modules\n    that would talk to a server are not merely switched off, they are not included in the\n    build. It works in airplane mode. Nothing leaves your device, so the rest of this policy\n    applies only to the website and to the online app.",
+  "kind": "key"
+ },
+ {
+  "text": "Who we are",
+  "kind": "h2"
+ },
+ {
+  "text": "Komiks·Lab is a Norwegian-learning project: a website at\n    <a href=\"https://bilohash.com/comiks/\">bilohash.com/comiks</a> and two Android apps.\n    It is run by Ruslan Bilohash, an individual developer.",
+  "kind": "p"
+ },
+ {
+  "text": "Contact for any privacy question, including data deletion:\n    <a href=\"mailto:email@bilohash.com\">email@bilohash.com</a>. We answer within 30 days.",
+  "kind": "p"
+ },
+ {
+  "text": "What the website and the online app collect",
+  "kind": "h2"
+ },
+ {
+  "text": "This covers <a href=\"https://bilohash.com/comiks/\">bilohash.com/comiks</a> and\n    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).",
+  "kind": "p"
+ },
+ {
+  "text": "Only if you create an account",
+  "kind": "h3"
+ },
+ {
+  "text": "Data",
+  "kind": "th"
+ },
+ {
+  "text": "Why",
+  "kind": "th"
+ },
+ {
+  "text": "Email address",
+  "kind": "td"
+ },
+ {
+  "text": "to sign in, confirm the account and reset a password",
+  "kind": "td"
+ },
+ {
+  "text": "Display name and avatar",
+  "kind": "td"
+ },
+ {
+  "text": "shown to your friends and in the ranking",
+  "kind": "td"
+ },
+ {
+  "text": "Learning progress: tests taken, scores, streaks, mistakes",
+  "kind": "td"
+ },
+ {
+  "text": "to continue where you stopped and build your practice plan",
+  "kind": "td"
+ },
+ {
+  "text": "Friends, messages, wall posts",
+  "kind": "td"
+ },
+ {
+  "text": "only if you use these features",
+  "kind": "td"
+ },
+ {
+  "text": "Your password is never stored. We keep only a one-way hash of it (Argon2id), which cannot\n    be turned back into the password.",
+  "kind": "p"
+ },
+ {
+  "text": "Without an account",
+  "kind": "h3"
+ },
+ {
+  "text": "Your settings and progress stay in your own browser (<code>localStorage</code>) and never reach us.",
+  "kind": "li"
+ },
+ {
+  "text": "A session cookie <code>kl_s</code> is set only after you sign in. There are no advertising\n      or analytics cookies, and no third-party trackers.",
+  "kind": "li"
+ },
+ {
+  "text": "The server keeps a short-lived, hashed form of your IP address to limit abuse\n      (rate limiting). It is not linked to a person and is not used for anything else.",
+  "kind": "li"
+ },
+ {
+  "text": "Who else sees the data",
+  "kind": "h2"
+ },
+ {
+  "text": "We never sell data and never share it for advertising. Data reaches other companies only\n    where a feature technically requires it:",
+  "kind": "p"
+ },
+ {
+  "text": "Service",
+  "kind": "th"
+ },
+ {
+  "text": "What is sent",
+  "kind": "th"
+ },
+ {
+  "text": "When",
+  "kind": "th"
+ },
+ {
+  "text": "Hostinger (EU hosting)",
+  "kind": "td"
+ },
+ {
+  "text": "everything stored: account, progress, messages",
+  "kind": "td"
+ },
+ {
+  "text": "always — this is where the site runs",
+  "kind": "td"
+ },
+ {
+  "text": "OpenAI",
+  "kind": "td"
+ },
+ {
+  "text": "your microphone audio and the text of the conversation",
+  "kind": "td"
+ },
+ {
+  "text": "only during a spoken practice call, and only while it lasts",
+  "kind": "td"
+ },
+ {
+  "text": "OpenAI / Anthropic / Groq / xAI",
+  "kind": "td"
+ },
+ {
+  "text": "the sentence you wrote, without your name or email",
+  "kind": "td"
+ },
+ {
+  "text": "only when you ask for your writing to be checked",
+  "kind": "td"
+ },
+ {
+  "text": "Google Fonts",
+  "kind": "td"
+ },
+ {
+  "text": "your IP address, as with any web font",
+  "kind": "td"
+ },
+ {
+  "text": "when a page loads its fonts",
+  "kind": "td"
+ },
+ {
+  "text": "Stripe",
+  "kind": "td"
+ },
+ {
+  "text": "payment details, handled entirely by Stripe",
+  "kind": "td"
+ },
+ {
+  "text": "not in use — learning is free and there is nothing to pay for",
+  "kind": "td"
+ },
+ {
+  "text": "These features exist only on the website and in the online app. The offline app has none of them.",
+  "kind": "p"
+ },
+ {
+  "text": "How long we keep it",
+  "kind": "h2"
+ },
+ {
+  "text": "<b>Account and progress</b> — until you delete the account.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Messages and wall posts</b> — until you or a moderator delete them.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Sign-in sessions</b> — 30 days, then they expire.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Rate-limiting records</b> — hours, then they are overwritten.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Spoken practice</b> — the audio is not recorded or stored on our side.",
+  "kind": "li"
+ },
+ {
+  "text": "Your rights",
+  "kind": "h2"
+ },
+ {
+  "text": "Under the GDPR you may ask for a copy of your data, ask to correct it, or ask us to delete it.",
+  "kind": "p"
+ },
+ {
+  "text": "<b>Delete your account yourself:</b> open your profile in the app or on the site →\n      <i>Account</i> → <i>Delete account</i>. This removes the account, progress, friends and messages.",
+  "kind": "li"
+ },
+ {
+  "text": "<b>Or write to <a href=\"mailto:email@bilohash.com\">email@bilohash.com</a></b> and we will do it for you.",
+  "kind": "li"
+ },
+ {
+  "text": "You may also complain to your national data protection authority.",
+  "kind": "li"
+ },
+ {
+  "text": "Children",
+  "kind": "h2"
+ },
+ {
+  "text": "The apps are rated for everyone, but accounts, friends and messages are meant for users\n    aged 13 and over. We do not knowingly create accounts for younger children. A parent who\n    believes their child made an account can write to us and we will remove it.",
+  "kind": "p"
+ },
+ {
+  "text": "Younger learners can use the <b>offline app</b>, which has no account and sends nothing anywhere.",
+  "kind": "p"
+ },
+ {
+  "text": "Security",
+  "kind": "h2"
+ },
+ {
+  "text": "All traffic uses HTTPS. Passwords are hashed with Argon2id. The database and the\n    configuration with credentials sit outside the public web folder and are closed to direct\n    access. Only the site owner has administrative access.",
+  "kind": "p"
+ },
+ {
+  "text": "Changes",
+  "kind": "h2"
+ },
+ {
+  "text": "If this policy changes in a way that matters, the date at the top changes and the update\n    is announced on the “What's new” page of the site.",
+  "kind": "p"
+ }
+]

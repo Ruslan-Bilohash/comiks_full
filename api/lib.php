@@ -17,6 +17,17 @@ header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: same-origin');
 header('Cache-Control: no-store');
 
+/* Мови, якими сервер розмовляє з людиною: листи, пояснення помилок у письмі,
+   підказки в розмові. Список був на чотири мови й лежав у п'яти файлах, тож
+   про німецьку та решту там ніхто не знав — лист ішов англійською навіть тому,
+   хто зареєструвався німецькою. Тепер він один і тут. */
+const KL_LANGS = ['en', 'no', 'uk', 'ar', 'de', 'pl', 'tr', 'lt'];
+/* Назва мови англійською — її розуміє ШІ, коли просимо пояснити помилку або
+   підказати слово мовою учня. */
+const KL_LANG_NAME = ['en' => 'English', 'no' => 'simple Norwegian', 'uk' => 'Ukrainian', 'ar' => 'Arabic',
+  'de' => 'German', 'pl' => 'Polish', 'tr' => 'Turkish', 'lt' => 'Lithuanian'];
+function kl_lang(?string $v, string $def = 'en'): string { return in_array((string)$v, KL_LANGS, true) ? (string)$v : $def; }
+
 /* ---------- 📱 доступ із мобільного застосунку ----------
    Застосунок (Capacitor) показує ті самі сторінки, але з іншого джерела, тому
    без цих заголовків усі запити до api/… блокує сама браузерна політика.
@@ -44,7 +55,50 @@ if ($__appOrigin !== '') {
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') { http_response_code($__appOrigin === '' ? 403 : 204); exit; }
 
 function out(array $a, int $status = 200): void { http_response_code($status); echo json_encode($a, JSON_UNESCAPED_UNICODE); exit; }
-function fail(string $err, int $status = 400, array $extra = []): void { out(['ok' => false, 'error' => $err] + $extra, $status); }
+function fail(string $err, int $status = 400, array $extra = []): void { if (isset(SEC_TRACK[$err])) sec_count($err); out(['ok' => false, 'error' => $err] + $extra, $status); }
+
+/* ---------- 🛡 лічильники безпеки й журнал помилок (для 🩺 Діагностики) ----------
+   kl_sec_stats — скільки за добу було невдалих входів, CSRF, спрацювань ліміту, збоїв 500 тощо:
+   лише число за день, без IP і без людей. kl_errors — однакові помилки (PHP і JavaScript із браузерів)
+   згортаються в один рядок із лічильником, старші за 30 днів прибираються. */
+const SEC_TRACK = ['wrong' => 1, 'csrf' => 1, 'slow_down' => 1, 'captcha' => 1, 'banned' => 1, 'blocked' => 1, 'forbidden' => 1,
+  'token' => 1, 'server' => 1, 'ai' => 1, 'tts' => 1, 'stripe' => 1, 'too_big' => 1];
+function sec_install(): void {
+  $end = is_mysql() ? ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci' : '';
+  q("CREATE TABLE IF NOT EXISTS kl_sec_stats (day CHAR(10) NOT NULL, k VARCHAR(24) NOT NULL, n INT NOT NULL DEFAULT 0, PRIMARY KEY (day, k))$end");
+  q("CREATE TABLE IF NOT EXISTS kl_errors (hash CHAR(32) NOT NULL PRIMARY KEY, kind VARCHAR(8) NOT NULL, msg VARCHAR(400) NOT NULL, src VARCHAR(255) NOT NULL DEFAULT '', line INT NOT NULL DEFAULT 0, stack TEXT NOT NULL, page VARCHAR(160) NOT NULL DEFAULT '', ver VARCHAR(32) NOT NULL DEFAULT '', env VARCHAR(80) NOT NULL DEFAULT '', n INT NOT NULL DEFAULT 1, first_at INT NOT NULL, last_at INT NOT NULL)$end");
+}
+function sec_count(string $k): void {
+  static $calls = 0;
+  if (!empty($GLOBALS['__kl_no_db']) || ++$calls > 5) return;
+  $sql = is_mysql() ? 'INSERT INTO kl_sec_stats (day, k, n) VALUES (?, ?, 1) ON DUPLICATE KEY UPDATE n = n + 1'
+                    : 'INSERT INTO kl_sec_stats (day, k, n) VALUES (?, ?, 1) ON CONFLICT(day, k) DO UPDATE SET n = n + 1';
+  $args = [date('Y-m-d'), substr($k, 0, 24)];
+  try { q($sql, $args); }
+  catch (Throwable $e) { try { sec_install(); q($sql, $args); } catch (Throwable $e2) { /* лічильник не повинен ламати відповідь */ } }
+}
+// прибираємо з тексту помилки пошти, довгі токени й керівні символи
+function err_clean(string $s, int $max): string {
+  $s = (string)preg_replace(['/[\x00-\x1f\x7f]+/', '/[^\s@<>"\'()]+@[^\s@<>"\'()]+\.[a-z]{2,}/i', '/\b[a-f0-9]{24,}\b/i', '/\b(sk|pk|rk|whsec)_[A-Za-z0-9_]{8,}/'], [' ', '[email]', '[hex]', '[key]'], $s);
+  return trim(mb_cut($s, $max));
+}
+function err_record(string $kind, string $msg, string $src, int $line, string $stack = '', string $page = '', string $ver = '', string $env = ''): void {
+  if (!empty($GLOBALS['__kl_no_db'])) return;
+  $msg = err_clean($msg, 300);
+  if ($msg === '') return;
+  $src = err_clean($src, 200);
+  $hash = substr(sha($kind . '|' . $msg . '|' . $src . '|' . $line), 0, 32);
+  $now = time();
+  try {
+    try { $hit = q('UPDATE kl_errors SET n = n + 1, last_at = ?, page = ?, ver = ?, env = ? WHERE hash = ?', [$now, err_clean($page, 120), err_clean($ver, 24), err_clean($env, 60), $hash])->rowCount(); }
+    catch (Throwable $e) { sec_install(); $hit = 0; }
+    if (!$hit) {
+      q('INSERT INTO kl_errors (hash, kind, msg, src, line, stack, page, ver, env, n, first_at, last_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)',
+        [$hash, $kind, $msg, $src, max(0, $line), err_clean($stack, 1500), err_clean($page, 120), err_clean($ver, 24), err_clean($env, 60), $now, $now]);
+      if (random_int(1, 40) === 1) q('DELETE FROM kl_errors WHERE last_at < ?', [$now - 30 * 86400]);
+    }
+  } catch (Throwable $e) { /* журнал не повинен ламати відповідь */ }
+}
 
 /* ---------- налаштування ---------- */
 function cfg(?string $key = null) {
@@ -70,24 +124,49 @@ function cfg(?string $key = null) {
 function health_key(): string { return substr(hash_hmac('sha256', 'health', (string)cfg('secret')), 0, 32); }
 function site_url(): string { return rtrim((string)cfg('site_url'), '/') . '/'; }
 
-set_exception_handler(function (Throwable $e) { error_log('[komiks-api] ' . $e->getMessage() . ' @ ' . $e->getFile() . ':' . $e->getLine()); fail('server', 500); });
+set_exception_handler(function (Throwable $e) {
+  error_log('[komiks-api] ' . $e->getMessage() . ' @ ' . $e->getFile() . ':' . $e->getLine());
+  $GLOBALS['__kl_no_db'] = $e instanceof PDOException;
+  err_record('php', get_class($e) . ': ' . $e->getMessage(), str_replace(dirname(__DIR__) . DIRECTORY_SEPARATOR, '', $e->getFile()), $e->getLine(), $e->getTraceAsString(), (string)($_SERVER['SCRIPT_NAME'] ?? ''));
+  fail('server', 500);
+});
 
 /* ---------- база даних ---------- */
-function db(): PDO {
+function db(bool $reconnect = false): PDO {
   static $pdo = null;
+  if ($reconnect) $pdo = null;
   if ($pdo) return $pdo;
   $d = cfg('db');
-  $pdo = new PDO($d['dsn'], $d['user'] ?? null, $d['pass'] ?? null, [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_EMULATE_PREPARES => false,
-  ]);
+  /* MySQL на хостингу іноді на мить відмовляє: 1040 «забагато з'єднань», 2002 «з'єднання не дозволено».
+     У журналі таке трапляється хвилями по секунді — дві повторні спроби (0,3 с і 0,8 с) рятують запит. */
+  for ($try = 0; ; $try++) {
+    try {
+      $pdo = new PDO($d['dsn'], $d['user'] ?? null, $d['pass'] ?? null, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_EMULATE_PREPARES => false,
+      ]);
+      break;
+    } catch (PDOException $e) {
+      if ($try >= 2 || !preg_match('/\[(1040|1203|2002)\]/', $e->getMessage())) throw $e;
+      usleep($try ? 800000 : 300000);
+    }
+  }
   if (is_mysql()) $pdo->exec("SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci");
   else $pdo->exec('PRAGMA foreign_keys = ON');
+  if ($reconnect) return $pdo;   // після обриву схема вже перевірена — лише нове з'єднання
   migrate($pdo);
   seed_demo_users();
   return $pdo;
 }
 function is_mysql(): bool { return str_starts_with((string)cfg('db.dsn'), 'mysql:'); }
-function q(string $sql, array $args = []): PDOStatement { $st = db()->prepare($sql); $st->execute($args); return $st; }
+/* 2006 «MySQL server has gone away» / 2013 «Lost connection»: з'єднання обірвалося (перезапуск бази,
+   довгий простій). Поза транзакцією перепідключаємось і повторюємо запит один раз. */
+function q(string $sql, array $args = []): PDOStatement {
+  try { $st = db()->prepare($sql); $st->execute($args); return $st; }
+  catch (PDOException $e) {
+    if (!preg_match('/\b(2006|2013)\b|gone away|Lost connection/i', $e->getMessage()) || db()->inTransaction()) throw $e;
+    $st = db(true)->prepare($sql); $st->execute($args); return $st;
+  }
+}
 function one(string $sql, array $args = []): ?array { $r = q($sql, $args)->fetch(); return $r ?: null; }
 // вставка або оновлення за первинним ключем (MySQL: ON DUPLICATE KEY, SQLite: ON CONFLICT)
 function upsert(string $table, array $keys, array $row): void {
@@ -99,7 +178,7 @@ function upsert(string $table, array $keys, array $row): void {
   q($sql, array_values($row));
 }
 
-const SCHEMA_VERSION = 16;
+const SCHEMA_VERSION = 17;
 function migrate(PDO $pdo): void {
   $my = is_mysql();
   $pk = $my ? 'INT UNSIGNED AUTO_INCREMENT PRIMARY KEY' : 'INTEGER PRIMARY KEY AUTOINCREMENT';
@@ -112,6 +191,8 @@ function migrate(PDO $pdo): void {
     "CREATE TABLE IF NOT EXISTS kl_users (id $pk, email VARCHAR(190) NOT NULL UNIQUE, name VARCHAR(40) NOT NULL, pass_hash VARCHAR(255) NOT NULL, lang VARCHAR(5) NOT NULL DEFAULT 'en', friend_code CHAR(6) NOT NULL UNIQUE, share_profile TINYINT NOT NULL DEFAULT 0, verified_at INT NULL, created_at INT NOT NULL, last_login INT NULL, consent_at INT NOT NULL)$eng",
     "CREATE TABLE IF NOT EXISTS kl_tokens (token_hash CHAR(64) PRIMARY KEY, user_id $uid NOT NULL, kind VARCHAR(12) NOT NULL, expires_at INT NOT NULL, used_at INT NULL)$eng",
     "CREATE TABLE IF NOT EXISTS kl_sessions (token_hash CHAR(64) PRIMARY KEY, user_id $uid NOT NULL, created_at INT NOT NULL, expires_at INT NOT NULL, last_seen INT NOT NULL, ua VARCHAR(190) NOT NULL DEFAULT '')$eng",
+    // v17: історія лише успішних входів для захисту акаунта. IP зашифрована окремим ключем і зберігається 30 днів.
+    "CREATE TABLE IF NOT EXISTS kl_login_history (id $pk, user_id $uid NOT NULL, ip_enc TEXT NOT NULL, ip_hash CHAR(64) NOT NULL, method VARCHAR(20) NOT NULL DEFAULT 'account', ua VARCHAR(190) NOT NULL DEFAULT '', created_at INT NOT NULL)$eng",
     "CREATE TABLE IF NOT EXISTS kl_user_data (user_id $uid NOT NULL, k VARCHAR(64) NOT NULL, v MEDIUMTEXT NOT NULL, updated_at INT NOT NULL, PRIMARY KEY (user_id, k))$eng",
     "CREATE TABLE IF NOT EXISTS kl_rate (k VARCHAR(100) PRIMARY KEY, n INT NOT NULL, reset_at INT NOT NULL)$eng",
     // хто, що і коли отримав: без цього легко написати ту саму людину двічі за день
@@ -139,7 +220,7 @@ function migrate(PDO $pdo): void {
     "CREATE TABLE IF NOT EXISTS kl_event_likes (event_id INT NOT NULL, user_id $uid NOT NULL, created_at INT NOT NULL, PRIMARY KEY (event_id, user_id))$eng",
   ];
   foreach ($tables as $t) $pdo->exec($t);
-  foreach (['CREATE INDEX kl_tokens_user ON kl_tokens (user_id)', 'CREATE INDEX kl_sessions_user ON kl_sessions (user_id)', 'CREATE INDEX kl_comments_owner ON kl_comments (owner, created_at)', 'CREATE INDEX kl_players_seen ON kl_players (seen)'] as $ix) {
+  foreach (['CREATE INDEX kl_tokens_user ON kl_tokens (user_id)', 'CREATE INDEX kl_sessions_user ON kl_sessions (user_id)', 'CREATE INDEX kl_login_history_user ON kl_login_history (user_id, created_at)', 'CREATE INDEX kl_comments_owner ON kl_comments (owner, created_at)', 'CREATE INDEX kl_players_seen ON kl_players (seen)'] as $ix) {
     try { $pdo->exec($ix); } catch (Throwable $e) { /* індекс уже є */ }
   }
   // v2: ролі та блокування (ALTER — лише якщо стовпця ще немає)
@@ -274,11 +355,58 @@ function cookie_opts(int $expires): array {
   return ['expires' => $expires, 'path' => $path, 'secure' => $https, 'httponly' => true,
     'samesite' => $cross ? 'None' : 'Lax'];
 }
-function start_session(int $userId): void {
+/** IP для журналу успішних входів. Forwarded-заголовкам не довіряємо: їх може
+ *  підставити сам клієнт; REMOTE_ADDR задає вебсервер. */
+function login_client_ip(): string {
+  $ip = trim((string)($_SERVER['REMOTE_ADDR'] ?? ''));
+  return filter_var($ip, FILTER_VALIDATE_IP) !== false ? $ip : '';
+}
+function login_method(string $method): string {
+  $method = strtolower(trim($method));
+  $aliases = ['google oauth' => 'google', 'oauth' => 'google', 'magic' => 'email_link', '2fa' => 'totp'];
+  $method = $aliases[$method] ?? $method;
+  return in_array($method, ['account', 'password', 'email_link', 'email_code', 'email_verify', 'totp', 'backup', 'reset', 'google', 'admin', 'demo'], true) ? $method : 'account';
+}
+function login_history_record(int $userId, string $method = 'account'): void {
+  $ip = login_client_ip();
+  if ($userId < 1 || $ip === '') return;
+  try {
+    if (!function_exists('secret_seal')) require_once __DIR__ . '/secret-box.php';
+    $now = time();
+    q('DELETE FROM kl_login_history WHERE created_at < ?', [$now - 30 * 86400]);
+    q('INSERT INTO kl_login_history (user_id, ip_enc, ip_hash, method, ua, created_at) VALUES (?, ?, ?, ?, ?, ?)', [
+      $userId,
+      secret_seal($ip, 'login-ip:' . $userId),
+      hash_hmac('sha256', $ip, (string)cfg('secret')),
+      login_method($method),
+      substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 190),
+      $now,
+    ]);
+  } catch (Throwable $e) {
+    // Журнал безпеки не має позбавляти людину входу, якщо сховище тимчасово недоступне.
+    error_log('[komiks-login-history] ' . $e->getMessage());
+  }
+}
+function login_history_for_user(int $userId, int $limit = 30): array {
+  $limit = max(1, min(100, $limit));
+  try {
+    if (!function_exists('secret_open')) require_once __DIR__ . '/secret-box.php';
+    $rows = q("SELECT id, user_id, ip_enc, ip_hash, method, ua, created_at FROM kl_login_history WHERE user_id = ? ORDER BY created_at DESC LIMIT $limit", [$userId])->fetchAll();
+    foreach ($rows as &$row) {
+      try { $row['ip'] = secret_open((string)$row['ip_enc'], 'login-ip:' . $userId); }
+      catch (Throwable $e) { $row['ip'] = 'недоступно'; }
+      unset($row['ip_enc']);
+    }
+    unset($row);
+    return $rows;
+  } catch (Throwable $e) { return []; }
+}
+function start_session(int $userId, string $method = 'account'): void {
   $token = rand_hex(32);
   $now = time();
   q('INSERT INTO kl_sessions (token_hash, user_id, created_at, expires_at, last_seen, ua) VALUES (?, ?, ?, ?, ?, ?)', [sha($token), $userId, $now, $now + SESSION_DAYS * 86400, $now, substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 190)]);
   q('UPDATE kl_users SET last_login = ? WHERE id = ?', [$now, $userId]);
+  login_history_record($userId, $method);
   setcookie(SESSION_COOKIE, $token, cookie_opts($now + SESSION_DAYS * 86400));
   $_COOKIE[SESSION_COOKIE] = $token;
 }
@@ -294,7 +422,8 @@ function current_user(): ?array {
   if (!preg_match('/^[a-f0-9]{64}$/', $t)) return $u = null;
   $row = one('SELECT s.token_hash, s.expires_at, s.last_seen, u.* FROM kl_sessions s JOIN kl_users u ON u.id = s.user_id WHERE s.token_hash = ?', [sha($t)]);
   if (!$row || $row['expires_at'] < time() || !empty($row['blocked_at'])) { if ($row) q('DELETE FROM kl_sessions WHERE token_hash = ?', [$row['token_hash']]); return $u = null; }
-  if (time() - (int)$row['last_seen'] > 3600) q('UPDATE kl_sessions SET last_seen = ? WHERE token_hash = ?', [time(), $row['token_hash']]);
+  // «останній візит» для адмінки (хто онлайн, хто найактивніший): не частіше ніж раз на 2 хвилини
+  if (time() - (int)$row['last_seen'] > 120) q('UPDATE kl_sessions SET last_seen = ? WHERE token_hash = ?', [time(), $row['token_hash']]);
   return $u = $row;
 }
 function require_user(): array { $u = current_user(); if (!$u) fail('auth', 401); return $u; }
@@ -341,8 +470,12 @@ function public_user(array $u): array {
   return ['id' => (int)$u['id'], 'name' => $u['name'], 'email' => $u['email'], 'lang' => $u['lang'], 'friend_code' => $u['friend_code'], 'share_profile' => (bool)$u['share_profile'], 'verified' => !empty($u['verified_at']), 'demo' => !empty($u['is_demo']), 'created' => gmdate('c', (int)$u['created_at']),
     // преміум — безкоштовно назавжди (друзі адміністратора та запрошені ними); персонал — теж
     'premium' => !empty($u['premium']) || !empty($u['is_teacher']) || is_staff($u) || (!empty($u['premium_until']) && (int)$u['premium_until'] > time()), 'teacher' => !empty($u['is_teacher']), 'premium_until' => !empty($u['premium_until']) ? gmdate('c', (int)$u['premium_until']) : null, 'msg_pref' => (int)($u['msg_pref'] ?? 1), 'can_invite' => !empty($u['can_invite']) || !empty($u['is_admin']), 'role' => role_of($u), 'founder' => isset($u['founder']) && $u['founder'] !== null ? (int)$u['founder'] : null,
-    'totp' => totp_on($u),
+    'totp' => totp_on($u), 'google' => user_has_google((int)$u['id']),
   ];
+}
+/* Чи прив’язано Google. Таблиці може ще не бути (Google не вмикали) — тоді «ні». */
+function user_has_google(int $id): bool {
+  try { return (bool)one('SELECT subject FROM kl_google_accounts WHERE user_id = ?', [$id]); } catch (Throwable $e) { return false; }
 }
 
 /* ---------- користувачі (спільне для auth.php, install.php, admin.php) ---------- */
@@ -359,16 +492,30 @@ function password_problem(string $p): ?string {
 }
 function new_token(int $userId, string $kind, int $ttl): string {
   $t = rand_hex(32);
-  q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $userId, $kind]); // старі посилання більше не діють
+  // Resending may fail or arrive out of order. Keep emailed links valid until use/expiry.
+  if (!in_array($kind, ['verify','reset','magic','unsub'], true)) q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $userId, $kind]);
   q('INSERT INTO kl_tokens (token_hash, user_id, kind, expires_at) VALUES (?, ?, ?, ?)', [sha($t), $userId, $kind, time() + $ttl]);
   return $t;
 }
 function take_token(string $t, string $kind): ?array {
   if (!preg_match('/^[a-f0-9]{64}$/', $t)) return null;
-  $row = one('SELECT * FROM kl_tokens WHERE token_hash = ? AND kind = ?', [sha($t), $kind]);
-  if (!$row || $row['used_at'] || $row['expires_at'] < time()) return null;
-  q('UPDATE kl_tokens SET used_at = ? WHERE token_hash = ?', [time(), $row['token_hash']]);
-  return one('SELECT * FROM kl_users WHERE id = ?', [$row['user_id']]);
+  return claim_auth_token(sha($t), $kind);
+}
+function claim_auth_token(string $hash, string $kind): ?array {
+  $row = one('SELECT * FROM kl_tokens WHERE token_hash = ? AND kind = ?', [$hash, $kind]);
+  if (!$row || $row['used_at'] || $row['expires_at'] <= time()) return null;
+  $pdo = db();
+  $pdo->beginTransaction();
+  try {
+    // All credentials for one account share this lock, including link/code siblings.
+    $user = one('SELECT * FROM kl_users WHERE id = ?' . ($pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql' ? ' FOR UPDATE' : ''), [$row['user_id']]);
+    $claim = q('UPDATE kl_tokens SET used_at = ? WHERE token_hash = ? AND used_at IS NULL AND expires_at > ?', [time(), $hash, time()]);
+    if (!$user || !$claim->rowCount()) { $pdo->rollBack(); return null; }
+    $siblings = in_array($kind, ['magic','mcode'], true) ? ['magic','mcode'] : (in_array($kind, ['verify','reset'], true) ? [$kind] : []);
+    foreach ($siblings as $sibling) q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $row['user_id'], $sibling]);
+    $pdo->commit();
+    return $user;
+  } catch (Throwable $e) { if ($pdo->inTransaction()) $pdo->rollBack(); throw $e; }
 }
 /** Демо-учні для класу: вхід без пароля (кнопка на #/login). Коди — 6 символів без I/O/0/1. */
 function demo_catalog(): array {
@@ -798,7 +945,22 @@ function unique_friend_code(): string {
   }
   throw new RuntimeException('friend code');
 }
-function send_verify(array $u): void { send_template($u, 'verify', site_url() . 'api/auth.php?action=verify&token=' . new_token((int)$u['id'], 'verify', VERIFY_TTL)); }
+function auth_mail_result(string $kind, bool $ok): bool {
+  meta_set('auth_mail_last_try', (string)time());
+  meta_set('auth_mail_last_kind', $kind);
+  meta_set('auth_mail_last_status', $ok ? 'accepted' : 'failed');
+  if (!$ok) {
+    $error = mail_error();
+    $stage = str_starts_with($error, 'smtp data:') ? 'data' : (str_starts_with($error, 'smtp connect:') ? 'connect' : (str_starts_with($error, 'smtp:') ? 'command' : 'transport'));
+    preg_match('/(?:smtp data:|smtp:)\s*([245][0-9]{2})/', $error, $m);
+    $diagnostic = 'kind=' . $kind . ' accepted=0 stage=' . $stage . ' code=' . ($m[1] ?? 'unknown');
+    meta_set('auth_mail_last_failure', $diagnostic);
+    meta_set('auth_mail_failure_at', (string)time());
+    error_log('[komiks-auth-mail] ' . $diagnostic);
+  }
+  return $ok;
+}
+function send_verify(array $u): bool { return send_template($u, 'verify', site_url() . 'api/auth.php?action=verify&token=' . new_token((int)$u['id'], 'verify', VERIFY_TTL)); }
 
 /** Бали з тестів і ігор → kl_players.stars (головна й рейтинг). */
 function user_data_val(int $userId, string $k, $default = null) {
@@ -816,8 +978,11 @@ function user_data_val(int $userId, string $k, $default = null) {
    має акаунт і синхронізувався. Гості читають теж, але їхні числа нікуди не йдуть. */
 function comic_reads(): array {
   $out = [];
-  foreach (q("SELECT k, v FROM kl_user_data WHERE k LIKE 'seen.%'")->fetchAll() as $r) {
-    $id = substr((string)$r['k'], 5);
+  foreach (q("SELECT k, v FROM kl_user_data WHERE k LIKE 'seen.%' OR k LIKE 'en.seen.%'")->fetchAll() as $r) {
+    $key = (string)$r['k'];
+    /* Англійський reader зберігає en.seen.e1, а тести — progress['en:e1'].
+       Зводимо обидва формати до одного ключа, щоб адмінка рахувала їх разом. */
+    $id = str_starts_with($key, 'en.seen.') ? 'en:' . substr($key, 8) : substr($key, 5);
     if ($id === '') continue;
     $seen = json_decode((string)$r['v'], true);
     if (!is_array($seen)) continue;
@@ -907,11 +1072,15 @@ function refresh_all_ranks(): int {
 }
 // повне видалення акаунта з усіма даними
 function delete_user_all(array $u): void {
+  require_once __DIR__ . '/google-auth.php';
   $db = db(); $db->beginTransaction();
-  foreach (['kl_user_data', 'kl_sessions', 'kl_tokens'] as $t) q("DELETE FROM $t WHERE user_id = ?", [$u['id']]);
+  google_delete_user((int)$u['id']);
+  foreach (['kl_user_data', 'kl_sessions', 'kl_tokens', 'kl_login_history'] as $t) q("DELETE FROM $t WHERE user_id = ?", [$u['id']]);
   q('DELETE FROM kl_players WHERE user_id = ? OR code = ?', [$u['id'], $u['friend_code']]);
   q('DELETE FROM kl_comments WHERE owner = ?', [$u['friend_code']]);
   q('DELETE FROM kl_walls WHERE owner = ?', [$u['friend_code']]);
+  if (meta_get('gifts_v') === '1') q('DELETE FROM kl_gifts WHERE from_id = ? OR to_id = ?', [$u['id'], $u['id']]);
+  if (meta_get('watch_v') === '1') q('DELETE FROM kl_watch WHERE observer_id = ? OR learner_id = ?', [$u['id'], $u['id']]);   // доступ батьків/вчителя (api/watch.php)   // таблицю створює api/gifts.php
   q('DELETE FROM kl_users WHERE id = ?', [$u['id']]);
   $db->commit();
 }
@@ -919,7 +1088,7 @@ function delete_user_all(array $u): void {
 /* ---------- #️⃣ хештеги ---------- */
 /* Приводимо до одного вигляду: без «#», малими літерами, лише літери й цифри,
  * не більше п'яти тегів по 24 символи — щоб пошук збігався, а не вгадував. */
-function clean_tags($raw, int $max = 5): array {
+function clean_tags($raw, int $max = 7): array {
   $list = is_array($raw) ? $raw : preg_split('/[\s,]+/u', (string)$raw);
   $out = [];
   foreach ($list as $t) {
@@ -1005,6 +1174,11 @@ function mail_error(?string $set = null): string {
   if ($set !== null) $last = $set;
   return $last;
 }
+function safe_mail_error(string $error): string {
+  // AUTH LOGIN sends base64 credentials as a command; never retain that suffix.
+  $error = preg_replace('/\s+after\s+[^\r\n]*/i', '', $error);
+  return substr(preg_replace('/[\r\n]+/', ' ', $error), 0, 240);
+}
 // що не так у налаштуваннях: порожній пароль, залишений зразок, чужий домен відправника
 function mail_problems(): array {
   $m = mail_cfg();
@@ -1044,7 +1218,7 @@ function send_mail(string $to, string $subject, string $html, string $text): boo
     $sent = mail($to, $enc($subject), $body, implode("\r\n", $headers), '-f' . $from);
     if (!$sent) mail_error('PHP mail() повернув false — хостинг не прийняв лист. Використайте transport = smtp.');
     return $sent;
-  } catch (Throwable $e) { mail_error($e->getMessage()); error_log('[komiks-mail] ' . $e->getMessage()); return false; }
+  } catch (Throwable $e) { $error = safe_mail_error($e->getMessage()); mail_error($error); error_log('[komiks-mail] ' . $error); return false; }
 }
 // мінімальний SMTP-клієнт: SSL (465) або STARTTLS (587), AUTH LOGIN
 function smtp_send(array $m, string $from, string $to, string $data): bool {
@@ -1085,7 +1259,36 @@ function notify_admins(string $subject, array $rows, string $adminPath = 'admin.
 }
 
 /* ---------- шаблони листів (inline-стилі для поштових програм) ---------- */
-function mail_layout(string $lang, string $title, string $intro, string $button, string $url, string $after, string $footer): string {
+/* 📲 «Завантажити застосунок» у листі: значки магазинів — картинками (img/mail/*.png; пошта не
+   показує SVG), а під ними ті самі посилання текстом — для тих, у кого картинки вимкнено. */
+const APP_LINKS = ['play' => 'https://play.google.com/store/apps/details?id=com.bilohash.comiks', 'ms' => 'https://apps.microsoft.com/detail/9mztk7vjz37d'];
+function mail_apps_text(string $lang): array {
+  $L = [
+    'uk' => ['📲 Komiks·Lab на телефоні й комп’ютері', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — незабаром'],
+    'en' => ['📲 Komiks·Lab on your phone and computer', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — coming soon'],
+    'no' => ['📲 Komiks·Lab på mobilen og PC-en', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — kommer snart'],
+    'ar' => ['📲 Komiks·Lab على الهاتف والحاسوب', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — قريبًا'],
+    'de' => ['📲 Komiks·Lab auf Handy und Computer', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — bald'],
+    'pl' => ['📲 Komiks·Lab na telefonie i komputerze', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — wkrótce'],
+    'tr' => ['📲 Komiks·Lab telefonda ve bilgisayarda', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — yakında'],
+    'lt' => ['📲 Komiks·Lab telefone ir kompiuteryje', 'Android — Google Play', 'Windows — Microsoft Store', 'iPhone — netrukus'],
+  ];
+  return $L[$lang] ?? $L['en'];
+}
+function mail_apps_block(string $lang): string {
+  $t = mail_apps_text($lang); $img = site_url() . 'img/mail/';
+  $e = fn($s) => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+  $badge = fn(string $href, string $file, string $alt) => '<a href="' . $e($href) . '" style="display:inline-block;margin:0 8px 8px 0;text-decoration:none"><img src="' . $e($img . $file) . '" width="160" height="48" alt="' . $e($alt) . '" style="display:block;border:0;outline:none"></a>';
+  return '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 6px;border-top:2px dashed #e0d6bf"><tr><td style="padding:16px 0 8px;font-size:15px;font-weight:900">' . $e($t[0]) . '</td></tr>'
+    . '<tr><td style="padding:0;line-height:0">' . $badge(APP_LINKS['play'], 'google-play.png', $t[1]) . $badge(APP_LINKS['ms'], 'microsoft-store.png', $t[2])
+    . '<img src="' . $e($img . 'app-store-soon.png') . '" width="160" height="48" alt="' . $e($t[3]) . '" style="display:inline-block;margin:0 0 8px;border:0;vertical-align:top"></td></tr>'
+    . '<tr><td style="font-size:12px;line-height:1.6;color:#777"><a href="' . $e(APP_LINKS['play']) . '" style="color:#1565c0">' . $e($t[1]) . '</a> · <a href="' . $e(APP_LINKS['ms']) . '" style="color:#1565c0">' . $e($t[2]) . '</a> · ' . $e($t[3]) . '</td></tr></table>';
+}
+function mail_apps_plain(string $lang): string {
+  $t = mail_apps_text($lang);
+  return "\n\n" . preg_replace('/^\S+\s/u', '', $t[0]) . "\n" . $t[1] . ': ' . APP_LINKS['play'] . "\n" . $t[2] . ': ' . APP_LINKS['ms'] . "\n" . $t[3];
+}
+function mail_layout(string $lang, string $title, string $intro, string $button, string $url, string $after, string $footer, bool $apps = false): string {
   $e = fn($s) => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
   $site = site_url();
   return '<!doctype html><html lang="' . $e($lang) . '" dir="' . ($lang === 'ar' ? 'rtl' : 'ltr') . '"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' . $e($title) . '</title></head>'
@@ -1095,7 +1298,7 @@ function mail_layout(string $lang, string $title, string $intro, string $button,
     . '<tr><td style="background:#ffd23f;padding:20px 26px;border-bottom:4px solid #141414;font-size:24px;font-weight:900">💬 Komiks<span style="color:#ee4035">·Lab</span></td></tr>'
     . '<tr><td style="padding:28px 26px 8px"><h1 style="margin:0 0 12px;font-size:26px;line-height:1.2">' . $e($title) . '</h1><p style="margin:0 0 18px;font-size:16px;line-height:1.55">' . $intro . '</p>'
     . '<p style="margin:0 0 22px"><a href="' . $e($url) . '" style="display:inline-block;background:#ee4035;color:#ffffff;text-decoration:none;font-weight:900;font-size:17px;padding:14px 26px;border-radius:999px;border:3px solid #141414">' . $e($button) . '</a></p>'
-    . '<p style="margin:0 0 18px;font-size:14px;line-height:1.55;color:#444">' . $after . '</p></td></tr>'
+    . '<p style="margin:0 0 18px;font-size:14px;line-height:1.55;color:#444">' . $after . '</p>' . ($apps ? mail_apps_block($lang) : '') . '</td></tr>'
     . '<tr><td style="padding:14px 26px 22px;border-top:2px dashed #e0d6bf;font-size:12px;line-height:1.5;color:#777">' . $footer . '<br><a href="' . $e($site) . '" style="color:#1565c0">' . $e(preg_replace('~^https?://~', '', rtrim($site, '/'))) . '</a></td></tr>'
     . '</table></td></tr></table></body></html>';
 }
@@ -1205,6 +1408,206 @@ function mail_texts(string $lang): array {
       'setpass_subject' => 'أُنشئ لك حساب — Komiks·Lab', 'setpass_title' => 'أهلًا بك يا %s! 💎', 'setpass_intro' => 'أُنشئ لك حساب مجاني في Komiks·Lab. اختر كلمة مرورك وابدأ تعلّم النرويجية بالقصص المصوّرة.', 'setpass_btn' => 'اختر كلمة المرور', 'setpass_after' => 'الرابط صالح لمدة 7 أيام. بعدها يمكنك استخدام «نسيت كلمة المرور؟» في صفحة الدخول.',
       'footer' => 'وصلتك هذه الرسالة لأن هذا العنوان استُخدم في Komiks·Lab — تعلّم النرويجية بالقصص المصوّرة.'
     ],
+    'de' => [
+      'back_subject' => 'In Komiks·Lab hat sich viel geändert',
+      'back_title' => 'Lange nicht gesehen, %s 👋',
+      'back_intro' => 'Hallo %s! Dein Norwegisch wartet noch auf dich — und die App ist seit deinem letzten Besuch gewachsen. Neue Comics, neue Tests und ein paar Dinge, die jetzt einfach besser funktionieren.',
+      'back_btn' => 'Sieh dir an, was neu ist',
+      'back_after' => 'Zehn Minuten am Tag reichen, um das Gelernte zu behalten.',
+      'news_subject' => 'Was ist neu in Komiks·Lab',
+      'news_title' => 'Neu in der App 📰',
+      'news_intro' => 'Hallo %s! Hier ist eine kurze Liste mit den jüngsten Änderungen — neue Geschichten, Tests und kleine Verbesserungen.',
+      'news_btn' => 'Die Updates lesen',
+      'news_after' => 'Alles funktioniert sofort, nichts zu installieren.',
+      'comic_subject' => 'Ein neuer Comic für dich — Komiks·Lab',
+      'comic_title' => 'Eine Geschichte für heute 📖',
+      'comic_intro' => 'Hi %s! Hier ist ein Comic, den du noch nicht gelesen hast. Norwegisches Audio, Übersetzung beim Darüberfahren und ein Quiz am Ende.',
+      'comic_btn' => 'Comic lesen',
+      'comic_after' => 'Eine Geschichte am Tag ist eine Gewohnheit, die bleibt.',
+      'unsub' => 'Diese E-Mails nicht mehr erhalten',
+      'magic_subject' => 'Dein Anmeldecode — Komiks·Lab',
+      'magic_title' => 'Bei Komiks·Lab anmelden 🔑',
+      'magic_intro' => 'Hi %s! Tippe auf den Button, um dich anzumelden — kein Passwort nötig. Oder gib unten den Code ein, wenn du auf einem anderen Gerät bist.',
+      'magic_btn' => 'Mich anmelden',
+      'magic_after' => 'Der Link und der Code sind 15 Minuten lang und nur einmal gültig. Wenn du dich nicht anmelden wolltest, ignoriere diese E-Mail — ohne sie kann niemand hineinkommen.',
+      'magic_code' => 'Dein Code',
+      'verify_subject' => 'Bestätige deine E-Mail-Adresse — Komiks·Lab',
+      'verify_title' => 'Bestätige deine E-Mail-Adresse 📬',
+      'verify_intro' => 'Hallo %s! Danke, dass du Komiks·Lab beigetreten bist. Tippe auf den Button, um deine E-Mail zu bestätigen und dein Konto zu aktivieren.',
+      'verify_btn' => 'Meine E-Mail bestätigen',
+      'verify_after' => 'Der Link funktioniert 48 Stunden lang. Wenn du dich nicht angemeldet hast, ignoriere diese E-Mail einfach — es wird nichts passieren.',
+      'welcome_subject' => 'Willkommen bei Komiks·Lab! 🎉',
+      'welcome_title' => 'Willkommen an Bord, %s! 🎉',
+      'welcome_intro' => 'Deine E-Mail ist bestätigt und dein Konto ist bereit. So startest du:<br>📖 lies deinen ersten norwegischen Comic mit echten Stimmen,<br>🎨 erstelle deinen Helden im Avatar-Studio,<br>🏁 trete im Logic Race gegen Freunde an und sammle Abzeichen.',
+      'welcome_btn' => 'Loslegen',
+      'welcome_after' => 'Dein Fortschritt ist jetzt in deinem Konto gespeichert und begleitet dich auf jedem Gerät.',
+      'reset_subject' => 'Passwort zurücksetzen — Komiks·Lab',
+      'reset_title' => 'Setze dein Passwort zurück 🔑',
+      'reset_intro' => 'Hallo %s! Jemand (hoffentlich du) hat darum gebeten, das Passwort für dein Komiks·Lab-Konto zurückzusetzen.',
+      'reset_btn' => 'Neues Passwort wählen',
+      'reset_after' => 'Der Link funktioniert 1 Stunde lang. Falls du das nicht warst, ignoriere diese E-Mail — dein Passwort bleibt unverändert.',
+      'exists_subject' => 'Du hast bereits ein Komiks·Lab-Konto',
+      'exists_title' => 'Du hast bereits ein Konto 🙂',
+      'exists_intro' => 'Hallo %s! Jemand hat versucht, sich mit dieser E-Mail-Adresse anzumelden, aber du hast bereits ein Konto.',
+      'exists_btn' => 'Einloggen',
+      'exists_after' => 'Passwort vergessen? Nutze „Passwort vergessen“ auf der Anmeldeseite.',
+      'setpass_subject' => 'Ein Konto wurde für dich erstellt — Komiks·Lab',
+      'setpass_title' => 'Willkommen, %s! 💎',
+      'setpass_intro' => 'Für dich wurde ein kostenloses Komiks·Lab-Konto erstellt. Wähle dein eigenes Passwort und lerne Norwegisch mit Comics.',
+      'setpass_btn' => 'Mein Passwort wählen',
+      'setpass_after' => 'Der Link funktioniert 7 Tage lang. Danach kannst du „Passwort vergessen“ auf der Anmeldeseite verwenden.',
+      'footer' => 'Du erhältst diese E-Mail, weil diese Adresse bei Komiks·Lab verwendet wurde — lerne Norwegisch mit Comics.',
+    ],
+    'pl' => [
+      'back_subject' => 'W Komiks·Lab wiele się zmieniło',
+      'back_title' => 'Dawno się nie widzieliśmy, %s 👋',
+      'back_intro' => 'Cześć %s! Twój norweski wciąż na Ciebie czeka — a aplikacja sporo urosła od Twojej ostatniej wizyty. Nowe komiksy, nowe testy i kilka rzeczy, które po prostu działają teraz lepiej.',
+      'back_btn' => 'Zobacz, co nowego',
+      'back_after' => 'Dziesięć minut dziennie wystarczy, by zachować to, czego się nauczyłeś.',
+      'news_subject' => 'Co nowego w Komiks·Lab',
+      'news_title' => 'Świeże w aplikacji 📰',
+      'news_intro' => 'Cześć %s! Oto krótka lista tego, co ostatnio się zmieniło — nowe historie, testy i drobne ulepszenia.',
+      'news_btn' => 'Przeczytaj aktualizacje',
+      'news_after' => 'Wszystko działa od razu, nic nie trzeba instalować.',
+      'comic_subject' => 'Nowy komiks dla Ciebie — Komiks·Lab',
+      'comic_title' => 'Historia na dziś 📖',
+      'comic_intro' => 'Cześć %s! Oto komiks, którego jeszcze nie czytałeś(-aś). Norweski audio, tłumaczenie po najechaniu kursorem i quiz na końcu.',
+      'comic_btn' => 'Przeczytaj komiks',
+      'comic_after' => 'Jedna historia dziennie to nawyk, który zostaje.',
+      'unsub' => 'Zatrzymaj te e-maile',
+      'magic_subject' => 'Twój kod logowania — Komiks·Lab',
+      'magic_title' => 'Zaloguj się do Komiks·Lab 🔑',
+      'magic_intro' => 'Cześć %s! Kliknij przycisk, aby się zalogować — bez hasła. Albo wpisz poniższy kod, jeśli jesteś na innym urządzeniu.',
+      'magic_btn' => 'Zaloguj mnie',
+      'magic_after' => 'Link i kod działają przez 15 minut i tylko raz. Jeśli nie prosiłeś(-aś) o zalogowanie, zignoruj ten e-mail — nikt nie dostanie się bez niego.',
+      'magic_code' => 'Twój kod',
+      'verify_subject' => 'Potwierdź swój e-mail — Komiks·Lab',
+      'verify_title' => 'Potwierdź swój e-mail 📬',
+      'verify_intro' => 'Cześć %s! Dzięki za dołączenie do Komiks·Lab. Kliknij przycisk, aby potwierdzić swój adres e-mail i aktywować konto.',
+      'verify_btn' => 'Potwierdź mój adres e-mail',
+      'verify_after' => 'Link działa przez 48 godzin. Jeśli nie zakładałeś(-aś) konta, po prostu zignoruj tego maila — nic się nie stanie.',
+      'welcome_subject' => 'Witamy w Komiks·Lab! 🎉',
+      'welcome_title' => 'Witamy na pokładzie, %s! 🎉',
+      'welcome_intro' => 'Twój adres e-mail został potwierdzony, a konto jest gotowe. Oto jak zacząć:<br>📖 przeczytaj swój pierwszy norweski komiks z prawdziwymi głosami,<br>🎨 stwórz swojego bohatera w studiu avatarów,<br>🏁 ścigaj się ze znajomymi w Logic Race i zbieraj odznaki.',
+      'welcome_btn' => 'Zacznij naukę',
+      'welcome_after' => 'Twój postęp jest teraz zapisywany na koncie i towarzyszy Ci na każdym urządzeniu.',
+      'reset_subject' => 'Zresetuj hasło — Komiks·Lab',
+      'reset_title' => 'Zresetuj hasło 🔑',
+      'reset_intro' => 'Cześć %s! Ktoś (mam nadzieję, że Ty) poprosił o zresetowanie hasła do Twojego konta Komiks·Lab.',
+      'reset_btn' => 'Ustaw nowe hasło',
+      'reset_after' => 'Link działa przez 1 godzinę. Jeśli to nie Ty, zignoruj tego maila — Twoje hasło pozostanie bez zmian.',
+      'exists_subject' => 'Masz już konto Komiks·Lab',
+      'exists_title' => 'Masz już konto 🙂',
+      'exists_intro' => 'Cześć %s! Ktoś próbował założyć konto z tym adresem e-mail, ale Ty już masz konto.',
+      'exists_btn' => 'Zaloguj się',
+      'exists_after' => 'Nie pamiętasz hasła? Użyj opcji „Nie pamiętam hasła” na stronie logowania.',
+      'setpass_subject' => 'Konto zostało dla Ciebie utworzone — Komiks·Lab',
+      'setpass_title' => 'Witaj, %s! 💎',
+      'setpass_intro' => 'Dla Ciebie utworzono bezpłatne konto Komiks·Lab. Ustaw własne hasło i zacznij uczyć się norweskiego z komiksami.',
+      'setpass_btn' => 'Ustaw moje hasło',
+      'setpass_after' => 'Link działa przez 7 dni. Potem możesz użyć opcji „Nie pamiętam hasła” na stronie logowania.',
+      'footer' => 'Dostajesz ten e-mail, ponieważ ten adres został użyty w Komiks·Lab — ucz się norweskiego z komiksami.',
+    ],
+    'tr' => [
+      'back_subject' => 'Komiks·Lab’ta çok şey değişti',
+      'back_title' => 'Uzun zaman oldu, %s 👋',
+      'back_intro' => 'Merhaba %s! Norveççen seni hâlâ bekliyor — ve son gelişinden beri uygulama büyüdü. Yeni çizgi romanlar, yeni testler ve artık çok daha iyi çalışan birkaç şey var.',
+      'back_btn' => 'Yeniliklere göz at',
+      'back_after' => 'Öğrendiklerini korumak için günde on dakika yeter.',
+      'news_subject' => 'Komiks·Lab’ta neler yeni',
+      'news_title' => 'Uygulamada taze içerikler 📰',
+      'news_intro' => 'Merhaba %s! İşte son zamanlarda değişenlerin kısa bir listesi — yeni hikâyeler, testler ve küçük iyileştirmeler.',
+      'news_btn' => 'Güncellemeleri oku',
+      'news_after' => 'Her şey hemen çalışır, kurulum gerekmez.',
+      'comic_subject' => 'Senin için yeni bir çizgi roman — Komiks·Lab',
+      'comic_title' => 'Bugün için bir hikâye 📖',
+      'comic_intro' => 'Merhaba %s! İşte henüz okumadığın bir çizgi roman. Norveççe ses, üzerine gelince çeviri ve sonunda bir quiz.',
+      'comic_btn' => 'Çizgi romanı oku',
+      'comic_after' => 'Günde bir hikâye, kalıcı bir alışkanlıktır.',
+      'unsub' => 'Bu e-postaları durdur',
+      'magic_subject' => 'Giriş kodun — Komiks·Lab',
+      'magic_title' => 'Komiks·Lab\'a giriş yap 🔑',
+      'magic_intro' => 'Merhaba %s! Giriş yapmak için düğmeye dokun — şifre gerekmez. Ya da başka bir cihazdaysan aşağıdaki kodu gir.',
+      'magic_btn' => 'Beni giriş yap',
+      'magic_after' => 'Bağlantı ve kod 15 dakika boyunca ve yalnızca bir kez geçerlidir. Giriş yapmayı istemediysen bu e-postayı yoksay — onsuz kimse içeri giremez.',
+      'magic_code' => 'Kodun',
+      'verify_subject' => 'E-postanı onayla — Komiks·Lab',
+      'verify_title' => 'E-postanı onayla 📬',
+      'verify_intro' => 'Merhaba %s! Komiks·Lab\'e katıldığın için teşekkürler. E-postanı onaylamak ve hesabını etkinleştirmek için düğmeye dokun.',
+      'verify_btn' => 'E-postamı onayla',
+      'verify_after' => 'Bağlantı 48 saat geçerlidir. Kayıt olmadıysan bu e-postayı görmezden gel — hiçbir şey olmaz.',
+      'welcome_subject' => 'Komiks·Lab\'e hoş geldin! 🎉',
+      'welcome_title' => 'Aramıza hoş geldin, %s! 🎉',
+      'welcome_intro' => 'E-postan onaylandı ve hesabın hazır. Başlamak için:<br>📖 gerçek seslerle ilk Norveççe çizgi romanını oku,<br>🎨 avatar stüdyosunda kahramanını oluştur,<br>🏁 Logic Race\'te arkadaşlarınla yarış ve rozetler topla.',
+      'welcome_btn' => 'Öğrenmeye başla',
+      'welcome_after' => 'İlerlemen artık hesabında kaydediliyor ve her cihazında seni takip ediyor.',
+      'reset_subject' => 'Parolanı sıfırla — Komiks·Lab',
+      'reset_title' => 'Parolanı sıfırla 🔑',
+      'reset_intro' => 'Merhaba %s! Birisi (umarız sensin) Komiks·Lab hesabın için parolayı sıfırlamayı istedi.',
+      'reset_btn' => 'Yeni bir parola seç',
+      'reset_after' => 'Bağlantı 1 saat geçerlidir. Bu sen değilsen, bu e-postayı görmezden gel — şifren aynı kalır.',
+      'exists_subject' => 'Komiks·Lab hesabın zaten var',
+      'exists_title' => 'Zaten bir hesabın var 🙂',
+      'exists_intro' => 'Merhaba %s! Birisi bu e-posta adresiyle kayıt olmaya çalıştı, ama senin zaten bir hesabın var.',
+      'exists_btn' => 'Giriş yap',
+      'exists_after' => 'Şifreni mi unuttun? Giriş sayfasındaki “Şifremi unuttum” seçeneğini kullan.',
+      'setpass_subject' => 'Senin için bir hesap oluşturuldu — Komiks·Lab',
+      'setpass_title' => 'Hoş geldin, %s! 💎',
+      'setpass_intro' => 'Senin için ücretsiz bir Komiks·Lab hesabı oluşturuldu. Kendi şifreni belirle ve çizgi romanlarla Norveççe öğrenmeye başla.',
+      'setpass_btn' => 'Şifremi belirle',
+      'setpass_after' => 'Bağlantı 7 gün geçerlidir. Sonrasında giriş sayfasındaki “Şifremi unuttum” seçeneğini kullanabilirsin.',
+      'footer' => 'Bu e-postayı alıyorsun çünkü bu adres Komiks·Lab\'de kullanıldı — çizgi romanlarla Norveççe öğren.',
+    ],
+    'lt' => [
+      'back_subject' => 'Daug kas pasikeitė Komiks·Lab',
+      'back_title' => 'Seniai nesimatėm, %s 👋',
+      'back_intro' => 'Labas, %s! Tavo norvegų kalba vis dar tavęs laukia — o nuo paskutinio tavo apsilankymo programa išaugo. Nauji komiksai, nauji testai ir keli dalykai, kurie dabar tiesiog veikia geriau.',
+      'back_btn' => 'Pažiūrėk, kas naujo',
+      'back_after' => 'Dešimt minučių per dieną pakanka, kad išlaikytum tai, ko išmokai.',
+      'news_subject' => 'Kas naujo Komiks·Lab',
+      'news_title' => 'Nauja programoje 📰',
+      'news_intro' => 'Labas, %s! Štai trumpas sąrašas to, kas neseniai pasikeitė — naujos istorijos, testai ir maži patobulinimai.',
+      'news_btn' => 'Perskaityk naujienas',
+      'news_after' => 'Viskas veikia iš karto, nieko diegti nereikia.',
+      'comic_subject' => 'Naujas komiksas tau — Komiks·Lab',
+      'comic_title' => 'Šiandienos istorija 📖',
+      'comic_intro' => 'Labas %s! Štai komiksas, kurio dar neskaitėte. Norvegų kalbos įrašas, vertimas užvedus pelę ir viktorina pabaigoje.',
+      'comic_btn' => 'Skaityti komiksą',
+      'comic_after' => 'Vienas pasakojimas per dieną — įprotis, kuris išlieka.',
+      'unsub' => 'Nustokite gauti šiuos el. laiškus',
+      'magic_subject' => 'Jūsų prisijungimo kodas — Komiks·Lab',
+      'magic_title' => 'Prisijunkite prie Komiks·Lab 🔑',
+      'magic_intro' => 'Labas %s! Palieskite mygtuką, kad prisijungtumėte — slaptažodžio nereikia. Arba įveskite toliau esantį kodą, jei naudojatės kitu įrenginiu.',
+      'magic_btn' => 'Prisijungti mane',
+      'magic_after' => 'Nuoroda ir kodas galioja 15 minučių ir tik vieną kartą. Jei neprašėte prisijungti, ignoruokite šį el. laišką — be jo niekas negalės prisijungti.',
+      'magic_code' => 'Jūsų kodas',
+      'verify_subject' => 'Patvirtinkite savo el. paštą — Komiks·Lab',
+      'verify_title' => 'Patvirtinkite savo el. paštą 📬',
+      'verify_intro' => 'Sveiki, %s! Ačiū, kad prisijungėte prie Komiks·Lab. Spustelėkite mygtuką, kad patvirtintumėte savo el. paštą ir suaktyvintumėte paskyrą.',
+      'verify_btn' => 'Patvirtinti mano el. paštą',
+      'verify_after' => 'Nuoroda veikia 48 valandas. Jei nesiregistravote, tiesiog ignoruokite šį laišką — nieko nenutiks.',
+      'welcome_subject' => 'Sveiki atvykę į Komiks·Lab! 🎉',
+      'welcome_title' => 'Sveikas atvykęs, %s! 🎉',
+      'welcome_intro' => 'Jūsų el. paštas patvirtintas, o paskyra paruošta. Štai kaip pradėti:<br>📖 perskaitykite savo pirmąjį norvegišką komiksą su tikrais balsais,<br>🎨 susikurkite herojų avatarų studijoje,<br>🏁 lenktyniaukite su draugais „Logic Race“ ir rinkite ženklelius.',
+      'welcome_btn' => 'Pradėti mokytis',
+      'welcome_after' => 'Jūsų pažanga dabar išsaugota jūsų paskyroje ir lydi jus visuose įrenginiuose.',
+      'reset_subject' => 'Atnaujinti slaptažodį — Komiks·Lab',
+      'reset_title' => 'Atnaujinti slaptažodį 🔑',
+      'reset_intro' => 'Sveiki, %s! Kažkas (tikimės jūs) paprašė atnaujinti Komiks·Lab paskyros slaptažodį.',
+      'reset_btn' => 'Pasirinkti naują slaptažodį',
+      'reset_after' => 'Nuoroda veikia 1 valandą. Jei tai buvai ne tu, ignoruok šį el. laišką — tavo slaptažodis liks toks pats.',
+      'exists_subject' => 'Jau turi Komiks·Lab paskyrą',
+      'exists_title' => 'Jau turi paskyrą 🙂',
+      'exists_intro' => 'Sveiki, %s! Kažkas bandė užsiregistruoti šiuo el. pašto adresu, bet tu jau turi paskyrą.',
+      'exists_btn' => 'Prisijungti',
+      'exists_after' => 'Pamiršai slaptažodį? Naudok „Pamiršau slaptažodį“ prisijungimo puslapyje.',
+      'setpass_subject' => 'Tau sukurta paskyra — Komiks·Lab',
+      'setpass_title' => 'Sveiki, %s! 💎',
+      'setpass_intro' => 'Tau sukurta nemokama Komiks·Lab paskyra. Pasirink savo slaptažodį ir pradėk mokytis norvegų kalbos su komiksais.',
+      'setpass_btn' => 'Pasirinkti mano slaptažodį',
+      'setpass_after' => 'Nuoroda veikia 7 dienas. Po to prisijungimo puslapyje gali naudoti „Pamiršau slaptažodį“.',
+      'footer' => 'Šį el. laišką gavai todėl, kad šis adresas buvo naudojamas Komiks·Lab — mokykis norvegų kalbos su komiksais.',
+    ],
   ];
   return $T[$lang] ?? $T['en'];
 }
@@ -1310,24 +1713,47 @@ function totp_uri(array $user, string $secret): string {
   return "otpauth://totp/$label?secret=$secret&issuer=$issuer&algorithm=SHA1&digits=" . TOTP_DIGITS . '&period=' . TOTP_STEP;
 }
 
+/* 📲 Лист «Встановіть застосунок» (картка користувача → 🛠️ Дії): Android, Windows, iPhone — незабаром.
+   Значки магазинів додає mail_layout(…, apps: true). */
+function apps_mail_text(string $lang): array {
+  $T = [
+    'uk' => ['📲 Комікс·Lab тепер є застосунком', 'Встановіть Комікс·Lab на телефон чи комп’ютер', 'Вітаю, %s! Комікс·Lab тепер можна встановити як застосунок: на Android — з Google Play, на Windows — з Microsoft Store. Версія для iPhone вже незабаром! Прогрес, слова й друзі ті самі — просто увійдіть у свій акаунт.', 'Завантажити застосунок', 'Посилання на всі версії — нижче. На iPhone вже зараз можна додати сайт на головний екран: Safari → «Поділитися» → «На екран “Додому”».'],
+    'en' => ['📲 Komiks·Lab is now an app', 'Install Komiks·Lab on your phone or computer', 'Hi %s! You can now install Komiks·Lab as an app: on Android from Google Play and on Windows from the Microsoft Store. The iPhone version is coming soon! Your progress, words and friends stay the same — just sign in to your account.', 'Get the app', 'Links to all versions are below. On iPhone you can already add the site to your Home Screen: Safari → Share → “Add to Home Screen”.'],
+    'no' => ['📲 Komiks·Lab er nå en app', 'Installer Komiks·Lab på mobilen eller PC-en', 'Hei %s! Nå kan du installere Komiks·Lab som app: på Android fra Google Play og på Windows fra Microsoft Store. iPhone-versjonen kommer snart! Fremgangen, ordene og vennene dine er de samme – bare logg inn på kontoen din.', 'Last ned appen', 'Lenker til alle versjonene finner du nedenfor. På iPhone kan du allerede legge nettsiden på Hjem-skjermen: Safari → Del → «Legg til på Hjem-skjerm».'],
+    'ar' => ['📲 أصبح Komiks·Lab تطبيقًا', 'ثبّت Komiks·Lab على هاتفك أو حاسوبك', 'مرحبًا %s! يمكنك الآن تثبيت Komiks·Lab كتطبيق: على Android من Google Play وعلى Windows من Microsoft Store. نسخة iPhone قريبًا! يبقى تقدّمك وكلماتك وأصدقاؤك كما هم — فقط سجّل الدخول إلى حسابك.', 'حمّل التطبيق', 'روابط جميع النسخ في الأسفل. على iPhone يمكنك الآن إضافة الموقع إلى الشاشة الرئيسية: Safari ← مشاركة ← «إضافة إلى الشاشة الرئيسية».'],
+    'de' => ['📲 Komiks·Lab gibt es jetzt als App', 'Installiere Komiks·Lab auf Handy oder Computer', 'Hallo %s! Du kannst Komiks·Lab jetzt als App installieren: auf Android über Google Play und auf Windows über den Microsoft Store. Die iPhone-Version kommt bald! Fortschritt, Wörter und Freunde bleiben gleich – melde dich einfach mit deinem Konto an.', 'App herunterladen', 'Links zu allen Versionen findest du unten. Auf dem iPhone kannst du die Seite schon jetzt zum Home-Bildschirm hinzufügen: Safari → Teilen → „Zum Home-Bildschirm“.'],
+    'pl' => ['📲 Komiks·Lab jest teraz aplikacją', 'Zainstaluj Komiks·Lab na telefonie lub komputerze', 'Cześć %s! Komiks·Lab możesz teraz zainstalować jako aplikację: na Androidzie z Google Play, a na Windows ze Sklepu Microsoft. Wersja na iPhone’a już wkrótce! Postępy, słowa i znajomi zostają te same — wystarczy zalogować się na swoje konto.', 'Pobierz aplikację', 'Linki do wszystkich wersji znajdziesz poniżej. Na iPhonie możesz już dodać stronę do ekranu początkowego: Safari → Udostępnij → „Do ekranu początk.”.'],
+    'tr' => ['📲 Komiks·Lab artık bir uygulama', 'Komiks·Lab’i telefonuna veya bilgisayarına kur', 'Merhaba %s! Komiks·Lab’i artık uygulama olarak kurabilirsin: Android’de Google Play’den, Windows’ta Microsoft Store’dan. iPhone sürümü çok yakında! İlerlemen, kelimelerin ve arkadaşların aynı kalır — sadece hesabınla giriş yap.', 'Uygulamayı indir', 'Tüm sürümlerin bağlantıları aşağıda. iPhone’da siteyi şimdiden ana ekrana ekleyebilirsin: Safari → Paylaş → “Ana Ekrana Ekle”.'],
+    'lt' => ['📲 Komiks·Lab dabar yra programėlė', 'Įdiekite Komiks·Lab telefone ar kompiuteryje', 'Sveiki, %s! Komiks·Lab dabar galima įdiegti kaip programėlę: „Android“ — iš „Google Play“, „Windows“ — iš „Microsoft Store“. „iPhone“ versija jau netrukus! Pažanga, žodžiai ir draugai išlieka tie patys — tiesiog prisijunkite prie savo paskyros.', 'Atsisiųsti programėlę', 'Nuorodos į visas versijas — žemiau. „iPhone“ jau dabar galite pridėti svetainę prie pradžios ekrano: „Safari“ → „Bendrinti“ → „Pridėti prie pradžios ekrano“.'],
+  ];
+  [$subject, $title, $intro, $btn, $after] = $T[$lang] ?? $T['en'];
+  return ['subject' => $subject, 'title' => $title, 'intro' => $intro, 'btn' => $btn, 'after' => $after];
+}
 function send_campaign(array $user, string $kind, string $url, string $extraHtml = ''): bool {
-  $lang = in_array($user['lang'] ?? 'en', ['en', 'no', 'uk', 'ar'], true) ? $user['lang'] : 'en';
+  $lang = kl_lang($user['lang'] ?? 'en');
   $T = mail_texts($lang);
+  if ($kind === 'testing') {
+    require_once __DIR__ . '/testing-mail.php';
+    foreach (testing_mail_text($lang) as $key => $value) $T['testing_' . $key] = $value;
+    $url = 'https://play.google.com/store/apps/details?id=com.bilohash.comiks';
+  }
+  if ($kind === 'apps') foreach (apps_mail_text($lang) as $key => $value) $T['apps_' . $key] = $value;
+  if ($kind === 'remind') { require_once __DIR__ . '/remind-mail.php'; foreach (remind_mail_text($lang) as $key => $value) $T['remind_' . $key] = $value; }
   $name = htmlspecialchars((string)$user['name'], ENT_QUOTES, 'UTF-8');
   $tok = new_token((int)$user['id'], 'unsub', 180 * 86400);
   $unsub = site_url() . 'api/auth.php?action=unsub&t=' . $tok;
   $foot = $T['footer'] . ' · <a href="' . $unsub . '" style="color:#5d5346">' . htmlspecialchars($T['unsub'], ENT_QUOTES, 'UTF-8') . '</a>';
   $html = mail_layout($lang, $T[$kind . '_title'], sprintf($T[$kind . '_intro'], $name) . $extraHtml,
-    $T[$kind . '_btn'], $url, $T[$kind . '_after'], $foot);
+    $T[$kind . '_btn'], $url, $T[$kind . '_after'], $foot, true);
   $text = sprintf($T[$kind . '_intro'], (string)$user['name']) . "\n\n" . $T[$kind . '_btn'] . ': ' . $url
-    . "\n\n" . strip_tags($T[$kind . '_after']) . "\n" . $T['unsub'] . ': ' . $unsub;
+    . "\n\n" . strip_tags($T[$kind . '_after']) . mail_apps_plain($lang) . "\n" . $T['unsub'] . ': ' . $unsub;
   $ok = send_mail((string)$user['email'], $T[$kind . '_subject'], $html, $text);
   q('INSERT INTO kl_mailouts (user_id, kind, sent_at, ok) VALUES (?, ?, ?, ?)', [(int)$user['id'], $kind, time(), $ok ? 1 : 0]);
   return $ok;
 }
 
 function send_magic(array $user, string $url, string $code): bool {
-  $lang = in_array($user['lang'] ?? 'en', ['en', 'no', 'uk', 'ar'], true) ? $user['lang'] : 'en';
+  $lang = kl_lang($user['lang'] ?? 'en');
   $T = mail_texts($lang);
   $name = htmlspecialchars((string)$user['name'], ENT_QUOTES, 'UTF-8');
   $pretty = substr($code, 0, 3) . ' ' . substr($code, 3);
@@ -1338,15 +1764,40 @@ function send_magic(array $user, string $url, string $code): bool {
     $T['magic_btn'], $url, $T['magic_after'], $T['footer']);
   $text = sprintf($T['magic_intro'], (string)$user['name']) . "\n\n"
     . $T['magic_code'] . ': ' . $pretty . "\n\n" . $T['magic_btn'] . ': ' . $url . "\n\n" . strip_tags($T['magic_after']);
-  return send_mail((string)$user['email'], $T['magic_subject'], $html, $text);
+  return auth_mail_result('magic', send_mail((string)$user['email'], $T['magic_subject'], $html, $text));
+}
+/* Код для видалення акаунта. Потрібен тим, хто ввійшов через Google і пароля не має:
+   лист доводить, що поштою володіє та сама людина, що й сесією. */
+function send_delete_code(array $user, string $code): bool {
+  $L = [
+    'uk' => ['Код для видалення акаунта — Komiks·Lab', 'Видалення акаунта', 'Вітаю, %s! Хтось (сподіваємося, ви) хоче видалити акаунт Komiks·Lab. Введіть цей код на сторінці акаунта:', 'Код', 'Відкрити акаунт', 'Код діє 15 хвилин. Якщо ви нічого не видаляли — просто проігноруйте лист, акаунт лишиться як був.'],
+    'en' => ['Account deletion code — Komiks·Lab', 'Delete your account', 'Hi %s! Someone (hopefully you) wants to delete a Komiks·Lab account. Enter this code on the account page:', 'Code', 'Open my account', 'The code works for 15 minutes. If you did not ask for this, ignore the email — your account stays as it is.'],
+    'no' => ['Kode for sletting av konto – Komiks·Lab', 'Slett kontoen', 'Hei %s! Noen (forhåpentligvis du) vil slette en Komiks·Lab-konto. Skriv inn denne koden på kontosiden:', 'Kode', 'Åpne kontoen min', 'Koden virker i 15 minutter. Hvis det ikke var deg, kan du se bort fra e-posten – kontoen forblir som den er.'],
+    'ar' => ['رمز حذف الحساب — Komiks·Lab', 'حذف الحساب', 'مرحبًا %s! شخص ما (نأمل أنك أنت) يريد حذف حساب Komiks·Lab. أدخل هذا الرمز في صفحة الحساب:', 'الرمز', 'افتح حسابي', 'الرمز صالح لمدة 15 دقيقة. إن لم تطلب ذلك فتجاهل الرسالة، وسيبقى حسابك كما هو.'],
+    'de' => ['Code zum Löschen des Kontos — Komiks·Lab', 'Konto löschen', 'Hallo %s! Jemand (hoffentlich du) möchte ein Komiks·Lab-Konto löschen. Gib diesen Code auf der Kontoseite ein:', 'Code', 'Mein Konto öffnen', 'Der Code gilt 15 Minuten. Wenn du das nicht warst, ignoriere die E-Mail – dein Konto bleibt unverändert.'],
+    'pl' => ['Kod usunięcia konta — Komiks·Lab', 'Usuń konto', 'Cześć %s! Ktoś (mamy nadzieję, że Ty) chce usunąć konto Komiks·Lab. Wpisz ten kod na stronie konta:', 'Kod', 'Otwórz moje konto', 'Kod działa 15 minut. Jeśli to nie Ty, zignoruj wiadomość — konto pozostanie bez zmian.'],
+    'tr' => ['Hesap silme kodu — Komiks·Lab', 'Hesabı sil', 'Merhaba %s! Biri (umarız sensin) bir Komiks·Lab hesabını silmek istiyor. Bu kodu hesap sayfasına gir:', 'Kod', 'Hesabımı aç', 'Kod 15 dakika geçerlidir. Bunu sen istemediysen e-postayı yok say — hesabın olduğu gibi kalır.'],
+    'lt' => ['Paskyros ištrynimo kodas — Komiks·Lab', 'Ištrinti paskyrą', 'Sveiki, %s! Kažkas (tikimės, jūs) nori ištrinti Komiks·Lab paskyrą. Įveskite šį kodą paskyros puslapyje:', 'Kodas', 'Atidaryti paskyrą', 'Kodas galioja 15 minučių. Jei to neprašėte, ignoruokite laišką — paskyra liks tokia pati.'],
+  ];
+  $lang = kl_lang($user['lang'] ?? 'en');
+  [$subject, $title, $intro, $label, $btn, $after] = $L[$lang] ?? $L['en'];
+  $T = mail_texts($lang);
+  $pretty = substr($code, 0, 3) . ' ' . substr($code, 3);
+  $box = '<div style="margin:18px 0;padding:14px 18px;border:3px dashed #141414;border-radius:14px;text-align:center">'
+    . '<div style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#5d5346">' . htmlspecialchars($label, ENT_QUOTES, 'UTF-8') . '</div>'
+    . '<div style="font-size:34px;font-weight:900;letter-spacing:.18em;margin-top:4px">' . $pretty . '</div></div>';
+  $html = mail_layout($lang, $title, sprintf($intro, htmlspecialchars((string)$user['name'], ENT_QUOTES, 'UTF-8')) . $box, $btn, site_url() . '#/account', $after, $T['footer']);
+  $text = sprintf($intro, (string)$user['name']) . "\n\n" . $label . ': ' . $pretty . "\n\n" . $after;
+  return auth_mail_result('delcode', send_mail((string)$user['email'], $subject, $html, $text));
 }
 function send_template(array $user, string $kind, string $url): bool {
-  $lang = in_array($user['lang'] ?? 'en', ['en', 'no', 'uk', 'ar'], true) ? $user['lang'] : 'en';
+  $lang = kl_lang($user['lang'] ?? 'en');
   $T = mail_texts($lang);
   $name = htmlspecialchars((string)$user['name'], ENT_QUOTES, 'UTF-8');
   $title = sprintf($T[$kind . '_title'], (string)$user['name']);
   $intro = sprintf($T[$kind . '_intro'], $name);
-  $html = mail_layout($lang, $title, $intro, $T[$kind . '_btn'], $url, $T[$kind . '_after'], $T['footer']);
-  $text = strip_tags(str_replace('<br>', "\n", sprintf($T[$kind . '_intro'], (string)$user['name']))) . "\n\n" . $T[$kind . '_btn'] . ': ' . $url . "\n\n" . strip_tags($T[$kind . '_after']);
-  return send_mail((string)$user['email'], $T[$kind . '_subject'], $html, $text);
+  $apps = in_array($kind, ['welcome', 'setpass'], true);   // службові листи (коди, скидання пароля) — без зайвого
+  $html = mail_layout($lang, $title, $intro, $T[$kind . '_btn'], $url, $T[$kind . '_after'], $T['footer'], $apps);
+  $text = strip_tags(str_replace('<br>', "\n", sprintf($T[$kind . '_intro'], (string)$user['name']))) . "\n\n" . $T[$kind . '_btn'] . ': ' . $url . "\n\n" . strip_tags($T[$kind . '_after']) . ($apps ? mail_apps_plain($lang) : '');
+  return auth_mail_result($kind, send_mail((string)$user['email'], $T[$kind . '_subject'], $html, $text));
 }

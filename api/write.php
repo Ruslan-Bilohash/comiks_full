@@ -47,11 +47,13 @@ if (limited('write:' . $id, $limit, 86400)) fail('write_limit', 429);
 
 $task = clean_text((string)($in['task'] ?? ''), 200);
 $level = in_array($in['level'] ?? '', ['A1', 'A2', 'B1', 'B2'], true) ? (string)$in['level'] : 'A1';
-$lang = in_array($in['lang'] ?? '', ['en', 'no', 'uk', 'ar'], true) ? (string)$in['lang'] : 'en';
+$lang = kl_lang($in['lang'] ?? '');
 $text = clean_text((string)($in['text'] ?? ''), WRITE_MAX_TEXT);
 if (mb_strlen($text) < 5) fail('short');
 
-$why = ['en' => 'English', 'uk' => 'Ukrainian', 'no' => 'very simple Norwegian', 'ar' => 'Arabic'][$lang];
+/* Норвезькою пояснюємо навмисно простіше, ніж вона є: хто обрав норвезьку
+   мовою пояснень, той саме її і вчить. Решта мов — зі спільного списку. */
+$why = $lang === 'no' ? 'very simple Norwegian' : (KL_LANG_NAME[$lang] ?? 'English');
 $len = $level === 'A1' ? '2–3 short sentences' : ($level === 'A2' ? '3–5 sentences' : '5–8 sentences');
 $system = <<<TXT
 You are a kind Norwegian teacher marking a short piece of writing from a learner at level {$level}.

@@ -90,7 +90,7 @@ Name: "desktopicon"; Description: "{cm:DesktopIcon}"; GroupDescription: "{cm:Add
 Source: "{#SrcRoot}icons\favicon.ico"; DestDir: "{app}"; DestName: "komikslab.ico"; Flags: ignoreversion
 #ifdef FULL
 ; увесь застосунок: комікси, озвучення, тести — працює без інтернету
-Source: "..\..\komiks-android-offline\www\*"; DestDir: "{app}\app"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#SrcRoot}app\android_offline\www\*"; DestDir: "{app}\app"; Flags: ignoreversion recursesubdirs createallsubdirs
 #endif
 
 [Icons]
@@ -152,7 +152,7 @@ begin
   Result := 'file:///' + ExpandConstant('{app}\app\index.html');
   StringChangeEx(Result, '\', '/', True);
 #else
-  Result := '{#AppUrl}';
+  Result := '{#AppUrl}?app=windows';   // щоб лічильник встановлень бачив Windows-застосунок
 #endif
 end;
 

@@ -46,10 +46,16 @@
 <header>
   <div class="wrap">
     <h1>Privacy Policy — Komiks·Lab</h1>
-    <p class="sub">Last updated: 27 September 2026</p>
+    <p class="sub">Last updated: 24 October 2026</p>
     <div class="langs">
       <a href="#en">English</a>
       <a href="#uk">Українська</a>
+      <a href="#no">Norsk</a>
+      <a href="#ar">العربية</a>
+      <a href="#de">Deutsch</a>
+      <a href="#pl">Polski</a>
+      <a href="#tr">Türkçe</a>
+      <a href="#lt">Lietuvių</a>
       <a href="https://bilohash.com/comiks/">← Komiks·Lab</a>
     </div>
   </div>
@@ -97,6 +103,8 @@
       or analytics cookies, and no third-party trackers.</li>
     <li>The server keeps a short-lived, hashed form of your IP address to limit abuse
       (rate limiting). It is not linked to a person and is not used for anything else.</li>
+    <li>Anonymous visit statistics (our own, no third parties): which sections and comics are opened, the device type, interface language, the website you came from and the hour. Daily unique visitors are counted with a one-day salted hash of the IP address and browser; the IP itself is never stored and the salt is replaced and erased every day, so a visitor cannot be recognised on the next day. No cookies. If your browser sends Do Not Track or Global Privacy Control, nothing is counted.</li>
+    <li>Technical crash reports: if a page breaks, the browser sends us the error text, the file and line, the section of the site, the build version and the browser and system type — no IP address, cookies or link to a person. Kept for up to 30 days to fix bugs.</li>
   </ul>
 
   <h2>Who else sees the data</h2>
@@ -117,6 +125,7 @@
     <li><b>Account and progress</b> — until you delete the account.</li>
     <li><b>Messages and wall posts</b> — until you or a moderator delete them.</li>
     <li><b>Sign-in sessions</b> — 30 days, then they expire.</li>
+    <li><b>Successful sign-in history</b> — IP address, time, sign-in method and device/browser for 30 days. The IP is encrypted at rest, visible only to administrators for account security, and erased with the account. This is separate from anonymous visit statistics.</li>
     <li><b>Rate-limiting records</b> — hours, then they are overwritten.</li>
     <li><b>Spoken practice</b> — the audio is not recorded or stored on our side.</li>
   </ul>
@@ -179,9 +188,11 @@
   <h3>Без акаунта</h3>
   <ul>
     <li>Налаштування й прогрес лишаються у вашому браузері й до нас не потрапляють.</li>
-    <li>Кука <code>kl_s</code> з'являється лише після входу. Рекламних кук і лічильників немає.</li>
+    <li>Кука <code>kl_s</code> з'являється лише після входу. Рекламних кук і сторонніх лічильників немає.</li>
     <li>Сервер тримає недовгу згортку вашої IP-адреси, щоб обмежувати зловживання. З особою
       вона не пов'язана й більше ні для чого не використовується.</li>
+    <li>Анонімна статистика відвідувань (власна, без сторонніх сервісів): які розділи й комікси відкривають, тип пристрою, мова інтерфейсу, сайт, з якого прийшли, і година. Унікальних відвідувачів за день рахуємо за добовою солоною згорткою IP-адреси й браузера; сама IP-адреса не зберігається, а сіль щодня замінюється й стирається, тож назавтра відвідувача неможливо впізнати. Кук немає. Якщо браузер надсилає Do Not Track або Global Privacy Control — не рахуємо нічого.</li>
+    <li>Технічні звіти про збої: якщо сторінка зламалася, браузер надсилає нам текст помилки, файл і рядок, розділ сайту, версію збірки та тип браузера й системи — без IP-адреси, кук і прив'язки до людини. Зберігаються до 30 днів, щоб виправити помилку.</li>
   </ul>
 
   <h2>Хто ще бачить дані</h2>
@@ -203,6 +214,7 @@
     <li>Акаунт і прогрес — доки ви не видалите акаунт.</li>
     <li>Повідомлення й дописи — доки ви або модератор їх не видалите.</li>
     <li>Сесії входу — 30 днів.</li>
+    <li><b>Історія успішних входів</b> — IP-адреса, час, спосіб входу та пристрій/браузер за 30 днів. IP-адреса зашифрована в базі, доступна лише адміністраторам для захисту акаунта й видаляється разом з акаунтом. Це окремо від анонімної статистики відвідувань.</li>
     <li>Записи обмеження частоти — години.</li>
     <li>Голосовий дзвінок — звук не записується й не зберігається в нас.</li>
   </ul>
@@ -230,6 +242,507 @@
   <p>Komiks·Lab · <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> ·
     <a href="mailto:email@bilohash.com">email@bilohash.com</a></p>
 </footer>
+
+<section id="no" lang="no">
+  <h2>Hvem vi er</h2>
+  <p>Komiks·Lab er et prosjekt for å lære norsk: et nettsted på
+    <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> og to Android-apper.
+    Det drives av Ruslan Bilohash, en uavhengig utvikler.</p>
+  <p>Kontakt ved spørsmål om personvern, inkludert sletting av data:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. Vi svarer innen 30 dager.</p>
+
+  <div class="key"><b>Frakoblet-appen samler ikke inn noe som helst</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) inneholder alle historier, tester og
+    opptak inne i den installerte appen. Den har ingen kontoer og ingen nettverkskode — modulene
+    som ellers ville snakket med en server, er ikke bare slått av, de er ikke tatt med i
+    bygget. Den fungerer i flymodus. Ingenting forlater enheten din, så resten av denne policyen
+    gjelder bare for nettstedet og den nettbaserte appen.</div>
+
+  <h2>Hva nettstedet og den nettbaserte appen samler inn</h2>
+  <p>Dette gjelder <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> og
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).</p>
+
+  <h3>Bare hvis du oppretter en konto</h3>
+  <div class="tw"><table>
+    <tr><th>Data</th><th>Hvorfor</th></tr>
+    <tr><td>E-postadresse</td><td>for å logge inn, bekrefte kontoen og tilbakestille et passord</td></tr>
+    <tr><td>Visningsnavn og avatar</td><td>vist til vennene dine og i rangeringen</td></tr>
+    <tr><td>Læringsfremgang: gjennomførte tester, poengsummer, rekker, feil</td><td>for å fortsette der du slapp og lage øvingsplanen din</td></tr>
+    <tr><td>Venner, meldinger, vegginnlegg</td><td>bare hvis du bruker disse funksjonene</td></tr>
+  </table></div>
+  <p>Passordet ditt lagres aldri. Vi beholder bare en enveis hash av det (Argon2id), som ikke kan
+tilbakeføres til passordet.</p>
+
+  <h3>Uten konto</h3>
+  <ul>
+    <li>Innstillingene og fremdriften din blir værende i din egen nettleser (<code>localStorage</code>) og når aldri oss.</li>
+    <li>En øktinformasjonskapsel <code>kl_s</code> settes bare etter at du har logget inn. Vi har ingen annonserings-
+      eller analysedata-informasjonskapsler, og ingen tredjepartssporere.</li>
+    <li>Serveren lagrer en kortvarig, hashet versjon av IP-adressen din for å begrense misbruk
+      (rate limiting). Den er ikke knyttet til en person og brukes ikke til noe annet.</li>
+    <li>Anonym besøksstatistikk (vår egen, uten tredjeparter): hvilke deler og tegneserier som åpnes, enhetstype, grensesnittspråk, nettstedet du kom fra og klokkeslett. Unike besøkende per dag telles med en daglig saltet hash av IP-adresse og nettleser; selve IP-adressen lagres aldri, og saltet byttes ut og slettes hver dag, så en besøkende kan ikke gjenkjennes dagen etter. Ingen informasjonskapsler. Sender nettleseren Do Not Track eller Global Privacy Control, telles ingenting.</li>
+    <li>Tekniske feilrapporter: hvis en side krasjer, sender nettleseren oss feilteksten, fil og linje, delen av nettstedet, versjonen og type nettleser og system — uten IP-adresse, informasjonskapsler eller kobling til en person. Lagres i opptil 30 dager for å rette feilen.</li>
+  </ul>
+
+  <h2>Hvem ellers ser dataene</h2>
+  <p>Vi selger aldri data og deler dem aldri for annonsering. Data sendes bare til andre selskaper
+    der en funksjon teknisk sett krever det:</p>
+  <div class="tw"><table>
+    <tr><th>Tjeneste</th><th>Hva som sendes</th><th>Når</th></tr>
+    <tr><td>Hostinger (EU-hosting)</td><td>alt som lagres: konto, progresjon, meldinger</td><td>alltid — det er her nettstedet kjører</td></tr>
+    <tr><td>OpenAI</td><td>lyden fra mikrofonen din og teksten i samtalen</td><td>bare under en muntlig øvingsamtale, og bare mens den varer</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>setningen du skrev, uten navnet ditt eller e-postadressen din</td><td>bare når du ber om at det du har skrevet skal bli rettet</td></tr>
+    <tr><td>Google Fonts</td><td>IP-adressen din, slik som med alle webfonter</td><td>når en side laster inn fontene sine</td></tr>
+    <tr><td>Stripe</td><td>betalingsopplysninger, håndteres helt av Stripe</td><td>ikke i bruk — læring er gratis, og det er ingenting å betale for</td></tr>
+  </table></div>
+  <p>Disse funksjonene finnes bare på nettstedet og i nettappen. Frakoblet app har ingen av dem.</p>
+
+  <h2>Hvor lenge vi beholder det</h2>
+  <ul>
+    <li><b>konto og fremgang</b> — til du sletter kontoen.</li>
+    <li><b>meldinger og innlegg på veggen</b> — til du eller en moderator sletter dem.</li>
+    <li><b>innloggingsøkter</b> — 30 dager, deretter utløper de.</li>
+    <li><b>Historikk over vellykkede innlogginger</b> — IP-adresse, tidspunkt, innloggingsmåte og enhet/nettleser i 30 dager. IP-adressen er kryptert i databasen, bare synlig for administratorer av hensyn til kontosikkerhet, og slettes med kontoen. Dette er atskilt fra anonym besøksstatistikk.</li>
+    <li><b>ratebegrensningslogger</b> — noen timer, deretter overskrives de.</li>
+    <li><b>Muntlig praksis</b> — lyden blir ikke tatt opp eller lagret hos oss.</li>
+  </ul>
+
+  <h2>Dine rettigheter</h2>
+  <p>I henhold til GDPR kan du be om en kopi av opplysningene dine, be om å få dem rettet, eller be oss om å slette dem.</p>
+  <ul>
+    <li><b>Slett kontoen din selv:</b> åpne profilen din i appen eller på nettstedet →
+      <i>Konto</i> → <i>Slett konto</i>. Dette sletter kontoen, fremdriften, venner og meldinger.</li>
+    <li><b>Eller skriv til <a href="mailto:email@bilohash.com">email@bilohash.com</a></b>, så gjør vi det for deg.</li>
+    <li>Du kan også klage til det nasjonale datatilsynet ditt.</li>
+  </ul>
+
+  <h2>Barn</h2>
+  <p>Appene er vurdert for alle, men kontoer, venner og meldinger er ment for brukere
+    fra 13 år og oppover. Vi oppretter ikke kontoer for yngre barn med vilje. En forelder som
+    mener at barnet deres har opprettet en konto, kan skrive til oss, så sletter vi den.</p>
+  <p>Yngre lærere kan bruke <b>frakoblet-appen</b>, som ikke har konto og ikke sender noe noe sted.</p>
+
+  <h2>Sikkerhet</h2>
+  <p>All trafikk bruker HTTPS. Passord hashes med Argon2id. Databasen og konfigurasjonen med legitimasjon ligger utenfor den offentlige webmappen og er stengt for direkte tilgang. Bare nettstedeieren har administrativ tilgang.</p>
+
+  <h2>Endringer</h2>
+  <p>Hvis denne policyen endres på en måte som betyr noe, endres datoen øverst, og oppdateringen kunngjøres på siden «Hva er nytt» på nettstedet.</p>
+</section>
+
+<section id="ar" lang="ar" dir="rtl">
+  <h2>من نحن</h2>
+  <p>Komiks·Lab هو مشروع لتعلّم النرويجية: موقع إلكتروني على
+    <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> وتطبيقان على أندرويد.
+    يديره Ruslan Bilohash، وهو مطوّر مستقل.</p>
+  <p>للتواصل بشأن أي سؤال يتعلق بالخصوصية، بما في ذلك حذف البيانات:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. نرد خلال 30 يومًا.</p>
+
+  <div class="key"><b>التطبيق غير المتصل بالإنترنت لا يجمع شيئًا على الإطلاق</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) يحتوي على كل قصة واختبار
+    وتسجيل داخل التطبيق المثبّت. لا يحتوي على حسابات ولا على أي رمز للشبكة — الوحدات
+    التي كان من الممكن أن تتواصل مع خادم ليست معطَّلة فحسب، بل غير مُضمَّنة في
+    البناء. يعمل في وضع الطيران. لا يخرج أي شيء من جهازك، لذا تنطبق بقية هذه السياسة
+    فقط على الموقع الإلكتروني وعلى التطبيق عبر الإنترنت.</div>
+
+  <h2>ما الذي يجمعه الموقع الإلكتروني والتطبيق عبر الإنترنت</h2>
+  <p>يشمل هذا <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> و
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).</p>
+
+  <h3>فقط إذا أنشأت حسابًا</h3>
+  <div class="tw"><table>
+    <tr><th>البيانات</th><th>لماذا</th></tr>
+    <tr><td>عنوان البريد الإلكتروني</td><td>لتسجيل الدخول، وتأكيد الحساب، وإعادة تعيين كلمة مرور</td></tr>
+    <tr><td>اسم العرض والصورة الرمزية</td><td>يظهر لأصدقائك وفي الترتيب</td></tr>
+    <tr><td>تقدّم التعلّم: الاختبارات التي أُجريت، الدرجات، سلاسل الإنجاز، الأخطاء</td><td>لمواصلة من حيث توقفت وبناء خطة التدريب الخاصة بك</td></tr>
+    <tr><td>الأصدقاء، الرسائل، منشورات الحائط</td><td>فقط إذا كنت تستخدم هذه الميزات</td></tr>
+  </table></div>
+  <p>لا يتم تخزين كلمة مرورك أبدًا. نحن نحتفظ فقط بملخّص أحادي الاتجاه لها (Argon2id)، ولا يمكن
+    تحويله مرة أخرى إلى كلمة المرور.</p>
+
+  <h3>من دون حساب</h3>
+  <ul>
+    <li>تظل إعداداتك وتقدّمك محفوظة في متصفحك الخاص (<code>localStorage</code>) ولا تصل إلينا أبدًا.</li>
+    <li>يتم تعيين ملف تعريف ارتباط للجلسة <code>kl_s</code> فقط بعد تسجيل الدخول. لا توجد ملفات تعريف ارتباط إعلانية
+      أو لتحليلات، ولا متتبعات من جهات خارجية.</li>
+    <li>يحتفظ الخادم بشكل مُجزّأ ومؤقت من عنوان IP الخاص بك للحد من إساءة الاستخدام
+      (تحديد المعدّل). ولا يرتبط بشخص، ولا يُستخدم لأي شيء آخر.</li>
+    <li>إحصاءات زيارات مجهولة الهوية (خاصة بنا، دون أطراف ثالثة): الأقسام والقصص التي تُفتح، ونوع الجهاز، ولغة الواجهة، والموقع الذي أتيت منه، والساعة. نحسب الزوار الفريدين يوميًا ببصمة مملّحة ليوم واحد لعنوان IP والمتصفح؛ لا يُخزَّن عنوان IP نفسه، ويُستبدل الملح ويُمحى كل يوم، فلا يمكن التعرف على الزائر في اليوم التالي. لا توجد ملفات تعريف ارتباط. إذا أرسل متصفحك Do Not Track أو Global Privacy Control فلا نحسب شيئًا.</li>
+  </ul>
+
+  <h2>من يرى البيانات أيضًا</h2>
+  <p>نحن لا نبيع البيانات أبدًا ولا نشاركها لأغراض إعلانية. ولا تصل البيانات إلى شركات أخرى إلا
+    عندما تتطلب ميزة ما ذلك تقنيًا:</p>
+  <div class="tw"><table>
+    <tr><th>الخدمة</th><th>ما الذي يتم إرساله</th><th>متى</th></tr>
+    <tr><td>Hostinger (استضافة داخل الاتحاد الأوروبي)</td><td>كل ما يتم تخزينه: الحساب، التقدّم، الرسائل</td><td>دائمًا — هنا يعمل الموقع</td></tr>
+    <tr><td>OpenAI</td><td>صوت الميكروفون الخاص بك ونص المحادثة</td><td>فقط أثناء مكالمة تدريب منطوقة، وفقط طالما استمرت</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>الجملة التي كتبتها، من دون اسمك أو بريدك الإلكتروني</td><td>فقط عندما تطلب مراجعة كتابتك</td></tr>
+    <tr><td>Google Fonts</td><td>عنوان IP الخاص بك، كما هو الحال مع أي خط ويب</td><td>عندما تُحمِّل الصفحة خطوطها</td></tr>
+    <tr><td>Stripe</td><td>بيانات الدفع، تُدار بالكامل بواسطة Stripe</td><td>غير مستخدم — التعلّم مجاني ولا يوجد ما يجب دفعه</td></tr>
+  </table></div>
+  <p>هذه الميزات موجودة فقط على الموقع وفي التطبيق عبر الإنترنت. لا يحتوي التطبيق غير المتصل على أيٍّ منها.</p>
+
+  <h2>مدة الاحتفاظ بها</h2>
+  <ul>
+    <li><b>الحساب والتقدّم</b> — إلى أن تحذف الحساب.</li>
+    <li><b>الرسائل ومنشورات الحائط</b> — إلى أن تحذفها أنت أو أحد المشرفين.</li>
+    <li><b>جلسات تسجيل الدخول</b> — 30 يومًا، ثم تنتهي.</li>
+    <li><b>سجل عمليات تسجيل الدخول الناجحة</b> — عنوان IP والوقت وطريقة الدخول والجهاز/المتصفح لمدة 30 يومًا. يُشفّر عنوان IP في قاعدة البيانات، ولا يراه إلا المسؤولون لحماية الحساب، ويُحذف مع الحساب. وهذا منفصل عن إحصاءات الزيارات المجهولة.</li>
+    <li><b>سجلات تقييد المعدّل</b> — ساعات، ثم تُستبدل.</li>
+    <li><b>الممارسة الشفوية</b> — لا يتم تسجيل الصوت أو تخزينه لدينا.</li>
+  </ul>
+
+  <h2>حقوقك</h2>
+  <p>بموجب اللائحة العامة لحماية البيانات (GDPR) يمكنك طلب نسخة من بياناتك، أو طلب تصحيحها، أو طلب حذفها.</p>
+  <ul>
+    <li><b>احذف حسابك بنفسك:</b> افتح ملفك الشخصي في التطبيق أو على الموقع →
+      <i>الحساب</i> → <i>حذف الحساب</i>. سيؤدي ذلك إلى حذف الحساب والتقدم والأصدقاء والرسائل.</li>
+    <li><b>أو اكتب إلى <a href="mailto:email@bilohash.com">email@bilohash.com</a></b> وسنتولى الأمر نيابةً عنك.</li>
+    <li>يمكنك أيضًا تقديم شكوى إلى هيئة حماية البيانات الوطنية في بلدك.</li>
+  </ul>
+
+  <h2>الأطفال</h2>
+  <p>التطبيقات مخصصة للجميع، لكن الحسابات والأصدقاء والرسائل موجهة للمستخدمين
+    الذين تبلغ أعمارهم 13 عامًا فما فوق. نحن لا ننشئ عن قصد حسابات للأطفال الأصغر سنًا. وإذا اعتقد أحد الوالدين أن طفله أنشأ حسابًا، فيمكنه الكتابة إلينا وسنقوم بحذفه.</p>
+  <p>يمكن للمتعلمين الأصغر سنًا استخدام <b>التطبيق غير المتصل</b>، الذي لا يحتوي على حساب ولا يرسل شيئًا إلى أي مكان.</p>
+
+  <h2>الأمان</h2>
+  <p>تستخدم كل حركة المرور HTTPS. تُجزَّأ كلمات المرور باستخدام Argon2id. توجد قاعدة البيانات وملف الإعدادات الذي يحتوي على بيانات الاعتماد خارج مجلد الويب العام وهما مغلقان أمام الوصول المباشر. لا يملك صلاحيات الإدارة إلا مالك الموقع.</p>
+
+  <h2>التغييرات</h2>
+  <p>إذا تغيّرت هذه السياسة بطريقة مهمة، يتغيّر التاريخ في الأعلى ويُعلَن عن التحديث في صفحة «ما الجديد» على الموقع.</p>
+</section>
+
+<section id="de" lang="de">
+  <h2>Wer wir sind</h2>
+  <p>Komiks·Lab ist ein Projekt zum Norwegischlernen: eine Website unter
+    <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> und zwei Android-Apps.
+    Es wird von Ruslan Bilohash betrieben, einem einzelnen Entwickler.</p>
+  <p>Kontakt für alle Fragen zum Datenschutz, einschließlich Datenlöschung:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. Wir antworten innerhalb von 30 Tagen.</p>
+
+  <div class="key"><b>Die Offline-App sammelt überhaupt nichts</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) enthält jede Geschichte, jeden Test und
+    jede Aufnahme direkt in der installierten App. Es gibt keine Konten und keinen Netzwerkcode — die Module,
+    die mit einem Server sprechen würden, sind nicht bloß abgeschaltet, sie sind im Build
+    nicht enthalten. Sie funktioniert im Flugmodus. Es verlässt nichts dein Gerät, daher
+    gilt diese Richtlinie im Übrigen nur für die Website und die Online-App.</div>
+
+  <h2>Was die Website und die Online-App erfassen</h2>
+  <p>Das betrifft <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> und
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).</p>
+
+  <h3>Nur wenn du ein Konto erstellst</h3>
+  <div class="tw"><table>
+    <tr><th>Daten</th><th>Warum</th></tr>
+    <tr><td>E-Mail-Adresse</td><td>zum Anmelden, zum Bestätigen des Kontos und zum Zurücksetzen eines Passworts</td></tr>
+    <tr><td>Anzeigename und Avatar</td><td>wird deinen Freunden und in der Rangliste angezeigt</td></tr>
+    <tr><td>Lernfortschritt: absolvierte Tests, Punkte, Serien, Fehler</td><td>um dort weiterzumachen, wo du aufgehört hast, und deinen Übungsplan zu erstellen</td></tr>
+    <tr><td>Freunde, Nachrichten, Pinnwandeinträge</td><td>nur wenn Sie diese Funktionen verwenden</td></tr>
+  </table></div>
+  <p>Ihr Passwort wird niemals gespeichert. Wir speichern nur einen Einweg-Hash davon (Argon2id), der
+    nicht wieder in das Passwort zurückverwandelt werden kann.</p>
+
+  <h3>Ohne Konto</h3>
+  <ul>
+    <li>Ihre Einstellungen und Ihr Fortschritt bleiben in Ihrem eigenen Browser (<code>localStorage</code>) und erreichen uns nie.</li>
+    <li>Ein Sitzungscookie <code>kl_s</code> wird erst gesetzt, nachdem Sie sich angemeldet haben. Es gibt keine Werbe-
+      oder Analyse-Cookies und keine Tracker von Drittanbietern.</li>
+    <li>Der Server speichert eine kurzlebige, gehashte Form Ihrer IP-Adresse, um Missbrauch zu begrenzen
+      (Rate Limiting). Sie wird nicht mit einer Person verknüpft und auch sonst für nichts verwendet.</li>
+    <li>Anonyme Besuchsstatistik (eigene, ohne Dritte): welche Bereiche und Comics geöffnet werden, Gerätetyp, Sprache der Oberfläche, die Website, von der Sie kamen, und die Uhrzeit. Eindeutige Besucher pro Tag werden mit einem täglich gesalzenen Hash aus IP-Adresse und Browser gezählt; die IP-Adresse selbst wird nie gespeichert, und das Salz wird täglich ersetzt und gelöscht, sodass ein Besucher am nächsten Tag nicht wiedererkannt werden kann. Keine Cookies. Sendet Ihr Browser Do Not Track oder Global Privacy Control, wird nichts gezählt.</li>
+  </ul>
+
+  <h2>Wer die Daten sonst noch sieht</h2>
+  <p>Wir verkaufen niemals Daten und geben sie niemals für Werbung weiter. Daten gelangen nur dann an andere Unternehmen,
+    wenn eine Funktion dies technisch erfordert:</p>
+  <div class="tw"><table>
+    <tr><th>Dienst</th><th>Was gesendet wird</th><th>Wann</th></tr>
+    <tr><td>Hostinger (EU-Hosting)</td><td>alles Gespeicherte: Konto, Fortschritt, Nachrichten</td><td>immer — hier läuft die Seite</td></tr>
+    <tr><td>OpenAI</td><td>dein Mikrofonaudio und der Text des Gesprächs</td><td>nur während eines gesprochenen Übungsanrufs und nur solange er dauert</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>der Satz, den du geschrieben hast, ohne deinen Namen oder deine E-Mail-Adresse</td><td>nur wenn du bittest, dein Schreiben zu überprüfen</td></tr>
+    <tr><td>Google Fonts</td><td>deine IP-Adresse, wie bei jeder Webschriftart</td><td>wenn eine Seite ihre Schriftarten lädt</td></tr>
+    <tr><td>Stripe</td><td>Zahlungsdaten, vollständig von Stripe abgewickelt</td><td>nicht in Gebrauch — Lernen ist kostenlos und es gibt nichts zu bezahlen</td></tr>
+  </table></div>
+  <p>Diese Funktionen gibt es nur auf der Website und in der Online-App. Die Offline-App hat keine davon.</p>
+
+  <h2>Wie lange wir sie aufbewahren</h2>
+  <ul>
+    <li><b>Konto und Fortschritt</b> — bis du das Konto löschst.</li>
+    <li><b>Nachrichten und Pinnwandbeiträge</b> — bis du oder ein Moderator sie löscht.</li>
+    <li><b>Anmeldesitzungen</b> — 30 Tage, dann laufen sie ab.</li>
+    <li><b>Verlauf erfolgreicher Anmeldungen</b> — IP-Adresse, Zeitpunkt, Anmeldeart und Gerät/Browser für 30 Tage. Die IP-Adresse ist in der Datenbank verschlüsselt, nur für Administratoren zur Kontosicherheit sichtbar und wird mit dem Konto gelöscht. Dies ist von der anonymen Besuchsstatistik getrennt.</li>
+    <li><b>Rate-Limit-Protokolle</b> — Stunden, dann werden sie überschrieben.</li>
+    <li><b>Gesprochene Übungen</b> — das Audio wird bei uns nicht aufgenommen oder gespeichert.</li>
+  </ul>
+
+  <h2>Ihre Rechte</h2>
+  <p>Nach der DSGVO können Sie eine Kopie Ihrer Daten anfordern, deren Korrektur verlangen oder uns bitten, sie zu löschen.</p>
+  <ul>
+    <li><b>Löschen Sie Ihr Konto selbst:</b> öffnen Sie Ihr Profil in der App oder auf der Website →
+      <i>Konto</i> → <i>Konto löschen</i>. Dadurch werden das Konto, der Fortschritt, Freunde und Nachrichten entfernt.</li>
+    <li><b>Oder schreiben Sie an <a href="mailto:email@bilohash.com">email@bilohash.com</a></b> und wir erledigen das für Sie.</li>
+    <li>Sie können sich außerdem bei Ihrer nationalen Datenschutzbehörde beschweren.</li>
+  </ul>
+
+  <h2>Kinder</h2>
+  <p>Die Apps sind für alle freigegeben, aber Konten, Freunde und Nachrichten sind für Nutzer
+    ab 13 Jahren gedacht. Wir legen wissentlich keine Konten für jüngere Kinder an. Ein Elternteil, der
+    glaubt, sein Kind habe ein Konto erstellt, kann uns schreiben, und wir werden es löschen.</p>
+  <p>Jüngere Lernende können die <b>Offline-App</b> verwenden, die kein Konto hat und nichts irgendwohin sendet.</p>
+
+  <h2>Sicherheit</h2>
+  <p>Der gesamte Datenverkehr nutzt HTTPS. Passwörter werden mit Argon2id gehasht. Die Datenbank und die Konfiguration mit Zugangsdaten befinden sich außerhalb des öffentlichen Webordners und sind vor direktem Zugriff geschützt. Nur der Seiteninhaber hat administrativen Zugriff.</p>
+
+  <h2>Änderungen</h2>
+  <p>Wenn sich diese Richtlinie in einer wichtigen Weise ändert, ändert sich das Datum oben, und das Update wird auf der Seite „What's new“ der Website angekündigt.</p>
+</section>
+
+<section id="pl" lang="pl">
+  <h2>Kim jesteśmy</h2>
+  <p>Komiks·Lab to projekt do nauki norweskiego: strona internetowa pod adresem
+    <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> oraz dwie aplikacje na Androida.
+    Prowadzi go Ruslan Bilohash, niezależny deweloper.</p>
+  <p>Kontakt w sprawie wszelkich pytań dotyczących prywatności, w tym usunięcia danych:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. Odpowiadamy w ciągu 30 dni.</p>
+
+  <div class="key"><b>Aplikacja offline nie zbiera absolutnie nic</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) zawiera wszystkie historie, testy i
+    nagrania w zainstalowanej aplikacji. Nie ma kont ani kodu sieciowego — moduły,
+    które mogłyby komunikować się z serwerem, nie są po prostu wyłączone, lecz nie są w ogóle
+    dołączone do kompilacji. Działa w trybie samolotowym. Nic nie opuszcza Twojego urządzenia, więc pozostała część tej polityki
+    dotyczy tylko strony internetowej i aplikacji online.</div>
+
+  <h2>Co zbierają strona internetowa i aplikacja online</h2>
+  <p>Dotyczy to <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> oraz
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).</p>
+
+  <h3>Tylko jeśli utworzysz konto</h3>
+  <div class="tw"><table>
+    <tr><th>Dane</th><th>Dlaczego</th></tr>
+    <tr><td>Adres e-mail</td><td>do logowania, potwierdzania konta i resetowania hasła</td></tr>
+    <tr><td>Nazwa wyświetlana i awatar</td><td>wyświetlane znajomym i w rankingu</td></tr>
+    <tr><td>Postępy w nauce: wykonane testy, wyniki, serie, błędy</td><td>aby kontynuować tam, gdzie skończyłeś, i ułożyć plan ćwiczeń</td></tr>
+    <tr><td>Znajomi, wiadomości, wpisy na tablicy</td><td>tylko jeśli korzystasz z tych funkcji</td></tr>
+  </table></div>
+  <p>Twoje hasło nigdy nie jest przechowywane. Zachowujemy tylko jego jednorazowy skrót (Argon2id), którego nie można
+    zamienić z powrotem na hasło.</p>
+
+  <h3>Bez konta</h3>
+  <ul>
+    <li>Twoje ustawienia i postępy pozostają w Twojej przeglądarce (<code>localStorage</code>) i nigdy do nas nie trafiają.</li>
+    <li>Ciasteczko sesyjne <code>kl_s</code> jest ustawiane dopiero po zalogowaniu. Nie ma ciasteczek reklamowych
+      ani analitycznych, ani trackerów firm trzecich.</li>
+    <li>Serwer przechowuje przez krótki czas zahaszowaną postać Twojego adresu IP, aby ograniczać nadużycia
+      (rate limiting). Nie jest on powiązany z żadną osobą i nie jest używany do niczego innego.</li>
+    <li>Anonimowe statystyki odwiedzin (własne, bez stron trzecich): które sekcje i komiksy są otwierane, typ urządzenia, język interfejsu, strona, z której przyszedłeś, i godzina. Unikalnych odwiedzających w danym dniu liczymy za pomocą solonego na jeden dzień skrótu adresu IP i przeglądarki; sam adres IP nigdy nie jest zapisywany, a sól jest codziennie wymieniana i usuwana, więc następnego dnia nie da się rozpoznać odwiedzającego. Bez ciasteczek. Jeśli przeglądarka wysyła Do Not Track lub Global Privacy Control, nic nie liczymy.</li>
+  </ul>
+
+  <h2>Kto jeszcze widzi dane</h2>
+  <p>Nigdy nie sprzedajemy danych i nigdy nie udostępniamy ich do celów reklamowych. Dane trafiają do innych firm tylko
+    wtedy, gdy dana funkcja wymaga tego technicznie:</p>
+  <div class="tw"><table>
+    <tr><th>Usługa</th><th>Co jest wysyłane</th><th>Kiedy</th></tr>
+    <tr><td>Hostinger (hosting w UE)</td><td>wszystko przechowywane: konto, postępy, wiadomości</td><td>zawsze — to tutaj działa witryna</td></tr>
+    <tr><td>OpenAI</td><td>nagranie z mikrofonu i tekst rozmowy</td><td>tylko podczas rozmowy praktycznej na żywo i tylko tak długo, jak trwa</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>zdanie, które napisałeś, bez imienia i adresu e-mail</td><td>tylko wtedy, gdy poprosisz o sprawdzenie swojego tekstu</td></tr>
+    <tr><td>Google Fonts</td><td>Twój adres IP, tak jak w przypadku każdej czcionki internetowej</td><td>gdy strona ładuje swoje czcionki</td></tr>
+    <tr><td>Stripe</td><td>szczegóły płatności, obsługiwane w całości przez Stripe</td><td>nieużywane — nauka jest darmowa i nie ma za co płacić</td></tr>
+  </table></div>
+  <p>Te funkcje istnieją tylko na stronie internetowej i w aplikacji online. Aplikacja offline nie ma żadnej z nich.</p>
+
+  <h2>Jak długo je przechowujemy</h2>
+  <ul>
+    <li><b>Konto i postępy</b> — do momentu usunięcia konta.</li>
+    <li><b>Wiadomości i posty na tablicy</b> — do momentu, aż usuniesz je Ty lub moderator.</li>
+    <li><b>Sesje logowania</b> — 30 dni, potem wygasają.</li>
+    <li><b>Historia udanych logowań</b> — adres IP, czas, sposób logowania i urządzenie/przeglądarka przez 30 dni. Adres IP jest zaszyfrowany w bazie, widoczny tylko dla administratorów w celu ochrony konta i usuwany wraz z kontem. Jest to oddzielone od anonimowych statystyk odwiedzin.</li>
+    <li><b>Rekordy ograniczania liczby żądań</b> — kilka godzin, potem są nadpisywane.</li>
+    <li><b>Praktyka mówienia</b> — nagrania audio nie są po naszej stronie ani rejestrowane, ani przechowywane.</li>
+  </ul>
+
+  <h2>Twoje prawa</h2>
+  <p>Zgodnie z RODO możesz poprosić o kopię swoich danych, poprosić o ich poprawienie albo poprosić nas o ich usunięcie.</p>
+  <ul>
+    <li><b>Usuń konto samodzielnie:</b> otwórz swój profil w aplikacji lub na stronie →
+      <i>Konto</i> → <i>Usuń konto</i>. Spowoduje to usunięcie konta, postępów, znajomych i wiadomości.</li>
+    <li><b>Albo napisz do <a href="mailto:email@bilohash.com">email@bilohash.com</a></b>, a zrobimy to za Ciebie.</li>
+    <li>Możesz też złożyć skargę do krajowego organu ochrony danych.</li>
+  </ul>
+
+  <h2>Dzieci</h2>
+  <p>Aplikacje są oznaczone jako przeznaczone dla wszystkich, ale konta, znajomi i wiadomości są przeznaczone dla użytkowników
+    w wieku 13 lat i starszych. Nie tworzymy świadomie kont dla młodszych dzieci. Rodzic, który
+    uważa, że jego dziecko utworzyło konto, może do nas napisać, a my je usuniemy.</p>
+  <p>Młodsi uczniowie mogą korzystać z <b>aplikacji offline</b>, która nie wymaga konta i niczego nigdzie nie wysyła.</p>
+
+  <h2>Bezpieczeństwo</h2>
+  <p>Cały ruch odbywa się przez HTTPS. Hasła są haszowane za pomocą Argon2id. Baza danych i konfiguracja z danymi dostępowymi znajdują się poza publicznym folderem webowym i są zabezpieczone przed bezpośrednim dostępem. Dostęp administracyjny ma wyłącznie właściciel strony.</p>
+
+  <h2>Zmiany</h2>
+  <p>Jeśli ta polityka zmieni się w istotny sposób, data u góry zostanie zmieniona, a aktualizacja zostanie ogłoszona na stronie „Co nowego” serwisu.</p>
+</section>
+
+<section id="tr" lang="tr">
+  <h2>Biz kimiz</h2>
+  <p>Komiks·Lab bir Norveççe öğrenme projesidir: <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> adresindeki bir web sitesi ve iki Android uygulaması.
+    Bireysel geliştirici Ruslan Bilohash tarafından yürütülmektedir.</p>
+  <p>Gizlilikle ilgili her türlü soru için, veri silme dahil:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. 30 gün içinde yanıt veririz.</p>
+
+  <div class="key"><b>Çevrimdışı uygulama hiçbir şey toplamaz</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) yüklü uygulamanın içinde tüm hikâyeleri, testleri ve
+    kayıtları barındırır. Hesap yoktur ve ağ kodu da yoktur — bir sunucuyla iletişim kuracak modüller
+    sadece kapatılmış değildir, derlemeye hiç dahil edilmemiştir. Uçak modunda çalışır. Cihazınızdan hiçbir şey çıkmaz; bu yüzden politikanın geri kalanı yalnızca web sitesi ve çevrimiçi uygulama için geçerlidir.</div>
+
+  <h2>Web sitesinin ve çevrimiçi uygulamanın topladığı veriler</h2>
+  <p>Bu, <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> ve
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>) için geçerlidir.</p>
+
+  <h3>Yalnızca hesap oluşturursanız</h3>
+  <div class="tw"><table>
+    <tr><th>Veri</th><th>Neden</th></tr>
+    <tr><td>E-posta adresi</td><td>giriş yapmak, hesabı doğrulamak ve bir şifreyi sıfırlamak için</td></tr>
+    <tr><td>Görünen ad ve avatar</td><td>arkadaşlarına ve sıralamada gösterilir</td></tr>
+    <tr><td>Öğrenme ilerlemesi: yapılan testler, puanlar, seriler, hatalar</td><td>kaldığın yerden devam etmek ve çalışma planını oluşturmak için</td></tr>
+    <tr><td>Arkadaşlar, mesajlar, duvar paylaşımları</td><td>bu özellikleri yalnızca kullanırsanız</td></tr>
+  </table></div>
+  <p>Şifreniz asla saklanmaz. Yalnızca tek yönlü bir özetini (Argon2id) tutarız; bu özet şifreye geri çevrilemez.</p>
+
+  <h3>Hesapsız</h3>
+  <ul>
+    <li>Ayarlarınız ve ilerlemeniz kendi tarayıcınızda (<code>localStorage</code>) kalır ve bize hiç ulaşmaz.</li>
+    <li><code>kl_s</code> adlı bir oturum çerezi, yalnızca giriş yaptıktan sonra ayarlanır. Reklam veya analiz çerezleri yoktur; üçüncü taraf izleyiciler de yoktur.</li>
+    <li>Sunucu, kötüye kullanımı sınırlamak için IP adresinizin kısa ömürlü, hashlenmiş bir sürümünü tutar (hız sınırlama). Bu, bir kişiyle ilişkilendirilmez ve başka hiçbir amaçla kullanılmaz.</li>
+    <li>Anonim ziyaret istatistikleri (kendimize ait, üçüncü taraf yok): hangi bölümlerin ve çizgi romanların açıldığı, cihaz türü, arayüz dili, geldiğiniz site ve saat. Günlük tekil ziyaretçiler, IP adresi ve tarayıcının bir günlük tuzlanmış özetiyle sayılır; IP adresinin kendisi asla saklanmaz, tuz her gün değiştirilip silinir, bu yüzden bir ziyaretçi ertesi gün tanınamaz. Çerez yoktur. Tarayıcınız Do Not Track veya Global Privacy Control gönderirse hiçbir şey sayılmaz.</li>
+  </ul>
+
+  <h2>Verileri başka kimler görür</h2>
+  <p>Verileri hiçbir zaman satmayız ve reklam için asla paylaşmayız. Veriler başka şirketlere yalnızca bir özellik bunu teknik olarak gerektirdiğinde ulaşır:</p>
+  <div class="tw"><table>
+    <tr><th>Hizmet</th><th>Neler gönderilir</th><th>Ne zaman</th></tr>
+    <tr><td>Hostinger (AB barındırma)</td><td>saklanan her şey: hesap, ilerleme, mesajlar</td><td>her zaman — site burada çalışır</td></tr>
+    <tr><td>OpenAI</td><td>mikrofon sesiniz ve konuşmanın metni</td><td>yalnızca bir sözlü pratik görüşmesi sırasında ve yalnızca sürdüğü süre boyunca</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>adınızı veya e-posta adresinizi içermeyen yazdığınız cümle</td><td>yalnızca yazdıklarınızı kontrol ettirmek istediğinizde</td></tr>
+    <tr><td>Google Fonts</td><td>herhangi bir web yazı tipinde olduğu gibi IP adresiniz</td><td>bir sayfa yazı tiplerini yüklendiğinde</td></tr>
+    <tr><td>Stripe</td><td>ödeme bilgileri, tamamen Stripe tarafından işlenir</td><td>kullanımda değil — öğrenmek ücretsizdir ve ödenecek hiçbir şey yoktur</td></tr>
+  </table></div>
+  <p>Bu özellikler yalnızca web sitesinde ve çevrimiçi uygulamada vardır. Çevrimdışı uygulamada bunların hiçbiri yoktur.</p>
+
+  <h2>Ne kadar süre sakladığımız</h2>
+  <ul>
+    <li><b>Hesap ve ilerleme</b> — hesabı silene kadar.</li>
+    <li><b>Mesajlar ve duvar gönderileri</b> — siz veya bir moderatör onları silene kadar.</li>
+    <li><b>Oturum açma oturumları</b> — 30 gün, sonra süreleri dolar.</li>
+    <li><b>Başarılı giriş geçmişi</b> — IP adresi, zaman, giriş yöntemi ve cihaz/tarayıcı 30 gün boyunca tutulur. IP adresi veritabanında şifrelenir, hesap güvenliği için yalnızca yöneticiler görebilir ve hesapla birlikte silinir. Bu kayıt anonim ziyaret istatistiklerinden ayrıdır.</li>
+    <li><b>Hız sınırlama kayıtları</b> — saatlerce, sonra üzerlerine yazılır.</li>
+    <li><b>Konuşma pratiği</b> — ses kaydı bizim tarafımızda kaydedilmez veya saklanmaz.</li>
+  </ul>
+
+  <h2>Haklarınız</h2>
+  <p>GDPR kapsamında verilerinizin bir kopyasını isteyebilir, düzeltilmesini isteyebilir veya silmemizi talep edebilirsiniz.</p>
+  <ul>
+    <li><b>Hesabınızı kendiniz silin:</b> uygulamada veya sitede profilinizi açın →
+      <i>Hesap</i> → <i>Hesabı sil</i>. Bu işlem hesabı, ilerlemeyi, arkadaşları ve mesajları kaldırır.</li>
+    <li><b>Ya da <a href="mailto:email@bilohash.com">email@bilohash.com</a> adresine yazın</b> ve bunu sizin için biz yapalım.</li>
+    <li>Ayrıca ulusal veri koruma otoritenize şikayette bulunabilirsiniz.</li>
+  </ul>
+
+  <h2>Çocuklar</h2>
+  <p>Uygulamalar herkes için derecelendirilmiştir, ancak hesaplar, arkadaşlar ve mesajlar 13 yaş ve üzeri kullanıcılar içindir. Bilerek daha küçük çocuklar için hesap oluşturmayız. Çocuğunun hesap açtığını düşünen bir ebeveyn bize yazabilir; biz de hesabı sileriz.</p>
+  <p>Genç öğrenenler, hesabı olmayan ve hiçbir yere hiçbir şey göndermeyen <b>çevrimdışı uygulamayı</b> kullanabilir.</p>
+
+  <h2>Güvenlik</h2>
+  <p>Tüm trafik HTTPS kullanır. Parolalar Argon2id ile hashlenir. Veritabanı ve kimlik bilgilerini içeren yapılandırma herkese açık web klasörünün dışında yer alır ve doğrudan erişime kapalıdır. Yalnızca site sahibi yönetici erişimine sahiptir.</p>
+
+  <h2>Değişiklikler</h2>
+  <p>Bu politika önemli bir şekilde değişirse, en üstteki tarih güncellenir ve güncelleme sitenin “What's new” sayfasında duyurulur.</p>
+</section>
+
+<section id="lt" lang="lt">
+  <h2>Kas mes esame</h2>
+  <p>Komiks·Lab yra norvegų kalbos mokymosi projektas: svetainė adresu
+    <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> ir dvi Android programos.
+    Jį valdo Ruslanas Bilohashas, nepriklausomas kūrėjas.</p>
+  <p>Susisiekti dėl bet kokio privatumo klausimo, įskaitant duomenų ištrynimą:
+    <a href="mailto:email@bilohash.com">email@bilohash.com</a>. Atsakome per 30 dienų.</p>
+
+  <div class="key"><b>Naudojama neprisijungus programa nieko nerenka</b>
+    <b>Komiks·Lab</b> (<code>com.bilohash.komikslab</code>) visas istorijas, testus ir
+    įrašus turi pačioje įdiegtos programos viduje. Ji neturi paskyrų ir neturi tinklo kodo — moduliai,
+    kurie kalbėtųsi su serveriu, nėra tiesiog išjungti, jų apskritai nėra
+    leidinyje. Ji veikia lėktuvo režimu. Niekas nepasišalina iš jūsų įrenginio, todėl likusi šios politikos
+    dalis taikoma tik svetainei ir internetinei programai.</div>
+
+  <h2>Ką renka svetainė ir internetinė programa</h2>
+  <p>Tai taikoma <a href="https://bilohash.com/comiks/">bilohash.com/comiks</a> ir
+    <b>Komiks·Lab Online</b> (<code>com.bilohash.komikslab.online</code>).</p>
+
+  <h3>Tik jei susikuriate paskyrą</h3>
+  <div class="tw"><table>
+    <tr><th>Duomenys</th><th>Kam</th></tr>
+    <tr><td>El. pašto adresas</td><td>prisijungti, patvirtinti paskyrą ir atkurti slaptažodį</td></tr>
+    <tr><td>Rodomas vardas ir avataras</td><td>rodomi tavo draugams ir reitinge</td></tr>
+    <tr><td>Mokymosi pažanga: atlikti testai, rezultatai, serijos, klaidos</td><td>tęsti ten, kur sustojai, ir sudaryti savo praktikos planą</td></tr>
+    <tr><td>Draugai, žinutės, įrašai ant sienos</td><td>tik jei naudojate šias funkcijas</td></tr>
+  </table></div>
+  <p>Jūsų slaptažodis niekada nėra saugomas. Mes saugome tik vienkryptį jo maišos kodą (Argon2id), kurio negalima
+    atgal paversti slaptažodžiu.</p>
+
+  <h3>Be paskyros</h3>
+  <ul>
+    <li>Jūsų nustatymai ir pažanga lieka jūsų naršyklėje (<code>localStorage</code>) ir niekada mūsų nepasiekia.</li>
+    <li>Sesijos slapukas <code>kl_s</code> nustatomas tik prisijungus. Nėra reklamos
+      ar analizės slapukų ir nėra trečiųjų šalių sekiklių.</li>
+    <li>Serveris saugo trumpai galiojančią, užšifruotą jūsų IP adreso formą, kad apribotų piktnaudžiavimą
+      (užklausų ribojimą). Ji nesiejama su asmeniu ir nenaudojama niekam kitam.</li>
+    <li>Anoniminė apsilankymų statistika (sava, be trečiųjų šalių): kokie skyriai ir komiksai atidaromi, įrenginio tipas, sąsajos kalba, svetainė, iš kurios atėjote, ir valanda. Unikalūs dienos lankytojai skaičiuojami pagal vienai dienai sūdytą IP adreso ir naršyklės maišos reikšmę; pats IP adresas niekada nesaugomas, o druska kasdien keičiama ir ištrinama, todėl kitą dieną lankytojo atpažinti neįmanoma. Slapukų nėra. Jei naršyklė siunčia Do Not Track arba Global Privacy Control, nieko neskaičiuojame.</li>
+  </ul>
+
+  <h2>Kas dar mato duomenis</h2>
+  <p>Mes niekada neparduodame duomenų ir niekada nesidalijame jais reklamos tikslais. Duomenys pasiekia kitas įmones tik
+    tada, kai funkcijai to techniškai reikia:</p>
+  <div class="tw"><table>
+    <tr><th>Paslauga</th><th>Kas siunčiama</th><th>Kada</th></tr>
+    <tr><td>Hostinger (ES priegloba)</td><td>viskas, kas saugoma: paskyra, pažanga, žinutės</td><td>visada — čia veikia svetainė</td></tr>
+    <tr><td>OpenAI</td><td>jūsų mikrofono garsas ir pokalbio tekstas</td><td>tik per pokalbiu pagrįstą praktikos skambutį ir tik kol jis trunka</td></tr>
+    <tr><td>OpenAI / Anthropic / Groq / xAI</td><td>sakinį, kurį parašėte, be savo vardo ar el. pašto adreso</td><td>tik kai prašote patikrinti savo tekstą</td></tr>
+    <tr><td>Google Fonts</td><td>jūsų IP adresą, kaip ir naudojant bet kurį žiniatinklio šriftą</td><td>kai puslapis įkelia savo šriftus</td></tr>
+    <tr><td>Stripe</td><td>mokėjimo duomenys, tvarkomi tik per Stripe</td><td>nenaudojama — mokymasis nemokamas, todėl nėra už ką mokėti</td></tr>
+  </table></div>
+  <p>Šios funkcijos egzistuoja tik svetainėje ir internetinėje programoje. Neprisijungus veikianti programėlė jų neturi.</p>
+
+  <h2>Kiek laiko tai saugome</h2>
+  <ul>
+    <li><b>Paskyra ir pažanga</b> — kol ištrinsite paskyrą.</li>
+    <li><b>Žinutės ir įrašai sienoje</b> — kol juos ištrinsite jūs arba moderatorius.</li>
+    <li><b>Prisijungimo sesijos</b> — 30 dienų, paskui jos baigiasi.</li>
+    <li><b>Sėkmingų prisijungimų istorija</b> — IP adresas, laikas, prisijungimo būdas ir įrenginys / naršyklė 30 dienų. IP adresas duomenų bazėje užšifruotas, paskyros saugumo tikslais matomas tik administratoriams ir ištrinamas kartu su paskyra. Tai atskirta nuo anoniminių apsilankymų statistikos.</li>
+    <li><b>Spartos ribojimo įrašai</b> — kelias valandas, tada jie perrašomi.</li>
+    <li><b>Kalbėjimo praktika</b> — garso įrašai mūsų pusėje nėra įrašomi ar saugomi.</li>
+  </ul>
+
+  <h2>Jūsų teisės</h2>
+  <p>Pagal BDAR galite paprašyti savo duomenų kopijos, paprašyti juos pataisyti arba paprašyti, kad juos ištrintume.</p>
+  <ul>
+    <li><b>Ištrinkite paskyrą patys:</b> atidarykite savo profilį programėlėje arba svetainėje →
+      <i>Paskyra</i> → <i>Ištrinti paskyrą</i>. Taip bus pašalinta paskyra, pažanga, draugai ir žinutės.</li>
+    <li><b>Arba parašykite <a href="mailto:email@bilohash.com">email@bilohash.com</a></b> ir mes tai padarysime už jus.</li>
+    <li>Taip pat galite pateikti skundą savo nacionalinei duomenų apsaugos institucijai.</li>
+  </ul>
+
+  <h2>Vaikai</h2>
+  <p>Programėlės yra įvertintos visiems, tačiau paskyros, draugai ir žinutės yra skirti naudotojams
+    nuo 13 metų. Sąmoningai nekuriame paskyrų jaunesniems vaikams. Tėvai, kurie
+    mano, kad jų vaikas susikūrė paskyrą, gali mums parašyti ir mes ją pašalinsime.</p>
+  <p>Jaunesni mokiniai gali naudotis <b>neprisijungusia programėle</b>, kuriai nereikia paskyros ir kuri nieko niekur nesiunčia.</p>
+
+  <h2>Saugumas</h2>
+  <p>Visas srautas naudoja HTTPS. Slaptažodžiai maišomi naudojant Argon2id. Duomenų bazė ir konfigūracija su prisijungimo duomenimis yra už viešojo tinklalapio aplanko ribų ir nėra tiesiogiai pasiekiamos. Tik svetainės savininkas turi administravimo prieigą.</p>
+
+  <h2>Pakeitimai</h2>
+  <p>Jei ši politika pasikeičia taip, kad tai svarbu, datos viršuje pakeičiama ir atnaujinimas paskelbiamas svetainės „Kas naujo“ puslapyje.</p>
+</section>
 
 </main>
 </body>

@@ -22,7 +22,7 @@ declare(strict_types=1);
 define('KOMIKS_API', 1);
 require __DIR__ . '/lib.php';
 
-const LANGS = ['en', 'no', 'uk', 'ar'];
+const LANGS = KL_LANGS;
 const INVITE_TTL = 30 * 86400;
 // дійсне запрошення: не використане, не прострочене, запрошувач досі може запрошувати й не заблокований
 function invite_row(string $code): ?array {
@@ -36,6 +36,43 @@ $action = (string)($_GET['action'] ?? '');
 
 /* ---------- GET ---------- */
 if (method() === 'GET') {
+/* Відписка має працювати з одного кліку в листі, без входу й без пояснень —
+   інакше наступний лист піде у «спам», а не в кошик. */
+if ($action === 'unsub') {
+  $u = take_token((string)($_GET['t'] ?? ''), 'unsub');
+  if (!$u && preg_match('/^[a-f0-9]{64}$/', (string)($_GET['t'] ?? ''))) {
+    // A second click may confirm an already completed unsubscribe, never log in.
+    $u = one('SELECT u.* FROM kl_users u JOIN kl_tokens t ON t.user_id=u.id WHERE t.token_hash=? AND t.kind=? AND u.mail_ok=0', [sha((string)$_GET['t']), 'unsub']);
+  }
+  if (!$u) {
+    http_response_code(400); header('Content-Type: text/html; charset=utf-8'); header('Cache-Control: no-store');
+    echo '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Link unavailable</title><body><h1>Link unavailable / Посилання недійсне</h1><p>Use the unsubscribe link in your latest email. / Скористайтеся посиланням відписки з останнього листа.</p></body></html>'; exit;
+  }
+  $lang = 'en';
+  if ($u) {
+    q('UPDATE kl_users SET mail_ok = 0 WHERE id = ?', [$u['id']]);
+    $row = one('SELECT lang FROM kl_users WHERE id = ?', [$u['id']]);
+    $lang = in_array($row['lang'] ?? '', ['en','no','uk','ar'], true) ? $row['lang'] : 'en';
+  }
+  $say = ['en' => ['Unsubscribed', 'You will not get reminder emails any more. Letters about your account still work.'],
+    'no' => ['Avmeldt', 'Du får ikke flere påminnelser på e-post. E-post om kontoen din virker fortsatt.'],
+    'uk' => ['Відписано', 'Листів-нагадувань більше не буде. Листи про ваш акаунт і далі працюють.'],
+    'ar' => ['تم إلغاء الاشتراك', 'لن تصلك رسائل تذكير بعد الآن. رسائل الحساب تبقى كما هي.']][$lang];
+  header('Content-Type: text/html; charset=utf-8');
+  header('Cache-Control: no-store');
+  echo '<!doctype html><html lang="' . htmlspecialchars($lang) . '"><meta charset="utf-8">'
+    . '<meta name="viewport" content="width=device-width,initial-scale=1"><title>' . htmlspecialchars($say[0]) . '</title>'
+    . '<body style="margin:0;background:#fff8ea;font:16px/1.6 system-ui,sans-serif;color:#141414">'
+    . '<div style="max-width:520px;margin:12vh auto;padding:24px 26px;background:#fff;border:4px solid #141414;border-radius:20px">'
+    . '<h1 style="margin:0 0 10px;font-size:24px">' . htmlspecialchars($say[0]) . ' ✓</h1>'
+    . '<p style="margin:0 0 18px">' . htmlspecialchars($say[1]) . '</p>'
+    . '<a href="' . htmlspecialchars(site_url()) . '" style="display:inline-block;padding:10px 18px;background:#ffd23f;border:3px solid #141414;border-radius:12px;color:#141414;text-decoration:none;font-weight:700">Komiks·Lab →</a>'
+    . '</div>';
+  exit;
+}
+
+
+  if ($action === 'google_status') { require_once __DIR__ . '/google-auth.php'; out(['ok'=>true,'enabled'=>google_enabled()]); }
   if ($action === 'me' || $action === '') { $u = current_user(); out(['ok' => true, 'auth' => 1, 'user' => $u ? public_user($u) : null, 'notice' => pending_notice($u ? (int)$u['id'] : null, ip_hash())]); }
   // попередження модератора («так писати не можна») — для акаунта або (гостям) за IP
   if ($action === 'notice') { $u = current_user(); out(['ok' => true, 'notice' => pending_notice($u ? (int)$u['id'] : null, ip_hash())]); }
@@ -52,11 +89,12 @@ if (method() === 'GET') {
   if ($action === 'verify') {
     if (limited('verify:' . ip_hash(), 30, 3600)) redirect('#/verify-failed');
     $u = take_token((string)($_GET['token'] ?? ''), 'verify');
-    if (!$u) redirect('#/verify-failed');
+    if (!$u || !empty($u['blocked_at'])) redirect('#/verify-failed');
     $first = empty($u['verified_at']);
     if ($first) q('UPDATE kl_users SET verified_at = ? WHERE id = ?', [time(), $u['id']]);
     $seat = $first ? founder_grant(one('SELECT * FROM kl_users WHERE id = ?', [$u['id']])) : null;
-    start_session((int)$u['id']);
+    if (totp_on($u)) redirect('#/login-pass');
+    start_session((int)$u['id'], 'email_verify');
     if ($first) send_template($u, 'welcome', site_url() . '#/');
     if ($seat) notify_admins('🏅 PRO #' . $seat . ': ' . $u['name'], [['Ім’я', $u['name']], ['Пошта', $u['email']], ['Місце', '#' . $seat . ' зі ' . founder_slots()], ['Лишилось місць', (string)founders_left()]], 'admin.php?p=user&id=' . (int)$u['id']);
     redirect('#/welcome');
@@ -96,6 +134,29 @@ $in = input();
 $action = (string)($in['action'] ?? $action);
 $ip = ip_hash();
 
+if ($action === 'google_pending') {
+  $ticket = (string)($_COOKIE['kl_google_2fa'] ?? '');
+  setcookie('kl_google_2fa', '', cookie_opts(time()-3600));
+  if (!preg_match('/^[a-f0-9]{64}$/', $ticket)) fail('token');
+  out(['ok'=>true,'ticket'=>$ticket]);
+}
+/* Google у застосунку: системний браузер повернув одноразовий код, застосунок додає свій
+   секрет (verifier, sha256 якого надіслано на старті). Лише тоді — сесія, як після пароля. */
+if ($action === 'google_handoff') {
+  rate_or_fail('g-handoff:' . $ip, 20, 900);
+  $code = (string)($in['code'] ?? ''); $ver = (string)($in['verifier'] ?? '');
+  if (!preg_match('/^[a-f0-9]{64}$/', $code) || !preg_match('/^[a-f0-9]{64}$/', $ver)) fail('token');
+  require_once __DIR__ . '/google-auth.php';
+  google_install();
+  $row = one('SELECT * FROM kl_google_handoff WHERE code_hash = ?', [sha($code)]);
+  if (!$row || $row['used_at'] !== null || (int)$row['expires_at'] <= time() || !hash_equals((string)$row['app_ch'], hash('sha256', $ver))) fail('token');
+  if (!q('UPDATE kl_google_handoff SET used_at = ? WHERE code_hash = ? AND used_at IS NULL', [time(), sha($code)])->rowCount()) fail('token');
+  $u = one('SELECT * FROM kl_users WHERE id = ?', [(int)$row['user_id']]);
+  if (!$u || !empty($u['blocked_at'])) fail('blocked', 403);
+  if (totp_on($u)) out(['ok' => true, 'need2fa' => true, 'ticket' => new_token((int)$u['id'], '2fa', 600)]);
+  start_session((int)$u['id'], 'google');
+  out(['ok' => true, 'user' => public_user($u)]);
+}
 if ($action === 'register') {
   rate_or_fail('reg:' . $ip, 6, 3600);
   $name = clean_text((string)($in['name'] ?? ''), 30);
@@ -175,7 +236,7 @@ if ($action === 'demo') {
   $u = $who !== '' ? one('SELECT * FROM kl_users WHERE is_demo = 1 AND email = ?', [$who . '@demo.bilohash.com']) : null;
   if (!$u) fail('wrong', 401);
   if (!empty($u['blocked_at'])) fail('blocked', 403);
-  start_session((int)$u['id']);
+  start_session((int)$u['id'], 'demo');
   out(['ok' => true, 'user' => public_user($u)]);
 }
 
@@ -186,7 +247,7 @@ if ($action === 'login') {
   rate_or_fail('login-mail:' . $email, 8, 900);
   $u = valid_email($email) ? one('SELECT * FROM kl_users WHERE email = ?', [$email]) : null;
   if ($u && !empty($u['is_demo'])) {
-    start_session((int)$u['id']);
+    start_session((int)$u['id'], 'demo');
     out(['ok' => true, 'user' => public_user($u)]);
   }
   // однаковий час відповіді для неіснуючої пошти
@@ -197,7 +258,7 @@ if ($action === 'login') {
   if (password_needs_rehash($u['pass_hash'], defined('PASSWORD_ARGON2ID') ? PASSWORD_ARGON2ID : PASSWORD_DEFAULT)) q('UPDATE kl_users SET pass_hash = ? WHERE id = ?', [hash_password($pass), $u['id']]);
   /* Другий фактор: сесії ще немає, лише короткий квиток на введення коду. */
   if (totp_on($u)) out(['ok' => true, 'need2fa' => true, 'ticket' => new_token((int)$u['id'], '2fa', 600)]);
-  start_session((int)$u['id']);
+  start_session((int)$u['id'], 'password');
   out(['ok' => true, 'user' => public_user($u)]);
 }
 
@@ -214,7 +275,6 @@ if ($action === 'magic') {
     if ($u && empty($u['blocked_at']) && empty($u['is_demo'])) {
       $tok = new_token((int)$u['id'], 'magic', MAGIC_TTL);
       $code = str_pad((string)random_int(0, 999999), 6, '0', STR_PAD_LEFT);
-      q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $u['id'], 'mcode']);
       q('INSERT INTO kl_tokens (token_hash, user_id, kind, expires_at) VALUES (?, ?, ?, ?)',
         [sha('mcode:' . $u['id'] . ':' . $code), (int)$u['id'], 'mcode', time() + MAGIC_TTL]);
       send_magic($u, site_url() . '#/magic/' . $tok, $code);
@@ -233,7 +293,7 @@ if ($action === 'magic_link') {
   q('UPDATE kl_users SET verified_at = COALESCE(verified_at, ?) WHERE id = ?', [time(), $row['id']]);
   q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $row['id'], 'mcode']);
   if (totp_on($row)) out(['ok' => true, 'need2fa' => true, 'ticket' => new_token((int)$row['id'], '2fa', 600)]);
-  start_session((int)$row['id']);
+  start_session((int)$row['id'], 'email_link');
   out(['ok' => true, 'user' => public_user(one('SELECT * FROM kl_users WHERE id = ?', [$row['id']]))]);
 }
 
@@ -250,39 +310,11 @@ if ($action === 'magic_code') {
     [sha('mcode:' . $u['id'] . ':' . $code), 'mcode', time()]);
   if (!$row) fail('wrong', 401);
   if (!empty($u['blocked_at'])) fail('blocked', 403);
-  q('UPDATE kl_tokens SET used_at = ? WHERE token_hash = ?', [time(), $row['token_hash']]);
-  q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $u['id'], 'magic']);
+  if (!claim_auth_token($row['token_hash'], 'mcode')) fail('wrong', 401);
   q('UPDATE kl_users SET verified_at = COALESCE(verified_at, ?) WHERE id = ?', [time(), $u['id']]);
   if (totp_on($u)) out(['ok' => true, 'need2fa' => true, 'ticket' => new_token((int)$u['id'], '2fa', 600)]);
-  start_session((int)$u['id']);
+  start_session((int)$u['id'], 'email_code');
   out(['ok' => true, 'user' => public_user(one('SELECT * FROM kl_users WHERE id = ?', [$u['id']]))]);
-}
-
-/* Відписка має працювати з одного кліку в листі, без входу й без пояснень —
-   інакше наступний лист піде у «спам», а не в кошик. */
-if ($action === 'unsub') {
-  $u = take_token((string)($_GET['t'] ?? ''), 'unsub');
-  $lang = 'en';
-  if ($u) {
-    q('UPDATE kl_users SET mail_ok = 0 WHERE id = ?', [$u['id']]);
-    $row = one('SELECT lang FROM kl_users WHERE id = ?', [$u['id']]);
-    $lang = in_array($row['lang'] ?? 'en', ['en', 'no', 'uk', 'ar'], true) ? $row['lang'] : 'en';
-  }
-  $say = ['en' => ['Unsubscribed', 'You will not get reminder emails any more. Letters about your account still work.'],
-    'no' => ['Avmeldt', 'Du får ikke flere påminnelser på e-post. E-post om kontoen din virker fortsatt.'],
-    'uk' => ['Відписано', 'Листів-нагадувань більше не буде. Листи про ваш акаунт і далі працюють.'],
-    'ar' => ['تم إلغاء الاشتراك', 'لن تصلك رسائل تذكير بعد الآن. رسائل الحساب تبقى كما هي.']][$lang];
-  header('Content-Type: text/html; charset=utf-8');
-  header('Cache-Control: no-store');
-  echo '<!doctype html><html lang="' . htmlspecialchars($lang) . '"><meta charset="utf-8">'
-    . '<meta name="viewport" content="width=device-width,initial-scale=1"><title>' . htmlspecialchars($say[0]) . '</title>'
-    . '<body style="margin:0;background:#fff8ea;font:16px/1.6 system-ui,sans-serif;color:#141414">'
-    . '<div style="max-width:520px;margin:12vh auto;padding:24px 26px;background:#fff;border:4px solid #141414;border-radius:20px">'
-    . '<h1 style="margin:0 0 10px;font-size:24px">' . htmlspecialchars($say[0]) . ' ✓</h1>'
-    . '<p style="margin:0 0 18px">' . htmlspecialchars($say[1]) . '</p>'
-    . '<a href="' . htmlspecialchars(site_url()) . '" style="display:inline-block;padding:10px 18px;background:#ffd23f;border:3px solid #141414;border-radius:12px;color:#141414;text-decoration:none;font-weight:700">Komiks·Lab →</a>'
-    . '</div>';
-  exit;
 }
 
 /* Другий крок входу: квиток + код з автентифікатора або резервний код. */
@@ -295,14 +327,14 @@ if ($action === 'totp_login') {
   rate_or_fail('2fa-user:' . $row['id'], 8, 900);
   $code = (string)($in['code'] ?? '');
   if (totp_check((string)$row['totp_secret'], $code)) {
-    start_session((int)$row['id']);
+    start_session((int)$row['id'], 'totp');
     out(['ok' => true, 'user' => public_user($row)]);
   }
   /* Резервний код згоряє одразу — другий раз ним не зайти. */
   $left = totp_backup_take($row, $code);
   if ($left !== null) {
     q('UPDATE kl_users SET totp_backup = ? WHERE id = ?', [$left, $row['id']]);
-    start_session((int)$row['id']);
+    start_session((int)$row['id'], 'backup');
     out(['ok' => true, 'user' => public_user($row), 'backupUsed' => true, 'backupLeft' => count(json_decode($left, true) ?: [])]);
   }
   /* Квиток згорів під час take_token — видаємо новий, щоб людина могла
@@ -329,9 +361,11 @@ if ($action === 'reset') {
   if ($p = password_problem($pass)) fail($p);
   $u = take_token((string)($in['token'] ?? ''), 'reset');
   if (!$u) fail('token', 400);
+  if (!empty($u['blocked_at'])) fail('blocked', 403);
   q('UPDATE kl_users SET pass_hash = ?, verified_at = COALESCE(verified_at, ?) WHERE id = ?', [hash_password($pass), time(), $u['id']]);
   q('DELETE FROM kl_sessions WHERE user_id = ?', [$u['id']]); // вийти на всіх пристроях
-  start_session((int)$u['id']);
+  if (totp_on($u)) out(['ok' => true, 'need2fa' => true, 'ticket' => new_token((int)$u['id'], '2fa', 600)]);
+  start_session((int)$u['id'], 'reset');
   out(['ok' => true, 'user' => public_user(one('SELECT * FROM kl_users WHERE id = ?', [$u['id']]))]);
 }
 
@@ -406,10 +440,33 @@ if ($action === 'update') {
   out(['ok' => true, 'user' => public_user(one('SELECT * FROM kl_users WHERE id = ?', [$u['id']]))]);
 }
 
+/* Код на пошту замість пароля — для тих, хто входить через Google чи кодом і пароля не знає. */
+if ($action === 'delete_code') {
+  if (!empty($u['is_demo'])) fail('demo', 403);
+  rate_or_fail('delcode:' . $u['id'], 3, 3600);
+  $code = str_pad((string)random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+  q('UPDATE kl_tokens SET used_at = ? WHERE user_id = ? AND kind = ? AND used_at IS NULL', [time(), $u['id'], 'dcode']);
+  q('INSERT INTO kl_tokens (token_hash, user_id, kind, expires_at) VALUES (?, ?, ?, ?)', [sha('dcode:' . $u['id'] . ':' . $code), (int)$u['id'], 'dcode', time() + 900]);
+  if (!send_delete_code($u, $code)) fail('mail', 502);
+  out(['ok' => true]);
+}
+
+if ($action === 'google_unlink') {
+  if (!empty($u['is_demo'])) fail('demo', 403);
+  rate_or_fail('gunlink:' . $u['id'], 10, 3600);
+  require_once __DIR__ . '/google-auth.php';
+  google_delete_user((int)$u['id']);   // прив’язка й незавершені входи; акаунт і прогрес лишаються
+  out(['ok' => true, 'user' => public_user(one('SELECT * FROM kl_users WHERE id = ?', [$u['id']]))]);
+}
+
 if ($action === 'delete') {
   if (!empty($u['is_demo'])) fail('demo', 403);
   rate_or_fail('del:' . $u['id'], 5, 3600);
-  if (!password_verify((string)($in['password'] ?? ''), $u['pass_hash'])) fail('wrong', 401);
+  $code = preg_replace('/\D+/', '', (string)($in['code'] ?? ''));
+  if ($code !== '') {
+    $ok = strlen($code) === 6 && claim_auth_token(sha('dcode:' . $u['id'] . ':' . $code), 'dcode');
+    if (!$ok) fail('wrong', 401);
+  } elseif (!password_verify((string)($in['password'] ?? ''), $u['pass_hash'])) fail('wrong', 401);
   delete_user_all($u);
   end_session();
   out(['ok' => true]);

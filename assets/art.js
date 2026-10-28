@@ -39,6 +39,19 @@
       for (let x = 0; x < 400; x += 80) s += `<rect x="${x + 8}" y="218" width="64" height="74" rx="3" fill="none" stroke="#d39a4f" stroke-width="3"/><circle cx="${x + 40}" cy="230" r="3" fill="#8d6e63"/>`;
       return { svg: s, ground: 292 };
     },
+    lab(o) {
+      // 💻 комп'ютерний клас: стіна в клітинку, велика дошка-екран із кодом, полиця з деталями
+      let s = `<defs><pattern id="labgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20,0 H0 V20" fill="none" stroke="#c5cae9" stroke-width="1"/></pattern></defs>`;
+      s += `<rect width="400" height="300" fill="#eef1ff"/><rect width="400" height="232" fill="url(#labgrid)"/>`;
+      s += `<rect x="96" y="26" width="208" height="122" rx="8" fill="#1d2433" ${O}/><rect x="96" y="26" width="208" height="18" rx="8" fill="#2f3b52"/><circle cx="110" cy="35" r="4" fill="#ff5f57"/><circle cx="123" cy="35" r="4" fill="#febc2e"/><circle cx="136" cy="35" r="4" fill="#28c840"/>`;
+      const code = (o.code || ['gjenta 4 ganger:', '  gå fram', '  snu høyre', 'si("Hei!")']).slice(0, 5);
+      code.forEach((ln, i) => { s += `<text x="110" y="${64 + i * 18}" font-family="ui-monospace, Consolas, monospace" font-weight="700" font-size="13" fill="${['#82aaff', '#c3e88d', '#c3e88d', '#ffcb6b', '#f78c6c'][i]}" xml:space="preserve">${esc(ln)}</text>`; });
+      s += `<rect x="314" y="58" width="74" height="8" fill="#8d6e63" ${O2}/><circle cx="330" cy="48" r="9" fill="#ffd23f" ${O2}/><rect x="346" y="38" width="16" height="20" rx="3" fill="#4dd0e1" ${O2}/><path d="M372,58 l6,-18 l6,18Z" fill="#ff8a65" ${O2}/>`;
+      s += `<rect x="12" y="40" width="70" height="52" rx="4" fill="#fff" ${O2}/><path d="M22,56 h18 v14 h18 v-8 h14" fill="none" stroke="#3949ab" stroke-width="3"/><circle cx="72" cy="62" r="4" fill="#e53935"/>`;
+      s += `<rect x="-5" y="228" width="410" height="80" fill="#b0bec5" ${O}/>`;
+      for (let x = 0; x < 400; x += 50) s += `<line x1="${x}" y1="228" x2="${x}" y2="300" stroke="#90a4ae" stroke-width="2"/>`;
+      return { svg: s, ground: 292 };
+    },
     school(o) {
       let s = `<rect width="400" height="300" fill="#e3f2fd"/>`;
       s += `<rect x="70" y="30" width="260" height="120" rx="4" fill="#2e7d32" stroke="#6d4c41" stroke-width="9"/>`;
@@ -206,6 +219,73 @@
     book: () => `<path d="M-30,0 L-30,-14 Q-15,-20 0,-14 Q15,-20 30,-14 L30,0 Q15,-6 0,0 Q-15,-6 -30,0Z" fill="#fff" ${O2}/><path d="M0,-14 V0" ${O2}/><path d="M-22,-9 h14 M8,-9 h14" stroke="#90a4ae" stroke-width="2"/>`,
     drawing: () => `<g transform="rotate(-6)"><rect x="-34" y="-50" width="68" height="50" fill="#fff" ${O}/><path d="M-16,-12 v-12 h26 v12 M-12,-24 l-8,-10 M10,-24 l6,-12 M-20,-34 l-4,-6 M-20,-34 l4,-6" stroke="#6d4c41" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="20" cy="-40" r="6" fill="#ffca28"/></g>`,
     sofa: () => `<rect x="-90" y="-78" width="180" height="46" rx="14" fill="#7e57c2" ${O}/><rect x="-104" y="-56" width="30" height="48" rx="10" fill="#673ab7" ${O}/><rect x="74" y="-56" width="30" height="48" rx="10" fill="#673ab7" ${O}/><rect x="-78" y="-40" width="156" height="30" rx="8" fill="#9575cd" ${O}/><path d="M-82,-10 V0 M82,-10 V0" ${O}/>`,
+    // 💻 предмети для «Програмування»: ноутбук із кодом, картка-команда, блоки як у Scratch, поле робота, лампочка-ідея
+    laptop: o => `<path d="M-40,0 L-34,-8 H34 L40,0Z" fill="#90a4ae" ${O2}/><rect x="-32" y="-52" width="64" height="44" rx="4" fill="#1d2433" ${O}/>`
+      + (o.text ? `<text x="0" y="-26" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-weight="700" font-size="9" fill="#c3e88d">${esc(o.text)}</text>` : `<path d="M-24,-40 h22 M-20,-31 h30 M-20,-22 h16" stroke="#82aaff" stroke-width="3" stroke-linecap="round"/>`),
+    codecard: o => {
+      const t = String(o.text || 'gå fram'), w = Math.max(70, t.length * 8.2 + 22);
+      return `<g transform="rotate(${o.tilt ?? -3})"><rect x="${f1(-w / 2)}" y="-40" width="${f1(w)}" height="34" rx="7" fill="${o.color || '#1d2433'}" ${O}/><text x="0" y="-18" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-weight="700" font-size="14" fill="${o.ink || '#c3e88d'}">${esc(t)}</text></g>`;
+    },
+    blocks: o => {
+      const items = (o.items || ['når 🚩 klikkes', 'gjenta 4', 'gå 10 steg']).slice(0, 4), col = ['#ffbf00', '#ffab19', '#4c97ff', '#9966ff'];
+      return items.map((t, i) => {
+        const y = -32 * (items.length - i), w = Math.max(90, String(t).length * 8 + 26), x = i && i < items.length - 1 ? -34 : -44;
+        return `<path d="M${x},${y} h12 l4,5 h12 l4,-5 h${f1(w - 32)} v27 h${f1(-(w - 32))} l-4,5 h-12 l-4,-5 h-12Z" fill="${col[i % 4]}" ${O2}/><text x="${x + 10}" y="${y + 18}" font-family="Rubik, sans-serif" font-weight="700" font-size="12" fill="#fff">${esc(t)}</text>`;
+      }).join('');
+    },
+    robotgrid: o => {
+      // 4×4 поле: робот, стіни, зірка; path — маршрут пунктиром
+      const n = 4, k = 22, ox = -n * k / 2, oy = -n * k - 6;
+      let s = `<rect x="${ox - 6}" y="${oy - 6}" width="${n * k + 12}" height="${n * k + 12}" rx="6" fill="#fff" ${O}/>`;
+      for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) s += `<rect x="${ox + c * k}" y="${oy + r * k}" width="${k}" height="${k}" fill="${(r + c) % 2 ? '#e8eaf6' : '#f5f7ff'}" stroke="#9fa8da" stroke-width="1"/>`;
+      const cell = ([c, r]) => [ox + c * k + k / 2, oy + r * k + k / 2];
+      (o.walls || [[2, 1]]).forEach(w => { const [x, y] = cell(w); s += `<rect x="${x - k / 2 + 1}" y="${y - k / 2 + 1}" width="${k - 2}" height="${k - 2}" fill="#8d6e63"/>`; });
+      if (o.path) s += `<path d="M${o.path.map(p => cell(p).join(',')).join(' L')}" fill="none" stroke="#e53935" stroke-width="3" stroke-dasharray="4 4"/>`;
+      const [sx, sy] = cell(o.star || [3, 0]); s += `<text x="${sx}" y="${sy + 7}" text-anchor="middle" font-size="18">⭐</text>`;
+      const [rx, ry] = cell(o.robot || [0, 3]); s += `<text x="${rx}" y="${ry + 7}" text-anchor="middle" font-size="18">🤖</text>`;
+      return s;
+    },
+    bulb: () => `<path d="M-14,-46 a18,18 0 1 1 28,0 q-6,6 -6,14 h-16 q0,-8 -6,-14Z" fill="#fff59d" ${O}/><rect x="-8" y="-32" width="16" height="10" rx="2" fill="#b0bec5" ${O2}/><path d="M-22,-74 l-8,-6 M22,-74 l8,-6 M0,-84 v-10" stroke="#ffb300" stroke-width="3" stroke-linecap="round"/>`,
+    /* 🌐 вікно браузера з готовою сторінкою: items — елементи HTML, які сторінка показує
+       ({ t: 'h1'|'p'|'img'|'a'|'ul'|'btn', x: текст }), url — адреса. Ним же малюємо
+       варіанти відповіді в тесті «Як виглядатиме сторінка?» (KomiksKoding). */
+    browser: o => {
+      const W = o.w || 176, H = o.h || 128, x0 = -W / 2, y0 = -H;
+      const mono = 'font-family="ui-monospace, Consolas, monospace"', rub = 'font-family="Rubik, sans-serif"';
+      let s = `<rect x="${x0}" y="${y0}" width="${W}" height="${H}" rx="9" fill="#fff" ${O}/>`;
+      s += `<rect x="${x0 + 2}" y="${y0 + 2}" width="${W - 4}" height="17" rx="7" fill="#e8eaf6"/><path d="M${x0},${y0 + 19} h${W}" stroke="${INK}" stroke-width="2"/>`;
+      s += `<circle cx="${x0 + 9}" cy="${y0 + 10}" r="2.8" fill="#ff5f57"/><circle cx="${x0 + 17}" cy="${y0 + 10}" r="2.8" fill="#febc2e"/><circle cx="${x0 + 25}" cy="${y0 + 10}" r="2.8" fill="#28c840"/>`;
+      s += `<rect x="${x0 + 34}" y="${y0 + 5}" width="${W - 42}" height="10" rx="5" fill="#fff" stroke="#9fa8da" stroke-width="1"/><text x="${x0 + 39}" y="${y0 + 13}" ${mono} font-size="7" fill="#5c6bc0">${esc(o.url || 'pus.html')}</text>`;
+      let y = y0 + 26;
+      const L = x0 + 10;
+      for (const it of o.items || [{ t: 'h1', x: 'Pus' }, { t: 'p' }, { t: 'img' }]) {
+        if (y > -8) break;
+        if (it.t === 'h1') { s += `<text x="${L}" y="${y + 14}" ${rub} font-weight="900" font-size="17" fill="${INK}">${esc(it.x || 'Overskrift')}</text>`; y += 22; }
+        else if (it.t === 'p') {
+          if (it.x) { s += `<text x="${L}" y="${y + 9}" ${rub} font-size="9" fill="#37474f">${esc(it.x)}</text>`; y += 14; }
+          else { s += `<path d="M${L},${y + 4} h${W - 26} M${L},${y + 11} h${W - 52}" stroke="#b0bec5" stroke-width="4" stroke-linecap="round"/>`; y += 18; }
+        }
+        else if (it.t === 'img') { s += `<rect x="${L}" y="${y}" width="58" height="38" rx="4" fill="#bbdefb" stroke="#64b5f6" stroke-width="1.5"/><text x="${L + 29}" y="${y + 28}" text-anchor="middle" font-size="22">${it.x || '🐱'}</text>`; y += 44; }
+        else if (it.t === 'a') { s += `<text x="${L}" y="${y + 10}" ${rub} font-weight="700" font-size="10" fill="#1e63d6" text-decoration="underline">${esc(it.x || 'Les mer')}</text><path d="M${L},${y + 12} h${(it.x || 'Les mer').length * 5.6}" stroke="#1e63d6" stroke-width="1.2"/>`; y += 16; }
+        else if (it.t === 'btn') { const t = it.x || 'Klikk!', bw = t.length * 6.5 + 18; s += `<rect x="${L}" y="${y}" width="${bw}" height="16" rx="8" fill="#ffd23f" stroke="${INK}" stroke-width="1.5"/><text x="${L + bw / 2}" y="${y + 11}" text-anchor="middle" ${rub} font-weight="800" font-size="9" fill="${INK}">${esc(t)}</text>`; y += 22; }
+        else if (it.t === 'ul') { for (let i = 0; i < 3; i++) s += `<circle cx="${L + 3}" cy="${y + 5 + i * 9}" r="2.2" fill="${INK}"/><path d="M${L + 10},${y + 5 + i * 9} h${44 - i * 8}" stroke="#b0bec5" stroke-width="3.5" stroke-linecap="round"/>`; y += 30; }
+      }
+      return s;
+    },
+    // 🏷️ HTML-тег: відкривальний тег, вміст і закривальний тег окремими картками
+    tagpair: o => {
+      const tag = o.tag || 'p', t = o.text ?? 'Hei!', a = `<${tag}>`, b = `</${tag}>`;
+      const wa = a.length * 9 + 16, wt = Math.max(30, String(t).length * 8.5 + 16), wb = b.length * 9 + 16, gap = 6, tot = wa + wt + wb + gap * 2;
+      let x = -tot / 2;
+      const card = (w, fill, ink, txt, mono = true) => { const r = `<rect x="${f1(x)}" y="-40" width="${f1(w)}" height="32" rx="7" fill="${fill}" ${O}/><text x="${f1(x + w / 2)}" y="-19" text-anchor="middle" ${mono ? 'font-family="ui-monospace, Consolas, monospace"' : 'font-family="Rubik, sans-serif"'} font-weight="800" font-size="15" fill="${ink}">${esc(txt)}</text>`; x += w + gap; return r; };
+      return card(wa, '#3949ab', '#fff', a) + card(wt, '#fff', INK, t, false) + card(wb, '#e53935', '#fff', b);
+    },
+    csscard: (o = {}) => `<rect x="-88" y="-118" width="176" height="112" rx="10" fill="#1d2433" ${O}/><text x="-72" y="-78" font-family="monospace" font-size="12" font-weight="800" fill="#82aaff">h1 {</text><text x="-59" y="-56" font-family="monospace" font-size="12" font-weight="800" fill="#c3e88d">color: ${esc(o.color || '#7c4dff')};</text><text x="-72" y="-34" font-family="monospace" font-size="12" font-weight="800" fill="#82aaff">}</text><rect x="22" y="-82" width="54" height="48" rx="8" fill="#fff" ${O2}/><text x="49" y="-51" text-anchor="middle" font-family="Rubik,sans-serif" font-size="15" font-weight="900" fill="${o.color || '#7c4dff'}">${esc(o.label || 'Pus')}</text>`,
+    gameview: (o = {}) => `<rect x="-112" y="-132" width="224" height="126" rx="10" fill="#8ed8ff" ${O}/><circle cx="72" cy="-104" r="17" fill="#fff176"/><path d="M-110,-44 Q-70,-70 -30,-45 T55,-48 T112,-42 V-6 H-112Z" fill="#70c56a"/><rect x="-94" y="-30" width="62" height="12" rx="4" fill="#8d6e63" ${O2}/><rect x="14" y="-55" width="58" height="12" rx="4" fill="#8d6e63" ${O2}/><text x="-62" y="-38" text-anchor="middle" font-size="28">${o.player || '🦊'}</text><text x="72" y="-63" text-anchor="middle" font-size="25">⭐</text><rect x="-103" y="-123" width="74" height="22" rx="7" fill="#1d2433"/><text x="-66" y="-108" text-anchor="middle" font-size="12" font-weight="900" fill="#fff">POENG ${o.score ?? 3}</text>${o.collision ? '<path d="M-8,-58 l12,-13 l4,17 l17,-7 l-8,17 l17,5 l-18,6" fill="#ffd23f" stroke="#141414" stroke-width="3"/>' : ''}`,
+    blender: (o = {}) => { const col = o.color || '#ff9f43'; const mesh = o.shape === 'sphere' ? `<circle cx="0" cy="-61" r="31" fill="${col}" ${O}/><ellipse cx="0" cy="-61" rx="31" ry="12" fill="none" stroke="#fff" stroke-width="2"/>` : `<path d="M-31,-80 l34,-19 l34,19 l-34,20Z" fill="#ffd39a" ${O2}/><path d="M-31,-80 v39 l34,20 v-39Z" fill="${col}" ${O2}/><path d="M37,-80 v39 l-34,20 v-39Z" fill="#e67e22" ${O2}/>`; return `<rect x="-112" y="-132" width="224" height="126" rx="10" fill="#333842" ${O}/><path d="M-108,-34 H108 M-108,-52 H108 M-108,-70 H108 M-108,-88 H108 M-75,-128 V-8 M-38,-128 V-8 M0,-128 V-8 M38,-128 V-8 M75,-128 V-8" stroke="#59616f"/>${mesh}<path d="M3,-60 h54" stroke="#e53935" stroke-width="3"/><path d="M3,-60 v-51" stroke="#43a047" stroke-width="3"/><text x="-101" y="-114" font-size="11" font-weight="900" fill="#fff">3D VIEWPORT</text>`; },
+    unity: (o = {}) => `<rect x="-118" y="-136" width="236" height="132" rx="9" fill="#25282d" ${O}/><rect x="-112" y="-116" width="54" height="106" rx="4" fill="#34383f"/><rect x="60" y="-116" width="52" height="106" rx="4" fill="#34383f"/><rect x="-52" y="-116" width="106" height="106" rx="4" fill="#87ceeb"/><path d="M-51,-36 Q-15,-55 12,-38 T54,-38 V-10 H-52Z" fill="#61b15a"/><text x="1" y="-48" text-anchor="middle" font-size="31">🦊</text><text x="-105" y="-99" font-size="9" font-weight="900" fill="#fff">HIERARKI</text><text x="-98" y="-63" font-size="9" fill="#9de2ff">● ${esc(o.label || 'Player')}</text><text x="66" y="-99" font-size="9" font-weight="900" fill="#fff">INSPECTOR</text><rect x="66" y="-86" width="40" height="18" rx="3" fill="#4b515b"/><rect x="66" y="-62" width="40" height="18" rx="3" fill="#4b515b"/>${o.prefab ? '<path d="M-18,-91 l18,-11 l18,11 l-18,11Z" fill="#7c8cff" stroke="#fff" stroke-width="2"/>' : ''}`,
+    database: (o = {}) => { const rows = o.rows || [['1','Nora','8'],['2','Leo','6'],['3','Ali','9']]; let s = `<ellipse cx="0" cy="-108" rx="79" ry="21" fill="#72b7ff" ${O}/><path d="M-79,-108 v79 c0,12 35,21 79,21 s79,-9 79,-21 v-79" fill="#4d96e8" ${O}/><rect x="-67" y="-99" width="134" height="72" rx="5" fill="#fff" ${O2}/><rect x="-67" y="-99" width="134" height="20" rx="5" fill="#283593"/>`; rows.slice(0,3).forEach((r,i)=>{const y=-64+i*17;s+=`<rect x="-65" y="${y-12}" width="130" height="16" fill="${o.highlight===i?'#fff3b0':i%2?'#eef4ff':'#fff'}"/><text x="-49" y="${y}" font-size="9">${esc(r[0])}</text><text x="-11" y="${y}" font-size="9">${esc(r[1])}</text><text x="45" y="${y}" font-size="9">${esc(r[2])}</text>`;}); return s; },
+    datashield: () => `<path d="M0,-118 C28,-108 48,-108 62,-108 v42 c0,35 -22,55 -62,68 c-40,-13 -62,-33 -62,-68 v-42 c14,0 34,0 62,-10Z" fill="#43a047" ${O}/><rect x="-22" y="-76" width="44" height="36" rx="8" fill="#fff" ${O2}/><path d="M-14,-76 v-12 a14,14 0 0 1 28,0 v12" fill="none" stroke="#141414" stroke-width="7"/><circle cx="0" cy="-58" r="5" fill="#43a047"/>`,
     computer: () => `<rect x="-34" y="-62" width="68" height="46" rx="4" fill="#263238" ${O}/><rect x="-28" y="-56" width="56" height="34" fill="#80deea"/><path d="M-22,-44 h30 M-22,-36 h40 M-22,-28 h22" stroke="#006064" stroke-width="3"/><rect x="-6" y="-16" width="12" height="10" fill="#607d8b" ${O2}/><rect x="-26" y="-6" width="52" height="6" rx="2" fill="#90a4ae" ${O2}/>`,
     officedesk: () => `<rect x="-70" y="-66" width="140" height="12" rx="3" fill="#a1887f" ${O}/><rect x="-62" y="-54" width="12" height="54" fill="#8d6e63" ${O2}/><rect x="50" y="-54" width="12" height="54" fill="#8d6e63" ${O2}/><g transform="translate(-10,-66) scale(.8)">${P.computer()}</g><rect x="30" y="-76" width="26" height="10" fill="#fff" ${O2}/>`,
     plant: () => `<path d="M0,-40 C-30,-60 -34,-90 -8,-96 C-6,-70 -2,-60 0,-40 C4,-66 12,-96 34,-90 C34,-64 14,-50 0,-40Z" fill="#43a047" ${O2}/><path d="M-18,-42 H18 L12,0 H-12Z" fill="#ff7043" ${O}/>`,
@@ -340,6 +420,43 @@
     return { svg: `<g transform="translate(${c.x},${ground}) scale(${(c.flip ? -1 : 1) * sc},${sc})">${s}</g>`, head: { x: c.x, y: ground - 100 * sc } };
   }
 
+  /* 🤖 Робот Robo (категорія «Програмування»): корпус-коробка, екран-обличчя зі світлодіодними
+     очима, антена. Пози ті самі, що в людей, настрій — малюнком очей і рота на екрані. */
+  function robot(look, c, ground) {
+    const sc = c.s || 1, mood = c.mood || 'normal', pose = c.pose || 'down';
+    const body = look.body || '#4dd0e1', trim = look.trim || '#00838f', scr = '#102027', led = look.led || '#76ff03';
+    const A = { down: [[-40, -46], [40, -46]], wave: [[-40, -46], [50, -124]], cheer: [[-48, -128], [48, -128]], point: [[-40, -46], [68, -92]],
+      hold: [[-18, -58], [18, -58]], hips: [[-48, -62], [48, -62]], walk: [[-42, -52], [42, -64]] }[pose] || [[-40, -46], [40, -46]];
+    const arm = (x, [ex, ey]) => `<path d="M${x},-84 L${ex},${ey}" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M${x},-84 L${ex},${ey}" stroke="#b0bec5" stroke-width="6" stroke-linecap="round"/><circle cx="${ex}" cy="${ey}" r="7.5" fill="${trim}" ${O2}/>`;
+    let s = `<rect x="-22" y="-36" width="12" height="28" fill="#90a4ae" ${O2}/><rect x="10" y="-36" width="12" height="28" fill="#90a4ae" ${O2}/>`;
+    s += `<rect x="-34" y="-13" width="30" height="13" rx="6" fill="${trim}" ${O}/><rect x="4" y="-13" width="30" height="13" rx="6" fill="${trim}" ${O}/>`;
+    s += arm(-30, A[0]) + arm(30, A[1]);
+    s += `<rect x="-33" y="-98" width="66" height="66" rx="12" fill="${body}" ${O}/>`;
+    s += `<rect x="-21" y="-86" width="42" height="22" rx="5" fill="${scr}" ${O2}/><path d="M-15,-75 h8 M-3,-75 h18" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`;
+    s += `<circle cx="-12" cy="-48" r="4.5" fill="#ff5252" ${O2}/><circle cx="0" cy="-48" r="4.5" fill="#ffd23f" ${O2}/><circle cx="12" cy="-48" r="4.5" fill="#69f0ae" ${O2}/>`;
+    s += `<rect x="-8" y="-108" width="16" height="12" fill="#90a4ae" ${O2}/>`;
+    const arc = x => `<path d="M${x - 6},-1 q6,-9 12,0" fill="none" stroke="${led}" stroke-width="3.5" stroke-linecap="round"/>`;
+    const eye = {
+      happy: arc, grin: arc,
+      surprised: x => `<circle cx="${x}" cy="-3" r="6" fill="none" stroke="${led}" stroke-width="3"/>`,
+      sad: x => `<path d="M${x - 6},${x < 0 ? -1 : -6} L${x + 6},${x < 0 ? -6 : -1}" stroke="${led}" stroke-width="3.5" stroke-linecap="round"/>`,
+      angry: x => `<path d="M${x - 6},${x < 0 ? -7 : -1} L${x + 6},${x < 0 ? -1 : -7}" stroke="#ff5252" stroke-width="3.5" stroke-linecap="round"/>`
+    }[mood] || (x => `<rect x="${x - 4}" y="-9" width="8" height="12" rx="3" fill="${led}"/>`);
+    const mouth = {
+      happy: `<path d="M-9,7 q9,8 18,0" fill="none" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`,
+      grin: `<path d="M-12,5 h24 q-2,10 -12,10 q-10,0 -12,-10Z" fill="${led}"/>`,
+      surprised: `<circle cx="0" cy="10" r="4" fill="none" stroke="${led}" stroke-width="3"/>`,
+      sad: `<path d="M-8,13 q8,-7 16,0" fill="none" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`,
+      angry: `<path d="M-8,11 h16" stroke="#ff5252" stroke-width="3" stroke-linecap="round"/>`
+    }[mood] || `<path d="M-8,9 h16" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`;
+    let hd = `<path d="M0,-26 V-42" stroke="${INK}" stroke-width="3"/><circle cy="-46" r="6.5" fill="#ff5252" ${O2}/>`;
+    hd += `<circle cx="-39" cy="0" r="7" fill="${trim}" ${O2}/><circle cx="39" cy="0" r="7" fill="${trim}" ${O2}/>`;
+    hd += `<rect x="-36" y="-26" width="72" height="54" rx="15" fill="${body}" ${O}/><rect x="-28" y="-18" width="56" height="38" rx="10" fill="${scr}" ${O2}/>`;
+    hd += eye(-12) + eye(12) + mouth;
+    s += `<g transform="translate(0,-136)">${hd}</g>`;
+    return { svg: `<g transform="translate(${c.x},${ground}) scale(${(c.flip ? -1 : 1) * sc},${sc})">${s}</g>`, head: { x: c.x, y: ground - 168 * sc, robot: true } };
+  }
+
   /* ---------------- effects ---------------- */
   const heart = (x, y, k, c) => `<path transform="translate(${x},${y}) scale(${k})" d="M0,6 C-14,-8 -8,-20 0,-11 C8,-20 14,-8 0,6Z" fill="${c}" ${O2}/>`;
   const FX = {
@@ -420,13 +537,15 @@
       const { fs, rows, w, h, x, y } = best;
       placed.push({ x, y, w, h });
       const rx = strip ? 5 : Math.min(18, h / 2);
-      svg += `<g class="bub">${tip(l)}<rect x="${f1(x)}" y="${y}" width="${f1(w)}" height="${h}" rx="${rx}" fill="#fff" ${O}/>${strip ? `<rect x="${f1(x + 4)}" y="${y + 4}" width="${f1(w - 8)}" height="${h - 8}" rx="3" fill="none" stroke="${INK}" stroke-width="1" opacity=".45"/>` : ''}`;
+      // робот говорить «терміналом»: темна бульбашка й зелені літери
+      const bot = head && head.robot, bf = bot ? '#1d2433' : '#fff';
+      svg += `<g class="bub">${tip(l)}<rect x="${f1(x)}" y="${y}" width="${f1(w)}" height="${h}" rx="${bot ? 8 : rx}" fill="${bf}" ${O}/>${bot ? `<rect x="${f1(x + 3.5)}" y="${y + 3.5}" width="${f1(w - 7)}" height="${h - 7}" rx="5" fill="none" stroke="#76ff03" stroke-width="2.5"/>` : ''}${strip ? `<rect x="${f1(x + 4)}" y="${y + 4}" width="${f1(w - 8)}" height="${h - 8}" rx="3" fill="none" stroke="${INK}" stroke-width="1" opacity=".45"/>` : ''}`;
       if (head && head.y > y + h + 8) {
         const bx = clamp(cx, x + 18, x + w - 18);
         const ty = Math.min(head.y - 4, y + h + 30), tx = f1(bx + (cx - bx) * 0.5);
-        svg += `<path d="M${f1(bx - 9)},${y + h - 2} L${tx},${f1(ty)} L${f1(bx + 9)},${y + h - 2}" fill="#fff" ${O}/><rect x="${f1(bx - 8)}" y="${y + h - 5}" width="16" height="5" fill="#fff"/>`;
+        svg += `<path d="M${f1(bx - 9)},${y + h - 2} L${tx},${f1(ty)} L${f1(bx + 9)},${y + h - 2}" fill="${bf}" ${O}/><rect x="${f1(bx - 8)}" y="${y + h - 5}" width="16" height="5" fill="${bf}"/>`;
       }
-      svg += rows.map((r, i) => `<text x="${f1(x + w / 2)}" y="${y + 6 + (i + 1) * (fs + 3) - 1}" text-anchor="middle" ${BF} font-size="${fs}" fill="${INK}">${esc(r)}</text>`).join('') + '</g>';
+      svg += rows.map((r, i) => `<text x="${f1(x + w / 2)}" y="${y + 6 + (i + 1) * (fs + 3) - 1}" text-anchor="middle" ${bot ? 'font-family="ui-monospace, Consolas, monospace" font-weight="700"' : BF} font-size="${fs}" fill="${bot ? '#c3e88d' : INK}">${esc(r)}</text>`).join('') + '</g>';
     }
     p.lines.filter(l => l.who === 'sfx').forEach((l, i) => {
       const pos = a.sfx || { x: 330, y: 150 };
@@ -461,7 +580,7 @@
     const heads = {};
     for (const ch of a.chars || []) {
       const look = (chars[ch.id] && chars[ch.id].look) || { type: 'kid' };
-      const out = (look.type === 'cat' ? cat : person)(look, ch, ch.y ?? bg.ground);
+      const out = (look.type === 'cat' ? cat : look.type === 'robot' ? robot : person)(look, ch, ch.y ?? bg.ground);
       svg += out.svg; heads[ch.id] = out.head;
     }
     svg += (a.props || []).filter(pr => pr.front).map(prop).join('');
@@ -472,11 +591,15 @@
   // style: '' — звичайні комікси; 'strip' — інший стиль (англійський курс): растрові крапки й рамка
   const STRIP_FX = `<defs><pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.1" fill="${INK}" opacity=".14"/></pattern></defs>`;
   const stripOverlay = `<rect width="400" height="300" fill="url(#halftone)" pointer-events="none"/><rect x="3" y="3" width="394" height="294" rx="2" fill="none" stroke="${INK}" stroke-width="6"/><rect x="9" y="9" width="382" height="282" fill="none" stroke="#ffffff" stroke-width="2" opacity=".6"/>`;
+  // style 'code' — «Програмування»: рамка вікна програми й тонка піксельна сітка
+  const CODE_FX = `<defs><pattern id="pixgrid" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="1.4" height="1.4" fill="#3949ab" opacity=".16"/></pattern></defs>`;
+  const codeOverlay = `<rect width="400" height="300" fill="url(#pixgrid)" pointer-events="none"/><rect x="3" y="3" width="394" height="294" rx="12" fill="none" stroke="#1d2433" stroke-width="6"/>`
+    + `<path d="M356,286 l-8,-7 l8,-7 M372,270 l-6,16 M382,272 l8,7 l-8,7" fill="none" stroke="#3949ab" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>`;
   function panel(c, idx, { lang = 'no', tr = null, bubbles: withBubbles = true, chars = {}, style = '' } = {}) {
     const st = style || c.style || '';
     const sc = scene(c, idx, chars);
     const label = sc.p.lines.map(l => l[lang]).join(' ');
-    const deco = st === 'strip' ? STRIP_FX + sc.svg + stripOverlay : sc.svg;
+    const deco = st === 'strip' ? STRIP_FX + sc.svg + stripOverlay : st === 'code' ? CODE_FX + sc.svg + codeOverlay : sc.svg;
     return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label)}">${deco}${withBubbles ? bubbles(sc.p, lang, sc.heads, sc.a, tr, st) : ''}</svg>`;
   }
 

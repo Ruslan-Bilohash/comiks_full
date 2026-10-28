@@ -5,11 +5,12 @@
   if (typeof document === 'undefined') return; // службові скрипти Node
   const KEY = 'comiks.a11y';
   const T = {
-    uk: { btn: 'Доступність', title: '♿ Доступність', size: 'Розмір тексту', smaller: 'Зменшити текст', bigger: 'Збільшити текст', contrast: 'Висока контрастність', font: 'Шрифт для легкого читання', spacing: 'Більший інтервал між рядками', links: 'Підкреслювати посилання', still: 'Зупинити анімацію', cursor: 'Великий курсор', gray: 'Відтінки сірого', reset: '↺ Скинути все', close: 'Закрити', hint: 'Налаштування зберігаються на цьому пристрої.' },
-    en: { btn: 'Accessibility', title: '♿ Accessibility', size: 'Text size', smaller: 'Smaller text', bigger: 'Bigger text', contrast: 'High contrast', font: 'Easy-to-read font', spacing: 'More line spacing', links: 'Underline links', still: 'Stop animations', cursor: 'Big cursor', gray: 'Greyscale', reset: '↺ Reset all', close: 'Close', hint: 'Settings are saved on this device.' },
-    no: { btn: 'Tilgjengelighet', title: '♿ Tilgjengelighet', size: 'Tekststørrelse', smaller: 'Mindre tekst', bigger: 'Større tekst', contrast: 'Høy kontrast', font: 'Lettlest skrift', spacing: 'Større linjeavstand', links: 'Understrek lenker', still: 'Stopp animasjoner', cursor: 'Stor markør', gray: 'Gråtoner', reset: '↺ Tilbakestill', close: 'Lukk', hint: 'Innstillingene lagres på denne enheten.' }
+    uk: { btn: 'Доступність', title: '♿ Доступність', size: 'Розмір тексту', smaller: 'Зменшити текст', bigger: 'Збільшити текст', contrast: 'Висока контрастність', font: 'Шрифт для легкого читання', spacing: 'Більший інтервал між рядками', links: 'Підкреслювати посилання', still: 'Зупинити анімацію', cursor: 'Великий курсор', gray: 'Відтінки сірого', reset: '↺ Скинути все', close: 'Закрити', hint: 'Налаштування зберігаються на цьому пристрої.', desc: 'Більший текст, висока контрастність, шрифт для легкого читання, зупинка анімацій, великий курсор — для людей з порушеннями зору, читання чи моторики.', on: '✓ Увімкнено' },
+    en: { btn: 'Accessibility', title: '♿ Accessibility', size: 'Text size', smaller: 'Smaller text', bigger: 'Bigger text', contrast: 'High contrast', font: 'Easy-to-read font', spacing: 'More line spacing', links: 'Underline links', still: 'Stop animations', cursor: 'Big cursor', gray: 'Greyscale', reset: '↺ Reset all', close: 'Close', hint: 'Settings are saved on this device.', desc: 'Bigger text, high contrast, an easy-to-read font, no animations, a big cursor — for people with visual, reading or motor impairments.', on: '✓ On' },
+    no: { btn: 'Tilgjengelighet', title: '♿ Tilgjengelighet', size: 'Tekststørrelse', smaller: 'Mindre tekst', bigger: 'Større tekst', contrast: 'Høy kontrast', font: 'Lettlest skrift', spacing: 'Større linjeavstand', links: 'Understrek lenker', still: 'Stopp animasjoner', cursor: 'Stor markør', gray: 'Gråtoner', reset: '↺ Tilbakestill', close: 'Lukk', hint: 'Innstillingene lagres på denne enheten.', desc: 'Større tekst, høy kontrast, lettlest skrift, ingen animasjoner, stor markør – for deg med nedsatt syn, lesevansker eller motoriske vansker.', on: '✓ På' }
   };
-  T.ar = { btn: 'إمكانية الوصول', title: '♿ إمكانية الوصول', size: 'حجم النص', smaller: 'نص أصغر', bigger: 'نص أكبر', contrast: 'تباين عالٍ', font: 'خط سهل القراءة', spacing: 'تباعد أكبر بين الأسطر', links: 'تسطير الروابط', still: 'إيقاف الحركة', cursor: 'مؤشر كبير', gray: 'تدرّج رمادي', reset: '↺ إعادة الضبط', close: 'إغلاق', hint: 'تُحفظ الإعدادات على هذا الجهاز.' };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'a11y.js:T');
+  T.ar = { btn: 'إمكانية الوصول', title: '♿ إمكانية الوصول', size: 'حجم النص', smaller: 'نص أصغر', bigger: 'نص أكبر', contrast: 'تباين عالٍ', font: 'خط سهل القراءة', spacing: 'تباعد أكبر بين الأسطر', links: 'تسطير الروابط', still: 'إيقاف الحركة', cursor: 'مؤشر كبير', gray: 'تدرّج رمادي', reset: '↺ إعادة الضبط', close: 'إغلاق', hint: 'تُحفظ الإعدادات على هذا الجهاز.', desc: 'نص أكبر وتباين عالٍ وخط سهل القراءة وإيقاف الحركة ومؤشر كبير — لذوي صعوبات البصر أو القراءة أو الحركة.', on: '✓ مفعّل' };
   const OPTS = [['contrast', '🌓'], ['font', '🔤'], ['spacing', '↕️'], ['links', '🔗'], ['still', '⏸️'], ['cursor', '🖱️'], ['gray', '⚫']];
   const SIZES = [90, 100, 112, 125, 140, 160];
   const read = () => { try { return Object.assign({ size: 100 }, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch { return { size: 100 }; } };
@@ -25,7 +26,8 @@
   let state = read();
   apply(state);
 
-  let panel = null, btn = null;
+  /* Кнопка більше не плаває в кутку: панель відкривається вікном з налаштувань (#/settings). */
+  let panel = null, wrap = null, opener = null;
   const set = patch => { state = Object.assign({}, state, patch); save(state); apply(state); render(); };
   function render() {
     if (!panel) return;
@@ -42,29 +44,35 @@
       el('div', { class: 'a11y-grid' }, OPTS.map(([k, ic]) => el('button', { type: 'button', class: 'a11y-opt' + (state[k] ? ' on' : ''), 'aria-pressed': String(!!state[k]), onclick: () => set({ [k]: !state[k] }) }, el('span', { class: 'a11y-ic', 'aria-hidden': 'true' }, ic), el('span', {}, tx(k))))),
       el('div', { class: 'a11y-foot' }, el('small', {}, tx('hint')), el('button', { type: 'button', class: 'a11y-reset', onclick: () => { state = { size: 100 }; save(state); apply(state); render(); } }, tx('reset'))));
   }
-  function open() {
-    if (!panel) {
+  function open(from) {
+    opener = from || document.activeElement;
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'a11y-modal';
+      wrap.addEventListener('click', e => { if (e.target === wrap) close(); });
       panel = document.createElement('div');
-      panel.className = 'a11y-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-labelledby', 'a11yTitle');
-      document.body.append(panel);
+      panel.className = 'a11y-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); panel.setAttribute('aria-labelledby', 'a11yTitle');
+      wrap.append(panel);
+      document.body.append(wrap);
     }
-    render(); panel.hidden = false; btn.setAttribute('aria-expanded', 'true');
+    render(); wrap.hidden = false; document.body.classList.add('a11y-open');
     const first = panel.querySelector('button'); if (first) first.focus();
   }
-  function close() { if (panel) panel.hidden = true; if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.focus(); } }
-  function mount() {
-    if (btn) return;
-    btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'a11y-btn'; btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span aria-hidden="true">♿</span>';
-    btn.setAttribute('aria-label', tx('btn')); btn.title = tx('btn');
-    btn.addEventListener('click', () => (panel && !panel.hidden ? close() : open()));
-    document.body.append(btn);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && panel && !panel.hidden) close(); });
-    document.addEventListener('click', e => { if (panel && !panel.hidden && !panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) close(); });
+  function close() {
+    if (!wrap || wrap.hidden) return;
+    wrap.hidden = true; document.body.classList.remove('a11y-open');
+    if (opener && opener.focus) opener.focus();
   }
-  const relabel = () => { if (btn) { btn.setAttribute('aria-label', tx('btn')); btn.title = tx('btn'); } if (panel && !panel.hidden) render(); };
-  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount);
-  window.addEventListener('hashchange', relabel);
-  window.KomiksA11y = { open, close, apply: () => apply(state), relabel };
+  // кнопка для сторінки налаштувань
+  function button(cls = 'btn accent') {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = cls; b.textContent = tx('title');
+    b.addEventListener('click', () => open(b));
+    return b;
+  }
+  const isOn = () => state.size !== 100 || OPTS.some(([k]) => state[k]);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && wrap && !wrap.hidden) close(); });
+  const relabel = () => { if (wrap && !wrap.hidden) render(); };
+  window.addEventListener('hashchange', close);
+  window.KomiksA11y = { open, close, button, isOn, text: tx, apply: () => apply(state), relabel };
 })();

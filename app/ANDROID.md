@@ -81,6 +81,23 @@ cd C:\comiks\app && npm install && npx cap add android && npx --yes @capacitor/a
 `@capacitor/assets` бере `app/resources/icon.png` і `splash.png` і розкладає їх по всіх
 розмірах — без цього застосунок матиме стандартну іконку Capacitor.
 
+### Два застосунки — два ідентифікатори
+
+Політика приватності описує їх як різні: `com.bilohash.komikslab` — офлайн-версія,
+яка не збирає нічого, `com.bilohash.komikslab.online` — та, що з акаунтами. У Play
+один ідентифікатор — це один застосунок, тож без розділення другу версію не можна
+ні опублікувати, ні навіть поставити поруч: вона заміщала б першу.
+
+Ідентифікатор задається змінною середовища, бо вміст (офлайн чи онлайн) теж
+підставляють скриптами:
+
+```bash
+# онлайн: акаунти, рейтинг, друзі
+KL_APP_ID=com.bilohash.komikslab.online ./gradlew bundleRelease assembleRelease
+# офлайн: без змінної, базовий ідентифікатор
+./gradlew bundleRelease assembleRelease
+```
+
 ### Онлайн-версія (15 МБ, з акаунтами)
 
 ```bash

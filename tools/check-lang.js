@@ -23,6 +23,19 @@ for (const l of LANGS) {
 }
 // кирилиця в мовах із латинкою — майже завжди наслідок копіювання не того рядка
 const CYR = /[Ѐ-ӿ]/;
+/* Імена персонажів беремо з самих даних: Mia лишається Mia всіма мовами, і
+   видавати це за неперекладений рядок — значить привчати не дивитися у звіт. */
+const NAMES = (() => {
+  try {
+    const w = {};
+    new Function('window', fs.readFileSync(path.join(ROOT, 'data', 'characters.js'), 'utf8'))(w);
+    const out = new Set();
+    for (const c of Object.values(w.CHARACTERS || {})) for (const v of Object.values(c || {})) {
+      if (typeof v === 'string' && /^[A-ZÅÆØ][\p{L}'’ -]{1,20}$/u.test(v)) out.add(v);
+    }
+    return [...out];
+  } catch (e) { return []; }
+})();
 // літери, без яких мова виглядає «англізованою»: якщо їх немає взагалі — варто глянути
 const MARKS = { de: /[äöüßÄÖÜ]/, pl: /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/, tr: /[çğıöşüÇĞİÖŞÜ]/, lt: /[ąčęėįšųūžĄČĘĖĮŠŲŪŽ]/ };
 
@@ -36,9 +49,13 @@ for (const l of LANGS) {
   const SAME_OK = {
     // назви мовних норм — власні назви, однакові в усіх мовах
     de: ['orange', 'a pizza', 'April', 'August', 'September', 'November', 'warm', 'Nynorsk', 'Bokmål'],
-    pl: ['a pizza', 'Nynorsk', 'Bokmål'], tr: ['a pizza', 'Nynorsk', 'Bokmål'], lt: ['a pizza', 'Nynorsk', 'Bokmål']
+    pl: ['a pizza', 'Nynorsk', 'Bokmål', 'kutia'], tr: ['a pizza', 'Nynorsk', 'Bokmål'], lt: ['a pizza', 'Nynorsk', 'Bokmål']
   };
-  const okSame = new Set(SAME_OK[l] || []);
+  /* Слова, однакові в усіх наших мовах: міжнародні запозичення й звуки. Доти
+     перевірка видавала їх за неперекладені, і через цей шум вона ніколи не
+     закінчувалася зеленим — тобто нею переставали користуватися. */
+  const SAME_ANY = ['online', 'plus', 'digital', 'permanent', 'protein', 'gluten', 'weekend', 'RIIING!', 'BEEEP! BEEEP!', 'Narrator'];
+  const okSame = new Set([...(SAME_OK[l] || []), ...SAME_ANY, ...NAMES]);
   // точний збіг (з регістром) — майже напевно неперекладений рядок
   const same = keys.filter(k => String(pack[k]).trim() === String(k).trim() && !okSame.has(k));
   // збіг лише без регістру — часто нормально (нім. Butter, Pizza), тож це попередження

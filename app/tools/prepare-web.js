@@ -39,8 +39,27 @@ if (mode === 'remote') {
   process.exit(0);
 }
 
-// копіюємо сайт
-const skipTop = new Set(['audio', 'komiks', 'no', 'uk', 'sitemap.xml', 'robots.txt', 'install.php', 'admin.php', 'api']);
+/* Копіюємо сайт — але не весь. Застосунок показує той самий односторінковий
+   застосунок, тож усе, що зроблено для пошукових систем, йому лише заважає:
+   статичні сторінки коміксів вісьмома мовами, журнал оновлень, картки для
+   соцмереж і знімки до них. Коли мов стало вісім, цей вантаж роздув збірку з
+   15 до 58 МБ — при тому, що жоден із цих файлів у застосунку не відкривається.
+
+   Мови тут не перелічені навмисно: статична сторінка — це тека верхнього рівня
+   з власним index.html. Нова мова чи новий розділ відсіються самі. */
+const skipTop = new Set(['audio', 'sitemap.xml', 'robots.txt', 'install.php', 'admin.php', 'api']);
+/* Теки статичних сторінок: англійські лежать у корені, решта — під кодом мови.
+   Самі мови беремо з того самого опису, що й збірка сайту, щоб нова мова не
+   з'явилася в застосунку непоміченою. */
+for (const d of ['komiks', 'updates', 'norwegian-tests', 'games', 'no', 'uk']) skipTop.add(d);
+try {
+  const META = require('../../tools/lang-pages.js').META || {};
+  for (const m of Object.values(META)) skipTop.add(String(m.dir).replace(/\/$/, ''));
+} catch (e) { /* без опису мов лишаємо базовий перелік */ }
+/* Картки для соцмереж, знімки до оновлень і знімки ігор: у збірці для крамниці
+   вітрини ігор немає зовсім (див. NATIVE в assets/app.js), тож її картинки
+   були б кількастами кілобайтами, які ніде не відкриваються. */
+const WEB_ONLY_IMG = new Set(['og', 'updates', 'games']);
 function copyDir(src, dst, filter) {
   fs.mkdirSync(dst, { recursive: true });
   for (const name of fs.readdirSync(src)) {
@@ -48,11 +67,15 @@ function copyDir(src, dst, filter) {
     const to = path.join(dst, name);
     if (filter && !filter(name, from)) continue;
     const st = fs.statSync(from);
-    if (st.isDirectory()) copyDir(from, to);
+    if (st.isDirectory()) copyDir(from, to, filter);
     else fs.copyFileSync(from, to);
   }
 }
-copyDir(DIST, WWW, name => !skipTop.has(name));
+copyDir(DIST, WWW, (name, from) => {
+  if (path.dirname(from) === DIST) return !skipTop.has(name);
+  if (path.dirname(from) === path.join(DIST, 'img')) return !WEB_ONLY_IMG.has(name);
+  return true;
+});
 
 // аудіо: у light-режимі беремо лише слова й перші комікси
 const audioSrc = path.join(DIST, 'audio');

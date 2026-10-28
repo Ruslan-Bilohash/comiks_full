@@ -71,6 +71,15 @@ if (B.numberWord) {
   for (let a = 0; a <= 20; a++) for (let b = 0; a + b <= 20; b++) need('математика +', `${N(a)} pluss ${N(b)} er ${N(a + b)}`);
   for (let a = 0; a <= 20; a++) for (let b = 0; b <= a; b++) need('математика −', `${N(a)} minus ${N(b)} er ${N(a - b)}`);
   ['pluss', 'minus', 'ganger', 'delt på', 'er', 'lik'].forEach(w => need('математика: слова', w));
+  if (B.fractionWord) {
+    for (let d = 2; d <= 10; d++) for (let n = 1; n <= d; n++) need('дроби: назви', B.fractionWord(n, d));
+    for (const [n, d, t] of B.fractionOfTasks()) { need('дроби: частина', B.fractionOf(n, d, t, true)); need('дроби: частина (питання)', B.fractionOf(n, d, t, false)); }
+    [...B.FRACTION_WORDS, 'teller', 'nevner', 'brøkstrek'].forEach(w => need('дроби: слова', w));
+  }
+  {
+    const gm = /const NOTES = \[([\s\S]*?)\n {2}\];/.exec(require('fs').readFileSync(require('path').join(__dirname, '..', 'assets', 'gifts.js'), 'utf8'));
+    if (gm) for (const r of gm[1].matchAll(/\['([^']+)'/g)) need('подарунки: побажання', r[1]);
+  }
 }
 // 7) англійський курс
 for (const c of ((W.ENGLISH || {}).comics || [])) {

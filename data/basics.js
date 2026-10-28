@@ -70,7 +70,12 @@ window.BASICS = {
     helse: { icon: '🩺', uk: 'Здоров’я', en: 'Health', no: 'Helse', ar: 'الصحة' },
     jobb: { icon: '💼', uk: 'Робота', en: 'Work', no: 'Jobb', ar: 'العمل' },
     bolig: { icon: '🏠', uk: 'Житло', en: 'Housing', no: 'Bolig', ar: 'السكن' },
-    kultur: { icon: '🇳🇴', uk: 'Норвезька культура', en: 'Norwegian culture', no: 'Norsk kultur', ar: 'الثقافة النرويجية' }
+    kultur: { icon: '🇳🇴', uk: 'Норвезька культура', en: 'Norwegian culture', no: 'Norsk kultur', ar: 'الثقافة النرويجية' },
+    /* Історії, де сюжетом є сама граматика: скільки, якого розміру, що більше.
+       Окрема категорія, бо шукають їх інакше — не «про що», а «що саме вчимо». */
+    grammatikk: { icon: '📐', uk: 'Граматика в житті', en: 'Grammar in real life', no: 'Grammatikk i hverdagen', ar: 'القواعد في الحياة' },
+    // 💻 основи програмування для дітей: алгоритми, цикли, умови, змінні, помилки, мови, моделі
+    koding: { icon: '💻', uk: 'Програмування', en: 'Coding', no: 'Programmering', ar: 'البرمجة' }
   },
   // ідеї наступних історій (показуються в плані навчання як «Скоро»)
   upcoming: [
@@ -98,3 +103,24 @@ window.BASICS.numberWord = function (n) {
   if (n < 1000) { const h = Math.floor(n / 100), r = n % 100; return (h === 1 ? 'hundre' : N[h] + ' hundre') + (r ? ' og ' + window.BASICS.numberWord(r) : ''); }
   return String(n);
 };
+
+/* ½ Дроби норвезькою: 1/2 «en halv», 3/4 «tre fjerdedeler», 1/10 «en tidel».
+   Тут — одне джерело для сторінки дробів, тесту та генерації аудіо (tools/build-audio-list.js). */
+window.BASICS.FRACTION_DEN = { 2: ['halv', 'halve'], 3: ['tredjedel', 'tredjedeler'], 4: ['fjerdedel', 'fjerdedeler'], 5: ['femtedel', 'femtedeler'], 6: ['sjettedel', 'sjettedeler'], 7: ['sjuendedel', 'sjuendedeler'], 8: ['åttendedel', 'åttendedeler'], 9: ['niendedel', 'niendedeler'], 10: ['tidel', 'tideler'] };
+window.BASICS.fractionWord = function (n, d) {
+  const D = window.BASICS.FRACTION_DEN[d];
+  if (!D) return n + '/' + d;
+  return window.BASICS.numberWord(n) + ' ' + (n === 1 ? D[0] : D[1]);
+};
+// «en tredjedel av ni (er tre)»; половину кажуть звично — «halvparten av åtte»
+window.BASICS.fractionOf = function (n, d, total, withAnswer) {
+  const B = window.BASICS, head = n === 1 && d === 2 ? 'halvparten' : B.fractionWord(n, d);
+  return head + ' av ' + B.numberWord(total) + (withAnswer ? ' er ' + B.numberWord(total / d * n) : '');
+};
+// приклади «частина від числа», які звучать на сайті: результат і число — до 20
+window.BASICS.fractionOfTasks = function () {
+  const out = [];
+  for (let d = 2; d <= 10; d++) for (let k = 1; d * k <= 20; k++) for (let n = 1; n < d; n++) out.push([n, d, d * k]);
+  return out;
+};
+window.BASICS.FRACTION_WORDS = ['brøk', 'teller', 'nevner', 'brøkstrek', 'en hel', 'halvparten', 'større enn', 'mindre enn', 'like store'];

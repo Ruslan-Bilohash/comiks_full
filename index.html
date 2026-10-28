@@ -28,6 +28,11 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="nb_NO">
 <meta property="og:locale:alternate" content="uk_UA">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="pl_PL">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:locale:alternate" content="lt_LT">
+<meta property="og:locale:alternate" content="ar_AR">
 <!-- Корінь обслуговує всі мови інтерфейсу одразу, тож він не «англійська
      версія», а мовно-нейтральний вхід: лише x-default. Заявляти тут hreflang="en"
      означало б сперечатися з /komiks/, який справді англійський. Решта мов
@@ -36,6 +41,11 @@
 <link rel="alternate" hreflang="en" href="https://bilohash.com/comiks/komiks/">
 <link rel="alternate" hreflang="nb" href="https://bilohash.com/comiks/no/komiks/">
 <link rel="alternate" hreflang="uk" href="https://bilohash.com/comiks/uk/komiks/">
+<link rel="alternate" hreflang="de" href="https://bilohash.com/comiks/de/komiks/">
+<link rel="alternate" hreflang="pl" href="https://bilohash.com/comiks/pl/komiks/">
+<link rel="alternate" hreflang="tr" href="https://bilohash.com/comiks/tr/komiks/">
+<link rel="alternate" hreflang="lt" href="https://bilohash.com/comiks/lt/komiks/">
+<link rel="alternate" hreflang="ar" href="https://bilohash.com/comiks/ar/komiks/">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Learn Norwegian with Comics — Komiks·Lab","description":"Online Norwegian course with voiced comics A1–B2, English translation of every word, grammar, vocabulary and tests. Made for expats moving to Norway.","inLanguage":["en","nb","uk","ar","de","pl","tr","lt"],"isAccessibleForFree":true,"url":"https://bilohash.com/comiks/","image":"https://bilohash.com/comiks/og-image.png","teaches":"Norwegian (Bokmål), A1–B2","educationalLevel":"A1, A2, B1, B2","provider":{"@type":"Organization","name":"Komiks·Lab","url":"https://bilohash.com/comiks/"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT20M"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Komiks·Lab","alternateName":"Комікс·Lab","url":"https://bilohash.com/comiks/","inLanguage":["en","nb","uk","ar","de","pl","tr","lt"],"description":"Learn Norwegian with voiced comics: A1–B2 stories, tests, games and grammar.","publisher":{"@type":"Organization","name":"Komiks·Lab","url":"https://bilohash.com/comiks/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Komiks·Lab","url":"https://bilohash.com/comiks/","logo":{"@type":"ImageObject","url":"https://bilohash.com/comiks/img/logo.svg"},"image":"https://bilohash.com/comiks/og-image.png","description":"A free project for learning Norwegian through comics with audio."}</script><!-- /seo:og -->
@@ -80,7 +90,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;900&family=Pangolin&family=Rubik:wght@500;700;900&display=swap">
-<!-- ver:css --><link rel="stylesheet" href="assets/style.css?v=musrvubl"><!-- /ver:css -->
+<!-- ver:css --><link rel="stylesheet" href="assets/style.css?v=mvshnjze">
+<link rel="stylesheet" href="assets/logic.css?v=mvshnjze"><!-- /ver:css -->
 
 <script type="application/ld+json">
 {
@@ -122,6 +133,7 @@
     <span class="logo-text"><b>Komiks</b><i>·Lab</i><small>Lær norsk</small></span>
   </a>
   <nav id="mainNav" class="main-nav" aria-label="Meny">
+    <a href="#/search" data-k="search" class="pc-hide">🔍 Søk</a>
     <a href="#/today" data-k="today">📅 I dag</a>
     <a href="#/game" data-k="game">🎮 Spill sammen</a>
     <a href="#/words" data-k="words" class="pc-hide">Ord</a>
@@ -147,6 +159,7 @@
     </select>
   </label>
   <div class="nav-tools">
+    <a class="btn icon" id="searchBtn" href="#/search" title="Søk · Пошук · Search ( / )" aria-label="Søk · Пошук · Search">🔍</a>
     <a class="btn icon" id="setBtn" href="#/settings" title="Innstillinger" aria-label="Innstillinger">⚙️</a>
     <a class="btn acc-btn" id="accBtn" href="#/login"><span class="acc-ico">👤</span><span class="acc-name">Logg inn</span></a>
   </div>
@@ -169,9 +182,10 @@
     <li>Voiced Norwegian comics: listen to every line, slow it down, repeat.</li>
     <li>English translation of every word and sentence on hover, with grammar hints.</li>
     <li>Norwegian grammar with tables: pronouns, present and past tense, en/ei/et nouns, adjectives, prepositions and word order.</li>
-    <li>1096 words in 53 topics: work, housing, food, health, family, traffic, winter, public services and free time — each with a picture and audio.</li>
+    <li>1133 words in 54 topics: work, housing, food, health, family, traffic, winter, public services and free time — each with a picture and audio.</li>
     <li>Tests in Norwegian, flashcards with spaced repetition, the Logic Race and Math Rocket games, and a personal study plan.</li>
     <li>Play together: a teacher or a friend opens a room with a QR code and everyone answers on their phones.</li>
+    <li><a href="https://bilohash.com/comiks/coding-for-kids/"><b>Coding for kids</b></a>: algorithms, HTML, CSS, JavaScript, game development, Blender, Unity, databases and SQL through comics and quizzes.</li>
   </ul>
   <h2>Norwegian comics for everyday life in Norway (A1–B2)</h2>
   <article>
@@ -769,6 +783,895 @@
     <p>Words: <span lang="nb">en allergi</span> — an allergy · <span lang="nb">å si fra</span> — to let someone know · <span lang="nb">å tåle</span> — to tolerate · <span lang="nb">ei nøtt</span> — a nut · <span lang="nb">å inneholde</span> — to contain · <span lang="nb">en dressing</span> — a dressing · <span lang="nb">å bytte ut</span> — to swap out · <span lang="nb">en porsjon</span> — a portion · <span lang="nb">et brett</span> — a board, a tray · <span lang="nb">et redskap</span> — a tool · <span lang="nb">å ta på alvor</span> — to take seriously · <span lang="nb">trygg</span> — safe</p>
     <p><a href="https://bilohash.com/comiks/komiks/p174/">Read “An allergy at a restaurant” — Norwegian comic with English translation</a></p>
   </article>
+  <article>
+    <h3>Much or many? <small lang="nb">(Mye eller mange?, A1)</small></h3>
+    <p>Mia and Mum bake a cake and work out when Norwegian says “mye” and when it says “mange”.</p>
+    <p lang="nb">Mia og mamma baker kake og finner ut når vi sier «mye» og når vi sier «mange».</p>
+    <p>Words: <span lang="nb">mye</span> — much · <span lang="nb">mange</span> — many · <span lang="nb">ei melk</span> — milk · <span lang="nb">et egg</span> — an egg · <span lang="nb">et mel</span> — flour · <span lang="nb">et sukker</span> — sugar · <span lang="nb">å bake</span> — to bake · <span lang="nb">ei kake</span> — a cake · <span lang="nb">nok</span> — enough · <span lang="nb">å telle</span> — to count · <span lang="nb">å måle</span> — to measure · <span lang="nb">litt</span> — a little</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p175/">Read “Much or many?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Big or small? <small lang="nb">(Stor eller liten?, A1)</small></h3>
+    <p>Leo goes shopping and learns why Norwegian says “en liten pose” but “et lite brød”.</p>
+    <p lang="nb">Leo handler i butikken og lærer hvorfor det heter «en liten pose», men «et lite brød».</p>
+    <p>Words: <span lang="nb">stor</span> — big · <span lang="nb">liten</span> — small (en-word) · <span lang="nb">lite</span> — small (et-word) · <span lang="nb">små</span> — small (plural) · <span lang="nb">en pose</span> — a bag · <span lang="nb">et brød</span> — a loaf · <span lang="nb">sko</span> — shoes · <span lang="nb">å trenge</span> — to need · <span lang="nb">hvorfor</span> — why · <span lang="nb">fordi</span> — because · <span lang="nb">å huske</span> — to remember · <span lang="nb">noe mer</span> — anything else</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p176/">Read “Big or small?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A little, little and few <small lang="nb">(Litt, lite og få, A2)</small></h3>
+    <p>Nora and Dad have a picnic in the park and sort out three words that all mean “not much”.</p>
+    <p lang="nb">Nora og pappa har piknik i parken og rydder opp i tre ord som alle betyr «ikke mye».</p>
+    <p>Words: <span lang="nb">litt</span> — a little · <span lang="nb">lite</span> — little · <span lang="nb">få</span> — few · <span lang="nb">en kaffe</span> — coffee · <span lang="nb">igjen</span> — left · <span lang="nb">å bety</span> — to mean · <span lang="nb">nesten</span> — almost · <span lang="nb">ingenting</span> — nothing · <span lang="nb">ei kurv</span> — a basket · <span lang="nb">å telle</span> — to count · <span lang="nb">å høres ut</span> — to sound · <span lang="nb">trist</span> — sad</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p177/">Read “A little, little and few” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Bigger and biggest <small lang="nb">(Større og størst, A2)</small></h3>
+    <p>Musa and Kari hike in the mountains and practise stor–større–størst, mange–flere–flest and god–bedre–best.</p>
+    <p lang="nb">Musa og Kari går i fjellet og øver på stor–større–størst, mange–flere–flest og god–bedre–best.</p>
+    <p>Words: <span lang="nb">stor</span> — big · <span lang="nb">større</span> — bigger · <span lang="nb">størst</span> — biggest · <span lang="nb">mange</span> — many · <span lang="nb">flere</span> — more · <span lang="nb">flest</span> — most · <span lang="nb">mindre</span> — smaller · <span lang="nb">minst</span> — smallest · <span lang="nb">bedre</span> — better · <span lang="nb">best</span> — best · <span lang="nb">et fjell</span> — a mountain · <span lang="nb">ei hytte</span> — a cabin</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p178/">Read “Bigger and biggest” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A busy morning <small lang="nb">(En travel morgen, A1)</small></h3>
+    <p>Leo does not want to get up, breakfast takes too long, and Pus the cat is asleep on the backpack. Will Leo catch the bus?</p>
+    <p lang="nb">Leo vil ikke stå opp, frokosten tar tid, og katten Pus sover på sekken. Rekker Leo bussen?</p>
+    <p>Words: <span lang="nb">å stå opp</span> — to get up · <span lang="nb">trøtt</span> — tired, sleepy · <span lang="nb">å vaske seg</span> — to wash (oneself) · <span lang="nb">å pusse tennene</span> — to brush one’s teeth · <span lang="nb">å kle på seg</span> — to get dressed · <span lang="nb">først</span> — first · <span lang="nb">så</span> — then · <span lang="nb">frokost</span> — breakfast · <span lang="nb">havregryn</span> — porridge, oats · <span lang="nb">brød med ost</span> — bread with cheese · <span lang="nb">et glass melk</span> — a glass of milk · <span lang="nb">kvart på åtte</span> — a quarter to eight · <span lang="nb">ti over åtte</span> — ten past eight · <span lang="nb">bussen går</span> — the bus leaves · <span lang="nb">en sekk</span> — a backpack · <span lang="nb">å sove</span> — to sleep · <span lang="nb">å rekke bussen</span> — to catch the bus · <span lang="nb">ha det</span> — bye · <span lang="nb">ha en fin dag</span> — have a nice day</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p179/">Read “A busy morning” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Football practice <small lang="nb">(Fotballtrening, A2)</small></h3>
+    <p>Dad coaches the children’s team. Leo forgot his water bottle, kicked the ball into a bush and then scored against Nora.</p>
+    <p lang="nb">Pappa er trener for barnelaget. Leo glemte vannflaska, sparket ballen inn i en busk og scoret til slutt på Nora.</p>
+    <p>Words: <span lang="nb">en trening</span> — a practice, training · <span lang="nb">en trener</span> — a coach · <span lang="nb">å løpe</span> — to run · <span lang="nb">en runde</span> — a lap · <span lang="nb">ei vannflaske</span> — a water bottle · <span lang="nb">å glemme</span> — to forget · <span lang="nb">å øve på</span> — to practise · <span lang="nb">en pasning</span> — a pass · <span lang="nb">hverandre</span> — each other · <span lang="nb">å ta imot</span> — to receive · <span lang="nb">hardt</span> — hard · <span lang="nb">å havne</span> — to end up · <span lang="nb">en busk</span> — a bush · <span lang="nb">å hente</span> — to fetch · <span lang="nb">en kamp</span> — a match · <span lang="nb">et lag</span> — a team · <span lang="nb">å stå i mål</span> — to be in goal · <span lang="nb">å score</span> — to score · <span lang="nb">et mål</span> — a goal · <span lang="nb">et skudd</span> — a shot · <span lang="nb">bra jobba</span> — well done · <span lang="nb">å låne</span> — to borrow · <span lang="nb">på torsdag</span> — on Thursday</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p180/">Read “Football practice” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Fire drill at work <small lang="nb">(Brannøvelse på jobben, B1)</small></h3>
+    <p>Maria has just started at the office when a fire drill begins. Ruslan explains the rules, and Denys goes back for his coffee.</p>
+    <p lang="nb">Maria er ny på kontoret, og så er det brannøvelse. Ruslan forklarer reglene, og Denys går tilbake etter kaffen.</p>
+    <p>Words: <span lang="nb">en brannøvelse</span> — a fire drill · <span lang="nb">en brannalarm</span> — a fire alarm · <span lang="nb">en nødutgang</span> — an emergency exit · <span lang="nb">ei trapp</span> — stairs · <span lang="nb">en heis</span> — a lift, an elevator · <span lang="nb">et verneombud</span> — a safety representative · <span lang="nb">å brenne</span> — to burn · <span lang="nb">å la alt ligge</span> — to leave everything · <span lang="nb">rolig</span> — calmly · <span lang="nb">å ta med</span> — to bring, to take along · <span lang="nb">viktigere enn</span> — more important than · <span lang="nb">en samlingsplass</span> — an assembly point · <span lang="nb">å krysse av</span> — to tick off · <span lang="nb">ei liste</span> — a list · <span lang="nb">å mangle</span> — to be missing · <span lang="nb">å måtte</span> — to have to · <span lang="nb">akkurat</span> — exactly · <span lang="nb">raskere</span> — faster · <span lang="nb">en brannslukker</span> — a fire extinguisher · <span lang="nb">engang</span> — even</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p181/">Read “Fire drill at work” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Elections and democracy in Norway <small lang="nb">(Valg og demokrati i Norge, B2)</small></h3>
+    <p>Alina has received a polling card. Teacher Morten and Maria explain who can vote, how to vote in advance and why the ballot is secret.</p>
+    <p lang="nb">Alina har fått valgkort. Lærer Morten og Maria forklarer hvem som kan stemme, hvordan man forhåndsstemmer, og hvorfor valget er hemmelig.</p>
+    <p>Words: <span lang="nb">et valg</span> — an election; a choice · <span lang="nb">et kommunevalg</span> — a municipal election · <span lang="nb">et stortingsvalg</span> — a parliamentary election · <span lang="nb">å stemme</span> — to vote · <span lang="nb">en stemmerett</span> — the right to vote · <span lang="nb">et valgkort</span> — a polling card · <span lang="nb">lovlig</span> — legally · <span lang="nb">et opphold</span> — residence, stay · <span lang="nb">en statsborger</span> — a citizen · <span lang="nb">en representant</span> — a representative · <span lang="nb">Stortinget</span> — the Storting (Norwegian parliament) · <span lang="nb">hvert fjerde år</span> — every four years · <span lang="nb">å forhåndsstemme</span> — to vote in advance · <span lang="nb">en legitimasjon</span> — ID · <span lang="nb">hemmelig</span> — secret · <span lang="nb">en stemmeseddel</span> — a ballot paper · <span lang="nb">ei urne</span> — a ballot box · <span lang="nb">et parti</span> — a party · <span lang="nb">et partiprogram</span> — a party programme · <span lang="nb">en valgomat</span> — a voting advice app · <span lang="nb">en kommune</span> — a municipality · <span lang="nb">kollektivtransport</span> — public transport · <span lang="nb">å delta</span> — to take part · <span lang="nb">et demokrati</span> — a democracy</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p182/">Read “Elections and democracy in Norway” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>What is coding? <small lang="nb">(Hva er programmering?, A1)</small></h3>
+    <p>The school has a robot called Robo. He only follows exact commands, and the children learn that a program is commands in the right order.</p>
+    <p lang="nb">Skolen har fått roboten Robo. Han gjør bare nøyaktige kommandoer, og barna lærer at et program er kommandoer i riktig rekkefølge.</p>
+    <p>Words: <span lang="nb">en robot</span> — a robot · <span lang="nb">programmering</span> — programming, coding · <span lang="nb">å programmere</span> — to code · <span lang="nb">en kommando</span> — a command · <span lang="nb">et program</span> — a program · <span lang="nb">en beskjed</span> — a message, an instruction · <span lang="nb">å forstå</span> — to understand · <span lang="nb">et skritt</span> — a step · <span lang="nb">fram</span> — forward · <span lang="nb">å snu</span> — to turn · <span lang="nb">ferdig</span> — done, finished · <span lang="nb">feil</span> — error; wrong · <span lang="nb">å kjenne</span> — to know · <span lang="nb">en rekkefølge</span> — an order, a sequence · <span lang="nb">riktig</span> — right, correct · <span lang="nb">steg for steg</span> — step by step · <span lang="nb">å lære</span> — to learn · <span lang="nb">for eksempel</span> — for example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p183/">Read “What is coding?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The sandwich algorithm <small lang="nb">(Brødskive-algoritmen, A1)</small></h3>
+    <p>Leo teaches Robo the robot to make a sandwich. Robo does everything literally, so Leo learns that an algorithm must be exact and in the right order.</p>
+    <p lang="nb">Leo lærer roboten Robo å lage ei brødskive. Robo gjør alt helt nøyaktig, så Leo lærer at en algoritme må være presis og i riktig rekkefølge.</p>
+    <p>Words: <span lang="nb">en algoritme</span> — an algorithm · <span lang="nb">ei brødskive</span> — a slice of bread, a sandwich · <span lang="nb">en oppskrift</span> — a recipe · <span lang="nb">et steg</span> — a step · <span lang="nb">å trenge</span> — to need · <span lang="nb">smør</span> — butter · <span lang="nb">en ost</span> — a cheese · <span lang="nb">å legge på</span> — to put on · <span lang="nb">utført</span> — done, carried out · <span lang="nb">nøyaktig</span> — exactly · <span lang="nb">nytt</span> — new · <span lang="nb">å virke</span> — to work · <span lang="nb">viktig</span> — important · <span lang="nb">først</span> — first · <span lang="nb">så</span> — then · <span lang="nb">å huske</span> — to remember · <span lang="nb">vær så god</span> — here you are</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p184/">Read “The sandwich algorithm” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Repeat! Robo dances <small lang="nb">(Gjenta! Robo danser, A1)</small></h3>
+    <p>Nora wants Robo to dance, but there are too many commands. The teacher shows a loop: “repeat 4 times” — and the program becomes short.</p>
+    <p lang="nb">Nora vil at Robo skal danse, men det blir altfor mange kommandoer. Læreren viser en løkke: «gjenta 4 ganger» – og programmet blir kort.</p>
+    <p>Words: <span lang="nb">å gjenta</span> — to repeat · <span lang="nb">ei løkke</span> — a loop · <span lang="nb">å hoppe</span> — to jump · <span lang="nb">å klappe</span> — to clap · <span lang="nb">å danse</span> — to dance · <span lang="nb">mye</span> — a lot · <span lang="nb">å skrive</span> — to write · <span lang="nb">å bruke</span> — to use · <span lang="nb">fire ganger</span> — four times · <span lang="nb">kort</span> — short · <span lang="nb">hundre</span> — a hundred · <span lang="nb">ei datamaskin</span> — a computer · <span lang="nb">aldri</span> — never · <span lang="nb">sliten</span> — tired · <span lang="nb">svimmel</span> — dizzy · <span lang="nb">å stoppe</span> — to stop</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p185/">Read “Repeat! Robo dances” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>If it rains … <small lang="nb">(Hvis det regner …, A1)</small></h3>
+    <p>Robo does not know when to take an umbrella. Leo and Mum write him a rule: if it rains — an umbrella, otherwise — sunglasses.</p>
+    <p lang="nb">Robo vet ikke når han skal ta med paraply. Leo og mamma skriver en regel: hvis det regner – paraply, ellers – solbriller.</p>
+    <p>Words: <span lang="nb">hvis</span> — if · <span lang="nb">ellers</span> — otherwise, else · <span lang="nb">en regel</span> — a rule · <span lang="nb">en paraply</span> — an umbrella · <span lang="nb">solbriller</span> — sunglasses · <span lang="nb">å regne</span> — to rain · <span lang="nb">sola skinner</span> — the sun is shining · <span lang="nb">å gå ut</span> — to go out · <span lang="nb">å ta med</span> — to bring · <span lang="nb">hvorfor</span> — why · <span lang="nb">å ha rett</span> — to be right · <span lang="nb">forstått</span> — understood · <span lang="nb">å tenke</span> — to think · <span lang="nb">å rydde</span> — to tidy · <span lang="nb">et rom</span> — a room · <span lang="nb">en is</span> — an ice cream</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p186/">Read “If it rains …” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Points in the box <small lang="nb">(Poeng i boksen, A2)</small></h3>
+    <p>Nora and Leo make a game: a cat catches fish and gets points. The teacher explains a variable — a box with a name where the computer keeps a number.</p>
+    <p lang="nb">Nora og Leo lager et spill: en katt fanger fisk og får poeng. Læreren forklarer en variabel – en boks med et navn der datamaskinen tar vare på et tall.</p>
+    <p>Words: <span lang="nb">et spill</span> — a game · <span lang="nb">et poeng</span> — a point · <span lang="nb">en variabel</span> — a variable · <span lang="nb">en boks</span> — a box · <span lang="nb">et navn</span> — a name · <span lang="nb">en verdi</span> — a value · <span lang="nb">å fange</span> — to catch · <span lang="nb">en fisk</span> — a fish · <span lang="nb">hver gang</span> — every time · <span lang="nb">null</span> — zero · <span lang="nb">pluss</span> — plus · <span lang="nb">å endre seg</span> — to change · <span lang="nb">et liv</span> — a life · <span lang="nb">en fart</span> — a speed · <span lang="nb">å vinne</span> — to win · <span lang="nb">en glede</span> — a joy · <span lang="nb">å ta vare på</span> — to keep, to take care of</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p187/">Read “Points in the box” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Find the bug! <small lang="nb">(Finn feilen!, A2)</small></h3>
+    <p>Robo has to reach the star but walks into a wall. The children read the program line by line, find the bug and fix it.</p>
+    <p lang="nb">Robo skal gå til stjerna, men går rett inn i veggen. Barna leser programmet linje for linje, finner feilen og retter den.</p>
+    <p>Words: <span lang="nb">ei stjerne</span> — a star · <span lang="nb">en vegg</span> — a wall · <span lang="nb">å starte</span> — to start · <span lang="nb">rett inn i</span> — straight into · <span lang="nb">en feil</span> — a mistake, an error · <span lang="nb">en bug</span> — a bug · <span lang="nb">feilsøking</span> — debugging · <span lang="nb">å rette</span> — to fix, to correct · <span lang="nb">ei linje</span> — a line · <span lang="nb">høyre</span> — right · <span lang="nb">venstre</span> — left · <span lang="nb">å prøve igjen</span> — to try again · <span lang="nb">en programmerer</span> — a programmer · <span lang="nb">læring</span> — learning · <span lang="nb">en del av</span> — a part of</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p188/">Read “Find the bug!” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Which language? <small lang="nb">(Hvilket språk?, A2)</small></h3>
+    <p>Leo asks Robo which language he speaks. The teacher explains programming languages: Scratch, Python, JavaScript, HTML and CSS, Swift, Kotlin and C#.</p>
+    <p lang="nb">Leo spør Robo hvilket språk han snakker. Læreren forteller om programmeringsspråk: Scratch, Python, JavaScript, HTML og CSS, Swift, Kotlin og C#.</p>
+    <p>Words: <span lang="nb">et språk</span> — a language · <span lang="nb">et programmeringsspråk</span> — a programming language · <span lang="nb">å finnes</span> — to exist · <span lang="nb">ofte</span> — often · <span lang="nb">å flytte</span> — to move · <span lang="nb">fargerik</span> — colourful · <span lang="nb">ei blokk</span> — a block · <span lang="nb">enkel</span> — simple, easy · <span lang="nb">kunstig intelligens</span> — artificial intelligence · <span lang="nb">data</span> — data · <span lang="nb">ei nettside</span> — a web page, a website · <span lang="nb">å bevege seg</span> — to move · <span lang="nb">ei app</span> — an app · <span lang="nb">mange</span> — many · <span lang="nb">logisk</span> — logically · <span lang="nb">det viktigste</span> — the most important thing</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p189/">Read “Which language?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A model of the school <small lang="nb">(En modell av skolen, A2)</small></h3>
+    <p>The class makes a model of the schoolyard. The children learn that a model is a simple copy, that things in a program have properties, and that you draw the plan before the code.</p>
+    <p lang="nb">Klassen lager en modell av skolegården. Barna lærer at en modell er en enkel kopi, at ting i et program har egenskaper, og at vi tegner planen før koden.</p>
+    <p>Words: <span lang="nb">en modell</span> — a model · <span lang="nb">en skolegård</span> — a schoolyard · <span lang="nb">en kopi</span> — a copy · <span lang="nb">ekte</span> — real · <span lang="nb">et kart</span> — a map · <span lang="nb">å tegne</span> — to draw · <span lang="nb">en port</span> — a gate · <span lang="nb">en fotballbane</span> — a football pitch · <span lang="nb">et blad</span> — a leaf · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">en egenskap</span> — a property · <span lang="nb">en farge</span> — a colour · <span lang="nb">en størrelse</span> — a size · <span lang="nb">et flytskjema</span> — a flowchart · <span lang="nb">en plan</span> — a plan · <span lang="nb">en kode</span> — a code · <span lang="nb">sulten</span> — hungry · <span lang="nb">det stemmer</span> — that is right</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p190/">Read “A model of the school” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A website for Pus: HTML basics <small lang="nb">(Nettsiden til Pus, A2)</small></h3>
+    <p>Nora and Leo make a website about Pus the cat. Robo explains HTML: tags in angle brackets, a heading &lt;h1&gt;, a paragraph &lt;p&gt;, an image &lt;img&gt; and a link &lt;a&gt;.</p>
+    <p lang="nb">Nora og Leo lager en nettside om katten Pus. Robo forklarer HTML: tagger i spisse klammer, overskrift &lt;h1&gt;, avsnitt &lt;p&gt;, bilde &lt;img&gt; og lenke &lt;a&gt;.</p>
+    <p>Words: <span lang="nb">ei nettside</span> — a website, a web page · <span lang="nb">HTML</span> — HTML — the language of web pages · <span lang="nb">ei tagg</span> — a tag · <span lang="nb">spisse klammer</span> — angle brackets &lt; &gt; · <span lang="nb">å bestå av</span> — to consist of · <span lang="nb">en start</span> — a start · <span lang="nb">en slutt</span> — an end · <span lang="nb">ei slutt-tagg</span> — an end tag · <span lang="nb">en skråstrek</span> — a slash / · <span lang="nb">ei overskrift</span> — a heading · <span lang="nb">et avsnitt</span> — a paragraph · <span lang="nb">et bilde</span> — a picture, an image · <span lang="nb">ei lenke</span> — a link · <span lang="nb">å vise</span> — to show · <span lang="nb">til slutt</span> — finally · <span lang="nb">klar</span> — ready · <span lang="nb">neste gang</span> — next time</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p191/">Read “A website for Pus: HTML basics” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Colours with CSS <small lang="nb">(Farger med CSS, A2)</small></h3>
+    <p>Nora gives the website colours, spacing and clear buttons with CSS.</p>
+    <p lang="nb">Nora gir nettsiden farger, luft og tydelige knapper med CSS.</p>
+    <p>Words: <span lang="nb">CSS</span> — CSS — style language · <span lang="nb">en regel</span> — a rule · <span lang="nb">en velger</span> — a selector · <span lang="nb">en egenskap</span> — a property · <span lang="nb">en verdi</span> — a value · <span lang="nb">en bakgrunn</span> — a background · <span lang="nb">en farge</span> — a colour · <span lang="nb">en skrift</span> — a font · <span lang="nb">en størrelse</span> — a size · <span lang="nb">luft</span> — space · <span lang="nb">tydelig</span> — clear · <span lang="nb">å se ut</span> — to look</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p192/">Read “Colours with CSS” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The button that answers <small lang="nb">(Knappen som svarer, A2)</small></h3>
+    <p>JavaScript makes the page react when the user clicks.</p>
+    <p lang="nb">JavaScript gjør nettsiden levende når brukeren klikker.</p>
+    <p>Words: <span lang="nb">JavaScript</span> — JavaScript — programming language · <span lang="nb">en knapp</span> — a button · <span lang="nb">et klikk</span> — a click · <span lang="nb">en hendelse</span> — an event · <span lang="nb">en funksjon</span> — a function · <span lang="nb">et dokument</span> — a document · <span lang="nb">å finne</span> — to find · <span lang="nb">å lagre</span> — to store · <span lang="nb">å kjøre</span> — to run · <span lang="nb">å endre</span> — to change · <span lang="nb">en tilbakemelding</span> — feedback · <span lang="nb">oppførsel</span> — behaviour</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p193/">Read “The button that answers” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The first game scene <small lang="nb">(Den første spillscenen, A2)</small></h3>
+    <p>The children plan a scene with a player, a goal and rules.</p>
+    <p lang="nb">Barna planlegger en scene med spiller, mål og regler.</p>
+    <p>Words: <span lang="nb">en spillscene</span> — a game scene · <span lang="nb">en spiller</span> — a player · <span lang="nb">en figur</span> — a character · <span lang="nb">et mål</span> — a goal · <span lang="nb">en regel</span> — a rule · <span lang="nb">en bakgrunn</span> — a background · <span lang="nb">en plattform</span> — a platform · <span lang="nb">å styre</span> — to control · <span lang="nb">å vinne</span> — to win · <span lang="nb">en prototype</span> — a prototype · <span lang="nb">en idé</span> — an idea · <span lang="nb">tydelig</span> — clear</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p194/">Read “The first game scene” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The fox learns to move <small lang="nb">(Reven lærer å bevege seg, A2)</small></h3>
+    <p>Key presses become speed and movement in the game.</p>
+    <p lang="nb">Tastetrykk blir til fart og bevegelse i spillet.</p>
+    <p>Words: <span lang="nb">styring</span> — controls · <span lang="nb">input</span> — input · <span lang="nb">en tast</span> — a key · <span lang="nb">en pil</span> — an arrow · <span lang="nb">fart</span> — speed · <span lang="nb">en posisjon</span> — a position · <span lang="nb">vannrett</span> — horizontal · <span lang="nb">oppover</span> — upwards · <span lang="nb">å hoppe</span> — to jump · <span lang="nb">tyngdekraft</span> — gravity · <span lang="nb">myk</span> — smooth · <span lang="nb">kontroll</span> — control</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p195/">Read “The fox learns to move” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>BANG! Collision and score <small lang="nb">(BANG! Kollisjon og poeng, A2)</small></h3>
+    <p>The game detects contact, awards points and opens the next level.</p>
+    <p lang="nb">Spillet oppdager kontakt, gir poeng og åpner neste nivå.</p>
+    <p>Words: <span lang="nb">en kollisjon</span> — a collision · <span lang="nb">å berøre</span> — to touch · <span lang="nb">en vegg</span> — a wall · <span lang="nb">å stoppe</span> — to stop · <span lang="nb">et poeng</span> — a point · <span lang="nb">en poengsum</span> — a score · <span lang="nb">å øke</span> — to increase · <span lang="nb">å huske</span> — to remember · <span lang="nb">et nivå</span> — a level · <span lang="nb">en utfordring</span> — a challenge · <span lang="nb">å teste</span> — to test · <span lang="nb">å virke</span> — to work</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p196/">Read “BANG! Collision and score” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Inside Blender <small lang="nb">(Inne i Blender, B1)</small></h3>
+    <p>Robo shows the 3D space, axes and the main basic shapes.</p>
+    <p lang="nb">Robo viser 3D-rommet, aksene og de viktigste grunnformene.</p>
+    <p>Words: <span lang="nb">Blender</span> — Blender — 3D software · <span lang="nb">et 3D-objekt</span> — a 3D object · <span lang="nb">en akse</span> — an axis · <span lang="nb">bredde</span> — width · <span lang="nb">høyde</span> — height · <span lang="nb">dybde</span> — depth · <span lang="nb">en kube</span> — a cube · <span lang="nb">ei kule</span> — a sphere · <span lang="nb">å flytte</span> — to move · <span lang="nb">å rotere</span> — to rotate · <span lang="nb">å skalere</span> — to scale · <span lang="nb">en retning</span> — a direction</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p197/">Read “Inside Blender” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The robot friend in 3D <small lang="nb">(Robotvennen i 3D, B1)</small></h3>
+    <p>A simple model gets shape, material, light and a camera.</p>
+    <p lang="nb">En enkel modell får form, materiale, lys og kamera.</p>
+    <p>Words: <span lang="nb">en modell</span> — a model · <span lang="nb">en kropp</span> — a body · <span lang="nb">et øye</span> — an eye · <span lang="nb">en detalj</span> — a detail · <span lang="nb">duplisering</span> — duplication · <span lang="nb">et materiale</span> — a material · <span lang="nb">en overflate</span> — a surface · <span lang="nb">et lys</span> — a light · <span lang="nb">en skygge</span> — a shadow · <span lang="nb">et kamera</span> — a camera · <span lang="nb">å plassere</span> — to place · <span lang="nb">å rendre</span> — to render</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p198/">Read “The robot friend in 3D” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Welcome to Unity <small lang="nb">(Velkommen til Unity, B1)</small></h3>
+    <p>A scene is built from GameObjects and components.</p>
+    <p lang="nb">En scene bygges av GameObjects og komponenter.</p>
+    <p>Words: <span lang="nb">Unity</span> — Unity — game engine · <span lang="nb">en scene</span> — a scene · <span lang="nb">et GameObject</span> — a GameObject · <span lang="nb">en komponent</span> — a component · <span lang="nb">Inspector</span> — Inspector · <span lang="nb">Transform</span> — Transform · <span lang="nb">en posisjon</span> — a position · <span lang="nb">en rotasjon</span> — a rotation · <span lang="nb">en størrelse</span> — a scale · <span lang="nb">en sprite</span> — a sprite · <span lang="nb">fysikk</span> — physics · <span lang="nb">en evne</span> — an ability</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p199/">Read “Welcome to Unity” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Many stars from one prefab <small lang="nb">(Mange stjerner med én prefab, B1)</small></h3>
+    <p>Prefabs create reusable objects, and scenes divide the game into parts.</p>
+    <p lang="nb">Prefabs lager gjenbrukbare objekter, og scener deler spillet i deler.</p>
+    <p>Words: <span lang="nb">en prefab</span> — a prefab · <span lang="nb">en mal</span> — a template · <span lang="nb">gjenbrukbar</span> — reusable · <span lang="nb">en kopi</span> — a copy · <span lang="nb">en original</span> — an original · <span lang="nb">å oppdatere</span> — to update · <span lang="nb">en meny</span> — a menu · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">ryddig</span> — tidy · <span lang="nb">å spare</span> — to save · <span lang="nb">å forbedre</span> — to improve · <span lang="nb">å bygge</span> — to build</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p200/">Read “Many stars from one prefab” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The school’s secret library <small lang="nb">(Skolens hemmelige bibliotek, B1)</small></h3>
+    <p>A database organises information into tables, rows and fields.</p>
+    <p lang="nb">En database organiserer informasjon i tabeller, rader og felt.</p>
+    <p>Words: <span lang="nb">en database</span> — a database · <span lang="nb">informasjon</span> — information · <span lang="nb">en tabell</span> — a table · <span lang="nb">en rad</span> — a row · <span lang="nb">en kolonne</span> — a column · <span lang="nb">et felt</span> — a field · <span lang="nb">en post</span> — a record · <span lang="nb">en ID</span> — an ID · <span lang="nb">unik</span> — unique · <span lang="nb">å organisere</span> — to organise · <span lang="nb">en struktur</span> — a structure · <span lang="nb">nyttig</span> — useful</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p201/">Read “The school’s secret library” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Ask the database with SQL <small lang="nb">(Spør databasen med SQL, B1)</small></h3>
+    <p>An SQL query selects, filters and sorts data.</p>
+    <p lang="nb">En SQL-spørring velger, filtrerer og sorterer data.</p>
+    <p>Words: <span lang="nb">SQL</span> — SQL — query language · <span lang="nb">en spørring</span> — a query · <span lang="nb">å velge</span> — to select · <span lang="nb">å hente</span> — to fetch · <span lang="nb">å filtrere</span> — to filter · <span lang="nb">å sortere</span> — to sort · <span lang="nb">et resultat</span> — a result · <span lang="nb">presis</span> — precise · <span lang="nb">SELECT</span> — SELECT · <span lang="nb">FROM</span> — FROM · <span lang="nb">WHERE</span> — WHERE · <span lang="nb">ORDER BY</span> — ORDER BY</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p202/">Read “Ask the database with SQL” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The guardian of data <small lang="nb">(Vokteren av data, B1)</small></h3>
+    <p>The children learn data minimisation, access, strong passwords and backups.</p>
+    <p lang="nb">Barna lærer dataminimering, tilgang, sterke passord og sikkerhetskopi.</p>
+    <p>Words: <span lang="nb">personvern</span> — privacy · <span lang="nb">persondata</span> — personal data · <span lang="nb">nødvendig</span> — necessary · <span lang="nb">tilgang</span> — access · <span lang="nb">et passord</span> — a password · <span lang="nb">tofaktor</span> — two-factor authentication · <span lang="nb">kryptering</span> — encryption · <span lang="nb">en nøkkel</span> — a key · <span lang="nb">uleselig</span> — unreadable · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å gjenopprette</span> — to restore · <span lang="nb">å lansere</span> — to launch</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p203/">Read “The guardian of data” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The safe way home <small lang="nb">(Den trygge veien hjem, A1)</small></h3>
+    <p>Nora plans a visible route and knows whom to ask for help.</p>
+    <p lang="nb">Nora planlegger en synlig rute og vet hvem hun kan be om hjelp.</p>
+    <p>Words: <span lang="nb">en rute</span> — a route · <span lang="nb">trygg</span> — safe · <span lang="nb">kjent</span> — familiar · <span lang="nb">synlig</span> — visible · <span lang="nb">et gatelys</span> — a street light · <span lang="nb">en snarvei</span> — a shortcut · <span lang="nb">øde</span> — lonely · <span lang="nb">en avstand</span> — a distance · <span lang="nb">en butikk</span> — a shop · <span lang="nb">å stole på</span> — to trust · <span lang="nb">å si fra</span> — to tell · <span lang="nb">rolig</span> — calm</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p204/">Read “The safe way home” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>When a stranger asks for help <small lang="nb">(Når en fremmed ber om hjelp, A1)</small></h3>
+    <p>Children learn to keep distance, say no and get a trusted adult.</p>
+    <p lang="nb">Barna lærer å holde avstand, si nei og hente en trygg voksen.</p>
+    <p>Words: <span lang="nb">en fremmed</span> — a stranger · <span lang="nb">ukjent</span> — unknown · <span lang="nb">å bli med</span> — to come along · <span lang="nb">å nekte</span> — to refuse · <span lang="nb">tydelig</span> — clear · <span lang="nb">en voksen</span> — an adult · <span lang="nb">en ansatt</span> — a staff member · <span lang="nb">en hendelse</span> — an event · <span lang="nb">å fortelle</span> — to tell · <span lang="nb">en feil</span> — a fault · <span lang="nb">å oppføre seg</span> — to behave · <span lang="nb">en plan</span> — a plan</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p205/">Read “When a stranger asks for help” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Lost in the shopping centre <small lang="nb">(Borte i kjøpesenteret, A1)</small></h3>
+    <p>Nora stops, stays visible and asks a member of staff for help.</p>
+    <p lang="nb">Nora stopper, blir på et synlig sted og ber en ansatt om hjelp.</p>
+    <p>Words: <span lang="nb">å gå seg bort</span> — to get lost · <span lang="nb">et kjøpesenter</span> — a shopping centre · <span lang="nb">synlig</span> — visible · <span lang="nb">en informasjon</span> — an information desk · <span lang="nb">et navneskilt</span> — a name badge · <span lang="nb">en vakt</span> — a security guard · <span lang="nb">å kontakte</span> — to contact · <span lang="nb">et telefonnummer</span> — a phone number · <span lang="nb">utenat</span> — by heart · <span lang="nb">avtalt</span> — agreed · <span lang="nb">å finne</span> — to find · <span lang="nb">å vente</span> — to wait</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p206/">Read “Lost in the shopping centre” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>112: When is it an emergency? <small lang="nb">(112: Når er det nød?, A2)</small></h3>
+    <p>Children learn when to call 112 and what information the operator needs.</p>
+    <p lang="nb">Barna lærer når de skal ringe 112 og hvilke opplysninger operatøren trenger.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">akutt</span> — urgent · <span lang="nb">en fare</span> — a danger · <span lang="nb">alvorlig</span> — serious · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et landemerke</span> — a landmark · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å legge på</span> — to hang up · <span lang="nb">en nødetat</span> — an emergency service · <span lang="nb">sann</span> — truthful · <span lang="nb">å redde</span> — to save</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p207/">Read “112: When is it an emergency?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The secret password <small lang="nb">(Det hemmelige passordet, A2)</small></h3>
+    <p>Nora creates long unique passwords and protects the account with two-factor authentication.</p>
+    <p lang="nb">Nora lager lange, unike passord og beskytter kontoen med tofaktor.</p>
+    <p>Words: <span lang="nb">et passord</span> — a password · <span lang="nb">en passfrase</span> — a passphrase · <span lang="nb">tilfeldig</span> — random · <span lang="nb">unik</span> — unique · <span lang="nb">en konto</span> — an account · <span lang="nb">et datainnbrudd</span> — a data breach · <span lang="nb">en passordbehandler</span> — a password manager · <span lang="nb">et hovedpassord</span> — a master password · <span lang="nb">tofaktor</span> — two-factor authentication · <span lang="nb">en engangskode</span> — a one-time code · <span lang="nb">et lag</span> — a layer · <span lang="nb">beskyttelse</span> — protection</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p208/">Read “The secret password” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Do not click the phish! <small lang="nb">(Klikk ikke på fisken!, A2)</small></h3>
+    <p>Children recognise phishing and verify the message through a known channel.</p>
+    <p lang="nb">Barna kjenner igjen nettfisking og kontrollerer meldingen i en kjent kanal.</p>
+    <p>Words: <span lang="nb">nettfisking</span> — phishing · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en adresse</span> — an address · <span lang="nb">et domene</span> — a domain · <span lang="nb">en lenke</span> — a link · <span lang="nb">et vedlegg</span> — an attachment · <span lang="nb">hastverk</span> — urgency · <span lang="nb">et faresignal</span> — a warning sign · <span lang="nb">falsk</span> — fake · <span lang="nb">å kontrollere</span> — to verify · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p209/">Read “Do not click the phish!” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The QR code on the poster <small lang="nb">(QR-koden på plakaten, A2)</small></h3>
+    <p>A pasted QR code can hide a fake link, so Nora checks the address before opening it.</p>
+    <p lang="nb">En pålimt QR-kode kan skjule en falsk lenke, så Nora sjekker adressen før hun åpner.</p>
+    <p>Words: <span lang="nb">en QR-kode</span> — a QR code · <span lang="nb">en plakat</span> — a poster · <span lang="nb">en premie</span> — a prize · <span lang="nb">et klistremerke</span> — a sticker · <span lang="nb">å lime</span> — to paste · <span lang="nb">å skanne</span> — to scan · <span lang="nb">offisiell</span> — official · <span lang="nb">en arrangør</span> — an organiser · <span lang="nb">et kortnummer</span> — a card number · <span lang="nb">mistenkelig</span> — suspicious · <span lang="nb">å lukke</span> — to close · <span lang="nb">å skrive inn</span> — to enter</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p210/">Read “The QR code on the poster” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The photo that revealed too much <small lang="nb">(Bildet som avslørte for mye, A2)</small></h3>
+    <p>Nora checks location, school badge and other private details before sharing a photo.</p>
+    <p lang="nb">Nora ser etter sted, skolemerke og andre private detaljer før hun deler et bilde.</p>
+    <p>Words: <span lang="nb">å avsløre</span> — to reveal · <span lang="nb">en bakgrunn</span> — a background · <span lang="nb">et gatenummer</span> — a street number · <span lang="nb">steddata</span> — location data · <span lang="nb">en tillatelse</span> — permission · <span lang="nb">å beskjære</span> — to crop · <span lang="nb">en mottaker</span> — a recipient · <span lang="nb">en personverninnstilling</span> — a privacy setting · <span lang="nb">å kopiere</span> — to copy · <span lang="nb">å dele</span> — to share · <span lang="nb">et fotavtrykk</span> — a footprint · <span lang="nb">senere</span> — later</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p211/">Read “The photo that revealed too much” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>You have won! <small lang="nb">(Du har vunnet!, A2)</small></h3>
+    <p>A fake prize tries to get money and personal data before the prize exists.</p>
+    <p lang="nb">En falsk premie prøver å få penger og persondata før gevinsten finnes.</p>
+    <p>Words: <span lang="nb">en gevinst</span> — a prize · <span lang="nb">en konkurranse</span> — a competition · <span lang="nb">å delta</span> — to enter · <span lang="nb">et gebyr</span> — a fee · <span lang="nb">forskudd</span> — upfront payment · <span lang="nb">svindel</span> — fraud · <span lang="nb">et tegn</span> — a sign · <span lang="nb">persondata</span> — personal data · <span lang="nb">et bankpassord</span> — a bank password · <span lang="nb">sannsynligvis</span> — probably · <span lang="nb">aktiv</span> — active · <span lang="nb">å kreve</span> — to demand</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p212/">Read “You have won!” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The voice that sounded like Dad <small lang="nb">(Stemmen som lignet pappa, B1)</small></h3>
+    <p>An artificial voice creates panic, but a family code word and calling back expose the scam.</p>
+    <p lang="nb">En kunstig stemme skaper panikk, men familieord og tilbakeoppringing avslører svindelen.</p>
+    <p>Words: <span lang="nb">å etterligne</span> — to imitate · <span lang="nb">en stemmeprøve</span> — a voice sample · <span lang="nb">kunstig intelligens</span> — artificial intelligence · <span lang="nb">panikk</span> — panic · <span lang="nb">å puste</span> — to breathe · <span lang="nb">et kodeord</span> — a code word · <span lang="nb">en svindler</span> — a scammer · <span lang="nb">å bryte</span> — to end · <span lang="nb">lagret</span> — saved · <span lang="nb">en identitet</span> — an identity · <span lang="nb">å bevise</span> — to prove · <span lang="nb">et pengekrav</span> — a money request</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p213/">Read “The voice that sounded like Dad” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The cheap games console <small lang="nb">(Den billige spillkonsollen, A2)</small></h3>
+    <p>Nora checks the seller, price, payment and meeting place before buying second-hand.</p>
+    <p lang="nb">Nora vurderer selger, pris, betaling og møteplass før hun handler brukt.</p>
+    <p>Words: <span lang="nb">en spillkonsoll</span> — a games console · <span lang="nb">brukt</span> — second-hand · <span lang="nb">et lokkemiddel</span> — bait · <span lang="nb">en selger</span> — a seller · <span lang="nb">en vurdering</span> — a review · <span lang="nb">en historikk</span> — a history · <span lang="nb">en markedsplass</span> — a marketplace · <span lang="nb">en betaling</span> — a payment · <span lang="nb">offentlig</span> — public · <span lang="nb">en tidsfrist</span> — a deadline · <span lang="nb">å avbryte</span> — to cancel · <span lang="nb">et tilbud</span> — an offer</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p214/">Read “The cheap games console” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The fake profile <small lang="nb">(Den falske profilen, A2)</small></h3>
+    <p>A copied profile asks for secrets, but Nora verifies the friend through a known channel.</p>
+    <p lang="nb">En kopiert profil ber om hemmeligheter, men Nora bekrefter vennen i en kjent kanal.</p>
+    <p>Words: <span lang="nb">en profil</span> — a profile · <span lang="nb">å kopiere</span> — to copy · <span lang="nb">en innloggingskode</span> — a login code · <span lang="nb">en hemmelighet</span> — a secret · <span lang="nb">privat</span> — private · <span lang="nb">kontroll</span> — control · <span lang="nb">å etterligne</span> — to impersonate · <span lang="nb">en plattform</span> — a platform · <span lang="nb">å undersøke</span> — to investigate · <span lang="nb">å fjerne</span> — to remove · <span lang="nb">å varsle</span> — to warn · <span lang="nb">en kontakt</span> — a contact</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p215/">Read “The fake profile” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The app wants everything <small lang="nb">(Appen vil ha alt, A2)</small></h3>
+    <p>Nora gives the app only permissions needed for the feature she uses.</p>
+    <p lang="nb">Nora gir bare appen tillatelser som er nødvendige for funksjonen hun bruker.</p>
+    <p>Words: <span lang="nb">en tillatelse</span> — a permission · <span lang="nb">tilgang</span> — access · <span lang="nb">et kamera</span> — a camera · <span lang="nb">en mikrofon</span> — a microphone · <span lang="nb">en kontaktliste</span> — a contact list · <span lang="nb">en posisjon</span> — a location · <span lang="nb">å navigere</span> — to navigate · <span lang="nb">en utvikler</span> — a developer · <span lang="nb">en omtale</span> — a review · <span lang="nb">kritisk</span> — critical · <span lang="nb">unødvendig</span> — unnecessary · <span lang="nb">å samle inn</span> — to collect</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p216/">Read “The app wants everything” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Update the right way <small lang="nb">(Oppdater på riktig måte, A2)</small></h3>
+    <p>Security updates fix known flaws when they come from an official source.</p>
+    <p lang="nb">Sikkerhetsoppdateringer tetter kjente feil når de kommer fra en offisiell kilde.</p>
+    <p>Words: <span lang="nb">en oppdatering</span> — an update · <span lang="nb">en sikkerhetsfeil</span> — a security flaw · <span lang="nb">en kilde</span> — a source · <span lang="nb">å installere</span> — to install · <span lang="nb">et operativsystem</span> — an operating system · <span lang="nb">en appbutikk</span> — an app store · <span lang="nb">en systemfil</span> — a system file · <span lang="nb">pålitelig</span> — trusted · <span lang="nb">å avbryte</span> — to interrupt · <span lang="nb">midtveis</span> — halfway · <span lang="nb">en rettelse</span> — a fix · <span lang="nb">automatisk</span> — automatic</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p217/">Read “Update the right way” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The school’s open Wi-Fi <small lang="nb">(Skolens åpne Wi-Fi, B1)</small></h3>
+    <p>Nora distinguishes the real network from copies and avoids sensitive actions on open networks.</p>
+    <p lang="nb">Nora skiller ekte nettverk fra kopier og unngår sensitive handlinger på åpne nett.</p>
+    <p>Words: <span lang="nb">et nettverk</span> — a network · <span lang="nb">åpen</span> — open · <span lang="nb">et nettverksnavn</span> — a network name · <span lang="nb">å bekrefte</span> — to verify · <span lang="nb">sensitiv</span> — sensitive · <span lang="nb">mobildata</span> — mobile data · <span lang="nb">betrodd</span> — trusted · <span lang="nb">HTTPS</span> — HTTPS · <span lang="nb">en nettleserlås</span> — a browser lock · <span lang="nb">automatisk</span> — automatically · <span lang="nb">å glemme</span> — to forget · <span lang="nb">en risiko</span> — a risk</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p218/">Read “The school’s open Wi-Fi” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The backup rescue <small lang="nb">(Backup-redningen, B1)</small></h3>
+    <p>Regular separate backups help when files are damaged or locked.</p>
+    <p lang="nb">Regelmessige, adskilte sikkerhetskopier hjelper når filer blir ødelagt eller låst.</p>
+    <p>Words: <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">adskilt</span> — separate · <span lang="nb">et medium</span> — a medium · <span lang="nb">å miste</span> — to lose · <span lang="nb">å ødelegge</span> — to damage · <span lang="nb">å låse</span> — to lock · <span lang="nb">å koble fra</span> — to disconnect · <span lang="nb">løsepengevirus</span> — ransomware · <span lang="nb">en IT-ansvarlig</span> — an IT lead · <span lang="nb">å rydde</span> — to clean · <span lang="nb">å gjenopprette</span> — to restore · <span lang="nb">jevnlig</span> — regularly</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p219/">Read “The backup rescue” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Are you human? <small lang="nb">(Er du et menneske?, A2)</small></h3>
+    <p>CAPTCHA slows automated abuse, but must be accessible and only one of several protective layers.</p>
+    <p lang="nb">CAPTCHA bremser automatisert misbruk, men må være tilgjengelig og bare ett lag av flere.</p>
+    <p>Words: <span lang="nb">en CAPTCHA</span> — a CAPTCHA · <span lang="nb">automatisert</span> — automated · <span lang="nb">misbruk</span> — abuse · <span lang="nb">et skjema</span> — a form · <span lang="nb">søppel</span> — junk · <span lang="nb">en robot</span> — a bot · <span lang="nb">en utfordring</span> — a challenge · <span lang="nb">tilgjengelig</span> — accessible · <span lang="nb">et alternativ</span> — an alternative · <span lang="nb">en grense</span> — a limit · <span lang="nb">logging</span> — logging · <span lang="nb">en bekreftelseskode</span> — a verification code</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p220/">Read “Are you human?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Do not trust the form <small lang="nb">(Ikke stol på skjemaet, B1)</small></h3>
+    <p>The program validates data on the server, uses safe queries and shows harmless error messages.</p>
+    <p lang="nb">Programmet validerer data på serveren, bruker trygge spørringer og viser ufarlige feilmeldinger.</p>
+    <p>Words: <span lang="nb">validering</span> — validation · <span lang="nb">input</span> — input · <span lang="nb">en klient</span> — a client · <span lang="nb">en server</span> — a server · <span lang="nb">en datatype</span> — a data type · <span lang="nb">en lengde</span> — a length · <span lang="nb">et format</span> — a format · <span lang="nb">ugyldig</span> — invalid · <span lang="nb">å avvise</span> — to reject · <span lang="nb">parameterisert</span> — parameterised · <span lang="nb">en feilmelding</span> — an error message · <span lang="nb">en detalj</span> — a detail</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p221/">Read “Do not trust the form” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The lock in the browser <small lang="nb">(Låsen i nettleseren, B1)</small></h3>
+    <p>HTTPS encrypts the connection, while the correct domain confirms the intended website.</p>
+    <p lang="nb">HTTPS krypterer forbindelsen, mens riktig domene bekrefter at brukeren er på ønsket nettsted.</p>
+    <p>Words: <span lang="nb">HTTPS</span> — HTTPS · <span lang="nb">TLS</span> — TLS · <span lang="nb">å kryptere</span> — to encrypt · <span lang="nb">en forbindelse</span> — a connection · <span lang="nb">transportvern</span> — transport protection · <span lang="nb">et sertifikat</span> — a certificate · <span lang="nb">gyldig</span> — valid · <span lang="nb">å knytte</span> — to link · <span lang="nb">et nettsted</span> — a website · <span lang="nb">ærlig</span> — honest · <span lang="nb">en staveforskjell</span> — a spelling difference · <span lang="nb">et mål</span> — a destination</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p222/">Read “The lock in the browser” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Passwords become hashes <small lang="nb">(Passord blir til hash, B1)</small></h3>
+    <p>The service stores a salted password hash and compares new attempts without storing plaintext.</p>
+    <p lang="nb">Tjenesten lagrer en saltet passordhash og sammenligner nye forsøk uten å lagre klartekst.</p>
+    <p>Words: <span lang="nb">en hash</span> — a hash · <span lang="nb">klartekst</span> — plaintext · <span lang="nb">en lekkasje</span> — a leak · <span lang="nb">enveis</span> — one-way · <span lang="nb">et salt</span> — a salt · <span lang="nb">en lagret verdi</span> — a stored value · <span lang="nb">en passordfunksjon</span> — a password function · <span lang="nb">anerkjent</span> — recognised · <span lang="nb">et forsøk</span> — an attempt · <span lang="nb">å sammenligne</span> — to compare · <span lang="nb">å tilbakestille</span> — to reset · <span lang="nb">å avsløre</span> — to reveal</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p223/">Read “Passwords become hashes” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A website for everyone <small lang="nb">(En nettside for alle, A2)</small></h3>
+    <p>Nora makes a website clear for keyboards, screen readers and different visual abilities.</p>
+    <p lang="nb">Nora gjør en nettside tydelig for tastatur, skjermleser og ulike synsevner.</p>
+    <p>Words: <span lang="nb">tilgjengelighet</span> — accessibility · <span lang="nb">semantisk HTML</span> — semantic HTML · <span lang="nb">alt-tekst</span> — alt text · <span lang="nb">en skjermleser</span> — a screen reader · <span lang="nb">kontrast</span> — contrast · <span lang="nb">et tastatur</span> — a keyboard · <span lang="nb">fokus</span> — focus · <span lang="nb">en etikett</span> — a label · <span lang="nb">et skjemafelt</span> — a form field · <span lang="nb">synlig</span> — visible · <span lang="nb">tydelig</span> — clear · <span lang="nb">å teste</span> — to test</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p224/">Read “A website for everyone” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Start, pause and play again <small lang="nb">(Start, pause og spill igjen, A2)</small></h3>
+    <p>Robo organises the game into clear menu, play, pause and result states.</p>
+    <p lang="nb">Robo organiserer spillet i tydelige tilstander for meny, spill, pause og resultat.</p>
+    <p>Words: <span lang="nb">en spilltilstand</span> — a game state · <span lang="nb">en meny</span> — a menu · <span lang="nb">å starte</span> — to start · <span lang="nb">å pause</span> — to pause · <span lang="nb">å fryse</span> — to freeze · <span lang="nb">en fremgang</span> — progress · <span lang="nb">et liv</span> — a life · <span lang="nb">game over</span> — game over · <span lang="nb">et resultat</span> — a result · <span lang="nb">et forsøk</span> — an attempt · <span lang="nb">å nullstille</span> — to reset · <span lang="nb">å spille igjen</span> — to play again</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p225/">Read “Start, pause and play again” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A pattern on the robot <small lang="nb">(Mønster på roboten, B1)</small></h3>
+    <p>Nora unwraps a 3D model, adds a texture and checks the result under lighting.</p>
+    <p lang="nb">Nora pakker ut en 3D-modell, legger på tekstur og kontrollerer resultatet i lyset.</p>
+    <p>Words: <span lang="nb">et UV-kart</span> — a UV map · <span lang="nb">en overflate</span> — a surface · <span lang="nb">en søm</span> — a seam · <span lang="nb">å pakke ut</span> — to unwrap · <span lang="nb">flat</span> — flat · <span lang="nb">en tekstur</span> — a texture · <span lang="nb">et mønster</span> — a pattern · <span lang="nb">et materiale</span> — a material · <span lang="nb">lys</span> — light · <span lang="nb">å rotere</span> — to rotate · <span lang="nb">strekk</span> — stretching · <span lang="nb">en render</span> — a render</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p226/">Read “A pattern on the robot” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Unity listens for events <small lang="nb">(Unity lytter til hendelser, B1)</small></h3>
+    <p>A script reacts to start, update and collision and sends the score to the interface.</p>
+    <p lang="nb">Et skript reagerer på start, oppdatering og kollisjon og sender poeng til brukergrensesnittet.</p>
+    <p>Words: <span lang="nb">et skript</span> — a script · <span lang="nb">en komponent</span> — a component · <span lang="nb">oppførsel</span> — behaviour · <span lang="nb">Start</span> — Start · <span lang="nb">Update</span> — Update · <span lang="nb">et bilde</span> — a frame · <span lang="nb">input</span> — input · <span lang="nb">en kollisjon</span> — a collision · <span lang="nb">en hendelse</span> — an event · <span lang="nb">et signal</span> — a signal · <span lang="nb">Play Mode</span> — Play Mode · <span lang="nb">Console</span> — Console</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p227/">Read “Unity listens for events” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The tables become friends <small lang="nb">(Tabellene blir venner, B1)</small></h3>
+    <p>Nora links pupils and courses with keys and retrieves related data without duplication.</p>
+    <p lang="nb">Nora kobler elever og kurs med nøkler og henter sammenhengende data uten kopier.</p>
+    <p>Words: <span lang="nb">en relasjon</span> — a relationship · <span lang="nb">en primærnøkkel</span> — a primary key · <span lang="nb">en fremmednøkkel</span> — a foreign key · <span lang="nb">unik</span> — unique · <span lang="nb">en påmelding</span> — an enrolment · <span lang="nb">å koble</span> — to link · <span lang="nb">å peke</span> — to point · <span lang="nb">JOIN</span> — JOIN · <span lang="nb">relatert</span> — related · <span lang="nb">en kopi</span> — a duplicate · <span lang="nb">å oppdatere</span> — to update · <span lang="nb">en opplysning</span> — a piece of information</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p228/">Read “The tables become friends” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The meeting point on the school trip <small lang="nb">(Møtestedet på skoleturen, A2)</small></h3>
+    <p>The class agrees a meeting point, walks in pairs and knows what to do if the group disappears.</p>
+    <p lang="nb">Klassen avtaler møtested, går to og to og vet hva de skal gjøre hvis gruppen blir borte.</p>
+    <p>Words: <span lang="nb">et møtested</span> — a meeting point · <span lang="nb">en skoletur</span> — a school trip · <span lang="nb">å avtale</span> — to agree · <span lang="nb">tydelig</span> — clear · <span lang="nb">en læringspartner</span> — a learning partner · <span lang="nb">et område</span> — an area · <span lang="nb">et kontaktkort</span> — a contact card · <span lang="nb">en sekk</span> — a bag · <span lang="nb">tilfeldig</span> — at random · <span lang="nb">å vente</span> — to wait · <span lang="nb">synlig</span> — visible · <span lang="nb">rolig</span> — calmly</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p229/">Read “The meeting point on the school trip” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Safe in the game chat <small lang="nb">(Trygg i spillchatten, A2)</small></h3>
+    <p>Nora protects personal information, stops upsetting messages and uses blocking and reporting.</p>
+    <p lang="nb">Nora beskytter personopplysninger, stopper ubehagelige meldinger og bruker blokkering og rapportering.</p>
+    <p>Words: <span lang="nb">en spillchat</span> — a game chat · <span lang="nb">et brukernavn</span> — a username · <span lang="nb">nøytral</span> — neutral · <span lang="nb">personopplysninger</span> — personal information · <span lang="nb">privatliv</span> — privacy · <span lang="nb">ubehagelig</span> — upsetting · <span lang="nb">truende</span> — threatening · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report · <span lang="nb">et skjermbilde</span> — a screenshot · <span lang="nb">et bevis</span> — evidence · <span lang="nb">å stole på</span> — to trust</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p230/">Read “Safe in the game chat” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The voice that was not real <small lang="nb">(Stemmen som ikke var ekte, B1)</small></h3>
+    <p>A fake voice asks for money, but Nora stops and verifies the story through a known channel.</p>
+    <p lang="nb">En falsk stemme ber om penger, men Nora stopper og bekrefter historien gjennom en kjent kanal.</p>
+    <p>Words: <span lang="nb">en deepfake</span> — a deepfake · <span lang="nb">en stemme</span> — a voice · <span lang="nb">å etterligne</span> — to imitate · <span lang="nb">kunstig intelligens</span> — artificial intelligence · <span lang="nb">et tidspress</span> — time pressure · <span lang="nb">frykt</span> — fear · <span lang="nb">et bevis</span> — proof · <span lang="nb">å bekrefte</span> — to verify · <span lang="nb">en kjent kanal</span> — a known channel · <span lang="nb">et kontrollspørsmål</span> — a check question · <span lang="nb">falsk</span> — fake · <span lang="nb">å rapportere</span> — to report</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p231/">Read “The voice that was not real” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The hidden API key <small lang="nb">(Den skjulte API-nøkkelen, B1)</small></h3>
+    <p>Nora learns that secret keys belong on the server, need limited permissions and must be replaceable.</p>
+    <p lang="nb">Nora lærer at hemmelige nøkler skal ligge på serveren, ha begrensede rettigheter og kunne byttes.</p>
+    <p>Words: <span lang="nb">en API-nøkkel</span> — an API key · <span lang="nb">hemmelig</span> — secret · <span lang="nb">en klient</span> — a client · <span lang="nb">en server</span> — a server · <span lang="nb">en miljøvariabel</span> — an environment variable · <span lang="nb">en konfigurasjon</span> — a configuration · <span lang="nb">et kodearkiv</span> — a code repository · <span lang="nb">en rettighet</span> — a permission · <span lang="nb">minste rettighet</span> — least privilege · <span lang="nb">en lekkasje</span> — a leak · <span lang="nb">å deaktivere</span> — to deactivate · <span lang="nb">en logg</span> — a log</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p232/">Read “The hidden API key” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The data type toolbox <small lang="nb">(Datatypenes verktøykasse, A2)</small></h3>
+    <p>Numbers, text and true/false represent different information.</p>
+    <p lang="nb">Tall, tekst og sant/usant brukes til ulike typer informasjon.</p>
+    <p>Words: <span lang="nb">en datatype</span> — a data type · <span lang="nb">Finn ut hva verdien betyr.</span> — Find out what the value means. · <span lang="nb">Velg tall, tekst eller boolsk verdi.</span> — Choose number, text or Boolean. · <span lang="nb">Riktig type hindrer mange feil.</span> — The right type prevents many errors. · <span lang="nb">en verdi</span> — a value · <span lang="nb">en kommando</span> — a command · <span lang="nb">en feil</span> — an error · <span lang="nb">å forklare</span> — to explain · <span lang="nb">å dele opp</span> — to split · <span lang="nb">å gjenta</span> — to repeat · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p233/">Read “The data type toolbox” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The reusable machine <small lang="nb">(Maskinen som kan brukes igjen, A2)</small></h3>
+    <p>A function groups commands and can receive arguments.</p>
+    <p lang="nb">En funksjon samler kommandoer og kan ta imot argumenter.</p>
+    <p>Words: <span lang="nb">en funksjon</span> — a function · <span lang="nb">Gi funksjonen ett tydelig ansvar.</span> — Give the function one clear job. · <span lang="nb">Send inn en verdi og returner et svar.</span> — Pass in a value and return an answer. · <span lang="nb">Gjenbruk gjør programmet kortere og ryddigere.</span> — Reuse makes the program shorter and tidier. · <span lang="nb">en verdi</span> — a value · <span lang="nb">en kommando</span> — a command · <span lang="nb">en feil</span> — an error · <span lang="nb">å forklare</span> — to explain · <span lang="nb">å dele opp</span> — to split · <span lang="nb">å gjenta</span> — to repeat · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p234/">Read “The reusable machine” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The bag of many values <small lang="nb">(Sekken med mange verdier, A2)</small></h3>
+    <p>A list holds several values in a particular order.</p>
+    <p lang="nb">En liste holder flere verdier i en bestemt rekkefølge.</p>
+    <p>Words: <span lang="nb">ei liste</span> — a list · <span lang="nb">Samle ting som hører sammen.</span> — Group things that belong together. · <span lang="nb">Les, legg til og fjern elementer.</span> — Read, add and remove items. · <span lang="nb">En løkke kan behandle hele listen.</span> — A loop can process the whole list. · <span lang="nb">en verdi</span> — a value · <span lang="nb">en kommando</span> — a command · <span lang="nb">en feil</span> — an error · <span lang="nb">å forklare</span> — to explain · <span lang="nb">å dele opp</span> — to split · <span lang="nb">å gjenta</span> — to repeat · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p235/">Read “The bag of many values” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Split the big problem <small lang="nb">(Del det store problemet, B1)</small></h3>
+    <p>Big tasks become easier when split into small parts.</p>
+    <p lang="nb">Store oppgaver blir lettere når de deles i små deler.</p>
+    <p>Words: <span lang="nb">dekomponering</span> — decomposition · <span lang="nb">Beskriv målet før du begynner.</span> — Describe the goal before starting. · <span lang="nb">Lag og løs én liten del om gangen.</span> — Build and solve one small part at a time. · <span lang="nb">Delene kan til slutt settes sammen.</span> — The parts can finally be combined. · <span lang="nb">en verdi</span> — a value · <span lang="nb">en kommando</span> — a command · <span lang="nb">en feil</span> — an error · <span lang="nb">å forklare</span> — to explain · <span lang="nb">å dele opp</span> — to split · <span lang="nb">å gjenta</span> — to repeat · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p236/">Read “Split the big problem” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Roads between web pages <small lang="nb">(Veier mellom nettsider, A2)</small></h3>
+    <p>Links connect pages and need clear text and the correct address.</p>
+    <p lang="nb">Lenker kobler sider og trenger tydelig tekst og riktig adresse.</p>
+    <p>Words: <span lang="nb">en lenke</span> — a link · <span lang="nb">Fortell hvor lenken fører.</span> — Say where the link leads. · <span lang="nb">Bruk href og meningsfull lenketekst.</span> — Use href and meaningful link text. · <span lang="nb">God navigasjon gjør siden enkel å forstå.</span> — Good navigation makes the site easy to understand. · <span lang="nb">en nettleser</span> — a browser · <span lang="nb">en side</span> — a page · <span lang="nb">en bruker</span> — a user · <span lang="nb">et element</span> — an element · <span lang="nb">å validere</span> — to validate · <span lang="nb">responsiv</span> — responsive · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p237/">Read “Roads between web pages” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The page that fits every screen <small lang="nb">(Siden som passer alle skjermer, A2)</small></h3>
+    <p>A responsive layout adapts to phone, tablet and computer.</p>
+    <p lang="nb">Et responsivt oppsett tilpasser seg mobil, nettbrett og datamaskin.</p>
+    <p>Words: <span lang="nb">responsivt design</span> — responsive design · <span lang="nb">Start med den smaleste skjermen.</span> — Start with the narrowest screen. · <span lang="nb">Bruk fleksible mål og media queries.</span> — Use flexible sizes and media queries. · <span lang="nb">Innholdet skal være lesbart uten sideveis rulling.</span> — Content should be readable without horizontal scrolling. · <span lang="nb">en nettleser</span> — a browser · <span lang="nb">en side</span> — a page · <span lang="nb">en bruker</span> — a user · <span lang="nb">et element</span> — an element · <span lang="nb">å validere</span> — to validate · <span lang="nb">responsiv</span> — responsive · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p238/">Read “The page that fits every screen” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The website asks for data <small lang="nb">(Nettsiden spør etter data, B1)</small></h3>
+    <p>An API lets a website request structured information.</p>
+    <p lang="nb">Et API lar nettsiden be en tjeneste om strukturert informasjon.</p>
+    <p>Words: <span lang="nb">et API-kall</span> — an API call · <span lang="nb">Bestem hvilke data siden trenger.</span> — Decide what data the page needs. · <span lang="nb">Hent data og håndter venting og feil.</span> — Fetch data and handle waiting and errors. · <span lang="nb">Vis bare trygt og relevant innhold.</span> — Show only safe and relevant content. · <span lang="nb">en nettleser</span> — a browser · <span lang="nb">en side</span> — a page · <span lang="nb">en bruker</span> — a user · <span lang="nb">et element</span> — an element · <span lang="nb">å validere</span> — to validate · <span lang="nb">responsiv</span> — responsive · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p239/">Read “The website asks for data” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The form that helps the user <small lang="nb">(Skjemaet som hjelper brukeren, B1)</small></h3>
+    <p>A good form explains requirements and finds errors before submission.</p>
+    <p lang="nb">Et godt skjema forklarer krav og finner feil før innsending.</p>
+    <p>Words: <span lang="nb">skjemavalidering</span> — form validation · <span lang="nb">Merk obligatoriske felt tydelig.</span> — Mark required fields clearly. · <span lang="nb">Valider både i nettleseren og på serveren.</span> — Validate in both browser and server. · <span lang="nb">Presise feilmeldinger viser hvordan problemet løses.</span> — Precise errors show how to fix the problem. · <span lang="nb">en nettleser</span> — a browser · <span lang="nb">en side</span> — a page · <span lang="nb">en bruker</span> — a user · <span lang="nb">et element</span> — an element · <span lang="nb">å validere</span> — to validate · <span lang="nb">responsiv</span> — responsive · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p240/">Read “The form that helps the user” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The game gets sound <small lang="nb">(Spillet får lyd, A2)</small></h3>
+    <p>Sound gives feedback when the player jumps, hits or wins.</p>
+    <p lang="nb">Lyd gir tilbakemelding når spilleren hopper, treffer eller vinner.</p>
+    <p>Words: <span lang="nb">en lydeffekt</span> — a sound effect · <span lang="nb">Velg korte lyder som passer handlingen.</span> — Choose short sounds that match the action. · <span lang="nb">Spill lyden når riktig hendelse skjer.</span> — Play the sound when the right event happens. · <span lang="nb">Volumkontroll gjør spillet behagelig for flere.</span> — Volume control makes the game comfortable for more people. · <span lang="nb">et spill</span> — a game · <span lang="nb">en spiller</span> — a player · <span lang="nb">en hendelse</span> — an event · <span lang="nb">et nivå</span> — a level · <span lang="nb">å teste</span> — to test · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p241/">Read “The game gets sound” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The character comes alive <small lang="nb">(Figuren våkner til liv, A2)</small></h3>
+    <p>Several frames in sequence create movement.</p>
+    <p lang="nb">Flere bilder etter hverandre skaper bevegelse.</p>
+    <p>Words: <span lang="nb">en animasjon</span> — an animation · <span lang="nb">Tegn tydelige nøkkelposisjoner.</span> — Draw clear key poses. · <span lang="nb">Vis bildene i riktig rekkefølge og fart.</span> — Show frames in the right order and speed. · <span lang="nb">En jevn løkke gir en levende figur.</span> — A smooth loop gives a lively character. · <span lang="nb">et spill</span> — a game · <span lang="nb">en spiller</span> — a player · <span lang="nb">en hendelse</span> — an event · <span lang="nb">et nivå</span> — a level · <span lang="nb">å teste</span> — to test · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p242/">Read “The character comes alive” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Just difficult enough <small lang="nb">(Passe vanskelig, B1)</small></h3>
+    <p>Good balance challenges without making the player helpless.</p>
+    <p lang="nb">God balanse utfordrer uten å gjøre spilleren hjelpeløs.</p>
+    <p>Words: <span lang="nb">spillbalanse</span> — game balance · <span lang="nb">Bestem hva spilleren skal lære først.</span> — Decide what the player should learn first. · <span lang="nb">Øk fart og hindringer litt etter litt.</span> — Increase speed and obstacles gradually. · <span lang="nb">Test med flere spillere og juster nivåene.</span> — Test with several players and adjust the levels. · <span lang="nb">et spill</span> — a game · <span lang="nb">en spiller</span> — a player · <span lang="nb">en hendelse</span> — an event · <span lang="nb">et nivå</span> — a level · <span lang="nb">å teste</span> — to test · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p243/">Read “Just difficult enough” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Continue where you stopped <small lang="nb">(Fortsett der du sluttet, B1)</small></h3>
+    <p>A game can save level, score and settings between sessions.</p>
+    <p lang="nb">Spillet kan lagre nivå, poeng og innstillinger mellom økter.</p>
+    <p>Words: <span lang="nb">å lagre fremgang</span> — to save progress · <span lang="nb">Velg bare data som faktisk trengs.</span> — Choose only the data actually needed. · <span lang="nb">Lagre på et trygt tidspunkt og bekreft formatet.</span> — Save at a safe moment and verify the format. · <span lang="nb">En reserveverdi hjelper hvis lagringen er skadet.</span> — A fallback helps if the save is damaged. · <span lang="nb">et spill</span> — a game · <span lang="nb">en spiller</span> — a player · <span lang="nb">en hendelse</span> — an event · <span lang="nb">et nivå</span> — a level · <span lang="nb">å teste</span> — to test · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p244/">Read “Continue where you stopped” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Build only half the robot <small lang="nb">(Bygg bare halve roboten, B1)</small></h3>
+    <p>Mirror creates a symmetrical copy while the model changes.</p>
+    <p lang="nb">Mirror lager en symmetrisk kopi mens modellen endres.</p>
+    <p>Words: <span lang="nb">en Mirror-modifikator</span> — a Mirror modifier · <span lang="nb">Plasser objektets sentrum riktig.</span> — Place the object centre correctly. · <span lang="nb">Modeller én side og la Mirror lage den andre.</span> — Model one side and let Mirror make the other. · <span lang="nb">Symmetri sparer tid og holder formen jevn.</span> — Symmetry saves time and keeps the shape even. · <span lang="nb">en modell</span> — a model · <span lang="nb">et objekt</span> — an object · <span lang="nb">en overflate</span> — a surface · <span lang="nb">en form</span> — a shape · <span lang="nb">å eksportere</span> — to export · <span lang="nb">en detalj</span> — a detail · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p245/">Read “Build only half the robot” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The cube starts to dance <small lang="nb">(Kuben begynner å danse, B1)</small></h3>
+    <p>Keyframes say where an object should be at particular times.</p>
+    <p lang="nb">Nøkkelbilder forteller hvor et objekt skal være på bestemte tider.</p>
+    <p>Words: <span lang="nb">et nøkkelbilde</span> — a keyframe · <span lang="nb">Velg startposisjon og sett første nøkkelbilde.</span> — Choose the start position and set the first keyframe. · <span lang="nb">Flytt tiden, endre objektet og sett neste.</span> — Move time, change the object and set the next one. · <span lang="nb">Blender fyller bevegelsen mellom bildene.</span> — Blender fills the movement between frames. · <span lang="nb">en modell</span> — a model · <span lang="nb">et objekt</span> — an object · <span lang="nb">en overflate</span> — a surface · <span lang="nb">en form</span> — a shape · <span lang="nb">å eksportere</span> — to export · <span lang="nb">en detalj</span> — a detail · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p246/">Read “The cube starts to dance” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Shape clay on the screen <small lang="nb">(Form leire på skjermen, B1)</small></h3>
+    <p>Sculpting tools push and smooth a digital surface.</p>
+    <p lang="nb">Skulpteringsverktøy skyver og glatter en digital overflate.</p>
+    <p>Words: <span lang="nb">skulptering</span> — sculpting · <span lang="nb">Start med en enkel form og stor pensel.</span> — Start with a simple shape and large brush. · <span lang="nb">Bygg store former før små detaljer.</span> — Build large forms before small details. · <span lang="nb">Jevn topologi gjør modellen lettere å bruke videre.</span> — Even topology makes the model easier to use later. · <span lang="nb">en modell</span> — a model · <span lang="nb">et objekt</span> — an object · <span lang="nb">en overflate</span> — a surface · <span lang="nb">en form</span> — a shape · <span lang="nb">å eksportere</span> — to export · <span lang="nb">en detalj</span> — a detail · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p247/">Read “Shape clay on the screen” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The model travels to the game <small lang="nb">(Modellen reiser til spillet, B1)</small></h3>
+    <p>The right export format takes a model from Blender to a game engine.</p>
+    <p lang="nb">Riktig eksportformat tar modellen fra Blender til en spillmotor.</p>
+    <p>Words: <span lang="nb">et filformat</span> — a file format · <span lang="nb">Kontroller størrelse, retning og navn.</span> — Check scale, direction and names. · <span lang="nb">Eksporter som glTF eller FBX med nødvendige data.</span> — Export as glTF or FBX with the needed data. · <span lang="nb">Importer og test materialer og animasjon i målet.</span> — Import and test materials and animation in the target. · <span lang="nb">en modell</span> — a model · <span lang="nb">et objekt</span> — an object · <span lang="nb">en overflate</span> — a surface · <span lang="nb">en form</span> — a shape · <span lang="nb">å eksportere</span> — to export · <span lang="nb">en detalj</span> — a detail · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p248/">Read “The model travels to the game” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Score on the screen <small lang="nb">(Poeng på skjermen, A2)</small></h3>
+    <p>Unity Canvas holds buttons, text and other interface elements.</p>
+    <p lang="nb">Unity Canvas holder knapper, tekst og andre grensesnittelementer.</p>
+    <p>Words: <span lang="nb">et Canvas</span> — a Canvas · <span lang="nb">Bestem hva spilleren alltid må se.</span> — Decide what the player must always see. · <span lang="nb">Plasser poengtekst og knapper med ankere.</span> — Place score text and buttons with anchors. · <span lang="nb">Et responsivt Canvas passer flere skjermstørrelser.</span> — A responsive Canvas fits several screen sizes. · <span lang="nb">et GameObject</span> — a GameObject · <span lang="nb">en komponent</span> — a component · <span lang="nb">en scene</span> — a scene · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">å bygge</span> — to build · <span lang="nb">å feilsøke</span> — to debug · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p249/">Read “Score on the screen” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>From menu to a new level <small lang="nb">(Fra meny til nytt nivå, B1)</small></h3>
+    <p>Scene management opens menus and levels without mixing everything together.</p>
+    <p lang="nb">Scenehåndtering åpner menyer og nivåer uten å blande alt sammen.</p>
+    <p>Words: <span lang="nb">scenehåndtering</span> — scene management · <span lang="nb">Legg scenene i riktig byggerekkefølge.</span> — Put scenes in the correct build order. · <span lang="nb">Last neste scene når målet er nådd.</span> — Load the next scene when the goal is reached. · <span lang="nb">En lasteskjerm kan vise fremgang ved tunge nivåer.</span> — A loading screen can show progress for heavy levels. · <span lang="nb">et GameObject</span> — a GameObject · <span lang="nb">en komponent</span> — a component · <span lang="nb">en scene</span> — a scene · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">å bygge</span> — to build · <span lang="nb">å feilsøke</span> — to debug · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p250/">Read “From menu to a new level” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Who can collide with whom? <small lang="nb">(Hvem kan treffe hvem?, B1)</small></h3>
+    <p>Physics layers decide which groups should collide.</p>
+    <p lang="nb">Fysikklag bestemmer hvilke grupper som skal kollidere.</p>
+    <p>Words: <span lang="nb">et fysikklag</span> — a physics layer · <span lang="nb">Sorter spillere, fiender og bakgrunn i lag.</span> — Sort players, enemies and background into layers. · <span lang="nb">Slå av unødvendige lagkombinasjoner.</span> — Disable unnecessary layer combinations. · <span lang="nb">Færre kontroller gir tydeligere og raskere fysikk.</span> — Fewer checks give clearer and faster physics. · <span lang="nb">et GameObject</span> — a GameObject · <span lang="nb">en komponent</span> — a component · <span lang="nb">en scene</span> — a scene · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">å bygge</span> — to build · <span lang="nb">å feilsøke</span> — to debug · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p251/">Read “Who can collide with whom?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Music, speech and effects <small lang="nb">(Musikk, tale og effekter, B1)</small></h3>
+    <p>An Audio Mixer groups sounds with separate volume controls.</p>
+    <p lang="nb">En Audio Mixer samler lyder i grupper med egne volum.</p>
+    <p>Words: <span lang="nb">en lydmikser</span> — an audio mixer · <span lang="nb">Del musikk, tale og effekter i grupper.</span> — Split music, speech and effects into groups. · <span lang="nb">Lag volumvalg og demp musikk under viktig tale.</span> — Add volume options and lower music during important speech. · <span lang="nb">God miks gjør informasjonen lett å høre.</span> — A good mix makes information easy to hear. · <span lang="nb">et GameObject</span> — a GameObject · <span lang="nb">en komponent</span> — a component · <span lang="nb">en scene</span> — a scene · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">å bygge</span> — to build · <span lang="nb">å feilsøke</span> — to debug · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p252/">Read “Music, speech and effects” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Create, read, update, delete <small lang="nb">(Lag, les, endre, slett, A2)</small></h3>
+    <p>CRUD describes four common actions with stored data.</p>
+    <p lang="nb">CRUD beskriver fire vanlige handlinger med lagrede data.</p>
+    <p>Words: <span lang="nb">CRUD</span> — CRUD · <span lang="nb">Velg hvilken post handlingen gjelder.</span> — Choose which record the action affects. · <span lang="nb">Valider data før de opprettes eller endres.</span> — Validate data before creating or updating. · <span lang="nb">Bekreft sletting og vis resultatet tydelig.</span> — Confirm deletion and show the result clearly. · <span lang="nb">en database</span> — a database · <span lang="nb">en tabell</span> — a table · <span lang="nb">en rad</span> — a row · <span lang="nb">et felt</span> — a field · <span lang="nb">en spørring</span> — a query · <span lang="nb">å lagre</span> — to store · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p253/">Read “Create, read, update, delete” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The database’s fast index <small lang="nb">(Databasens raske register, B1)</small></h3>
+    <p>An index helps the database find particular rows faster.</p>
+    <p lang="nb">En indeks hjelper databasen å finne bestemte rader raskere.</p>
+    <p>Words: <span lang="nb">en indeks</span> — an index · <span lang="nb">Finn feltene som ofte brukes i søk.</span> — Find fields often used in searches. · <span lang="nb">Lag en passende indeks og mål spørringen.</span> — Create a suitable index and measure the query. · <span lang="nb">For mange indekser kan gjøre skriving tregere.</span> — Too many indexes can make writes slower. · <span lang="nb">en database</span> — a database · <span lang="nb">en tabell</span> — a table · <span lang="nb">en rad</span> — a row · <span lang="nb">et felt</span> — a field · <span lang="nb">en spørring</span> — a query · <span lang="nb">å lagre</span> — to store · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p254/">Read “The database’s fast index” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Data in tidy packages <small lang="nb">(Data i ryddige pakker, B1)</small></h3>
+    <p>JSON carries objects, lists, text, numbers and Boolean values.</p>
+    <p lang="nb">JSON sender objekter, lister, tekst, tall og boolske verdier.</p>
+    <p>Words: <span lang="nb">JSON</span> — JSON · <span lang="nb">Avtal tydelige feltnavn og datatyper.</span> — Agree clear field names and data types. · <span lang="nb">Les svaret og kontroller manglende felt.</span> — Read the response and check missing fields. · <span lang="nb">Et stabilt format gjør systemer lettere å koble.</span> — A stable format makes systems easier to connect. · <span lang="nb">en database</span> — a database · <span lang="nb">en tabell</span> — a table · <span lang="nb">en rad</span> — a row · <span lang="nb">et felt</span> — a field · <span lang="nb">en spørring</span> — a query · <span lang="nb">å lagre</span> — to store · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p255/">Read “Data in tidy packages” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Move data without losing anything <small lang="nb">(Flytt data uten å miste noe, B1)</small></h3>
+    <p>A migration changes database structure in a controlled way.</p>
+    <p lang="nb">En migrering endrer databasestrukturen på en kontrollert måte.</p>
+    <p>Words: <span lang="nb">en datamigrering</span> — a data migration · <span lang="nb">Ta sikkerhetskopi og beskriv endringen.</span> — Take a backup and describe the change. · <span lang="nb">Test migreringen på en kopi før produksjon.</span> — Test the migration on a copy before production. · <span lang="nb">Kontroller antall og innhold etter flyttingen.</span> — Check counts and content after the move. · <span lang="nb">en database</span> — a database · <span lang="nb">en tabell</span> — a table · <span lang="nb">en rad</span> — a row · <span lang="nb">et felt</span> — a field · <span lang="nb">en spørring</span> — a query · <span lang="nb">å lagre</span> — to store · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p256/">Read “Move data without losing anything” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>When the alarm sounds <small lang="nb">(Når alarmen går, A1)</small></h3>
+    <p>A clear evacuation plan helps everyone leave calmly and quickly.</p>
+    <p lang="nb">En tydelig evakueringsplan hjelper alle ut rolig og raskt.</p>
+    <p>Words: <span lang="nb">en evakueringsplan</span> — an evacuation plan · <span lang="nb">Finn nærmeste trygge utgang på forhånd.</span> — Find the nearest safe exit in advance. · <span lang="nb">Følg læreren, ikke hent ting og bruk trappen.</span> — Follow the teacher, leave belongings and use the stairs. · <span lang="nb">Møt på avtalt sted og vent på beskjed.</span> — Meet at the agreed place and wait for instructions. · <span lang="nb">trygg</span> — safe · <span lang="nb">en plan</span> — a plan · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">rolig</span> — calm · <span lang="nb">en beskjed</span> — an instruction · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p257/">Read “When the alarm sounds” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Safe on the bicycle <small lang="nb">(Trygg på sykkelen, A1)</small></h3>
+    <p>A helmet, lights and clear signals make cycling safer.</p>
+    <p lang="nb">Hjelm, lys og tydelige tegn gjør sykkelturen tryggere.</p>
+    <p>Words: <span lang="nb">en sykkelhjelm</span> — a cycle helmet · <span lang="nb">Kontroller hjelm, bremser og lys før turen.</span> — Check helmet, brakes and lights before the ride. · <span lang="nb">Se begge veier og gi tegn før du svinger.</span> — Look both ways and signal before turning. · <span lang="nb">Synlighet og rolige valg forebygger ulykker.</span> — Visibility and calm choices prevent accidents. · <span lang="nb">trygg</span> — safe · <span lang="nb">en plan</span> — a plan · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">rolig</span> — calm · <span lang="nb">en beskjed</span> — an instruction · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p258/">Read “Safe on the bicycle” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Stop the game when someone is hurt <small lang="nb">(Stopp spillet når noen blir skadet, A2)</small></h3>
+    <p>Children should get help and make simple safe first-aid choices.</p>
+    <p lang="nb">Barn skal hente hjelp og gjøre enkle, trygge førstehjelpsvalg.</p>
+    <p>Words: <span lang="nb">førstehjelp</span> — first aid · <span lang="nb">Sjekk at stedet er trygt og hent en voksen.</span> — Check the place is safe and get an adult. · <span lang="nb">Ring nødnummer ved alvorlig fare og følg råd.</span> — Call emergency services for serious danger and follow advice. · <span lang="nb">Rolig hjelp og riktig informasjon sparer tid.</span> — Calm help and accurate information save time. · <span lang="nb">trygg</span> — safe · <span lang="nb">en plan</span> — a plan · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">rolig</span> — calm · <span lang="nb">en beskjed</span> — an instruction · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p259/">Read “Stop the game when someone is hurt” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Who can see the profile? <small lang="nb">(Hvem kan se profilen?, A2)</small></h3>
+    <p>Privacy settings control who sees posts, photos and contact details.</p>
+    <p lang="nb">Personverninnstillinger styrer hvem som ser innlegg, bilder og kontaktdata.</p>
+    <p>Words: <span lang="nb">en personverninnstilling</span> — a privacy setting · <span lang="nb">Gå gjennom standardvalgene sammen med en voksen.</span> — Review default choices with an adult. · <span lang="nb">Begrens profilen og godkjenn følgere du kjenner.</span> — Limit the profile and approve followers you know. · <span lang="nb">Sjekk innstillingene igjen etter oppdateringer.</span> — Check settings again after updates. · <span lang="nb">personvern</span> — privacy · <span lang="nb">en konto</span> — an account · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en tillatelse</span> — a permission · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p260/">Read “Who can see the profile?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The fake school message <small lang="nb">(Den falske skolemeldingen, A2)</small></h3>
+    <p>A fake email tries to steal a school password through a copied login page.</p>
+    <p lang="nb">En falsk e-post prøver å stjele skolepassord gjennom en kopi av innloggingssiden.</p>
+    <p>Words: <span lang="nb">nettfisking</span> — phishing · <span lang="nb">Stopp ved hastverk, trusler og ukjent avsender.</span> — Stop at urgency, threats and an unknown sender. · <span lang="nb">Åpne skolens side fra et lagret bokmerke.</span> — Open the school site from a saved bookmark. · <span lang="nb">Rapporter meldingen og bytt passord hvis det ble skrevet inn.</span> — Report the message and change the password if entered. · <span lang="nb">personvern</span> — privacy · <span lang="nb">en konto</span> — an account · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en tillatelse</span> — a permission · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p261/">Read “The fake school message” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Do not stand alone in the chat <small lang="nb">(Ikke stå alene i chatten, A2)</small></h3>
+    <p>Repeated hurtful messages should be stopped, saved as evidence and shown to an adult.</p>
+    <p lang="nb">Gjentatte sårende meldinger skal stoppes, lagres som bevis og fortelles til en voksen.</p>
+    <p>Words: <span lang="nb">nettmobbing</span> — cyberbullying · <span lang="nb">Ikke svar med nye krenkelser.</span> — Do not reply with more abuse. · <span lang="nb">Blokker, rapporter og ta vare på nødvendig bevis.</span> — Block, report and keep necessary evidence. · <span lang="nb">En trygg voksen og skolen kan hjelpe videre.</span> — A trusted adult and the school can help further. · <span lang="nb">personvern</span> — privacy · <span lang="nb">en konto</span> — an account · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en tillatelse</span> — a permission · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p262/">Read “Do not stand alone in the chat” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Download from the right place <small lang="nb">(Last ned fra riktig sted, B1)</small></h3>
+    <p>Safe downloads come from official sources and need checking before opening.</p>
+    <p lang="nb">Trygge nedlastinger kommer fra offisielle kilder og trenger kontroll før åpning.</p>
+    <p>Words: <span lang="nb">en trygg nedlasting</span> — a safe download · <span lang="nb">Bekreft utvikler, domene og filtype.</span> — Verify developer, domain and file type. · <span lang="nb">Skann filen og avvis uventede tillatelser.</span> — Scan the file and reject unexpected permissions. · <span lang="nb">Oppdatert beskyttelse reduserer risikoen.</span> — Up-to-date protection reduces risk. · <span lang="nb">personvern</span> — privacy · <span lang="nb">en konto</span> — an account · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å rapportere</span> — to report · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en tillatelse</span> — a permission · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p263/">Read “Download from the right place” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The console that was too cheap <small lang="nb">(Den altfor billige konsollen, A2)</small></h3>
+    <p>A marketplace advert uses a low price, urgency and payment outside the platform.</p>
+    <p lang="nb">En markedsplassannonse lokker med lav pris, tidspress og betaling utenfor plattformen.</p>
+    <p>Words: <span lang="nb">en falsk selger</span> — a fake seller · <span lang="nb">Sjekk profil, historikk, bilder og normal pris.</span> — Check profile, history, images and normal price. · <span lang="nb">Bruk plattformens betaling og kjøperbeskyttelse.</span> — Use platform payment and buyer protection. · <span lang="nb">Gå bort hvis selgeren krever hemmelig eller rask betaling.</span> — Walk away if the seller demands secret or rushed payment. · <span lang="nb">svindel</span> — a scam · <span lang="nb">et faresignal</span> — a warning sign · <span lang="nb">å bekrefte</span> — to verify · <span lang="nb">tidspress</span> — time pressure · <span lang="nb">en betaling</span> — a payment · <span lang="nb">falsk</span> — fake · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p264/">Read “The console that was too cheap” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The free trial that continued <small lang="nb">(Gratisprøven som fortsatte, B1)</small></h3>
+    <p>An offer hides automatic renewal and difficult cancellation in small print.</p>
+    <p lang="nb">Et tilbud skjuler automatisk fornyelse og vanskelig oppsigelse i liten tekst.</p>
+    <p>Words: <span lang="nb">et abonnement</span> — a subscription · <span lang="nb">Les pris, periode og oppsigelsesvilkår før start.</span> — Read price, period and cancellation terms before starting. · <span lang="nb">Ta skjermbilde og sett en påminnelse før fornyelse.</span> — Take a screenshot and set a reminder before renewal. · <span lang="nb">Kontroller kvitteringer og si opp gjennom offisiell konto.</span> — Check receipts and cancel through the official account. · <span lang="nb">svindel</span> — a scam · <span lang="nb">et faresignal</span> — a warning sign · <span lang="nb">å bekrefte</span> — to verify · <span lang="nb">tidspress</span> — time pressure · <span lang="nb">en betaling</span> — a payment · <span lang="nb">falsk</span> — fake · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p265/">Read “The free trial that continued” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The QR code with a prize <small lang="nb">(QR-koden med en premie, A2)</small></h3>
+    <p>A QR code promises a prize but leads to a page asking for card data.</p>
+    <p lang="nb">En QR-kode lover gevinst, men leder til en side som ber om kortdata.</p>
+    <p>Words: <span lang="nb">en falsk premie</span> — a fake prize · <span lang="nb">Tenk hvem som står bak og om du deltok.</span> — Consider who is behind it and whether you entered. · <span lang="nb">Forhåndsvis adressen og åpne arrangørens side selv.</span> — Preview the address and open the organiser’s site yourself. · <span lang="nb">En ekte premie krever ikke hemmelig gebyr eller PIN.</span> — A real prize does not require a secret fee or PIN. · <span lang="nb">svindel</span> — a scam · <span lang="nb">et faresignal</span> — a warning sign · <span lang="nb">å bekrefte</span> — to verify · <span lang="nb">tidspress</span> — time pressure · <span lang="nb">en betaling</span> — a payment · <span lang="nb">falsk</span> — fake · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p266/">Read “The QR code with a prize” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Does the torch need contacts? <small lang="nb">(Trenger lommelykten kontaktene?, A2)</small></h3>
+    <p>App permissions should match the function the user actually chose.</p>
+    <p lang="nb">Apptillatelser bør passe til funksjonen brukeren faktisk valgte.</p>
+    <p>Words: <span lang="nb">en apptillatelse</span> — an app permission · <span lang="nb">Les hvorfor appen ber om kamera, sted eller kontakter.</span> — Read why the app asks for camera, location or contacts. · <span lang="nb">Tillat bare det som trengs, helst bare mens appen brukes.</span> — Allow only what is needed, preferably only while using the app. · <span lang="nb">Fjern gamle tillatelser i innstillingene.</span> — Remove old permissions in settings. · <span lang="nb">en enhet</span> — a device · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en oppdatering</span> — an update · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">offisiell</span> — official · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p267/">Read “Does the torch need contacts?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The phone that went missing <small lang="nb">(Telefonen som ble borte, A2)</small></h3>
+    <p>Screen lock, backup and find-device protect a lost phone.</p>
+    <p lang="nb">Skjermlås, sikkerhetskopi og finn-enhet beskytter en mistet telefon.</p>
+    <p>Words: <span lang="nb">en skjermlås</span> — a screen lock · <span lang="nb">Bruk en sterk kode og skjul varsler på låseskjermen.</span> — Use a strong code and hide lock-screen notifications. · <span lang="nb">Finn, lås og merk enheten gjennom offisiell tjeneste.</span> — Find, lock and mark the device through the official service. · <span lang="nb">Bytt viktige passord hvis telefonen ikke kommer tilbake.</span> — Change important passwords if the phone does not return. · <span lang="nb">en enhet</span> — a device · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en oppdatering</span> — an update · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">offisiell</span> — official · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p268/">Read “The phone that went missing” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The charger gets too hot <small lang="nb">(Laderen blir for varm, A1)</small></h3>
+    <p>An intact cable, correct charger and free airflow reduce charging risk.</p>
+    <p lang="nb">Hel kabel, riktig lader og fri luft reduserer risiko ved lading.</p>
+    <p>Words: <span lang="nb">trygg lading</span> — safe charging · <span lang="nb">Se etter skader, misfarging og løs kontakt.</span> — Check damage, discolouration and loose connection. · <span lang="nb">Lad på hardt underlag og stopp ved sterk varme eller lukt.</span> — Charge on a hard surface and stop at strong heat or smell. · <span lang="nb">En voksen bør kontrollere en skadet lader.</span> — An adult should check a damaged charger. · <span lang="nb">en enhet</span> — a device · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en oppdatering</span> — an update · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">offisiell</span> — official · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p269/">Read “The charger gets too hot” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Sign out on the school tablet <small lang="nb">(Logg ut på skolebrettet, A2)</small></h3>
+    <p>On shared devices, accounts, files and browser data must be cleared after use.</p>
+    <p lang="nb">På delte enheter må konto, filer og nettleserdata ryddes etter bruk.</p>
+    <p>Words: <span lang="nb">en delt enhet</span> — a shared device · <span lang="nb">Bruk privat økt når skolen tillater det.</span> — Use a private session when the school allows it. · <span lang="nb">Logg ut, fjern nedlastinger og ikke lagre passord.</span> — Sign out, remove downloads and do not save passwords. · <span lang="nb">Kontroller at neste bruker ikke ser kontoen din.</span> — Check that the next user cannot see your account. · <span lang="nb">en enhet</span> — a device · <span lang="nb">en innstilling</span> — a setting · <span lang="nb">en oppdatering</span> — an update · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">offisiell</span> — official · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p270/">Read “Sign out on the school tablet” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Signed in without sharing the password <small lang="nb">(Innlogget uten å dele passordet, B1)</small></h3>
+    <p>A secure session uses a random cookie after login.</p>
+    <p lang="nb">En sikker økt bruker en tilfeldig informasjonskapsel etter innlogging.</p>
+    <p>Words: <span lang="nb">en økt</span> — a session · <span lang="nb">Lag ny økt-ID etter vellykket innlogging.</span> — Create a new session ID after successful login. · <span lang="nb">Bruk Secure, HttpOnly, SameSite og tidsgrense.</span> — Use Secure, HttpOnly, SameSite and an expiry. · <span lang="nb">Slett økten på serveren ved utlogging.</span> — Delete the session on the server at sign-out. · <span lang="nb">en server</span> — a server · <span lang="nb">en kontroll</span> — a check · <span lang="nb">en rettighet</span> — a permission · <span lang="nb">en logg</span> — a log · <span lang="nb">å begrense</span> — to limit · <span lang="nb">en hemmelighet</span> — a secret · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p271/">Read “Signed in without sharing the password” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Who may do what? <small lang="nb">(Hvem får gjøre hva?, B1)</small></h3>
+    <p>Authorisation checks permissions on the server for every action.</p>
+    <p lang="nb">Autorisasjon kontrollerer rettigheter på serveren for hver handling.</p>
+    <p>Words: <span lang="nb">autorisasjon</span> — authorisation · <span lang="nb">Definer roller og eierskap tydelig.</span> — Define roles and ownership clearly. · <span lang="nb">Kontroller bruker og ressurs før lesing eller endring.</span> — Check user and resource before reading or changing. · <span lang="nb">Skjul knappen i grensesnittet, men beskytt også API-et.</span> — Hide the button, but protect the API too. · <span lang="nb">en server</span> — a server · <span lang="nb">en kontroll</span> — a check · <span lang="nb">en rettighet</span> — a permission · <span lang="nb">en logg</span> — a log · <span lang="nb">å begrense</span> — to limit · <span lang="nb">en hemmelighet</span> — a secret · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p272/">Read “Who may do what?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The error that reveals no secrets <small lang="nb">(Feilen som ikke røper hemmeligheter, B1)</small></h3>
+    <p>The user gets a simple message while details are stored safely for the developer.</p>
+    <p lang="nb">Brukeren får en enkel melding mens detaljer lagres sikkert for utvikleren.</p>
+    <p>Words: <span lang="nb">en sikker feilmelding</span> — a safe error message · <span lang="nb">Bestem hva brukeren trenger for å komme videre.</span> — Decide what the user needs to continue. · <span lang="nb">Logg tekniske detaljer uten passord, nøkler eller persondata.</span> — Log technical details without passwords, keys or personal data. · <span lang="nb">En hendelses-ID kobler brukerens melding til riktig logg.</span> — An incident ID links the user message to the correct log. · <span lang="nb">en server</span> — a server · <span lang="nb">en kontroll</span> — a check · <span lang="nb">en rettighet</span> — a permission · <span lang="nb">en logg</span> — a log · <span lang="nb">å begrense</span> — to limit · <span lang="nb">en hemmelighet</span> — a secret · <span lang="nb">en test</span> — a test · <span lang="nb">et eksempel</span> — an example</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p273/">Read “The error that reveals no secrets” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>SIS, expulsion and what to do next <small lang="nb">(SIS, utvisning og veien videre, B1)</small></h3>
+    <p>Alina receives a difficult letter. With adviser Morten, she learns what SIS, an obligation to leave, expulsion and an entry ban mean, and what rights a person has.</p>
+    <p lang="nb">Alina får et vanskelig brev. Sammen med rådgiver Morten lærer hun hva SIS, utreiseplikt, utvisning og innreiseforbud betyr, og hvilke rettigheter hun har.</p>
+    <p>Words: <span lang="nb">Schengen informasjonssystem (SIS)</span> — the Schengen Information System (SIS) · <span lang="nb">et register</span> — a register · <span lang="nb">et vedtak</span> — an official decision · <span lang="nb">en utreiseplikt</span> — an obligation to leave · <span lang="nb">en utreisefrist</span> — a deadline for departure · <span lang="nb">en bortvisning</span> — a refusal of entry or stay · <span lang="nb">en utvisning</span> — an expulsion with an entry ban · <span lang="nb">et innreiseforbud</span> — an entry ban · <span lang="nb">en uttransportering</span> — a removal carried out by the police · <span lang="nb">å registrere utreisen</span> — to register the departure · <span lang="nb">en grensekontroll</span> — border control · <span lang="nb">et reisedokument</span> — a travel document · <span lang="nb">en dokumentasjon</span> — documentation · <span lang="nb">et innsyn</span> — access to one’s data · <span lang="nb">å rette</span> — to correct · <span lang="nb">å slette</span> — to delete · <span lang="nb">å klage</span> — to appeal · <span lang="nb">en klagefrist</span> — an appeal deadline · <span lang="nb">en advokat</span> — a lawyer · <span lang="nb">en tolk</span> — an interpreter · <span lang="nb">en myndighet</span> — an authority · <span lang="nb">individuell</span> — individual</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p274/">Read “SIS, expulsion and what to do next” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Fire! Get out, alert others and meet up <small lang="nb">(Brann! Ut, varsle og møt opp, A1)</small></h3>
+    <p>Nora discovers smoke and learns the save–alert–extinguish rule without putting herself in danger.</p>
+    <p lang="nb">Nora oppdager røyk og lærer regelen redde–varsle–slokke uten å sette seg selv i fare.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">en brann</span> — a fire · <span lang="nb">røyk</span> — smoke · <span lang="nb">en røykvarsler</span> — a smoke alarm · <span lang="nb">et møtested</span> — a meeting point · <span lang="nb">å evakuere</span> — to evacuate · <span lang="nb">giftig</span> — toxic · <span lang="nb">et slokkeapparat</span> — a fire extinguisher · <span lang="nb">å gå inn igjen</span> — to go back inside</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p275/">Read “Fire! Get out, alert others and meet up” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>113 or 116 117? <small lang="nb">(113 eller 116 117?, A1)</small></h3>
+    <p>Leo learns the difference between emergency medical help, the out-of-hours clinic and a GP.</p>
+    <p lang="nb">Leo lærer forskjellen mellom medisinsk nødtelefon, legevakt og fastlege.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">en ambulanse</span> — an ambulance · <span lang="nb">en legevakt</span> — an out-of-hours clinic · <span lang="nb">en fastlege</span> — a GP · <span lang="nb">livstruende</span> — life-threatening · <span lang="nb">akutt</span> — acute · <span lang="nb">et symptom</span> — a symptom · <span lang="nb">bevisstløs</span> — unconscious · <span lang="nb">å puste</span> — to breathe</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p276/">Read “113 or 116 117?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Police: 112 or 02800? <small lang="nb">(Politi: 112 eller 02800?, A1)</small></h3>
+    <p>Alina learns which police number to use in an emergency and a non-emergency.</p>
+    <p lang="nb">Alina lærer hvilket politinummer som passer i en akutt og en ikke-akutt situasjon.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">politiet</span> — the police · <span lang="nb">en nødsituasjon</span> — an emergency · <span lang="nb">øyeblikkelig hjelp</span> — immediate help · <span lang="nb">en fare</span> — danger · <span lang="nb">å anmelde</span> — to report a crime · <span lang="nb">et tyveri</span> — theft · <span lang="nb">en trussel</span> — a threat · <span lang="nb">et vitne</span> — a witness</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p277/">Read “Police: 112 or 02800?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The road accident at the junction <small lang="nb">(Trafikkulykken ved krysset, A2)</small></h3>
+    <p>Mia secures the scene, calls 113 and lets the emergency services coordinate.</p>
+    <p lang="nb">Mia sikrer stedet, varsler 113 og lar nødetatene samarbeide gjennom trippelvarsling.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">en trafikkulykke</span> — a road accident · <span lang="nb">et skadested</span> — an accident scene · <span lang="nb">en refleksvest</span> — a reflective vest · <span lang="nb">en varseltrekant</span> — a warning triangle · <span lang="nb">en skadet</span> — an injured person · <span lang="nb">trippelvarsling</span> — joint three-service notification · <span lang="nb">indre blødning</span> — internal bleeding · <span lang="nb">å holde varm</span> — to keep warm</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p278/">Read “The road accident at the junction” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Unknown liquid in the bottle <small lang="nb">(Ukjent væske i flasken, A2)</small></h3>
+    <p>Nora learns what to do after possible poisoning and when to call the Poison Information Centre or 113.</p>
+    <p lang="nb">Nora lærer hva hun gjør ved mulig forgiftning og når hun skal ringe Giftinformasjonen eller 113.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">en forgiftning</span> — poisoning · <span lang="nb">Giftinformasjonen</span> — the Poison Information Centre · <span lang="nb">et kjemikalium</span> — a chemical · <span lang="nb">en originalemballasje</span> — original packaging · <span lang="nb">å svelge</span> — to swallow · <span lang="nb">å skylle munnen</span> — to rinse the mouth · <span lang="nb">å fremkalle brekninger</span> — to induce vomiting · <span lang="nb">en mengde</span> — an amount</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p279/">Read “Unknown liquid in the bottle” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>When someone does not wake up <small lang="nb">(Når noen ikke våkner, A2)</small></h3>
+    <p>Leo checks safety, consciousness and breathing and receives 113 guidance on the recovery position or CPR.</p>
+    <p lang="nb">Leo sjekker sikkerhet, bevissthet og pust og får veiledning fra 113 om sideleie eller HLR.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">bevissthet</span> — consciousness · <span lang="nb">en luftvei</span> — an airway · <span lang="nb">normal pust</span> — normal breathing · <span lang="nb">et sideleie</span> — the recovery position · <span lang="nb">hjerte- og lungeredning</span> — cardiopulmonary resuscitation · <span lang="nb">en brystkompresjon</span> — a chest compression · <span lang="nb">en høyttaler</span> — speakerphone · <span lang="nb">å overvåke</span> — to monitor</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p280/">Read “When someone does not wake up” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Help when home is not safe <small lang="nb">(Hjelp når hjemmet ikke er trygt, A2)</small></h3>
+    <p>Maria helps a friend find safe support for violence and threats without judgement or pressure.</p>
+    <p lang="nb">Maria hjelper en venn med å finne trygg støtte ved vold og trusler uten å dømme eller presse.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">vold</span> — violence · <span lang="nb">et overgrep</span> — abuse · <span lang="nb">en trussel</span> — a threat · <span lang="nb">et krisesenter</span> — a crisis centre · <span lang="nb">VO-linjen</span> — the domestic violence helpline · <span lang="nb">anonym</span> — anonymous · <span lang="nb">beskyttelse</span> — protection · <span lang="nb">å støtte</span> — to support</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p281/">Read “Help when home is not safe” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>CPR with guidance from 113 <small lang="nb">(HLR mens 113 veileder, A2)</small></h3>
+    <p>Nora learns the simple adult sequence: call 113, use speakerphone and give 30 compressions and 2 rescue breaths.</p>
+    <p lang="nb">Nora lærer den enkle voksenrekkefølgen: ring 113, bruk høyttaler og gi 30 kompresjoner og 2 innblåsinger.</p>
+    <p>Words: <span lang="nb">et nødnummer</span> — an emergency number · <span lang="nb">en operatør</span> — an operator · <span lang="nb">en adresse</span> — an address · <span lang="nb">et sted</span> — a location · <span lang="nb">en instruksjon</span> — an instruction · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å ringe</span> — to call · <span lang="nb">trygg</span> — safe · <span lang="nb">akutt</span> — urgent · <span lang="nb">å hjelpe</span> — to help · <span lang="nb">å vente</span> — to wait · <span lang="nb">å beskrive</span> — to describe · <span lang="nb">HLR</span> — CPR · <span lang="nb">en hjertestans</span> — cardiac arrest · <span lang="nb">en kompresjon</span> — a compression · <span lang="nb">en innblåsing</span> — a rescue breath · <span lang="nb">en brystkasse</span> — a chest · <span lang="nb">en hjertestarter</span> — a defibrillator · <span lang="nb">hardt underlag</span> — a firm surface · <span lang="nb">å overta</span> — to take over</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p282/">Read “CPR with guidance from 113” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Who is a hacker? <small lang="nb">(Hvem er en hacker?, A1)</small></h3>
+    <p>Nora learns that technical knowledge can protect or harm, and that permission separates security testing from illegal intrusion.</p>
+    <p lang="nb">Nora lærer at teknisk kunnskap kan brukes til å beskytte eller skade, og at tillatelse skiller sikkerhetstesting fra ulovlig innbrudd.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">en hacker</span> — a hacker · <span lang="nb">datasikkerhet</span> — cybersecurity · <span lang="nb">en tillatelse</span> — permission · <span lang="nb">lovlig</span> — legal · <span lang="nb">ulovlig</span> — illegal · <span lang="nb">en sikkerhetstester</span> — a security tester · <span lang="nb">et datainnbrudd</span> — a data breach · <span lang="nb">å rapportere</span> — to report</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p283/">Read “Who is a hacker?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The trap targets emotions <small lang="nb">(Fellen virker på følelser, A2)</small></h3>
+    <p>Leo sees how an attacker uses urgency, fear and fake authority to trick people into revealing passwords and codes.</p>
+    <p lang="nb">Leo ser hvordan en angriper bruker hastverk, frykt og falsk autoritet for å lure fram passord og koder.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">sosial manipulering</span> — social engineering · <span lang="nb">nettfisking</span> — phishing · <span lang="nb">hastverk</span> — urgency · <span lang="nb">en avsender</span> — a sender · <span lang="nb">en engangskode</span> — a one-time code · <span lang="nb">en offisiell kanal</span> — an official channel · <span lang="nb">å kontrollere</span> — to verify · <span lang="nb">en falsk autoritet</span> — fake authority</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p284/">Read “The trap targets emotions” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Someone took over the account <small lang="nb">(Noen tok over kontoen, A2)</small></h3>
+    <p>Nora discovers a taken-over account and uses official recovery, new passwords and extra sign-in protection.</p>
+    <p lang="nb">Nora oppdager en kapret konto og bruker offisiell gjenoppretting, nye passord og ekstra innloggingsbeskyttelse.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">kontokapring</span> — account takeover · <span lang="nb">en pålogging</span> — a sign-in · <span lang="nb">en ukjent enhet</span> — an unknown device · <span lang="nb">gjenoppretting</span> — recovery · <span lang="nb">et støtte­skjema</span> — a support form · <span lang="nb">tofaktor</span> — two-factor authentication · <span lang="nb">en aktiv økt</span> — an active session · <span lang="nb">å advare</span> — to warn</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p285/">Read “Someone took over the account” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>When data became a mask <small lang="nb">(Da data ble brukt som en maske, A2)</small></h3>
+    <p>Leo learns how stolen personal data can be used to impersonate someone else and whom to alert.</p>
+    <p lang="nb">Leo lærer hvordan stjålne personopplysninger kan brukes til å utgi seg for å være noen andre, og hvem som må varsles.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">identitetstyveri</span> — identity theft · <span lang="nb">personopplysninger</span> — personal data · <span lang="nb">et fødselsnummer</span> — a national identity number · <span lang="nb">en legitimasjon</span> — an identity document · <span lang="nb">å utgi seg for</span> — to impersonate · <span lang="nb">en transaksjon</span> — a transaction · <span lang="nb">en kredittsperre</span> — a credit block · <span lang="nb">dokumentasjon</span> — documentation</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p286/">Read “When data became a mask” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The threat in the chat <small lang="nb">(Trusselen i chatten, A2)</small></h3>
+    <p>Nora learns that digital extortion is never the victim’s fault and that a trusted adult, the service and police can help.</p>
+    <p lang="nb">Nora lærer at digital utpressing aldri er offerets skyld, og at en trygg voksen, tjenesten og politiet kan hjelpe.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">digital utpressing</span> — digital extortion · <span lang="nb">en trussel</span> — a threat · <span lang="nb">privat innhold</span> — private content · <span lang="nb">et brukernavn</span> — a username · <span lang="nb">et skjermbilde</span> — a screenshot · <span lang="nb">å blokkere</span> — to block · <span lang="nb">å anmelde</span> — to report to police · <span lang="nb">skyld</span> — blame</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p287/">Read “The threat in the chat” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Files behind a digital lock <small lang="nb">(Filer bak en digital lås, B1)</small></h3>
+    <p>The class learns what ransomware does, how suspicious attachments can spread malware, and why backups and quick reporting matter.</p>
+    <p lang="nb">Klassen lærer hva løsepengevirus gjør, hvordan mistenkelige vedlegg kan spre skadevare, og hvorfor backup og rask varsling betyr mye.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">løsepengevirus</span> — ransomware · <span lang="nb">skadevare</span> — malware · <span lang="nb">å kryptere</span> — to encrypt · <span lang="nb">løsepenger</span> — a ransom · <span lang="nb">et vedlegg</span> — an attachment · <span lang="nb">en sikkerhetskopi</span> — a backup · <span lang="nb">å isolere</span> — to isolate · <span lang="nb">gjenoppretting</span> — recovery</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p288/">Read “Files behind a digital lock” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>A free cheat with a hidden price <small lang="nb">(Gratis juks med skjult pris, A2)</small></h3>
+    <p>Leo learns that fake game mods and apps can hide malware that steals data, shows adverts or takes control of a device.</p>
+    <p lang="nb">Leo lærer at falske spillmodder og apper kan skjule skadevare som stjeler data, viser reklame eller tar kontroll over enheten.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">skadevare</span> — malware · <span lang="nb">en spillmodifikasjon</span> — a game modification · <span lang="nb">en offisiell kilde</span> — an official source · <span lang="nb">en apptillatelse</span> — an app permission · <span lang="nb">administratortilgang</span> — administrator access · <span lang="nb">et sikkerhetshull</span> — a security weakness · <span lang="nb">en oppdatering</span> — an update · <span lang="nb">å skanne</span> — to scan</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p289/">Read “A free cheat with a hidden price” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>After the attack: regain control <small lang="nb">(Etter angrepet: få kontroll, A2)</small></h3>
+    <p>Nora and Leo follow a simple plan: stop, alert, preserve evidence, recover through official channels and learn from the incident.</p>
+    <p lang="nb">Nora og Leo følger en enkel plan: stopp, varsle, sikre spor, gjenopprett gjennom offisielle kanaler og lær av hendelsen.</p>
+    <p>Words: <span lang="nb">en konto</span> — an account · <span lang="nb">et passord</span> — a password · <span lang="nb">en kode</span> — a code · <span lang="nb">en lenke</span> — a link · <span lang="nb">trygg</span> — safe · <span lang="nb">en voksen</span> — an adult · <span lang="nb">å beskytte</span> — to protect · <span lang="nb">å stjele</span> — to steal · <span lang="nb">en kriminell</span> — a criminal · <span lang="nb">hjelp</span> — help · <span lang="nb">en hendelsesplan</span> — an incident response plan · <span lang="nb">en cyberhendelse</span> — a cyber incident · <span lang="nb">å varsle</span> — to alert · <span lang="nb">å sikre spor</span> — to preserve evidence · <span lang="nb">offisiell støtte</span> — official support · <span lang="nb">å gjenopprette</span> — to recover · <span lang="nb">en anmeldelse</span> — a police report · <span lang="nb">en lærdom</span> — a lesson learned</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p290/">Read “After the attack: regain control” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The suitcase on the ferry <small lang="nb">(Kofferten på ferga, A1)</small></h3>
+    <p>Mia sorts items from an open suitcase and learns to choose min, mi, mitt and mine from the gender and number of the owned item.</p>
+    <p lang="nb">Mia sorterer ting fra en åpen koffert og lærer å velge min, mi, mitt og mine etter tingen hun eier.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">en koffert</span> — a suitcase · <span lang="nb">en genser</span> — a jumper · <span lang="nb">ei lue</span> — a hat · <span lang="nb">et pass</span> — a passport · <span lang="nb">sko</span> — shoes · <span lang="nb">genseren min</span> — my jumper · <span lang="nb">lua mi</span> — my hat · <span lang="nb">passet mitt</span> — my passport</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p291/">Read “The suitcase on the ferry” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>After swimming class <small lang="nb">(Etter svømmetimen, A1)</small></h3>
+    <p>Leo helps in the changing room and finds the right owners by using din, di, ditt and dine.</p>
+    <p lang="nb">Leo hjelper til i garderoben og finner riktig eier ved å bruke din, di, ditt og dine.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">en sekk</span> — a backpack · <span lang="nb">ei flaske</span> — a bottle · <span lang="nb">et håndkle</span> — a towel · <span lang="nb">svømmebriller</span> — goggles · <span lang="nb">sekken din</span> — your backpack · <span lang="nb">flaska di</span> — your bottle · <span lang="nb">håndkleet ditt</span> — your towel · <span lang="nb">brillene dine</span> — your goggles</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p292/">Read “After swimming class” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The map of our neighbourhood <small lang="nb">(Kartet over nabolaget vårt, A1)</small></h3>
+    <p>The family makes a map and practises vår, vårt and våre with places in the new neighbourhood.</p>
+    <p lang="nb">Familien lager et kart og øver på vår, vårt og våre med steder i det nye nabolaget.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">et nabolag</span> — a neighbourhood · <span lang="nb">en vei</span> — a road · <span lang="nb">ei gate</span> — a street · <span lang="nb">et hus</span> — a house · <span lang="nb">naboer</span> — neighbours · <span lang="nb">veien vår</span> — our road · <span lang="nb">huset vårt</span> — our house · <span lang="nb">naboene våre</span> — our neighbours</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p293/">Read “The map of our neighbourhood” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Three projects on one table <small lang="nb">(Tre prosjekter på samme bord, A2)</small></h3>
+    <p>At the exhibition, the class distinguishes Leo’s, Nora’s and the twins’ work using hans, hennes and deres.</p>
+    <p lang="nb">På utstillingen skiller klassen mellom Leos, Noras og tvillingenes arbeid med hans, hennes og deres.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">en utstilling</span> — an exhibition · <span lang="nb">et prosjekt</span> — a project · <span lang="nb">en modell</span> — a model · <span lang="nb">en plakat</span> — a poster · <span lang="nb">tvillinger</span> — twins · <span lang="nb">prosjektet hans</span> — his project · <span lang="nb">modellen hennes</span> — her model · <span lang="nb">plakaten deres</span> — their poster</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p294/">Read “Three projects on one table” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Max found his own jacket <small lang="nb">(Max fant jakka si, A2)</small></h3>
+    <p>A walk in the rain shows the difference between the subject’s own item and another person’s item.</p>
+    <p lang="nb">En tur i regnet viser forskjellen mellom sin egen ting og en annen persons ting.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">en regnjakke</span> — a rain jacket · <span lang="nb">et halsbånd</span> — a collar · <span lang="nb">en hund</span> — a dog · <span lang="nb">en eier</span> — an owner · <span lang="nb">sin egen</span> — one’s own · <span lang="nb">jakka si</span> — one’s own jacket · <span lang="nb">halsbåndet sitt</span> — one’s own collar · <span lang="nb">lekene sine</span> — one’s own toys</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p295/">Read “Max found his own jacket” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The sign workshop <small lang="nb">(Skiltverkstedet, A2)</small></h3>
+    <p>Nora makes shop signs and discovers why Norwegian says bilen min but min bil.</p>
+    <p lang="nb">Nora lager butikkskilt og oppdager hvorfor vi sier bilen min, men min bil.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">et skilt</span> — a sign · <span lang="nb">en form</span> — a form · <span lang="nb">ubestemt form</span> — indefinite form · <span lang="nb">etter substantivet</span> — after the noun · <span lang="nb">før substantivet</span> — before the noun · <span lang="nb">bilen min</span> — my car · <span lang="nb">min bil</span> — MY car · <span lang="nb">huset vårt</span> — our house</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p296/">Read “The sign workshop” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The flea-market ownership detectives <small lang="nb">(Loppemarkedets eierdetektiver, A2)</small></h3>
+    <p>At a flea market, the children use all the possessives to work out who the items belong to.</p>
+    <p lang="nb">På et loppemarked bruker barna alle eiendomsordene for å finne hvem tingene tilhører.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">et loppemarked</span> — a flea market · <span lang="nb">hvem sin?</span> — whose? · <span lang="nb">en merkelapp</span> — a label · <span lang="nb">en kurv</span> — a basket · <span lang="nb">en bamse</span> — a teddy bear · <span lang="nb">kurven vår</span> — our basket · <span lang="nb">bamsen hennes</span> — her teddy bear · <span lang="nb">bøkene deres</span> — their books</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p297/">Read “The flea-market ownership detectives” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>Moving day: whose is it? <small lang="nb">(Flyttedagen: Hvem sin er den?, B1)</small></h3>
+    <p>During a busy move, the family must use agreement, word order and sin/hans correctly to avoid mix-ups.</p>
+    <p lang="nb">Under en travel flytting må familien bruke både samsvar, ordstilling og sin/hans riktig for å unngå forvekslinger.</p>
+    <p>Words: <span lang="nb">å eie</span> — to own · <span lang="nb">en eier</span> — an owner · <span lang="nb">en ting</span> — an item · <span lang="nb">å tilhøre</span> — to belong · <span lang="nb">entall</span> — singular · <span lang="nb">flertall</span> — plural · <span lang="nb">hankjønn</span> — masculine · <span lang="nb">hunkjønn</span> — feminine · <span lang="nb">intetkjønn</span> — neuter · <span lang="nb">bestemt form</span> — definite form · <span lang="nb">en flyttedag</span> — moving day · <span lang="nb">en eske</span> — a box · <span lang="nb">et møbel</span> — a piece of furniture · <span lang="nb">å blande</span> — to mix up · <span lang="nb">en navnelapp</span> — a name label · <span lang="nb">eska mi</span> — my box · <span lang="nb">møbelet vårt</span> — our piece of furniture · <span lang="nb">rommet sitt</span> — one’s own room</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p298/">Read “Moving day: whose is it?” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The viewing by the river <small lang="nb">(Visningen ved elva, A2)</small></h3>
+    <p>Nora and Leo help Aunt Liv assess an available flat while keeping income, savings and renovation in mind.</p>
+    <p lang="nb">Nora og Leo hjelper tante Liv med å vurdere en ledig leilighet uten å glemme inntekt, sparing og oppussing.</p>
+    <p>Words: <span lang="nb">en hverdag</span> — an everyday routine · <span lang="nb">å planlegge</span> — to plan · <span lang="nb">å sammenligne</span> — to compare · <span lang="nb">å bestemme seg</span> — to decide · <span lang="nb">et budsjett</span> — a budget · <span lang="nb">en pris</span> — a price · <span lang="nb">en avtale</span> — an appointment · <span lang="nb">å rekke</span> — to make it in time · <span lang="nb">heldigvis</span> — fortunately · <span lang="nb">likevel</span> — nevertheless · <span lang="nb">ei inntekt</span> — an income · <span lang="nb">å spare</span> — to save · <span lang="nb">å trives</span> — to feel at home · <span lang="nb">å leie</span> — to rent · <span lang="nb">å eie</span> — to own · <span lang="nb">moderne</span> — modern · <span lang="nb">å pusse opp</span> — to renovate · <span lang="nb">å ha råd til</span> — to be able to afford</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p299/">Read “The viewing by the river” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The jacket for the hike <small lang="nb">(Jakka til fjellturen, A2)</small></h3>
+    <p>Mia compares sizes and prices before a school hike, while Amir learns why an offer is not always the best choice.</p>
+    <p lang="nb">Mia sammenligner størrelser og priser før skoleturen, mens Amir lærer hvorfor et tilbud ikke alltid er det beste valget.</p>
+    <p>Words: <span lang="nb">en hverdag</span> — an everyday routine · <span lang="nb">å planlegge</span> — to plan · <span lang="nb">å sammenligne</span> — to compare · <span lang="nb">å bestemme seg</span> — to decide · <span lang="nb">et budsjett</span> — a budget · <span lang="nb">en pris</span> — a price · <span lang="nb">en avtale</span> — an appointment · <span lang="nb">å rekke</span> — to make it in time · <span lang="nb">heldigvis</span> — fortunately · <span lang="nb">likevel</span> — nevertheless · <span lang="nb">et prøverom</span> — a fitting room · <span lang="nb">å kikke</span> — to have a look · <span lang="nb">en størrelse</span> — a size · <span lang="nb">et tilbud</span> — an offer · <span lang="nb">å handle</span> — to shop · <span lang="nb">å betale</span> — to pay · <span lang="nb">å spandere</span> — to treat someone · <span lang="nb">en kvittering</span> — a receipt</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p300/">Read “The jacket for the hike” — Norwegian comic with English translation</a></p>
+  </article>
+  <article>
+    <h3>The morning that ran away <small lang="nb">(Morgenen som løp av gårde, A2)</small></h3>
+    <p>Leo oversleeps before a busy school day and learns to prioritise, ask for help and search systematically.</p>
+    <p lang="nb">Leo forssover seg før en travel skoledag og lærer å prioritere, be om hjelp og lete systematisk.</p>
+    <p>Words: <span lang="nb">en hverdag</span> — an everyday routine · <span lang="nb">å planlegge</span> — to plan · <span lang="nb">å sammenligne</span> — to compare · <span lang="nb">å bestemme seg</span> — to decide · <span lang="nb">et budsjett</span> — a budget · <span lang="nb">en pris</span> — a price · <span lang="nb">en avtale</span> — an appointment · <span lang="nb">å rekke</span> — to make it in time · <span lang="nb">heldigvis</span> — fortunately · <span lang="nb">likevel</span> — nevertheless · <span lang="nb">å forsove seg</span> — to oversleep · <span lang="nb">å hente</span> — to collect · <span lang="nb">for sent</span> — too late · <span lang="nb">å lete etter</span> — to look for · <span lang="nb">å finne</span> — to find · <span lang="nb">opptatt</span> — busy · <span lang="nb">ledig</span> — available · <span lang="nb">en alarm</span> — an alarm</p>
+    <p><a href="https://bilohash.com/comiks/komiks/p301/">Read “The morning that ran away” — Norwegian comic with English translation</a></p>
+  </article>
   <h2>FAQ</h2>
   <h3>Can I learn Norwegian from zero here?</h3>
   <p>Yes. Start with the A1 comics — simple phrases like “Hvor kommer du fra?” — and every word is translated into English.</p>
@@ -784,10 +1687,18 @@
 </main>
 
 <footer class="foot">
+  <nav class="seo-foot-links" aria-label="Вивчення норвезької">
+    <strong>🇳🇴 Вивчення норвезької</strong>
+    <a href="./uk/vyvchennya-norvezkoyi/">З нуля</a>
+    <a href="./uk/vyvchennya-norvezkoyi/testy/">Тести</a>
+    <a href="./uk/vyvchennya-norvezkoyi/trenazher/">Тренажер</a>
+    <a href="./uk/vyvchennya-norvezkoyi/zastosunok/">Програма</a>
+    <a href="./uk/vyvchennya-norvezkoyi/alternatyva-duolingo/">Альтернатива Duolingo</a>
+  </nav>
   <div class="foot-bottom"><span>© Комікс·Lab</span><span class="made">Зроблено з ❤️ для вивчення норвезької мови</span><a href="#/terms">Умови використання</a></div>
 </footer>
 
-<!-- ver:js --><script src="data/index.js?v=musrvubl"></script>
-<script src="assets/boot.js?v=musrvubl"></script><!-- /ver:js -->
+<!-- ver:js --><script src="data/index.js?v=mvshnjze"></script>
+<script src="assets/boot.js?v=mvshnjze"></script><!-- /ver:js -->
 </body>
 </html>

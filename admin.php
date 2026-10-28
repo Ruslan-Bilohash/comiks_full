@@ -9,6 +9,13 @@ define('KOMIKS_API', 1);
 if (!is_file(__DIR__ . '/api/config.php') && !is_file(__DIR__ . '/api/config.local.php')) { header('Location: install.php'); exit; }
 require __DIR__ . '/api/lib.php';
 require __DIR__ . '/api/admin_ui.php';
+require __DIR__ . '/api/admin-auth.php';
+require __DIR__ . '/api/admin-dash.php';
+require __DIR__ . '/api/admin-moderation.php';
+require __DIR__ . '/api/testing-mail.php';
+/* Таблиця журналу й стовпчик totp_last потрібні вже на першому вході, а ALTER
+   на кожному запиті — зайвий. Позначка в kl_meta робить це один раз. */
+if (meta_get('admin_auth_v', '') !== '1') { admin_auth_install(); meta_set('admin_auth_v', '1'); }
 $nonce = html_mode();
 
 $p = preg_replace('/[^a-z]/', '', (string)($_GET['p'] ?? 'dash')) ?: 'dash';
@@ -20,38 +27,66 @@ $fbNew = 0;
 try { $fbNew = (int)(one('SELECT COUNT(*) AS n FROM kl_feedback WHERE done_at IS NULL')['n'] ?? 0); } catch (Throwable $e) { /* таблиці ще немає */ }
 $tcNew = 0;
 try { $tcNew = (int)(one("SELECT COUNT(*) AS n FROM kl_teachers WHERE status = 'pending'")['n'] ?? 0); } catch (Throwable $e) { /* таблиці ще немає */ }
-$NAV = $isAdmin ? ['dash' => '📊 Огляд', 'users' => '👥 Користувачі', 'materials' => '📚 Матеріали', 'community' => '💬 Спільнота', 'teachers' => '🎓 Вчителі' . ($tcNew ? ' (' . $tcNew . ')' : ''), 'feedback' => '💌 Відгуки' . ($fbNew ? ' (' . $fbNew . ')' : ''), 'voice' => '🎧 Голос і ШІ', 'mail' => '📣 Розсилки', 'diag' => '🩺 Діагностика', 'system' => '⚙️ Система'] : ['community' => '💬 Спільнота'];
+$modNew = 0;   // нове в черзі модерації: неперевірені дописи + скарги
+if ($isStaff) { try { mod_install(); $mc = mod_counts(); $modNew = $mc['queue'] + $mc['reports']; } catch (Throwable $e) { /* стовпців ще немає */ } }
+$NAV = $isAdmin ? ['dash' => '📊 Огляд', 'users' => '👥 Користувачі', 'materials' => '📚 Матеріали', 'community' => '🛡 Модерація' . ($modNew ? ' (' . $modNew . ')' : ''), 'teachers' => '🎓 Вчителі' . ($tcNew ? ' (' . $tcNew . ')' : ''), 'feedback' => '💌 Відгуки' . ($fbNew ? ' (' . $fbNew . ')' : ''), 'voice' => '🎧 Голос і ШІ', 'translations' => '🌍 Переклади', 'mail' => '📣 Розсилки', 'diag' => '🩺 Діагностика', 'system' => '⚙️ Налаштування'] : ['community' => '🛡 Модерація' . ($modNew ? ' (' . $modNew . ')' : '')];
 if ($isStaff && !$isAdmin && !in_array($p, ['community', 'logout', 'login'], true)) $p = 'community'; // модератор бачить лише модерацію
-function go(string $to, string $m = ''): void { $qs = trim($to . ($m !== '' ? '&m=' . $m : ''), '&'); header('Location: admin.php' . ($qs !== '' ? '?' . $qs : '')); exit; }
+/* Дія з кнопки, позначеної data-ajax: замість переходу відповідаємо JSON, а сторінка сама
+   прибирає рядок чи перемикає галочку — модерація йде одразу, без перезавантаження. */
+function go(string $to, string $m = ''): void {
+  if (($_SERVER['HTTP_X_ADMIN_AJAX'] ?? '') === '1') {
+    global $MSG; $x = $MSG[$m] ?? ['ok', 'Готово.'];
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode(['ok' => $x[0] !== 'err', 'type' => $x[0], 'text' => $x[1], 'm' => $m], JSON_UNESCAPED_UNICODE); exit;
+  }
+  $qs = trim($to . ($m !== '' ? '&m=' . $m : ''), '&'); header('Location: admin.php' . ($qs !== '' ? '?' . $qs : '')); exit;
+}
 function int_in(string $k): int { return max(0, (int)($_POST[$k] ?? $_GET[$k] ?? 0)); }
 
 /* ---------- вхід ---------- */
 if (!$isStaff) {
-  $err = '';
+  /* Два кроки: пароль, а якщо в акаунті ввімкнено автентифікатор — ще й код.
+     Сесію запускає лише api/admin-auth.php, і лише після обох кроків. */
+  $err = ''; $ticket = '';
   if ($post && $p === 'login') {
-    $email = strtolower(trim((string)($_POST['email'] ?? '')));
-    if (limited('admin-login:' . ip_hash(), 10, 900)) $err = 'Забагато спроб. Зачекайте 15 хвилин.';
-    else {
-      $u = valid_email($email) ? one('SELECT * FROM kl_users WHERE email = ?', [$email]) : null;
-      $ok = password_verify((string)($_POST['password'] ?? ''), $u['pass_hash'] ?? '$2y$10$usesomesillystringfore7hnbRJHxXVLeakoG8K30oukPsA.ztMG');
-      if ($u && $ok && is_staff($u) && empty($u['blocked_at'])) { start_session((int)$u['id']); go(!empty($u['is_admin']) ? '' : 'p=community'); }
-      $err = 'Неправильна пошта або пароль, або акаунт не має прав адміністратора чи модератора.';
-    }
+    $r = isset($_POST['ticket'])
+      ? admin_login_code((string)$_POST['ticket'], (string)($_POST['code'] ?? ''))
+      : admin_login_password((string)($_POST['email'] ?? ''), (string)($_POST['password'] ?? ''));
+    if (!empty($r['ok'])) go(!empty($r['user']['is_admin']) ? '' : 'p=community');
+    $ticket = (string)($r['ticket'] ?? '');
+    $err = match ($r['error'] ?? '') {
+      'slow' => 'Забагато спроб. Зачекайте 15 хвилин.',
+      'code' => 'Код не підійшов. Візьміть новий з автентифікатора або введіть резервний код.',
+      'ticket' => 'Час на введення коду вийшов. Увійдіть ще раз.',
+      '' => '',
+      default => 'Неправильна пошта або пароль, або акаунт не має прав адміністратора чи модератора.',
+    };
   }
   page_open('Вхід', $nonce); ?>
   <div class="auth-wrap"><div class="auth" style="width:min(420px,100%)"><div class="brand"><img src="img/logo.svg" alt="" width="32" height="32"> Komiks·Lab <small>ADMIN</small></div>
     <div class="card"><h1>🔐 Вхід</h1>
       <?php if ($me && !$isStaff): ?><div class="msg warn">Ви увійшли як <?= e($me['email']) ?>, але цей акаунт не адміністратор і не модератор.</div><?php endif; ?>
       <?php if ($err): ?><div class="msg err"><?= e($err) ?></div><?php endif; ?>
+      <?php if ($ticket !== ''): ?>
+      <form method="post" action="admin.php?p=login">
+        <input type="hidden" name="ticket" value="<?= e($ticket) ?>">
+        <label class="f">Код з автентифікатора<input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="12" required autofocus><small>Шість цифр із застосунку або резервний код виду ABCD-1234.</small></label>
+        <button class="btn pri">Підтвердити →</button>
+      </form>
+      <?php else: ?>
       <form method="post" action="admin.php?p=login">
         <label class="f">Пошта<input type="email" name="email" autocomplete="username" required autofocus></label>
         <label class="f">Пароль<input type="password" name="password" autocomplete="current-password" required></label>
         <button class="btn pri">Увійти →</button>
       </form>
+      <?php endif; ?>
       <?php if (is_file(__DIR__ . '/install.php')): ?><p class="muted" style="margin-bottom:0">Ще не створили адміністратора? <a href="install.php">Інсталятор</a></p><?php endif; ?>
     </div></div></div>
   <?php page_close($nonce, false); exit;
 }
+
+/* Mail studio handles admin actions before any HTML output. */
+if ($isAdmin && $p === 'mail') { require __DIR__ . '/api/mail-studio-controller.php'; exit; }
 
 /* ---------- вкладення до відгуку: показуємо лише адміністратору ---------- */
 if ($isAdmin && $p === 'feedback' && isset($_GET['dl'])) {
@@ -79,6 +114,31 @@ if ($isAdmin && $p === 'teachers' && isset($_GET['dl'])) {
   exit;
 }
 
+$MSG = ['remind_sent' => ['ok', '📬 Нагадування про навчання надіслано.'], 'apps_sent' => ['ok', '📲 Лист про застосунок надіслано.'], 'apps_fail' => ['err', 'Поштовий сервер не прийняв лист — подивіться 🩺 Діагностика → Журнали.'],
+  'apps_unsub' => ['warn', 'Користувач відписався від листів — лист не надіслано.'], 'apps_unverified' => ['warn', 'Пошту не підтверджено — лист не надіслано.'],
+  'fb_android_sent' => ['ok', '📲 Посилання Google Play та інструкцію на 14 днів надіслано тестувальнику. Заявку позначено опрацьованою.'],
+  'fb_android_email' => ['err', 'У заявці немає правильної email-адреси. Лист не надіслано, заявку залишено відкритою.'],
+  'fb_android_mail' => ['err', 'Поштовий сервер не прийняв лист. Заявку залишено відкритою — перевірте 🩺 Діагностика → Журнали й повторіть.'],
+  'verified' => ['ok', 'Пошту позначено підтвердженою.'], 'sent' => ['ok', 'Лист надіслано.'], 'blocked' => ['ok', 'Користувача заблоковано, його сесії завершено.'], 'unblocked' => ['ok', 'Блокування знято.'],
+  'saved' => ['ok', 'Збережено.'], 'kicked' => ['ok', 'Усі сесії користувача завершено.'], 'deleted' => ['ok', 'Видалено.'], 'self' => ['err', 'Цю дію не можна виконати над власним акаунтом.'],
+  'confirm' => ['err', 'Для видалення введіть пошту користувача точно.'], 'mail_test_ok' => ['ok', '📬 Тестовий лист надіслано на вашу пошту.'], 'mail_fail' => ['err', 'Лист не надіслався. Причину видно нижче, у картці «Пошта».'],
+  'voice_ok' => ['ok', '🔊 Голос працює — тестову фразу синтезовано.'], 'voice_fail' => ['err', 'Голос не відповів. Перевірте, чи дозволені вихідні зʼєднання, або оберіть іншого провайдера.'],
+  'wrong' => ['err', 'Поточний пароль неправильний.'], 'short' => ['err', 'Новий пароль — щонайменше 10 символів.'],
+  'banned' => ['ok', '⛔ Тимчасове блокування стін застосовано, автор побачить анімоване повідомлення.'], 'unbanned' => ['ok', 'Блокування знято.'], 'warned' => ['ok', '⚠️ Попередження надіслано — автор побачить анімацію «так не можна».'],
+  'forbidden' => ['err', 'Недостатньо прав.'], 'bad_input' => ['err', 'Вкажіть ім’я та правильну пошту.'], 'exists' => ['err', 'Акаунт з такою поштою вже є — відкрийте його й увімкніть преміум.'],
+  'pw_set' => ['ok', '🔑 Пароль задано. Передайте його другові особисто й попросіть змінити в кабінеті.'], 'pw_pass_short' => ['err', 'Пароль закороткий — щонайменше 8 символів (12345 не підходить).'], 'pw_pass_weak' => ['err', 'Цей пароль у списку найпростіших — його підберуть за секунди. Оберіть інший.'], 'pw_pass_long' => ['err', 'Пароль задовгий.'],
+  'noted' => ['ok', '✉️ Звернення надіслано — людина побачить його при наступному відкритті сайту.'],
+  'note_empty' => ['warn', 'Текст порожній — нічого не надіслано.'], 'approved' => ['ok', '✓ Схвалено.'], 'dismissed' => ['ok', 'Скаргу закрито — порушення немає.'], 'mail_sub' => ['ok', '📣 Підписано на розсилку.'], 'mail_unsub' => ['ok', '🔕 Відписано від розсилки.'],
+  'mail_ok' => ['ok', '📣 Листи надіслано.'], 'mail_none' => ['warn', 'Нікого не позначено — листи не надсилалися.'], 'mail_part' => ['warn', '📣 Частину листів не вдалося надіслати — подивіться «Систему» → «Пошта».'],
+  'reauth' => ['err', '🔐 Пароль або код автентифікатора не підійшов — зміни не збережено.'],
+  'g_saved' => ['ok', '🔑 Ключі Google збережено як чернетку. Тепер натисніть «Перевірити через Google».'], 'g_same' => ['warn', 'Ключі не змінилися — нічого не збережено.'],
+  'g_bad_id' => ['err', 'Client ID має вигляд 1234567890-abc….apps.googleusercontent.com.'], 'g_bad_secret' => ['err', 'Client Secret виглядає неправильно: без пробілів і переносів, 10–200 символів.'],
+  'g_need_secret' => ['err', 'Спершу введіть Client Secret.'], 'g_key' => ['err', 'Не вдалося відкрити сховище ключа шифрування — подивіться рядок «Сховище ключа» в картці Google.'],
+  'g_transport' => ['err', 'Для входу Google потрібні HTTPS і PHP cURL — див. картку Google.'], 'g_not_verified' => ['err', 'Спершу перевірте саме ці ключі через Google — увімкнути можна лише перевірені.'],
+  'g_on' => ['ok', '✅ Вхід через Google увімкнено.'], 'g_off' => ['ok', 'Вхід через Google вимкнено. Ключі збережено — увімкнути можна знову без нової перевірки.'],
+  'google_verified' => ['ok', '✅ Google підтвердив ключі: вхід пройшов, користувача не створено. Тепер можна вмикати.'],
+  'google_verify_fail' => ['err', 'Перевірку через Google не пройдено. Причина — у журналі нижче.'],
+  'created' => ['ok', '🎉 Акаунт створено. Другу надіслано лист із посиланням, щоб задати пароль (діє 7 днів).'], 'created_nomail' => ['err', 'Акаунт створено, але лист не надіслався — перевірте пошту в «Системі» й натисніть «Надіслати посилання для нового пароля».']];
 /* ---------- дії (POST) ---------- */
 if ($post) {
   check_admin_csrf();
@@ -88,7 +148,7 @@ if ($post) {
   $self = $target && (int)$target['id'] === (int)$me['id'];
   $back = 'p=user&id=' . $id;
   // модератору дозволено лише модерацію стін
-  $modOnly = ['logout', 'comment_del', 'comment_warn', 'comment_ban', 'unban'];
+  $modOnly = ['logout', 'comment_del', 'comment_warn', 'comment_ban', 'unban', 'comment_ok', 'comment_ok_all', 'msg_ok', 'msg_del', 'msg_warn', 'msg_ban', 'player_del'];
   if (!$isAdmin && !in_array($do, $modOnly, true)) go('p=community', 'forbidden');
   $cmt = isset($_POST['cid']) ? one('SELECT * FROM kl_comments WHERE id = ?', [(string)$_POST['cid']]) : null;
   $flag = fn(string $col, int $v) => q("UPDATE kl_users SET $col = ? WHERE id = ?", [$v, $id]);
@@ -112,6 +172,29 @@ if ($post) {
       if ($target && !$self) q('INSERT INTO kl_notices (user_id, kind, text, by_id, created_at) VALUES (?, ?, ?, ?, ?)', [$id, 'note', $txt, $me['id'], time()]);
       go($back, $self ? 'self' : 'noted');
     case 'unban': q('UPDATE kl_bans SET until_at = ? WHERE id = ?', [time(), int_in('ban')]); go($isAdmin && $id ? $back : 'p=community', 'unbanned');
+    case 'comment_ok': if ($cmt) q('UPDATE kl_comments SET mod_ok_at = ? WHERE id = ?', [time(), $cmt['id']]); go('p=community', 'approved');
+    case 'comment_ok_all':
+      foreach (array_filter(explode(',', (string)($_POST['ids'] ?? '')), fn($x) => (bool)preg_match('/^[A-Za-z0-9_-]{4,24}$/', $x)) as $cid) q('UPDATE kl_comments SET mod_ok_at = ? WHERE id = ? AND mod_ok_at IS NULL', [time(), $cid]);
+      go('p=community', 'approved');
+    /* Скарга на особисте повідомлення: «порушення немає» закриває скаргу, решта — прибирає
+       повідомлення; попередження й блокування адресуються авторові (за акаунтом). */
+    case 'msg_ok': case 'msg_del': case 'msg_warn': case 'msg_ban':
+      $msgRow = one('SELECT * FROM kl_messages WHERE id = ?', [int_in('mid')]);
+      if ($msgRow) {
+        $victim = one('SELECT * FROM kl_users WHERE id = ?', [(int)$msgRow['from_id']]);
+        if ($do !== 'msg_ok' && $victim && is_staff($victim) && !$isAdmin) go('p=community&t=reports', 'forbidden');
+        if ($do === 'msg_ok') q('UPDATE kl_messages SET mod_done_at = ? WHERE id = ?', [time(), $msgRow['id']]);
+        else {
+          if ($do !== 'msg_del') q('INSERT INTO kl_notices (user_id, ip_hash, kind, text, by_id, created_at) VALUES (?, NULL, ?, ?, ?, ?)', [(int)$msgRow['from_id'], $do === 'msg_ban' ? 'ban' : 'warn', mb_substr_s((string)$msgRow['text'], 300), $me['id'], time()]);
+          if ($do === 'msg_ban') { $hours = in_array((int)($_POST['hours'] ?? 0), [1, 24, 168], true) ? (int)$_POST['hours'] : 24; q('INSERT INTO kl_bans (user_id, ip_hash, until_at, reason, by_id, created_at) VALUES (?, NULL, ?, ?, ?, ?)', [(int)$msgRow['from_id'], time() + $hours * 3600, 'msg', $me['id'], time()]); }
+          q('DELETE FROM kl_messages WHERE id = ?', [$msgRow['id']]);
+        }
+      }
+      go('p=community&t=reports', $do === 'msg_ok' ? 'dismissed' : ($do === 'msg_ban' ? 'banned' : ($do === 'msg_warn' ? 'warned' : 'deleted')));
+    // 📣 підписка на розсилки (kl_users.mail_ok) — перемикач у списку й у картці
+    case 'mail_on': case 'mail_off':
+      if ($target) $flag('mail_ok', $do === 'mail_on' ? 1 : 0);
+      go(($_POST['from'] ?? '') === 'list' ? 'p=users' : $back, $do === 'mail_on' ? 'mail_sub' : 'mail_unsub');
     case 'comment_warn': case 'comment_ban':
       if ($cmt) {
         $who = $cmt['user_id'] ? [(int)$cmt['user_id'], null] : [null, $cmt['ip_hash'] ?: null]; // акаунт — за акаунтом, гість — за IP
@@ -161,7 +244,20 @@ if ($post) {
         send_mail((string)$tu['email'], 'Komiks·Lab: ' . $subject, $html, $okT ? $TT[1] : $TT[3]);
       }
       go('p=teachers', 'saved');
-    case 'fb_done': q('UPDATE kl_feedback SET done_at = ? WHERE id = ?', [time(), int_in('fb')]); go('p=feedback', 'saved');
+    case 'fb_done':
+      $fbRow = one('SELECT f.*, u.email AS user_email FROM kl_feedback f LEFT JOIN kl_users u ON u.id = f.user_id WHERE f.id = ?', [int_in('fb')]);
+      if (!$fbRow || !empty($fbRow['done_at'])) go('p=feedback', 'saved');
+      if (($fbRow['kind'] ?? '') === 'android') {
+        if (!valid_email((string)($fbRow['email'] ?? '')) && valid_email((string)($fbRow['user_email'] ?? ''))) {
+          $fbRow['email'] = $fbRow['user_email'];
+        }
+        $sendResult = send_android_testing_invite($fbRow);
+        meta_set('mail_last_try', (string)time());
+        meta_set('mail_last_error', $sendResult === 'sent' ? '' : ($sendResult === 'email' ? 'android tester: invalid email' : (mail_error() ?: 'android tester: unknown mail error')));
+        if ($sendResult !== 'sent') go('p=feedback&f=android', 'fb_android_' . $sendResult);
+      }
+      q('UPDATE kl_feedback SET done_at = ? WHERE id = ? AND done_at IS NULL', [time(), (int)$fbRow['id']]);
+      go('p=feedback', ($fbRow['kind'] ?? '') === 'android' ? 'fb_android_sent' : 'saved');
     case 'fb_undone': q('UPDATE kl_feedback SET done_at = NULL WHERE id = ?', [int_in('fb')]); go('p=feedback', 'saved');
     case 'fb_del':
       $fbRow = one('SELECT file FROM kl_feedback WHERE id = ?', [int_in('fb')]);
@@ -182,6 +278,43 @@ if ($post) {
       $mp3 = tts_speak('Hei! Det er Kaja. Skal vi ta en kaffe i dag?');
       go('p=voice', $mp3 ? 'voice_ok' : 'voice_fail');
     case 'dump': sql_dump_stream(); // віддає .sql і завершує запит
+    case 'hits_on': case 'hits_off':
+      meta_set('hits_off', $do === 'hits_off' ? '1' : '0'); admin_log((int)$me['id'], $do);
+      go('p=system&s=stats', 'saved');
+    case 'hits_clear':
+      if (meta_get('hits_v') === '1') { q('DELETE FROM kl_hits'); q('DELETE FROM kl_hit_uv'); }
+      admin_log((int)$me['id'], 'hits_clear'); go('p=system&s=stats', 'deleted');
+    case 'diag_ping':
+      // 🩺 жива перевірка однієї служби — JSON для кнопки «Перевірити»
+      require_once __DIR__ . '/api/diag.php';
+      $svc = (string)($_POST['svc'] ?? '');
+      header('Content-Type: application/json; charset=utf-8');
+      echo json_encode(['ok' => true, 'svc' => $svc] + diag_ping($svc), JSON_UNESCAPED_UNICODE); exit;
+    case 'err_fixed':
+      // 🩺 помилку виправлено — прибрати рядок із журналу (повториться — з’явиться знову) або очистити весь журнал
+      $kind = ($_POST['kind'] ?? '') === 'php' ? 'php' : 'js';
+      $hash = (string)preg_replace('/[^a-f0-9]/', '', (string)($_POST['hash'] ?? ''));
+      try { $hash !== '' ? q('DELETE FROM kl_errors WHERE hash = ? AND kind = ?', [$hash, $kind]) : q('DELETE FROM kl_errors WHERE kind = ?', [$kind]); } catch (Throwable $e) { /* таблиці ще немає */ }
+      if ($hash === '') admin_log((int)$me['id'], 'errors_clear', $kind);
+      go('p=diag&tab=logs', 'deleted');
+    case 'send_apps':
+      // 📲 лист «Встановіть застосунок» — лише тим, хто підтвердив пошту й не відписався
+      if (!$target) go('p=users');
+      if (empty($target['verified_at'])) go($back, 'apps_unverified');
+      if (empty($target['mail_ok'])) go($back, 'apps_unsub');
+      $okMail = send_campaign($target, 'apps', site_url() . '#/install');
+      admin_log((int)$me['id'], 'mail_apps', 'користувач #' . (int)$target['id'] . ($okMail ? '' : ' — не прийнято'));
+      go($back, $okMail ? 'apps_sent' : 'apps_fail');
+    case 'send_remind':
+      // 📬 «нагадування про навчання + що нового» — ті самі умови, що й для листа про застосунок
+      if (!$target) go('p=users');
+      if (empty($target['verified_at'])) go($back, 'apps_unverified');
+      if (empty($target['mail_ok'])) go($back, 'apps_unsub');
+      require_once __DIR__ . '/api/remind-mail.php';
+      $dRow = one('SELECT v FROM kl_user_data WHERE user_id = ? AND k = ?', [(int)$target['id'], 'days']);
+      $okMail = send_campaign($target, 'remind', site_url() . '#/today', remind_mail_extra(kl_lang($target['lang'] ?? 'en'), (array)(json_decode((string)($dRow['v'] ?? '[]'), true) ?: [])));
+      admin_log((int)$me['id'], 'mail_remind', 'користувач #' . (int)$target['id'] . ($okMail ? '' : ' — не прийнято'));
+      go($back, $okMail ? 'remind_sent' : 'apps_fail');
     case 'logout': end_session(); go('');
     case 'verify': if ($target) q('UPDATE kl_users SET verified_at = ? WHERE id = ? AND verified_at IS NULL', [time(), $id]); go($back, 'verified');
     case 'resend': if ($target && empty($target['verified_at'])) send_verify($target); go($back, 'sent');
@@ -202,30 +335,55 @@ if ($post) {
       $sentOk = send_mail($me['email'], 'Komiks·Lab: тестовий лист', $html, 'Пошта працює.');
       meta_set('mail_last_error', $sentOk ? '' : (mail_error() ?: 'невідома помилка'));
       meta_set('mail_last_try', (string)time());
-      go('p=system', $sentOk ? 'mail_ok' : 'mail_fail');
+      go('p=system&s=mail', $sentOk ? 'mail_test_ok' : 'mail_fail');
+    /* 🔑 Вхід через Google. Зміна ключів і ввімкнення — лише після пароля, а за
+       увімкненого автентифікатора ще й свіжого коду: відкрита на чужому компʼютері
+       вкладка ключів не змінить. Вимкнути можна без цього — це безпечний бік. */
+    case 'google_save': case 'google_enable': case 'google_disable': case 'google_verify':
+      require_once __DIR__ . '/api/google-auth.php';
+      google_install();
+      if ($do !== 'google_disable' && $do !== 'google_verify' && !admin_reauth($me, (string)($_POST['reauth_pass'] ?? ''), (string)($_POST['reauth_code'] ?? ''))) {
+        admin_log((int)$me['id'], 'reauth_fail', $do);
+        go('p=system&s=google', 'reauth');
+      }
+      if ($do === 'google_save') {
+        try {
+          $r = google_settings_save((int)$me['id'], (string)($_POST['client_id'] ?? ''), (string)($_POST['client_secret'] ?? ''));
+          go('p=system&s=google', $r['changed'] ? 'g_saved' : 'g_same');
+        } catch (InvalidArgumentException $e) {
+          go('p=system&s=google', ['client_id' => 'g_bad_id', 'secret' => 'g_bad_secret', 'secret_required' => 'g_need_secret'][$e->getMessage()] ?? 'g_bad_id');
+        } catch (Throwable $e) {
+          admin_log((int)$me['id'], 'google_save_fail', 'сховище ключа недоступне');
+          go('p=system&s=google', 'g_key');
+        }
+      }
+      if ($do === 'google_enable' || $do === 'google_disable') {
+        $r = google_set_enabled((int)$me['id'], $do === 'google_enable');
+        go('p=system&s=google', $r['ok'] ? ($do === 'google_enable' ? 'g_on' : 'g_off') : 'g_not_verified');
+      }
+      /* Перевірка: справжній вхід Google чернетковими ключами. Повернення —
+         у google-callback.php, який лише ставить позначку «перевірено». */
+      if (!google_transport_ok()) go('p=system&s=google', 'g_transport');
+      try { $draft = google_draft(); } catch (Throwable $e) { go('p=system&s=google', 'g_key'); }
+      if (!$draft) go('p=system&s=google', 'g_need_secret');
+      $browser = rand_hex(32);
+      $state = google_new_state($browser, 'verify', 'uk', (int)$me['id'], $draft['fp']);
+      $opts = cookie_opts(time() + 600); $opts['samesite'] = 'Lax'; $opts['secure'] = true;
+      setcookie('kl_google_browser', $browser, $opts);
+      admin_log((int)$me['id'], 'google_verify_start', 'перехід на сторінку Google');
+      header('Location: ' . google_auth_url($draft['client_id'], $state), true, 303);
+      exit;
     case 'my_pass':
-      if (!password_verify((string)($_POST['old'] ?? ''), $me['pass_hash'])) go('p=system', 'wrong');
+      if (!password_verify((string)($_POST['old'] ?? ''), $me['pass_hash'])) go('p=system&s=security', 'wrong');
       $np = (string)($_POST['new'] ?? '');
-      if (strlen($np) < 10) go('p=system', 'short');
+      if (strlen($np) < 10) go('p=system&s=security', 'short');
       q('UPDATE kl_users SET pass_hash = ? WHERE id = ?', [hash_password($np), $me['id']]);
       q('DELETE FROM kl_sessions WHERE user_id = ? AND token_hash <> ?', [$me['id'], sha((string)$_COOKIE[SESSION_COOKIE])]);
-      go('p=system', 'saved');
+      go('p=system&s=security', 'saved');
   }
   go('p=' . $p);
 }
 
-$MSG = ['verified' => ['ok', 'Пошту позначено підтвердженою.'], 'sent' => ['ok', 'Лист надіслано.'], 'blocked' => ['ok', 'Користувача заблоковано, його сесії завершено.'], 'unblocked' => ['ok', 'Блокування знято.'],
-  'saved' => ['ok', 'Збережено.'], 'kicked' => ['ok', 'Усі сесії користувача завершено.'], 'deleted' => ['ok', 'Видалено.'], 'self' => ['err', 'Цю дію не можна виконати над власним акаунтом.'],
-  'confirm' => ['err', 'Для видалення введіть пошту користувача точно.'], 'mail_ok' => ['ok', '📬 Тестовий лист надіслано на вашу пошту.'], 'mail_fail' => ['err', 'Лист не надіслався. Причину видно нижче, у картці «Пошта».'],
-  'voice_ok' => ['ok', '🔊 Голос працює — тестову фразу синтезовано.'], 'voice_fail' => ['err', 'Голос не відповів. Перевірте, чи дозволені вихідні зʼєднання, або оберіть іншого провайдера.'],
-  'wrong' => ['err', 'Поточний пароль неправильний.'], 'short' => ['err', 'Новий пароль — щонайменше 10 символів.'],
-  'banned' => ['ok', '⛔ Тимчасове блокування стін застосовано, автор побачить анімоване повідомлення.'], 'unbanned' => ['ok', 'Блокування знято.'], 'warned' => ['ok', '⚠️ Попередження надіслано — автор побачить анімацію «так не можна».'],
-  'forbidden' => ['err', 'Недостатньо прав.'], 'bad_input' => ['err', 'Вкажіть ім’я та правильну пошту.'], 'exists' => ['err', 'Акаунт з такою поштою вже є — відкрийте його й увімкніть преміум.'],
-  'pw_set' => ['ok', '🔑 Пароль задано. Передайте його другові особисто й попросіть змінити в кабінеті.'], 'pw_pass_short' => ['err', 'Пароль закороткий — щонайменше 8 символів (12345 не підходить).'], 'pw_pass_weak' => ['err', 'Цей пароль у списку найпростіших — його підберуть за секунди. Оберіть інший.'], 'pw_pass_long' => ['err', 'Пароль задовгий.'],
-  'noted' => ['ok', '✉️ Звернення надіслано — людина побачить його при наступному відкритті сайту.'],
-  'note_empty' => ['warn', 'Текст порожній — нічого не надіслано.'],
-  'mail_ok' => ['ok', '📣 Листи надіслано.'], 'mail_none' => ['warn', 'Нікого не позначено — листи не надсилалися.'], 'mail_part' => ['warn', '📣 Частину листів не вдалося надіслати — подивіться «Систему» → «Пошта».'],
-  'created' => ['ok', '🎉 Акаунт створено. Другу надіслано лист із посиланням, щоб задати пароль (діє 7 днів).'], 'created_nomail' => ['err', 'Акаунт створено, але лист не надіслався — перевірте пошту в «Системі» й натисніть «Надіслати посилання для нового пароля».']];
 $flash = $MSG[(string)($_GET['m'] ?? '')] ?? null;
 
 page_open($NAV[$p] ?? 'Користувач', $nonce, $NAV, $p === 'user' ? 'users' : $p, $me);
@@ -248,47 +406,36 @@ function status_pills(array $u): string {
   $s .= !empty($u['verified_at']) ? '<span class="pill g">✓ підтверджено</span>' : '<span class="pill">⏳ не підтверджено</span>';
   return $s;
 }
+// 📣 перемикач «підписаний на розсилку» (kl_users.mail_ok): галочка, що зберігається одразу
+function mail_switch(array $u, string $from = ''): string {
+  global $csrf;
+  $on = !isset($u['mail_ok']) || (int)$u['mail_ok'] === 1;
+  return '<form method="post" action="admin.php?p=' . ($from === 'list' ? 'users' : 'user&amp;id=' . (int)$u['id']) . '" data-ajax data-switch class="mail-sw">' . $csrf
+    . '<input type="hidden" name="id" value="' . (int)$u['id'] . '">' . ($from ? '<input type="hidden" name="from" value="' . e($from) . '">' : '')
+    . '<input type="hidden" name="do" value="' . ($on ? 'mail_off' : 'mail_on') . '">'
+    . '<label class="sw" title="' . ($on ? 'Підписаний на розсилку — натисніть, щоб відписати' : 'Відписаний — натисніть, щоб підписати') . '"><input type="checkbox" data-autosubmit data-on="mail_on" data-off="mail_off"' . ($on ? ' checked' : '') . '><i aria-hidden="true"></i><span>' . ($on ? 'підписаний' : 'відписаний') . '</span></label></form>';
+}
+/* 📅 Дні на сайті: ключ days у прогресі акаунта — дати, коли людина щось робила (читала, проходила
+   тести, грала); синхронізується з усіх пристроїв. Повертаємо кількість, серії, межі й множину для календаря. */
+function user_days($raw): array {
+  $days = array_values(array_unique(array_filter((array)$raw, fn($d) => is_string($d) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $d))));
+  sort($days);
+  $set = array_flip($days);
+  $best = 0; $run = 0; $prev = null;
+  foreach ($days as $d) { $run = ($prev !== null && date('Y-m-d', strtotime($prev . ' +1 day')) === $d) ? $run + 1 : 1; $best = max($best, $run); $prev = $d; }
+  $cur = 0; $x = isset($set[date('Y-m-d')]) ? date('Y-m-d') : date('Y-m-d', strtotime('-1 day'));
+  while (isset($set[$x])) { $cur++; $x = date('Y-m-d', strtotime($x . ' -1 day')); }
+  $from30 = date('Y-m-d', strtotime('-29 days'));
+  return ['n' => count($days), 'set' => $set, 'best' => $best, 'cur' => $cur, 'n30' => count(array_filter($days, fn($d) => $d >= $from30)), 'first' => $days[0] ?? '', 'last' => $days ? end($days) : ''];
+}
+function diag_ago_s(int $t): string { $d = max(0, time() - $t); return $d < 60 ? 'щойно' : intdiv($d, 60) . ' хв тому'; }
 function user_cell(array $u): string { return '<div class="u-name"><span class="u-ava">' . e(mb_first($u['name'])) . '</span><div><b>' . e($u['name']) . '</b><small>' . e($u['email']) . '</small></div></div>'; }
 
-/* ---------- огляд ---------- */
+/* ---------- огляд: дашборд (api/admin-dash.php) ---------- */
 if ($p === 'dash') {
-  $now = time(); $week = $now - 7 * 86400;
-  $n = fn(string $sql, array $a = []) => (int)(one($sql, $a)['n'] ?? 0);
-  $stats = [
-    ['👥', 'Користувачів', $n('SELECT COUNT(*) n FROM kl_users'), 'y'],
-    ['✅', 'Підтвердили пошту', $n('SELECT COUNT(*) n FROM kl_users WHERE verified_at IS NOT NULL'), 'g'],
-    ['🆕', 'Нових за 7 днів', $n('SELECT COUNT(*) n FROM kl_users WHERE created_at >= ?', [$week]), 'b'],
-    ['🔥', 'Активні за 7 днів', $n('SELECT COUNT(DISTINCT user_id) n FROM kl_sessions WHERE last_seen >= ?', [$week]), 'r'],
-    ['🔎', 'У каталозі гравців', $n('SELECT COUNT(*) n FROM kl_players'), 'p'],
-    ['💬', 'Коментарів на стінах', $n('SELECT COUNT(*) n FROM kl_comments'), ''],
-    ['🤖', 'Віртуальних гравців', count(bots_list()), ''],
-    ['💌', 'Нових відгуків', $fbNew, $fbNew ? 'y' : ''],
-    ['🎓', 'Заявок учителів', $tcNew, $tcNew ? 'g' : ''],
-    ['✉️', 'Повідомлень', $n('SELECT COUNT(*) n FROM kl_messages'), 'b'],
-  ];
-  $days = array_fill(0, 30, 0);
-  foreach (q('SELECT created_at FROM kl_users WHERE created_at >= ?', [strtotime('today') - 29 * 86400])->fetchAll() as $r) {
-    $i = 29 - intdiv(strtotime('today') - strtotime(date('Y-m-d', (int)$r['created_at'])), 86400);
-    if ($i >= 0 && $i < 30) $days[$i]++;
-  }
-  $max = max(1, max($days));
-  echo '<h1>Огляд</h1><div class="stats">';
-  foreach ($stats as [$ic, $label, $val, $c]) echo '<div class="stat ' . $c . '"><span>' . $ic . '</span><b>' . $val . '</b><small>' . e($label) . '</small></div>';
-  echo '</div><div class="grid"><div class="card"><h2>📈 Реєстрації за 30 днів</h2><div class="bars">';
-  foreach ($days as $i => $d) echo '<i style="height:' . max(3, round($d / $max * 100)) . '%;' . ($d ? '' : 'background:var(--line)') . '" data-t="' . date('d.m', strtotime('today') - (29 - $i) * 86400) . ': ' . $d . '"></i>';
-  echo '</div><div class="bars-x"><span>' . date('d.m', strtotime('today') - 29 * 86400) . '</span><span>сьогодні</span></div></div>';
-  echo '<div class="card"><h2>🆕 Нові користувачі</h2><ul class="list">';
-  foreach (q('SELECT * FROM kl_users ORDER BY created_at DESC LIMIT 7')->fetchAll() as $u) echo '<li><div>' . user_cell($u) . '</div><a class="btn sm" href="admin.php?p=user&amp;id=' . (int)$u['id'] . '">→</a></li>';
-  echo '</ul><p style="margin:12px 0 0"><a href="admin.php?p=users">Усі користувачі →</a></p></div>';
-  echo '<div class="card"><h2>⭐ Найкращі гравці</h2><ul class="list">';
-  $top = q('SELECT name, code, level, stars, badges FROM kl_players ORDER BY stars DESC LIMIT 6')->fetchAll();
-  foreach ($top as $t) echo '<li><div><b>' . e($t['name']) . '</b> <span class="pill ' . e($t['level']) . '">' . e($t['level'] ?: '—') . '</span></div><span>⭐ ' . (int)$t['stars'] . ' · 🏅 ' . (int)$t['badges'] . '</span></li>';
-  if (!$top) echo '<li class="muted">Поки порожньо — гравці з’являться, коли ввімкнуть «Показувати профіль».</li>';
-  echo '</ul></div><div class="card"><h2>💬 Останні коментарі</h2><ul class="list">';
-  $cm = q('SELECT * FROM kl_comments ORDER BY created_at DESC LIMIT 5')->fetchAll();
-  foreach ($cm as $c) echo '<li><div><b>' . e($c['name']) . '</b> → <code>' . e($c['owner']) . '</code><br><small>' . e($c['text']) . '</small></div><small class="muted">' . when((int)$c['created_at']) . '</small></li>';
-  if (!$cm) echo '<li class="muted">Коментарів ще немає.</li>';
-  echo '</ul></div></div>';
+  echo dash_css();
+  dash_render((int)($_GET['r'] ?? 30));
+  dash_script($nonce);
 }
 
 /* ---------- користувачі ---------- */
@@ -296,7 +443,9 @@ if ($p === 'users') {
   $qs = trim((string)($_GET['q'] ?? '')); $f = (string)($_GET['f'] ?? 'all'); $page = max(0, (int)($_GET['page'] ?? 0)); $per = 30;
   $where = []; $args = [];
   if ($qs !== '') { $where[] = '(LOWER(name) LIKE ? OR LOWER(email) LIKE ? OR friend_code = ?)'; $like = '%' . strtolower($qs) . '%'; array_push($args, $like, $like, strtoupper($qs)); }
-  $FILTERS = ['all' => 'Усі', 'verified' => '✓ Підтверджені', 'pending' => '⏳ Не підтвердили', 'admins' => '👑 Адміни', 'mods' => '🛡 Модератори', 'premium' => '💎 Преміум', 'blocked' => '⛔ Заблоковані'];
+  $FILTERS = ['all' => 'Усі', 'online' => '🟢 Онлайн', 'verified' => '✓ Підтверджені', 'pending' => '⏳ Не підтвердили', 'subscribed' => '📣 Підписані', 'unsub' => '🔕 Відписані', 'admins' => '👑 Адміни', 'mods' => '🛡 Модератори', 'premium' => '💎 Преміум', 'blocked' => '⛔ Заблоковані'];
+  if ($f === 'subscribed') $where[] = 'mail_ok = 1';
+  if ($f === 'unsub') $where[] = 'mail_ok = 0';
   if ($f === 'verified') $where[] = 'verified_at IS NOT NULL';
   if ($f === 'pending') $where[] = 'verified_at IS NULL';
   if ($f === 'admins') $where[] = 'is_admin = 1';
@@ -304,18 +453,57 @@ if ($p === 'users') {
   if ($f === 'mods') $where[] = 'is_moderator = 1';
   if ($f === 'premium') $where[] = 'premium = 1';
   $w = $where ? ' WHERE ' . implode(' AND ', $where) : '';
-  $total = (int)one("SELECT COUNT(*) n FROM kl_users$w", $args)['n'];
-  $rows = q("SELECT u.*, (SELECT COUNT(*) FROM kl_user_data d WHERE d.user_id = u.id) AS nkeys FROM kl_users u$w ORDER BY created_at DESC LIMIT $per OFFSET " . ($page * $per), $args)->fetchAll();
+  /* 🟢 Остання активність = найсвіжіше з: запит у сесії (оновлюється щодві хвилини, поки вкладка відкрита),
+     синхронізація прогресу, вхід. Онлайн — активність за останні 5 хвилин. */
+  $A = '(SELECT MAX(s.last_seen) FROM kl_sessions s WHERE s.user_id = u.id)';
+  $B = '(SELECT MAX(d.updated_at) FROM kl_user_data d WHERE d.user_id = u.id)';
+  $ACT = "(CASE WHEN COALESCE($A, 0) >= COALESCE($B, 0) AND COALESCE($A, 0) >= COALESCE(u.last_login, 0) THEN COALESCE($A, 0) WHEN COALESCE($B, 0) >= COALESCE(u.last_login, 0) THEN COALESCE($B, 0) ELSE COALESCE(u.last_login, 0) END)";
+  // межу часу підставляємо числом: SQLite не порівнює вираз із параметром-рядком
+  if ($f === 'online') { $where[] = "$ACT > " . (time() - 300); $w = ' WHERE ' . implode(' AND ', $where); }
+  $sort = (string)($_GET['sort'] ?? 'active');
+  $SORTS = ['active' => '🔥 Найактивніші', 'days' => '📅 Найбільше днів', 'time' => '⏱ Найбільше часу', 'new' => '🆕 Нові'];
+  if (!isset($SORTS[$sort])) $sort = 'active';
+  $total = (int)one("SELECT COUNT(*) n FROM kl_users u$w", $args)['n'];
+  $cols = "u.*, (SELECT COUNT(*) FROM kl_user_data d WHERE d.user_id = u.id) AS nkeys, $ACT AS act";
+  if ($sort === 'days' || $sort === 'time') {
+    // дні й час лежать у JSON прогресу — сортуємо в PHP (акаунтів сотні, не мільйони)
+    $all = q("SELECT $cols FROM kl_users u$w", $args)->fetchAll();
+    $metric = [];
+    if ($all) foreach (q("SELECT user_id, k, v FROM kl_user_data WHERE k IN ('days', 'usageSec') AND user_id IN (" . implode(',', array_map(fn($r) => (int)$r['id'], $all)) . ')')->fetchAll() as $dr) {
+      if ($dr['k'] === ($sort === 'days' ? 'days' : 'usageSec')) $metric[(int)$dr['user_id']] = $sort === 'days' ? count((array)json_decode((string)$dr['v'], true)) : (int)json_decode((string)$dr['v'], true);
+    }
+    usort($all, fn($a, $b) => [($metric[(int)$b['id']] ?? 0), (int)$b['act']] <=> [($metric[(int)$a['id']] ?? 0), (int)$a['act']]);
+    $rows = array_slice($all, $page * $per, $per);
+  } else {
+    $rows = q("SELECT $cols FROM kl_users u$w ORDER BY " . ($sort === 'new' ? 'u.created_at DESC' : 'act DESC, u.created_at DESC') . " LIMIT $per OFFSET " . ($page * $per), $args)->fetchAll();
+  }
+  $online = q("SELECT u.id, u.name, u.email, $ACT AS seen, (SELECT s2.ua FROM kl_sessions s2 WHERE s2.user_id = u.id ORDER BY s2.last_seen DESC LIMIT 1) AS ua FROM kl_users u WHERE $ACT > " . (time() - 300) . " ORDER BY seen DESC LIMIT 40")->fetchAll();
   echo '<h1>Користувачі <small class="muted">(' . $total . ')</small></h1>';
+  // 🟢 хто зараз на сайті в акаунті (запит за останні 5 хвилин)
+  echo '<div class="card online-card"><h2><span class="on-dot"></span> Зараз онлайн <small class="muted">' . count($online) . '</small></h2>';
+  if (!$online) echo '<p class="muted">Зараз нікого в акаунтах. Гості рахуються окремо — «N на сайті» вгорі.</p>';
+  else {
+    echo '<div class="online-list">';
+    foreach ($online as $o) {
+      $dev = str_contains((string)$o['ua'], '; wv)') ? '📱 застосунок' : (preg_match('/Android|iPhone|iPad|Mobile/', (string)$o['ua']) ? '📱 телефон' : '💻 комп’ютер');
+      echo '<a class="online-u" href="admin.php?p=user&amp;id=' . (int)$o['id'] . '"><span class="u-ava">' . e(mb_first($o['name'])) . '</span><span><b>' . e($o['name']) . '</b><small>' . e($dev) . ' · ' . e(diag_ago_s((int)$o['seen'])) . '</small></span></a>';
+    }
+    echo '</div>';
+  }
+  echo '</div>';
   echo '<details class="card"><summary style="cursor:pointer;font:800 1.05rem Rubik,sans-serif">➕ Створити безкоштовний акаунт другу</summary><form method="post" action="admin.php?p=users" style="margin-top:12px">' . $csrf . '<input type="hidden" name="do" value="create_user">'
     . '<div class="cols2"><label class="f">Ім’я<input type="text" name="name" maxlength="30" required placeholder="Alina"></label><label class="f">Пошта<input type="email" name="email" required></label>'
     . '<label class="f">Мова листа<select name="lang"><option value="uk">Українська</option><option value="en">English</option><option value="no">Norsk</option><option value="ar">العربية</option></select></label></div>'
     . '<label class="check"><input type="checkbox" name="premium" value="1" checked> 💎 Преміум — безкоштовно назавжди</label><label class="check"><input type="checkbox" name="can_invite" value="1" checked> 🎟 Може запрошувати друзів (їхні акаунти теж безкоштовні)</label><label class="check"><input type="checkbox" name="moderator" value="1"> 🛡 Модератор (чистить стіни, дає тимчасові блокування)</label>'
     . '<p class="muted">Акаунт одразу підтверджений. Другу прийде лист із посиланням, щоб задати свій пароль.</p><button class="btn pri">Створити й надіслати лист</button></form></details><div class="card"><form class="filters" method="get"><input type="hidden" name="p" value="users"><input type="hidden" name="f" value="' . e($f) . '"><input type="search" name="q" value="' . e($qs) . '" placeholder="Ім’я, пошта або код друга…"><button class="btn">🔎 Шукати</button></form><div class="chips" style="margin-bottom:14px">';
   foreach ($FILTERS as $k => $label) echo '<a class="' . ($k === $f ? 'on' : '') . '" href="admin.php?p=users&amp;f=' . $k . '&amp;q=' . urlencode($qs) . '">' . e($label) . '</a>';
-  echo '</div><table class="t"><thead><tr><th>Користувач</th><th>Статус</th><th>Код</th><th>Реєстрація</th><th>Останній вхід</th><th>Дані</th><th></th></tr></thead><tbody>';
-  foreach ($rows as $u) echo '<tr><td>' . user_cell($u) . '</td><td>' . status_pills($u) . '</td><td data-l="Код"><code>' . e($u['friend_code']) . '</code></td><td data-l="Реєстрація">' . date('d.m.Y', (int)$u['created_at']) . '</td><td data-l="Вхід">' . when($u['last_login'] ? (int)$u['last_login'] : null) . '</td><td data-l="Ключів прогресу">' . (int)$u['nkeys'] . '</td><td><a class="btn sm" href="admin.php?p=user&amp;id=' . (int)$u['id'] . '">Відкрити →</a></td></tr>';
-  if (!$rows) echo '<tr><td colspan="7" class="muted">Нікого не знайдено.</td></tr>';
+  echo '</div><div class="chips u-sort">'; foreach ($SORTS as $k => $label) echo '<a class="' . ($k === $sort ? 'on' : '') . '" href="admin.php?p=users&amp;f=' . e($f) . '&amp;sort=' . $k . '&amp;q=' . urlencode($qs) . '">' . e($label) . '</a>';
+  echo '</div><table class="t"><thead><tr><th>Користувач</th><th>Статус</th><th>Код</th><th>Реєстрація</th><th>Остання активність</th><th>📣 Розсилка</th><th>📅 Днів</th><th></th></tr></thead><tbody>';
+  // дні на сайті для рядків сторінки — одним запитом
+  $dayN = [];
+  if ($rows) foreach (q('SELECT user_id, v FROM kl_user_data WHERE k = \'days\' AND user_id IN (' . implode(',', array_map(fn($r) => (int)$r['id'], $rows)) . ')')->fetchAll() as $dr) $dayN[(int)$dr['user_id']] = user_days(json_decode((string)$dr['v'], true) ?? []);
+  foreach ($rows as $u) echo '<tr><td>' . user_cell($u) . '</td><td>' . status_pills($u) . '</td><td data-l="Код"><code>' . e($u['friend_code']) . '</code></td><td data-l="Реєстрація">' . date('d.m.Y', (int)$u['created_at']) . '</td><td data-l="Активність">' . ((int)$u['act'] > time() - 300 ? '<span class="on-dot" title="онлайн зараз"></span> <b>онлайн</b>' : when((int)$u['act'] ?: null)) . '</td><td data-l="Розсилка">' . mail_switch($u, 'list') . '</td><td data-l="Днів на сайті" title="Ключів прогресу: ' . (int)$u['nkeys'] . '">' . (isset($dayN[(int)$u['id']]) ? '<b>' . $dayN[(int)$u['id']]['n'] . '</b>' . ($dayN[(int)$u['id']]['cur'] ? ' <small class="muted">🔥' . $dayN[(int)$u['id']]['cur'] . '</small>' : '') : '<span class="muted">0</span>') . '</td><td><a class="btn sm" href="admin.php?p=user&amp;id=' . (int)$u['id'] . '">Відкрити →</a></td></tr>';
+  if (!$rows) echo '<tr><td colspan="8" class="muted">Нікого не знайдено.</td></tr>';
   echo '</tbody></table><div class="pager">';
   $base = 'admin.php?p=users&amp;f=' . e($f) . '&amp;q=' . urlencode($qs) . '&amp;page=';
   if ($page > 0) echo '<a class="btn sm" href="' . $base . ($page - 1) . '">← Назад</a>';
@@ -335,19 +523,35 @@ if ($p === 'user') {
     $tests = 0; $stars = 0; foreach ($progress as $pr) { if (is_array($pr) && ($pr['stars'] ?? 0) > 0) { $tests++; $stars += (int)$pr['stars']; } }
     $read = 0; foreach ($data as $d) if (str_starts_with($d['k'], 'seen.')) $read++;
     $known = count((array)($get('wordsKnown') ?? []));
+    $act = user_days($get('days') ?? []);
+    $usage = (int)($get('usageSec') ?? 0);
     $sessions = q('SELECT created_at, last_seen, ua FROM kl_sessions WHERE user_id = ? AND expires_at > ? ORDER BY last_seen DESC LIMIT 10', [$id, time()])->fetchAll();
+    $loginHistory = login_history_for_user($id, 30);
     $player = one('SELECT level, stars, badges FROM kl_players WHERE code = ?', [$u['friend_code']]);
     echo '<p><a href="admin.php?p=users">← Усі користувачі</a></p><div class="card"><div class="row" style="justify-content:space-between"><div class="u-name"><span class="u-ava" style="width:56px;height:56px;font-size:1.4rem">' . e(mb_first($u['name'])) . '</span><div><h1 style="margin:0">' . e($u['name']) . '</h1><small>' . e($u['email']) . '</small></div></div><div>' . status_pills($u) . '</div></div></div>';
     echo '<div class="stats">';
-    foreach ([['📖', 'Коміксів відкрито', $read, 'y'], ['🧩', 'Тестів пройдено', $tests, 'g'], ['⭐', 'Зірок у тестах', $stars, 'b'], ['📝', 'Слів вивчено', $known, 'p'], ['🗂️', 'Ключів прогресу', count($data), '']] as [$ic, $l, $val, $c]) echo '<div class="stat ' . $c . '"><span>' . $ic . '</span><b>' . $val . '</b><small>' . $l . '</small></div>';
-    echo '</div><div class="grid"><div class="card"><h2>👤 Дані</h2><dl class="kv"><dt>ID</dt><dd>' . (int)$u['id'] . '</dd><dt>Код друга</dt><dd><code>' . e($u['friend_code']) . '</code></dd><dt>Мова</dt><dd>' . e($u['lang']) . '</dd>'
+    foreach ([['📅', 'Днів на сайті', $act['n'], 'r'], ['📖', 'Коміксів відкрито', $read, 'y'], ['🧩', 'Тестів пройдено', $tests, 'g'], ['⭐', 'Зірок у тестах', $stars, 'b'], ['📝', 'Слів вивчено', $known, 'p'], ['🗂️', 'Ключів прогресу', count($data), '']] as [$ic, $l, $val, $c]) echo '<div class="stat ' . $c . '"><span>' . $ic . '</span><b>' . $val . '</b><small>' . $l . '</small></div>';
+    echo '</div><div class="grid"><div class="card"><h2>👤 Дані</h2><dl class="kv"><dt>ID</dt><dd>' . (int)$u['id'] . '</dd><dt>Код друга</dt><dd><code>' . e($u['friend_code']) . '</code></dd><dt>Мова</dt><dd>' . e($u['lang']) . '</dd><dt>📣 Розсилка</dt><dd>' . mail_switch($u) . '</dd>'
       . '<dt>Реєстрація</dt><dd>' . date('d.m.Y H:i', (int)$u['created_at']) . '</dd><dt>Пошту підтверджено</dt><dd>' . ($u['verified_at'] ? date('d.m.Y H:i', (int)$u['verified_at']) : '—') . '</dd>'
-      . '<dt>Останній вхід</dt><dd>' . when($u['last_login'] ? (int)$u['last_login'] : null) . '</dd><dt>Профіль у пошуку</dt><dd>' . ($player ? '✅ ' . e($player['level']) . ' · ⭐ ' . (int)$player['stars'] . ' · 🏅 ' . (int)$player['badges'] : 'прихований') . '</dd>'
+      . '<dt>Остання активність</dt><dd>' . (($lastAct = max((int)(one('SELECT MAX(last_seen) AS t FROM kl_sessions WHERE user_id = ?', [$id])['t'] ?? 0), (int)(one('SELECT MAX(updated_at) AS t FROM kl_user_data WHERE user_id = ?', [$id])['t'] ?? 0), (int)$u['last_login'])) > time() - 300 ? '<span class="on-dot"></span> онлайн зараз' : when($lastAct ?: null)) . '</dd><dt>Останній успішний вхід</dt><dd>' . when($u['last_login'] ? (int)$u['last_login'] : null) . '</dd><dt>Профіль у пошуку</dt><dd>' . ($player ? '✅ ' . e($player['level']) . ' · ⭐ ' . (int)$player['stars'] . ' · 🏅 ' . (int)$player['badges'] : 'прихований') . '</dd>'
       . ($u['blocked_at'] ? '<dt>Заблоковано</dt><dd>' . date('d.m.Y H:i', (int)$u['blocked_at']) . '</dd>' : '') . '</dl>'
       . ($player ? '<p style="margin-bottom:0"><a href="./#/player/c/' . e($u['friend_code']) . '" target="_blank" rel="noopener">Публічний профіль ↗</a></p>' : '') . '</div>';
+    // календар за 16 тижнів: стовпчик — тиждень (пн–нд), зафарбовано — дні з активністю
+    $cal = ''; $start = strtotime('monday this week', strtotime('-15 weeks'));
+    for ($w = 0; $w < 16; $w++) { $cal .= '<span class="cal-w">'; for ($d = 0; $d < 7; $d++) { $t = $start + ($w * 7 + $d) * 86400; $ds = date('Y-m-d', $t); $cal .= '<i class="' . ($t > time() ? 'fut' : (isset($act['set'][$ds]) ? 'on' : '')) . '" title="' . date('d.m.Y', $t) . (isset($act['set'][$ds]) ? ' · був(ла) на сайті' : '') . '"></i>'; } $cal .= '</span>'; }
+    $fmtD = fn(string $d) => $d !== '' ? date('d.m.Y', strtotime($d)) : '—';
+    echo '<div class="card act-card"><h2>📅 Активність на сайті</h2><div class="act-cal" aria-label="Дні з активністю за 16 тижнів">' . $cal . '</div>'
+      . '<div class="act-lg"><span><i></i> немає</span><span><i class="on"></i> був(ла) на сайті</span></div>'
+      . '<dl class="kv"><dt>Днів на сайті</dt><dd><b>' . $act['n'] . '</b></dd><dt>За останні 30 днів</dt><dd>' . $act['n30'] . '</dd>'
+      . '<dt>Поточна серія</dt><dd>' . ($act['cur'] ? '🔥 ' . $act['cur'] . ' дн. поспіль' : '—') . '</dd><dt>Найдовша серія</dt><dd>' . ($act['best'] ? $act['best'] . ' дн.' : '—') . '</dd>'
+      . '<dt>Перший день</dt><dd>' . $fmtD($act['first']) . '</dd><dt>Останній день</dt><dd>' . $fmtD($act['last']) . '</dd>'
+      . ($usage ? '<dt>Активний час</dt><dd>' . intdiv($usage, 3600) . ' год ' . intdiv($usage % 3600, 60) . ' хв</dd>' : '') . '</dl>'
+      . '<p class="muted" style="margin:.6rem 0 0;font-size:.8rem">Рахуються дні, коли людина щось робила в акаунті (читала, проходила тести, грала) — з будь-якого пристрою.</p></div>';
     echo '<div class="card"><h2>🛠️ Дії</h2><div class="row">';
     if (!$u['verified_at']) { echo act('verify', $id, '✓ Підтвердити пошту', 'ok'); echo act('resend', $id, '📬 Надіслати лист підтвердження'); }
     echo act('reset', $id, '🔑 Надіслати посилання для нового пароля', '', 'Надіслати користувачу лист для зміни пароля?');
+    echo act('send_remind', $id, '📬 Нагадати про навчання', '', 'Надіслати користувачу лист-нагадування про навчання: його прогрес (дні, серія, коли був востаннє) і 3 останні новини «Що нового»? Лист піде мовою його акаунта.');
+    echo act('send_apps', $id, '📲 Надіслати лист про застосунок', '', 'Надіслати користувачу лист зі посиланнями на застосунок (Android — Google Play, Windows — Microsoft Store, iPhone — незабаром)? Лист піде мовою його акаунта.');
     echo act('kick', $id, '🚪 Завершити всі сесії', '', 'Вийти з усіх пристроїв цього користувача?');
     echo $u['is_admin'] ? act('admin_off', $id, '👑 Забрати права адміна', '', 'Забрати права адміністратора?') : act('admin_on', $id, '👑 Зробити адміном', '', 'Надати повний доступ до адмін-панелі?');
     echo $u['blocked_at'] ? act('unblock', $id, '✅ Розблокувати', 'ok') : act('block', $id, '⛔ Заблокувати', 'danger', 'Заблокувати користувача? Він не зможе увійти, а профіль зникне з пошуку.');
@@ -372,7 +576,10 @@ if ($p === 'user') {
     if ($invs) { echo '</div><h3 style="margin-top:14px">🎟 Запрошення (' . count($invs) . ')</h3><ul class="list">'; foreach ($invs as $iv) echo '<li><span>' . ($iv['used_at'] ? '✅ <a href="admin.php?p=user&amp;id=' . (int)$iv['xid'] . '">' . e($iv['name']) . '</a>' : '⏳ ще не використане') . '</span><small class="muted">' . date('d.m.Y', (int)$iv['created_at']) . '</small></li>'; echo '</ul><div>'; }
     echo '</div><hr style="border:0;border-top:3px dashed var(--line);margin:16px 0"><h3>🗑️ Видалити акаунт</h3><p class="muted">Видаляє акаунт, прогрес, профіль і коментарі. Введіть пошту користувача для підтвердження.</p>';
     echo act('delete', $id, 'Видалити назавжди', 'danger', 'Видалити акаунт і всі дані назавжди?', '<input type="email" name="confirm" placeholder="' . e($u['email']) . '" style="margin-bottom:8px">');
-    echo '</div><div class="card"><h2>💻 Активні сесії (' . count($sessions) . ')</h2><ul class="list">';
+    echo '</div><div class="card"><h2>🛡️ Історія входів (' . count($loginHistory) . ')</h2><p class="muted">Останні успішні входи за 30 днів. IP-адреси зашифровані в базі й доступні лише адміністраторам.</p><ul class="list">';
+    foreach ($loginHistory as $lh) echo '<li><div><code>' . e((string)$lh['ip']) . '</code><br><small>' . e(ua_short((string)$lh['ua'])) . ' · ' . e(login_method_label((string)$lh['method'])) . '</small></div><small class="muted">' . date('d.m.Y H:i', (int)$lh['created_at']) . '</small></li>';
+    if (!$loginHistory) echo '<li class="muted">Історія з’явиться після наступного успішного входу.</li>';
+    echo '</ul></div><div class="card"><h2>💻 Активні сесії (' . count($sessions) . ')</h2><ul class="list">';
     foreach ($sessions as $s) echo '<li><div><small>' . e(ua_short($s['ua'])) . '</small></div><small class="muted">' . when((int)$s['last_seen']) . '</small></li>';
     if (!$sessions) echo '<li class="muted">Немає активних сесій.</li>';
     echo '</ul></div><div class="card"><h2>🗂️ Прогрес на сервері</h2><details><summary style="cursor:pointer;font-weight:800">Показати ключі (' . count($data) . ')</summary><ul class="list" style="margin-top:10px">';
@@ -393,54 +600,109 @@ function ua_short(string $ua): string {
   $br = str_contains($ua, 'Edg/') ? 'Edge' : (str_contains($ua, 'Firefox') ? 'Firefox' : (str_contains($ua, 'Chrome') ? 'Chrome' : (str_contains($ua, 'Safari') ? 'Safari' : '')));
   return trim("$os $br") ?: 'невідомий пристрій';
 }
+function login_method_label(string $method): string {
+  return ['password' => 'пароль', 'email_link' => 'посилання з листа', 'email_code' => 'код з листа', 'email_verify' => 'підтвердження email',
+    'totp' => 'автентифікатор', 'backup' => 'резервний код', 'reset' => 'новий пароль', 'google' => 'Google', 'admin' => 'адмін-панель',
+    'demo' => 'демо', 'account' => 'акаунт'][$method] ?? 'акаунт';
+}
 
 /* ---------- матеріали ---------- */
 if ($p === 'materials') {
   $CATS = ['hverdag' => '☀️ Щоденне життя', 'familie' => '👨‍👩‍👧 Сім’я', 'skole' => '🏫 Школа', 'jobb' => '💼 Робота', 'fritid' => '⚽ Дозвілля', 'mat' => '🍎 Їжа', 'butikk' => '🛒 Магазин',
-    'natur' => '🌲 Природа', 'helse' => '🩺 Здоров’я', 'bolig' => '🏠 Житло', 'kultur' => '🎭 Культура'];
+    'natur' => '🌲 Природа', 'helse' => '🩺 Здоров’я', 'bolig' => '🏠 Житло', 'kultur' => '🎭 Культура', 'grammatikk' => '📐 Граматика'];
+  $CODE_CATS = ['basics' => '🧭 Основи', 'web' => '🌐 HTML, CSS і JavaScript', 'game' => '🎮 Ігрова розробка', 'blender' => '🧊 Blender і 3D', 'unity' => '🕹️ Unity', 'data' => '🗄️ Бази даних',
+    'personal-safety' => '🚨 Безпека в житті', 'cyber-safety' => '🛡️ Безпека онлайн', 'scam-awareness' => '🔎 Розпізнай шахрайство', 'device-safety' => '📱 Захист пристроїв',
+    'secure-coding' => '🔐 Безпечне програмування', 'hackers' => '🕵️ Хакери та кіберзахист'];
+  $TRACKS = [
+    'no' => ['flag' => '🇳🇴', 'title' => 'Норвезька', 'hint' => 'Комікси й тести курсу норвезької'],
+    'en' => ['flag' => '🇬🇧', 'title' => 'Англійська', 'hint' => 'Окремий англійський курс та його тести'],
+    'code' => ['flag' => '💻', 'title' => 'Програмування', 'hint' => 'Основи коду, web, ігри, 3D та бази даних'],
+  ];
+  $trackF = (string)($_GET['track'] ?? 'no');
+  if (!isset($TRACKS[$trackF])) $trackF = 'no';
   $lvF = (string)($_GET['lv'] ?? '');
   $catF = (string)($_GET['cat'] ?? '');
   $qF = trim((string)($_GET['q'] ?? ''));
   $sortF = (string)($_GET['sort'] ?? '');
 
-  /* Читаємо метадані прямо з data/comic-*.js: єдине джерело правди — вихідні файли,
-     а не копія в базі, яка роз'їхалася б із першою ж новою збіркою. */
-  $comics = [];
-  foreach (glob(__DIR__ . '/data/comic-*.js') ?: [] as $file) {
+  /* data/comics.json створює tools/build.js із уже виконаних даних застосунку.
+     Так адмінка бачить і звичайні об'єкти, і серії, створені через L('p233', ...),
+     не намагаючись розбирати JavaScript регулярними виразами. */
+  $readValue = static function (string $src, string $key): string {
+    $key = preg_quote($key, '/');
+    if (!preg_match('/\\b' . $key . '\\s*:\\s*(?:\'((?:[^\'\\\\]|\\\\.)*)\'|"((?:[^"\\\\]|\\\\.)*)")/s', $src, $m)) return '';
+    return stripcslashes($m[1] !== '' ? $m[1] : ($m[2] ?? ''));
+  };
+  $all = [];
+  $catalogFile = __DIR__ . '/data/comics.json';
+  $catalog = is_file($catalogFile) ? json_decode((string)file_get_contents($catalogFile), true) : [];
+  if (!is_array($catalog)) $catalog = [];
+  foreach ($catalog as $item) {
+    if (!is_array($item) || !preg_match('/^p\\d+$/', (string)($item['id'] ?? ''))) continue;
+    $id = (string)$item['id'];
+    $isCode = (($item['category'] ?? '') === 'koding');
+    $source = (string)($item['file'] ?? '');
+    $sourcePath = $source !== '' ? __DIR__ . '/' . ltrim($source, '/') : '';
+    $all[] = ['id' => $id, 'metric' => $id, 'track' => $isCode ? 'code' : 'no', 'level' => (string)($item['level'] ?? ''),
+      'cat' => $isCode ? (string)($item['track'] ?? 'basics') : (string)($item['category'] ?? ''),
+      'title' => (string)($item['title'] ?? ''), 'uk' => (string)($item['titleUk'] ?? ''), 'other' => (string)($item['titleEn'] ?? ''), 'otherFlag' => '🇬🇧',
+      'panels' => (int)($item['panels'] ?? 0), 'lines' => (int)($item['lines'] ?? 0),
+      'kb' => $sourcePath !== '' && is_file($sourcePath) ? round(filesize($sourcePath) / 1024) : 0,
+      'at' => $sourcePath !== '' && is_file($sourcePath) ? (int)filemtime($sourcePath) : (int)filemtime($catalogFile)];
+  }
+
+  /* Англійські історії розкладені між english.js, english2.js та english3.js. */
+  foreach (glob(__DIR__ . '/data/english*.js') ?: [] as $file) {
     $src = (string)file_get_contents($file);
-    $g = fn(string $k) => preg_match("/\\b$k:\\s*'((?:[^'\\\\]|\\\\.)*)'/", $src, $m) ? stripcslashes($m[1]) : '';
-    $c = ['id' => $g('id'), 'level' => $g('level'), 'cat' => $g('category'), 'title' => $g('title'), 'uk' => $g('titleUk'), 'en' => $g('titleEn'),
-      'panels' => preg_match_all('/\{\s*art:/', $src), 'lines' => preg_match_all('/\bwho:\s*\'/', $src),
-      'kb' => round(filesize($file) / 1024), 'at' => (int)filemtime($file)];
-    if ($c['id'] !== '') $comics[] = $c;
+    preg_match_all('/\\bid\\s*:\\s*[\'\"](e\\d+)[\'\"]/', $src, $hits, PREG_OFFSET_CAPTURE);
+    foreach ($hits[1] ?? [] as $i => $hit) {
+      $from = (int)$hits[0][$i][1];
+      $to = isset($hits[0][$i + 1]) ? (int)$hits[0][$i + 1][1] : strlen($src);
+      $chunk = substr($src, $from, $to - $from);
+      $g = fn(string $key): string => $readValue($chunk, $key);
+      $id = (string)$hit[0];
+      $all[] = ['id' => $id, 'metric' => 'en:' . $id, 'track' => 'en', 'level' => $g('level'), 'cat' => $g('category'),
+        'title' => $g('title'), 'uk' => $g('titleUk'), 'other' => $g('titleNo'), 'otherFlag' => '🇳🇴',
+        'panels' => preg_match_all('/\{\s*art\s*:/', $chunk), 'lines' => preg_match_all('/\\bwho\\s*:/', $chunk),
+        'kb' => round(strlen($chunk) / 1024), 'at' => (int)filemtime($file)];
+    }
   }
 
   $reads = comic_reads();
   $quiz = comic_quizzes();
-  foreach ($comics as &$c) {
-    $r = $reads[$c['id']] ?? ['opened' => 0, 'counts' => []];
+  foreach ($all as &$c) {
+    $r = $reads[$c['metric']] ?? ['opened' => 0, 'counts' => []];
     $c['opened'] = (int)$r['opened'];
-    /* «Дочитали» — той, у кого відмічено не менше кадрів, ніж їх у коміксі. */
     $c['done'] = count(array_filter($r['counts'], fn($n) => $c['panels'] > 0 && $n >= $c['panels']));
-    $qz = $quiz[$c['id']] ?? ['n' => 0, 'stars' => 0];
+    $qz = $quiz[$c['metric']] ?? ['n' => 0, 'stars' => 0];
     $c['quiz'] = (int)$qz['n'];
     $c['stars'] = $qz['n'] > 0 ? round($qz['stars'] / $qz['n'], 1) : 0;
   }
   unset($c);
 
+  $counts = [];
+  foreach (array_keys($TRACKS) as $key) $counts[$key] = count(array_filter($all, fn($c) => $c['track'] === $key));
+  $comics = array_values(array_filter($all, fn($c) => $c['track'] === $trackF));
+  $catLabels = $trackF === 'code' ? $CODE_CATS : $CATS;
+  if ($catF !== '' && !isset($catLabels[$catF])) $catF = '';
   $byLv = array_count_values(array_column($comics, 'level'));
-  $audio = count(glob(__DIR__ . '/audio/*.mp3') ?: []);
   $nUsers = (int)(one('SELECT COUNT(*) AS n FROM kl_users WHERE is_demo IS NULL OR is_demo = 0')['n'] ?? 0);
   $totOpen = array_sum(array_column($comics, 'opened'));
   $totDone = array_sum(array_column($comics, 'done'));
   $unread = count(array_filter($comics, fn($x) => $x['opened'] === 0));
 
-  echo '<h1>Матеріали</h1>';
+  echo '<h1>Матеріали <small class="muted">· ' . e($TRACKS[$trackF]['title']) . '</small></h1>';
+  echo '<nav class="material-tracks" aria-label="Розділи матеріалів">';
+  foreach ($TRACKS as $key => $meta) {
+    echo '<a class="material-track' . ($trackF === $key ? ' on' : '') . '" href="admin.php?p=materials&amp;track=' . e($key) . '"' . ($trackF === $key ? ' aria-current="page"' : '') . '>'
+      . '<span class="material-track-icon">' . $meta['flag'] . '</span><span><b>' . e($meta['title']) . '</b><small>' . e($meta['hint']) . '</small></span><strong>' . $counts[$key] . '</strong></a>';
+  }
+  echo '</nav>';
+
   echo '<div class="stats">'
-    . '<div class="stat y"><span>📚</span><b>' . count($comics) . '</b><small>Коміксів</small></div>'
+    . '<div class="stat y"><span>📚</span><b>' . count($comics) . '</b><small>Історій у розділі</small></div>'
     . '<div class="stat g"><span>🖼️</span><b>' . array_sum(array_column($comics, 'panels')) . '</b><small>Кадрів</small></div>'
     . '<div class="stat b"><span>💬</span><b>' . array_sum(array_column($comics, 'lines')) . '</b><small>Реплік</small></div>'
-    . '<div class="stat p"><span>🔊</span><b>' . $audio . '</b><small>Аудіофайлів</small></div>'
     . '<div class="stat b"><span>👁️</span><b>' . $totOpen . '</b><small>Відкривань</small></div>'
     . '<div class="stat g"><span>✅</span><b>' . $totDone . '</b><small>Дочитувань</small></div>'
     . '<div class="stat' . ($unread ? ' r' : '') . '"><span>🕳️</span><b>' . $unread . '</b><small>Ніхто не відкривав</small></div>'
@@ -451,16 +713,17 @@ if ($p === 'materials') {
   echo '<p class="muted" style="margin-top:-6px">Прочитання зібрані з прогресу <b>' . $nUsers . '</b> акаунтів, які синхронізувалися. Читачі без акаунта сюди не потрапляють, тому справжні числа більші.</p>';
 
   // ── фільтри ──
-  $qs = function (array $over) use ($lvF, $catF, $qF, $sortF) {
-    $a = array_filter(['lv' => $lvF, 'cat' => $catF, 'q' => $qF, 'sort' => $sortF] + [], fn($v) => $v !== '');
+  $qs = function (array $over) use ($trackF, $lvF, $catF, $qF, $sortF) {
+    $a = array_filter(['track' => $trackF, 'lv' => $lvF, 'cat' => $catF, 'q' => $qF, 'sort' => $sortF], fn($v) => $v !== '');
     foreach ($over as $k => $v) { if ($v === '') unset($a[$k]); else $a[$k] = $v; }
     return 'admin.php?p=materials' . ($a ? '&amp;' . http_build_query($a, '', '&amp;') : '');
   };
   echo '<form method="get" action="admin.php" class="filters">'
     . '<input type="hidden" name="p" value="materials">'
+    . '<input type="hidden" name="track" value="' . e($trackF) . '">'
     . '<input type="search" name="q" value="' . e($qF) . '" placeholder="Пошук за назвою або кодом…" style="flex:1 1 240px">'
     . '<select name="cat"><option value="">Усі теми</option>';
-  foreach ($CATS as $k => $label) echo '<option value="' . e($k) . '"' . ($catF === $k ? ' selected' : '') . '>' . e($label) . '</option>';
+  foreach ($catLabels as $k => $label) echo '<option value="' . e($k) . '"' . ($catF === $k ? ' selected' : '') . '>' . e($label) . '</option>';
   echo '</select><select name="lv"><option value="">Усі рівні</option>';
   foreach (['A1', 'A2', 'B1', 'B2'] as $l) echo '<option value="' . $l . '"' . ($lvF === $l ? ' selected' : '') . '>' . $l . ' (' . ($byLv[$l] ?? 0) . ')</option>';
   echo '</select><select name="sort">'
@@ -471,7 +734,7 @@ if ($p === 'materials') {
     . '<option value="big"' . ($sortF === 'big' ? ' selected' : '') . '>Найдовші</option>'
     . '</select>'
     . '<button class="btn pri">Показати</button>'
-    . ($lvF || $catF || $qF !== '' || $sortF ? ' <a class="btn" href="admin.php?p=materials">Скинути</a>' : '')
+    . ($lvF || $catF || $qF !== '' || $sortF ? ' <a class="btn" href="admin.php?p=materials&amp;track=' . e($trackF) . '">Скинути</a>' : '')
     . '</form>';
 
   echo '<div class="chips" style="margin-bottom:14px"><a class="' . ($lvF === '' ? 'on' : '') . '" href="' . $qs(['lv' => '']) . '">Усі рівні</a>';
@@ -484,7 +747,7 @@ if ($p === 'materials') {
     if ($lvF !== '' && $c['level'] !== $lvF) return false;
     if ($catF !== '' && $c['cat'] !== $catF) return false;
     if ($needle === '') return true;
-    $hay = mb_lower($c['id'] . ' ' . $c['title'] . ' ' . $c['uk'] . ' ' . $c['en']);
+    $hay = mb_lower($c['id'] . ' ' . $c['title'] . ' ' . $c['uk'] . ' ' . $c['other']);
     return str_contains($hay, $needle);
   }));
 
@@ -498,11 +761,11 @@ if ($p === 'materials') {
     foreach (glob(__DIR__ . '/photo/' . $id . '-*') ?: [] as $f) return 'photo/' . basename($f);
     return '';
   };
-  $card = function (array $c) use ($coverSrc, $CATS): string {
+  $card = function (array $c) use ($coverSrc, $catLabels): string {
     $src = $coverSrc($c['id']);
     $img = $src !== ''
       ? '<img class="comic-cover" src="' . e($src) . '" alt="" loading="lazy" width="320" height="240">'
-      : '<span class="comic-cover"></span>';
+      : '<span class="comic-cover material-cover ' . e($c['track']) . '"><span>' . ($c['track'] === 'en' ? '🇬🇧' : ($c['track'] === 'code' ? '💻' : '🇳🇴')) . '</span><b>' . e($c['level']) . '</b></span>';
     $warm = $c['opened'] === 0 ? '<span class="pill r" title="Ніхто з акаунтів не відкривав">🕳️ 0</span>'
       : '<span class="pill b" title="Скільки акаунтів відкривали">👁️ ' . $c['opened'] . '</span>'
         . ' <span class="pill g" title="Скільки дійшли до останнього кадру">✅ ' . $c['done'] . '</span>';
@@ -510,24 +773,24 @@ if ($p === 'materials') {
     return '<div class="comic">' . $img
       . '<div class="row" style="justify-content:space-between"><span class="pill ' . e($c['level']) . '">' . e($c['level']) . '</span><code>' . e($c['id']) . '</code></div>'
       . '<b>' . e($c['title']) . '</b>'
-      . '<small>🇺🇦 ' . e($c['uk']) . '<br>🇬🇧 ' . e($c['en']) . '</small>'
-      . '<small>' . e($CATS[$c['cat']] ?? $c['cat']) . ' · 🖼️ ' . $c['panels'] . ' · 💬 ' . $c['lines'] . ' · ' . $c['kb'] . ' КБ</small>'
+      . '<small>🇺🇦 ' . e($c['uk']) . '<br>' . $c['otherFlag'] . ' ' . e($c['other']) . '</small>'
+      . '<small>' . e($catLabels[$c['cat']] ?? $c['cat']) . ' · 🖼️ ' . $c['panels'] . ' · 💬 ' . $c['lines'] . ' · ' . $c['kb'] . ' КБ</small>'
       . '<div class="row">' . $warm . ' ' . $qz . '</div>'
-      . '<div class="row"><a class="btn sm" href="./#/read/' . e($c['id']) . '/0" target="_blank" rel="noopener">📖 Читати</a>'
-      . '<a class="btn sm" href="./#/quiz/' . e($c['id']) . '" target="_blank" rel="noopener">🧩 Тест</a></div></div>';
+      . '<div class="row"><a class="btn sm" href="./#/' . ($c['track'] === 'en' ? 'english/' : 'read/') . e($c['id']) . '/0" target="_blank" rel="noopener">📖 Читати</a>'
+      . '<a class="btn sm" href="./#/quiz/' . ($c['track'] === 'en' ? 'en/' : '') . e($c['id']) . '" target="_blank" rel="noopener">🧩 Тест</a></div></div>';
   };
 
   if (!$show) {
-    echo '<div class="card muted">Нічого не знайшлося. <a href="admin.php?p=materials">Скинути фільтри</a></div>';
+    echo '<div class="card muted">Нічого не знайшлося. <a href="admin.php?p=materials&amp;track=' . e($trackF) . '">Скинути фільтри</a></div>';
   } elseif ($sortF === '') {
     // ── звичайний вигляд: групами за темою ──
     $groups = [];
     foreach ($show as $c) $groups[$c['cat']][] = $c;
-    $ord = function (string $k) use ($CATS): int { $i = array_search($k, array_keys($CATS), true); return $i === false ? 99 : (int)$i; };
+    $ord = function (string $k) use ($catLabels): int { $i = array_search($k, array_keys($catLabels), true); return $i === false ? 99 : (int)$i; };
     uksort($groups, fn($a, $b) => $ord((string)$a) <=> $ord((string)$b));
     foreach ($groups as $cat => $list) {
       usort($list, fn($a, $b) => strcmp($a['level'], $b['level']) ?: strnatcmp($a['id'], $b['id']));
-      echo '<section class="cat"><h2>' . e($CATS[$cat] ?? $cat) . ' <span class="pill">' . count($list) . '</span></h2><div class="comics">';
+      echo '<section class="cat"><h2>' . e($catLabels[$cat] ?? $cat) . ' <span class="pill">' . count($list) . '</span></h2><div class="comics">';
       foreach ($list as $c) echo $card($c);
       echo '</div></section>';
     }
@@ -544,36 +807,97 @@ if ($p === 'materials') {
     echo '</div></section>';
   }
 
-  $other = ['data/grammar.js' => '📐 Граматика (A1–B2)', 'data/words.js' => '📝 Слова за темами', 'data/english.js' => '🇬🇧 Англійська', 'data/basics.js' => '🔤 Алфавіт і числа', 'data/dictionary.js' => '📖 Словник NO→UK', 'data/dictionary-en.js' => '📖 Словник EN', 'data/characters.js' => '🎭 Персонажі'];
+  $other = ['data/grammar.js' => '📐 Граматика (A1–B2)', 'data/words.js' => '📝 Слова за темами', 'data/basics.js' => '🔤 Норвезький алфавіт і числа', 'data/dictionary.js' => '📖 Словник NO→UK', 'data/dictionary-en.js' => '📖 Словник EN', 'data/characters.js' => '🎭 Персонажі'];
   echo '<div class="card"><h2>🧰 Інші навчальні матеріали</h2><ul class="list">';
   foreach ($other as $f => $label) if (is_file(__DIR__ . '/' . $f)) echo '<li><b>' . $label . '</b><small class="muted"><code>' . e($f) . '</code> · ' . round(filesize(__DIR__ . '/' . $f) / 1024) . ' КБ · ' . date('d.m.Y', filemtime(__DIR__ . '/' . $f)) . '</small></li>';
   echo '</ul><p class="muted" style="margin-bottom:0">Матеріали редагуються у вихідному проєкті й заливаються новою збіркою <code>dist/</code>.</p></div>';
 }
 
 /* ---------- спільнота ---------- */
-if ($p === 'community') {
-  echo '<h1>Спільнота</h1><div class="grid"><div class="card"><h2>💬 Коментарі на стінах</h2><ul class="list">';
-  $cm = q('SELECT * FROM kl_comments ORDER BY created_at DESC LIMIT 60')->fetchAll();
-  $cform = fn(array $c, string $do, string $label, string $cls = '', string $confirm = '', string $extra = '') => '<form method="post" action="admin.php?p=community"' . ($confirm ? ' data-confirm="' . e($confirm) . '"' : '') . '>' . $csrf . '<input type="hidden" name="do" value="' . $do . '"><input type="hidden" name="cid" value="' . e($c['id']) . '">' . $extra . '<button class="btn sm ' . $cls . '">' . $label . '</button></form>';
-  foreach ($cm as $c) echo '<li style="flex-wrap:wrap"><div style="flex:1 1 220px"><b>' . e($c['name']) . '</b>' . (!empty($c['user_id']) ? ($isAdmin ? ' <a href="admin.php?p=user&amp;id=' . (int)$c['user_id'] . '">акаунт</a>' : ' <span class="pill">акаунт</span>') : ' <span class="pill">гість</span>') . ' → <a href="./#/player/c/' . e($c['owner']) . '" target="_blank" rel="noopener"><code>' . e($c['owner']) . '</code></a> <small class="muted">' . when((int)$c['created_at']) . '</small><br>' . e($c['text']) . '</div><div class="row">'
-    . $cform($c, 'comment_del', '🗑', 'danger', 'Видалити коментар?') . $cform($c, 'comment_warn', '⚠️ Попередити', '', 'Прибрати допис і показати авторові анімацію «так не можна»?')
-    . $cform($c, 'comment_ban', '⛔ 1 год', '', 'Прибрати допис і заборонити авторові писати 1 годину?', '<input type="hidden" name="hours" value="1">') . $cform($c, 'comment_ban', '⛔ 1 добу', '', 'Прибрати допис і заборонити авторові писати 1 добу?', '<input type="hidden" name="hours" value="24">') . $cform($c, 'comment_ban', '⛔ 7 днів', '', 'Прибрати допис і заборонити авторові писати 7 днів?', '<input type="hidden" name="hours" value="168">') . '</div></li>';
-  if (!$cm) echo '<li class="muted">Коментарів ще немає.</li>';
-  $bots = bots_list();
-  $DIFF = ['easy' => '🟢 легкий', 'medium' => '🟡 середній', 'hard' => '🔴 сильний', 'pro' => '🟣 майстер'];
-  echo '</ul></div><div class="card"><h2>🤖 Віртуальні гравці (' . count($bots) . ')</h2><p class="muted">Завжди «онлайн», грають у Логік-гонці, Math Rocket і шахах. Живуть у коді <code>assets/bots.js</code> — у базі їх немає, писати їм не можна.</p><table class="t"><thead><tr><th>Бот</th><th>Рівень</th><th>Складність</th><th>⭐</th><th>🏅</th><th>🎮</th><th>🥇</th></tr></thead><tbody>';
-  foreach ($bots as $b) echo '<tr><td><b>' . e($b['name']) . '</b> <code>' . e($b['code']) . '</code><br><small class="muted">' . e($b['avatar']) . '</small></td><td data-l="Рівень"><span class="pill ' . e($b['level']) . '">' . e($b['level']) . '</span></td><td data-l="Складність">' . e($DIFF[$b['diff']] ?? $b['diff']) . '</td><td data-l="Зірки">' . $b['stars'] . '</td><td data-l="Значки">' . $b['badges'] . '</td><td data-l="Ігри">' . $b['games'] . '</td><td data-l="Перемоги">' . $b['wins'] . '</td></tr>';
-  if (!$bots) echo '<tr><td colspan="7" class="muted">Не вдалося прочитати assets/bots.js.</td></tr>';
-  echo '</tbody></table>';
-  $bans = q('SELECT b.*, u.name FROM kl_bans b LEFT JOIN kl_users u ON u.id = b.user_id WHERE b.until_at > ? ORDER BY b.until_at DESC LIMIT 50', [time()])->fetchAll();
-  echo '</div><div class="card"><h2>⛔ Діючі блокування стін (' . count($bans) . ')</h2><ul class="list">';
-  foreach ($bans as $b) echo '<li><div><b>' . e($b['name'] ?: 'гість (за IP)') . '</b><br><small class="muted">до ' . date('d.m.Y H:i', (int)$b['until_at']) . '</small></div><form method="post" action="admin.php?p=community">' . $csrf . '<input type="hidden" name="do" value="unban"><input type="hidden" name="ban" value="' . (int)$b['id'] . '"><button class="btn sm ok">Зняти</button></form></li>';
-  if (!$bans) echo '<li class="muted">Блокувань немає.</li>';
-  if (!$isAdmin) { echo '</ul></div></div>'; } else echo '</ul></div><div class="card"><h2>🔎 Каталог гравців</h2><table class="t"><thead><tr><th>Гравець</th><th>Рівень</th><th>⭐</th><th>Оновлено</th><th></th></tr></thead><tbody>';
-  $pl = $isAdmin ? q('SELECT p.code, p.name, p.level, p.stars, p.updated, u.id AS uid FROM kl_players p LEFT JOIN kl_users u ON u.id = p.user_id ORDER BY p.updated DESC LIMIT 60')->fetchAll() : [];
-  foreach ($pl as $x) echo '<tr><td><b>' . e($x['name']) . '</b> <code>' . e($x['code']) . '</code>' . ($x['uid'] ? ' <a href="admin.php?p=user&amp;id=' . (int)$x['uid'] . '">акаунт</a>' : ' <span class="pill r" title="Картка з браузера, де ніхто не ввійшов. У рейтингу не показується.">без акаунта</span>') . '</td><td data-l="Рівень"><span class="pill ' . e($x['level']) . '">' . e($x['level'] ?: '—') . '</span></td><td data-l="Зірки">' . (int)$x['stars'] . '</td><td data-l="Оновлено">' . when((int)$x['updated']) . '</td><td><form method="post" action="admin.php?p=community" data-confirm="Прибрати гравця з пошуку?">' . $csrf . '<input type="hidden" name="do" value="player_del"><input type="hidden" name="code" value="' . e($x['code']) . '"><button class="btn sm">Прибрати</button></form></td></tr>';
-  if (!$pl && $isAdmin) echo '<tr><td colspan="5" class="muted">Каталог порожній.</td></tr>';
-  if ($isAdmin) echo '</tbody></table></div></div>';
+if ($p === 'community') { echo mod_css(); mod_render(preg_replace('/[^a-z]/', '', (string)($_GET['t'] ?? 'queue')), $isAdmin, $csrf); }
+
+/* ---------- переклади ---------- */
+if ($p === 'translations') {
+  $f = __DIR__ . '/data/i18n-stats.json';
+  $st = is_file($f) ? json_decode((string)file_get_contents($f), true) : null;
+  echo '<h1>Переклади</h1>';
+  if (!$st || empty($st['langs'])) {
+    echo '<div class="card"><p class="muted">Немає <code>data/i18n-stats.json</code>. Він зʼявляється під час збірки: <code>node tools/build.js</code>.</p></div>';
+  } else {
+    $thr = (int)($st['seoThreshold'] ?? 80);
+    $langs = $st['langs'];
+    $ready = array_filter($langs, fn($v) => $v['total'] && $v['has'] / $v['total'] >= $thr / 100);
+
+    echo '<p class="muted">Англійська — джерело: усе, що є нею, має бути перекладене. Українська й норвезька вбудовані в самі дані коміксів, решта мов живе в пакетах, де ключем є англійський рядок.</p>';
+    echo '<div class="stats">'
+      . '<div class="stat g"><span>✅</span><b>' . count($ready) . '</b><small>мов готові до пошукових сторінок</small></div>'
+      . '<div class="stat r"><span>⏳</span><b>' . (count($langs) - count($ready)) . '</b><small>ще не дотягують до ' . $thr . '%</small></div>'
+      . '<div class="stat b"><span>🔤</span><b>' . number_format((int)(reset($langs)['total'] ?? 0), 0, ',', ' ') . '</b><small>рядків на одну мову</small></div>'
+      . '<div class="stat"><span>🕒</span><b style="font-size:1rem">' . e($st['built'] ?? '') . '</b><small>зібрано</small></div>'
+      . '</div>';
+
+    /* Смужка показує стан швидше за число: око ловить довжину, а не відсоток. */
+    $bar = function (int $has, int $total) use ($thr) {
+      $pct = $total ? (int)round($has / $total * 100) : 0;
+      $cls = $pct >= $thr ? 'ok' : ($pct >= 40 ? 'mid' : 'low');
+      return '<span class="tr-bar"><i class="' . $cls . '" style="width:' . $pct . '%"></i></span>'
+        . '<b class="tr-pct">' . $pct . '%</b> <small class="muted">' . $has . '/' . $total . '</small>';
+    };
+
+    echo '<div class="card"><h2>📊 Скільки перекладено</h2><table class="t"><thead><tr><th>Мова</th><th>Разом</th>';
+    $groupKeys = array_keys(reset($langs)['groups'] ?? []);
+    $groupNames = [];
+    foreach (reset($langs)['groups'] ?? [] as $k => $g) { $groupNames[$k] = $g['label']; echo '<th>' . e($g['label']) . '</th>'; }
+    echo '</tr></thead><tbody>';
+    foreach ($langs as $code => $L) {
+      echo '<tr><td><b>' . e($L['name']) . '</b> <code>' . e($code) . '</code><br><small class="muted">' . ($L['builtin'] ? 'у самих даних' : 'пакет перекладів') . '</small></td>';
+      echo '<td data-l="Разом">' . $bar((int)$L['has'], (int)$L['total']) . '</td>';
+      foreach ($groupKeys as $k) {
+        $g = $L['groups'][$k] ?? ['has' => 0, 'total' => 0];
+        echo '<td data-l="' . e($groupNames[$k] ?? $k) . '">' . $bar((int)$g['has'], (int)$g['total']) . '</td>';
+      }
+      echo '</tr>';
+    }
+    echo '</tbody></table></div>';
+
+    /* Поріг не вигаданий: нижче за нього сторінка виходить із заголовком однією
+       мовою й тілом іншою, і пошукові системи вважають її неповною копією. */
+    echo '<div class="card"><h2>🌐 Чому сторінки не всіма мовами</h2>'
+      . '<p>Пошукові сторінки виходять лише тими мовами, де перекладено щонайменше <b>' . $thr . '%</b>. Нижче за цей поріг сторінка складається із заголовка однією мовою й тіла іншою — саме такі напівпорожні копії пошукові системи й карають, тож від них більше шкоди, ніж користі.</p>'
+      . '<p class="muted">Найважливіші для сторінки — <b>описи</b> й <b>назви</b>: з них складаються заголовок і опис у видачі. Далі йдуть репліки — це тіло сторінки.</p>'
+      . '<ul class="list">';
+    foreach ($langs as $code => $L) {
+      $pct = $L['total'] ? (int)round($L['has'] / $L['total'] * 100) : 0;
+      $ok = $pct >= $thr;
+      $need = [];
+      foreach ($L['groups'] as $g) if ($g['total'] && $g['has'] < $g['total']) $need[] = $g['label'] . ' (' . ($g['total'] - $g['has']) . ')';
+      echo '<li><div><b>' . e($L['name']) . '</b> — ' . ($ok ? '<span class="pill g">сторінки виходять</span>' : '<span class="pill r">поки ні, ' . $pct . '%</span>')
+        . ($need ? '<br><small class="muted">бракує: ' . e(implode(' · ', array_slice($need, 0, 4))) . '</small>' : '')
+        . '</div></li>';
+    }
+    echo '</ul></div>';
+
+    /* Список того, чого бракує: без нього сторінка каже «мало», але не каже
+       «що саме», і працювати з нею неможливо. */
+    echo '<div class="card"><h2>🔍 Що саме не перекладено</h2><p class="muted">Перші сорок рядків кожної групи — щоб було з чого почати. Повний перелік складає збірка.</p>';
+    foreach ($langs as $code => $L) {
+      if ($L['total'] && $L['has'] >= $L['total']) continue;
+      echo '<details class="au-det"><summary><b>' . e($L['name']) . '</b> <code>' . e($code) . '</code> — бракує ' . ((int)$L['total'] - (int)$L['has']) . '</summary>';
+      foreach ($L['groups'] as $g) {
+        if (empty($g['missing'])) continue;
+        echo '<h3 style="margin:10px 0 4px">' . e($g['label']) . ' <span class="pill r">' . ((int)$g['total'] - (int)$g['has']) . '</span></h3><ul class="tr-miss">';
+        foreach ($g['missing'] as $m) echo '<li>' . e($m) . '</li>';
+        echo '</ul>';
+      }
+      echo '</details>';
+    }
+    echo '</div>';
+
+    echo '<div class="card"><h2>🛠 Як доперекласти</h2>'
+      . '<p>Пакети збираються з таблиць у <code>tools/lang/&lt;мова&gt;/*.tsv</code>: перша колонка — англійський рядок, друга — переклад. Після правок:</p>'
+      . '<p><code>node tools/build-langpack.js de</code> → <code>node tools/build.js</code> → <code>node tools/deploy.js</code></p>'
+      . '<p class="muted">Українська й норвезька правляться не в пакетах, а просто в даних коміксу: поля <code>titleUk</code>, <code>summaryUk</code> й <code>uk</code> у кожній репліці.</p></div>';
+  }
 }
 
 /* ---------- система ---------- */
@@ -668,12 +992,13 @@ if ($p === 'teachers') {
 }
 
 if ($p === 'feedback') {
-  $KL = ['bug' => '🐞 Помилка', 'idea' => '💡 Правка / ідея', 'topic' => '📚 Тема для навчання', 'other' => '💬 Інше'];
+  $KL = ['bug' => '🐞 Помилка', 'idea' => '💡 Правка / ідея', 'topic' => '📚 Тема для навчання', 'other' => '💬 Інше', 'android' => '🤖 Android — запит посилання для тесту'];
   $only = preg_replace('/[^a-z]/', '', (string)($_GET['f'] ?? '')) ?: 'new';
-  $where = $only === 'done' ? 'WHERE f.done_at IS NOT NULL' : ($only === 'all' ? '' : 'WHERE f.done_at IS NULL');
+  $where = $only === 'done' ? 'WHERE f.done_at IS NOT NULL' : ($only === 'all' ? '' : ($only === 'android' ? "WHERE f.kind = 'android'" : 'WHERE f.done_at IS NULL'));
   $rows = q("SELECT f.*, u.name AS uname, u.email AS uemail FROM kl_feedback f LEFT JOIN kl_users u ON u.id = f.user_id $where ORDER BY f.created_at DESC LIMIT 200")->fetchAll();
-  echo '<h1>Відгуки від користувачів</h1><p class="muted">Кнопка «💌 Відгук» є на кожній сторінці сайту: помилка, правка, ідея або прохання додати тему для навчання. Кожен відгук дублюється листом адміністраторам.</p>';
-  echo '<div class="chips" style="margin-bottom:14px">' . implode('', array_map(fn($k) => '<a class="' . ($only === $k[0] ? 'on' : '') . '" href="admin.php?p=feedback&amp;f=' . $k[0] . '">' . $k[1] . '</a>', [['new', '🆕 Нові (' . $fbNew . ')'], ['done', '✅ Опрацьовані'], ['all', '📜 Усі']])) . '</div>';
+  $androidN = (int)(one("SELECT COUNT(*) AS n FROM kl_feedback WHERE kind = 'android'")['n'] ?? 0);
+  echo '<h1>Відгуки від користувачів</h1><p class="muted">Кнопка «💌 Відгук» є на кожній сторінці сайту: помилка, правка, ідея або прохання додати тему для навчання. Кожен відгук дублюється листом адміністраторам. Для Android-заявки «Опрацьовано» надсилає тестувальнику Google Play та інструкцію на 14 днів; за помилки доставки заявка лишається відкритою.</p>';
+  echo '<div class="chips" style="margin-bottom:14px">' . implode('', array_map(fn($k) => '<a class="' . ($only === $k[0] ? 'on' : '') . '" href="admin.php?p=feedback&amp;f=' . $k[0] . '">' . $k[1] . '</a>', [['new', '🆕 Нові (' . $fbNew . ')'], ['android', '🤖 Android (' . $androidN . ')'], ['done', '✅ Опрацьовані'], ['all', '📜 Усі']])) . '</div>';
   echo '<div class="card"><ul class="list">';
   foreach ($rows as $f) {
     $fbId = '<input type="hidden" name="fb" value="' . (int)$f['id'] . '">';
@@ -684,7 +1009,7 @@ if ($p === 'feedback') {
           ? '<a href="admin.php?p=feedback&amp;dl=' . (int)$f['id'] . '" target="_blank" rel="noopener"><img class="fb-img" src="admin.php?p=feedback&amp;dl=' . (int)$f['id'] . '" alt="' . e($f['file_name']) . '"></a>'
           : '<p><a class="btn sm" href="admin.php?p=feedback&amp;dl=' . (int)$f['id'] . '">📎 ' . e($f['file_name'] ?: 'файл') . ' (' . round((int)$f['file_size'] / 1024) . ' КБ)</a></p>') : '')
       . '<small class="muted">від ' . $who . ($f['ua'] ? ' · ' . e(ua_short($f['ua'])) : '') . '</small></div><div class="row">'
-      . ($f['done_at'] ? act('fb_undone', 0, '↩️ Повернути', '', '', $fbId) : act('fb_done', 0, '✅ Опрацьовано', 'pri', '', $fbId))
+      . ($f['done_at'] ? act('fb_undone', 0, '↩️ Повернути', '', '', $fbId) : act('fb_done', 0, $f['kind'] === 'android' ? '📨 Надіслати посилання й опрацювати' : '✅ Опрацьовано', 'pri', '', $fbId))
       . act('fb_del', 0, '🗑 Видалити', 'dang', 'Видалити цей відгук назавжди?', $fbId) . '</div></li>';
   }
   if (!$rows) echo '<li class="muted">Поки що порожньо.</li>';
@@ -692,254 +1017,236 @@ if ($p === 'feedback') {
 }
 
 if ($p === 'system') {
+  /* ⚙️ Налаштування — розділи з описом і станом.
+     Раніше все лежало однією стіною карток: щоб знайти, чи працює пошта, треба
+     було прогорнути сервер, доступи й Stripe. Тепер кожен розділ — своя адреса
+     (?p=system&s=…): її можна відкрити з закладки, а дія повертає саме туди.
+     Перша сторінка — огляд: що працює, а що чекає на увагу. */
+  require_once __DIR__ . '/api/google-auth.php';
+  try { google_install(); } catch (Throwable $e) { /* розділ Google покаже, чого бракує */ }
+
+  /* ---- дані для станів (рахуємо один раз: потрібні й огляду, й розділам) ---- */
   $drv = db()->getAttribute(PDO::ATTR_DRIVER_NAME); $ver = db()->getAttribute(PDO::ATTR_SERVER_VERSION);
   $schema = one("SELECT v FROM kl_meta WHERE k = 'schema'")['v'] ?? '?';
-  $m = (array)cfg('mail');
   $cfgFile = is_file(__DIR__ . '/api/config.php') ? __DIR__ . '/api/config.php' : __DIR__ . '/api/config.local.php';
   $perm = is_file($cfgFile) ? substr(sprintf('%o', fileperms($cfgFile)), -4) : '—';
-  echo '<h1>Система</h1><div class="grid"><div class="card"><h2>🖥️ Сервер</h2><dl class="kv"><dt>PHP</dt><dd>' . PHP_VERSION . '</dd><dt>База</dt><dd>' . e($drv) . ' ' . e($ver) . '</dd><dt>Схема БД</dt><dd>v' . e($schema) . '</dd><dt>Адреса сайту</dt><dd>' . e(site_url()) . '</dd><dt>config.php</dt><dd>права ' . e($perm) . '</dd><dt>install.php</dt><dd>' . (is_file(__DIR__ . '/install.php') ? '⚠️ є — видаліть' : '✅ видалено') . '</dd></dl></div>';
-  $m = mail_cfg();
-  $mailBad = mail_problems();
-  $lastErr = (string)meta_get('mail_last_error', '');
-  $lastTry = (int)meta_get('mail_last_try', '0');
-  echo '<div class="card"><h2>📬 Пошта</h2><dl class="kv"><dt>Спосіб</dt><dd>' . e($m['transport']) . '</dd><dt>SMTP</dt><dd>' . e($m['host'] . ':' . $m['port']) . ' ' . e($m['secure']) . '</dd>'
-    . '<dt>Скринька</dt><dd>' . e($m['user'] ?: '—') . '</dd><dt>Пароль</dt><dd>' . ($m['pass'] === '' ? '<span class="pill">не задано</span>' : '✅ задано') . '</dd>'
-    . '<dt>Відправник</dt><dd>' . e($m['from_name'] . ' <' . $m['from'] . '>') . '</dd>'
-    . ($lastTry ? '<dt>Остання спроба</dt><dd>' . e(date('d.m.Y H:i', $lastTry)) . ' — ' . ($lastErr === '' ? '✅ успішно' : '❌ помилка') . '</dd>' : '') . '</dl>';
-  if ($lastErr !== '') echo '<p class="err-box"><b>Помилка SMTP:</b><br><code>' . e($lastErr) . '</code></p>';
-  if ($mailBad) echo '<p class="muted"><b>Що виправити в <code>api/config.php</code> → <code>mail</code>:</b></p><ul class="muted">' . implode('', array_map(fn($x) => '<li>' . e($x) . '</li>', $mailBad)) . '</ul>';
-  echo '<p class="muted">Скринька створюється в hPanel → Emails. SMTP Hostinger: <code>smtp.hostinger.com</code>, порт <code>465</code>, <code>ssl</code>. Поле <code>from</code> має дорівнювати <code>user</code> — інакше сервер відхиляє лист.</p>'
-    . '<form method="post" action="admin.php?p=system" style="margin-top:12px">' . $csrf . '<input type="hidden" name="do" value="test_mail"><button class="btn pri">📨 Надіслати тестовий лист на ' . e($me['email']) . '</button></form></div>';
+  $permOpen = $perm !== '—' && in_array((int)substr($perm, -1), [2, 3, 6, 7], true);   // інші можуть писати
+  $installLeft = is_file(__DIR__ . '/install.php');
+  $mc = mail_cfg(); $mailBad = mail_problems();
+  $lastErr = (string)meta_get('mail_last_error', ''); $lastTry = (int)meta_get('mail_last_try', '0');
   $nAdmins = (int)(one('SELECT COUNT(*) AS n FROM kl_users WHERE is_admin = 1 AND blocked_at IS NULL')['n'] ?? 0);
-  $admins = q('SELECT id, name, email FROM kl_users WHERE is_admin = 1 AND blocked_at IS NULL ORDER BY id LIMIT 20')->fetchAll();
-  echo '<div class="card"><h2>👑 Доступи</h2><dl class="kv"><dt>Адміністраторів</dt><dd><b>' . $nAdmins . '</b></dd></dl>';
-  if ($nAdmins > 1) echo '<p class="err-box">Адміністратор має бути один. Зайвим зніміть права: 👥 Користувачі → фільтр «Адміністратори» → «Зняти адміна».</p>';
-  echo '<ul class="muted">' . implode('', array_map(fn($a) => '<li>' . e($a['name']) . ' — <code>' . e($a['email']) . '</code></li>', $admins)) . '</ul>'
-    . '<p class="muted">Учасники акції «перші 100» отримують Преміум і право запрошувати друзів, але <b>не</b> права адміністратора.</p>'
-    . '<p><a class="btn" href="admin.php?p=users&f=admins">👥 Показати адміністраторів</a></p></div>';
+  $myTotp = totp_on($me);
   $fu = founders_used(); $fs = founder_slots();
-  echo '<div class="card"><h2>🏅 Акція «перші 100»</h2><p class="muted">Перші ' . $fs . ' підтверджених акаунтів отримують Преміум назавжди, право запрошувати друзів і прибирати погані дописи на стінах (блокувати авторів можуть лише адмін і модератор). Далі — підписка 69 крон/міс.</p>'
-    . '<dl class="kv"><dt>Зайнято місць</dt><dd><b>' . $fu . '</b> з ' . $fs . '</dd><dt>Лишилось</dt><dd>' . founders_left() . '</dd></dl>'
-    . '<p class="muted">Кількість місць змінюється рядком <code>define(\'MK_FOUNDER_SLOTS\', 100);</code> в <code>api/config.php</code>.</p></div>';
   $sk = stripe_key('secret'); $pk = stripe_key('publishable'); $wh = stripe_key('webhook');
-  $mask = fn(string $k) => $k === '' ? '<span class="pill">не задано</span>' : '<code>' . e(substr($k, 0, 8) . '…' . substr($k, -4)) . '</code>';
   $live = str_contains($sk, '_live_');
-  $subs = 0; try { $subs = (int)(one("SELECT COUNT(*) AS n FROM kl_billing WHERE status = 'active'")['n'] ?? 0); } catch (Throwable $e) { /* немає таблиці */ }
-  echo '<div class="card"><h2>💳 Оплата (Stripe)</h2><dl class="kv"><dt>Стан</dt><dd>' . (stripe_ready() ? ($live ? '✅ бойовий режим' : '🧪 тестовий режим') : '⚠️ не налаштовано') . '</dd>'
-    . '<dt>Секретний ключ</dt><dd>' . $mask($sk) . '</dd><dt>Публічний ключ</dt><dd>' . $mask($pk) . '</dd><dt>Вебхук</dt><dd>' . $mask($wh) . '</dd>'
-    . '<dt>Ціна</dt><dd>' . number_format(PREMIUM_PRICE / 100, 0) . ' ' . PREMIUM_CURRENCY . '/міс</dd><dt>Активних підписок</dt><dd>' . $subs . '</dd></dl>'
-    . '<p class="muted">Ключі задаються лише у <code>api/config.php</code> на сервері (розділ <code>stripe</code>) і ніколи не потрапляють у браузер. Адреса вебхука: <code>' . e(site_url()) . 'api/stripe-webhook.php</code>. Якщо секретний ключ десь «засвітився» — зробіть <b>Roll key</b> у Stripe.</p></div>';
-  echo '<div class="card"><h2>💾 Резервна копія бази</h2><p class="muted">Повний дамп таблиць <code>kl_*</code> одним файлом <code>.sql</code> — можна залити через phpMyAdmin або <code>mysql &lt; файл.sql</code>. Файл містить пошти й хеші паролів учасників: зберігайте його як пароль і не надсилайте нікому, зокрема в чати.</p>'
-    . '<form method="post" action="admin.php?p=system">' . $csrf . '<input type="hidden" name="do" value="dump"><button class="btn pri">⬇️ Завантажити .sql</button></form></div>';
-  echo '<div class="card"><h2>🔑 Мій пароль</h2><form method="post" action="admin.php?p=system">' . $csrf . '<input type="hidden" name="do" value="my_pass"><label class="f">Поточний пароль<input type="password" name="old" autocomplete="current-password" required></label><label class="f">Новий пароль<input type="password" name="new" minlength="10" autocomplete="new-password" required><small>Щонайменше 10 символів. Інші ваші сесії буде завершено.</small></label><button class="btn">Зберегти</button></form></div></div>';
-}
+  $gp = google_settings_public(); $gc = google_conf();
 
-/* ---------- 📣 розсилки ---------- */
-/* Випадковий комікс для листа — із покажчика, який викладає збірка.
-   Назва й опис беруться мовою одержувача: лист мовою, якої людина не знає,
-   не читають. */
-function pick_comic(string $lang): ?array {
-  static $all = null;
-  if ($all === null) {
-    $f = __DIR__ . '/data/comics.json';
-    $all = is_file($f) ? (json_decode((string)file_get_contents($f), true) ?: []) : [];
-  }
-  if (!$all) return null;
-  $c = $all[random_int(0, count($all) - 1)];
-  return ['id' => $c['id'], 'level' => $c['level'],
-    'title' => $lang === 'uk' ? $c['titleUk'] : ($lang === 'no' ? $c['title'] : $c['titleEn']),
-    'summary' => $lang === 'uk' ? $c['summaryUk'] : ($lang === 'no' ? $c['summary'] : $c['summaryEn'])];
-}
-
-
-const MAIL_KINDS = ['back', 'news', 'comic'];
-
-/** Кому взагалі можна писати: підтверджена пошта, не відписався, не демо, не заблокований.
- *  Нікого не відсікаємо — рішення, кому саме слати, лишається за людиною. */
-function mail_audience(string $kind): array {
-  $rows = q("SELECT u.id, u.email, u.name, u.lang, u.last_login, u.created_at,
-      (SELECT MAX(sent_at) FROM kl_mailouts m WHERE m.user_id = u.id AND m.kind = ?) AS last_sent
-    FROM kl_users u
-    WHERE u.verified_at IS NOT NULL AND u.blocked_at IS NULL AND u.mail_ok = 1
-      AND (u.is_demo IS NULL OR u.is_demo = 0)
-    ORDER BY u.last_login IS NULL DESC, u.last_login ASC", [$kind])->fetchAll();
-  $gap = time() - MAILOUT_GAP;
-  foreach ($rows as &$r) {
-    $r['idle'] = intdiv(time() - (int)($r['last_login'] ?: $r['created_at']), 86400);
-    $r['fresh'] = (int)$r['last_sent'] > $gap;            // писали днями — типово не позначаємо
-  }
-  return $rows;
-}
-
-if ($isAdmin && $post && $p === 'mail' && ($_POST['do'] ?? '') === 'send') {
-  $kind = in_array((string)($_POST['kind'] ?? ''), MAIL_KINDS, true) ? (string)$_POST['kind'] : 'news';
-  /* Шлемо рівно тим, кого позначили. Якщо не позначено нікого — нічого не робимо:
-     мовчазна розсилка «всім підряд» через недогляд була б гіршою за порожній екран. */
-  $ids = array_values(array_filter(array_map('intval', (array)($_POST['u'] ?? []))));
-  if (!$ids) go('p=mail', 'mail_none');
-  $ids = array_slice($ids, 0, 50);
-  $all = mail_audience($kind);
-  $list = array_filter($all, fn($r) => in_array((int)$r['id'], $ids, true));
-  $sent = 0; $failed = 0;
-  foreach ($list as $r) {
-    $url = site_url() . '#/whatsnew';
-    $extra = '';
-    if ($kind === 'comic') {
-      $c = pick_comic($r['lang'] ?? 'en');
-      $url = site_url() . '#/read/' . ($c['id'] ?? 'p91') . '/1';
-      if ($c) $extra = '<p style="margin:14px 0 0;font-size:17px"><b>' . e($c['title']) . '</b><br><span style="color:#5d5346">' . e($c['level'] . ' · ' . ($c['summary'] ?? '')) . '</span></p>';
-    }
-    if (send_campaign($r, $kind, $url, $extra)) $sent++; else $failed++;
-  }
-  go('p=mail', $failed ? 'mail_part' : 'mail_ok');
-}
-
-/* ---------- 🩺 діагностика: чи все розгорнуто правильно ---------- */
-if ($p === 'diag') {
-  require_once __DIR__ . '/api/diag.php';
-  $d = diag_run();
-  $c = $d['count'];
-  $tone = $c[DIAG_BAD] > 0 ? 'err' : ($c[DIAG_WARN] > 0 ? 'warn' : 'ok');
-  $verdict = $c[DIAG_BAD] > 0
-    ? 'Знайдено ' . $c[DIAG_BAD] . ' серйозних проблем — виправте їх перш ніж рухатися далі.'
-    : ($c[DIAG_WARN] > 0 ? 'Працює, але ' . $c[DIAG_WARN] . ' зауважень варто прибрати.' : 'Усе гаразд — сайт розгорнуто правильно.');
-  $ICON = [DIAG_OK => '✅', DIAG_WARN => '⚠️', DIAG_BAD => '⛔', DIAG_SKIP => '➖'];
-  $PILL = [DIAG_OK => 'g', DIAG_WARN => 'y', DIAG_BAD => 'r', DIAG_SKIP => ''];
-
-  echo '<h1>Діагностика</h1>'
-    . '<div class="msg ' . $tone . '">' . ($c[DIAG_BAD] > 0 ? '⛔ ' : ($c[DIAG_WARN] > 0 ? '⚠️ ' : '✅ ')) . e($verdict) . '</div>'
-    . '<div class="stats">'
-    . '<div class="stat"><b>' . $c[DIAG_OK] . '</b><span class="lbl">гаразд</span></div>'
-    . '<div class="stat"><b>' . $c[DIAG_WARN] . '</b><span class="lbl">зауважень</span></div>'
-    . '<div class="stat"><b>' . $c[DIAG_BAD] . '</b><span class="lbl">проблем</span></div></div>'
-    . '<p><a class="btn pri" href="admin.php?p=diag">🔄 Перевірити ще раз</a> '
-    . '<a class="btn" href="api/health.php?key=' . health_key() . '" target="_blank" rel="noopener">🩺 health.php</a> '
-    . '<small class="muted">перевірка зайняла ' . $d['ms'] . ' мс</small></p>';
-
-  foreach ($d['groups'] as $g) {
-    $bad = 0;
-    foreach ($g['items'] as $i) if ($i['level'] === DIAG_BAD) $bad++;
-    echo '<div class="card"><h2>' . e($g['title']) . ($bad ? ' <span class="pill r">' . $bad . '</span>' : '') . '</h2>'
-      . '<p class="muted" style="margin-top:-4px">' . e($g['hint']) . '</p><ul class="diag">';
-    foreach ($g['items'] as $i) {
-      echo '<li class="d-' . e($i['level']) . '"><span class="d-ic">' . $ICON[$i['level']] . '</span>'
-        . '<div><b>' . e($i['title']) . '</b> <span class="pill ' . $PILL[$i['level']] . '">' . e($i['value']) . '</span>'
-        . ($i['fix'] !== '' ? '<br><small class="muted">' . e($i['fix']) . '</small>' : '') . '</div></li>';
-    }
-    echo '</ul></div>';
-  }
-  echo '<div class="card"><h2>📘 Що робити далі</h2><p class="muted">Повний посібник — файл <code>store/GUIDE.html</code> у проєкті: збірка, заливання, застосунок, Google Play і чек-листи. Ця сторінка перевіряє те саме, але вже на живому сервері.</p></div>';
-}
-
-/* ---------- 📣 розсилки: нагадати, показати нове, підкинути комікс ---------- */
-if ($p === 'mail') {
-  $kinds = [
-    'back' => ['👋 Давно не заходили', 'Нагадування тим, хто зник. Веде на «Що нового».'],
-    'news' => ['📰 Що нового', 'Коротко про останні зміни.'],
-    'comic' => ['📖 Новий комікс', 'Випадкова історія, яку варто прочитати сьогодні.'],
+  /* ---- розділи: значок, назва, опис і стан ---- */
+  $st = fn(string $tone, string $text) => ['tone' => $tone, 'text' => $text];
+  $SEC = [
+    'security' => ['🔐', 'Безпека та доступ', 'Ваш пароль, двофакторний вхід в адмінку, хто має доступ і журнал дій адміністратора.',
+      !$myTotp ? $st('warn', 'двофакторний вхід вимкнено') : ($nAdmins > 1 ? $st('warn', 'адміністраторів: ' . $nAdmins) : $st('ok', 'захищено'))],
+    'google' => ['🔑', 'Вхід через Google', 'Кнопки «Увійти через Google» і «Зареєструватися через Google» на формах сайту для користувачів. Тут — ключі, перевірка й увімкнення. Сама адмінка входить лише паролем.',
+      match (true) {
+        $gc['error'] === 'key' => $st('err', 'ключ шифрування недоступний'),
+        $gc['enabled'] => $st('ok', 'увімкнено'),
+        $gp['status'] === 'enabled' && !$gp['verified_current'] => $st('err', 'ключі змінено — перевірте'),
+        $gp['verified_current'] => $st('warn', 'перевірено, вимкнено'),
+        $gp['exists'] => $st('warn', 'чернетка'),
+        default => $st('idle', 'не налаштовано'),
+      }],
+    'mail' => ['📬', 'Пошта', 'Звідки йдуть листи сайту: підтвердження пошти, коди входу, скидання пароля, розсилки. Тестовий лист собі.',
+      $mailBad ? $st('err', 'є що виправити') : ($lastErr !== '' ? $st('err', 'остання спроба з помилкою') : ($lastTry ? $st('ok', 'працює') : $st('idle', 'ще не перевіряли')))],
+    'billing' => ['💳', 'Оплата', 'Stripe: ключі, адреса вебхука, ціна Преміуму й кількість активних підписок.',
+      stripe_ready() ? $st('ok', $live ? 'бойовий режим' : 'тестовий режим') : $st('idle', 'не налаштовано')],
+    'founders' => ['🏅', 'Акція «перші 100»', 'Скільки безкоштовних місць зайнято й що отримують учасники акції.',
+      $st($fu >= $fs ? 'idle' : 'ok', $fu . ' з ' . $fs)],
+    'server' => ['🖥️', 'Сервер і база', 'Версія PHP, база даних і її схема, права на конфіг, чи прибрано інсталятор.',
+      $installLeft ? $st('err', 'видаліть install.php') : ($permOpen ? $st('warn', 'відкриті права на конфіг') : $st('ok', 'гаразд'))],
+    'stats' => ['📈', 'Статистика відвідувань', 'Власний анонімний лічильник для дашборду: без кук і сторонніх сервісів, IP не зберігається.',
+      hits_enabled() ? $st('ok', 'увімкнено') : $st('idle', 'вимкнено')],
+    'backup' => ['💾', 'Резервна копія', 'Повна копія бази одним файлом .sql — перед великими змінами або для перенесення на інший хостинг.',
+      $st('idle', 'вручну')],
   ];
-  $selKind = in_array((string)($_GET['k'] ?? ''), MAIL_KINDS, true) ? (string)$_GET['k'] : 'news';
-  $aud = mail_audience($selKind);
+  $sec = (string)($_GET['s'] ?? '');
+  if (!isset($SEC[$sec])) $sec = '';
+  $TONE = ['ok' => 'g', 'warn' => 'y', 'err' => 'r', 'idle' => ''];
+  $pill = fn(array $s) => '<span class="pill ' . $TONE[$s['tone']] . '">' . e($s['text']) . '</span>';
+  $url = fn(string $s = '') => 'admin.php?p=system' . ($s !== '' ? '&amp;s=' . $s : '');
 
-  $optOut = (int)(one('SELECT COUNT(*) AS n FROM kl_users WHERE mail_ok = 0')['n'] ?? 0);
-  $sent7 = (int)(one('SELECT COUNT(*) AS n FROM kl_mailouts WHERE sent_at > ?', [time() - 7 * 86400])['n'] ?? 0);
-  $ready = 0;
-  foreach ($aud as $r) if (!$r['fresh']) $ready++;
-
-  echo '<h1>Розсилки</h1>'
-    . '<div class="stats">'
-    . '<div class="stat"><b>' . count($aud) . '</b><span class="lbl">можна писати</span></div>'
-    . '<div class="stat"><b>' . $ready . '</b><span class="lbl">не писали 5 днів</span></div>'
-    . '<div class="stat"><b>' . $optOut . '</b><span class="lbl">відписалися</span></div>'
-    . '<div class="stat"><b>' . $sent7 . '</b><span class="lbl">листів за 7 днів</span></div></div>';
-
-  echo '<div class="card"><h2>1. Що надсилаємо</h2><div class="row" style="flex-wrap:wrap;gap:8px">';
-  foreach ($kinds as $k => $info) {
-    echo '<a class="btn' . ($k === $selKind ? ' pri' : '') . '" href="admin.php?p=mail&k=' . $k . '">' . e($info[0]) . '</a>';
+  echo '<div class="set-head"><h1>Налаштування</h1><p class="muted">Кожен розділ показує, чи все працює. Жовте й червоне — те, що варто переглянути першим.</p></div>';
+  echo '<div class="set"><nav class="set-nav" aria-label="Розділи налаштувань">'
+    . '<a href="' . $url() . '"' . ($sec === '' ? ' class="on" aria-current="page"' : '') . '><span class="ico">🧭</span><span class="t"><b>Огляд</b><small>усі розділи</small></span></a>';
+  foreach ($SEC as $k => [$ic, $title, , $s]) {
+    echo '<a href="' . $url($k) . '"' . ($sec === $k ? ' class="on" aria-current="page"' : '') . '><span class="ico">' . $ic . '</span>'
+      . '<span class="t"><b>' . e($title) . '</b><small>' . e($s['text']) . '</small></span><i class="dot ' . $s['tone'] . '" aria-hidden="true"></i></a>';
   }
-  echo '</div><p class="muted">' . e($kinds[$selKind][1]) . '</p></div>';
+  echo '</nav><div class="set-body">';
 
-  if (!$aud) {
-    echo '<div class="msg warn">Нікому писати: немає жодного підтвердженого акаунта без відписки.</div>';
+  /* ---- огляд ---- */
+  if ($sec === '') {
+    $attn = array_filter($SEC, fn($x) => in_array($x[3]['tone'], ['err', 'warn'], true));
+    if ($attn) {
+      echo '<div class="card set-attn"><h2>⚠️ Потребує уваги</h2><ul class="list">';
+      foreach ($attn as $k => [$ic, $title, , $s]) echo '<li><div>' . $ic . ' <b>' . e($title) . '</b> — ' . e($s['text']) . '</div><a class="btn sm" href="' . $url($k) . '">Відкрити →</a></li>';
+      echo '</ul></div>';
+    } else echo '<div class="msg ok">✅ Усі розділи в порядку.</div>';
+    echo '<div class="set-grid">';
+    foreach ($SEC as $k => [$ic, $title, $desc, $s]) {
+      echo '<a class="card set-tile" href="' . $url($k) . '"><div class="set-tile-top"><span class="ico">' . $ic . '</span>' . $pill($s) . '</div>'
+        . '<h2>' . e($title) . '</h2><p class="muted">' . e($desc) . '</p><span class="set-go">Відкрити →</span></a>';
+    }
+    echo '</div></div></div>';
   } else {
-    echo '<form method="post" action="admin.php?p=mail" id="mailForm" data-confirm="Надіслати листи позначеним людям? Це справжні листи.">' . $csrf
-      . '<input type="hidden" name="do" value="send"><input type="hidden" name="kind" value="' . e($selKind) . '">'
-      . '<div class="card"><h2>2. Кому</h2>'
-      . '<div class="row" style="flex-wrap:wrap;gap:8px;margin-bottom:10px">'
-      . '<button class="btn sm" type="button" data-pick="all">Усіх</button>'
-      . '<button class="btn sm" type="button" data-pick="none">Нікого</button>'
-      . '<button class="btn sm" type="button" data-pick="idle">Хто не заходив 14+ днів</button>'
-      . '<button class="btn sm" type="button" data-pick="fresh">Кому давно не писали</button>'
-      . '<b class="mail-count" id="mailCount">0</b></div>'
-      . '<ul class="list mail-list">';
-    foreach ($aud as $r) {
-      $seen = (int)$r['last_login'];
-      $when = $seen ? when($seen) : 'жодного разу';
-      echo '<li><label class="mail-row">'
-        . '<input type="checkbox" name="u[]" value="' . (int)$r['id'] . '" data-idle="' . (int)$r['idle'] . '" data-fresh="' . ((int)$r['fresh']) . '"'
-        . (!$r['fresh'] ? ' checked' : '') . '>'
-        . '<span class="mail-who"><b>' . e($r['name']) . '</b> <span class="pill">' . e($r['lang']) . '</span><br>'
-        . '<small class="muted">' . e($r['email']) . '</small></span>'
-        . '<span class="mail-meta"><small class="muted">вхід: ' . e($when) . '</small><br>'
-        . '<small class="muted">' . ((int)$r['last_sent'] ? 'писали: ' . e(when((int)$r['last_sent'])) : 'ще не писали') . '</small></span>'
-        . '</label></li>';
-    }
-    echo '</ul>'
-      . '<p class="muted">Типово позначені ті, кому цей самий лист не йшов щонайменше п’ять днів. За раз — не більше п’ятдесяти, щоб пошта Hostinger не вважала це спамом.</p>'
-      . '<button class="btn pri" type="submit">📣 Надіслати позначеним</button>'
-      . '</div></form>';
-  }
-
-  /* Журнал: кому й коли вже писали. Найчастіше питання саме це. */
-  $log = q('SELECT m.kind, m.sent_at, m.ok, u.name, u.email FROM kl_mailouts m
-    JOIN kl_users u ON u.id = m.user_id ORDER BY m.sent_at DESC LIMIT 40')->fetchAll();
-  echo '<div class="card"><h2>📜 Останні відправки</h2>';
-  if (!$log) echo '<p class="muted">Поки нічого не надсилали.</p>';
-  else {
-    echo '<table><tr><th>Коли</th><th>Кому</th><th>Що</th><th></th></tr>';
-    foreach ($log as $r) {
-      echo '<tr><td>' . e(when((int)$r['sent_at'])) . '</td><td>' . e($r['name']) . '<br><small class="muted">' . e($r['email']) . '</small></td>'
-        . '<td>' . e($kinds[$r['kind']][0] ?? $r['kind']) . '</td><td>' . ((int)$r['ok'] ? '✅' : '❌') . '</td></tr>';
-    }
-    echo '</table>';
-  }
-  echo '</div>';
-
-  /* Останні входи — щоб бачити, чи розсилка взагалі повертає людей. */
-  $logins = q('SELECT name, email, last_login, lang FROM kl_users WHERE last_login IS NOT NULL ORDER BY last_login DESC LIMIT 15')->fetchAll();
-  echo '<div class="card"><h2>🕑 Останні входи</h2><table><tr><th>Коли</th><th>Хто</th><th>Мова</th></tr>';
-  foreach ($logins as $r) {
-    echo '<tr><td>' . e(when((int)$r['last_login'])) . '</td><td>' . e($r['name']) . '<br><small class="muted">' . e($r['email']) . '</small></td><td>' . e($r['lang']) . '</td></tr>';
-  }
-  echo '</table><p class="muted">Якщо після розсилки тут порожньо кілька днів — лист не спрацював, і варто змінити текст або привід.</p></div>';
-
-  /* Лічильник і швидкий вибір: без них у списку на сорок рядків легко
-     надіслати не тим або не помітити, що не позначено нікого. */
-  echo '<script nonce="' . e($nonce) . '">(() => {
-    const form = document.getElementById("mailForm"); if (!form) return;
-    const boxes = [...form.querySelectorAll("input[name=\'u[]\']")];
-    const out = document.getElementById("mailCount");
-    const paint = () => {
-      const n = boxes.filter(b => b.checked).length;
-      out.textContent = n ? "позначено: " + n : "нікого не позначено";
-      out.classList.toggle("none", !n);
+    [$ic, $title, $desc, $s] = $SEC[$sec];
+    echo '<header class="set-sec"><div><h2>' . $ic . ' ' . e($title) . '</h2><p class="muted">' . e($desc) . '</p></div>' . $pill($s) . '</header>';
+    $form = fn(string $do, string $inner, string $label, string $cls = '', string $confirm = '') => '<form method="post" action="' . $url($sec) . '"'
+      . ($confirm ? ' data-confirm="' . e($confirm) . '"' : '') . ' class="set-form">' . $csrf . '<input type="hidden" name="do" value="' . $do . '">' . $inner
+      . '<button class="btn ' . $cls . '">' . $label . '</button></form>';
+    $reauth = '<label class="f">Ваш пароль адміністратора<input type="password" name="reauth_pass" autocomplete="current-password" required></label>'
+      . ($myTotp ? '<label class="f">Код з автентифікатора<input name="reauth_code" inputmode="numeric" autocomplete="one-time-code" maxlength="12" required></label>' : '');
+    $ACT = ['login' => '🔓 вхід', 'login_fail' => '🚫 невдалий вхід', 'reauth_fail' => '🚫 не підтверджено', 'google_save' => '💾 ключі Google', 'google_save_fail' => '⛔ ключі Google',
+      'google_verify_start' => '🔍 перевірка Google', 'google_verified' => '✅ Google підтвердив', 'google_verify_fail' => '⛔ перевірка не пройшла', 'google_enable' => '✅ Google увімкнено',
+      'google_disable' => '⏸ Google вимкнено', 'google_callback_fail' => '⛔ повернення від Google'];
+    $journal = function (string $where, int $limit) use ($ACT): string {
+      try { $rows = q('SELECT l.at, l.action, l.detail, u.name FROM kl_admin_log l LEFT JOIN kl_users u ON u.id = l.admin_id' . $where . ' ORDER BY l.id DESC LIMIT ' . $limit)->fetchAll(); } catch (Throwable $e) { $rows = []; }
+      if (!$rows) return '<p class="muted">Поки порожньо.</p>';
+      return '<div class="table-responsive"><table class="t"><thead><tr><th>Коли</th><th>Що</th><th>Деталі</th><th>Хто</th></tr></thead><tbody>'
+        . implode('', array_map(fn($l) => '<tr><td data-l="Коли">' . e(date('d.m H:i', (int)$l['at'])) . '</td><td data-l="Що">' . e($ACT[$l['action']] ?? $l['action']) . '</td><td data-l="Деталі" class="muted">' . e($l['detail']) . '</td><td data-l="Хто">' . e($l['name'] ?? '—') . '</td></tr>', $rows))
+        . '</tbody></table></div><p class="muted set-note">У журналі ніколи немає паролів, кодів, секретів чи токенів — лише що сталося й хто.</p>';
     };
-    form.addEventListener("change", paint);
-    for (const b of form.querySelectorAll("[data-pick]")) b.addEventListener("click", () => {
-      const how = b.dataset.pick;
-      for (const x of boxes) {
-        if (how === "all") x.checked = true;
-        else if (how === "none") x.checked = false;
-        else if (how === "idle") x.checked = Number(x.dataset.idle) >= 14;
-        else if (how === "fresh") x.checked = x.dataset.fresh === "0";
-      }
-      paint();
-    });
-    form.addEventListener("submit", ev => {
-      if (!boxes.some(b => b.checked)) { ev.preventDefault(); out.classList.add("none"); out.textContent = "спершу позначте, кому писати"; }
-    });
-    paint();
-  })();</script>';
+    echo '<div class="set-cards">';
+
+    if ($sec === 'security') {
+      echo '<div class="card"><h3>🛡️ Двофакторний вхід в адмінку</h3><dl class="kv"><dt>Ваш акаунт</dt><dd>' . ($myTotp ? '<span class="pill g">✅ увімкнено</span>' : '<span class="pill y">⚠️ вимкнено</span>') . '</dd></dl>'
+        . ($myTotp ? '<p class="muted">Для входу в адмінку потрібні пароль і код із застосунку. Зміна ключів Google теж просить свіжий код.</p>'
+          : '<p class="muted">Зараз в адмінку можна увійти лише паролем. Увімкніть автентифікатор — тоді знадобиться ще код із телефона, і вкрадений пароль сам по собі нічого не відкриє.</p>'
+            . '<p><a class="btn pri" href="' . e(site_url()) . '#/account" target="_blank" rel="noopener">🔐 Увімкнути в кабінеті сайту →</a></p><p class="muted set-note">Кабінет → «🔐 Двофакторна авторизація» → відскануйте QR будь-яким автентифікатором.</p>')
+        . '</div>';
+      echo '<div class="card"><h3>🔑 Мій пароль</h3>' . $form('my_pass', '<label class="f">Поточний пароль<input type="password" name="old" autocomplete="current-password" required></label><label class="f">Новий пароль<input type="password" name="new" minlength="10" autocomplete="new-password" required><small>Щонайменше 10 символів. Інші ваші сесії буде завершено.</small></label>', 'Зберегти пароль', 'pri') . '</div>';
+      $admins = q('SELECT id, name, email FROM kl_users WHERE is_admin = 1 AND blocked_at IS NULL ORDER BY id LIMIT 20')->fetchAll();
+      echo '<div class="card"><h3>👑 Хто має доступ</h3><dl class="kv"><dt>Адміністраторів</dt><dd><b>' . $nAdmins . '</b></dd></dl>'
+        . ($nAdmins > 1 ? '<p class="err-box">Адміністратор має бути один. Зайвим зніміть права: 👥 Користувачі → фільтр «Адміністратори» → «Зняти адміна».</p>' : '')
+        . '<ul class="list">' . implode('', array_map(fn($a) => '<li><div>' . e($a['name']) . ' — <code>' . e($a['email']) . '</code></div></li>', $admins)) . '</ul>'
+        . '<p class="muted set-note">Учасники акції «перші 100» отримують Преміум і право запрошувати друзів, але <b>не</b> права адміністратора.</p>'
+        . '<p><a class="btn" href="admin.php?p=users&amp;f=admins">👥 Показати адміністраторів</a></p></div>';
+      echo '<div class="card set-wide"><h3>🧾 Журнал адміністратора</h3>' . $journal('', 40) . '</div>';
+    }
+
+    if ($sec === 'google') {
+      $gDir = secret_dir();
+      $gDirPublic = secret_dir_is_public($gDir, (string)($_SERVER['DOCUMENT_ROOT'] ?? ''));
+      $gKeyOk = is_file($gDir . '/' . SECRET_KEY_FILE);
+      $gLinked = 0; try { $gLinked = (int)(one('SELECT COUNT(*) AS n FROM kl_google_accounts')['n'] ?? 0); } catch (Throwable $e) { /* ще немає */ }
+      $gLegacy = trim((string)cfg('google.client_id')) !== '' || trim((string)cfg('google.client_secret')) !== '';
+      $yes = fn(bool $ok, string $good, string $bad) => $ok ? '✅ ' . $good : '⛔ ' . $bad;
+      /* Крок, на якому зараз власник: показуємо його першим, решта — нижче. */
+      $step = $gc['enabled'] ? 4 : ($gp['verified_current'] ? 3 : ($gp['exists'] ? 2 : 1));
+      $steps = ['Ключі з Google Cloud', 'Перевірка через Google', 'Увімкнення', 'Працює'];
+      echo '<ol class="set-steps">';
+      foreach ($steps as $i => $t) echo '<li class="' . ($i + 1 < $step ? 'done' : ($i + 1 === $step ? 'now' : '')) . '"><b>' . ($i + 1) . '</b><span>' . e($t) . '</span></li>';
+      echo '</ol>';
+
+      echo '<div class="card"><h3>Стан</h3><dl class="kv">'
+        . '<dt>Вхід для користувачів</dt><dd>' . $pill($s) . '</dd>'
+        . '<dt>Де кнопки</dt><dd>форми входу й реєстрації, вхід кодом, кабінет («Прив’язати Google»)</dd>'
+        . '<dt>Підключених акаунтів</dt><dd>' . $gLinked . '</dd>'
+        . '<dt>Client ID</dt><dd>' . ($gp['client_id'] !== '' ? '<code class="wrap">' . e($gp['client_id']) . '</code>' : '—') . '</dd>'
+        . '<dt>Client Secret</dt><dd>' . ($gp['has_secret'] ? '✅ збережено, зашифровано — на сторінку не виводиться' : '<span class="pill">не задано</span>') . '</dd>'
+        . '<dt>Перевірено Google</dt><dd>' . ($gp['verified_current'] && $gp['verified_at'] ? e(date('d.m.Y H:i', $gp['verified_at'])) : '—') . '</dd>'
+        . '</dl>';
+      if ($step === 2) echo $form('google_verify', '<p class="muted">Відкриє сторінку Google. Увійдіть своїм Google-акаунтом зі списку Test users: ми лише перевіримо, що ключі працюють. Користувача не створюємо й у кабінет не входимо.</p>', '🔍 Перевірити через Google', 'pri');
+      if ($step === 3) echo $form('google_enable', '<p class="muted">Після ввімкнення кнопки з’являться на формах сайту. Доки в Google Cloud не натиснуто <b>Publish app</b>, входити зможуть лише Test users.</p>' . $reauth, '✅ Увімкнути вхід через Google', 'ok');
+      if ($step === 4) echo $form('google_disable', '<p class="muted">Вимкнути можна будь-коли без пароля — звичайний вхід лишається.</p>', '⏸ Вимкнути', '', 'Вимкнути вхід через Google? Ті, хто входив лише через Google, тимчасово не зможуть увійти цим способом.');
+      if ($step === 3) echo $form('google_verify', '', '🔍 Перевірити ще раз');
+      echo '</div>';
+
+      echo '<div class="card"><h3>' . ($gp['exists'] ? '✏️ Змінити ключі' : '✏️ Ввести ключі') . '</h3>'
+        . '<p class="muted">Google Cloud → Google Auth Platform → <b>Clients</b> → ваш клієнт. Після збереження вхід вимикається до нової перевірки.</p>'
+        . $form('google_save',
+          '<label class="f">Client ID<input name="client_id" value="' . e($gp['client_id']) . '" autocomplete="off" spellcheck="false" required placeholder="1234567890-abc….apps.googleusercontent.com"></label>'
+          . '<label class="f">Client Secret<input type="password" name="client_secret" autocomplete="new-password" spellcheck="false"' . ($gp['has_secret'] ? ' placeholder="збережено — залиште порожнім, щоб не міняти"' : ' required') . '><small>Зберігається зашифрованим; ключ шифрування лежить окремо від бази.</small></label>'
+          . $reauth, '💾 Зберегти як чернетку', $step === 1 ? 'pri' : '')
+        . '</div>';
+
+      echo '<div class="card"><h3>Технічні вимоги</h3><dl class="kv">'
+        . '<dt>Адреса повернення</dt><dd><code class="wrap">' . e(google_callback_url()) . '</code><br><small class="muted">У Google Cloud → Clients → <b>Authorized redirect URIs</b> — точно така.</small></dd>'
+        . '<dt>HTTPS</dt><dd>' . $yes(str_starts_with(site_url(), 'https://'), 'так', 'адреса сайту не https://') . '</dd>'
+        . '<dt>PHP cURL</dt><dd>' . $yes(function_exists('curl_init'), 'є', 'немає — увімкніть у hPanel → PHP') . '</dd>'
+        . '<dt>Сховище ключа</dt><dd>' . ($gDirPublic ? '⛔ всередині сайту — задайте secrets_dir у config.php' : $yes($gKeyOk || is_writable(dirname($gDir)) || is_dir($gDir), $gKeyOk ? 'ключ є, поза сайтом' : 'буде створено при першому збереженні', 'тека недоступна для запису')) . '<br><small class="muted"><code class="wrap">' . e($gDir) . '</code></small></dd>'
+        . '<dt>Джерело ключів</dt><dd>' . ($gp['exists'] ? 'адмінка, секрет зашифровано' : ($gc['source'] === 'config' ? 'config.php (старий спосіб)' : '—')) . '</dd>'
+        . '</dl>' . ($gLegacy && $gp['exists'] ? '<p class="muted set-note">Блок <code>google</code> у config.php більше не використовується — ключі з адмінки мають перевагу. Його можна прибрати.</p>' : '') . '</div>';
+      echo '<div class="card set-wide"><h3>🧾 Журнал входу Google</h3>' . $journal(" WHERE l.action LIKE 'google%'", 20) . '</div>';
+    }
+
+    if ($sec === 'mail') {
+      echo '<div class="card"><h3>Налаштування</h3><dl class="kv"><dt>Спосіб</dt><dd>' . e($mc['transport']) . '</dd><dt>SMTP</dt><dd>' . e($mc['host'] . ':' . $mc['port']) . ' ' . e($mc['secure']) . '</dd>'
+        . '<dt>Скринька</dt><dd>' . e($mc['user'] ?: '—') . '</dd><dt>Пароль</dt><dd>' . ($mc['pass'] === '' ? '<span class="pill">не задано</span>' : '✅ задано') . '</dd>'
+        . '<dt>Відправник</dt><dd>' . e($mc['from_name'] . ' <' . $mc['from'] . '>') . '</dd>'
+        . ($lastTry ? '<dt>Остання спроба</dt><dd>' . e(date('d.m.Y H:i', $lastTry)) . ' — ' . ($lastErr === '' ? '✅ успішно' : '❌ помилка') . '</dd>' : '') . '</dl>';
+      if ($lastErr !== '') echo '<p class="err-box"><b>Помилка SMTP:</b><br><code>' . e($lastErr) . '</code></p>';
+      if ($mailBad) echo '<p class="muted"><b>Що виправити в <code>api/config.php</code> → <code>mail</code>:</b></p><ul class="muted">' . implode('', array_map(fn($x) => '<li>' . e($x) . '</li>', $mailBad)) . '</ul>';
+      echo '</div><div class="card"><h3>Перевірка</h3><p class="muted">Надішле короткий лист на вашу адресу. Результат з’явиться в рядку «Остання спроба».</p>'
+        . $form('test_mail', '', '📨 Надіслати тестовий лист на ' . e($me['email']), 'pri')
+        . '<p class="muted set-note">Скринька створюється в hPanel → Emails. SMTP Hostinger: <code>smtp.hostinger.com</code>, порт <code>465</code>, <code>ssl</code>. Поле <code>from</code> має дорівнювати <code>user</code> — інакше сервер відхиляє лист.</p></div>';
+    }
+
+    if ($sec === 'billing') {
+      $mask = fn(string $k) => $k === '' ? '<span class="pill">не задано</span>' : '<code>' . e(substr($k, 0, 8) . '…' . substr($k, -4)) . '</code>';
+      $subs = 0; try { $subs = (int)(one("SELECT COUNT(*) AS n FROM kl_billing WHERE status = 'active'")['n'] ?? 0); } catch (Throwable $e) { /* немає таблиці */ }
+      echo '<div class="card"><h3>Stripe</h3><dl class="kv"><dt>Стан</dt><dd>' . (stripe_ready() ? ($live ? '✅ бойовий режим' : '🧪 тестовий режим') : '⚠️ не налаштовано') . '</dd>'
+        . '<dt>Секретний ключ</dt><dd>' . $mask($sk) . '</dd><dt>Публічний ключ</dt><dd>' . $mask($pk) . '</dd><dt>Вебхук</dt><dd>' . $mask($wh) . '</dd>'
+        . '<dt>Ціна</dt><dd>' . number_format(PREMIUM_PRICE / 100, 0) . ' ' . PREMIUM_CURRENCY . '/міс</dd><dt>Активних підписок</dt><dd>' . $subs . '</dd></dl></div>'
+        . '<div class="card"><h3>Де змінювати</h3><p class="muted">Ключі задаються лише в <code>api/config.php</code> на сервері (розділ <code>stripe</code>) і ніколи не потрапляють у браузер.</p>'
+        . '<dl class="kv"><dt>Адреса вебхука</dt><dd><code class="wrap">' . e(site_url()) . 'api/stripe-webhook.php</code></dd></dl>'
+        . '<p class="muted set-note">Якщо секретний ключ десь «засвітився» — зробіть <b>Roll key</b> у Stripe.</p></div>';
+    }
+
+    if ($sec === 'founders') {
+      $pct = $fs > 0 ? min(100, (int)round($fu / $fs * 100)) : 0;
+      echo '<div class="card"><h3>Місця</h3><div class="set-meter" role="meter" aria-valuemin="0" aria-valuemax="' . $fs . '" aria-valuenow="' . $fu . '"><i style="width:' . $pct . '%"></i></div>'
+        . '<dl class="kv"><dt>Зайнято</dt><dd><b>' . $fu . '</b> з ' . $fs . '</dd><dt>Лишилось</dt><dd>' . founders_left() . '</dd></dl></div>'
+        . '<div class="card"><h3>Що отримують</h3><p class="muted">Перші ' . $fs . ' підтверджених акаунтів отримують Преміум назавжди, право запрошувати друзів і прибирати погані дописи на стінах (блокувати авторів можуть лише адмін і модератор). Далі — підписка 69 крон/міс.</p>'
+        . '<p class="muted set-note">Кількість місць змінюється рядком <code>define(\'MK_FOUNDER_SLOTS\', 100);</code> в <code>api/config.php</code>.</p></div>';
+    }
+
+    if ($sec === 'server') {
+      echo '<div class="card"><h3>Середовище</h3><dl class="kv"><dt>PHP</dt><dd>' . PHP_VERSION . '</dd><dt>База</dt><dd>' . e($drv) . ' ' . e($ver) . '</dd><dt>Схема БД</dt><dd>v' . e($schema) . '</dd><dt>Адреса сайту</dt><dd><code class="wrap">' . e(site_url()) . '</code></dd></dl></div>'
+        . '<div class="card"><h3>Файли</h3><dl class="kv"><dt>config.php</dt><dd>права <code>' . e($perm) . '</code>' . ($permOpen ? ' <span class="pill y">запис для всіх — поставте 0640</span>' : '') . '</dd>'
+        . '<dt>install.php</dt><dd>' . ($installLeft ? '<span class="pill r">⚠️ є — видаліть у hPanel → File Manager</span>' : '✅ видалено') . '</dd></dl>'
+        . '<p><a class="btn" href="admin.php?p=diag">🩺 Повна діагностика →</a></p></div>';
+    }
+
+    if ($sec === 'stats') {
+      $on = hits_enabled(); $today = hit_day();
+      $pvT = array_sum(hits_series([$today], 'pv')); $uvT = array_sum(hits_series([$today], 'uv'));
+      $rows = meta_get('hits_v') === '1' ? (int)(one('SELECT COUNT(*) AS n FROM kl_hits')['n'] ?? 0) : 0;
+      echo '<div class="card"><h3>Лічильник</h3><dl class="kv"><dt>Стан</dt><dd>' . ($on ? '<span class="pill g">увімкнено</span>' : '<span class="pill">вимкнено</span>') . '</dd>'
+        . '<dt>Сьогодні</dt><dd>' . $uvT . ' відвідувачів · ' . $pvT . ' переглядів</dd><dt>Зараз на сайті</dt><dd>' . hits_live() . '</dd><dt>Рядків у базі</dt><dd>' . $rows . '</dd></dl>'
+        . '<div class="row-btns">' . ($on ? $form('hits_off', '', '⏸ Вимкнути лічильник') : $form('hits_on', '', '▶️ Увімкнути лічильник', 'pri'))
+        . '<a class="btn" href="admin.php?p=dash">📊 Відкрити дашборд</a></div></div>'
+        . '<div class="card"><h3>Що саме рахується</h3><ul class="set-list"><li>Перегляди розділів і коміксів, унікальні відвідувачі за день, пристрій і система, мова інтерфейсу, домен, з якого прийшли, година.</li>'
+        . '<li>Унікальність — за добовою згорткою HMAC(сіль дня, IP + браузер). Сама IP-адреса не записується, сіль змінюється щодня, а вчорашня стирається — відвідувача неможливо впізнати назавтра.</li>'
+        . '<li>Кук немає. Do Not Track і Global Privacy Control — не рахуємо зовсім. Боти й автоматичні браузери відкидаються.</li>'
+        . '<li>Це описано в політиці конфіденційності (privacy.html) усіма мовами.</li></ul></div>'
+        . '<div class="card"><h3>Очистити</h3><p class="muted">Видаляє всю накопичену статистику відвідувань. Акаунтів і прогресу це не стосується.</p>'
+        . $form('hits_clear', '', '🗑 Очистити статистику', 'danger', 'Видалити всю статистику відвідувань? Відновити не вийде.') . '</div>';
+    }
+
+    if ($sec === 'backup') {
+      echo '<div class="card"><h3>Завантажити копію</h3><p class="muted">Повний дамп таблиць <code>kl_*</code> одним файлом <code>.sql</code> — можна залити через phpMyAdmin або <code>mysql &lt; файл.sql</code>.</p>'
+        . $form('dump', '', '⬇️ Завантажити .sql', 'pri')
+        . '<p class="err-box set-note">Файл містить пошти й хеші паролів учасників. Зберігайте його як пароль і нікому не надсилайте, зокрема в чати.</p></div>';
+    }
+
+    echo '</div></div></div>';
+  }
+}
+
+/* ---------- 🩺 діагностика: огляд, API і служби, журнали, безпека (api/diag-view.php) ---------- */
+if ($p === 'diag') {
+  require_once __DIR__ . '/api/diag-view.php';
+  diag_page((string)($_GET['tab'] ?? 'overview'), $nonce);
 }
 
 page_close($nonce);

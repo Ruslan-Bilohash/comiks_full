@@ -148,6 +148,7 @@
       ]
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(EX, 'extras.js:EX');
   EX.ar = {
     nav: 'التصنيف', module: ['🏆', 'التصنيف', 'اللاعبون والفائزون والتلاميذ'],
     r_global: '🌍 التصنيف العام', r_global_d: 'لاعبون مسجّلون بملف شخصي عام. اضغط على لاعب لترى ملفه وأوسمته ونتائجه.', view_profile: 'عرض الملف', find_players: '🔎 ابحث عن لاعبين',
@@ -263,7 +264,7 @@
         !me ? h('p', { class: 'hint' }, ex('no_students'), ' ', h('a', { href: '#/register' }, ex('register'))) : null,
         h('p', { class: 'hint' }, ex('score_hint'))),
       hist.length ? h('div', { class: 'box rating-box' }, h('h3', {}, ex('r_recent')),
-        h('ul', { class: 'recent-games' }, hist.slice(0, 12).map(g => h('li', {}, h('span', { class: 'rg-date' }, new Date(g.date).toLocaleString(K.ui === 'uk' ? 'uk-UA' : K.ui === 'no' ? 'nb-NO' : 'en-GB', { dateStyle: 'short', timeStyle: 'short' })),
+        h('ul', { class: 'recent-games' }, hist.slice(0, 12).map(g => h('li', {}, h('span', { class: 'rg-date' }, new Date(g.date).toLocaleString(K.locale(), { dateStyle: 'short', timeStyle: 'short' })),
           h('span', { class: 'rg-topic' }, g.topic), h('span', { class: 'rg-top' }, g.board.slice(0, 3).map((b, i) => h('span', {}, ['🥇', '🥈', '🥉'][i] + ' ' + (window.KomiksAvatars ? window.KomiksAvatars.base(b.avatar) : b.avatar) + ' ' + b.name + ' · ' + b.score))), h('small', {}, ex('players_n', g.board.length))))),
         h('button', { class: 'btn small', type: 'button', onclick: () => { if (confirm(ex('clear_q'))) { K.raw.del(HIST); K.route(); } } }, ex('clear'))) : null,
       h('p', { class: 'hint' }, ex('r_local')));
@@ -315,27 +316,134 @@
     return h('span', { class: 'share-wrap' }, btn, menu);
   }
 
+  /* 👥 Хто ввійшов — бачить свій QR «Стати друзями»: друг сканує телефоном і одразу
+     додається в друзі, щоб грати разом. Гість (і перемикач) — QR самого сайту. */
+  const QF = {
+    uk: { t: '👥 Стати друзями — скануй мій QR', d: 'Друг наводить камеру телефона на код — і ви вже друзі: грайте разом, змагайтеся в гонці й пишіть одне одному.', site: '📱 QR сайту', me: '👥 Мій QR для друзів' },
+    en: { t: '👥 Be friends — scan my QR', d: 'A friend points their phone camera at the code and you are friends at once: play together, race each other and send messages.', site: '📱 Site QR', me: '👥 My friend QR' },
+    no: { t: '👥 Bli venner – skann QR-koden min', d: 'Vennen retter mobilkameraet mot koden, og dere er venner med en gang: spill sammen, konkurrer og send meldinger.', site: '📱 QR til siden', me: '👥 Min venne-QR' },
+    ar: { t: '👥 لنصبح أصدقاء — امسح رمزي', d: 'يوجّه صديقك كاميرا هاتفه إلى الرمز فتصبحان صديقين فورًا: العبا معًا وتسابقا وتراسلا.', site: '📱 رمز الموقع', me: '👥 رمزي للأصدقاء' }
+  };
+  if (window.KL_T_FILL) KL_T_FILL(QF, 'extras.js:QF');
+  const qf = k => (QF[C().ui] || QF.en)[k];
+  let qrSite = false, qrSeen = '';
+  /* 📲 Значки магазинів: Google Play і Microsoft Store. У самому застосунку Android
+     значок Google Play не потрібен — людина вже його встановила. */
+  const STORES = {
+    play: 'https://play.google.com/store/apps/details?id=com.bilohash.comiks',
+    ms: 'https://apps.microsoft.com/detail/9mztk7vjz37d'
+  };
+  const ST = {
+    uk: { play: 'Завантажити в Google Play', ms: 'Завантажити з Microsoft Store', ios: 'iPhone — незабаром' },
+    en: { play: 'Get it on Google Play', ms: 'Get it from Microsoft Store', ios: 'iPhone — coming soon' },
+    no: { play: 'Last ned fra Google Play', ms: 'Hent fra Microsoft Store', ios: 'iPhone – kommer snart' },
+    ar: { play: 'تنزيل من Google Play', ms: 'تنزيل من Microsoft Store', ios: 'iPhone — قريبًا' },
+    de: { play: 'Bei Google Play herunterladen', ms: 'Im Microsoft Store herunterladen', ios: 'iPhone – bald' },
+    pl: { play: 'Pobierz z Google Play', ms: 'Pobierz ze sklepu Microsoft Store', ios: 'iPhone — wkrótce' },
+    tr: { play: 'Google Play’den indir', ms: 'Microsoft Store’dan indir', ios: 'iPhone — yakında' },
+    lt: { play: 'Atsisiųsti iš Google Play', ms: 'Atsisiųsti iš Microsoft Store', ios: 'iPhone — netrukus' }
+  };
+  const PLAY_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 2.6 13.6 12 4 21.4c-.4-.2-.6-.6-.6-1.1V3.7c0-.5.2-.9.6-1.1Z" fill="#00d7fe"/><path d="m16.9 8.7-3.3 3.3L4 2.6c.2-.1.5-.1.8 0l12.1 6.1Z" fill="#00f076"/><path d="M16.9 15.3 4.8 21.4c-.3.1-.6.1-.8 0l9.6-9.4 3.3 3.3Z" fill="#ff3a44"/><path d="m20.3 12.9-3.4 2.4-3.3-3.3 3.3-3.3 3.4 2.4c.7.5.7 1.3 0 1.8Z" fill="#ffd000"/></svg>';
+  const WIN_SVG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 2h9.5v9.5H2z" fill="#f25022"/><path d="M12.5 2H22v9.5h-9.5z" fill="#7fba00"/><path d="M2 12.5h9.5V22H2z" fill="#00a4ef"/><path d="M12.5 12.5H22V22h-9.5z" fill="#ffb900"/></svg>';
+  function storeBadges() {
+    const K = C(), { h } = K, L = ST[K.ui] || ST.en;
+    const inAndroid = /; wv\)|KomiksApp/i.test(navigator.userAgent || '') || !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+    // на ПК: «Завантажити в Google Play / Learning Norwegian»; на телефоні — коротко: «Завантажити в / Google Play»
+    const badge = (href, svg, small, store, androidRequest = false) => h(androidRequest ? 'button' : 'a', androidRequest
+      ? { class: 'store-badge android-test-trigger', type: 'button', onclick: () => window.KomiksFeedback ? window.KomiksFeedback.openAndroid(href, 'footer-store-badge') : window.open(href, '_blank', 'noopener'), 'aria-label': small + ' — Learning Norwegian' }
+      : { class: 'store-badge', href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': small + ' — Learning Norwegian' },
+      K.svgEl(svg), h('span', {}, h('small', { class: 'sb-full' }, small), h('b', { class: 'sb-app' }, 'Learning Norwegian'),
+        h('small', { class: 'sb-pre' }, small.replace(store, '').replace(/[\s–—-]+$/, '').trim()), h('b', { class: 'sb-store' }, store)));
+    return h('div', { class: 'store-badges' },
+      inAndroid ? null : badge(STORES.play, PLAY_SVG, L.play, 'Google Play', true),
+      badge(STORES.ms, WIN_SVG, L.ms, 'Microsoft Store'),
+      h('span', { class: 'store-badge soon', title: L.ios }, h('span', { class: 'store-apple', 'aria-hidden': 'true' }, '🍏'), h('span', {}, h('small', {}, L.ios))));
+  }
+  /* 📣 Після тесту: поділитися результатом (Facebook, Messenger, Telegram, WhatsApp, Viber, X, e-mail,
+     копія посилання, системне меню телефона) і залишити відгук. Посилання веде на той самий тест —
+     друг одразу може спробувати сам. */
+  const SR = {
+    uk: { t: '📣 Поділися успіхом', msg: (name, s, n) => `Я пройшов(ла) тест «${name}» у Комікс·Lab: ${s} з ${n} ✅ Вчу норвезьку через комікси — спробуй і ти!`, fb: 'Відгук про тест', copy: 'Копіювати', copied: 'Скопійовано ✓', more: 'Ще…' },
+    en: { t: '📣 Share your result', msg: (name, s, n) => `I scored ${s} of ${n} in the “${name}” test on Komiks·Lab ✅ Learning Norwegian with comics — try it too!`, fb: 'Feedback on this test', copy: 'Copy', copied: 'Copied ✓', more: 'More…' },
+    no: { t: '📣 Del resultatet', msg: (name, s, n) => `Jeg fikk ${s} av ${n} på prøven «${name}» i Komiks·Lab ✅ Jeg lærer norsk med tegneserier – prøv du også!`, fb: 'Tilbakemelding om prøven', copy: 'Kopier', copied: 'Kopiert ✓', more: 'Mer…' },
+    ar: { t: '📣 شارك نجاحك', msg: (name, s, n) => `حصلت على ${s} من ${n} في اختبار «${name}» على Komiks·Lab ✅ أتعلّم النرويجية بالقصص المصوّرة — جرّبها أنت أيضًا!`, fb: 'ملاحظات عن الاختبار', copy: 'نسخ', copied: 'تم النسخ ✓', more: 'المزيد…' }
+  };
+  if (window.KL_T_FILL) KL_T_FILL(SR, 'extras.js:SR');
+  const sr = (k, ...a) => { const t = SR[C().ui] || SR.en; const v = k in t ? t[k] : SR.en[k]; return typeof v === 'function' ? v(...a) : v; };
+  // білі значки на кольоровому колі (24×24)
+  const SICON = {
+    facebook: ['#1877f2', '<path fill="#fff" d="M13.6 21v-7.6h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H8v3h2.6V21z"/>'],
+    messenger: ['#0084ff', '<path fill="#fff" d="M12 3.2c-4.9 0-8.8 3.6-8.8 8.2 0 2.5 1.2 4.7 3.1 6.2v3l2.9-1.6c.9.2 1.8.4 2.8.4 4.9 0 8.8-3.6 8.8-8.2S16.9 3.2 12 3.2zm.9 10.9-2.2-2.4-4.4 2.4 4.8-5.1 2.3 2.4 4.3-2.4z"/>'],
+    telegram: ['#229ed9', '<path fill="#fff" d="M19.9 5.1 3.9 11.3c-1.1.4-1.1 1.1-.2 1.4l4.1 1.3 1.6 4.9c.2.6.4.8.8.8s.6-.2.9-.5l2-2 4.2 3.1c.8.4 1.3.2 1.5-.7l2.8-13.1c.3-1.1-.4-1.6-1.7-1.4zM8.7 13.6l8.2-5.2c.4-.2.7-.1.4.2l-6.8 6.1-.3 2.9z"/>'],
+    whatsapp: ['#25d366', '<path fill="none" stroke="#fff" stroke-width="1.8" d="M12 3.6a8.4 8.4 0 0 0-7.2 12.7L3.7 20.3l4.1-1.1A8.4 8.4 0 1 0 12 3.6z"/><path fill="#fff" d="M9.3 7.9c.2-.4.4-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.4 1.8 2.4 2.4.2.1.3.1.4 0l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.3.1.3.3.3.5v.5c0 .4-.2.7-.5.9-.6.4-1.3.5-2 .3-2.2-.6-4.4-2.7-4.9-4.9-.2-.7 0-1.5.4-2z"/>'],
+    viber: ['#7360f2', '<path fill="none" stroke="#fff" stroke-width="1.6" d="M12 3.4c4.6 0 7.8 1.7 7.8 7.3 0 5.4-3.3 7-7.6 7l-3 2.8v-3.1c-3.3-.9-5-2.8-5-6.7 0-5.6 3.2-7.3 7.8-7.3z"/><path fill="#fff" d="M9.6 7.6c.2-.3.4-.3.6-.3h.4c.2 0 .3.1.4.3l.6 1.4c.1.2 0 .3-.1.5l-.4.5v.4c.5.8 1.1 1.4 1.9 1.9h.4l.5-.4c.1-.1.3-.2.5-.1l1.4.6c.2.1.3.2.3.4v.4c0 .3-.2.6-.4.7-.5.3-1.1.4-1.7.3-1.9-.5-3.6-2.2-4.1-4.1-.1-.6 0-1.2.3-1.6z"/>'],
+    x: ['#141414', '<path fill="#fff" d="M16.9 4h2.8l-6.1 7 7.2 9h-5.6l-4.4-5.8L5.7 20H2.9l6.5-7.5L2.5 4h5.7l4 5.3zm-1 14.4h1.6L7.3 5.5H5.6z"/>'],
+    mail: ['#ef6c00', '<rect x="4" y="6.5" width="16" height="11" rx="1.6" fill="none" stroke="#fff" stroke-width="1.8"/><path d="m4.6 7.4 7.4 5.4 7.4-5.4" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>'],
+    copy: ['#546e7a', '<rect x="8" y="8" width="11" height="12" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M15.5 8V5.8A1.8 1.8 0 0 0 13.7 4H6.8A1.8 1.8 0 0 0 5 5.8v8.4A1.8 1.8 0 0 0 6.8 16H8" fill="none" stroke="#fff" stroke-width="1.8"/>'],
+    more: ['#ff7043', '<circle cx="6" cy="12" r="2" fill="#fff"/><circle cx="12" cy="12" r="2" fill="#fff"/><circle cx="18" cy="12" r="2" fill="#fff"/>'],
+    feedback: ['#d81b60', '<path fill="#fff" d="M12 20.3 10.6 19C5.6 14.6 2.4 11.7 2.4 8.2 2.4 5.4 4.6 3.2 7.4 3.2c1.6 0 3.1.7 4.1 1.9 1-1.2 2.5-1.9 4.1-1.9 2.8 0 5 2.2 5 5 0 3.5-3.2 6.4-8.2 10.8z"/>']
+  };
+  const sicon = k => C().svgEl(`<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">${SICON[k][1]}</svg>`);
+  function shareResult({ title = 'Komiks·Lab', score = 0, total = 0, url = '' } = {}) {
+    const K = C(), { h } = K;
+    const link = url || (SITE + (location.hash || ''));
+    const text = sr('msg', String(title).replace(/^[^\p{L}\p{N}]+/u, '').trim() || 'Komiks·Lab', score, total);
+    const enc = encodeURIComponent(link), txt = encodeURIComponent(text);
+    const nets = [
+      ['facebook', 'Facebook', `https://www.facebook.com/sharer/sharer.php?u=${enc}&quote=${txt}`],
+      ['messenger', 'Messenger', `https://www.facebook.com/dialog/send?link=${enc}&app_id=291494419107518&redirect_uri=${enc}`],
+      ['telegram', 'Telegram', `https://t.me/share/url?url=${enc}&text=${txt}`],
+      ['whatsapp', 'WhatsApp', `https://wa.me/?text=${txt}%20${enc}`],
+      ['viber', 'Viber', `viber://forward?text=${txt}%20${enc}`],
+      ['x', 'X', `https://twitter.com/intent/tweet?text=${txt}&url=${enc}`],
+      ['mail', 'E-mail', `mailto:?subject=${encodeURIComponent('Komiks·Lab')}&body=${txt}%0A${enc}`]
+    ];
+    const btn = (k, label, attrs) => h(attrs.href ? 'a' : 'button', Object.assign({ class: 'sr-btn', title: label, 'aria-label': label }, attrs.href ? {} : { type: 'button' }, attrs), h('span', { class: 'sr-ic', style: { background: SICON[k][0] } }, sicon(k)), h('small', {}, label));
+    const copyBtn = btn('copy', sr('copy'), { onclick: async () => { try { await navigator.clipboard.writeText(text + ' ' + link); copyBtn.lastChild.textContent = sr('copied'); } catch { /* приватний режим */ } } });
+    const row = h('div', { class: 'sr-row' },
+      nets.map(([k, label, href]) => btn(k, label, { href, target: '_blank', rel: 'noopener' })),
+      copyBtn,
+      navigator.share ? btn('more', sr('more'), { onclick: () => navigator.share({ title: 'Komiks·Lab', text, url: link }).catch(() => {}) }) : null,
+      window.KomiksFeedback ? btn('feedback', sr('fb'), { onclick: () => window.KomiksFeedback.open() }) : null);
+    return h('div', { class: 'share-res' }, h('h3', {}, sr('t')), row);
+  }
+
   function qrPromo() {
     const K = C(), { h } = K;
     const foot = K.$('.foot'); if (!foot) return;
     let box = K.$('#qrPromo');
     if (!box) { box = h('section', { id: 'qrPromo', class: 'qr-promo' }); foot.before(box); }
-    const code = h('div', { class: 'qr-promo-code' });
-    const copy = h('button', { class: 'btn small', type: 'button', onclick: async () => { try { await navigator.clipboard.writeText(SITE); copy.textContent = ex('qr_copied'); } catch { /* ignore */ } } }, ex('qr_copy'));
-    const share = shareButton(SITE);
-    box.replaceChildren(h('div', { class: 'qr-promo-inner' }, code,
-      h('div', { class: 'qr-promo-text' }, h('h3', {}, ex('qr_title')), h('p', {}, ex('qr_text')), h('a', { class: 'qr-promo-url', href: SITE }, SITE.replace(/^https:\/\//, '')), h('div', { class: 'row-left' }, copy, share, window.KomiksFeedback ? window.KomiksFeedback.button('btn small') : null, window.KomiksInstall ? window.KomiksInstall.button('btn small accent') : null))));
+    const me = K.currentUser(), fc = me && window.KomiksFriends && window.KomiksFriends.myCode ? window.KomiksFriends.myCode() : '';
+    const friend = !!fc && !qrSite;
+    const URL_ = friend ? SITE + '#/friends/add/' + fc : SITE;
+    qrSeen = (me ? me.id : '') + '|' + friend;
+    const code = h('div', { class: 'qr-promo-code' + (friend ? ' qr-friend' : '') });
+    // на телефоні код друга стоїть одразу під QR (див. .qr-fcode-under у style.css)
+    const under = friend ? h('b', { class: 'qr-fcode qr-fcode-under' }, fc) : null;
+    const copy = h('button', { class: 'btn small', type: 'button', onclick: async () => { try { await navigator.clipboard.writeText(URL_); copy.textContent = ex('qr_copied'); } catch { /* ignore */ } } }, ex('qr_copy'));
+    const share = shareButton(URL_, friend ? `${me.name} · Komiks·Lab` : undefined);
+    const swap = fc ? h('button', { class: 'btn small', type: 'button', onclick: () => { qrSite = !qrSite; qrPromo(); } }, friend ? qf('site') : qf('me')) : null;
+    box.classList.toggle('is-friend', friend);
+    box.replaceChildren(h('div', { class: 'qr-promo-inner' }, h('div', { class: 'qr-promo-side' }, code, under),
+      h('div', { class: 'qr-promo-text' }, h('h3', {}, friend ? qf('t') : ex('qr_title')), h('p', {}, friend ? qf('d') : ex('qr_text')),
+        friend ? h('b', { class: 'qr-promo-url qr-fcode' }, fc) : h('a', { class: 'qr-promo-url', href: SITE }, SITE.replace(/^https:\/\//, '')),
+        // кнопку «Встановити застосунок» прибрано: для цього є значки магазинів нижче
+        h('div', { class: 'row-left' }, swap, copy, share, window.KomiksFeedback ? window.KomiksFeedback.button('btn small') : null),
+        storeBadges())));
     loadQr().then(() => {
       try {
         const qr = window.qrcode(0, 'H');
-        qr.addData(SITE);
+        qr.addData(URL_);
         qr.make();
         code.replaceChildren(
           K.svgEl(qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true })),
-          h('span', { class: 'qr-logo' }, h('img', { src: 'img/logo.svg', alt: '', width: 34, height: 34, loading: 'lazy' })));
+          friend && window.KomiksAvatars && window.KomiksProfile ? h('span', { class: 'qr-logo qr-ava' }, window.KomiksAvatars.el(window.KomiksProfile.avatar(), { size: 40, mood: 'cheer' }))
+            : h('span', { class: 'qr-logo' }, h('img', { src: 'img/logo.svg', alt: '', width: 34, height: 34, loading: 'lazy' })));
       } catch { /* бібліотека не завантажилась — лишаємо порожнє місце */ }
     }).catch(() => {});
   }
+  // увійшли / вийшли — QR має змінитися без перезавантаження
+  if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', () => { const K = C(); if (!K || !K.$('#qrPromo')) return; const me = K.currentUser(); if (((me ? me.id : '') + '|' + (!!me && !qrSite)) !== qrSeen) qrPromo(); });
 
 
   /* ---------------- «Журнал» на головній: опис ігор і розділів з кнопкою «Спробувати» ---------------- */
@@ -377,6 +485,7 @@
       ]
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(JX, 'extras.js:JX');
 
   JX.ar = {
     masthead: 'مجلة Komiks·Lab', issue: d => `عدد ${d}`, tag: 'ألعاب وميزات جديدة تستحق التجربة اليوم', try: 'جرّب ←',
@@ -436,6 +545,7 @@
       together: '👨‍👩‍👧 Sammen', solo: '🙋 Alene', games: [['flag', '#2e7d32', 'Logikkløpet', 'Oppgaven står på skjermen, svarene er på mobilen. Riktig svar = ett steg. Først i mål vinner.', '#/race/host', '#/race/bots'], ['rocket', '#e53935', 'Matte-raketten', 'Romregning på 60 sekunder.', '#/math/race', '#/math/rocket'], ['chess', '#37474f', 'Sjakk', '3D-sjakk: klasseturnering eller et parti med en venn.', '#/chess/host', '#/chess'], ['gamepad', '#1e88e5', 'Spill sammen', 'Norsk quiz for hele familien eller klassen.', '#/game', '#/tests'], ['comic', '#8e24aa', 'Verbrommet', 'Norske verb i interaktive tegneserier og øvelser – et eget rom for klassen.', 'https://bilohash.com/comiks/room_1/', 'https://bilohash.com/comiks/room_1/']],
       fame: '🏆 Beste spiller', fame_d: 'Rettferdig ranking fra tester og spill', champ: 'Beste spiller' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(PH, 'extras.js:PH');
   PH.ar = { kick: '🎮 العبوا معًا', title: 'أنشئ بطلك — وتنافس مع العائلة أو الأصدقاء', text: 'اختر حيوانًا ولونًا وقبعة ونظارة — بطلك مرتبط بحسابك ويركض ويطير ويقف على منصة التتويج في كل الألعاب. تسقط أغراض نادرة من الصناديق عند الفوز.',
     make: '✨ أنشئ بطلًا', edit: '🎨 عدّل بطلك', steps: ['أنشئ بطلك', 'افتح لعبة على التلفاز أو الحاسوب', 'تمسح العائلة رمز QR بالهواتف — انطلقوا!'],
     together: '👨‍👩‍👧 معًا', solo: '🙋 وحدي', games: [['flag', '#2e7d32', 'سباق المنطق', 'اللغز على الشاشة والإجابات على الهاتف. الإجابة الصحيحة = خطوة. من يصل أولًا يفوز.', '#/race/host', '#/race/bots'], ['rocket', '#e53935', 'Math Rocket', 'حساب فضائي في 60 ثانية.', '#/math/race', '#/math/rocket'], ['chess', '#37474f', 'الشطرنج', 'شطرنج ثلاثي الأبعاد: بطولة للصف أو مباراة مع صديق.', '#/chess/host', '#/chess'], ['gamepad', '#1e88e5', 'العبوا معًا', 'مسابقة بالنرويجية للعائلة أو الصف.', '#/game', '#/tests'], ['comic', '#8e24aa', 'غرفة الأفعال', 'الأفعال النرويجية في قصص وتمارين تفاعلية — غرفة خاصة للصف.', 'https://bilohash.com/comiks/room_1/', 'https://bilohash.com/comiks/room_1/']],
@@ -465,6 +575,7 @@
       fr_t: '👥 ترتيب الأصدقاء', fr_d: 'النجوم نفسها لكن بين الأصدقاء الذين أضفتهم فقط.', fr_none: 'أضف أصدقاء لترى من يتصدّر.', fr_wait: 'جارٍ الحساب…',
       me: 'هذا أنت', friends: '👥 كل اللاعبين' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TB, 'extras.js:TB');
   const ago = (ts, L) => {
     if (!ts) return '';
     const d = Math.floor((Date.now() / 1000 - ts) / 86400);
@@ -529,6 +640,7 @@
     no: { friend: 'Rett kameraet hit – så er vi venner', site: 'Rett kameraet hit – så åpnes den på mobilen' },
     ar: { friend: 'وجّه الكاميرا — ونصير أصدقاء', site: 'وجّه الكاميرا — يفتح على الهاتف' },
   };
+  if (window.KL_T_FILL) KL_T_FILL(QR_T, 'extras.js:QR_T');
   function friendsQr() {
     const K = C(), { h } = K;
     const box = h('div', { class: 'ph-qr' });
@@ -554,32 +666,35 @@
   function playHero() {
     const K = C(), { h } = K;
     const T = PH[K.ui] || PH.en || PH.uk;
+    const L = ({
+      uk: ['Створи героя', 'Як грати разом', 'Відкрити кімнату', 'Додати друзів'],
+      en: ['Create your hero', 'How to play together', 'Open a room', 'Add friends'],
+      no: ['Lag din helt', 'Slik spiller dere sammen', 'Åpne et rom', 'Legg til venner'],
+      ar: ['أنشئ بطلك', 'كيف تلعبون معًا', 'افتح غرفة', 'أضف أصدقاء'],
+      de: ['Erstelle deinen Helden', 'So spielt ihr zusammen', 'Raum öffnen', 'Freunde hinzufügen'],
+      pl: ['Stwórz bohatera', 'Jak grać razem', 'Otwórz pokój', 'Dodaj znajomych'],
+      tr: ['Kahramanını oluştur', 'Birlikte nasıl oynanır', 'Oda aç', 'Arkadaş ekle'],
+      lt: ['Sukurk savo veikėją', 'Kaip žaisti kartu', 'Atidaryti kambarį', 'Pridėti draugų']
+    })[K.ui] || ['Create your hero', 'How to play together', 'Open a room', 'Add friends'];
     const me = window.KomiksProfile ? window.KomiksProfile.avatar() : '🦊';
     const custom = K.store.get('avatar', null);
-    const ic = (n, c) => (window.KomiksIcons ? window.KomiksIcons.badge(n, c, 24) : null);
-    const row = h('div', { class: 'ph-fame-row' });
-    const fame = h('div', { class: 'ph-fame' }, h('h3', {}, T.fame), h('small', {}, T.fame_d), row);
-    fetch('api/players.php?sort=stars', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => {
-      const list = (j && j.ok && j.players) ? j.players.slice(0, 6) : [];
-      if (!list.length) { fame.remove(); return; }
-      row.replaceChildren(...list.map((p, i) => h('a', { class: 'ph-winner' + (i === 0 ? ' champ' : ''), href: '#/player/c/' + p.code, style: { '--i': i } },
-        h('span', { class: 'ph-plinth' }, AVX(p.avatar, { size: 78, mood: 'cheer', crown: i === 0 })),
-        h('b', {}, i === 0 ? T.champ : p.name),
-        h('small', {}, (i === 0 ? p.name + ' · ' : '') + '⭐ ' + p.stars))));
-    });
-    return h('section', { class: 'play-hero' },
-      h('div', { class: 'ph-left' },
-        h('span', { class: 'jr-kick' }, T.kick), h('h2', {}, T.title), h('p', {}, T.text),
-        h('ol', { class: 'ph-steps' }, T.steps.map(s => h('li', {}, s))),
-        h('div', { class: 'ph-games' }, T.games.map(([icon, col, name, desc, together, solo]) => h('div', { class: 'ph-game', style: { '--c': col } },
-          ic(icon, col), h('div', { class: 'ph-game-t' }, h('b', {}, name), h('small', {}, num(desc))),
-          h('div', { class: 'ph-game-a' }, h('a', { class: 'btn accent', href: together }, T.together), h('a', { class: 'btn', href: solo }, T.solo)))))),
-      h('div', { class: 'ph-right' },
-        h('div', { class: 'ph-spot' }, h('div', { class: 'ph-me' }, AVX(me, { size: 190, mood: 'cheer' })), h('span', { class: 'ph-floor' })),
-        h('a', { class: 'btn primary big', href: '#/avatar' }, custom ? T.edit : T.make),
-        h('a', { class: 'btn', href: '#/friends' }, { uk: '👥 Додати друзів', en: '👥 Add friends', no: '👥 Legg til venner', ar: '👥 أضف أصدقاء' }[K.ui] || '👥'),
-        friendsQr()),
-      );
+    const ic = (n, c) => window.KomiksIcons ? window.KomiksIcons.badge(n, c, 24) : null;
+    return h('section', { class: 'play-hero ph-compact ph-create' },
+      h('div', { class: 'ph-summary' },
+        h('div', { class: 'ph-left' }, h('h2', {}, L[0]),
+          h('a', { class: 'btn primary big ph-create-button', href: '#/avatar' }, custom ? T.edit : L[0])),
+        h('div', { class: 'ph-preview-avatar', 'aria-hidden': 'true' }, AVX(me, { size: 140, mood: 'cheer' }))),
+      h('details', { class: 'home-disclosure ph-details' }, h('summary', {}, L[1]),
+        h('div', { class: 'ph-content' },
+          h('div', { class: 'ph-left' },
+            h('ol', { class: 'ph-steps' }, T.steps.map(step => h('li', {}, step))),
+            h('a', { class: 'btn accent ph-open-room', href: '#/game' }, L[2]),
+            h('div', { class: 'ph-games' }, T.games.map(([icon, color, name, desc, together, solo]) =>
+              h('div', { class: 'ph-game', style: { '--c': color } }, ic(icon, color),
+                h('div', { class: 'ph-game-t' }, h('b', {}, name), h('small', {}, num(desc))),
+                h('div', { class: 'ph-game-a' }, h('a', { class: 'btn accent', href: together }, T.together), h('a', { class: 'btn', href: solo }, T.solo)))))),
+          h('div', { class: 'ph-right' },
+            h('a', { class: 'btn', href: '#/friends' }, L[3]), friendsQr()))));
   }
   // ілюстрація для журналу: телевізор із трасою й телефони гравців із нікнеймами
   const CREW = [['🦊|cap|round|scarf|orange', 'Nora_07'], ['🐼|phones|sun||', 'Ali.K'], ['🐸|party|nerd|bowtie|mint', 'SuperMamma'], ['🦁|crown|aviator|medal|gold', 'Pappa_P']];
@@ -594,13 +709,15 @@
 
   /* ---------------- карта сайту (#/sitemap) ---------------- */
   const SM = {
-    uk: { title: '🗺️ Карта сайту', comics: n => `📚 Комікси (${n})`, learn: '🎓 Навчання', games: '🎮 Ігри', me: '👤 Кабінет', level: l => `Рівень ${l}` },
-    en: { title: '🗺️ Site map', comics: n => `📚 Comics (${n})`, learn: '🎓 Learning', games: '🎮 Games', me: '👤 Account', level: l => `Level ${l}` },
-    no: { title: '🗺️ Nettstedskart', comics: n => `📚 Tegneserier (${n})`, learn: '🎓 Læring', games: '🎮 Spill', me: '👤 Min side', level: l => `Nivå ${l}` }
+    uk: { title: '🗺️ Карта сайту', comics: n => `📚 Комікси (${n})`, learn: '🎓 Навчання', games: '🎮 Ігри', me: '👤 Кабінет', level: l => `Рівень ${l}`, coding: '💻 Програмування', themes: n => `📝 Теми слів (${n})` },
+    en: { title: '🗺️ Site map', comics: n => `📚 Comics (${n})`, learn: '🎓 Learning', games: '🎮 Games', me: '👤 Account', level: l => `Level ${l}`, coding: '💻 Coding', themes: n => `📝 Word topics (${n})` },
+    no: { title: '🗺️ Nettstedskart', comics: n => `📚 Tegneserier (${n})`, learn: '🎓 Læring', games: '🎮 Spill', me: '👤 Min side', level: l => `Nivå ${l}`, coding: '💻 Programmering', themes: n => `📝 Ordtemaer (${n})` }
   };
-  SM.ar = { title: '🗺️ خريطة الموقع', comics: n => `📚 القصص (${n})`, learn: '🎓 التعلّم', games: '🎮 الألعاب', me: '👤 الحساب', level: l => `المستوى ${l}` };
+  if (window.KL_T_FILL) KL_T_FILL(SM, 'extras.js:SM');
+  SM.ar = { title: '🗺️ خريطة الموقع', comics: n => `📚 القصص (${n})`, learn: '🎓 التعلّم', games: '🎮 الألعاب', me: '👤 الحساب', level: l => `المستوى ${l}`, coding: '💻 البرمجة', themes: n => `📝 مواضيع الكلمات (${n})` };
   function renderSitemap() {
-    const K = C(), { h } = K, T = SM[K.ui] || SM.en || SM.uk;
+    // нові ключі можуть ще бракувати в мовних пакетах — тоді англійською
+    const K = C(), { h } = K, T = Object.assign({}, SM.en, SM[K.ui] || {});
     const nav = k => K.navT(k);
     const titleOf = c => {
       if (K.ui === 'no') return c.title;
@@ -615,9 +732,28 @@
     const links = list => h('ul', { class: 'sm-list' }, list.map(([href, label]) => h('li', {}, h('a', { href }, label))));
     return h('section', { class: 'sitemap' }, K.pageHead(T.title),
       h('div', { class: 'sm-cols' },
-        h('div', { class: 'sm-box' }, h('h3', {}, T.learn), links([['#/today', nav('today')], ['#/', nav('comics')], ['#/words', nav('words')], ['#/grammar', nav('grammar')], ['#/english', nav('english')], ['#/math', nav('math')], ['#/alphabet', nav('alphabet')], ['#/numbers', nav('numbers')], ['#/cards', nav('cards')], ['#/pairs', mod('KomiksPairs', '🧠')], ['#/cross', mod('KomiksCross', '🧩')], ['#/write', mod('KomiksWrite', '✍️')], ['#/exam', mod('KomiksExam', '🏁')], ['#/placement', mod('KomiksPlacement', '🎯')], ['#/plan', nav('plan')], ['#/tests', nav('tests')]])),
-        h('div', { class: 'sm-box' }, h('h3', {}, T.games), links([['#/race', '🏁 ' + nav('race')], ['#/race/host', '📺 ' + nav('race') + ' · QR'], ['#/math/rocket', '🚀 Math Rocket'], ['#/math/race', '👥 Math Rocket · QR'], ['#/game', nav('game')], ['#/chess', '♟ ' + nav('chess')], ['#/rating', nav('rating')]])),
+        h('div', { class: 'sm-box' }, h('h3', {}, T.learn), links([['#/today', nav('today')], ['#/', nav('comics')], ['#/words', nav('words')], ['#/grammar', nav('grammar')], ['#/english', nav('english')], ['#/math', nav('math')], ...(window.KomiksKoding ? [['#/koding', '💻 ' + window.KomiksKoding.text('nav')]] : []), ['#/alphabet', nav('alphabet')], ['#/numbers', nav('numbers')], ['#/cards', nav('cards')], ['#/pairs', mod('KomiksPairs', '🧠')], ['#/cross', mod('KomiksCross', '🧩')], ['#/write', mod('KomiksWrite', '✍️')], ['#/exam', mod('KomiksExam', '🏁')], ['#/placement', mod('KomiksPlacement', '🎯')], ['#/plan', nav('plan')], ['#/tests', nav('tests')]])),
+        h('div', { class: 'sm-box' }, h('h3', {}, T.games), links([...(K.NO_EXTERNAL || !window.KomiksGames ? [] : [['#/games', window.KomiksGames.text('nav')]]), ['#/race', '🏁 ' + nav('race')], ['#/race/host', '📺 ' + nav('race') + ' · QR'], ['#/math/rocket', '🚀 Math Rocket'], ['#/math/race', '👥 Math Rocket · QR'], ['#/game', nav('game')], ['#/chess', '♟ ' + nav('chess')], ['#/rating', nav('rating')]])),
         h('div', { class: 'sm-box' }, h('h3', {}, T.me), links([['#/account', nav('account') || '👤'], ['#/player', '👤'], ['#/avatar', '🎨 Avatar'], ['#/friends', nav('friends') || '👥'], ['#/players', '🔎'], ['#/alerts', mod('KomiksAlerts', '🔔')], ['#/messages', '✉️'], ['#/call', '📞'], ['#/privacy', '🔒'], ['#/install', '📲'], ['#/teacher', '🎓'], ['#/help', nav('help') || '❓'], ['#/whatsnew', '✨'], ['#/terms', nav('terms') || '📄']]))),
+      window.KomiksKoding ? [h('h2', { class: 'sec-title' }, T.coding),
+        h('div', { class: 'sm-cols' },
+          h('div', { class: 'sm-box' }, h('h3', {}, '🧩 ' + (window.KomiksKoding.text('tests_t') || 'Tests')), links([['#/koding', T.coding], ...['', 'robot', 'code', 'html', 'algo', 'bug', 'lang'].map(k => ['#/quiz/koding' + (k ? '/' + k : ''), window.KomiksKoding.text('t_' + (k || 'mix'))])])),
+          h('div', { class: 'sm-box' }, h('h3', {}, '📚 ' + (window.KomiksKoding.text('comics_t') || 'Comics')), links(K.COMICS.filter(c => c.category === 'koding').map(c => [`#/read/${c.id}`, titleOf(c)]))))] : null,
+      window.KomiksEnglish ? [h('h2', { class: 'sec-title' }, '🇬🇧 ' + nav('english')),
+        h('div', { class: 'sm-cols' },
+          h('div', { class: 'sm-box' }, h('h3', {}, T.learn), links([
+            ['#/english', nav('english')], ['#/english/alphabet', '🔤 ' + nav('alphabet')],
+            ['#/english/plan', '🗺️ ' + nav('plan')], ['#/english/words', '📝 ' + nav('words')],
+            ['#/quiz/en-alphabet', '🧩 ' + nav('tests')]
+          ])),
+          ...levels.map(l => [l, window.KomiksEnglish.comics().filter(c => c.level === l)]).filter(([, list]) => list.length).map(([l, list]) =>
+            h('div', { class: 'sm-box' }, h('h3', {}, T.level(l)), links(list.map(c => [`#/english/${c.id}/0`, c.title])))))] : null,
+      window.KomiksGrammar ? [h('h2', { class: 'sec-title' }, '📐 ' + nav('grammar')),
+        h('div', { class: 'sm-cols' }, levels.map(l => [l, window.KomiksGrammar.topics().filter(topic => topic.level === l)]).filter(([, list]) => list.length).map(([l, list]) =>
+          h('div', { class: 'sm-box' }, h('h3', {}, T.level(l)), links(list.map(topic => [`#/grammar/${topic.id}`, topic.icon + ' ' + window.KomiksGrammar.label(topic.id)])))))] : null,
+      window.KomiksWords ? [h('h2', { class: 'sec-title' }, T.themes(window.KomiksWords.themes().length)),
+        h('div', { class: 'sm-cols' }, levels.map(l => [l, window.KomiksWords.themes().filter(th => th.level === l)]).filter(([, list]) => list.length).map(([l, list]) =>
+          h('div', { class: 'sm-box' }, h('h3', {}, T.level(l)), links(list.map(th => [`#/words/${th.id}`, th.icon + ' ' + window.KomiksWords.name(th)])))))] : null,
       h('h2', { class: 'sec-title' }, T.comics(K.COMICS.length)),
       h('div', { class: 'sm-cols' }, groups.map(([l, list]) => h('div', { class: 'sm-box' }, h('h3', {}, T.level(l)), links(list.map(c => [`#/read/${c.id}`, titleOf(c)]))))));
   }
@@ -629,17 +765,41 @@
   function journal() {
     const K = C(), { h } = K;
     const T = JX[K.ui] || JX.en || JX.uk;
-    const d = new Date().toLocaleDateString(K.ui === 'uk' ? 'uk-UA' : K.ui === 'no' ? 'nb-NO' : K.ui === 'ar' ? 'ar' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-    const [kick, title, text, href, extra] = T.lead;
-    return h('section', { class: 'journal' },
-      h('header', { class: 'jr-mast' }, h('b', { class: 'jr-name' }, '📰 ' + T.masthead), h('span', { class: 'jr-issue' }, T.issue(d)), h('span', { class: 'jr-tag' }, T.tag)),
-      h('div', { class: 'jr-body' },
-        h('article', { class: 'jr-lead' },
-          h('span', { class: 'jr-kick' }, kick), h('h2', {}, title), h('p', {}, text),
-          leadArt(),
-          h('div', { class: 'row-left' }, h('a', { class: 'btn accent big', href }, T.try), h('a', { class: 'btn', href }, extra))),
-        h('div', { class: 'jr-cards' }, T.cards.map(([k, t, p, hr]) => h('a', { class: 'jr-card', href: hr }, h('span', { class: 'jr-kick' }, k), h('b', {}, t), h('span', { class: 'jr-text' }, num(p)), h('span', { class: 'jr-try' }, T.try))))));
+    const L = ({
+      uk: ['Попередні матеріали', 'Наступні матеріали', 'Карусель матеріалів', 'НОВІ ЛОГІЧНІ ІГРИ', 'Детектив пам’яті', 'Запам’ятай предмети та знайди, що зникло. Твій герой змагається з ботами або класом.', 'Лабораторія закономірностей', 'Знайди правило й продовж ряд. Уважність і логіка допоможуть твоєму герою перемогти.', 'Розвідник уваги', 'Шукай зміни та потрібні предмети. Грай сам або відкрий кімнату для друзів.'],
+      no: ['Forrige artikler', 'Neste artikler', 'Artikkelkarusell', 'NYE LOGIKKSPILL', 'Hukommelsesdetektiv', 'Husk tingene og finn det som forsvant. Spill med figuren din mot roboter eller klassen.', 'Mønsterlaboratoriet', 'Finn regelen og fortsett rekken. Bruk logikk og hjelp figuren din framover.', 'Oppmerksomhetsspeider', 'Finn endringer og tell riktige ting. Spill alene eller åpne et rom for venner.'],
+      en: ['Previous articles', 'Next articles', 'Article carousel', 'NEW LOGIC GAMES', 'Memory Detective', 'Remember the objects and find what disappeared. Race with your avatar against bots or your class.', 'Pattern Lab', 'Find the rule and continue the sequence. Help your hero advance with logic and attention.', 'Attention Scout', 'Spot changes and find the right objects. Play solo or open a room for friends.']
+    })[K.ui] || ['Previous articles', 'Next articles', 'Article carousel', 'NEW LOGIC GAMES', 'Memory Detective', 'Remember the objects and find what disappeared. Play with bots or your class.', 'Pattern Lab', 'Find the rule and continue the sequence.', 'Attention Scout', 'Spot changes and find the right objects. Play solo or with friends.'];
+    const lead = T.lead;
+    const cards = [
+      [L[3], window.KomiksLogic ? window.KomiksLogic.info('memory')[1] : L[4], L[5], '#/race/memory', '🦊|cap|round|scarf|orange'],
+      [L[3], window.KomiksLogic ? window.KomiksLogic.info('patterns')[1] : L[6], L[7], '#/race/patterns', '🐼|phones|sun||'],
+      [L[3], window.KomiksLogic ? window.KomiksLogic.info('attention')[1] : L[8], L[9], '#/race/attention', '🐸|party|nerd|bowtie|mint'],
+      [lead[0], lead[1], lead[2], lead[3], '🦁|crown|aviator|medal|gold'],
+      ...T.cards.map(card => [...card, null])
+    ];
+    const track = h('div', { class: 'jr-carousel-track', id: 'journal-carousel-track', tabindex: 0, 'aria-label': L[2] },
+      cards.map(([kick, title, text, href, avatar], i) => h('article', { class: 'jr-carousel-card', 'aria-label': (i + 1) + ' / ' + cards.length },
+        h('div', { class: 'jr-carousel-art', 'aria-hidden': 'true' }, avatar ? AVX(avatar, { size: 110, mood: 'cheer' }) : h('span', {}, String(kick).split(' ')[0])),
+        h('span', { class: 'jr-kick' }, kick), h('h3', {}, title), h('p', {}, num(text)),
+        h('a', { class: 'jr-try', href }, T.try))));
+    const move = direction => {
+      const rtl = getComputedStyle(track).direction === 'rtl' ? -1 : 1;
+      const card = track.firstElementChild;
+      const step = card ? card.getBoundingClientRect().width + 16 : track.clientWidth;
+      track.scrollBy({ left: direction * rtl * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    };
+    track.addEventListener('keydown', event => {
+      if (event.target !== track || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+    });
+    return h('section', { class: 'journal jr-carousel', 'aria-labelledby': 'journal-carousel-title' },
+      h('header', { class: 'jr-mast' },
+        h('div', {}, h('h2', { class: 'jr-name', id: 'journal-carousel-title' }, T.masthead), h('p', { class: 'jr-tag' }, T.tag)),
+        h('div', { class: 'jr-carousel-controls' },
+          h('button', { class: 'btn jr-prev', type: 'button', 'aria-label': L[0], 'aria-controls': 'journal-carousel-track', onclick: () => move(-1) }, '‹'),
+          h('button', { class: 'btn jr-next', type: 'button', 'aria-label': L[1], 'aria-controls': 'journal-carousel-track', onclick: () => move(1) }, '›'))), track);
   }
 
-  window.KomiksExtras = { renderRating, topBoard, friendsRank, renderHelp, qrPromo, saveGame, journal, playHero, renderSitemap, shareButton, text: ex };
+  window.KomiksExtras = { renderRating, topBoard, friendsRank, renderHelp, qrPromo, storeBadges, shareResult, saveGame, journal, playHero, renderSitemap, shareButton, text: ex };
 })();

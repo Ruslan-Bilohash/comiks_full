@@ -43,3 +43,5 @@ gpt/
 
 # Зібрані інсталятори — генеруються з installer/komikslab.iss
 installer/out/
+icon-prompts.txt
+chatgpt-prompt.txt

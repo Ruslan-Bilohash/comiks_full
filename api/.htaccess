@@ -1,6 +1,6 @@
 # Комікс·Lab API: службові файли недоступні напряму
 Options -Indexes
-<FilesMatch "^(lib|config|config\.sample|admin_ui)\.php$">
+<FilesMatch "^(lib|config|config\.local|config\.sample|admin_ui|diag|integrity)\.php$">
   Require all denied
 </FilesMatch>
 <IfModule mod_rewrite.c>

@@ -32,6 +32,7 @@
       file: '📎 أضف صورة أو ملفًا', file_d: 'لقطة شاشة أو رسم أو PDF أو نص — تُضغط الصور تلقائيًا. يمكن إرسال المواد والأفكار كملف أيضًا.', drop: 'أفلِت الملف هنا', rm: '✕ إزالة', big: 'الملف كبير جدًا — 4 ميجابايت كحد أقصى.', kind_err: 'يُسمح بالصور وPDF والملفات النصية فقط.', from_page: p => `الصفحة: ${p}`, draft: '📝 تم حفظ المسودة', intro_t: '💌 اكتب لي من هنا', intro_d: 'وجدت خطأ أو تريد تعديلًا أو موضوعًا جديدًا؟ زر «💌 ملاحظات» في أسفل الصفحة بجانب رمز QR. المعلّمون — أخبروني بما يحتاجه الصف.', intro_ok: 'فهمت',
       err: { short: 'اكتب بضع كلمات على الأقل (10 أحرف).', captcha: 'الإجابة غير صحيحة. حاول مرة أخرى.', slow_down: 'رسائل كثيرة. حاول بعد ساعة.', email: 'تحقّق من البريد الإلكتروني.', banned: 'الإرسال محظور مؤقتًا.', file: 'رُفض الملف: صور أو PDF أو نص فقط.', too_big: 'الملف كبير على الخادم. أرسل ملفًا أصغر أو بدون ملف.', server: 'تعذّر على الخادم معالجة الطلب. حاول مجددًا أو بدون ملف.', net: 'لا اتصال بالخادم.' } }
   };
+  if (window.KL_T_FILL) KL_T_FILL(T, 'feedback.js:T');
   const tx = () => T[(C() || {}).ui] || T.en;
 
   /* 📷 Фото з телефона важать по 3–8 МБ, а сервер приймає значно менше, тому зменшуємо картинку
@@ -163,6 +164,70 @@
     drawFile(); drawCap(); loadCap();
   }
 
+  /* 🤖 Запит доступу до Android-тесту. Використовує той самий серверний
+     CAPTCHA та rate limit, що й звичайний відгук, але email тут обов'язковий.
+     Після успішного запису посилання відкривається користувачу, а заявка
+     з'являється в окремій категорії адмінки. */
+  const ANDROID_T = {
+    uk: { title: '🤖 Тестування Android-застосунку', lead: 'Введіть email і пройдіть коротку перевірку від спаму. Ми збережемо заявку для тестування, після чого ви зможете відкрити посилання.', email: 'Ваш email (наприклад, name@gmail.com)', consent: 'Email використовується лише для доступу до тесту та відповіді на цю заявку.', send: 'Отримати посилання', open: 'Відкрити посилання для тесту', close: 'Закрити', cap: 'Перевірка від спаму', ok: '✅ Заявку прийнято. Тепер можна відкрити посилання.', emailErr: 'Введіть правильну адресу email.', captcha: 'Виберіть правильну відповідь.', net: 'Не вдалося надіслати заявку. Спробуйте ще раз.' },
+    en: { title: '🤖 Test the Android app', lead: 'Enter your email and complete the short anti-spam check. We will save your testing request, then you can open the link.', email: 'Your email (for example, name@gmail.com)', consent: 'Your email is used only for test access and replying to this request.', send: 'Get the test link', open: 'Open the testing link', close: 'Close', cap: 'Anti-spam check', ok: '✅ Request received. You can now open the link.', emailErr: 'Enter a valid email address.', captcha: 'Choose the correct answer.', net: 'The request could not be sent. Please try again.' },
+    no: { title: '🤖 Test Android-appen', lead: 'Skriv inn e-postadressen din og fullfør den korte spamkontrollen. Vi lagrer testforespørselen før lenken åpnes.', email: 'E-post (for eksempel name@gmail.com)', consent: 'E-posten brukes bare til testtilgang og svar på denne forespørselen.', send: 'Få testlenken', open: 'Åpne testlenken', close: 'Lukk', cap: 'Spamkontroll', ok: '✅ Forespørselen er mottatt. Nå kan du åpne lenken.', emailErr: 'Skriv inn en gyldig e-postadresse.', captcha: 'Velg riktig svar.', net: 'Forespørselen kunne ikke sendes. Prøv igjen.' },
+    ar: { title: '🤖 اختبار تطبيق أندرويد', lead: 'أدخل بريدك الإلكتروني وأكمل فحص منع الرسائل المزعجة. سنحفظ طلب الاختبار ثم يمكنك فتح الرابط.', email: 'البريد الإلكتروني', consent: 'يُستخدم البريد فقط للوصول إلى الاختبار والرد على هذا الطلب.', send: 'الحصول على رابط الاختبار', open: 'فتح رابط الاختبار', close: 'إغلاق', cap: 'فحص منع الرسائل المزعجة', ok: '✅ تم استلام الطلب. يمكنك الآن فتح الرابط.', emailErr: 'أدخل بريدًا إلكترونيًا صحيحًا.', captcha: 'اختر الإجابة الصحيحة.', net: 'تعذر إرسال الطلب. حاول مرة أخرى.' }
+  };
+  function openAndroid(url, source = 'google-play', downloadName = '') {
+    const K = C(); if (!K) return;
+    const { h } = K, L = ANDROID_T[K.ui] || ANDROID_T.en;
+    let cap = null, busy = false;
+    const savedEmail = (window.KomiksAuth && window.KomiksAuth.user && window.KomiksAuth.user.email) || '';
+    const email = h('input', { type: 'email', required: true, autocomplete: 'email', inputmode: 'email', placeholder: L.email, value: savedEmail });
+    const trap = h('input', { type: 'text', name: 'website', tabindex: '-1', autocomplete: 'off', 'aria-hidden': 'true', class: 'fb-trap' });
+    const capBox = h('div', { class: 'fb-cap', 'aria-label': L.cap });
+    const msg = h('p', { class: 'fb-msg', role: 'status', 'aria-live': 'polite' });
+    const sendBtn = h('button', { class: 'btn accent', type: 'submit' }, L.send);
+    function drawCap() {
+      capBox.replaceChildren();
+      if (!cap) { capBox.append(h('span', { class: 'fb-caploading' }, '…')); return; }
+      const P = window.KomiksPlayers;
+      if (P && P.captchaView) { capBox.append(P.captchaView(cap, v => { cap.pick = v; drawCap(); }, L.cap)); return; }
+      capBox.append(h('b', {}, `${cap.q.a} ${cap.q.op} ${cap.q.b} = ?`),
+        h('div', { class: 'fb-opts' }, cap.opts.map(v => h('button', { type: 'button', class: 'fb-opt' + (cap.pick === v ? ' on' : ''), onclick: () => { cap.pick = v; drawCap(); } }, String(v)))));
+    }
+    const loadCap = () => fetch(API + '?captcha=1', { cache: 'no-store', credentials: 'same-origin' }).then(r => r.json()).then(j => {
+      cap = j && j.ok ? j : null; drawCap();
+    }).catch(() => { cap = null; msg.textContent = L.net; drawCap(); });
+    function close() { back.remove(); document.removeEventListener('keydown', esc); }
+    function esc(e) { if (e.key === 'Escape') close(); }
+    async function send(e) {
+      e.preventDefault();
+      if (busy) return;
+      if (!email.validity.valid || !email.value.trim()) { msg.textContent = L.emailErr; email.focus(); return; }
+      if (!cap || cap.pick == null) { msg.textContent = L.captcha; return; }
+      busy = true; sendBtn.disabled = true; msg.textContent = '';
+      try {
+        const r = await fetch(API, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Komiks': '1' }, body: JSON.stringify({
+          action: 'send', kind: 'android', text: `Android пристрій хоче посилання для тесту. Джерело: ${source}.`, email: email.value.trim(), website: trap.value,
+          page: location.hash || '#/install', lang: K.ui, token: cap.token, answer: cap.pick
+        }) }).then(x => x.json());
+        if (!r || !r.ok) {
+          msg.textContent = r && r.error === 'email' ? L.emailErr : r && r.error === 'captcha' ? L.captcha : L.net;
+          if (r && r.error === 'captcha') { cap = null; drawCap(); loadCap(); }
+          return;
+        }
+        if (K.Sfx && K.Sfx.good) K.Sfx.good();
+        const linkAttrs = { class: 'btn accent big', href: url };
+        if (/^https?:/i.test(url)) { linkAttrs.target = '_blank'; linkAttrs.rel = 'noopener noreferrer'; }
+        if (downloadName) linkAttrs.download = downloadName;
+        box.replaceChildren(h('h2', {}, L.title), h('p', { class: 'fb-ok' }, L.ok), h('a', linkAttrs, L.open), h('button', { class: 'btn', type: 'button', onclick: close }, L.close));
+      } catch { msg.textContent = L.net; }
+      finally { busy = false; sendBtn.disabled = false; }
+    }
+    const box = h('form', { class: 'fb-box android-test-box', onsubmit: send },
+      h('h2', {}, L.title), h('p', { class: 'fb-lead' }, L.lead), email, h('small', { class: 'hint' }, L.consent), trap, capBox, msg,
+      h('div', { class: 'fb-row' }, sendBtn, h('button', { class: 'btn', type: 'button', onclick: close }, L.close)));
+    const back = h('div', { class: 'fb-back', onclick: e => { if (e.target === back) close(); } }, box);
+    document.addEventListener('keydown', esc); document.body.append(back); email.focus(); drawCap(); loadCap();
+  }
+
   function updateBadge() {
     const d = readDraft();
     const has = !!(d && (d.text || d.file));
@@ -195,5 +260,5 @@
     setTimeout(() => { if (document.body.contains(card)) close(); }, 25000);
   }
   setTimeout(intro, 25000);
-  window.KomiksFeedback = { open, button, updateBadge };
+  window.KomiksFeedback = { open, openAndroid, androidRequest: openAndroid, button, updateBadge };
 })();

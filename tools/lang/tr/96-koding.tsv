@@ -1,0 +1,230 @@
+What is coding?	Kodlama nedir?
+The school has a robot called Robo. He only follows exact commands, and the children learn that a program is commands in the right order.	Okulda Robo adında bir robot var. Yalnızca tam komutları uygular ve çocuklar programın doğru sırada verilen komutlar olduğunu öğrenir.
+Look, Nora! The school has got a robot.	Bak Nora! Okula bir robot gelmiş.
+Hi, robot! What is your name?	Merhaba robot! Adın ne?
+Hi! My name is Robo. I do what you tell me.	Merhaba! Benim adım Robo. Bana ne söylerseniz onu yaparım.
+Robo only understands commands. We call that programming.	Robo yalnızca komutları anlar. Buna programlama diyoruz.
+What is a command?	Komut nedir?
+A command is a short instruction, for example “walk” or “turn”.	Komut kısa bir talimattır, örneğin “yürü” ya da “dön”.
+Robo, take two steps forward!	Robo, iki adım ileri git!
+Walking. One, two. Done!	Yürüyorum. Bir, iki. Bitti!
+Robo, make me a pizza!	Robo, bana pizza yap!
+Error! I do not know the command “pizza”.	Hata! “Pizza” komutunu bilmiyorum.
+A program is many commands in the right order.	Program, doğru sırada birçok komuttur.
+So we have to think step by step!	Yani adım adım düşünmeliyiz!
+I want to learn to code!	Kodlamayı öğrenmek istiyorum!
+And I want to learn to make pizza.	Ben de pizza yapmayı öğrenmek istiyorum.
+a robot	robot
+programming, coding	programlama, kodlama
+to code	kodlamak
+a command	komut
+a program	program
+a message, an instruction	mesaj, talimat
+to understand	anlamak
+forward	ileri
+to turn	dönmek
+done, finished	bitti, tamam
+error; wrong	hata; yanlış
+to know	bilmek
+an order, a sequence	sıra
+right, correct	doğru
+step by step	adım adım
+The sandwich algorithm	Sandviç algoritması
+Leo teaches Robo the robot to make a sandwich. Robo does everything literally, so Leo learns that an algorithm must be exact and in the right order.	Leo, robot Robo’ya sandviç yapmayı öğretir. Robo her şeyi kelimesi kelimesine yapar; Leo da algoritmanın kesin ve doğru sırada olması gerektiğini öğrenir.
+Dad, I am going to teach Robo to make a sandwich.	Baba, Robo’ya sandviç yapmayı öğreteceğim.
+Then you need an algorithm.	O zaman bir algoritmaya ihtiyacın var.
+What is an algorithm?	Algoritma nedir?
+An algorithm is like a recipe: step by step, in the right order.	Algoritma bir tarif gibidir: adım adım, doğru sırada.
+Step one: Take the bread. Step two: Put on butter.	Birinci adım: Ekmeği al. İkinci adım: Tereyağı sür.
+Butter on … the table? Done!	Tereyağı … masaya mı? Tamam!
+Ha ha! You have to say exactly what Robo should do.	Ha ha! Robo’nun ne yapacağını tam olarak söylemelisin.
+New step two: Put butter on the slice of bread!	Yeni ikinci adım: Ekmek dilimine tereyağı sür!
+Step three: Put on cheese. Step four: Give the sandwich to Leo.	Üçüncü adım: Peynir koy. Dördüncü adım: Sandviçi Leo’ya ver.
+Done! Here you are.	Tamam! Buyurun.
+Mmm! The algorithm works!	Mmm! Algoritma çalışıyor!
+And remember: the order is important. First butter, then cheese.	Unutma: sıra önemlidir. Önce tereyağı, sonra peynir.
+an algorithm	algoritma
+a slice of bread, a sandwich	bir dilim ekmek, sandviç
+a cheese	peynir
+to put on	üstüne koymak
+done, carried out	yapıldı, tamamlandı
+important	önemli
+then	sonra
+Repeat! Robo dances	Tekrarla! Robo dans ediyor
+Nora wants Robo to dance, but there are too many commands. The teacher shows a loop: “repeat 4 times” — and the program becomes short.	Nora, Robo’nun dans etmesini istiyor ama çok fazla komut var. Öğretmen bir döngü gösteriyor: “4 kez tekrarla” — ve program kısalıyor.
+Robo, jump! Clap! Jump! Clap! Jump! Clap!	Robo, zıpla! Alkışla! Zıpla! Alkışla! Zıpla! Alkışla!
+Jump. Clap. Jump. Clap …	Zıpla. Alkışla. Zıpla. Alkışla …
+Phew, that is a lot to write.	Of, yazacak çok şey var.
+Use a loop! A loop repeats commands.	Döngü kullan! Döngü komutları tekrarlar.
+Write: repeat four times: jump and clap.	Yaz: dört kez tekrarla: zıpla ve alkışla.
+So short!	Ne kadar kısa!
+Jump, clap! Jump, clap! Jump, clap! Jump, clap!	Zıpla, alkışla! Zıpla, alkışla! Zıpla, alkışla! Zıpla, alkışla!
+Robo is dancing!	Robo dans ediyor!
+Can we repeat it a hundred times?	Yüz kez tekrarlayabilir miyiz?
+Yes. Computers never get tired.	Evet. Bilgisayarlar asla yorulmaz.
+But Robo is getting dizzy …	Ama Robo’nun başı dönüyor …
+Ha ha! We are stopping the loop now.	Ha ha! Şimdi döngüyü durduruyoruz.
+a loop	döngü
+to jump	zıplamak
+to clap	alkışlamak
+a lot	çok
+to use	kullanmak
+four times	dört kez
+a hundred	yüz
+to stop	durdurmak
+If it rains …	Eğer yağmur yağarsa …
+Robo does not know when to take an umbrella. Leo and Mum write him a rule: if it rains — an umbrella, otherwise — sunglasses.	Robo ne zaman şemsiye alacağını bilmiyor. Leo ve annesi ona bir kural yazar: yağmur yağarsa şemsiye, yoksa güneş gözlüğü.
+Robo, we are going out. Bring an umbrella.	Robo, dışarı çıkıyoruz. Şemsiye al.
+Why? The sun is shining.	Neden? Güneş parlıyor.
+You are right, Robo. We need a rule.	Haklısın Robo. Bir kurala ihtiyacımız var.
+If it rains, we take an umbrella.	Yağmur yağarsa şemsiye alırız.
+If it rains, then we take an umbrella. Otherwise we take sunglasses.	Yağmur yağarsa şemsiye alırız. Yoksa güneş gözlüğü alırız.
+If … then … otherwise. Understood!	Eğer … ise … değilse. Anlaşıldı!
+It is raining. I am taking the umbrella.	Yağmur yağıyor. Şemsiyeyi alıyorum.
+Good, Robo!	Aferin Robo!
+Now the sun is shining. I am taking sunglasses.	Şimdi güneş parlıyor. Güneş gözlüğü alıyorum.
+Robo thinks like a computer.	Robo bir bilgisayar gibi düşünüyor.
+If I tidy my room, then I get ice cream?	Odamı toplarsam dondurma alır mıyım?
+Yes! That is a good rule.	Evet! Bu iyi bir kural.
+otherwise, else	aksi halde, değilse
+an umbrella	şemsiye
+sunglasses	güneş gözlüğü
+the sun is shining	güneş parlıyor
+to go out	dışarı çıkmak
+to bring	yanına almak
+to be right	haklı olmak
+understood	anlaşıldı
+to think	düşünmek
+Points in the box	Kutudaki puanlar
+Nora and Leo make a game: a cat catches fish and gets points. The teacher explains a variable — a box with a name where the computer keeps a number.	Nora ve Leo bir oyun yapıyor: bir kedi balık yakalayıp puan kazanıyor. Öğretmen değişkeni anlatıyor — bilgisayarın bir sayıyı sakladığı, adı olan bir kutu.
+We are making a game! Every time the cat catches a fish, we get a point.	Bir oyun yapıyoruz! Kedi her balık yakaladığında bir puan alıyoruz.
+But where will the computer remember the points?	Ama bilgisayar puanları nerede hatırlayacak?
+In a variable. A variable is like a box with a name.	Bir değişkende. Değişken, adı olan bir kutu gibidir.
+The box is called “points”. Right now there is zero in the box.	Kutunun adı “puan”. Şu anda kutuda sıfır var.
+The cat catches a fish!	Kedi bir balık yakaladı!
+Then we write: points equals points plus one.	O zaman şunu yazarız: puan eşittir puan artı bir.
+Points is one. Points is two. Points is three!	Puan bir. Puan iki. Puan üç!
+The value in the box changes!	Kutudaki değer değişiyor!
+Can we have more boxes?	Daha fazla kutumuz olabilir mi?
+Yes. Name, lives and speed … A game has many variables.	Evet. Ad, can ve hız … Bir oyunda birçok değişken vardır.
+We have ten points! We won!	On puanımız var! Kazandık!
+The variable “joy” is now a hundred.	“Neşe” değişkeni şimdi yüz.
+a point	puan
+a variable	değişken
+a box	kutu
+a name	ad, isim
+a value	değer
+to catch	yakalamak
+every time	her seferinde
+zero	sıfır
+a life	can, hayat
+a speed	hız
+to win	kazanmak
+a joy	neşe
+to keep, to take care of	saklamak, bakmak
+Find the bug!	Hatayı bul!
+Robo has to reach the star but walks into a wall. The children read the program line by line, find the bug and fix it.	Robo yıldıza ulaşmalı ama duvara çarpıyor. Çocuklar programı satır satır okuyor, hatayı bulup düzeltiyor.
+Robo has to walk to the star. I have written the program.	Robo yıldıza yürümeli. Programı yazdım.
+I am starting the program now.	Programı şimdi başlatıyorum.
+Ouch! I walked straight into the wall.	Ay! Doğruca duvara yürüdüm.
+Oops! The program has a bug.	Hay aksi! Programda bir hata var.
+We call an error in a program a bug.	Programdaki hataya bug deriz.
+Finding and fixing the error is called debugging.	Hatayı bulup düzeltmeye hata ayıklama denir.
+We read the program line by line: forward, forward, right …	Programı satır satır okuyoruz: ileri, ileri, sağ …
+There! It should say left, not right.	İşte! Orada sağ değil, sol yazmalı.
+Now I will fix the bug and try again.	Şimdi hatayı düzeltip tekrar deneyeceğim.
+I am at the star! The program works.	Yıldızın yanındayım! Program çalışıyor.
+All programmers make mistakes. The important thing is to try again.	Bütün programcılar hata yapar. Önemli olan yeniden denemektir.
+Mistakes are part of learning!	Hatalar öğrenmenin bir parçasıdır!
+to start	başlatmak
+straight into	doğruca içine
+a mistake, an error	hata
+a bug	bug, program hatası
+debugging	hata ayıklama
+to fix, to correct	düzeltmek
+right	sağ
+to try again	yeniden denemek
+learning	öğrenme
+a part of	bir parçası
+Which language?	Hangi dil?
+Leo asks Robo which language he speaks. The teacher explains programming languages: Scratch, Python, JavaScript, HTML and CSS, Swift, Kotlin and C#.	Leo, Robo’ya hangi dili konuştuğunu soruyor. Öğretmen programlama dillerini anlatıyor: Scratch, Python, JavaScript, HTML ve CSS, Swift, Kotlin ve C#.
+Robo, which language do you speak? Norwegian?	Robo, hangi dili konuşuyorsun? Norveççe mi?
+I understand programming languages. There are many!	Programlama dillerini anlıyorum. Çok sayıda var!
+Children often start with Scratch. There we move colourful blocks.	Çocuklar genellikle Scratch ile başlar. Orada renkli blokları taşırız.
+It looks like Lego!	Lego’ya benziyor!
+Python is easy to read. It is used for games, data and artificial intelligence.	Python’u okumak kolaydır. Oyunlar, veri ve yapay zekâ için kullanılır.
+Artificial intelligence? Like Robo?	Yapay zekâ mı? Robo gibi mi?
+HTML builds web pages, and CSS makes them pretty. JavaScript makes them move.	HTML web sayfalarını kurar, CSS onları güzelleştirir. JavaScript ise hareket ettirir.
+So the school website is made with them?	Yani okulun web sitesi bunlarla mı yapıldı?
+We make iPhone apps with Swift, and Android apps with Kotlin.	iPhone uygulamalarını Swift ile, Android uygulamalarını Kotlin ile yaparız.
+And games?	Ya oyunlar?
+Many games are made with C#.	Birçok oyun C# ile yapılır.
+Which language should I learn first?	Önce hangi dili öğrenmeliyim?
+Start with Scratch or Python. The most important thing is to think logically.	Scratch ya da Python ile başla. En önemlisi mantıklı düşünmektir.
+a programming language	programlama dili
+to exist	var olmak
+colourful	renkli
+a block	blok
+simple, easy	basit, kolay
+artificial intelligence	yapay zekâ
+data	veri
+a web page, a website	web sayfası, web sitesi
+logically	mantıklı bir şekilde
+the most important thing	en önemli şey
+A model of the school	Okulun modeli
+The class makes a model of the schoolyard. The children learn that a model is a simple copy, that things in a program have properties, and that you draw the plan before the code.	Sınıf, okul bahçesinin bir modelini yapıyor. Çocuklar modelin basit bir kopya olduğunu, programdaki nesnelerin özellikleri olduğunu ve planın koddan önce çizildiğini öğreniyor.
+Today we are making a model of the schoolyard.	Bugün okul bahçesinin bir modelini yapıyoruz.
+What is a model?	Model nedir?
+A model is a simple copy of something real. A map is a model too.	Model, gerçek bir şeyin basit bir kopyasıdır. Harita da bir modeldir.
+Like the map in a game!	Oyundaki harita gibi!
+We only draw the important things: the school, the gate and the football pitch.	Sadece önemli şeyleri çiziyoruz: okulu, kapıyı ve futbol sahasını.
+We do not need to draw every single leaf.	Her bir yaprağı çizmemize gerek yok.
+In a program we describe things with properties. A ball has a colour, a size and a speed.	Bir programda nesneleri özellikleriyle tanımlarız. Bir topun rengi, boyutu ve hızı vardır.
+So the ball is white and fast!	Yani top beyaz ve hızlı!
+And a flowchart shows what happens, step by step.	Akış şeması da ne olduğunu adım adım gösterir.
+First we draw the plan, then we write the code.	Önce planı çizeriz, sonra kodu yazarız.
+I have made a model of Leo: hungry, happy and likes football.	Leo’nun bir modelini yaptım: aç, mutlu ve futbolu seviyor.
+Ha ha! That is right!	Ha ha! Doğru!
+a model	model
+a schoolyard	okul bahçesi
+a copy	kopya
+to draw	çizmek
+a gate	kapı, bahçe kapısı
+a football pitch	futbol sahası
+a leaf	yaprak
+to describe	tanımlamak
+a property	özellik
+a colour	renk
+a flowchart	akış şeması
+a plan	plan
+a code	kod
+that is right	doğru
+A website for Pus: HTML basics	Pus için bir web sitesi: HTML temelleri
+Nora and Leo make a website about Pus the cat. Robo explains HTML: tags in angle brackets, a heading <h1>, a paragraph <p>, an image <img> and a link <a>.	Nora ve Leo, kedi Pus hakkında bir web sitesi yapıyor. Robo HTML’i anlatıyor: köşeli parantezlerdeki etiketler, başlık <h1>, paragraf <p>, resim <img> ve bağlantı <a>.
+I want to make a website about our cat, Pus!	Kedimiz Pus hakkında bir web sitesi yapmak istiyorum!
+Then we need HTML.	O zaman HTML’e ihtiyacımız var.
+HTML builds web pages. It is made of tags.	HTML web sayfalarını kurar. Etiketlerden oluşur.
+What is a tag?	Etiket nedir?
+A tag is a short word in angle brackets, for example p.	Etiket, köşeli parantez içindeki kısa bir kelimedir, örneğin p.
+Most tags have a start and an end. The end tag has a slash.	Çoğu etiketin bir başı ve sonu vardır. Kapanış etiketinde eğik çizgi bulunur.
+Like a sandwich!	Sandviç gibi!
+I write h1 and “Pus”. It becomes a big heading!	h1 ve “Pus” yazıyorum. Büyük bir başlık oluyor!
+Yes. h1 means heading number one.	Evet. h1, bir numaralı başlık demektir.
+With p we make a paragraph, and with img we show a picture.	p ile paragraf yaparız, img ile resim gösteririz.
+Look, a picture of Pus!	Bak, Pus’un bir resmi!
+Finally a link. The a tag takes us to another page.	Son olarak bir bağlantı. a etiketi bizi başka bir sayfaya götürür.
+The website is ready! Next time we will make it pretty with CSS.	Web sitesi hazır! Bir dahaki sefere CSS ile güzelleştireceğiz.
+a website, a web page	web sitesi, web sayfası
+HTML — the language of web pages	HTML — web sayfalarının dili
+a tag	etiket
+angle brackets < >	köşeli parantezler < >
+to consist of	-den oluşmak
+a start	başlangıç
+an end	son
+an end tag	kapanış etiketi
+a slash /	eğik çizgi /
+a heading	başlık
+a paragraph	paragraf
+a picture, an image	resim, görsel
+to show	göstermek
+next time	bir dahaki sefere

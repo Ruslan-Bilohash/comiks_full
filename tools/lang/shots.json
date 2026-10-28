@@ -1,0 +1,583 @@
+{
+ "Вибір мови перекладу": {
+  "en": "🌐 Language selection for translation",
+  "no": "🌐 Valg av språk for oversettelse",
+  "ar": "🔤 اختيار لغة الترجمة",
+  "de": "Sprachauswahl für die Übersetzung",
+  "pl": "Wybór języka tłumaczenia",
+  "tr": "🌐 Çeviri dili seçimi",
+  "lt": "Kalbos vertimo pasirinkimas"
+ },
+ "Список коміксів": {
+  "en": "📚 Comic list",
+  "no": "📚 Liste over tegneserier",
+  "ar": "📚 قائمة القصص المصوّرة",
+  "de": "Comic-Liste",
+  "pl": "Lista komiksów",
+  "tr": "📚 Çizgi roman listesi",
+  "lt": "Komiksų sąrašas"
+ },
+ "Головна Комікс·Lab": {
+  "en": "🏠 Komiks·Lab home",
+  "no": "🏠 Komiks·Lab-hjem",
+  "ar": "🏠 الصفحة الرئيسية لـ Komiks·Lab",
+  "de": "Komiks·Lab-Startseite",
+  "pl": "Strona główna Komiks·Lab",
+  "tr": "🏠 Komiks·Lab ana sayfası",
+  "lt": "Komiks·Lab pradžia"
+ },
+ "Читання коміксу на телефоні": {
+  "en": "📱 Reading a comic on a phone",
+  "no": "📱 Lesing av tegneserie på telefonen",
+  "ar": "📱 قراءة قصة مصوّرة على الهاتف",
+  "de": "Comic auf dem Handy lesen",
+  "pl": "Czytanie komiksu na telefonie",
+  "tr": "📱 Telefonda çizgi roman okuma",
+  "lt": "Komikso skaitymas telefone"
+ },
+ "Тест після історії": {
+  "en": "📝 Quiz after the story",
+  "no": "❓ Test etter historien",
+  "ar": "✅ اختبار بعد القصة",
+  "de": "Test nach der Geschichte",
+  "pl": "Test po historii",
+  "tr": "📝 Hikâyeden sonra test",
+  "lt": "Testas po istorijos"
+ },
+ "Вхід у Комікс·Lab": {
+  "en": "🔐 Log in to Komiks·Lab",
+  "no": "🔐 Logg inn i Komiks·Lab",
+  "ar": "🔐 تسجيل الدخول إلى Komiks·Lab",
+  "de": "Anmeldung bei Komiks·Lab",
+  "pl": "Logowanie do Komiks·Lab",
+  "tr": "🔑 Komiks·Lab girişi",
+  "lt": "Prisijungimas prie Komiks·Lab"
+ },
+ "Профіль і налаштування": {
+  "en": "👤 Profile and settings",
+  "no": "👤 Profil og innstillinger",
+  "ar": "👤 الملف الشخصي والإعدادات",
+  "de": "Profil und Einstellungen",
+  "pl": "Profil i ustawienia",
+  "tr": "👤 Profil ve ayarlar",
+  "lt": "Profilis ir nustatymai"
+ },
+ "Читання коміксу": {
+  "en": "📖 Reading a comic",
+  "no": "📖 Lesing av tegneserie",
+  "ar": "📖 قراءة قصة مصوّرة",
+  "de": "Comic lesen",
+  "pl": "Czytanie komiksu",
+  "tr": "📖 Çizgi roman okuma",
+  "lt": "Komikso skaitymas"
+ },
+ "Тест на телефоні": {
+  "en": "📱 Quiz on a phone",
+  "no": "📱 Test på telefonen",
+  "ar": "📱 اختبار على الهاتف",
+  "de": "Test auf dem Handy",
+  "pl": "Test na telefonie",
+  "tr": "📱 Telefonda test",
+  "lt": "Testas telefone"
+ },
+ "Новий тип питання — відповідь у розмові": {
+  "en": "💬 New question type — answer in a conversation",
+  "no": "💬 Ny spørsmålstype — svar i samtalen",
+  "ar": "💬 نوع سؤال جديد — إجابة في المحادثة",
+  "de": "Neuer Fragetyp — Antwort im Gespräch",
+  "pl": "Nowy typ pytania — odpowiedź w rozmowie",
+  "tr": "💬 Yeni soru türü — konuşmada cevap",
+  "lt": "Naujas klausimo tipas — atsakymas pokalbyje"
+ },
+ "Слова за темами": {
+  "en": "🏷️ Words by topic",
+  "no": "🗂️ Ord etter temaer",
+  "ar": "🗂️ كلمات حسب المواضيع",
+  "de": "Wörter nach Themen",
+  "pl": "Słowa według tematów",
+  "tr": "🏷️ Konulara göre kelimeler",
+  "lt": "Žodžiai pagal temas"
+ },
+ "Головна сторінка Комікс·Lab": {
+  "en": "🏠 Komiks·Lab home page",
+  "no": "🏠 Komiks·Lab-hjemmesiden",
+  "ar": "🏠 الصفحة الرئيسية لـ Komiks·Lab",
+  "de": "Komiks·Lab-Startseite",
+  "pl": "Strona główna Komiks·Lab",
+  "tr": "🏠 Komiks·Lab ana sayfası",
+  "lt": "Komiks·Lab pradžios puslapis"
+ },
+ "Читання коміксу з озвученням": {
+  "en": "🔊 Reading a comic with audio",
+  "no": "🔊 Lesing av tegneserie med lyd",
+  "ar": "🔊 قراءة قصة مصوّرة مع الصوت",
+  "de": "Comic mit Sprachausgabe lesen",
+  "pl": "Czytanie komiksu z lektorem",
+  "tr": "🔊 Sesli çizgi roman okuma",
+  "lt": "Komikso skaitymas su įgarsinimu"
+ },
+ "Тест на телефоні: кольорові відповіді на весь екран": {
+  "en": "📱 Quiz on a phone: full-screen colored answers",
+  "no": "📱 Test på telefonen: fargede svar over hele skjermen",
+  "ar": "📱 اختبار على الهاتف: إجابات ملوّنة بملء الشاشة",
+  "de": "Test auf dem Handy: farbige Antworten im Vollbild",
+  "pl": "Test na telefonie: kolorowe odpowiedzi na pełnym ekranie",
+  "tr": "📱 Telefonda test: tam ekran renkli cevaplar",
+  "lt": "Testas telefone: spalvoti atsakymai per visą ekraną"
+ },
+ "Розмова норвезькою": {
+  "en": "💬 Conversation in Norwegian",
+  "no": "🗣️ Samtale på norsk",
+  "ar": "🇳🇴 محادثة بالنرويجية",
+  "de": "Gespräch auf Norwegisch",
+  "pl": "Rozmowa po norwesku",
+  "tr": "🇳🇴 Norveççe konuşma",
+  "lt": "Pokalbis norvegiškai"
+ },
+ "Норвезькі слова за темами": {
+  "en": "🇳🇴 Norwegian words by topic",
+  "no": "🇳🇴 Norske ord etter temaer",
+  "ar": "🗂️ كلمات نرويجية حسب المواضيع",
+  "de": "Norwegische Wörter nach Themen",
+  "pl": "Norweskie słowa według tematów",
+  "tr": "🇳🇴 Konulara göre Norveççe kelimeler",
+  "lt": "Norvegiški žodžiai pagal temas"
+ },
+ "Рейтинг гравців": {
+  "en": "🏆 Player rankings",
+  "no": "🏆 Spillerrangering",
+  "ar": "🏆 ترتيب اللاعبين",
+  "de": "Spieler-Rangliste",
+  "pl": "Ranking graczy",
+  "tr": "🏆 Oyuncu sıralaması",
+  "lt": "Žaidėjų reitingas"
+ },
+ "Встановлення застосунку": {
+  "en": "⬇️ Install the app",
+  "no": "⬇️ Installering av appen",
+  "ar": "⬇️ تثبيت التطبيق",
+  "de": "App installieren",
+  "pl": "Instalacja aplikacji",
+  "tr": "📲 Uygulamayı yükleme",
+  "lt": "Programėlės įdiegimas"
+ },
+ "Друзі": {
+  "en": "👥 Friends",
+  "no": "👥 Venner",
+  "ar": "👥 الأصدقاء",
+  "de": "Freunde",
+  "pl": "Znajomi",
+  "tr": "👥 Arkadaşlar",
+  "lt": "Draugai"
+ },
+ "Профіль і аватар": {
+  "en": "👤 Profile and avatar",
+  "no": "👤 Profil og avatar",
+  "ar": "👤 الملف الشخصي والصورة الرمزية",
+  "de": "Profil und Avatar",
+  "pl": "Profil i awatar",
+  "tr": "👤 Profil ve avatar",
+  "lt": "Profilis ir avataras"
+ },
+ "Особистий план навчання": {
+  "en": "Personal study plan",
+  "no": "Personlig læringsplan",
+  "ar": "خطة تعلّم شخصية",
+  "de": "Persönlicher Lernplan",
+  "pl": "Osobisty plan nauki",
+  "tr": "Kişisel öğrenme planı",
+  "lt": "Asmeninis mokymosi planas"
+ },
+ "Картки з повторенням": {
+  "en": "Review flashcards",
+  "no": "Kort med repetisjon",
+  "ar": "بطاقات للمراجعة",
+  "de": "Karten mit Wiederholung",
+  "pl": "Fiszki do powtórek",
+  "tr": "Tekrar kartları",
+  "lt": "Kartojimo kortelės"
+ },
+ "Логік-гонка": {
+  "en": "Logic race",
+  "no": "Logikk-race",
+  "ar": "سباق المنطق",
+  "de": "Logik-Rennen",
+  "pl": "Wyścig logiczny",
+  "tr": "Mantık yarışı",
+  "lt": "Logikos lenktynės"
+ },
+ "Створення акаунта": {
+  "en": "Create an account",
+  "no": "Opprette konto",
+  "ar": "إنشاء حساب",
+  "de": "Konto erstellen",
+  "pl": "Tworzenie konta",
+  "tr": "Hesap oluşturma",
+  "lt": "Paskyros sukūrimas"
+ },
+ "Komiks·Lab home screen": {
+  "en": "Komiks·Lab home screen",
+  "no": "Komiks·Lab-hjemskjermen",
+  "ar": "الشاشة الرئيسية في Komiks·Lab",
+  "de": "Komiks·Lab-Startbildschirm",
+  "pl": "Strona główna Komiks·Lab",
+  "tr": "Komiks·Lab ana ekranı",
+  "lt": "Komiks·Lab pradinis ekranas",
+  "uk": "Komiks·Lab — головний екран"
+ },
+ "Reading a Norwegian comic with audio": {
+  "en": "Reading a Norwegian comic with audio",
+  "no": "Å lese en norsk tegneserie med lyd",
+  "ar": "قراءة كوميك نرويجي مع صوت",
+  "de": "Eine norwegische Comicgeschichte mit Audio lesen",
+  "pl": "Czytanie norweskiego komiksu z dźwiękiem",
+  "tr": "Sesli bir Norveççe çizgi roman okumak",
+  "lt": "Skaitant norvegišką komiksą su garso įrašu",
+  "uk": "Читання норвезького коміксу з аудіо"
+ },
+ "A test after the comic": {
+  "en": "A test after the comic",
+  "no": "En test etter tegneserien",
+  "ar": "اختبار بعد الكوميك",
+  "de": "Ein Test nach dem Comic",
+  "pl": "Test po komiksie",
+  "tr": "Çizgi romandan sonra bir test",
+  "lt": "Testas po komikso",
+  "uk": "Тест після коміксу"
+ },
+ "Norwegian words by theme": {
+  "en": "Norwegian words by theme",
+  "no": "Norske ord etter tema",
+  "ar": "كلمات نرويجية حسب الموضوع",
+  "de": "Norwegische Wörter nach Themen",
+  "pl": "Norweskie słowa według tematu",
+  "tr": "Temaya göre Norveççe kelimeler",
+  "lt": "Norvegiški žodžiai pagal temas",
+  "uk": "Норвезькі слова за темами"
+ },
+ "Pairs — a daily matching game": {
+  "en": "Pairs — a daily matching game",
+  "no": "Par — et daglig matchingsspill",
+  "ar": "Pairs — لعبة مطابقة يومية",
+  "de": "Paare — ein tägliches Zuordnungsspiel",
+  "pl": "Pary — codzienna gra w dopasowywanie",
+  "tr": "Pairs — günlük eşleştirme oyunu",
+  "lt": "Pairs — kasdienis porų žaidimas",
+  "uk": "Пари — щоденна гра на зіставлення"
+ },
+ "Flashcards with spaced repetition": {
+  "en": "Flashcards with spaced repetition",
+  "no": "Flashkort med repetisjon over tid",
+  "ar": "بطاقات تعليمية مع التكرار المتباعد",
+  "de": "Karteikarten mit verteiltem Wiederholen",
+  "pl": "Fiszki z powtórkami w odstępach",
+  "tr": "Aralıklı tekrar ile flash kartlar",
+  "lt": "Kortelės su kartojimu pagal intervalus",
+  "uk": "Картки для повторення з інтервалами"
+ },
+ "Norwegian grammar topics": {
+  "en": "Norwegian grammar topics",
+  "no": "Norske grammatikktemaer",
+  "ar": "مواضيع قواعد اللغة النرويجية",
+  "de": "Norwegische Grammatikthemen",
+  "pl": "Tematy gramatyki norweskiej",
+  "tr": "Norveççe dilbilgisi konuları",
+  "lt": "Norvegų kalbos gramatikos temos",
+  "uk": "Теми норвезької граматики"
+ },
+ "The Norwegian alphabet": {
+  "en": "The Norwegian alphabet",
+  "no": "Det norske alfabetet",
+  "ar": "الأبجدية النرويجية",
+  "de": "Das norwegische Alphabet",
+  "pl": "Norweski alfabet",
+  "tr": "Norveç alfabesi",
+  "lt": "Norvegų abėcėlė",
+  "uk": "Норвезька абетка"
+ },
+ "All comics by level": {
+  "en": "All comics by level",
+  "no": "Alle tegneserier etter nivå",
+  "ar": "كل الكوميك حسب المستوى",
+  "de": "Alle Comics nach Niveau",
+  "pl": "Wszystkie komiksy według poziomu",
+  "tr": "Seviyeye göre tüm çizgi romanlar",
+  "lt": "Visi komiksai pagal lygį",
+  "uk": "Усі комікси за рівнем"
+ },
+ "Reading a comic with audio": {
+  "en": "Reading a comic with audio",
+  "no": "Å lese en tegneserie med lyd",
+  "ar": "قراءة كوميك مع صوت",
+  "de": "Einen Comic mit Audio lesen",
+  "pl": "Czytanie komiksu z dźwiękiem",
+  "tr": "Sesli bir çizgi roman okumak",
+  "lt": "Skaitant komiksą su garso įrašu",
+  "uk": "Читання коміксу з аудіо"
+ },
+ "The Pairs game": {
+  "en": "The Pairs game",
+  "no": "Par-spillet",
+  "ar": "لعبة Pairs",
+  "de": "Das Spiel Paare",
+  "pl": "Gra Pary",
+  "tr": "Pairs oyunu",
+  "lt": "Žaidimas Pairs",
+  "uk": "Гра «Пари»"
+ },
+ "The Crossword game": {
+  "en": "The Crossword game",
+  "no": "Kryssord-spillet",
+  "ar": "لعبة الكلمات المتقاطعة",
+  "de": "Das Kreuzworträtselspiel",
+  "pl": "Gra Krzyżówka",
+  "tr": "Çapraz bulmaca oyunu",
+  "lt": "Kryžiažodžių žaidimas",
+  "uk": "Гра «Кросворд»"
+ },
+ "Norwegian grammar": {
+  "en": "Norwegian grammar",
+  "no": "Norsk grammatikk",
+  "ar": "قواعد اللغة النرويجية",
+  "de": "Norwegische Grammatik",
+  "pl": "Gramatyka norweska",
+  "tr": "Norveççe dilbilgisi",
+  "lt": "Norvegų gramatika",
+  "uk": "Норвезька граматика"
+ },
+ "Numbers in Norwegian": {
+  "en": "Numbers in Norwegian",
+  "no": "Tall på norsk",
+  "ar": "الأرقام بالنرويجية",
+  "de": "Zahlen auf Norwegisch",
+  "pl": "Liczby po norwesku",
+  "tr": "Norveççede sayılar",
+  "lt": "Skaičiai norvegų kalba",
+  "uk": "Числа норвезькою"
+ },
+ "The plan for today": {
+  "en": "The plan for today",
+  "no": "Dagens plan",
+  "ar": "خطة اليوم",
+  "de": "Der Plan für heute",
+  "pl": "Plan na dziś",
+  "tr": "Bugünün planı",
+  "lt": "Šios dienos planas",
+  "uk": "План на сьогодні"
+ },
+ "A personal study plan": {
+  "en": "A personal study plan",
+  "no": "En personlig studieplan",
+  "ar": "خطة دراسة شخصية",
+  "de": "Ein persönlicher Lernplan",
+  "pl": "Osobisty plan nauki",
+  "tr": "Kişisel bir çalışma planı",
+  "lt": "Asmeninis mokymosi planas",
+  "uk": "Особистий план навчання"
+ },
+ "A mock exam": {
+  "en": "A mock exam",
+  "no": "En prøveneksamen",
+  "ar": "امتحان تجريبي",
+  "de": "Eine Probeprüfung",
+  "pl": "Próbny egzamin",
+  "tr": "Deneme sınavı",
+  "lt": "Bandomasis egzaminas",
+  "uk": "Пробний іспит"
+ },
+ "Writing practice": {
+  "en": "Writing practice",
+  "no": "Skriveøving",
+  "ar": "تدريب على الكتابة",
+  "de": "Schreibübung",
+  "pl": "Ćwiczenie pisania",
+  "tr": "Yazma alıştırması",
+  "lt": "Rašymo praktika",
+  "uk": "Практика письма"
+ },
+ "A conversation in Norwegian": {
+  "en": "A conversation in Norwegian",
+  "no": "En samtale på norsk",
+  "ar": "محادثة بالنرويجية",
+  "de": "Ein Gespräch auf Norwegisch",
+  "pl": "Rozmowa po norwesku",
+  "tr": "Norveççede bir konuşma",
+  "lt": "Pokalbis norvegų kalba",
+  "uk": "Розмова норвезькою"
+ },
+ "The Logic Race game": {
+  "en": "The Logic Race game",
+  "no": "Logikk-løpet",
+  "ar": "لعبة Logic Race",
+  "de": "Das Spiel Logikrennen",
+  "pl": "Gra Wyścig logiki",
+  "tr": "Logic Race oyunu",
+  "lt": "Žaidimas Logic Race",
+  "uk": "Гра «Гонка логіки»"
+ },
+ "Player ranking": {
+  "en": "Leaderboard",
+  "no": "Spillerrangering",
+  "ar": "ترتيب اللاعبين",
+  "de": "Spielerrangliste",
+  "pl": "Ranking graczy",
+  "tr": "Oyuncu sıralaması",
+  "lt": "Žaidėjų reitingas",
+  "uk": "Рейтинг гравців"
+ },
+ "Friends": {
+  "en": "Friends",
+  "no": "Venner",
+  "ar": "الأصدقاء",
+  "de": "Freunde",
+  "pl": "Znajomi",
+  "tr": "Arkadaşlar",
+  "lt": "Draugai",
+  "uk": "Друзі"
+ },
+ "Profile and avatar": {
+  "en": "Profile and avatar",
+  "no": "Profil og avatar",
+  "ar": "الملف الشخصي والصورة الرمزية",
+  "de": "Profil und Avatar",
+  "pl": "Profil i awatar",
+  "tr": "Profil ve avatar",
+  "lt": "Profilis ir avataras",
+  "uk": "Профіль і аватар"
+ },
+ "Installing the app": {
+  "en": "Installing the app",
+  "no": "Installere appen",
+  "ar": "تثبيت التطبيق",
+  "de": "Die App installieren",
+  "pl": "Instalowanie aplikacji",
+  "tr": "Uygulamayı yükleme",
+  "lt": "Programėlės įdiegimas",
+  "uk": "Встановлення застосунку"
+ },
+ "Signing in": {
+  "en": "Signing in",
+  "no": "Logge inn",
+  "ar": "تسجيل الدخول",
+  "de": "Anmelden",
+  "pl": "Logowanie",
+  "tr": "Giriş yapma",
+  "lt": "Prisijungimas",
+  "uk": "Вхід"
+ },
+ "Creating an account": {
+  "en": "Creating an account",
+  "no": "Opprette en konto",
+  "ar": "إنشاء حساب",
+  "de": "Ein Konto erstellen",
+  "pl": "Tworzenie konta",
+  "tr": "Hesap oluşturma",
+  "lt": "Paskyros sukūrimas",
+  "uk": "Створення облікового запису"
+ },
+ "The updates log": {
+  "en": "The updates log",
+  "no": "Oppdateringsloggen",
+  "ar": "سجل التحديثات",
+  "de": "Das Update-Log",
+  "pl": "Dziennik aktualizacji",
+  "tr": "Güncelleme günlüğü",
+  "lt": "Atnaujinimų žurnalas",
+  "uk": "Журнал оновлень"
+ },
+ "English through comics": {
+  "en": "English through comics",
+  "no": "Engelsk gjennom tegneserier",
+  "ar": "الإنجليزية عبر القصص المصورة",
+  "de": "Englisch durch Comics",
+  "pl": "Angielski przez komiksy",
+  "tr": "Çizgi romanlarla İngilizce",
+  "lt": "Anglų kalba per komiksus",
+  "uk": "Англійська через комікси"
+ },
+ "Maths": {
+  "en": "Maths",
+  "no": "Matte",
+  "ar": "الرياضيات",
+  "de": "Mathe",
+  "pl": "Matematyka",
+  "tr": "Matematik",
+  "lt": "Matematika",
+  "uk": "Математика"
+ },
+ "Курс англійської": {
+  "de": "Englischkurs",
+  "pl": "Kurs angielskiego",
+  "tr": "İngilizce kursu",
+  "lt": "Anglų kalbos kursas"
+ },
+ "Гра «Пари»": {
+  "de": "Spiel «Paare»",
+  "pl": "Gra «Pary»",
+  "tr": "“Eşleşme” oyunu",
+  "lt": "Žaidimas „Poros“"
+ },
+ "Урок «Дроби»": {
+  "en": "½ Fractions lesson",
+  "no": "½ Leksjon: brøk",
+  "ar": "½ درس الكسور",
+  "de": "½ Lektion Brüche",
+  "pl": "½ Lekcja: ułamki",
+  "tr": "½ Kesirler dersi",
+  "lt": "½ Pamoka: trupmenos"
+ },
+ "Тест «Дроби»": {
+  "en": "½ Fractions test",
+  "no": "½ Prøve: brøk",
+  "ar": "½ اختبار الكسور",
+  "de": "½ Test Brüche",
+  "pl": "½ Test: ułamki",
+  "tr": "½ Kesirler testi",
+  "lt": "½ Trupmenų testas"
+ },
+ "Доступність у налаштуваннях": {
+  "en": "♿ Accessibility in Settings",
+  "no": "♿ Tilgjengelighet i innstillinger",
+  "ar": "♿ إمكانية الوصول في الإعدادات",
+  "de": "♿ Barrierefreiheit in den Einstellungen",
+  "pl": "♿ Dostępność w ustawieniach",
+  "tr": "♿ Ayarlarda erişilebilirlik",
+  "lt": "♿ Prieinamumas nustatymuose"
+ },
+ "Вхід через Google": {
+  "en": "🔑 Sign in with Google",
+  "no": "🔑 Logg inn med Google",
+  "ar": "🔑 الدخول عبر Google",
+  "de": "🔑 Mit Google anmelden",
+  "pl": "🔑 Logowanie przez Google",
+  "tr": "🔑 Google ile giriş",
+  "lt": "🔑 Prisijungimas per Google"
+ },
+ "Пригоди з аватарами": {
+  "en": "🎮 Avatar adventures",
+  "no": "🎮 Eventyr med figurer",
+  "ar": "🎮 مغامرات الشخصيات",
+  "de": "🎮 Abenteuer mit Avataren",
+  "pl": "🎮 Przygody z awatarami",
+  "tr": "🎮 Avatar maceraları",
+  "lt": "🎮 Nuotykiai su avatarais"
+ },
+ "Кросворд з картинками": {
+  "en": "🧩 Picture crossword",
+  "no": "🧩 Bildekryss",
+  "ar": "🧩 كلمات متقاطعة بالصور",
+  "de": "Bilderkreuzworträtsel",
+  "pl": "Krzyżówka obrazkowa",
+  "tr": "🧩 Resimli bulmaca",
+  "lt": "Kryžiažodis su paveikslėliais"
+ },
+ "Гра разом": {
+  "en": "🎮 Play together",
+  "no": "🎮 Spill sammen",
+  "ar": "🎮 العبوا معًا",
+  "de": "Gemeinsam spielen",
+  "pl": "Grajmy razem",
+  "tr": "🎮 Birlikte oyna",
+  "lt": "Žaiskime kartu"
+ }
+}

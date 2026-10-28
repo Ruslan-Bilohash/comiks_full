@@ -1,0 +1,230 @@
+What is coding?	ما هي البرمجة؟
+The school has a robot called Robo. He only follows exact commands, and the children learn that a program is commands in the right order.	في المدرسة روبوت اسمه روبو. ينفّذ الأوامر الدقيقة فقط، ويتعلّم الأطفال أن البرنامج أوامر بالترتيب الصحيح.
+Look, Nora! The school has got a robot.	انظري يا نورا! صار في المدرسة روبوت.
+Hi, robot! What is your name?	مرحبًا يا روبوت! ما اسمك؟
+Hi! My name is Robo. I do what you tell me.	مرحبًا! اسمي روبو. أفعل ما تقولونه لي.
+Robo only understands commands. We call that programming.	روبو يفهم الأوامر فقط. وهذا ما نسمّيه البرمجة.
+What is a command?	ما هو الأمر؟
+A command is a short instruction, for example “walk” or “turn”.	الأمر تعليمة قصيرة، مثل «امشِ» أو «استدِر».
+Robo, take two steps forward!	روبو، تقدّم خطوتين إلى الأمام!
+Walking. One, two. Done!	أمشي. واحد، اثنان. انتهيت!
+Robo, make me a pizza!	روبو، اصنع لي بيتزا!
+Error! I do not know the command “pizza”.	خطأ! لا أعرف الأمر «بيتزا».
+A program is many commands in the right order.	البرنامج أوامر كثيرة بالترتيب الصحيح.
+So we have to think step by step!	إذن علينا أن نفكّر خطوة بخطوة!
+I want to learn to code!	أريد أن أتعلّم البرمجة!
+And I want to learn to make pizza.	وأنا أريد أن أتعلّم صنع البيتزا.
+a robot	روبوت
+programming, coding	البرمجة
+to code	يبرمج
+a command	أمر
+a program	برنامج
+a message, an instruction	رسالة، تعليمة
+to understand	يفهم
+forward	إلى الأمام
+to turn	يستدير
+done, finished	انتهى
+error; wrong	خطأ؛ غير صحيح
+to know	يعرف
+an order, a sequence	ترتيب، تسلسل
+right, correct	صحيح
+step by step	خطوة بخطوة
+The sandwich algorithm	خوارزمية الشطيرة
+Leo teaches Robo the robot to make a sandwich. Robo does everything literally, so Leo learns that an algorithm must be exact and in the right order.	يعلّم ليو الروبوت روبو صنع شطيرة. ينفّذ روبو كل شيء حرفيًا، فيتعلّم ليو أن الخوارزمية يجب أن تكون دقيقة وبالترتيب الصحيح.
+Dad, I am going to teach Robo to make a sandwich.	بابا، سأعلّم روبو صنع شطيرة.
+Then you need an algorithm.	إذن تحتاج إلى خوارزمية.
+What is an algorithm?	ما هي الخوارزمية؟
+An algorithm is like a recipe: step by step, in the right order.	الخوارزمية مثل الوصفة: خطوة بخطوة وبالترتيب الصحيح.
+Step one: Take the bread. Step two: Put on butter.	الخطوة الأولى: خذ الخبز. الخطوة الثانية: ضع الزبدة.
+Butter on … the table? Done!	الزبدة على… الطاولة؟ تمّ!
+Ha ha! You have to say exactly what Robo should do.	ها ها! عليك أن تقول بدقة ما يجب أن يفعله روبو.
+New step two: Put butter on the slice of bread!	الخطوة الثانية الجديدة: ضع الزبدة على شريحة الخبز!
+Step three: Put on cheese. Step four: Give the sandwich to Leo.	الخطوة الثالثة: ضع الجبن. الخطوة الرابعة: أعطِ الشطيرة لليو.
+Done! Here you are.	تمّ! تفضّل.
+Mmm! The algorithm works!	ممم! الخوارزمية تعمل!
+And remember: the order is important. First butter, then cheese.	وتذكّر: الترتيب مهم. أولًا الزبدة ثم الجبن.
+an algorithm	خوارزمية
+a slice of bread, a sandwich	شريحة خبز، شطيرة
+a cheese	جبن
+to put on	يضع فوق
+done, carried out	تمّ، نُفّذ
+important	مهم
+then	ثم
+Repeat! Robo dances	كرّر! روبو يرقص
+Nora wants Robo to dance, but there are too many commands. The teacher shows a loop: “repeat 4 times” — and the program becomes short.	تريد نورا أن يرقص روبو، لكن الأوامر كثيرة جدًا. تُريها المعلّمة حلقة: «كرّر 4 مرات» — فيصبح البرنامج قصيرًا.
+Robo, jump! Clap! Jump! Clap! Jump! Clap!	روبو، اقفز! صفّق! اقفز! صفّق! اقفز! صفّق!
+Jump. Clap. Jump. Clap …	قفزة. تصفيق. قفزة. تصفيق…
+Phew, that is a lot to write.	أوف، هذا كثير للكتابة.
+Use a loop! A loop repeats commands.	استخدمي حلقة! الحلقة تكرّر الأوامر.
+Write: repeat four times: jump and clap.	اكتبي: كرّر أربع مرات: اقفز وصفّق.
+So short!	قصير جدًا!
+Jump, clap! Jump, clap! Jump, clap! Jump, clap!	قفزة، تصفيق! قفزة، تصفيق! قفزة، تصفيق! قفزة، تصفيق!
+Robo is dancing!	روبو يرقص!
+Can we repeat it a hundred times?	هل يمكن أن نكرّرها مئة مرة؟
+Yes. Computers never get tired.	نعم. الحواسيب لا تتعب أبدًا.
+But Robo is getting dizzy …	لكن روبو بدأ يشعر بالدوار…
+Ha ha! We are stopping the loop now.	ها ها! سنوقف الحلقة الآن.
+a loop	حلقة
+to jump	يقفز
+to clap	يصفّق
+a lot	كثير
+to use	يستخدم
+four times	أربع مرات
+a hundred	مئة
+to stop	يوقف
+If it rains …	إذا أمطرت…
+Robo does not know when to take an umbrella. Leo and Mum write him a rule: if it rains — an umbrella, otherwise — sunglasses.	لا يعرف روبو متى يأخذ المظلة. يكتب له ليو وأمه قاعدة: إذا أمطرت فالمظلة، وإلا فالنظارات الشمسية.
+Robo, we are going out. Bring an umbrella.	روبو، سنخرج. خذ معك مظلة.
+Why? The sun is shining.	لماذا؟ الشمس مشرقة.
+You are right, Robo. We need a rule.	أنت محقّ يا روبو. نحتاج إلى قاعدة.
+If it rains, we take an umbrella.	إذا أمطرت نأخذ المظلة.
+If it rains, then we take an umbrella. Otherwise we take sunglasses.	إذا أمطرت فإننا نأخذ المظلة. وإلا نأخذ النظارات الشمسية.
+If … then … otherwise. Understood!	إذا… فإن… وإلا. فهمت!
+It is raining. I am taking the umbrella.	إنها تمطر. سآخذ المظلة.
+Good, Robo!	أحسنت يا روبو!
+Now the sun is shining. I am taking sunglasses.	الآن الشمس مشرقة. سآخذ النظارات الشمسية.
+Robo thinks like a computer.	روبو يفكّر مثل الحاسوب.
+If I tidy my room, then I get ice cream?	إذا رتّبت غرفتي، هل أحصل على مثلّجات؟
+Yes! That is a good rule.	نعم! هذه قاعدة جيدة.
+otherwise, else	وإلا
+an umbrella	مظلة
+sunglasses	نظارات شمسية
+the sun is shining	الشمس مشرقة
+to go out	يخرج
+to bring	يأخذ معه
+to be right	يكون محقًا
+understood	مفهوم
+to think	يفكّر
+Points in the box	النقاط في الصندوق
+Nora and Leo make a game: a cat catches fish and gets points. The teacher explains a variable — a box with a name where the computer keeps a number.	تصنع نورا وليو لعبة: قطة تصطاد السمك وتحصل على نقاط. تشرح المعلّمة المتغيّر — صندوق له اسم يحفظ فيه الحاسوب رقمًا.
+We are making a game! Every time the cat catches a fish, we get a point.	نصنع لعبة! كلما اصطادت القطة سمكة نحصل على نقطة.
+But where will the computer remember the points?	لكن أين سيتذكّر الحاسوب النقاط؟
+In a variable. A variable is like a box with a name.	في متغيّر. المتغيّر مثل صندوق له اسم.
+The box is called “points”. Right now there is zero in the box.	اسم الصندوق «النقاط». الآن يوجد فيه صفر.
+The cat catches a fish!	القطة تصطاد سمكة!
+Then we write: points equals points plus one.	إذن نكتب: النقاط تساوي النقاط زائد واحد.
+Points is one. Points is two. Points is three!	النقاط واحد. النقاط اثنان. النقاط ثلاثة!
+The value in the box changes!	القيمة في الصندوق تتغيّر!
+Can we have more boxes?	هل يمكن أن يكون لدينا صناديق أكثر؟
+Yes. Name, lives and speed … A game has many variables.	نعم. الاسم والأرواح والسرعة… في اللعبة متغيّرات كثيرة.
+We have ten points! We won!	لدينا عشر نقاط! فزنا!
+The variable “joy” is now a hundred.	المتغيّر «الفرح» صار الآن مئة.
+a point	نقطة
+a variable	متغيّر
+a box	صندوق
+a name	اسم
+a value	قيمة
+to catch	يصطاد
+every time	في كل مرة
+zero	صفر
+a life	حياة
+a speed	سرعة
+to win	يفوز
+a joy	فرح
+to keep, to take care of	يحفظ، يعتني بـ
+Find the bug!	اعثر على الخطأ!
+Robo has to reach the star but walks into a wall. The children read the program line by line, find the bug and fix it.	على روبو أن يصل إلى النجمة لكنه يصطدم بالجدار. يقرأ الأطفال البرنامج سطرًا سطرًا، فيجدون الخطأ ويصلحونه.
+Robo has to walk to the star. I have written the program.	على روبو أن يمشي إلى النجمة. لقد كتبت البرنامج.
+I am starting the program now.	سأشغّل البرنامج الآن.
+Ouch! I walked straight into the wall.	آخ! مشيت مباشرة نحو الجدار.
+Oops! The program has a bug.	أوه! في البرنامج خطأ.
+We call an error in a program a bug.	نسمّي الخطأ في البرنامج «علّة» (bug).
+Finding and fixing the error is called debugging.	إيجاد الخطأ وإصلاحه يسمّى تصحيح الأخطاء.
+We read the program line by line: forward, forward, right …	نقرأ البرنامج سطرًا سطرًا: إلى الأمام، إلى الأمام، يمين…
+There! It should say left, not right.	هنا! يجب أن يكون يسار، لا يمين.
+Now I will fix the bug and try again.	سأصلح الخطأ الآن وأحاول مرة أخرى.
+I am at the star! The program works.	وصلت إلى النجمة! البرنامج يعمل.
+All programmers make mistakes. The important thing is to try again.	كل المبرمجين يخطئون. المهم أن نحاول مرة أخرى.
+Mistakes are part of learning!	الأخطاء جزء من التعلّم!
+to start	يبدأ، يشغّل
+straight into	مباشرة نحو
+a mistake, an error	خطأ
+a bug	علّة برمجية
+debugging	تصحيح الأخطاء
+to fix, to correct	يصلح
+right	يمين
+to try again	يحاول مرة أخرى
+learning	التعلّم
+a part of	جزء من
+Which language?	أي لغة؟
+Leo asks Robo which language he speaks. The teacher explains programming languages: Scratch, Python, JavaScript, HTML and CSS, Swift, Kotlin and C#.	يسأل ليو روبو بأي لغة يتكلّم. تشرح المعلّمة لغات البرمجة: Scratch وPython وJavaScript وHTML وCSS وSwift وKotlin وC#.
+Robo, which language do you speak? Norwegian?	روبو، بأي لغة تتكلّم؟ بالنرويجية؟
+I understand programming languages. There are many!	أفهم لغات البرمجة. وهي كثيرة!
+Children often start with Scratch. There we move colourful blocks.	يبدأ الأطفال غالبًا بـScratch. وفيه نحرّك كتلًا ملوّنة.
+It looks like Lego!	يشبه الليغو!
+Python is easy to read. It is used for games, data and artificial intelligence.	بايثون سهلة القراءة. تُستخدم للألعاب والبيانات والذكاء الاصطناعي.
+Artificial intelligence? Like Robo?	ذكاء اصطناعي؟ مثل روبو؟
+HTML builds web pages, and CSS makes them pretty. JavaScript makes them move.	HTML يبني صفحات الويب، وCSS يجمّلها، وJavaScript يجعلها تتحرّك.
+So the school website is made with them?	إذن موقع المدرسة مصنوع بها؟
+We make iPhone apps with Swift, and Android apps with Kotlin.	نصنع تطبيقات آيفون بلغة Swift، وتطبيقات أندرويد بلغة Kotlin.
+And games?	والألعاب؟
+Many games are made with C#.	كثير من الألعاب تُصنع بلغة C#.
+Which language should I learn first?	أي لغة يجب أن أتعلّمها أولًا؟
+Start with Scratch or Python. The most important thing is to think logically.	ابدأ بـScratch أو Python. الأهم أن تفكّر بشكل منطقي.
+a programming language	لغة برمجة
+to exist	يوجد
+colourful	ملوّن
+a block	كتلة
+simple, easy	بسيط، سهل
+artificial intelligence	الذكاء الاصطناعي
+data	بيانات
+a web page, a website	صفحة ويب، موقع
+logically	بشكل منطقي
+the most important thing	الأهم
+A model of the school	نموذج للمدرسة
+The class makes a model of the schoolyard. The children learn that a model is a simple copy, that things in a program have properties, and that you draw the plan before the code.	يصنع الصف نموذجًا لساحة المدرسة. يتعلّم الأطفال أن النموذج نسخة بسيطة، وأن للأشياء في البرنامج خصائص، وأننا نرسم الخطة قبل الشيفرة.
+Today we are making a model of the schoolyard.	اليوم نصنع نموذجًا لساحة المدرسة.
+What is a model?	ما هو النموذج؟
+A model is a simple copy of something real. A map is a model too.	النموذج نسخة بسيطة من شيء حقيقي. والخريطة أيضًا نموذج.
+Like the map in a game!	مثل الخريطة في لعبة!
+We only draw the important things: the school, the gate and the football pitch.	نرسم المهم فقط: المدرسة والبوابة وملعب كرة القدم.
+We do not need to draw every single leaf.	لا نحتاج إلى رسم كل ورقة شجر.
+In a program we describe things with properties. A ball has a colour, a size and a speed.	في البرنامج نصف الأشياء بخصائصها. للكرة لون وحجم وسرعة.
+So the ball is white and fast!	إذن الكرة بيضاء وسريعة!
+And a flowchart shows what happens, step by step.	والمخطط الانسيابي يُظهر ما يحدث خطوة بخطوة.
+First we draw the plan, then we write the code.	أولًا نرسم الخطة، ثم نكتب الشيفرة.
+I have made a model of Leo: hungry, happy and likes football.	صنعت نموذجًا لليو: جائع وسعيد ويحب كرة القدم.
+Ha ha! That is right!	ها ها! هذا صحيح!
+a model	نموذج
+a schoolyard	ساحة المدرسة
+a copy	نسخة
+to draw	يرسم
+a gate	بوابة
+a football pitch	ملعب كرة قدم
+a leaf	ورقة شجر
+to describe	يصف
+a property	خاصية
+a colour	لون
+a flowchart	مخطط انسيابي
+a plan	خطة
+a code	شيفرة
+that is right	هذا صحيح
+A website for Pus: HTML basics	موقع لبوس: أساسيات HTML
+Nora and Leo make a website about Pus the cat. Robo explains HTML: tags in angle brackets, a heading <h1>, a paragraph <p>, an image <img> and a link <a>.	تصنع نورا وليو موقعًا عن القط بوس. يشرح روبو HTML: الوسوم بين قوسين زاويين، والعنوان <h1>، والفقرة <p>، والصورة <img>، والرابط <a>.
+I want to make a website about our cat, Pus!	أريد أن أصنع موقعًا عن قطّنا بوس!
+Then we need HTML.	إذن نحتاج إلى HTML.
+HTML builds web pages. It is made of tags.	HTML يبني صفحات الويب. ويتكوّن من وسوم.
+What is a tag?	ما هو الوسم؟
+A tag is a short word in angle brackets, for example p.	الوسم كلمة قصيرة بين قوسين زاويين، مثل p.
+Most tags have a start and an end. The end tag has a slash.	لمعظم الوسوم بداية ونهاية. ووسم النهاية فيه شرطة مائلة.
+Like a sandwich!	مثل الشطيرة!
+I write h1 and “Pus”. It becomes a big heading!	أكتب h1 و«بوس». فيصير عنوانًا كبيرًا!
+Yes. h1 means heading number one.	نعم. h1 تعني العنوان رقم واحد.
+With p we make a paragraph, and with img we show a picture.	بـp نصنع فقرة، وبـimg نعرض صورة.
+Look, a picture of Pus!	انظر، صورة لبوس!
+Finally a link. The a tag takes us to another page.	وأخيرًا رابط. الوسم a يأخذنا إلى صفحة أخرى.
+The website is ready! Next time we will make it pretty with CSS.	الموقع جاهز! في المرة القادمة سنجمّله بـCSS.
+a website, a web page	موقع، صفحة ويب
+HTML — the language of web pages	HTML — لغة صفحات الويب
+a tag	وسم
+angle brackets < >	أقواس زاوية < >
+to consist of	يتكوّن من
+a start	بداية
+an end	نهاية
+an end tag	وسم النهاية
+a slash /	شرطة مائلة /
+a heading	عنوان
+a paragraph	فقرة
+a picture, an image	صورة
+to show	يعرض
+next time	في المرة القادمة

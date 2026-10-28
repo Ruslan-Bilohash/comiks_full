@@ -132,7 +132,8 @@ window.WORDS = {
       ['å høre', 'чути, слухати', 'to hear', '👂'], ['å se', 'бачити', 'to see', '👀'], ['å kjøpe', 'купувати', 'to buy', '🛒'], ['å lage mat', 'готувати їжу', 'to cook', '🍳'],
       ['å vaske', 'мити', 'to wash', '🧼'], ['å jobbe', 'працювати', 'to work', '💼'], ['å leke', 'гратися', 'to play', '🧸'], ['å synge', 'співати', 'to sing', '🎤'],
       ['å danse', 'танцювати', 'to dance', '💃'], ['å svømme', 'плавати', 'to swim', '🏊'], ['å kjøre', 'їхати, керувати', 'to drive', '🚗'], ['å ringe', 'дзвонити', 'to call', '📞'],
-      ['å åpne', 'відчиняти', 'to open', '🔓'], ['å lukke', 'зачиняти', 'to close', '🔒'], ['å hjelpe', 'допомагати', 'to help', '🤝'], ['å lære', 'вчити(ся)', 'to learn', '🧠']
+      ['å åpne', 'відчиняти', 'to open', '🔓'], ['å lukke', 'зачиняти', 'to close', '🔒'], ['å hjelpe', 'допомагати', 'to help', '🤝'], ['å lære', 'вчити(ся)', 'to learn', '🧠'],
+      ['å lete etter', 'шукати', 'to look for', '🔍'], ['å finne', 'знаходити', 'to find', '✅']
     ] },
     { id: 'adjektiv', icon: '↔️', level: 'A2', no: 'Motsetninger', uk: 'Протилежності', en: 'Opposites', words: [
       ['stor', 'великий', 'big', '🐘'], ['liten', 'маленький', 'small', '🐭'], ['lang', 'довгий', 'long', '🦒'], ['kort', 'короткий', 'short', '✂️'],

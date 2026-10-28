@@ -12,7 +12,7 @@
   const PX = {
     uk: {
       studio: '🎨 Мій аватар', studio_intro: 'Обери тваринку й одягни її! Нові речі відкриваються за зірки, які ти отримуєш у тестах. Аватар закріплений за твоїм акаунтом і з’являється в усіх іграх.',
-      tabs: { base: '🐾 Тваринка', color: '🎨 Колір', hat: '🎩 Шапки', glasses: '🕶️ Окуляри', neck: '🎀 На шию' }, from_game: '🎁 з гри', from_game_t: 'Рідкісна річ — випадає зі скрині в іграх (Логік-гонка, Math Rocket, Гра разом).', natural: 'Природний',
+      tabs: { base: '🐾 Тваринка', color: '🎨 Колір', hat: '🎩 Шапки', glasses: '🕶️ Окуляри', neck: '🎀 На шию', fx: '✨ Ефекти' }, rar: { common: 'звичайна', rare: 'рідкісна', epic: 'епічна', legend: 'легендарна', gift: '🎁 подарунок', season: 'сезонна' }, from_gift: '🎁 від друга', from_gift_t: 'Цю річ можна лише отримати в подарунок від друга. Подаруй щось другові — і він зможе віддячити.', from_game: '🎁 з гри', from_game_t: 'Рідкісна річ — випадає зі скрині в іграх (Логік-гонка, Math Rocket, Гра разом).', natural: 'Природний',
       limited: d => `лімітовано, ${d} дн.`, chest_t: '🎁 Скриня!', chest_open: 'Відкрити', got: 'Нова річ!', wear: '👕 Надягнути', later: 'Пізніше', collection: n => `Колекція: ${n}`, none: 'Без нічого', stars_have: n => `⭐ У тебе ${n} зірок`, need: n => `⭐ ${n}`,
       locked: n => `Відкриється, коли матимеш ${n} ⭐. Проходь тести!`, random: '🎲 Випадково', saved: 'Збережено ✓', guest_hint: 'Увійди або зареєструйся — і аватар закріпиться за твоїм акаунтом.',
       open_studio: '🎨 Налаштувати аватар', in_games: 'Цей аватар бачать усі в «Грі разом» і Math Rocket.', change: '🎨 Змінити в кабінеті', yours: 'Твій аватар з кабінету', other: 'Обрати іншу тваринку',
@@ -21,7 +21,7 @@
     },
     en: {
       studio: '🎨 My avatar', studio_intro: 'Pick an animal and dress it up! New items unlock with the stars you earn in tests. The avatar belongs to your account and appears in every game.',
-      tabs: { base: '🐾 Animal', color: '🎨 Colour', hat: '🎩 Hats', glasses: '🕶️ Glasses', neck: '🎀 Neck' }, from_game: '🎁 from games', from_game_t: 'A rare item — it drops from chests in games (Logic Race, Math Rocket, Play together).', natural: 'Natural',
+      tabs: { base: '🐾 Animal', color: '🎨 Colour', hat: '🎩 Hats', glasses: '🕶️ Glasses', neck: '🎀 Neck', fx: '✨ Effects' }, rar: { common: 'common', rare: 'rare', epic: 'epic', legend: 'legendary', gift: '🎁 gift', season: 'seasonal' }, from_gift: '🎁 from a friend', from_gift_t: 'You can only get this as a gift from a friend. Give a friend something — they can return the favour.', from_game: '🎁 from games', from_game_t: 'A rare item — it drops from chests in games (Logic Race, Math Rocket, Play together).', natural: 'Natural',
       limited: d => `limited, ${d} days left`, chest_t: '🎁 A chest!', chest_open: 'Open', got: 'New item!', wear: '👕 Wear it', later: 'Later', collection: n => `Collection: ${n}`, none: 'Nothing', stars_have: n => `⭐ You have ${n} stars`, need: n => `⭐ ${n}`,
       locked: n => `Unlocks at ${n} ⭐. Keep taking tests!`, random: '🎲 Random', saved: 'Saved ✓', guest_hint: 'Log in or sign up and the avatar will be saved to your account.',
       open_studio: '🎨 Customise avatar', in_games: 'Everyone sees this avatar in “Play together” and Math Rocket.', change: '🎨 Change in my account', yours: 'Your avatar', other: 'Pick another animal',
@@ -30,7 +30,7 @@
     },
     no: {
       studio: '🎨 Min avatar', studio_intro: 'Velg et dyr og kle det på! Nye ting låses opp med stjernene du får i testene. Avataren hører til kontoen din og vises i alle spill.',
-      tabs: { base: '🐾 Dyr', color: '🎨 Farge', hat: '🎩 Hatter', glasses: '🕶️ Briller', neck: '🎀 Hals' }, from_game: '🎁 fra spill', from_game_t: 'En sjelden ting – den finnes i kister i spillene.', natural: 'Naturlig',
+      tabs: { base: '🐾 Dyr', color: '🎨 Farge', hat: '🎩 Hatter', glasses: '🕶️ Briller', neck: '🎀 Hals', fx: '✨ Effekter' }, rar: { common: 'vanlig', rare: 'sjelden', epic: 'episk', legend: 'legendarisk', gift: '🎁 gave', season: 'sesong' }, from_gift: '🎁 fra en venn', from_gift_t: 'Denne tingen får du bare i gave fra en venn. Gi en venn noe – så kan hen gi tilbake.', from_game: '🎁 fra spill', from_game_t: 'En sjelden ting – den finnes i kister i spillene.', natural: 'Naturlig',
       limited: d => `begrenset, ${d} dager igjen`, chest_t: '🎁 En kiste!', chest_open: 'Åpne', got: 'Ny ting!', wear: '👕 Ta på', later: 'Senere', collection: n => `Samling: ${n}`, none: 'Ingenting', stars_have: n => `⭐ Du har ${n} stjerner`, need: n => `⭐ ${n}`,
       locked: n => `Låses opp ved ${n} ⭐. Ta flere tester!`, random: '🎲 Tilfeldig', saved: 'Lagret ✓', guest_hint: 'Logg inn eller registrer deg, så lagres avataren på kontoen din.',
       open_studio: '🎨 Tilpass avataren', in_games: 'Alle ser denne avataren i «Spill sammen» og Matte-raketten.', change: '🎨 Endre på Min side', yours: 'Din avatar', other: 'Velg et annet dyr',
@@ -38,9 +38,10 @@
       free_reg: '🎁 Etter registrering — 30 timer gratis læring.', free_over_t: '🎉 De 30 gratis timene er brukt opp!', free_over: 'Takk for at du lærer med Komiks·Lab. Du kan fortsatt bruke siden – vi sier fra om nye muligheter.', ok: 'Skjønner', h: 't', m: 'min'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(PX, 'profile.js:PX');
   PX.ar = {
     studio: '🎨 شخصيتي', studio_intro: 'اختر حيوانًا وألبسه! تُفتح أغراض جديدة بالنجوم التي تكسبها في الاختبارات. الشخصية مرتبطة بحسابك وتظهر في كل الألعاب.',
-    tabs: { base: '🐾 الحيوان', color: '🎨 اللون', hat: '🎩 القبعات', glasses: '🕶️ النظارات', neck: '🎀 للرقبة' }, from_game: '🎁 من الألعاب', from_game_t: 'غرض نادر — يسقط من الصناديق في الألعاب.', natural: 'طبيعي',
+    tabs: { base: '🐾 الحيوان', color: '🎨 اللون', hat: '🎩 القبعات', glasses: '🕶️ النظارات', neck: '🎀 للرقبة', fx: '✨ تأثيرات' }, rar: { common: 'عادية', rare: 'نادرة', epic: 'ملحمية', legend: 'أسطورية', gift: '🎁 هدية', season: 'موسمية' }, from_gift: '🎁 من صديق', from_gift_t: 'هذه القطعة تأتي هدية من صديق فقط. أهدِ صديقك شيئًا ليردّ لك الجميل.', from_game: '🎁 من الألعاب', from_game_t: 'غرض نادر — يسقط من الصناديق في الألعاب.', natural: 'طبيعي',
     limited: d => `محدود، بقي ${d} يومًا`, chest_t: '🎁 صندوق!', chest_open: 'افتح', got: 'غرض جديد!', wear: '👕 ارتدِه', later: 'لاحقًا', collection: n => `المجموعة: ${n}`, none: 'بلا شيء', stars_have: n => `⭐ لديك ${n} نجمة`, need: n => `⭐ ${n}`,
     locked: n => `يُفتح عند ${n} ⭐. واصل الاختبارات!`, random: '🎲 عشوائي', saved: 'تم الحفظ ✓', guest_hint: 'سجّل الدخول لتُحفظ الشخصية في حسابك.',
     open_studio: '🎨 عدّل الشخصية', in_games: 'يرى الجميع هذه الشخصية في «العبوا معًا» وMath Rocket.', change: '🎨 غيّرها في حسابي', yours: 'شخصيتك', other: 'اختر حيوانًا آخر',
@@ -74,7 +75,7 @@
   const kept = (slot, id) => unlocked().includes(slot + ':' + id);
   const keep = (slot, id) => { const u = unlocked(); if (!u.includes(slot + ':' + id)) C().store.set('unlockedItems', [slot + ':' + id, ...u].slice(0, 400)); };
   function isOpen(slot, id, it, have) {
-    if (it.game) return kept(slot, id);
+    if (it.game || it.gift) return kept(slot, id);
     if ((it.stars || 0) > have) return false;
     const A = AVS();
     if (it.season && A && A.inSeason) return kept(slot, id) || A.inSeason(it);
@@ -84,7 +85,7 @@
     const A = AVS(); if (!A) return null;
     const have = starsTotal();
     const pool = [];
-    for (const [slot, items] of Object.entries(A.catalog)) for (const [id, it] of Object.entries(items)) if (!isOpen(slot, id, it, have)) pool.push({ slot, id, it });
+    for (const [slot, items] of Object.entries(A.catalog)) for (const [id, it] of Object.entries(items)) if (!it.gift && !isOpen(slot, id, it, have)) pool.push({ slot, id, it });
     if (!pool.length) return null;
     // рідкісні речі випадають частіше
     const weighted = pool.flatMap(x => (x.it.game ? [x, x, x] : [x]));
@@ -145,13 +146,16 @@
     const grid = h('div', { class: 'st-grid' });
     const tabsEl = h('div', { class: 'st-tabs', role: 'tablist' });
     const drawTabs = () => tabsEl.replaceChildren(...Object.entries(px('tabs')).map(([k, label]) => h('button', { type: 'button', role: 'tab', 'aria-selected': String(tab === k), class: 'st-tab' + (tab === k ? ' on' : ''), onclick: () => { tab = k; drawTabs(); drawGrid(); } }, label)));
-    const card = (code, label, selected, lockAt, onPick, seasonDays) => {
+    const card = (code, label, selected, lockAt, onPick, seasonDays, rar) => {
       // lockAt: число зірок або 'game' — рідкісна річ, ще не знайдена
-      const game = lockAt === 'game' || lockAt === 'gameOpen';
+      const gift = lockAt === 'gift' || lockAt === 'giftOpen';
+      const game = lockAt === 'game' || lockAt === 'gameOpen' || gift;
       const season = lockAt === 'season';
-      const locked = lockAt === 'game' || (!game && !season && lockAt > have);
-      const b = h('button', { type: 'button', class: 'st-item' + (selected ? ' on' : '') + (locked ? ' locked' : '') + (game ? ' rare' : ''), title: lockAt === 'game' ? px('from_game_t') : locked ? px('locked', lockAt) : label, 'aria-pressed': String(selected), disabled: locked },
+      const locked = lockAt === 'game' || lockAt === 'gift' || lockAt === 'seasonOff' || (!game && !season && lockAt > have);
+      const b = h('button', { type: 'button', class: 'st-item' + (selected ? ' on' : '') + (locked ? ' locked' : '') + (game ? ' rare' : '') + (rar ? ' r-' + rar : ''), title: lockAt === 'seasonOff' ? label + ' ⏳' : lockAt === 'gift' ? px('from_gift_t') : lockAt === 'game' ? px('from_game_t') : locked ? px('locked', lockAt) : label, 'aria-pressed': String(selected), disabled: locked },
         A.el(code, { size: 74, mood: selected ? 'cheer' : 'idle' }), h('small', {}, label),
+        rar && rar !== 'common' && px('rar') ? h('em', { class: 'st-rar' }, px('rar')[rar]) : null,
+        lockAt === 'seasonOff' ? h('span', { class: 'st-lock' }, '⏳') : lockAt === 'gift' ? h('span', { class: 'st-lock gift' }, px('from_gift')) : lockAt === 'giftOpen' ? h('span', { class: 'st-cost gift' }, '🎁') :
         season ? h('span', { class: 'st-cost season' }, '⏳ ' + px('limited', seasonDays)) : lockAt === 'game' ? h('span', { class: 'st-lock rare' }, px('from_game')) : lockAt === 'gameOpen' ? h('span', { class: 'st-cost rare' }, '✨') : locked ? h('span', { class: 'st-lock' }, '🔒 ' + px('need', lockAt)) : lockAt ? h('span', { class: 'st-cost' }, px('need', lockAt)) : null);
       if (!locked) b.addEventListener('click', onPick);
       return b;
@@ -166,13 +170,13 @@
       const none = card(A.encode(Object.assign({}, cfg, { [tab]: '' })), tab === 'color' ? px('natural') : px('none'), !cfg[tab], 0, () => { cfg[tab] = ''; save(); drawGrid(); });
       const opened = unlocked();
       grid.replaceChildren(none, ...Object.entries(items).map(([id, it]) => card(A.encode(Object.assign({}, cfg, { [tab]: id })), it[lang] || it.en || it.uk, cfg[tab] === id,
-        it.game ? (opened.includes(tab + ':' + id) ? 'gameOpen' : 'game') : it.season ? 'season' : it.stars,
+        it.gift ? (opened.includes(tab + ':' + id) ? 'giftOpen' : 'gift') : it.game ? (opened.includes(tab + ':' + id) ? 'gameOpen' : 'game') : it.season ? (isOpen(tab, id, it, have) ? 'season' : 'seasonOff') : it.stars,
         () => { cfg[tab] = id; if (it.season) keep(tab, id); save(); drawGrid(); },
-        it.season && A.seasonLeft ? A.seasonLeft(it) : null)));
+        it.season && A.seasonLeft ? A.seasonLeft(it) : null, A.rarity ? A.rarity(it) : '')));
     };
     const random = () => {
       cfg.base = K.pick(A.list);
-      for (const k of ['hat', 'glasses', 'neck', 'color']) { const open = Object.entries(A.catalog[k]).filter(([id, it]) => isOpen(k, id, it, have)).map(([id]) => id); cfg[k] = Math.random() < 0.35 || !open.length ? '' : K.pick(open); }
+      for (const k of ['hat', 'glasses', 'neck', 'color', 'fx']) { const open = Object.entries(A.catalog[k] || {}).filter(([id, it]) => isOpen(k, id, it, have)).map(([id]) => id); cfg[k] = Math.random() < 0.35 || !open.length ? '' : K.pick(open); }
       save(); drawGrid();
     };
     drawTabs(); drawGrid(); showPreview('idle'); drawName();
@@ -193,11 +197,12 @@
   // преміум (друзі адміністратора та запрошені ними) — без ліміту безкоштовних годин
   const isPremium = () => !!(window.KomiksAuth && window.KomiksAuth.user && window.KomiksAuth.user.premium);
   function tick() {
-    const K = C(); if (!K || !K.currentUser() || isPremium()) return;
+    const K = C(); if (!K || !K.currentUser()) return;
     if (document.hidden || Date.now() - lastActive > 60000) return;
     const used = usage() + TICK;
     K.store.set('usageSec', used);
-    if (used >= FREE_HOURS * 3600 && !K.store.get('freeNotice', false)) { K.store.set('freeNotice', true); overNotice(); }
+    // активний час рахуємо всім (статистика тестувальників), ліміт — лише без преміуму
+    if (!isPremium() && used >= FREE_HOURS * 3600 && !K.store.get('freeNotice', false)) { K.store.set('freeNotice', true); overNotice(); }
   }
   setInterval(tick, TICK * 1000);
   function overNotice() {

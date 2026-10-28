@@ -1,0 +1,70 @@
+# bilohash.com — Ruslan Bilohash portfolio & products
+User-agent: *
+Allow: /
+
+# Admin, login, checkout, private
+Disallow: /bot/admin.html
+Disallow: /bot/admin-demo.html
+Disallow: /ai/crm/admin/
+Disallow: /3d/admin.php
+Disallow: /themeforest/*/admin.php
+Disallow: /freelance/admin/
+Disallow: /booking/admin/
+Disallow: /booking/install/
+Disallow: /auction/admin/
+Disallow: /auction/install/
+Disallow: /shop/admin/
+Disallow: /shop/cart.php
+Disallow: /shop/checkout.php
+Disallow: /shop/install/
+Disallow: /shop/not_mysql/
+Disallow: /tavle/site/admin/
+Disallow: /tavle/site/install.php
+Disallow: /gamehub/admin/
+Disallow: /gamehub/search.php
+Disallow: /pizza/admin/
+Disallow: /faktura/admin/
+Disallow: /today/admin/
+Disallow: /harmony/admin/
+Disallow: /lending/admin/
+Disallow: /hosting/login.php
+Disallow: /hosting/admin/
+Disallow: /hosting/panel/
+Disallow: /hosting/pma/
+Disallow: /hosting/data/
+Disallow: /driving-school/cms/admin/
+Disallow: /myclient/cms/admin/
+Disallow: /myclient/cms/login.php
+Disallow: /client/login.php
+Disallow: /client/admin/
+Disallow: /ecosystem/cabinet.php
+Disallow: /ecosystem/pay.php
+Disallow: /ecosystem/pay-return.php
+Disallow: /ecosystem/data/
+Disallow: /webmail/
+Disallow: /mail/
+Disallow: /dima/
+Disallow: /conversations/
+Disallow: /log/
+Disallow: /ai/log/
+Disallow: /website/ai/log/
+Disallow: /*.log$
+Disallow: /wordpress/wp-admin/
+
+Sitemap: https://bilohash.com/sitemap.xml
+Sitemap: https://bilohash.com/website/sitemap.php
+Sitemap: https://bilohash.com/auction/sitemap.php
+Sitemap: https://bilohash.com/booking/sitemap.php
+Sitemap: https://bilohash.com/shop/sitemap.php
+Sitemap: https://bilohash.com/pizza/sitemap.php
+Sitemap: https://bilohash.com/today/sitemap.php
+Sitemap: https://bilohash.com/freelance/sitemap.php
+Sitemap: https://bilohash.com/ai/sitemap.xml
+Sitemap: https://bilohash.com/3d/sitemap.xml
+Sitemap: https://bilohash.com/myclient/sitemap.php
+Sitemap: https://bilohash.com/news/sitemap.php
+Sitemap: https://bilohash.com/news/tehnology/sitemap.php
+Sitemap: https://bilohash.com/comiks/sitemap.xml
+# LLM context file (not a robots directive): https://bilohash.com/llms.txt
+# Technologies LLM context: https://bilohash.com/news/tehnology/llms.txt
+# Komiks·Lab (Norwegian course) LLM context: https://bilohash.com/comiks/llms.txt

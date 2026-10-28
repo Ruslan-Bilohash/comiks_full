@@ -60,7 +60,7 @@ if (limited('call:' . $id, $limit, 86400)) fail('call_limit', 429);
 $who = clean_text((string)($in['who'] ?? 'Kaja'), 20);
 $scene = in_array($in['scene'] ?? '', SCENES, true) ? (string)$in['scene'] : 'smaprat';
 $level = in_array($in['level'] ?? '', ['A1', 'A2', 'B1', 'B2'], true) ? (string)$in['level'] : 'A1';
-$lang = in_array($in['lang'] ?? '', ['en', 'no', 'uk', 'ar'], true) ? (string)$in['lang'] : 'en';
+$lang = kl_lang($in['lang'] ?? '');
 $text = clean_text((string)($in['text'] ?? ''), CALL_MAX_TEXT);
 
 // історія: лише останні 12 реплік, кожна коротка
@@ -74,7 +74,7 @@ if ($text !== '') $msgs[] = ['role' => 'user', 'content' => $text];
 if (!$msgs) $msgs[] = ['role' => 'user', 'content' => '(samtalen starter)'];
 
 $words = $level === 'A1' ? '8–12' : ($level === 'A2' ? '10–16' : '14–24');
-$hintLang = ['en' => 'English', 'uk' => 'Ukrainian', 'no' => 'simple Norwegian', 'ar' => 'Arabic'][$lang];
+$hintLang = KL_LANG_NAME[$lang] ?? 'English';
 $sceneNo = SCENE_NO[$scene];
 $system = <<<TXT
 You are {$who}, a friendly fictional Norwegian person having a short phone call with someone who is learning Norwegian (level {$level}).

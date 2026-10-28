@@ -1,0 +1,10 @@
+{
+ "english.js:QTIP": {
+  "who": "Hvem sier dette?",
+  "panel": "Hvilket bilde er denne linjen fra?",
+  "listen": "Lytt og velg ordet",
+  "picture": "Hva er dette?",
+  "blank": "Hvilket ord mangler?",
+  "emoji": "Hva er dette? Velg det engelske ordet"
+ }
+}

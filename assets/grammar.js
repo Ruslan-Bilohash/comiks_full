@@ -10,7 +10,12 @@
       rule: '📏 Правило', forms: '📋 Форми', examples: '💬 Приклади', test: '🧩 Тест з теми', mix_test: '🧩 Тест з усієї граматики', level: l => `Рівень ${l}`,
       tests: '📐 Граматика й годинник', clock: ['🕒', 'Котра година?', 'годинник норвезькою: halv, kvart over, kvart på'], step: x => `Граматика: ${x}`,
       clock_title: '🕒 Котра година? — Hva er klokka?', clock_rule: 'Норвежці рахують півгодини до НАСТУПНОЇ години: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Теми', q_grammar: 'Вибери правильне слово', q_clock: 'Котра година на годиннику?'
+      topics: 'Теми', q_grammar: 'Вибери правильне слово', q_clock: 'Котра година на годиннику?',
+      cabinet: '🎓 Мій кабінет граматики', cabinet_d: 'Пройдені тести, найкращі бали та теми для повторення.',
+      completed: 'Пройдено тестів', average: 'Середній найкращий бал', review_count: 'На повторення',
+      history: '✅ Пройдені тести', history_empty: 'Ти ще не проходив граматичні тести. Почни з будь-якої теми нижче.',
+      review: '🔁 Повторити зараз', review_empty: 'Чудово: слабких тем немає. Пройди змішаний тест для закріплення.',
+      best: p => `Найкраще: ${p}%`, last: p => `Останній: ${p}%`, attempts: n => `${n} спроб`, repeat: '🔄 Повторити тест', mixed_review: '🧩 Змішане повторення', clock_name: 'Котра година?'
     },
     en: {
       nav: 'Grammar', module: ['📐', 'Grammar', 'pronouns, verbs, word order'],
@@ -18,7 +23,12 @@
       rule: '📏 Rule', forms: '📋 Forms', examples: '💬 Examples', test: '🧩 Topic test', mix_test: '🧩 Test on all grammar', level: l => `Level ${l}`,
       tests: '📐 Grammar and the clock', clock: ['🕒', 'What time is it?', 'telling the time in Norwegian: halv, kvart over, kvart på'], step: x => `Grammar: ${x}`,
       clock_title: '🕒 What time is it? — Hva er klokka?', clock_rule: 'Norwegians count the half hour towards the NEXT hour: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Topics', q_grammar: 'Choose the right word', q_clock: 'What time does the clock show?'
+      topics: 'Topics', q_grammar: 'Choose the right word', q_clock: 'What time does the clock show?',
+      cabinet: '🎓 My grammar dashboard', cabinet_d: 'Completed tests, best scores and topics ready for review.',
+      completed: 'Tests completed', average: 'Average best score', review_count: 'Ready to review',
+      history: '✅ Completed tests', history_empty: 'You have not completed a grammar test yet. Start with any topic below.',
+      review: '🔁 Review now', review_empty: 'Great work: no weak topics. Try a mixed test to keep your skills fresh.',
+      best: p => `Best: ${p}%`, last: p => `Latest: ${p}%`, attempts: n => `${n} attempts`, repeat: '🔄 Repeat test', mixed_review: '🧩 Mixed review', clock_name: 'What time is it?'
     },
     no: {
       nav: 'Grammatikk', module: ['📐', 'Grammatikk', 'pronomen, verb, ordstilling'],
@@ -26,7 +36,12 @@
       rule: '📏 Regel', forms: '📋 Former', examples: '💬 Eksempler', test: '🧩 Test i temaet', mix_test: '🧩 Test i all grammatikk', level: l => `Nivå ${l}`,
       tests: '📐 Grammatikk og klokka', clock: ['🕒', 'Hva er klokka?', 'klokka på norsk: halv, kvart over, kvart på'], step: x => `Grammatikk: ${x}`,
       clock_title: '🕒 Hva er klokka?', clock_rule: 'Vi sier halv om halvtimen før NESTE time: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Temaer', q_grammar: 'Velg riktig ord', q_clock: 'Hva er klokka?'
+      topics: 'Temaer', q_grammar: 'Velg riktig ord', q_clock: 'Hva er klokka?',
+      cabinet: '🎓 Mitt grammatikkpanel', cabinet_d: 'Fullførte tester, beste poeng og temaer du bør repetere.',
+      completed: 'Tester fullført', average: 'Gjennomsnittlig beste poeng', review_count: 'Til repetisjon',
+      history: '✅ Fullførte tester', history_empty: 'Du har ikke fullført en grammatikktest ennå. Start med et tema nedenfor.',
+      review: '🔁 Repeter nå', review_empty: 'Flott: ingen svake temaer. Ta en blandet test for å holde kunnskapen ved like.',
+      best: p => `Best: ${p}%`, last: p => `Sist: ${p}%`, attempts: n => `${n} forsøk`, repeat: '🔄 Ta testen på nytt', mixed_review: '🧩 Blandet repetisjon', clock_name: 'Hva er klokka?'
     },
     de: {
       nav: 'Grammatik', module: ['📐', 'Grammatik', 'Pronomen, Verben, Wortstellung'],
@@ -34,7 +49,12 @@
       rule: '📏 Regel', forms: '📋 Formen', examples: '💬 Beispiele', test: '🧩 Themen-Test', mix_test: '🧩 Test über die ganze Grammatik', level: l => `Stufe ${l}`,
       tests: '📐 Grammatik und die Uhr', clock: ['🕒', 'Wie spät ist es?', 'die Uhrzeit auf Norwegisch: halv, kvart over, kvart på'], step: x => `Grammatik: ${x}`,
       clock_title: '🕒 Wie spät ist es? — Hva er klokka?', clock_rule: 'Norweger zählen die halbe Stunde zur NÄCHSTEN Stunde: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Themen', q_grammar: 'Wähle das richtige Wort', q_clock: 'Wie viel Uhr zeigt die Uhr?'
+      topics: 'Themen', q_grammar: 'Wähle das richtige Wort', q_clock: 'Wie viel Uhr zeigt die Uhr?',
+      cabinet: '🎓 Mein Grammatikbereich', cabinet_d: 'Abgeschlossene Tests, Bestwerte und Themen zum Wiederholen.',
+      completed: 'Tests abgeschlossen', average: 'Durchschnittlicher Bestwert', review_count: 'Zum Wiederholen',
+      history: '✅ Abgeschlossene Tests', history_empty: 'Du hast noch keinen Grammatiktest abgeschlossen. Wähle unten ein Thema.',
+      review: '🔁 Jetzt wiederholen', review_empty: 'Gut gemacht: Keine schwachen Themen. Probiere einen gemischten Test.',
+      best: p => `Bestwert: ${p}%`, last: p => `Zuletzt: ${p}%`, attempts: n => `${n} Versuche`, repeat: '🔄 Test wiederholen', mixed_review: '🧩 Gemischte Wiederholung', clock_name: 'Wie spät ist es?'
     },
     pl: {
       nav: 'Gramatyka', module: ['📐', 'Gramatyka', 'zaimki, czasowniki, szyk zdania'],
@@ -42,7 +62,12 @@
       rule: '📏 Zasada', forms: '📋 Formy', examples: '💬 Przykłady', test: '🧩 Test z tematu', mix_test: '🧩 Test z całej gramatyki', level: l => `Poziom ${l}`,
       tests: '📐 Gramatyka i zegar', clock: ['🕒', 'Która godzina?', 'godziny po norwesku: halv, kvart over, kvart på'], step: x => `Gramatyka: ${x}`,
       clock_title: '🕒 Która godzina? — Hva er klokka?', clock_rule: 'Norwegowie liczą pół godziny do NASTĘPNEJ godziny: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Tematy', q_grammar: 'Wybierz właściwe słowo', q_clock: 'Którą godzinę pokazuje zegar?'
+      topics: 'Tematy', q_grammar: 'Wybierz właściwe słowo', q_clock: 'Którą godzinę pokazuje zegar?',
+      cabinet: '🎓 Mój panel gramatyki', cabinet_d: 'Ukończone testy, najlepsze wyniki i tematy do powtórki.',
+      completed: 'Ukończone testy', average: 'Średni najlepszy wynik', review_count: 'Do powtórki',
+      history: '✅ Ukończone testy', history_empty: 'Nie masz jeszcze ukończonych testów gramatycznych. Wybierz temat poniżej.',
+      review: '🔁 Powtórz teraz', review_empty: 'Świetnie: brak słabych tematów. Spróbuj testu mieszanego.',
+      best: p => `Najlepiej: ${p}%`, last: p => `Ostatnio: ${p}%`, attempts: n => `${n} prób`, repeat: '🔄 Powtórz test', mixed_review: '🧩 Powtórka mieszana', clock_name: 'Która godzina?'
     },
     tr: {
       nav: 'Dil bilgisi', module: ['📐', 'Dil bilgisi', 'zamirler, fiiller, sözcük sırası'],
@@ -50,7 +75,12 @@
       rule: '📏 Kural', forms: '📋 Biçimler', examples: '💬 Örnekler', test: '🧩 Konu testi', mix_test: '🧩 Bütün dil bilgisi testi', level: l => `${l} seviyesi`,
       tests: '📐 Dil bilgisi ve saat', clock: ['🕒', 'Saat kaç?', 'Norveççe saat söyleme: halv, kvart over, kvart på'], step: x => `Dil bilgisi: ${x}`,
       clock_title: '🕒 Saat kaç? — Hva er klokka?', clock_rule: 'Norveçliler buçuğu BİR SONRAKİ saate göre sayar: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Konular', q_grammar: 'Doğru kelimeyi seç', q_clock: 'Saat kaçı gösteriyor?'
+      topics: 'Konular', q_grammar: 'Doğru kelimeyi seç', q_clock: 'Saat kaçı gösteriyor?',
+      cabinet: '🎓 Dil bilgisi panelim', cabinet_d: 'Tamamlanan testler, en iyi puanlar ve tekrar konuları.',
+      completed: 'Tamamlanan testler', average: 'Ortalama en iyi puan', review_count: 'Tekrar edilecek',
+      history: '✅ Tamamlanan testler', history_empty: 'Henüz bir dil bilgisi testi tamamlamadın. Aşağıdan bir konu seç.',
+      review: '🔁 Şimdi tekrar et', review_empty: 'Harika: zayıf konu yok. Karma bir test çöz.',
+      best: p => `En iyi: %${p}`, last: p => `Son: %${p}`, attempts: n => `${n} deneme`, repeat: '🔄 Testi tekrarla', mixed_review: '🧩 Karma tekrar', clock_name: 'Saat kaç?'
     },
     lt: {
       nav: 'Gramatika', module: ['📐', 'Gramatika', 'įvardžiai, veiksmažodžiai, žodžių tvarka'],
@@ -58,7 +88,12 @@
       rule: '📏 Taisyklė', forms: '📋 Formos', examples: '💬 Pavyzdžiai', test: '🧩 Temos testas', mix_test: '🧩 Visos gramatikos testas', level: l => `${l} lygis`,
       tests: '📐 Gramatika ir laikrodis', clock: ['🕒', 'Kiek valandų?', 'laikas norvegiškai: halv, kvart over, kvart på'], step: x => `Gramatika: ${x}`,
       clock_title: '🕒 Kiek valandų? — Hva er klokka?', clock_rule: 'Norvegai pusvalandį skaičiuoja iki KITOS valandos: halv ni = 8:30. Kvart over tre = 3:15, kvart på fire = 3:45. Ti på halv fem = 4:20, fem over halv fem = 4:35.',
-      topics: 'Temos', q_grammar: 'Pasirink teisingą žodį', q_clock: 'Kiek valandų rodo laikrodis?'
+      topics: 'Temos', q_grammar: 'Pasirink teisingą žodį', q_clock: 'Kiek valandų rodo laikrodis?',
+      cabinet: '🎓 Mano gramatikos skydelis', cabinet_d: 'Baigti testai, geriausi rezultatai ir temos kartojimui.',
+      completed: 'Baigti testai', average: 'Geriausių rezultatų vidurkis', review_count: 'Kartoti',
+      history: '✅ Baigti testai', history_empty: 'Dar nebaigei nė vieno gramatikos testo. Pasirink temą žemiau.',
+      review: '🔁 Kartoti dabar', review_empty: 'Puiku: silpnų temų nėra. Išbandyk mišrų testą.',
+      best: p => `Geriausias: ${p}%`, last: p => `Paskutinis: ${p}%`, attempts: n => `${n} bandymai`, repeat: '🔄 Kartoti testą', mixed_review: '🧩 Mišrus kartojimas', clock_name: 'Kiek valandų?'
     }
   };
   if (window.I18N) for (const l of ['uk', 'en', 'no', 'de', 'pl', 'tr', 'lt']) {
@@ -80,8 +115,36 @@
   const gx = (k, ...a) => { const tbl = GX[C().ui] || GX.en || GX.uk; const v = k in tbl ? tbl[k] : (GX.en || GX.uk)[k]; return typeof v === 'function' ? v(...a) : v; };
   const topics = () => (window.GRAMMAR || { topics: [] }).topics;
   const LEVELS = ['A1', 'A2', 'B1', 'B2'];
-  const label = id => { const tp = topics().find(x => x.id === id); if (!tp) return id; const ui = C().ui; return ui === 'no' ? tp.no : `${tp.no} — ${tp[ui] || tp.en || tp.uk}`; };
+  const label = id => { const tp = topics().find(x => x.id === id); if (!tp) return id; const ui = C().ui; return ui === 'no' ? tp.no : `${tp.no} — ${tp[ui] || C().trText(tp.en, tp.uk, ui)}`; };
   const stars = key => (((C().store.get('progress', {}))[key]) || {}).stars || 0;
+
+  function historyModel(topicList = [], quizlog = [], progress = {}) {
+    const catalog = topicList.map(tp => ({
+      key: 'grammar:' + tp.id, topic: tp.id, title: tp.no, level: tp.level,
+      href: '#/quiz/grammar/' + tp.id
+    })).concat([{ key: 'clock', topic: 'clock', title: 'Hva er klokka?', level: 'A1', href: '#/quiz/clock' }]);
+    const pct = row => row && Number(row.total) > 0 ? Math.round(Number(row.score || 0) / Number(row.total) * 100) : 0;
+    const items = catalog.map(item => {
+      const attempts = quizlog.filter(row => row && row.key === item.key && Number(row.total) > 0);
+      const saved = progress[item.key] || {};
+      const bestPct = attempts.length ? Math.max(...attempts.map(pct)) : Number(saved.best || 0);
+      const lastPct = attempts.length ? pct(attempts[0]) : null;
+      return Object.assign({}, item, {
+        attempts: attempts.length || Number(saved.plays || 0), bestPct, lastPct,
+        completed: attempts.length > 0 || Number(saved.stars || 0) > 0 || Number(saved.plays || 0) > 0
+      });
+    });
+    const completedItems = items.filter(item => item.completed);
+    const reviewItems = completedItems.filter(item => item.bestPct < 80 || (item.lastPct !== null && item.lastPct < 80))
+      .sort((a, b) => a.bestPct - b.bestPct || (a.lastPct ?? 101) - (b.lastPct ?? 101));
+    return {
+      total: catalog.length,
+      completed: completedItems.length,
+      average: completedItems.length ? Math.round(completedItems.reduce((sum, item) => sum + item.bestPct, 0) / completedItems.length) : 0,
+      completedItems,
+      reviewItems
+    };
+  }
 
   /* ---------------- завдання ---------------- */
   function makeQ(tp, [sent, answer, wrong], nOpt) {
@@ -131,12 +194,39 @@
     const K = C(), { h } = K;
     const ui = K.ui;
     const say = (text, rate = 0.9) => () => K.claim().then(() => K.Speech.speak(text, 'narrator', { rate }));
-    const ar = en => (K.arFor ? K.arFor(en) : null) || en; // арабська — з data/arabic.js за англійським текстом
-    const trCol = row => (ui === 'en' ? row[2] : ui === 'ar' ? ar(row[2]) : row[1]);
+    /* Переклад колонки — мовою інтерфейсу. Для мов, яких немає в самих даних
+       (арабська, німецька, польська, турецька, литовська), його шукає словник
+       за англійським рядком; доти німець бачив українську колонку. */
+    const trCol = row => (K.trText ? K.trText(row[2], row[1], ui) : row[1]);
+    const history = historyModel(topics(), K.store.get('quizlog', []), K.store.get('progress', {}));
+    const itemTitle = item => item.topic === 'clock' ? gx('clock_name') : label(item.topic);
+    const scoreTone = score => score >= 80 ? 'good' : score >= 60 ? 'mid' : 'low';
+    const dashboard = h('section', { class: 'gram-cabinet box', 'aria-labelledby': 'gram-cabinet-title' },
+      h('div', { class: 'gram-cabinet-head' },
+        h('div', {}, h('h2', { id: 'gram-cabinet-title' }, gx('cabinet')), h('p', {}, gx('cabinet_d'))),
+        h('a', { class: 'btn accent gram-mixed', href: '#/quiz/grammar' }, gx('mixed_review'))),
+      h('div', { class: 'gram-cabinet-stats' },
+        h('div', { class: 'gram-stat' }, h('strong', {}, `${history.completed}/${history.total}`), h('span', {}, gx('completed'))),
+        h('div', { class: 'gram-stat' }, h('strong', {}, `${history.average}%`), h('span', {}, gx('average'))),
+        h('div', { class: 'gram-stat' }, h('strong', {}, String(history.reviewItems.length)), h('span', {}, gx('review_count')))),
+      h('div', { class: 'gram-review' }, h('h3', {}, gx('review')),
+        history.reviewItems.length
+          ? h('div', { class: 'gram-review-list' }, history.reviewItems.slice(0, 4).map(item => h('a', { class: 'gram-review-card', href: item.href },
+            h('span', { class: 'gram-review-ico', 'aria-hidden': 'true' }, item.bestPct < 60 ? '🧠' : '✨'),
+            h('span', {}, h('b', {}, itemTitle(item)), h('small', {}, gx('best', item.bestPct))),
+            h('strong', { class: 'gram-score ' + scoreTone(item.bestPct) }, `${item.bestPct}%`))))
+          : h('p', { class: 'gram-empty' }, gx('review_empty'))),
+      h('div', { class: 'gram-history' }, h('h3', {}, gx('history')),
+        history.completedItems.length
+          ? h('div', { class: 'gram-history-list' }, history.completedItems.map(item => h('article', { class: 'gram-history-row' },
+            h('div', { class: 'gram-history-main' }, h('b', {}, itemTitle(item)), h('span', { class: 'lvl lvl-' + item.level }, item.level)),
+            h('div', { class: 'gram-history-meta' }, h('span', {}, gx('best', item.bestPct)), item.lastPct === null ? null : h('span', {}, gx('last', item.lastPct)), h('span', {}, gx('attempts', item.attempts))),
+            h('a', { class: 'btn small', href: item.href }, gx('repeat')))))
+          : h('p', { class: 'gram-empty' }, gx('history_empty'))));
     const topicEl = tp => h('article', { class: 'gram-topic box', id: 'g-' + tp.id },
-      h('header', { class: 'gram-head' }, h('span', { class: 'gram-ico' }, tp.icon), h('div', {}, K.withTr(h('h3', {}, tp.no), K.both(tp.uk, tp.en)), ui !== 'no' ? h('small', {}, tp[ui] || tp.en || tp.uk) : null),
+      h('header', { class: 'gram-head' }, h('span', { class: 'gram-ico' }, tp.icon), h('div', {}, K.withTr(h('h3', {}, tp.no), K.both(tp.uk, tp.en)), ui !== 'no' ? h('small', {}, tp[ui] || C().trText(tp.en, tp.uk, ui)) : null),
         h('span', { class: 'lvl lvl-' + tp.level }, tp.level), K.stars(stars('grammar:' + tp.id))),
-      h('h4', {}, gx('rule')), h('p', { class: 'gram-rule' }, tp.rule[ui] || (ui === 'ar' ? ar(tp.rule.en) : null) || tp.rule.en || tp.rule.uk),
+      h('h4', {}, gx('rule')), h('p', { class: 'gram-rule' }, tp.rule[ui] || (K.trText ? K.trText(tp.rule.en, tp.rule.uk, ui) : null) || tp.rule.en || tp.rule.uk),
       h('h4', {}, gx('forms')),
       h('div', { class: 'table-wrap' }, h('table', { class: 'gram-table' }, h('tbody', {}, tp.table.map(row => h('tr', {},
         h('td', {}, h('button', { class: 'play', type: 'button', 'aria-label': 'Lytt', onclick: say(row[0].replace(/→/g, ',').replace(/\+ inf\./, '')) }, '🔊')),
@@ -145,7 +235,7 @@
       h('ul', { class: 'gram-ex' }, tp.examples.map(ex => h('li', {}, h('button', { class: 'play', type: 'button', 'aria-label': 'Lytt', onclick: say(ex[0]) }, '🔊'),
         K.withTr(h('span', { class: 'ex-no' }, K.wordSpans(null, ex[0])), K.both(ex[1], ex[2]))))),
       h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/quiz/grammar/' + tp.id }, gx('test'))));
-    const chips = h('div', { class: 'gram-chips' }, topics().map(tp => h('a', { class: 'chip lvl-' + tp.level, href: '#/grammar/' + tp.id }, tp.icon + ' ' + (ui === 'no' ? tp.no : tp[ui] || tp.en || tp.uk))));
+    const chips = h('div', { class: 'gram-chips' }, topics().map(tp => h('a', { class: 'chip lvl-' + tp.level, href: '#/grammar/' + tp.id }, tp.icon + ' ' + (ui === 'no' ? tp.no : tp[ui] || C().trText(tp.en, tp.uk, ui)))));
     const clockBox = h('article', { class: 'gram-topic box', id: 'g-clock' },
       h('header', { class: 'gram-head' }, h('span', { class: 'gram-ico' }, '🕒'), h('div', {}, h('h3', {}, gx('clock_title'))), h('span', { class: 'lvl lvl-A1' }, 'A1'), K.stars(stars('clock'))),
       h('p', { class: 'gram-rule' }, gx('clock_rule')),
@@ -154,6 +244,7 @@
       h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/quiz/clock' }, gx('test'))));
     const root = h('section', { class: 'grammar' }, K.pageHead(gx('title')),
       h('p', { class: 'lead-p' }, gx('intro')),
+      dashboard,
       h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/quiz/grammar' }, gx('mix_test')), K.stars(stars('grammar'))),
       h('h3', { class: 'sec-sub' }, gx('topics')), chips,
       ...LEVELS.flatMap(l => { const list = topics().filter(tp => tp.level === l); return list.length ? [h('h3', { class: 'sec-sub' }, gx('level', l)), ...list.map(topicEl), l === 'A1' ? clockBox : null] : []; }));
@@ -161,5 +252,5 @@
     return root;
   }
 
-  window.KomiksGrammar = { topics, label, questions, quiz, clock, clockText, clockSVG, render, text: gx, stars };
+  window.KomiksGrammar = { topics, label, questions, quiz, clock, clockText, clockSVG, render, text: gx, stars, historyModel };
 })();

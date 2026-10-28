@@ -13,6 +13,7 @@
  * POST { action: "report", id }               → поскаржитися модераторам
  * POST { action: "hide", code }               → прибрати розмову зі свого списку
  * POST { action: "prefs", msg: 0|1|2 }        → хто може мені писати
+ * POST { action: "react", id, emoji }         → реакція отримувача на повідомлення ('' — прибрати)
  * Безпека: лише залогінені й підтверджені; без посилань; ліміти частоти; тимчасові блокування модератора діють і тут.
  */
 declare(strict_types=1);
@@ -21,6 +22,14 @@ require __DIR__ . '/lib.php';
 
 const CODE_RE = '/^[A-HJ-NP-Z2-9]{6}$/';
 const MAX_LEN = 1000;
+// реакції — лише з цього набору: довільний текст у реакції став би обхідним каналом без фільтрів
+const REACTIONS = ['❤️', '😂', '😮', '😢', '👍', '🎉', '🔥', '🤗'];
+
+/* Стовпчик реакції додаємо один раз; ALTER у try — він ідемпотентний і на MySQL, і на SQLite. */
+if (meta_get('msg_react_v') !== '1') {
+  try { q('ALTER TABLE kl_messages ADD COLUMN react VARCHAR(16) NULL'); } catch (Throwable $e) { /* вже є */ }
+  try { q('SELECT react FROM kl_messages LIMIT 1'); meta_set('msg_react_v', '1'); } catch (Throwable $e) { /* спробуємо наступного разу */ }
+}
 
 function user_by_code(string $code): ?array {
   $code = strtoupper($code);
@@ -54,7 +63,7 @@ function can_write(array $me, ?array $to): array {
   return [true, 'ok'];
 }
 function msg_out(array $m, int $meId): array {
-  return ['id' => (int)$m['id'], 'mine' => (int)$m['from_id'] === $meId, 'text' => $m['text'], 'at' => gmdate('c', (int)$m['created_at']), 'read' => !empty($m['read_at'])];
+  return ['id' => (int)$m['id'], 'mine' => (int)$m['from_id'] === $meId, 'text' => $m['text'], 'at' => gmdate('c', (int)$m['created_at']), 'read' => !empty($m['read_at']), 'react' => (string)($m['react'] ?? '')];
 }
 
 $me = require_user();
@@ -118,6 +127,17 @@ if ($action === 'send') {
   q('UPDATE kl_messages SET hidden_to = 0 WHERE from_id = ? AND to_id = ?', [(int)$to['id'], $meId]);
   out(['ok' => true, 'message' => msg_out(one('SELECT * FROM kl_messages WHERE id = ?', [$id]), $meId)]);
 }
+if ($action === 'react') {
+  $emoji = (string)($in['emoji'] ?? '');
+  if ($emoji !== '' && !in_array($emoji, REACTIONS, true)) fail('emoji');
+  rate_or_fail('msg-react:' . $meId, 120, 3600);
+  // реагує лише отримувач — на чуже повідомлення у своїй розмові
+  $m = one('SELECT * FROM kl_messages WHERE id = ? AND to_id = ?', [(int)($in['id'] ?? 0), $meId]);
+  if (!$m) fail('not_found', 404);
+  q('UPDATE kl_messages SET react = ? WHERE id = ?', [$emoji === '' ? null : $emoji, (int)$m['id']]);
+  out(['ok' => true, 'react' => $emoji]);
+}
+
 if ($action === 'block') {
   $to = user_by_code((string)($in['code'] ?? ''));
   if (!$to || (int)$to['id'] === $meId) fail('not_found', 404);

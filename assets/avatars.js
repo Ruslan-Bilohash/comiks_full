@@ -1,6 +1,6 @@
 /* Комікс·Lab — живі аватари-тваринки (SVG): дихають, кліпають, у переможців — танець.
    Ідентифікатор аватара лишається емодзі (🦊, 🐼 …), щоб не змінювати протокол гри; малюнок будується тут.
-   Також — сцена переможців як у Kahoot: п’єдестал із трьома найкращими та «публіка» з рештою гравців. */
+   Також — сцена переможців як у вікторинах: п’єдестал із трьома найкращими та «публіка» з рештою гравців. */
 (() => {
   'use strict';
   // палітри й ознаки кожної тваринки
@@ -156,7 +156,63 @@
     return Math.max(0, Math.ceil((end - now) / 86400000));
   }
 
-  const CATALOG = { hat: HATS, glasses: GLASSES, neck: NECK, color: COLORS };
+  /* ---------------- ✨ ефекти (аури): шостий слот коду «тварина|шапка|окуляри|шия|колір|ефект» ----------------
+     back — під тілом (сяйво, полум’я), front — над ним (іскри, сердечка). Анімація — класами av-fx-* у style.css;
+     «Зупинити анімацію» в доступності й prefers-reduced-motion їх вимикають. */
+  const star4 = (x, y, s, fill, extra = '') => `<path ${extra} d="M${x} ${y - s} L${x + s * 0.28} ${y - s * 0.28} L${x + s} ${y} L${x + s * 0.28} ${y + s * 0.28} L${x} ${y + s} L${x - s * 0.28} ${y + s * 0.28} L${x - s} ${y} L${x - s * 0.28} ${y - s * 0.28}Z" fill="${fill}"/>`;
+  const heart = (x, y, s, fill, extra = '') => `<path ${extra} d="M${x} ${y + s} C${x - s * 1.6} ${y - s * 0.2} ${x - s * 0.9} ${y - s * 1.5} ${x} ${y - s * 0.55} C${x + s * 0.9} ${y - s * 1.5} ${x + s * 1.6} ${y - s * 0.2} ${x} ${y + s}Z" fill="${fill}" stroke="#7a1238" stroke-width="1.5"/>`;
+  const dl = i => `style="animation-delay:${(i * 0.37 % 2.2).toFixed(2)}s"`;
+  const FX = {
+    sparkle: { stars: 0, uk: 'Іскорки', en: 'Sparkles', no: 'Gnister',
+      front: () => [[10, 20, 7], [108, 30, 6], [4, 92, 5], [116, 100, 7], [96, -4, 5]].map(([x, y, s], i) => star4(x, y, s, '#ffd23f', `class="av-fx-tw" ${dl(i)} stroke="#b8860b" stroke-width="1"`)).join('') },
+    bubbles: { stars: 5, uk: 'Бульбашки', en: 'Bubbles', no: 'Bobler',
+      front: () => [[6, 110, 6], [112, 118, 5], [18, 70, 4], [104, 64, 7], [60, 132, 4]].map(([x, y, r], i) => `<circle class="av-fx-rise" ${dl(i)} cx="${x}" cy="${y}" r="${r}" fill="rgba(160,220,255,.35)" stroke="#4fc3f7" stroke-width="2"/>`).join('') },
+    notes: { stars: 10, uk: 'Музика', en: 'Music notes', no: 'Musikk',
+      front: () => [[4, 60, '♪'], [110, 44, '♫'], [100, 110, '♪'], [12, 118, '♫']].map(([x, y, n], i) => `<text class="av-fx-rise" ${dl(i)} x="${x}" y="${y}" font-size="20" font-weight="900" fill="#7e57c2" stroke="#fff" stroke-width=".8" text-anchor="middle">${n}</text>`).join('') },
+    orbit: { stars: 16, uk: 'Зоряна орбіта', en: 'Star orbit', no: 'Stjernebane',
+      back: () => `<ellipse cx="60" cy="74" rx="62" ry="20" fill="none" stroke="rgba(255,210,63,.55)" stroke-width="2" stroke-dasharray="4 5"/>`,
+      front: () => `<g class="av-fx-spin">${[0, 120, 240].map(a => { const r = a * Math.PI / 180; return star4(+(60 + Math.cos(r) * 62).toFixed(1), +(74 + Math.sin(r) * 20).toFixed(1), 7, '#ffd23f', 'stroke="#b8860b" stroke-width="1"'); }).join('')}</g>` },
+    halo: { stars: 24, uk: 'Веселкове сяйво', en: 'Rainbow glow', no: 'Regnbueglød',
+      back: (a, id) => `<defs><linearGradient id="${id}h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5f5f"/><stop offset=".25" stop-color="#ffd23f"/><stop offset=".5" stop-color="#5fd35f"/><stop offset=".75" stop-color="#4dabff"/><stop offset="1" stop-color="#b36bff"/></linearGradient></defs><circle class="av-fx-spin slow" cx="60" cy="70" r="64" fill="none" stroke="url(#${id}h)" stroke-width="7" stroke-dasharray="18 8" opacity=".85"/><circle cx="60" cy="70" r="58" fill="rgba(255,255,255,.35)"/>` },
+    fire: { stars: 32, uk: 'Вогняна аура', en: 'Fire aura', no: 'Ildaura',
+      back: () => `<g class="av-fx-flick">${[[14, 108, 1], [34, 124, .8], [86, 124, .8], [106, 108, 1], [60, 130, .7]].map(([x, y, s]) => `<path d="M${x} ${y} C${x - 18 * s} ${y - 30 * s} ${x - 4 * s} ${y - 52 * s} ${x} ${y - 74 * s} C${x + 6 * s} ${y - 50 * s} ${x + 22 * s} ${y - 32 * s} ${x} ${y}Z" fill="#ff7043" stroke="#bf360c" stroke-width="2"/><path d="M${x} ${y} C${x - 8 * s} ${y - 18 * s} ${x - 2 * s} ${y - 32 * s} ${x} ${y - 44 * s} C${x + 4 * s} ${y - 30 * s} ${x + 10 * s} ${y - 18 * s} ${x} ${y}Z" fill="#ffd23f"/>`).join('')}</g>` },
+    aurora: { stars: 45, uk: 'Північне сяйво', en: 'Northern lights', no: 'Nordlys',
+      back: () => `<g class="av-fx-wave"><path d="M-8 30 C20 4 40 40 64 14 S110 20 128 0 L128 40 C104 58 84 26 60 50 S14 44 -8 64Z" fill="rgba(0,230,160,.38)"/><path d="M-8 52 C24 30 44 64 70 38 S112 46 128 26 L128 56 C100 76 80 48 56 68 S12 66 -8 82Z" fill="rgba(160,90,255,.32)"/></g>` },
+    snow: { season: ['12-01', '02-28'], uk: 'Сніжинки', en: 'Snowflakes', no: 'Snøfnugg',
+      front: () => [[8, 10], [40, -6], [92, 4], [116, 40], [2, 70], [112, 96]].map(([x, y], i) => `<text class="av-fx-fall" ${dl(i)} x="${x}" y="${y}" font-size="15" fill="#b3e5fc" stroke="#4f8fbf" stroke-width=".6" text-anchor="middle">❄</text>`).join('') },
+    lightning: { stars: 0, game: true, uk: 'Блискавки', en: 'Lightning', no: 'Lyn',
+      front: () => [[8, 30, 1], [112, 56, -1]].map(([x, y, k], i) => `<path class="av-fx-flash" ${dl(i * 2)} d="M${x} ${y} l${8 * k} 14 l${-6 * k} 2 l${10 * k} 18 l${-16 * k} -20 l${7 * k} -2 l${-9 * k} -12Z" fill="#fff176" stroke="#f57f17" stroke-width="2" stroke-linejoin="round"/>`).join('') },
+    hearts: { gift: true, uk: 'Сердечка дружби', en: 'Friendship hearts', no: 'Vennskapshjerter',
+      front: () => [[6, 60, 6], [112, 48, 7], [100, 112, 5], [16, 116, 6], [60, -6, 5]].map(([x, y, s], i) => heart(x, y, s, i % 2 ? '#ff4d8d' : '#ff85b3', `class="av-fx-rise" ${dl(i)}`)).join('') },
+    confetti: { gift: true, uk: 'Конфеті', en: 'Confetti', no: 'Konfetti',
+      front: () => [[6, 12, '#ff5f5f'], [24, -4, '#ffd23f'], [96, -2, '#4dabff'], [114, 20, '#5fd35f'], [2, 52, '#b36bff'], [118, 70, '#ff85b3']].map(([x, y, c], i) => `<rect class="av-fx-fall" ${dl(i)} x="${x}" y="${y}" width="6" height="10" rx="1.5" fill="${c}" transform="rotate(${i * 37} ${x + 3} ${y + 5})"/>`).join('') },
+    flowers: { gift: true, uk: 'Квітковий вінок', en: 'Flower ring', no: 'Blomsterring',
+      back: () => [[10, 120], [30, 132], [60, 136], [90, 132], [110, 120]].map(([x, y], i) => `<g class="av-fx-tw" ${dl(i)} transform="translate(${x} ${y})">${[0, 72, 144, 216, 288].map(r => `<ellipse cx="0" cy="-6" rx="4" ry="6" fill="${i % 2 ? '#ff8ccf' : '#ffd23f'}" stroke="#8a1f5a" stroke-width="1" transform="rotate(${r})"/>`).join('')}<circle r="3" fill="#fff"/></g>`).join('') }
+  };
+  /* 🎁 Речі, які можна лише отримати в подарунок від друга (gift: true) */
+  Object.assign(HATS, {
+    heartband: { gift: true, uk: 'Обруч із сердечками', en: 'Heart headband', no: 'Hjertebøyle', draw: () => `<path d="M24 36 C24 2 96 2 96 36" fill="none" stroke="#ff4d8d" stroke-width="5" stroke-linecap="round"/>${[[38, 2], [82, 2]].map(([x, y]) => `<g transform="translate(${x} ${y})"><path class="av-fx-tw" d="M0 10 C-14 0 -8 -12 0 -4 C8 -12 14 0 0 10Z" fill="#ff4d8d" stroke="#7a1238" stroke-width="2"/></g>`).join('')}` },
+    giftbow: { gift: true, uk: 'Подарунковий бант', en: 'Gift bow', no: 'Gavesløyfe', draw: () => `<g transform="translate(60 16)"><path d="M0 0 C-30 -26 -36 6 0 0 C36 6 30 -26 0 0Z" fill="#ffd23f" stroke="#8a5a00" stroke-width="3" stroke-linejoin="round"/><path d="M0 0 L-12 18 M0 0 L12 18" stroke="#e53935" stroke-width="6" stroke-linecap="round"/><circle r="6" fill="#e53935" stroke="#5a0f0f" stroke-width="2.5"/></g>` }
+  });
+  Object.assign(NECK, {
+    bff: { gift: true, uk: 'Кулон «Друзі назавжди»', en: 'BFF pendant', no: 'Bestevenn-anheng', draw: () => `<path d="M34 98 C44 114 76 114 86 98" stroke="#ffd23f" stroke-width="3" fill="none"/><g transform="translate(60 120)"><path d="M0 12 C-20 0 -12 -16 0 -6 C12 -16 20 0 0 12Z" fill="#ff4d8d" stroke="#7a1238" stroke-width="2.5"/><text y="3" font-size="7" font-weight="900" fill="#fff" text-anchor="middle">BFF</text></g>` }
+  });
+  Object.assign(COLORS, {
+    candy: { gift: true, uk: 'Цукерковий', en: 'Candy', no: 'Godteri', grad: ['#ffd1ec', '#ff8ccf', '#a5d8ff'] }
+  });
+  // рідкість речі — рамка й підпис у студії
+  function rarity(it) {
+    if (!it) return 'common';
+    if (it.gift) return 'gift';
+    if (it.season) return 'season';
+    if (it.game) return 'legend';
+    const s = it.stars || 0;
+    return s >= 30 ? 'legend' : s >= 15 ? 'epic' : s >= 5 ? 'rare' : 'common';
+  }
+  // речі-подарунки: «слот:id» — їх дозволяє надсилати сервер (api/gifts.php, GIFT_ITEMS)
+  const GIFTS = [['fx', 'hearts'], ['fx', 'confetti'], ['fx', 'flowers'], ['hat', 'heartband'], ['hat', 'giftbow'], ['neck', 'bff'], ['color', 'candy']];
+
+  const CATALOG = { hat: HATS, glasses: GLASSES, neck: NECK, color: COLORS, fx: FX };
   // Ексклюзивні костюми віртуальних гравців: їх немає в CATALOG, тож у студії, скрині й valid() гравця вони недоступні
   const BOT = {
     hat: {
@@ -183,14 +239,14 @@
       midnight: { uk: 'Опівніч', en: 'Midnight', no: 'Midnatt', grad: ['#5c6bc0', '#283593', '#1a1446'] }
     }
   };
-  const HT = k => HATS[k] || BOT.hat[k], GL = k => GLASSES[k] || BOT.glasses[k], NK = k => NECK[k] || BOT.neck[k], CL = k => COLORS[k] || BOT.color[k];
+  const HT = k => HATS[k] || BOT.hat[k], GL = k => GLASSES[k] || BOT.glasses[k], NK = k => NECK[k] || BOT.neck[k], CL = k => COLORS[k] || BOT.color[k], EF = k => FX[k] || (BOT.fx || {})[k];
   // «🦊|cap|sun|bowtie» → { base, hat, glasses, neck }
   function parse(code) {
     const parts = String(code || '🙂').split('|');
-    return { base: A[parts[0]] ? parts[0] : '🙂', hat: HT(parts[1]) ? parts[1] : '', glasses: GL(parts[2]) ? parts[2] : '', neck: NK(parts[3]) ? parts[3] : '', color: CL(parts[4]) ? parts[4] : '' };
+    return { base: A[parts[0]] ? parts[0] : '🙂', hat: HT(parts[1]) ? parts[1] : '', glasses: GL(parts[2]) ? parts[2] : '', neck: NK(parts[3]) ? parts[3] : '', color: CL(parts[4]) ? parts[4] : '', fx: EF(parts[5]) ? parts[5] : '' };
   }
-  const encode = c => [c.base, c.hat || '', c.glasses || '', c.neck || '', c.color || ''].join('|').replace(/\|+$/, '');
-  const valid = code => typeof code === 'string' && code.length <= 60 && (() => { const parts = code.split('|'); return !!A[parts[0]] && (!parts[1] || !!HATS[parts[1]]) && (!parts[2] || !!GLASSES[parts[2]]) && (!parts[3] || !!NECK[parts[3]]) && (!parts[4] || !!COLORS[parts[4]]) && parts.length <= 5; })();
+  const encode = c => [c.base, c.hat || '', c.glasses || '', c.neck || '', c.color || '', c.fx || ''].join('|').replace(/\|+$/, '');
+  const valid = code => typeof code === 'string' && code.length <= 60 && (() => { const parts = code.split('|'); return !!A[parts[0]] && (!parts[1] || !!HATS[parts[1]]) && (!parts[2] || !!GLASSES[parts[2]]) && (!parts[3] || !!NECK[parts[3]]) && (!parts[4] || !!COLORS[parts[4]]) && (!parts[5] || !!FX[parts[5]]) && parts.length <= 6; })();
   const base = code => parse(code).base;
 
   let uid = 0;
@@ -300,13 +356,13 @@
     if (a.crown || crown) front += `<g class="av-crown"><path d="M36 20 L42 0 L52 14 L60 -4 L68 14 L78 0 L84 20Z" fill="#ffd23f" stroke="#8a5a00" stroke-width="3" stroke-linejoin="round"/><circle cx="60" cy="10" r="3.5" fill="#ff4d6d"/><circle cx="46" cy="14" r="2.5" fill="#4dabff"/><circle cx="74" cy="14" r="2.5" fill="#4dabff"/></g>`;
     const cls = `av av-${mood}`;
     return `<svg class="${cls}" width="${size}" height="${Math.round(size * 1.18)}" viewBox="-8 -12 136 152" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${a.name}">
-${defs}<g class="av-jump"><ellipse class="av-shadow" cx="60" cy="134" rx="40" ry="6" fill="rgba(0,0,0,.22)"/>
-<g class="av-body" id="${id}">${NK(cfg.neck) && NK(cfg.neck).back ? NK(cfg.neck).back(a) : ''}${back}${ears}${legs}${body}${belly}${deco}${arms}${muzzle}${eyes}${cheeks}${nose}${mouth}${extra}${NK(cfg.neck) ? NK(cfg.neck).draw(a) : ''}${GL(cfg.glasses) ? GL(cfg.glasses).draw(eyeY, a) : ''}${front}${HT(cfg.hat) ? `<g transform="translate(0 ${a.frog ? -14 : a.ears === 'long' ? -2 : 0})">${HT(cfg.hat).draw(a)}</g>` : ''}</g></g></svg>`;
+${defs}<g class="av-jump"><ellipse class="av-shadow" cx="60" cy="134" rx="40" ry="6" fill="rgba(0,0,0,.22)"/>${EF(cfg.fx) && EF(cfg.fx).back ? `<g class="av-fx">${EF(cfg.fx).back(a, id)}</g>` : ''}
+<g class="av-body" id="${id}">${NK(cfg.neck) && NK(cfg.neck).back ? NK(cfg.neck).back(a) : ''}${back}${ears}${legs}${body}${belly}${deco}${arms}${muzzle}${eyes}${cheeks}${nose}${mouth}${extra}${NK(cfg.neck) ? NK(cfg.neck).draw(a) : ''}${GL(cfg.glasses) ? GL(cfg.glasses).draw(eyeY, a) : ''}${front}${HT(cfg.hat) ? `<g transform="translate(0 ${a.frog ? -14 : a.ears === 'long' ? -2 : 0})">${HT(cfg.hat).draw(a)}</g>` : ''}</g>${EF(cfg.fx) && EF(cfg.fx).front ? `<g class="av-fx">${EF(cfg.fx).front(a, id)}</g>` : ''}</g></svg>`;
   }
   const el = (emoji, opts) => { const t = document.createElement('template'); t.innerHTML = svg(emoji, opts).trim(); return t.content.firstChild; };
   const name = code => (A[parse(code).base] || A['🙂']).name;
 
-  /* ---------------- сцена переможців (як у Kahoot) ---------------- */
+  /* ---------------- сцена переможців (як у вікторинах) ---------------- */
   // board: [{ pid, name, avatar, score }], meId — підсвітити «мене»
   function podium(board, { meId = null, you = 'you', points = 'pts', fmt = null, place = (r, n) => `${r}/${n}`, show = false } = {}) {
     const sc = n => (fmt ? fmt(n) : `${n} ${points}`);
@@ -355,5 +411,5 @@ ${defs}<g class="av-jump"><ellipse class="av-shadow" cx="60" cy="134" rx="40" ry
     return wrap;
   }
 
-  window.KomiksAvatars = { svg, el, name, podium, picker, list: LIST, parse, encode, valid, base, catalog: CATALOG, botCatalog: BOT, inSeason, seasonLeft };
+  window.KomiksAvatars = { svg, el, name, podium, picker, list: LIST, parse, encode, valid, base, catalog: CATALOG, botCatalog: BOT, inSeason, seasonLeft, rarity, gifts: GIFTS };
 })();

@@ -226,7 +226,7 @@
 
   /* ---------------- колода: спільна пам'ять акаунта ---------------- */
   const today = () => new Date().toISOString().slice(0, 10);
-  const trOf = v => { const K = C(); const l = K.trLang(); return (l === 'ar' ? K.arFor(v.en) || v.en : l === 'en' ? v.en : v.uk) || v.en || v.uk || ''; };
+  const trOf = v => C().trText(v.en, v.uk);
   const fits = v => v.no && v.no.length <= 18 && trOf(v).length <= 28;
 
   /* Кожне слово отримує вагу: помилки — найважливіші, далі нові й «перша коробка»,
@@ -340,7 +340,7 @@
     const foeBox = net ? h('div', { class: 'duel-foe' }, h('b', {}, '👤 ' + g('duel_friend')), h('div', { class: 'duel-bar' }, foeBar)) : null;
 
     const grid = h('div', { class: 'tiles pairs-grid' });
-    const pic = v => (window.KomiksPics && window.KomiksPics.has(v.no) ? h('span', { class: 'tile-pic' }, window.KomiksPics.el(v.no, 46)) : null);
+    const pic = v => (window.KomiksPics && window.KomiksPics.has(v.no, v.uk) ? h('span', { class: 'tile-pic' }, window.KomiksPics.el(v.no, 46, v.uk)) : null);
     const els = tiles.map(tile => {
       const b = h('button', { class: 'tile', type: 'button', 'aria-label': K.t('card_aria') },
         h('span', { class: 'tile-in' }, h('span', { class: 'tile-back' }, '?'),

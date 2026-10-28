@@ -14,7 +14,7 @@
       fr_t: '👥 Мої друзі', fr_n: n => `👥 Мої друзі (${n})`, fr_none: 'Друзів поки немає. Надішли свій код друга — і вчіться разом.',
       fr_all: 'Усі друзі', fr_add: '➕ Додати друга', fr_on: 'онлайн', fr_wait: 'чекає підтвердження',
       tags_t: '#️⃣ Мої хештеги', tags_d: 'Кілька слів про те, що ти вчиш і навіщо: #norskproven, #jobb, #barn, #uttale. За ними тебе знайдуть однодумці — але лише якщо показ профілю ввімкнено.',
-      tags_ph: 'Додати хештег…', tags_add: 'Додати', tags_max: 'Максимум п’ять хештегів.', tags_save: 'Збережено ✓', tags_find: n => `Знайти всіх із #${n}`, tags_none: 'Хештегів ще немає.',
+      tags_ph: 'Додати хештег…', tags_add: 'Додати', tags_max: 'Максимум сім хештегів. Видаліть зайвий (✕) або натисніть на тег, щоб замінити.', tags_edit: 'Натисніть, щоб замінити', tags_editing: 'Тег у полі — виправте й натисніть «Додати».', tags_save: 'Збережено ✓', tags_find: n => `Знайти всіх із #${n}`, tags_none: 'Хештегів ще немає.',
       share_t: '🌍 Показ профілю', share_on: 'Дозволити бачити мій профіль, прогрес і результати', share_d: 'Інші гравці цього пристрою та ті, кому ти надішлеш посилання, побачать аватар, ім’я, зірки, значки й результати тестів. Пошта й пароль не показуються ніколи.',
       share_btn: '📤 Поділитися профілем', view: '👁️ Переглянути профіль', snapshot: d => `📸 Знімок профілю від ${d}`, open_site: '📚 Відкрити Комікс·Lab',
      
@@ -29,7 +29,7 @@
       fr_t: '👥 My friends', fr_n: n => `👥 My friends (${n})`, fr_none: 'No friends yet. Send your friend code and learn together.',
       fr_all: 'All friends', fr_add: '➕ Add a friend', fr_on: 'online', fr_wait: 'waiting for approval',
       tags_t: '#️⃣ My hashtags', tags_d: 'A few words about what you are learning and why: #norskproven, #jobb, #barn, #uttale. Others find you by them — but only while profile sharing is on.',
-      tags_ph: 'Add a hashtag…', tags_add: 'Add', tags_max: 'Five hashtags at most.', tags_save: 'Saved ✓', tags_find: n => `Find everyone with #${n}`, tags_none: 'No hashtags yet.',
+      tags_ph: 'Add a hashtag…', tags_add: 'Add', tags_max: 'Seven hashtags at most. Remove one (✕) or tap a tag to replace it.', tags_edit: 'Tap to replace', tags_editing: 'The tag is in the field — edit it and press “Add”.', tags_save: 'Saved ✓', tags_find: n => `Find everyone with #${n}`, tags_none: 'No hashtags yet.',
       share_t: '🌍 Profile visibility', share_on: 'Let others see my profile, progress and results', share_d: 'Other players on this device and anyone you send the link to will see your avatar, name, stars, badges and test results. E-mail and password are never shown.',
       share_btn: '📤 Share my profile', view: '👁️ View profile', snapshot: d => `📸 Profile snapshot from ${d}`, open_site: '📚 Open Komiks·Lab',
      
@@ -44,7 +44,7 @@
       fr_t: '👥 Vennene mine', fr_n: n => `👥 Vennene mine (${n})`, fr_none: 'Ingen venner ennå. Send vennekoden din, så lærer dere sammen.',
       fr_all: 'Alle venner', fr_add: '➕ Legg til venn', fr_on: 'pålogget', fr_wait: 'venter på svar',
       tags_t: '#️⃣ Emneknaggene mine', tags_d: 'Noen ord om hva du lærer og hvorfor: #norskproven, #jobb, #barn, #uttale. Andre finner deg på dem – men bare mens profilen er synlig.',
-      tags_ph: 'Legg til emneknagg …', tags_add: 'Legg til', tags_max: 'Høyst fem emneknagger.', tags_save: 'Lagret ✓', tags_find: n => `Finn alle med #${n}`, tags_none: 'Ingen emneknagger ennå.',
+      tags_ph: 'Legg til emneknagg …', tags_add: 'Legg til', tags_max: 'Høyst sju emneknagger. Fjern én (✕) eller trykk på en emneknagg for å bytte den ut.', tags_edit: 'Trykk for å bytte ut', tags_editing: 'Emneknaggen står i feltet – rett den og trykk «Legg til».', tags_save: 'Lagret ✓', tags_find: n => `Finn alle med #${n}`, tags_none: 'Ingen emneknagger ennå.',
       share_t: '🌍 Synlig profil', share_on: 'La andre se profilen, fremgangen og resultatene mine', share_d: 'Andre spillere på denne enheten og alle som får lenken, ser avatar, navn, stjerner, merker og resultater. E-post og passord vises aldri.',
       share_btn: '📤 Del profilen', view: '👁️ Se profilen', snapshot: d => `📸 Profilbilde fra ${d}`, open_site: '📚 Åpne Komiks·Lab',
      
@@ -53,6 +53,7 @@
       ex: { words50: ['50 ord', 'merk 50 ord som kjente'], words200: ['Polyglott', '200 ord i begge kursene'], race1: ['Første seier', 'vinn Logikkløpet'], race10: ['Løpsmester', '10 seire i Logikkløpet'], rocket: ['Astronaut', '150 poeng i raketten'], games5: ['Lagspiller', '5 spill sammen'], collector: ['Samler', '10 ting til avataren'], stars30: ['Stjerneelev', 'samle 30 stjerner'] }
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'players.js:TX');
   TX.ar = {
     title: '👤 ملف اللاعب', me: 'ملفي', since: d => `عضو منذ ${d}`, private: '🔒 هذا اللاعب يُبقي ملفه خاصًا.', notfound: 'لم يُعثر على اللاعب.', nf_why: 'السبب الأكثر شيوعًا هو الخصوصية: لا يظهر اللاعب في البحث وقوائم الأصدقاء إلا بعد أن يسمح هو بعرض ملفه. تحقّق من رمز الصديق مجددًا — واطلب منه تفعيل العرض في الإعدادات.', nf_me: 'لكي يراك أصدقاؤك، فعّل عرض ملفك أنت أيضًا:', nf_on: '🔎 أظهرني في البحث', nf_set: '🔒 الخصوصية والإعدادات', nf_done: '✅ صرت ظاهرًا في البحث الآن',
     st: { read: 'قصص', tests: 'اختبارات', stars: 'نجوم', known: 'كلمات «أعرفها»', streak: 'أيام متتالية', race: 'انتصارات السباق', rocket: 'أفضل نتيجة في Math Rocket', games: 'ألعاب جماعية' },
@@ -60,7 +61,7 @@
     fr_t: '👥 أصدقائي', fr_n: n => `👥 أصدقائي (${n})`, fr_none: 'لا أصدقاء بعد. أرسل رمز الصديق وتعلّموا معًا.',
     fr_all: 'كل الأصدقاء', fr_add: '➕ أضف صديقًا', fr_on: 'متصل', fr_wait: 'بانتظار الموافقة',
     tags_t: '#️⃣ وسومي', tags_d: 'كلمات قليلة عمّا تتعلّمه ولماذا: #norskproven، #jobb، #barn، #uttale. يجدك بها الآخرون — لكن فقط عندما يكون عرض الملف مفعّلًا.',
-    tags_ph: 'أضف وسمًا…', tags_add: 'أضف', tags_max: 'خمسة وسوم كحد أقصى.', tags_save: 'حُفظ ✓', tags_find: n => `اعثر على كل من لديه #${n}`, tags_none: 'لا وسوم بعد.',
+    tags_ph: 'أضف وسمًا…', tags_add: 'أضف', tags_max: 'سبعة وسوم كحد أقصى. احذف واحدًا (✕) أو اضغط على وسم لاستبداله.', tags_edit: 'اضغط للاستبدال', tags_editing: 'الوسم في الحقل — عدّله واضغط «أضف».', tags_save: 'حُفظ ✓', tags_find: n => `اعثر على كل من لديه #${n}`, tags_none: 'لا وسوم بعد.',
     share_t: '🌍 ظهور الملف', share_on: 'اسمح للآخرين برؤية ملفي وتقدّمي ونتائجي', share_d: 'سيرى الآخرون شخصيتك واسمك ونجومك وأوسمتك ونتائج اختباراتك. البريد وكلمة المرور لا يظهران أبدًا.',
     share_btn: '📤 شارك ملفي', view: '👁️ عرض الملف', snapshot: d => `📸 لقطة من الملف بتاريخ ${d}`, open_site: '📚 افتح Komiks·Lab',
     wall: '💬 الجدار', wall_ph: 'اكتب شيئًا لطيفًا…', post: 'نشر', login_to: 'سجّل الدخول لتكتب على الجدار.', wall_local: 'تُحفظ التعليقات على هذا الجهاز.', wall_shared: '🌍 كل من يفتح هذا الملف يرى التعليقات. كن لطيفًا!', wall_empty: 'لا شيء هنا بعد — كن الأول!', del: 'حذف', wall_snap: 'الجدار على جهاز اللاعب. هنا ترى نتائجه.', cap_t: '🧮 حلّ المسألة — ويُنشر تعليقك!', cap_wrong: 'أوه، ليس تمامًا! إليك مسألة جديدة 🙂', cancel: 'إلغاء', wait: n => `⏳ التعليق التالي بعد ${n} ث`, err: { slow_down: 'انتظر قليلًا قبل التعليق التالي.', wall_busy: 'هذا الجدار مزدحم الآن — حاول بعد دقائق.', repeat: 'هذا التعليق موجود بالفعل.', links: 'الروابط غير مسموحة على الجدار.', closed: 'أغلق صاحب الجدار التعليقات.', net: 'تعذّر الإرسال — تحقّق من الإنترنت.' },
@@ -73,8 +74,9 @@
   /* Хештег зводимо до простого вигляду: без «#», малими літерами, без розділових знаків —
      щоб «#Jobb!» і «jobb» були одним тегом і в пошуку збігалися. */
   const tagNorm = t => String(t || '').toLowerCase().replace(/^#+/, '').replace(/[^\p{L}\p{N}_-]+/gu, '').slice(0, 24);
-  const myTags = () => (C().store.get('tags', []) || []).map(tagNorm).filter(x => x.length > 1).slice(0, 5);
-  const setTags = list => { C().store.set('tags', list.map(tagNorm).filter(x => x.length > 1).slice(0, 5)); publish(true); };
+  const TAGS_MAX = 7;
+  const myTags = () => (C().store.get('tags', []) || []).map(tagNorm).filter(x => x.length > 1).slice(0, TAGS_MAX);
+  const setTags = list => { C().store.set('tags', list.map(tagNorm).filter(x => x.length > 1).slice(0, TAGS_MAX)); publish(true); };
   // посилання, що шукає однодумців за тегом
   const tagLink = (t, cls = 'tag') => C().h('a', { class: cls, href: '#/players/tag/' + encodeURIComponent(tagNorm(t)) }, '#' + tagNorm(t));
 
@@ -218,13 +220,14 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
     ar: { del: '🗑 إزالة', warn: '⚠️ تحذير', ban: h => `⛔ ${h === 1 ? 'ساعة' : h === 24 ? 'يوم' : '7 أيام'}`, done: 'تم ✓', q: 'تطبيق ذلك على كاتب هذا التعليق؟', banned: until => `يُمنع عليك مؤقتًا الكتابة على الجدران (حتى ${until}).`, badge: '🛡 إشراف' },
     no: { del: '🗑 Fjern', warn: '⚠️ Advar', ban: h => `⛔ ${h === 1 ? '1 t' : h === 24 ? '1 døgn' : '7 dager'}`, done: 'Ferdig ✓', q: 'Bruke dette på forfatteren av innlegget?', banned: until => `Du kan midlertidig ikke skrive på vegger (til ${until}).`, badge: '🛡 Moderering' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(MODX, 'players.js:MODX');
   const mx = (k, ...a) => { const t = MODX[C().ui] || MODX.en; const v = t[k]; return typeof v === 'function' ? v(...a) : v; };
   function wall({ localId = null, code = null, own = false } = {}) {
     const K = C(), { h } = K;
     const me = K.currentUser(), meId = me ? me.id : null;
     const box = h('div', { class: 'box pl-wall' }, h('h3', {}, px('wall')), h('p', { class: 'muted' }, '⏳'));
     const S = { mode: 'local', items: [], open: true, msg: '', draft: '', cap: null, waitUntil: K.store.get('wallWaitUntil', 0) };
-    const fmt = d => { try { return new Date(d).toLocaleString(K.ui === 'uk' ? 'uk-UA' : K.ui === 'no' ? 'nb-NO' : 'en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
+    const fmt = d => { try { return new Date(d).toLocaleString(K.locale(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
     const mine = () => K.store.get('wallMine', []);
     const setWait = sec => { S.waitUntil = Date.now() + sec * 1000; K.store.set('wallWaitUntil', S.waitUntil); };
     async function load() {
@@ -309,7 +312,7 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
   }
 
   /* ---------- сторінка профілю ---------- */
-  const fmtDay = d => { try { return new Date(d).toLocaleDateString(C().ui === 'uk' ? 'uk-UA' : C().ui === 'no' ? 'nb-NO' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); } catch { return d || ''; } };
+  const fmtDay = d => { try { return new Date(d).toLocaleDateString(C().locale(), { day: 'numeric', month: 'long', year: 'numeric' }); } catch { return d || ''; } };
   /* Друзі у профілі: список живе в браузері (assets/friends.js), тож показуємо його
      лише власникові. Онлайн беремо звідти ж — статус бачать тільки друзі. */
   function friendsBox() {
@@ -335,16 +338,37 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
         h('a', { class: 'btn small', href: '#/players' }, dx('title'))));
   }
 
+  function cellsEl(s) {
+    const { h } = C();
+    const cells = [['read', `${s.read}/${s.comics}`], ['tests', s.tests], ['stars', '⭐ ' + s.stars], ['known', s.known + s.knownEn], ['streak', '🔥 ' + s.streak], ['race', '🏁 ' + s.raceWins], ['rocket', '🚀 ' + s.mathBest], ['games', '🎮 ' + s.games]];
+    return h('div', { class: 'pl-cells' }, cells.map(([k, v]) => h('div', { class: 'pl-cell' }, h('b', {}, v), h('small', {}, px('st')[k]))));
+  }
+  function recentEl(s) {
+    const { h } = C();
+    return s.recent.length ? h('ul', { class: 'pl-recent' }, s.recent.map(q => h('li', {}, h('span', { class: 'pl-st' }, '⭐'.repeat(q.st) + '☆'.repeat(3 - q.st)), h('b', {}, q.t), h('small', {}, (q.pl ? `🏆 ${q.pl}/${q.pn} · ` : '') + `${q.s}/${q.of} · ${q.d}`)))) : h('p', { class: 'muted' }, px('none'));
+  }
+  /* Свій профіль тепер живе в кабінеті (#/account): тут — його складові для вкладок. */
+  function accountParts() {
+    const K = C(), { h } = K, me = K.currentUser();
+    if (!me) return null;
+    const s = snapshot('');
+    return {
+      snap: s, since: s.created ? px('since', fmtDay(s.created)) : '', cells: cellsEl(s), friends: friendsBox(), badges: badgeGrid(s),
+      recent: h('div', { class: 'box' }, h('h3', {}, px('recent')), recentEl(s)),
+      wall: () => wall({ localId: me.id, code: codeOf(''), own: true }),
+      visibility: accountBox(),
+      shareUrl: () => shareUrl(snapshot(''))
+    };
+  }
   function profileView(s, { own = false, wallOpts = null, shared = false, noWall = false } = {}) {
     const K = C(), { h } = K;
-    const cells = [['read', `${s.read}/${s.comics}`], ['tests', s.tests], ['stars', '⭐ ' + s.stars], ['known', s.known + s.knownEn], ['streak', '🔥 ' + s.streak], ['race', '🏁 ' + s.raceWins], ['rocket', '🚀 ' + s.mathBest], ['games', '🎮 ' + s.games]];
-    const recent = s.recent.length ? h('ul', { class: 'pl-recent' }, s.recent.map(q => h('li', {}, h('span', { class: 'pl-st' }, '⭐'.repeat(q.st) + '☆'.repeat(3 - q.st)), h('b', {}, q.t), h('small', {}, (q.pl ? `🏆 ${q.pl}/${q.pn} · ` : '') + `${q.s}/${q.of} · ${q.d}`)))) : h('p', { class: 'muted' }, px('none'));
+    const recent = recentEl(s);
     return h('section', { class: 'player' }, K.pageHead(own ? '👤 ' + px('me') : px('title'), own ? '#/account' : '#/players'),
       shared ? h('p', { class: 'pl-snap' }, px('snapshot', s.at || '')) : null,
       h('div', { class: 'pl-hero' },
         h('div', { class: 'pl-spot' }, AV(s.avatar, { size: 170, mood: 'cheer' })),
         h('div', { class: 'pl-id' }, h('h2', {}, s.name), s.created ? h('small', {}, px('since', fmtDay(s.created))) : null,
-          h('div', { class: 'pl-cells' }, cells.map(([k, v]) => h('div', { class: 'pl-cell' }, h('b', {}, v), h('small', {}, px('st')[k])))),
+          cellsEl(s),
           own ? h('div', { class: 'row-left' }, h('a', { class: 'btn', href: '#/avatar' }, '🎨 Avatar')) : null,
           shared ? h('a', { class: 'btn accent', href: '#/' }, px('open_site')) : null)),
       own ? friendsBox() : null,
@@ -375,10 +399,8 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
     const me = K.currentUser();
     if (id === 'c' && /^[A-HJ-NP-Z2-9]{6}$/.test(String(arg || '').toUpperCase())) return byCode(String(arg).toUpperCase());
     if (id === 's') { const s = fromShare(arg); return s ? profileView(s, { shared: true, wallOpts: s.fc ? { code: s.fc } : null }) : notFoundBox('#/'); }
-    if (!id || (me && id === me.id)) {
-      if (!me) { location.hash = '#/login'; return h('div'); }
-      return profileView(snapshot(''), { own: true, wallOpts: { localId: me.id, code: codeOf(''), own: true } });
-    }
+    // свій профіль переїхав у кабінет
+    if (!id || (me && id === me.id)) { location.replace(me ? '#/account' : '#/login'); return h('div'); }
     const users = K.raw.get('comiks.users', {});
     if (!users[id]) return notFoundBox();
     if (!K.raw.get(`comiks.u.${id}.shareProfile`, false)) return h('section', {}, K.pageHead(px('title'), '#/players'), h('div', { class: 'box center' }, AV(K.raw.get(`comiks.u.${id}.avatar`, '🦊'), { size: 120, mood: 'sad' }), h('h2', {}, users[id].name), h('p', {}, px('private'))));
@@ -399,6 +421,7 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
       not_listed: 'Du er ikke synlig i søket ennå – andre finner deg ikke.', show_me: '🔎 Vis meg i søket', to_account: 'Til min side', on_device: '💻 På denne enheten',
       profile: '👤 Profil', befriend: '➕ Bli venn', friend: '✓ Venn', pending: '⏳ Forespørsel sendt', compete: '🏁 Konkurrer', you: 'dette er deg', online_now: '🟢 pålogget', seen: d => `sist sett ${d}`, compete_later: 'Venneforespørsel sendt – konkurrer når vennen godtar og er pålogget.', loading: '⏳ Søker …', s_stars: 'stjerner', s_badges: 'merker', s_days: 'dager på rad', c_total: 'spillere', c_near: l => `på ditt nivå ${l}`, same: '✨ ditt nivå', rec: l => `✨ Anbefalt: spillere på ditt nivå (${l}) først` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(DX, 'players.js:DX');
   DX.ar = { official: '💬 حساب رسمي', botTag: '🤖 لاعب افتراضي', title: '🔎 اللاعبون', intro: 'ابحث عن متعلّمين آخرين، وشاهد ملفاتهم، وأضف أصدقاء وتنافس في الألعاب.', ph: 'الاسم أو رمز الصديق…', all: 'الكل', level_all: 'أي مستوى', online: 'المتصلون فقط', found: n => `النتائج: ${n}`, more: 'عرض المزيد',
     learn: { norsk: '🇳🇴 النرويجية', english: '🇬🇧 الإنجليزية', math: '🧮 الرياضيات', logic: '🧩 المنطق' }, none: 'لم يُعثر على أحد — غيّر عوامل التصفية.', off: 'البحث المشترك يعمل على bilohash.com. أدناه لاعبو هذا الجهاز.',
     not_listed: 'أنت غير ظاهر في البحث بعد — لا يستطيع الآخرون إيجادك.', show_me: '🔎 أظهرني في البحث', to_account: 'إلى حسابي', on_device: '💻 على هذا الجهاز',
@@ -482,7 +505,7 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
       if (!t || t.length < 2) return;
       const cur = myTags();
       if (cur.includes(t)) return;
-      if (cur.length >= 5) { msg.textContent = px('tags_max'); return; }
+      if (cur.length >= TAGS_MAX) { msg.textContent = px('tags_max'); return; }
       setTags(cur.concat(t));
       msg.textContent = px('tags_save');
       K.Sfx.tick();
@@ -492,11 +515,12 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
     function draw() {
       const cur = myTags();
       box.replaceChildren(h('h4', {}, px('tags_t')), h('p', { class: 'hint' }, px('tags_d')),
-        h('div', { class: 'tags-row' }, cur.length ? cur.map(t => h('span', { class: 'tag on' }, '#' + t,
+        h('div', { class: 'tags-row' }, cur.length ? cur.map(t => h('span', { class: 'tag on' },
+          h('button', { class: 'tag-txt', type: 'button', title: px('tags_edit'), onclick: () => { setTags(cur.filter(x => x !== t)); draw(); inp.value = t; inp.focus(); msg.textContent = px('tags_editing'); } }, '#' + t),
           h('button', { class: 'tag-x', type: 'button', title: '✕', onclick: () => { setTags(cur.filter(x => x !== t)); draw(); } }, '✕')))
           : h('small', { class: 'muted' }, px('tags_none'))),
         h('div', { class: 'row-left' }, inp, h('button', { class: 'btn small', type: 'button', onclick: add }, px('tags_add')),
-          cur.length ? h('a', { class: 'btn small', href: '#/players/tag/' + cur[0] }, px('tags_find')(cur[0])) : null),
+          cur.length ? h('a', { class: 'btn small', href: '#/players/tag/' + cur[0] }, px('tags_find', cur[0])) : null),
         msg);
     }
     draw();
@@ -522,7 +546,7 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
       h('a', { class: 'dir-ava', href: '#/player/c/' + p.code, 'aria-label': dx('profile') }, AV(p.bot || (window.KomiksAvatars && window.KomiksAvatars.valid(p.avatar)) ? p.avatar : '🙂', { size: 104, mood: on ? 'cheer' : 'idle' })),
       h('b', { class: 'dir-name' }, p.name),
       h('div', { class: 'dir-tags' }, (p.learn || []).map(l => h('span', { class: 'dir-chip' }, dx('learn')[l] || l))),
-      (p.tags || []).length ? h('div', { class: 'dir-hash' }, p.tags.slice(0, 5).map(t => tagLink(t))) : null,
+      (p.tags || []).length ? h('div', { class: 'dir-hash' }, p.tags.slice(0, 7).map(t => tagLink(t))) : null,
       h('div', { class: 'dir-stats' }, stat('⭐', p.stars, dx('s_stars')), stat('🏅', p.badges, dx('s_badges')), stat('🔥', p.streak, dx('s_days'))),
       h('div', { class: 'dir-side' }, h('a', { class: 'btn', href: '#/player/c/' + p.code }, dx('profile')), socialButtons(p.code, redraw)));
   }
@@ -630,7 +654,7 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
       const share = on && window.KomiksExtras && window.KomiksExtras.shareButton ? window.KomiksExtras.shareButton(shareUrl(snapshot('')), `${me.name} · Komiks·Lab`) : null;
       box.replaceChildren(h('h3', {}, px('share_t')), h('label', { class: 'pl-toggle' }, cb, h('span', {}, px('share_on'))), h('p', { class: 'hint' }, px('share_d')),
         tagsEditor(),
-        h('div', { class: 'row-left' }, h('a', { class: 'btn', href: '#/player' }, px('view')), h('a', { class: 'btn', href: '#/players' }, px('players')), h('a', { class: 'btn accent', href: '#/friends' }, '👥 ' + ({ uk: 'Друзі', en: 'Friends', no: 'Venner' }[C().ui] || 'Друзі')), share));
+        h('div', { class: 'row-left' }, h('a', { class: 'btn', href: '#/players' }, px('players')), share));
     };
     draw();
     return box;
@@ -640,6 +664,6 @@ ${got ? '' : '<g transform="translate(66 64)"><circle r="13" fill="#141414"/><re
   // для сторінки конфіденційності: показ у пошуку й відкрита стіна
   const setShare = on => { const K = C(); K.store.set('shareProfile', !!on); setWallOpen(!!on && K.store.get('wallOpen', true) !== false); publish(true); };
   const setWall = on => setWallOpen(!!on);
-  window.KomiksPlayers = { render, list, accountBox, badgeGrid, snapshot, shareUrl, fromShare, publish, myPublicCode, setShare, setWall, BADGES,
+  window.KomiksPlayers = { render, list, accountBox, accountParts, badgeGrid, snapshot, shareUrl, fromShare, publish, myPublicCode, setShare, setWall, BADGES,
     captchaView, level: levelOf };                       // приклад для відгуку й рівень для сповіщень
 })();

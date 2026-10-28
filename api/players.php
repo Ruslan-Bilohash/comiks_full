@@ -96,6 +96,8 @@ if ($action === 'upsert') {
   if (strlen($snap) > 3000 || !preg_match('/^[A-Za-z0-9_-]*$/', $snap)) fail('snap');
   $now = time();
   if ($prev && $now - (int)$prev['updated'] < 45) { q('UPDATE kl_players SET seen = ?, act = ? WHERE code = ?', [$now, clean_text((string)($c['act'] ?? ''), 12), $code]); out(['ok' => true]); }
+  // до 7 тегів по 24 знаки — колонку на MySQL розширюємо один раз (SQLite довжину не перевіряє)
+  if (meta_get('tags200') !== '1') { if (is_mysql()) { try { q("ALTER TABLE kl_players MODIFY tags VARCHAR(200) NOT NULL DEFAULT ''"); } catch (Throwable $e) { error_log('[komiks-tags] ' . $e->getMessage()); } } meta_set('tags200', '1'); }
   upsert('kl_players', ['code'], [
     'code' => $code, 'user_id' => $me && $me['friend_code'] === $code ? (int)$me['id'] : ($prev['user_id'] ?? null),
     'secret_hash' => $prev['secret_hash'] ?? sha('komiks-players:' . $secret),
@@ -104,7 +106,7 @@ if ($action === 'upsert') {
     'level' => in_array($c['level'] ?? '', LEVELS, true) ? $c['level'] : '',
     'stars' => max(0, min(100000, (int)($c['stars'] ?? 0))), 'badges' => max(0, min(100, (int)($c['badges'] ?? 0))), 'streak' => max(0, min(10000, (int)($c['streak'] ?? 0))),
     'act' => clean_text((string)($c['act'] ?? ''), 12), 'snap' => $snap, 'seen' => $now, 'updated' => $now, 'since' => (int)($prev['since'] ?? $now),
-    'tags' => implode(',', clean_tags($c['tags'] ?? [])),
+    'tags' => mb_substr(implode(',', clean_tags($c['tags'] ?? [])), 0, 200),
   ]);
   if ($me && $me['friend_code'] === $code) {
     // одна людина — одна картка: старі картки цього акаунта прибираємо

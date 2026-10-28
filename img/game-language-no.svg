@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-labelledby="title desc">
+  <title id="title">Learn Norwegian</title><desc id="desc">A cheerful Norwegian study scene with a fjord, red cabin, book and Norwegian flag.</desc>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9edcff"/><stop offset="1" stop-color="#eaf8ff"/></linearGradient><linearGradient id="water" x1="0" x2="1"><stop stop-color="#42b8d5"/><stop offset="1" stop-color="#1766b3"/></linearGradient></defs>
+  <rect width="640" height="300" rx="30" fill="url(#sky)"/>
+  <circle cx="535" cy="58" r="31" fill="#ffd84a" stroke="#151515" stroke-width="6"/>
+  <path d="M0 178 105 74l70 76 90-111 120 139z" fill="#d8eaf3" stroke="#151515" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m88 91 17-17 28 31-21-7zM232 80l33-41 45 66-45-28z" fill="#fff"/>
+  <path d="M0 178h640v122H0z" fill="url(#water)"/>
+  <path d="M0 218q82-24 164 0t164 0 164 0 148 0" fill="none" stroke="#b9f0ff" stroke-width="9" opacity=".9"/>
+  <g transform="translate(420 122)" stroke="#151515" stroke-width="6" stroke-linejoin="round"><path d="M0 43 68 0l72 43" fill="#8b2b25"/><rect x="14" y="43" width="112" height="82" rx="5" fill="#e6453a"/><rect x="53" y="76" width="31" height="49" fill="#8b4b2b"/><rect x="91" y="61" width="22" height="24" fill="#ffe678"/></g>
+  <g transform="translate(38 30)"><rect width="128" height="82" rx="18" fill="#fff" stroke="#151515" stroke-width="6"/><path d="M17 17h94v48H17z" fill="#ba0c2f"/><path d="M44 17v48M17 41h94" stroke="#fff" stroke-width="18"/><path d="M44 17v48M17 41h94" stroke="#00205b" stroke-width="9"/></g>
+  <g transform="translate(190 151)" stroke="#151515" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="56" cy="22" r="22" fill="#ffb38a"/><path d="M38 17q18-29 38 0" fill="#6b3d2e"/><path d="M27 97q3-57 29-57t30 57" fill="#ffd23f"/><path d="M-2 76q31-10 58 15v50Q29 123-2 133z" fill="#fff"/><path d="M114 76q-31-10-58 15v50q27-18 58-8z" fill="#fff"/><path d="M56 91v50"/><path d="M46 24h1M65 24h1"/><path d="M49 32q7 7 14 0" fill="none"/></g>
+  <g transform="translate(278 83)"><path d="M0 23Q0 0 23 0h96q23 0 23 23v39q0 23-23 23H58L31 108l6-23H23Q0 85 0 62z" fill="#fff" stroke="#151515" stroke-width="6"/><text x="71" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="#151515">HEI!</text></g>
+</svg>

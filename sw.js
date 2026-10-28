@@ -1,5 +1,5 @@
 /* Офлайн-режим для опублікованого сайту: спершу мережа, без неї — кеш */
-const CACHE = 'komiks-muiz11oe';
+const CACHE = 'komiks-20261023-lab-games-mail';
 const SHELL = ['./', 'index.html'];
 
 self.addEventListener('install', e => {

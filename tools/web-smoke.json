@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "comics": 89,
+  "routes": 6,
+  "bundledAudioPlayback": true,
+  "errors": [],
+  "missing": [],
+  "nativeDeviceTest": false
+}

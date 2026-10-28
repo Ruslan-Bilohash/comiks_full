@@ -37,7 +37,18 @@ const DROP_ASSETS = new Set([
 ]);
 // теки та файли сайту, яких у застосунку бути не повинно
 const DROP_TOP = new Set(['api', 'admin.php', 'install.php', 'sitemap.xml', 'robots.txt',
-  'komiks', 'no', 'uk', 'sw.js', 'og-image.png', 'game']);
+  'komiks', 'no', 'uk', 'sw.js', 'og-image.png', 'game',
+  /* Сторінки для пошукових систем: журнал оновлень і тести окремими адресами.
+     Усередині застосунку вони не відкриваються. */
+  'updates', 'norwegian-tests', 'games']);
+/* Мови статичних сторінок беремо з того самого опису, що й збірка сайту: інакше
+   нова мова тихо додала б у застосунок мегабайти сторінок, яких там не видно. */
+try {
+  const META = require('../../tools/lang-pages.js').META || {};
+  for (const m of Object.values(META)) DROP_TOP.add(String(m.dir).replace(/\/$/, ''));
+} catch (e) { /* лишаємо базовий перелік */ }
+/* Картинки, що існують лише заради посилань у соцмережах і сторінок оновлень. */
+const DROP_IMG = new Set(['og', 'updates', 'games']);
 
 const LIGHT_COMICS = Number(process.env.LIGHT_COMICS || 0);   // 0 = усі комікси офлайн
 const LIGHT_THEMES = Number(process.env.LIGHT_THEMES || 0);
@@ -47,8 +58,10 @@ fs.mkdirSync(WWW, { recursive: true });
 
 function copyDir(src, dst, skip) {
   fs.mkdirSync(dst, { recursive: true });
+  const inImg = path.basename(src) === 'img' && path.dirname(src) === DIST;
   for (const name of fs.readdirSync(src)) {
     if (skip && skip.has(name)) continue;
+    if (inImg && DROP_IMG.has(name)) continue;
     const from = path.join(src, name), to = path.join(dst, name);
     if (fs.statSync(from).isDirectory()) copyDir(from, to);
     else fs.copyFileSync(from, to);
@@ -58,6 +71,34 @@ function copyDir(src, dst, skip) {
 // 1) сайт без серверної частини
 copyDir(DIST, WWW, new Set([...DROP_TOP, 'audio']));
 for (const f of DROP_ASSETS) fs.rmSync(path.join(WWW, 'assets', f), { force: true });
+
+/* Прихований текст для пошукових систем усередині застосунку ні до чого: його
+   ніхто не бачить, зате там десятки посилань на сайт. Для перевірки App Store
+   це ще й зайвий привід придивитися, чи не обгортка це навколо вебсторінки.
+
+   Там само міняємо шрифти на вкладені. Сайт бере їх із Google Fonts, і в
+   застосунку це означало б запит у мережу на кожному запуску — тобто
+   неправду в політиці приватності, де написано «не збирає нічого», бо
+   запит до Google передає IP-адресу людини. */
+{
+  const idx = path.join(WWW, 'index.html');
+  let html = fs.readFileSync(idx, 'utf8');
+  const before = html;
+  html = html.replace(/<!-- prerender:start -->[\s\S]*?<!-- prerender:end -->/, '<!-- prerender: прибрано для застосунку -->');
+
+  const fontsSrc = path.join(HERE, 'fonts');
+  if (fs.existsSync(fontsSrc)) {
+    copyDir(fontsSrc, path.join(WWW, 'fonts'));
+    html = html
+      .replace(/\s*<link rel="preconnect"[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/g, '')
+      .replace(/<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com[^"]*">/,
+        '<link rel="stylesheet" href="fonts/fonts.css">');
+    console.log('   шрифти вкладено в застосунок (без запитів до Google)');
+  } else {
+    console.log('   ⚠ немає app/android_offline/fonts — шрифти лишаться з мережі');
+  }
+  if (html !== before) { fs.writeFileSync(idx, html, 'utf8'); console.log('   прибрано пошуковий текст із index.html'); }
+}
 
 // 2) список файлів для завантажувача — без викинутих модулів
 const idxPath = path.join(WWW, 'data', 'index.js');

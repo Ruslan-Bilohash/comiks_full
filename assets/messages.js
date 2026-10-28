@@ -13,36 +13,43 @@
       new_msg: n => `✉️ Нове повідомлення від ${n}`, privacy: '🔒 Конфіденційність', p_intro: 'Тут ти вирішуєш, хто тебе бачить і хто може тобі писати. Пошту й пароль не бачить ніхто.',
       p_search: '🔎 Показувати мене в пошуку гравців', p_search_d: 'Інші зможуть знайти тебе за ім’ям, побачити аватар, рівень, зірки й значки та додати в друзі.',
       p_msg: '✉️ Хто може мені писати', p_msg_opts: [['0', '🙅 Ніхто'], ['1', '👥 Лише друзі'], ['2', '🌍 Усі гравці']], p_wall: '💬 Відкрита стіна в профілі', p_wall_d: 'Інші можуть лишати коментарі на твоїй стіні (з капчею й модерацією).',
-      p_blocks: '🚫 Заблоковані', p_none: 'Нікого не заблоковано.', saved: 'Збережено ✓', local: 'Повідомлення працюють для акаунтів на сервері bilohash.com.' },
+      p_blocks: '🚫 Заблоковані', p_none: 'Нікого не заблоковано.', saved: 'Збережено ✓', local: 'Повідомлення працюють для акаунтів на сервері bilohash.com.', emoji: 'Емодзі', react: 'Реакція' },
     en: { title: '✉️ Messages', empty: 'No conversations yet. Open a friend’s profile and tap “✉️ Message”.', write: '✉️ Message', ph: 'Write a message…', send: 'Send', you: 'you',
       login: 'Log in to message your friends.', back: '← Conversations', block: '🚫 Block', unblock: '✅ Unblock', report: '🚩 Report', reported: 'Reported to the moderators. Thank you!', hide: '🗑 Remove conversation', block_q: 'Block this player? They will not be able to message you.', hide_q: 'Remove this conversation from the list?',
       why: { closed: 'This player does not accept messages.', friends_only: 'This player only accepts messages from friends. Add them as a friend — once they accept, you can chat.', blocked: 'Messaging is blocked.', banned: 'You are temporarily not allowed to write.', unverified: 'Confirm your email first.', self: 'That is you 🙂', not_found: 'Player not found or they do not have a server account yet.', links: 'Links are not allowed in messages.', slow_down: 'Too many messages — wait a minute.', empty: 'Write something 🙂', net: 'No connection. Try again.' },
       new_msg: n => `✉️ New message from ${n}`, privacy: '🔒 Privacy', p_intro: 'Decide who can see you and who can message you. Nobody ever sees your email or password.',
       p_search: '🔎 Show me in player search', p_search_d: 'Others can find you by name, see your avatar, level, stars and badges and add you as a friend.',
       p_msg: '✉️ Who can message me', p_msg_opts: [['0', '🙅 Nobody'], ['1', '👥 Friends only'], ['2', '🌍 All players']], p_wall: '💬 Open wall on my profile', p_wall_d: 'Others can leave comments on your wall (with a captcha and moderation).',
-      p_blocks: '🚫 Blocked players', p_none: 'Nobody is blocked.', saved: 'Saved ✓', local: 'Messages work for server accounts on bilohash.com.' },
+      p_blocks: '🚫 Blocked players', p_none: 'Nobody is blocked.', saved: 'Saved ✓', local: 'Messages work for server accounts on bilohash.com.', emoji: 'Emoji', react: 'React' },
     no: { title: '✉️ Meldinger', empty: 'Ingen samtaler ennå. Åpne profilen til en venn og trykk «✉️ Skriv».', write: '✉️ Skriv', ph: 'Skriv en melding …', send: 'Send', you: 'deg',
       login: 'Logg inn for å sende meldinger til venner.', back: '← Samtaler', block: '🚫 Blokker', unblock: '✅ Opphev blokkering', report: '🚩 Rapporter', reported: 'Rapportert til moderatorene. Takk!', hide: '🗑 Fjern samtalen', block_q: 'Blokkere denne spilleren? Hen kan ikke skrive til deg.', hide_q: 'Fjerne samtalen fra listen?',
       why: { closed: 'Denne spilleren tar ikke imot meldinger.', friends_only: 'Denne spilleren tar bare imot meldinger fra venner. Legg hen til som venn – når hen godtar, kan dere skrive.', blocked: 'Meldinger er blokkert.', banned: 'Du kan midlertidig ikke skrive.', unverified: 'Bekreft e-posten først.', self: 'Det er deg 🙂', not_found: 'Fant ikke spilleren, eller hen har ikke konto på serveren ennå.', links: 'Lenker er ikke tillatt i meldinger.', slow_down: 'For mange meldinger – vent litt.', empty: 'Skriv noe 🙂', net: 'Ingen forbindelse. Prøv igjen.' },
       new_msg: n => `✉️ Ny melding fra ${n}`, privacy: '🔒 Personvern', p_intro: 'Bestem hvem som ser deg og hvem som kan skrive til deg. Ingen ser e-posten eller passordet ditt.',
       p_search: '🔎 Vis meg i spillersøket', p_search_d: 'Andre kan finne deg på navn, se avatar, nivå, stjerner og merker og legge deg til som venn.',
       p_msg: '✉️ Hvem kan skrive til meg', p_msg_opts: [['0', '🙅 Ingen'], ['1', '👥 Bare venner'], ['2', '🌍 Alle spillere']], p_wall: '💬 Åpen vegg på profilen', p_wall_d: 'Andre kan legge igjen kommentarer på veggen din (med captcha og moderering).',
-      p_blocks: '🚫 Blokkerte', p_none: 'Ingen er blokkert.', saved: 'Lagret ✓', local: 'Meldinger virker for serverkontoer på bilohash.com.' },
+      p_blocks: '🚫 Blokkerte', p_none: 'Ingen er blokkert.', saved: 'Lagret ✓', local: 'Meldinger virker for serverkontoer på bilohash.com.', emoji: 'Emoji', react: 'Reager' },
     ar: { title: '✉️ الرسائل', empty: 'لا محادثات بعد. افتح ملف صديق واضغط «✉️ راسِل».', write: '✉️ راسِل', ph: 'اكتب رسالة…', send: 'إرسال', you: 'أنت',
       login: 'سجّل الدخول لتراسل أصدقاءك.', back: '→ المحادثات', block: '🚫 حظر', unblock: '✅ إلغاء الحظر', report: '🚩 إبلاغ', reported: 'أُرسل البلاغ إلى المشرفين. شكرًا!', hide: '🗑 إزالة المحادثة', block_q: 'حظر هذا اللاعب؟ لن يتمكن من مراسلتك.', hide_q: 'إزالة المحادثة من القائمة؟',
       why: { closed: 'هذا اللاعب لا يستقبل الرسائل.', friends_only: 'هذا اللاعب يستقبل الرسائل من الأصدقاء فقط. أضفه صديقًا — وعندما يقبل يمكنكما المراسلة.', blocked: 'المراسلة محظورة.', banned: 'يُمنع عليك الكتابة مؤقتًا.', unverified: 'أكّد بريدك أولًا.', self: 'هذا أنت 🙂', not_found: 'لم يُعثر على اللاعب أو ليس لديه حساب على الخادم بعد.', links: 'الروابط غير مسموحة في الرسائل.', slow_down: 'رسائل كثيرة — انتظر دقيقة.', empty: 'اكتب شيئًا 🙂', net: 'لا يوجد اتصال. حاول مجددًا.' },
       new_msg: n => `✉️ رسالة جديدة من ${n}`, privacy: '🔒 الخصوصية', p_intro: 'قرّر من يراك ومن يمكنه مراسلتك. لا أحد يرى بريدك أو كلمة مرورك.',
       p_search: '🔎 أظهرني في البحث عن اللاعبين', p_search_d: 'يمكن للآخرين إيجادك بالاسم ورؤية شخصيتك ومستواك ونجومك وأوسمتك وإضافتك صديقًا.',
       p_msg: '✉️ من يمكنه مراسلتي', p_msg_opts: [['0', '🙅 لا أحد'], ['1', '👥 الأصدقاء فقط'], ['2', '🌍 كل اللاعبين']], p_wall: '💬 جدار مفتوح في ملفي', p_wall_d: 'يمكن للآخرين ترك تعليقات على جدارك (مع تحقّق وإشراف).',
-      p_blocks: '🚫 المحظورون', p_none: 'لا يوجد محظورون.', saved: 'تم الحفظ ✓', local: 'تعمل الرسائل لحسابات الخادم على bilohash.com.' }
+      p_blocks: '🚫 المحظورون', p_none: 'لا يوجد محظورون.', saved: 'تم الحفظ ✓', local: 'تعمل الرسائل لحسابات الخادم على bilohash.com.', emoji: 'رموز تعبيرية', react: 'تفاعل' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'messages.js:TX');
   const tx = (k, ...a) => { const t = TX[C().ui] || TX.en; const v = k in t ? t[k] : TX.en[k]; return typeof v === 'function' ? v(...a) : v; };
   const why = r => (tx('why')[r] || tx('why').net);
   const AV = (code, o) => (window.KomiksAvatars ? window.KomiksAvatars.el(window.KomiksAvatars.valid(code) ? code : '🙂', o) : document.createTextNode('🙂'));
   const authed = () => !!(window.KomiksAuth && window.KomiksAuth.server && window.KomiksAuth.user);
   const get = (action, extra = '') => fetch(`${API}?action=${action}${extra}`, { credentials: 'same-origin', cache: 'no-store' }).then(r => r.json()).catch(() => ({ ok: false, error: 'net' }));
   const post = body => fetch(API, { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Komiks': '1' }, body: JSON.stringify(body) }).then(r => r.json()).catch(() => ({ ok: false, error: 'net' }));
-  const when = iso => { try { const d = new Date(iso), now = new Date(); const L = C().ui === 'uk' ? 'uk-UA' : C().ui === 'no' ? 'nb-NO' : C().ui === 'ar' ? 'ar' : 'en-GB'; return d.toDateString() === now.toDateString() ? d.toLocaleTimeString(L, { hour: '2-digit', minute: '2-digit' }) : d.toLocaleDateString(L, { day: 'numeric', month: 'short' }); } catch { return ''; } };
+  const when = iso => { try { const d = new Date(iso), now = new Date(); const L = C().locale(); return d.toDateString() === now.toDateString() ? d.toLocaleTimeString(L, { hour: '2-digit', minute: '2-digit' }) : d.toLocaleDateString(L, { day: 'numeric', month: 'short' }); } catch { return ''; } };
+
+  /* 😊 Емоції: панель емодзі для листа, реакції на повідомлення й великі анімовані емодзі. */
+  const EMOJI = ['😀', '😂', '🥰', '😎', '🤩', '🥳', '😜', '🤔', '😴', '😭', '😱', '🙈', '👍', '👏', '🙌', '💪', '🤝', '👋', '🎉', '❤️', '🔥', '⭐', '✨', '💯', '🌈', '☀️', '❄️', '🍕', '🍦', '🎮', '📚', '🇳🇴', '🦊', '🐱', '🐶', '🐼', '🦄', '🚀', '🏆', '🎵'];
+  const REACTIONS = ['❤️', '😂', '😮', '😢', '👍', '🎉', '🔥', '🤗'];
+  // лише емодзі (1–3 штуки) — показуємо великими, з підстрибуванням
+  const onlyEmoji = s => { const t = String(s || '').trim(); if (!t || t.length > 24) return 0; try { if (!/^(?:\p{Extended_Pictographic}|\p{Regional_Indicator}|\u200d|\ufe0f|\p{Emoji_Modifier}|\s)+$/u.test(t)) return 0; const n = [...new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(t.replace(/\s+/g, ''))].length; return n <= 3 ? n : 0; } catch { return 0; } };
 
   /* ---------- ✉️ у шапці: лічильник непрочитаних, сповіщення про нові ---------- */
   let unread = 0, pollT = 0;
@@ -89,6 +96,7 @@
     root.append(h('a', { class: 'lr-link', href: '#/messages' }, tx('back')), head, box, note, foot);
     if (!authed()) { note.textContent = tx('login'); return root; }
     let last = 0, timer = 0, data = null;
+    const seenIds = new Set();
     const render = j => {
       data = j;
       head.replaceChildren(AV(j.with.avatar, { size: 54, mood: 'cheer' }), h('div', {}, h('b', {}, j.with.name), h('small', {}, j.with.code)),
@@ -96,8 +104,21 @@
           h('button', { class: 'btn small', type: 'button', onclick: async () => { if (!j.blocked && !confirm(tx('block_q'))) return; await post({ action: 'block', code, on: !j.blocked }); load(); } }, j.blocked ? tx('unblock') : tx('block')),
           h('button', { class: 'btn small', type: 'button', onclick: async () => { if (!confirm(tx('hide_q'))) return; await post({ action: 'hide', code }); location.hash = '#/messages'; } }, tx('hide'))));
       const atBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 60;
-      box.replaceChildren(...j.messages.map(m => h('div', { class: 'msg-b ' + (m.mine ? 'mine' : 'theirs') }, h('p', { dir: 'auto' }, m.text), h('small', {}, when(m.at) + (m.mine && m.read ? ' ✓✓' : '')),
-        !m.mine ? h('button', { class: 'msg-rep', type: 'button', title: tx('report'), onclick: async e => { await post({ action: 'report', id: m.id }); e.target.replaceWith(h('em', {}, tx('reported'))); } }, '🚩') : null)));
+      const fresh = new Set(j.messages.filter(m => !seenIds.has(m.id)).map(m => m.id));
+      j.messages.forEach(m => seenIds.add(m.id));
+      box.replaceChildren(...j.messages.map(m => {
+        const big = onlyEmoji(m.text);
+        const react = m.react ? h('span', { class: 'msg-react', title: m.mine ? '' : tx('react') }, m.react) : null;
+        // реагує отримувач: кнопка «😊+» відкриває рядок реакцій
+        const bar = !m.mine ? h('div', { class: 'msg-react-bar', hidden: true }, REACTIONS.map(e => h('button', { type: 'button', class: e === m.react ? 'on' : '', 'aria-label': e, onclick: async () => {
+          const next = e === m.react ? '' : e; bar.hidden = true;
+          const r = await post({ action: 'react', id: m.id, emoji: next }); if (r.ok) { m.react = next; K.Sfx.good && K.Sfx.good(); load(); }
+        } }, e))) : null;
+        const add = !m.mine ? h('button', { class: 'msg-add-react', type: 'button', title: tx('react'), 'aria-label': tx('react'), onclick: () => { bar.hidden = !bar.hidden; } }, '😊') : null;
+        return h('div', { class: 'msg-b ' + (m.mine ? 'mine' : 'theirs') + (big ? ' emo emo' + big : '') + (big && fresh.has(m.id) && last ? ' pop' : '') + (m.react ? ' has-react' : '') },
+          h('p', { dir: 'auto' }, m.text), h('small', {}, when(m.at) + (m.mine && m.read ? ' ✓✓' : '')), react, add, bar,
+          !m.mine ? h('button', { class: 'msg-rep', type: 'button', title: tx('report'), onclick: async e => { await post({ action: 'report', id: m.id }); e.target.replaceWith(h('em', {}, tx('reported'))); } }, '🚩') : null);
+      }));
       if (j.messages.length !== last || atBottom) box.scrollTop = box.scrollHeight;
       last = j.messages.length;
       note.textContent = j.can ? '' : why(j.reason);
@@ -106,12 +127,19 @@
     const input = h('textarea', { rows: 2, maxlength: 1000, placeholder: tx('ph'), class: 'msg-input', dir: 'auto' });
     const sendBtn = h('button', { class: 'btn accent', type: 'button', onclick: () => send() }, tx('send'));
     input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } });
-    foot.append(input, sendBtn);
+    const insert = e => {
+      const a = input.selectionStart ?? input.value.length, b = input.selectionEnd ?? a;
+      input.value = input.value.slice(0, a) + e + input.value.slice(b);
+      const p = a + e.length; input.focus(); input.setSelectionRange(p, p);
+    };
+    const panel = h('div', { class: 'msg-emoji', hidden: true, role: 'listbox', 'aria-label': tx('emoji') }, EMOJI.map(e => h('button', { type: 'button', role: 'option', onclick: () => insert(e) }, e)));
+    const emoBtn = h('button', { class: 'btn msg-emo-btn', type: 'button', 'aria-label': tx('emoji'), title: tx('emoji'), 'aria-expanded': 'false', onclick: () => { panel.hidden = !panel.hidden; emoBtn.setAttribute('aria-expanded', String(!panel.hidden)); } }, '😊');
+    foot.append(panel, emoBtn, input, sendBtn);
     async function send() {
       const text = input.value.trim(); if (!text) return;
       sendBtn.disabled = true; const r = await post({ action: 'send', code, text }); sendBtn.disabled = false;
       if (!r.ok) { note.textContent = why(r.error); return; }
-      input.value = ''; K.Sfx.good(); load();
+      input.value = ''; panel.hidden = true; K.Sfx.good(); load();
     }
     async function load() {
       clearTimeout(timer);

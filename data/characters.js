@@ -52,5 +52,8 @@ window.CHARACTERS = {
   storesoster: { no: 'Storesøster', uk: 'Старша донька', en: 'Older daughter', emoji: '👧🏽', color: '#8e24aa', gender: 'f', pitch: 1.35, rate: 1.05,
     look: { type: 'kid', skin: '#e8c19a', hair: '#1b1b1b', hairStyle: 'long', accent: '#ab47bc', shirt: '#8e24aa', pants: '#263238', shoes: '#ec407a' } },
   lillesoster: { no: 'Lillesøster', uk: 'Молодша донька', en: 'Younger daughter', emoji: '👧🏽', color: '#26a69a', gender: 'f', pitch: 1.5, rate: 1.05,
-    look: { type: 'kid', skin: '#e8c19a', hair: '#2b1b12', hairStyle: 'pigtails', accent: '#ffd23f', shirt: '#26a69a', dress: true, tights: '#b2dfdb', shoes: '#00796b' } }
+    look: { type: 'kid', skin: '#e8c19a', hair: '#2b1b12', hairStyle: 'pigtails', accent: '#ffd23f', shirt: '#26a69a', dress: true, tights: '#b2dfdb', shoes: '#00796b' } },
+  // 🤖 робот із категорії «Програмування»: виконує лише точні команди й говорить «терміналом»
+  robo: { no: 'Robo', uk: 'Робо', en: 'Robo', emoji: '🤖', color: '#26c6da', gender: 'm', pitch: 1.25, rate: 1.0,
+    look: { type: 'robot', body: '#4dd0e1', trim: '#00838f', led: '#76ff03' } }
 };

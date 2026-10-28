@@ -1,0 +1,12 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs'),vm=require('node:vm');
+const make=()=>{const w={};w.window=w;vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../assets/home-feature.js'),'utf8'),w);return w.KomiksHomeFeature;};
+const comics=[{id:'a',panels:[{art:{},lines:[{no:'Hei'}]}]},{id:'b',panels:[{art:{},lines:[{no:'Hallo'}]}]}];
+const storage=()=>{let val=null;return {getItem:()=>val,setItem:(k,v)=>val=v};};
+test('three loads retain selection; fourth chooses a different comic',()=>{const s=storage();assert.deepEqual(Array.from({length:7},()=>make().choose(comics,s,()=>0).id),['a','a','a','b','b','b','a']);});
+test('rerenders in the same document do not consume a load',()=>{const s=storage(),f=make();for(let i=0;i<10;i++)assert.equal(f.choose(comics,s,()=>0).id,'a');assert.equal(JSON.parse(s.getItem()).loads,1);});
+test('unavailable storage does not break the home page',()=>{assert.equal(make().choose(comics,{getItem(){throw Error()},setItem(){throw Error()}},()=>0).id,'a');});
+test('removed selection is replaced and private comics excluded',()=>{const s=storage();s.setItem('',JSON.stringify({id:'gone',loads:2}));assert.equal(make().choose([{...comics[0],_private:true},comics[1]],s,()=>0).id,'b');});
+test('all public comics can be selected',()=>{assert.equal(make().choose(comics,storage(),()=>0.99).id,'b');});
+test('empty catalog returns null and single comic does not fail',()=>{assert.equal(make().choose([],storage()),null);const s=storage();for(let i=0;i<6;i++)assert.equal(make().choose([comics[0]],s).id,'a');});

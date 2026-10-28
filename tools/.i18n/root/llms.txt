@@ -1,0 +1,103 @@
+# bilohash.com — LLMs context file
+# https://bilohash.com/
+
+> bilohash.com is the portfolio and product hub of Ruslan Bilohash, a PHP engineer and systems architect serving Norway and Europe. Live CMS demos, AI tools, WordPress plugins, multilingual SEO and Schema.org across subsites.
+
+## Owner
+- Name: Ruslan Bilohash
+- Location: Drammen, Norway
+- Email: rbilohash@gmail.com
+- GitHub: https://github.com/Ruslan-Bilohash/
+- Languages (public SEO): English (default / x-default), Norwegian, Ukrainian
+
+## Technologies (web app development SEO landings)
+- Hub: https://bilohash.com/news/tehnology/
+- Sitemap: https://bilohash.com/news/tehnology/sitemap.php
+- LLM map: https://bilohash.com/news/tehnology/llms.txt
+- We develop PHP web apps in Norway, Europe and Ukraine on: Grok xAI, OpenAI GPT, Telegram/WhatsApp/Viber bots, Stripe & PayPal, Nova Poshta API, PHP 8, MySQL, Redis, Schema.org SEO, secure auth.
+
+## Main sections
+- PHP CMS scripts buyer guide: https://bilohash.com/news/php-cms-scripts.html
+- Salon SPA Script (spa / massage / beauty booking): https://bilohash.com/news/salon-spa.html
+- Salon SPA listing + images: https://bilohash.com/spa/elixirspa/description.html
+- Live spa demo: https://elixirspa.lt
+- Komiks·Lab — free Norwegian (Bokmål) course with voiced comics, levels A1–B2, interface in 8 languages: https://bilohash.com/comiks/
+- Portfolio (EN/NO/UA): https://bilohash.com/
+- Buy PHP CMS scripts — Regular License $59 (one live domain, 6 months support) or Extended $249 (client projects, 12 months priority). Stripe: https://bilohash.com/ecosystem/join.php
+- Hosting with free CMS installer (Shop, Booking, WordPress): https://bilohash.com/hosting/
+- Add product to catalog: https://bilohash.com/ecosystem/submit.php
+- Developer website (NO/EN/UA/RU/LT): https://bilohash.com/website/
+- Developer website RU: https://bilohash.com/website/ru.php
+- Web development cities hub (NO/EN/UA/RU): https://bilohash.com/website/cities.php
+- City SEO landings (web dev, SEO, marketing): Oslo https://bilohash.com/website/web-oslo.php | Bergen https://bilohash.com/website/web-bergen.php | Stavanger https://bilohash.com/website/web-stavanger.php | Trondheim https://bilohash.com/website/web-trondheim.php | Drammen https://bilohash.com/website/web-drammen.php | Kristiansand https://bilohash.com/website/web-kristiansand.php | Fredrikstad https://bilohash.com/website/web-fredrikstad.php | Tromsø https://bilohash.com/website/web-tromso.php | Europe https://bilohash.com/website/web-europe.php
+- Each city page supports ?lang=en|uk|ru (default Norwegian)
+- 3D figurines e-commerce (NO/UK/EN): https://bilohash.com/3d/
+- Booking CMS product page (NO/EN/UA/LT): https://bilohash.com/booking/site/
+- Booking CMS demo (NO/EN/UA/RU): https://bilohash.com/booking/
+- Booking CMS admin demo: https://bilohash.com/booking/admin/ (login: demo / bilobook2026)
+- Faktura Creator demo (EN/UA/LT/PL/DE/SV/NO): https://bilohash.com/faktura/
+- Faktura Creator create invoice: https://bilohash.com/faktura/create.php
+- Faktura Creator admin demo: https://bilohash.com/faktura/admin/ (login: demo / bilofaktura2026)
+- Faktura Creator help (7 languages): https://bilohash.com/faktura/help.php
+- Faktura Creator 2026 update news: https://bilohash.com/news/faktura-cms.html
+- Faktura Creator AI context: https://bilohash.com/faktura/llms.txt
+- Booking CMS launch news: https://bilohash.com/news/booking-cms.html
+- Booking CMS sitemap: https://bilohash.com/booking/sitemap.php
+- Booking CMS AI context: https://bilohash.com/booking/llms.txt
+- Order booking website development (Norway): contact https://bilohash.com/
+- Auction CMS product page (NO/EN/UK): https://bilohash.com/auction/site/
+- Auction CMS demo (NO/EN/UA/RU): https://bilohash.com/auction/
+- Auction CMS admin demo: https://bilohash.com/auction/admin/ (login: demo / biloauction2026)
+- Auction CMS launch news: https://bilohash.com/news/auction-cms.html
+- Auction CMS sitemap: https://bilohash.com/auction/sitemap.php
+- Auction CMS AI context: https://bilohash.com/auction/llms.txt
+- Order auction website development (Norway & Europe): contact https://bilohash.com/
+- Freelance CMS product page (NO/EN/UA/RU): https://bilohash.com/freelance/site/
+- Freelance CMS demo (NO/EN/UA/RU): https://bilohash.com/freelance/
+- Freelance CMS admin demo: https://bilohash.com/freelance/admin/ (login: demo / bilofreelance2026)
+- Freelance CMS launch news: https://bilohash.com/news/freelance-cms.html
+- Freelance CMS sitemap: https://bilohash.com/freelance/sitemap.php
+- Freelance CMS AI context: https://bilohash.com/freelance/llms.txt
+- Order freelance marketplace development (Norway & Europe): contact https://bilohash.com/
+- Shop CMS product page (NO/EN/UA/RU): https://bilohash.com/shop/site/
+- Shop CMS demo (NO/EN/UA/RU): https://bilohash.com/shop/
+- Shop CMS admin demo: https://bilohash.com/shop/admin/ (login: demo / demo2026)
+- Shop CMS sitemap: https://bilohash.com/shop/sitemap.php
+- Shop CMS AI context: https://bilohash.com/shop/llms.txt
+- Order e-commerce store development (Norway & Europe): contact https://bilohash.com/
+- Bilen Auto CMS demo: https://bilohash.com/tavle/site/
+- Bilen Auto CMS product: https://bilohash.com/tavle/
+- Bilen Auto CMS admin demo: https://bilohash.com/tavle/site/admin/ (login: demo / demo2026)
+- Bilen Auto CMS sitemap: https://bilohash.com/tavle/site/sitemap.xml
+- Bilen Auto CMS AI context: https://bilohash.com/tavle/site/llms.txt
+- Order car marketplace development (Norway & Europe): contact https://bilohash.com/
+- AI consultant & CRM: https://bilohash.com/ai/
+- WordPress CMS live: https://bilohash.com/wordpress/
+- WordPress AI plugin: https://wordpress.org/plugins/bilohash-ai-chat-consultant/
+- News & plugin releases: https://bilohash.com/news/
+- Lumina file manager: https://bilohash.com/php/lumina/
+
+## Core expertise
+Custom PHP CMS, AI chatbots (Grok xAI, OpenAI), booking systems, multilingual SEO websites, structured data, GDPR-compliant cookie consent.
+
+## LLM context files
+- News: https://bilohash.com/news/llms.txt
+- Website services: https://bilohash.com/website/llms.txt
+- AI platform: https://bilohash.com/ai/llms.txt
+- WordPress CMS: https://bilohash.com/wordpress/llms.txt
+- Komiks·Lab (Norwegian course): https://bilohash.com/comiks/llms.txt
+- Komiks·Lab full catalogue (89 stories): https://bilohash.com/comiks/llms-full.txt
+
+## Sitemaps
+- Root: https://bilohash.com/sitemap.xml
+- Komiks·Lab (comics, tests, updates in 8 languages): https://bilohash.com/comiks/sitemap.xml
+- Website + city pages: https://bilohash.com/website/sitemap.php
+- 3D shop: https://bilohash.com/3d/sitemap.xml
+- AI CRM: https://bilohash.com/ai/crm/sitemap.xml
+- Auction CMS (lots + langs): https://bilohash.com/auction/sitemap.php
+- Freelance CMS (projects + langs): https://bilohash.com/freelance/sitemap.php
+- Shop CMS (products + langs): https://bilohash.com/shop/sitemap.php
+- Bilen Auto CMS (listings + langs): https://bilohash.com/tavle/site/sitemap.xml
+
+## Contact
+For business inquiries use the contact form on https://bilohash.com/ or email rbilohash@gmail.com.

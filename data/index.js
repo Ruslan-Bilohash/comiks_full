@@ -1,9 +1,11 @@
 window.KOMIKS_DATA = {
-  "version": 'musrvubl',
+  "version": 'mvshnjze',
   "shared": [
     "data/characters.js",
     "data/dictionary.js",
     "data/basics.js",
+    "data/alphabet-pics.js",
+    "data/seo.js",
     "data/phonetics.js",
     "data/grammar.js",
     "data/words.js",
@@ -11,9 +13,13 @@ window.KOMIKS_DATA = {
     "data/words3.js",
     "data/words4.js",
     "data/english.js",
+    "data/english2.js",
+    "data/english3.js",
     "data/dictionary-en.js",
     "data/audio.js",
     "assets/art.js",
+    "assets/home-feature.js",
+    "assets/downloads.js",
     "assets/i18n.js",
     "assets/i18n-eu.js",
     "assets/a11y.js",
@@ -23,10 +29,16 @@ window.KOMIKS_DATA = {
     "assets/profile.js",
     "assets/grammar.js",
     "assets/words.js",
+    "assets/search.js",
+    "assets/today-fx.js",
     "assets/english.js",
+    "assets/koding.js",
+    "assets/kodegame.js",
     "assets/math.js",
+    "assets/fractions.js",
     "assets/music.js",
     "assets/rocket.js",
+    "assets/logic.js",
     "assets/race.js",
     "assets/chess.js",
     "assets/messages.js",
@@ -37,7 +49,12 @@ window.KOMIKS_DATA = {
     "assets/pics5.js",
     "assets/pics6.js",
     "assets/pics7.js",
+    "data/words-tools.js",
+    "data/word-photos.js",
+    "data/word-images-generated.js",
+    "data/word-photos-gen.js",
     "data/updates.js",
+    "data/updates-lang.js",
     "assets/news.js",
     "assets/feedback.js",
     "assets/premium.js",
@@ -53,6 +70,10 @@ window.KOMIKS_DATA = {
     "assets/bots.js",
     "assets/players.js",
     "assets/friends.js",
+    "assets/gifts.js",
+    "assets/hits.js",
+    "assets/learn-dash.js",
+    "assets/watch.js",
     "assets/extras.js",
     "assets/game.js",
     "assets/auth.js"
@@ -312,6 +333,84 @@ window.KOMIKS_DATA = {
     },
     {
       "file": "data/comic-174-allergi-pa-restaurant.js"
+    },
+    {
+      "file": "data/comic-175-mye-eller-mange.js"
+    },
+    {
+      "file": "data/comic-176-stor-eller-liten.js"
+    },
+    {
+      "file": "data/comic-177-litt-lite-og-fa.js"
+    },
+    {
+      "file": "data/comic-178-storre-og-storst.js"
+    },
+    {
+      "file": "data/comic-179-en-travel-morgen.js"
+    },
+    {
+      "file": "data/comic-180-fotballtrening.js"
+    },
+    {
+      "file": "data/comic-181-brannovelse-pa-jobben.js"
+    },
+    {
+      "file": "data/comic-182-valg-og-demokrati-i-norge.js"
+    },
+    {
+      "file": "data/comic-183-hva-er-programmering.js"
+    },
+    {
+      "file": "data/comic-184-algoritmen.js"
+    },
+    {
+      "file": "data/comic-185-gjenta.js"
+    },
+    {
+      "file": "data/comic-186-hvis-det-regner.js"
+    },
+    {
+      "file": "data/comic-187-poeng-i-boksen.js"
+    },
+    {
+      "file": "data/comic-188-finn-feilen.js"
+    },
+    {
+      "file": "data/comic-189-hvilket-sprak.js"
+    },
+    {
+      "file": "data/comic-190-en-modell.js"
+    },
+    {
+      "file": "data/comic-191-html.js"
+    },
+    {
+      "file": "data/comic-192-203-koding-worlds.js"
+    },
+    {
+      "file": "data/comic-204-223-safety.js"
+    },
+    {
+      "file": "data/comic-224-232-koding-expansion.js"
+    },
+    {
+      "file": "data/comic-233-273-koding-expansion.js"
+    },
+    {
+      "file": "data/comic-274-sis-og-utvisning.js"
+    },
+    {
+      "file": "data/comic-275-282-emergency-help.js"
+    },
+    {
+      "file": "data/comic-283-290-hackers.js"
+    },
+    {
+      "file": "data/comic-291-298-possessives.js"
+    },
+    {
+      "file": "data/comic-299-301-a2-hverdag.js"
     }
   ]
 };

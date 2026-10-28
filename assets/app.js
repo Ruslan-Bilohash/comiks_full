@@ -24,8 +24,15 @@
      повідомлень, рейтингу, спільних ігор і ШІ. Лишається все, що працює на самому
      пристрої: комікси, тести, картки, «Пари», слова, граматика й одиночні ігри. */
   const OFFLINE = !!window.KOMIKS_OFFLINE;
+  /* 📱 Збірка для крамниці — Play Market або App Store (Capacitor підставляє
+     window.Capacitor у вебогляді). Усередині неї не показуємо сторонніх ігор:
+     файтинг, на який веде посилання з навчального застосунку з категорією 4+,
+     змінює і вікову категорію самого застосунку, і відповіді в анкетах
+     «Data safety» та «App Privacy». На сайті посилання лишаються всі. */
+  const NATIVE = !!(window.Capacitor || window.KOMIKS_NATIVE);
+  const NO_EXTERNAL = OFFLINE || NATIVE;
   // сторінки, яких в офлайн-версії просто немає
-  const ONLINE_ONLY = new Set(['friends', 'players', 'player', 'messages', 'privacy', 'alerts',
+  const ONLINE_ONLY = new Set(['watch', 'stats', 'friends', 'players', 'player', 'messages', 'privacy', 'alerts',
     'game', 'join', 'rating', 'call', 'write', 'teacher', 'premium', 'login', 'register',
     'forgot', 'reset', 'verify', 'verify-sent', 'verify-failed', 'welcome', 'account']);
 
@@ -67,7 +74,12 @@
   const ch = id => CH[id] || CH.narrator || { no: id, uk: id, en: id, emoji: '💬', color: '#ccc', gender: 'f' };
   const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const today = () => new Date().toISOString();
-  const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(ui === 'en' ? 'en-GB' : ui === 'no' ? 'nb-NO' : 'uk-UA'); } catch { return iso.slice(0, 10); } };
+  /* Формат дати — мовою інтерфейсу. Доти кожне місце вирішувало це власним
+     ланцюжком «uk? no? — ні, en-GB», і німець із поляком бачили британську
+     дату, а подекуди й українську. */
+  const LOCALE = { uk: 'uk-UA', no: 'nb-NO', ar: 'ar', de: 'de-DE', pl: 'pl-PL', tr: 'tr-TR', lt: 'lt-LT', en: 'en-GB' };
+  const locale = () => LOCALE[ui] || 'en-GB';
+  const fmtDate = iso => { try { return new Date(iso).toLocaleDateString(locale()); } catch { return iso.slice(0, 10); } };
 
   /* ================= storage & accounts ================= */
   // глобальні ключі спільні для всіх; решта — окремо для кожного акаунта (гість — без префікса)
@@ -133,6 +145,16 @@
      (арабська, німецька, польська, турецька, литовська), шукаємо переклад за англійським
      рядком; якщо його ще немає — поля просто не буде, і підказка покаже англійську. */
   const packFor = (lang, en) => { const m = packOf(lang); const t = String(en || '').trim(); return m && t ? m[en] || m[t] : undefined; };
+  /* Один рядок — одна підказка потрібною мовою. Доти кожне місце вирішувало це
+     саме, трійчастим виразом «арабська? англійська? — ні, українська», і для
+     німця це означало українську підказку під норвезьким словом. Тепер шлях
+     один: словник → англійська → українська. */
+  const trText = (en, uk, lang) => {
+    const l = lang || trLang();
+    if (l === 'uk') return uk || en || '';
+    if (l === 'en') return en || uk || '';
+    return packFor(l, en) || en || uk || '';
+  };
   const both = (uk, en, ar) => {
     if (!uk && !en && !ar) return null;
     const tr = { uk, en, ar: ar || arFor(en) };
@@ -188,7 +210,7 @@
     const v = packFor(ui, c.summaryEn) || (ui === 'ar' ? arFor(c.summaryEn) : '');
     return v || c.summaryEn || c.summaryUk || '';
   };
-  const catLabel = cat => { const x = B.categories[cat]; return x ? `${x.icon} ${x[ui] || x.en || x.uk}` : cat; };
+  const catLabel = cat => { const x = B.categories[cat]; return x ? `${x.icon} ${x[ui] || trText(x.en, x.uk, ui)}` : cat; };
   const nameOf = id => ch(id).no;
 
   // текст норвезькою, переклад — при наведенні (або дотику на телефоні)
@@ -502,6 +524,7 @@
       res3: ['🏆 ممتاز! ثلاث نجوم!', '🎉 بلا أخطاء! أنت تعرف هذا!'], res2: ['👏 أحسنت! أخطاء قليلة جدًا.', '💪 جيد جدًا! اقتربت من ثلاث نجوم.'], res1: ['🙂 بداية جيدة! حاول مرة أخرى.', '🌱 خطوة بخطوة — ستنجح!'],
       day: n => `🔥 ${n} أيام متتالية! عادة رائعة!`, words: n => `📝 لديك ${n} كلمة في مجموعتك!`, badge: '🏅 وسام جديد!' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(PRAISE, 'app.js:PRAISE');
   const pr = (k, ...a) => { const T = PRAISE[ui] || PRAISE.en; const v = T[k]; return typeof v === 'function' ? v(...a) : v; };
   let toastT = 0;
   function praise(text) {
@@ -526,7 +549,7 @@
     prog[key] = { stars: Math.max(prev.stars || 0, st), best: Math.max(prev.best || 0, Math.round(pct * 100)), plays: (prev.plays || 0) + 1 };
     store.set('progress', prog);
     const log = store.get('quizlog', []);
-    log.unshift(Object.assign({ key, title, score, total, stars: st, date: today() }, extra.place ? { place: extra.place, of: extra.of } : {}));
+    log.unshift(Object.assign({ key, title, score, total, stars: st, date: today() }, extra.place ? { place: extra.place, of: extra.of } : {}, extra.sec > 0 && extra.sec < 7200 ? { sec: extra.sec } : {}));
     store.set('quizlog', log.slice(0, 300));
     bump('quizzes'); if (st === 3) bump('perfect');
     quotaTick();
@@ -634,6 +657,7 @@
   }
   const errKey = q => {
     if (!q) return '';
+    if (window.KomiksKoding && window.KomiksKoding.types.has(q.type)) return '';   // програмування — не слова
     if (q.type === 'listen' || q.type === 'picture') return String((q.item || {}).no || q.answer || '');
     if (q.type === 'blank' || q.type === 'type') return String(q.word || q.answer || '');
     if (q.type === 'letter' || q.type === 'firstletter') return String(q.answer || '');
@@ -653,6 +677,7 @@
     const item = q.item || {};
     const cur = log[k] || { n: 0, type: q.type, uk: '', en: '', line: '', quiz: quizKey || '', qtitle: title || '' };
     cur.n++; cur.last = today(); cur.type = q.type;
+    cur.box = 0; cur.due = Date.now();   // нова помилка — повторюємо вже сьогодні
     cur.quiz = quizKey || cur.quiz; cur.qtitle = title || cur.qtitle;
     // переклад беремо звідки можемо: словник коміксу, vocab або тематичні слова
     const tr = trOf(k);
@@ -668,16 +693,46 @@
     }
     store.set(ERRS, log);
   }
-  const errList = () => Object.entries(store.get(ERRS, {})).map(([k, v]) => Object.assign({ k }, v)).sort((a, b) => b.n - a.n || String(b.last).localeCompare(String(a.last)));
+  /* Журнал помилок спільний, але мова в нього пишеться явно. Курс англійської
+     теж помиляється словами, і без позначки «welcome» потрапляло б у «Пари» та
+     кросворд як норвезьке слово — тобто в норвезький тренажер лізли б англійські
+     слова. Записи без позначки — норвезькі: такими вони й були досі. */
+  const errLang = v => (v && v.lang) || 'no';
+  const errList = (lang = 'no') => Object.entries(store.get(ERRS, {}))
+    .filter(([, v]) => errLang(v) === lang)
+    .map(([k, v]) => Object.assign({ k }, v)).sort((a, b) => b.n - a.n || String(b.last).localeCompare(String(a.last)));
   function errForget(k) { const log = store.get(ERRS, {}); delete log[k]; store.set(ERRS, log); }
+  /* 🔁 Робота над помилками за інтервалами. Помилка «виправлена», коли учень відповів
+     правильно тричі в різні дні: сьогодні, через день і ще через три. Правильна відповідь
+     до настання терміну не зараховується — зубріння за один вечір не стирає помилку. */
+  const REV_DAYS = [0, 1, 3];
+  const REV_MS = 864e5;
+  function errResolve(k) {
+    const log = store.get(ERRS, {}), e = log[k]; if (!e) return;
+    delete log[k]; store.set(ERRS, log);
+    const fixed = (store.get('errFixed', []) || []).filter(x => x.k !== k);
+    store.set('errFixed', [{ k, uk: e.uk || '', en: e.en || '', d: today() }, ...fixed].slice(0, 300));
+  }
+  function errReviewed(k) {
+    const log = store.get(ERRS, {}), e = log[k]; if (!e) return;
+    if ((e.due || 0) > Date.now()) return;            // ще рано — не зараховуємо
+    e.box = (e.box || 0) + 1;
+    if (e.box >= REV_DAYS.length) { errResolve(k); return; }
+    e.due = Date.now() + REV_DAYS[e.box] * REV_MS;
+    log[k] = e; store.set(ERRS, log);
+  }
+  const logCorrect = q => { const k = errKey(q); if (k) errReviewed(k); };
+  const errDue = (lang = 'no') => errList(lang).filter(e => (e.due || 0) <= Date.now());
   /* Помилка не в тесті, а в грі: слово теж лягає в той самий журнал, тож «робота над
      помилками» бачить його і в тестах, і в «Парах». Так пам'ять акаунта одна на все. */
-  function errWord(no, uk, en, quizKey, title) {
+  function errWord(no, uk, en, quizKey, title, lang = 'no') {
     const k = String(no || '').trim(); if (!k) return;
     const log = store.get(ERRS, {});
-    const tr = trOf(k);
-    const cur = log[k] || { n: 0, type: 'listen', uk: '', en: '', line: '', quiz: quizKey || '', qtitle: title || '' };
+    const tr = lang === 'no' ? trOf(k) : {};
+    const cur = log[k] || { n: 0, type: 'listen', uk: '', en: '', line: '', quiz: quizKey || '', qtitle: title || '', lang };
     cur.n++; cur.last = today(); cur.type = cur.type || 'listen';
+    cur.box = 0; cur.due = Date.now();
+    cur.lang = cur.lang || lang;
     cur.uk = cur.uk || uk || tr.uk || '';
     cur.en = cur.en || en || tr.en || '';
     cur.quiz = quizKey || cur.quiz; cur.qtitle = title || cur.qtitle;
@@ -685,7 +740,9 @@
     store.set(ERRS, log);
   }
 
-  function comicQuestions(c, kids) {
+  /* coding — для коміксів «Програмування»: власні завдання (робот, код, алгоритм…) малює
+     KomiksKoding. «Гра разом», іспит і тест рівня мови їх не знають, тож вмикаємо явно. */
+  function comicQuestions(c, kids, coding = false) {
     const nOpt = kids ? 3 : 4;
     const all = c.panels.flatMap((p, pi) => p.lines.map(l => ({ ...l, pi })));
     const talk = all.filter(l => l.who !== 'sfx' && l.who !== 'narrator' && l.no.length > 4);
@@ -746,6 +803,8 @@
       const w = pick(wordsOf(l.no));
       qs.push({ type: !kids && i === 2 ? 'type' : 'blank', c, line: l, word: w, answer: w, options: opts(w, pool.filter(x => norm(x) !== norm(w))) });
     });
+    const KD = window.KomiksKoding;
+    if (coding && KD && c.category === 'koding') return [...KD.questions(c, kids), ...sample(qs, kids ? 3 : 5)];
     return qs;
   }
   /* Малюнок для слова: мальована іконка, якщо вона є, інакше емодзі зі словника тем. */
@@ -778,7 +837,7 @@
   const diff = () => DIFF[settings.level] || DIFF.adults;
   const kidsMode = () => settings.level === 'kids';
   const quizSize = () => diff().size;
-  const buildComicQuiz = c => finishSet(comicQuestions(c, kidsMode()), quizSize());
+  const buildComicQuiz = (c, coding = false) => finishSet(comicQuestions(c, kidsMode(), coding), quizSize());
   function buildLevelQuiz(level) {
     const list = COMICS.filter(c => c.level === level);
     const per = Math.max(3, Math.ceil(quizSize() * 1.5 / Math.max(1, list.length)));
@@ -846,6 +905,7 @@
     no: { t: '🔑 Dette er en demokonto', p: n => `I demoen kan du ta ${n} ulike prøver – de er allerede tatt. Lag din egen gratis konto: fremgang, stjerner og venner blir tatt vare på.`, cta: 'Lag en konto', back: '← Til forsiden', left: n => `Demo: ${n} prøver igjen` },
     ar: { t: '🔑 هذا حساب تجريبي', p: n => `يتيح الحساب التجريبي ${n} اختبارًا مختلفًا — وقد انتهت كلها. أنشئ حسابك المجاني: يُحفظ التقدّم والنجوم والأصدقاء للأبد.`, cta: 'إنشاء حساب', back: '→ الصفحة الرئيسية', left: n => `تجريبي: بقي ${n} اختبارًا` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(DEMO_T, 'app.js:DEMO_T');
   const isDemo = () => { const u = currentUser(); return !!(u && u.demo); };
   /* 🎟️ Ліміт тестів. Перші 100 учасників (засновники) і Преміум — без обмежень.
      Безкоштовний акаунт має місячний ліміт (лічильник на сервері), гість — 20 різних тестів. */
@@ -877,11 +937,12 @@
   const guestReadList = () => store.get('guestReadKeys', []);
   function guestReadCount(id) { const d = guestReadList(); if (!id || d.includes(id)) return; store.set('guestReadKeys', [id, ...d].slice(0, 60)); }
   const GUEST_T = {
-    uk: { t: '🎟️ Безкоштовні тести закінчились', p: `Без акаунта можна пройти ${GUEST_MAX} різних тестів. Створіть безкоштовний акаунт — прогрес, зірки й друзі збережуться, а тестів стане більше.`, cta: 'Створити акаунт', left: n => `Лишилось тестів без акаунта: ${n}` },
-    en: { t: '🎟️ Free tests are used up', p: `Without an account you can take ${GUEST_MAX} different tests. Create a free account — progress, stars and friends are kept, and you get more tests.`, cta: 'Create an account', left: n => `Tests left without an account: ${n}` },
-    no: { t: '🎟️ De gratis prøvene er brukt opp', p: `Uten konto kan du ta ${GUEST_MAX} ulike prøver. Lag en gratis konto – fremgang, stjerner og venner blir tatt vare på, og du får flere prøver.`, cta: 'Lag en konto', left: n => `Prøver igjen uten konto: ${n}` },
-    ar: { t: '🎟️ انتهت الاختبارات المجانية', p: `بدون حساب يمكنك إجراء ${GUEST_MAX} اختبارًا مختلفًا. أنشئ حسابًا مجانيًا — يُحفظ التقدّم والنجوم والأصدقاء وتحصل على اختبارات أكثر.`, cta: 'إنشاء حساب', left: n => `الاختبارات المتبقية بدون حساب: ${n}` }
+    uk: { t: '🎟️ Безкоштовні тести закінчились', p: `Без акаунта можна пройти ${GUEST_MAX === 1 ? 'один тест' : GUEST_MAX + ' різних тестів'}. Створіть безкоштовний акаунт — прогрес, зірки й друзі збережуться, а тестів стане більше.`, cta: 'Створити акаунт', left: n => `Лишилось тестів без акаунта: ${n}` },
+    en: { t: '🎟️ Free tests are used up', p: `Without an account you can take ${GUEST_MAX === 1 ? 'one test' : GUEST_MAX + ' different tests'}. Create a free account — progress, stars and friends are kept, and you get more tests.`, cta: 'Create an account', left: n => `Tests left without an account: ${n}` },
+    no: { t: '🎟️ De gratis prøvene er brukt opp', p: `Uten konto kan du ta ${GUEST_MAX === 1 ? 'én prøve' : GUEST_MAX + ' ulike prøver'}. Lag en gratis konto – fremgang, stjerner og venner blir tatt vare på, og du får flere prøver.`, cta: 'Lag en konto', left: n => `Prøver igjen uten konto: ${n}` },
+    ar: { t: '🎟️ انتهت الاختبارات المجانية', p: `بدون حساب يمكنك إجراء ${GUEST_MAX === 1 ? 'اختبارًا واحدًا' : GUEST_MAX + ' اختبارًا مختلفًا'}. أنشئ حسابًا مجانيًا — يُحفظ التقدّم والنجوم والأصدقاء وتحصل على اختبارات أكثر.`, cta: 'إنشاء حساب', left: n => `الاختبارات المتبقية بدون حساب: ${n}` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(GUEST_T, 'app.js:GUEST_T');
   /* Окремі тексти для читання: на стіні перед тестом і на стіні перед коміксом
      людина перебуває в різних станах, і обіцяти їм одне й те саме — означає
      нічого не пояснити. */
@@ -907,6 +968,7 @@
       cta: '📥 أنشئ حسابًا وانقل تقدّمي', have: 'لديّ حساب',
       left: n => n === 0 ? 'هذه آخر قصة بدون حساب — بعدها يلزم تسجيل الدخول' : `القصص المتبقية بدون حساب: ${n}` },
   };
+  if (window.KL_T_FILL) KL_T_FILL(READ_T, 'app.js:READ_T');
   const rx = k => (READ_T[ui] || READ_T.en)[k];
   const gx = k => (GUEST_T[ui] || GUEST_T.en)[k];
   function guestWall(back = '#/') {
@@ -1015,6 +1077,28 @@
   function readFocus(on) {
     document.body.classList.toggle('read-full', !!on && narrow());
   }
+  function autoNext(box, btn, ok) {
+    if (!box || settings.autoNext === false || reducedMotion()) return;
+    const ms = ok ? 1800 : 4200;          // на правильну дивитись нема чого, неправильну треба прочитати
+    /* Кнопка більше не потрібна: вона дрібна, на телефоні в неї важко влучити,
+       а дія однакова. Лишаємо саму шторку — торкання будь-де веде далі. */
+    box.classList.add('fb-auto-on');
+    const bar = h('div', { class: 'fb-auto' }, h('i'));
+    box.append(bar);
+    requestAnimationFrame(() => { bar.firstChild.style.transition = `width ${ms}ms linear`; bar.firstChild.style.width = '0%'; });
+    let done = false;
+    const go = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(t);
+      if (document.body.contains(btn)) btn.click();
+    };
+    const t = setTimeout(go, ms);
+    box.addEventListener('click', go);
+    box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    box.tabIndex = 0;
+    box.focus({ preventScroll: true });   // пробіл і Enter працюють одразу, без пошуку кнопки
+  }
   function runQuiz({ key, title, qs, reread, back = '#/' }) {
     srcLink.key = key;   // для питань без прив’язки до коміксу — беремо комікс самого тесту
     const gate = quizGate(key, back);
@@ -1023,7 +1107,7 @@
        лише коли дійшли до результату: зазирнути й передумати не має коштувати
        єдиної безкоштовної спроби. */
     demoCount(key);
-    const S = { qs, i: 0, score: 0, wrong: [] };
+    const S = { qs, i: 0, score: 0, wrong: [], t0: Date.now() };
     const root = h('section', { class: 'quiz' });
     let timerId = 0;
     const stopTimer = () => { clearInterval(timerId); timerId = 0; };
@@ -1055,28 +1139,6 @@
       }
       /* Сам перехід: смужка показує, скільки лишилось, дотик до екрана скасовує.
          Якщо людина вимкнула автоперехід у налаштуваннях — нічого не робимо. */
-      function autoNext(box, btn, ok) {
-        if (!box || settings.autoNext === false || reducedMotion()) return;
-        const ms = ok ? 1800 : 4200;          // на правильну дивитись нема чого, неправильну треба прочитати
-        /* Кнопка більше не потрібна: вона дрібна, на телефоні в неї важко влучити,
-           а дія однакова. Лишаємо саму шторку — торкання будь-де веде далі. */
-        box.classList.add('fb-auto-on');
-        const bar = h('div', { class: 'fb-auto' }, h('i'));
-        box.append(bar);
-        requestAnimationFrame(() => { bar.firstChild.style.transition = `width ${ms}ms linear`; bar.firstChild.style.width = '0%'; });
-        let done = false;
-        const go = () => {
-          if (done) return;
-          done = true;
-          clearTimeout(t);
-          if (document.body.contains(btn)) btn.click();
-        };
-        const t = setTimeout(go, ms);
-        box.addEventListener('click', go);
-        box.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-        box.tabIndex = 0;
-        box.focus({ preventScroll: true });   // пробіл і Enter працюють одразу, без пошуку кнопки
-      }
       function timeUp() {
         if (card.querySelector('.feedback')) return;
         card.querySelectorAll('.opts').forEach(w => w.classList.add('locked'));
@@ -1092,7 +1154,7 @@
       const feedback = (ok, correctLabel, sayCorrect, answerWord) => {
         stopTimer();
         if (ok) { S.score++; Sfx.good(); S.run = (S.run || 0) + 1; praiseStreak(S.run); } else S.run = 0;
-        if (ok) { /* серію рахуємо вище */ } else { S.wrong.push({ q, correctLabel }); logMistake(q, key, title); Sfx.bad(); }
+        if (ok) logCorrect(q); else { S.wrong.push({ q, correctLabel }); logMistake(q, key, title); Sfx.bad(); }
         const nextBtn = withTr(h('button', { class: 'btn ' + (ok ? 'good' : 'yellow'), type: 'button', onclick: next }, S.i + 1 < S.qs.length ? NO.next : NO.result), qtr(S.i + 1 < S.qs.length ? 'next' : 'result'));
         card.append(h('div', { class: 'feedback ' + (ok ? 'ok' : 'no'), role: 'status' },
           h('span', { style: { fontSize: '2rem' } }, ok ? pick(['🎉', '🌟', '👏']) : '🤔'),
@@ -1318,14 +1380,15 @@
         body.append(h('div', { class: 'q-prompt' }, bigPlay(s)), choice(q.options, o => h('span', { class: 'big-letter' }, o), o => o === q.answer, q.answer, s, 'letters-opts'));
       } else if (q.type === 'firstletter') {
         const s = say(q.item[2], 'narrator', 0.85);
-        body.append(h('div', { class: 'q-prompt' }, bigPlay(s), h('div', { class: 'say big' }, q.item[3] + ' ' + q.item[2].slice(1).replace(/./g, '_').replace(/^/, '?'))),
+        const ap = alphaPic(q.item[0], q.item[2], 120);
+        body.append(h('div', { class: 'q-prompt' }, bigPlay(s), ap ? h('div', { class: 'alpha-q-pic' }, ap) : null, h('div', { class: 'say big' }, (ap ? '' : q.item[3] + ' ') + q.item[2].slice(1).replace(/./g, '_').replace(/^/, '?'))),
           choice(q.options, o => h('span', { class: 'big-letter' }, o), o => o === q.answer, `${q.answer} — ${q.item[2]}`, s, 'letters-opts'));
       } else if (q.type === 'number' || q.type === 'numword') {
         const word = B.numberWord(q.n), s = say(word, 'narrator', 0.9);
         body.append(h('div', { class: 'q-prompt' }, q.type === 'number' ? bigPlay(s) : h('div', { class: 'say big' }, word)),
           retryChoice(q.options, o => h('span', { class: 'big-letter' }, String(o)), q.answer, `${q.n} — ${word}`, word, s));
       } else if (q.type === 'emoji') {
-        body.append(h('div', { class: 'q-prompt center' }, h('div', { class: 'emoji-big' }, window.KomiksPics && window.KomiksPics.has(q.item.no) ? window.KomiksPics.el(q.item.no, 150) : q.item.emoji)), // мальована іконка, якщо емодзі неоднозначне
+        body.append(h('div', { class: 'q-prompt center' }, h('div', { class: 'emoji-big' }, window.KomiksPics && window.KomiksPics.has(q.item.no, q.item.uk) ? window.KomiksPics.el(q.item.no, 150, q.item.uk) : q.item.emoji)), // мальована іконка, якщо емодзі неоднозначне
           choice(q.options, o => o, o => o === q.answer, q.answer, say(q.answer, 'narrator', 0.9), '', q.answer));
         $$('.opt', body).forEach(b => b.classList.add('word'));
       } else if (q.type === 'grammar') {
@@ -1337,6 +1400,8 @@
         body.append(h('div', { class: 'q-prompt center' }, h('div', { class: 'pict clock-pict' }, svgEl(window.KomiksGrammar.clockSVG(q.time)))),
           choice(q.options, wordOpt, o => o === q.answer, `${q.time} — ${q.answer}`, say(q.sentence)));
         $$('.opt', body).forEach(b => b.classList.add('word'));
+      } else if (window.KomiksKoding && window.KomiksKoding.types.has(q.type)) {
+        window.KomiksKoding.render(q, body, { choice, feedback });
       } else if (q.type === 'numtype') {
         const word = B.numberWord(q.n), s = say(word, 'narrator', 0.9);
         body.append(h('div', { class: 'q-prompt' }, bigPlay(s)), ...typeRow(q.n, val => { const ok = parseInt(val, 10) === q.n; feedback(ok, `${q.n} — ${word}`, s); if (ok) cheer(true, word); }));
@@ -1371,7 +1436,7 @@
       const pct = S.qs.length ? S.score / S.qs.length : 0;
       const target = Math.round(pct * 100);
       const prevBest = (store.get('progress', {})[key] || {}).best || 0;
-      const st = recordQuiz(key, title, S.score, S.qs.length);
+      const st = recordQuiz(key, title, S.score, S.qs.length, { sec: Math.round((Date.now() - S.t0) / 1000) });
       if (st >= 2) { confetti(); Sfx.win(); }
 
       // кільце прогресу: заповнюється разом із лічильником — результат видно, а не просто написано
@@ -1418,6 +1483,7 @@
           S.wrong.length ? h('a', { class: 'btn', href: '#/analysis' }, AN_T().short) : null,
           reread ? withTr(h('a', { class: 'btn primary', href: reread }, NO.reread), qtr('reread')) : null,
           withTr(h('a', { class: 'btn', href: back }, NO.home), qtr('home'))),
+        window.KomiksExtras && window.KomiksExtras.shareResult ? window.KomiksExtras.shareResult({ title: title, score: S.score, total: S.qs.length }) : null,
         /* Тест — справжній кінець історії, і саме тут людина вирішує, читати ще
            чи закрити вкладку. Тому вибір пропонуємо тут, а не ховаємо на головній
            серед вісімдесяти одного пункту. */
@@ -1445,27 +1511,132 @@
   function welcome() {
     if (hasConsent()) return;
     $$('.modal-back').forEach(m => m.remove());
-    const back = h('div', { class: 'modal-back' });
+    const back = h('div', { class: 'modal-back welcome-back' });
+    document.body.classList.add('welcome-open');
     const agree = h('input', { type: 'checkbox', id: 'agreeBox' });
-    const go = h('button', { type: 'button', class: 'btn accent big', disabled: true, onclick: () => {
+    const go = h('button', { type: 'button', class: 'btn accent big welcome-go', disabled: true, onclick: () => {
       if (!agree.checked) return;
       raw.set('comiks.consent', { v: TERMS_VERSION, at: today() });
-      raw.set('comiks.welcomed', true); back.remove(); route();
+      raw.set('comiks.welcomed', true); document.body.classList.remove('welcome-open'); back.remove(); route();
     } }, t('welcome_go'));
     agree.addEventListener('change', () => { go.disabled = !agree.checked; });
     const learner = (val) => { const [label, sub] = tx('learner')[val]; return h('button', { type: 'button', class: 'choice' + (settings.level === val ? ' on' : ''), onclick: e => { settings.level = val; saveSettings(); $$('.choice.lrn', back).forEach(b => b.classList.toggle('on', b === e.currentTarget)); } }, h('b', {}, label), h('small', {}, sub)); };
-    back.append(h('div', { class: 'modal', role: 'dialog', 'aria-modal': 'true' },
-      h('div', { class: 'modal-emoji' }, '💬'),
-      h('h2', {}, t('welcome_title')),
-      h('p', {}, t('welcome_lead')),
-      h('p', { class: 'modal-q' }, t('welcome_lang')),
-      langChoices(() => { back.remove(); welcome(); }),
-      h('p', { class: 'modal-q' }, t('welcome_q')),
-      h('div', { class: 'choices' }, ['kids', 'adults', 'hard', 'expert'].map(v => learner(v)).map(b => { b.classList.add('lrn'); return b; })),
-      h('div', { class: 'warn-box' }, h('h3', {}, t('warn_title')), h('ul', {}, tx('warn_points').map(x => h('li', {}, x))), h('details', {}, h('summary', {}, t('terms_full')), termsList())),
+    const language = h('select', { class: 'welcome-language', id: 'welcomeLanguage' },
+      LANGS.map(([code, label]) => h('option', { value: code, selected: ui === code }, label)));
+    const learnerSelect = h('select', { class: 'welcome-level-select', 'aria-label': t('welcome_q') },
+      ['kids', 'adults', 'hard', 'expert'].map(v => h('option', { value: v, selected: settings.level === v }, tx('learner')[v][0])));
+    learnerSelect.addEventListener('change', () => { settings.level = learnerSelect.value; saveSettings(); back.remove(); welcome(); document.querySelector('.welcome-level-select')?.focus(); });
+    language.addEventListener('change', () => { setUi(language.value); back.remove(); welcome(); document.querySelector('.welcome-language')?.focus(); });
+    const termsButton = h('button', { type: 'button', class: 'welcome-terms-button', onclick: () => {
+      const modal = back.querySelector('.welcome-modal');
+      modal.hidden = true;
+      const close = h('button', { type: 'button', class: 'btn welcome-terms-back', onclick: () => { details.remove(); modal.hidden = false; termsButton.focus(); } }, t('back'));
+      const details = h('div', { class: 'modal welcome-terms', role: 'dialog', 'aria-modal': 'true', 'aria-label': t('terms_full') },
+        close, h('h2', {}, t('warn_title')), h('ul', {}, tx('warn_points').map(x => h('li', {}, x))), termsList());
+      back.append(details); close.focus();
+    } }, t('terms_full'));
+    back.append(h('div', { class: 'modal welcome-modal', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'welcomeTitle' },
+      h('h2', { id: 'welcomeTitle' }, t('welcome_title')),
+      h('p', { class: 'welcome-lead' }, t('welcome_lead')),
+      h('label', { class: 'welcome-language-label', for: 'welcomeLanguage' }, t('welcome_lang'), language),
+      h('div', { class: 'welcome-learners' }, h('p', { class: 'modal-q' }, t('welcome_q')),
+        learnerSelect,
+        h('div', { class: 'choices' }, ['kids', 'adults', 'hard', 'expert'].map(v => learner(v)).map(b => { b.classList.add('lrn'); return b; }))),
+      h('div', { class: 'warn-box' }, h('h3', {}, t('warn_title')), h('p', {}, tx('warn_points')[0]), termsButton),
       h('label', { class: 'agree', for: 'agreeBox' }, agree, h('span', {}, t('consent_label'))),
       go));
     document.body.append(back);
+  }
+
+  /* ================= знайомство після першого входу =================
+     Перше вікно (welcome) питає мову й згоду — воно про правила. Це друге й
+     показується рівно один раз на акаунт, одразу після першого входу: людина
+     щойно зареєструвалася і ще не знає, що тут узагалі є.
+     Тримаємо його в один екран без гортання: те, що не влізло, однаково не
+     читають. Позначка живе в даних акаунта, тож на іншому пристрої вікно вдруге
+     не вискочить. */
+  const TOUR_T = {
+    uk: {
+      title: '👋 Вітаємо в Комікс·Lab!',
+      lead: 'Тут ми вчимо норвезьку через кумедні комікси. Текст і голоси — норвезькі, а переклад вашою мовою зʼявляється, щойно ви торкнетеся тексту.',
+      lang: 'Мова',
+      t1: '📖 Комікси з озвученням', d1: 'A1–B2, живі голоси, переклад кожного слова',
+      t2: '🧩 Тести й картки', d2: 'повертають саме ті слова, у яких ви помиляєтесь',
+      t3: '🔤 Слова за темами', d3: 'з картинкою та звуком — від базових до роботи й житла',
+      t4: '🎮 Ігри разом', d4: 'кімната з QR-кодом для класу, сімʼї чи друзів',
+      promo_t: '🎁 Перші 100 користувачів — повний доступ назавжди',
+      promo_d: 'Ви серед них. Платити не треба нічого: акаунт відкриває все без обмежень.',
+      l_new: '✨ Що нового', l_help: '📘 Як користуватися', l_write: '🐞 Написати нам',
+      write_hint: 'Знайшли помилку або хочете тему для нового коміксу — пишіть просто із застосунку.',
+      go: '🚀 Почати',
+    },
+    en: {
+      title: '👋 Welcome to Komiks·Lab!',
+      lead: 'Here we learn Norwegian through funny comics. The text and the voices are Norwegian, and the translation into your language appears the moment you tap the text.',
+      lang: 'Language',
+      t1: '📖 Voiced comics', d1: 'A1–B2, real voices, every word translated',
+      t2: '🧩 Tests and flashcards', d2: 'they bring back exactly the words you get wrong',
+      t3: '🔤 Words by topic', d3: 'with a picture and audio — from the basics to work and housing',
+      t4: '🎮 Play together', d4: 'a room with a QR code for a class, a family or friends',
+      promo_t: '🎁 The first 100 users get full access for good',
+      promo_d: 'You are one of them. Nothing to pay: the account opens everything, with no limits.',
+      l_new: '✨ What’s new', l_help: '📘 How it works', l_write: '🐞 Write to us',
+      write_hint: 'Found a mistake, or want a topic for a new comic — write to us straight from the app.',
+      go: '🚀 Start',
+    },
+    no: {
+      title: 'Velkommen til Komiks·Lab! 👋',
+      lead: 'Her lærer vi norsk med morsomme tegneserier. Tekst og stemmer er på norsk, og oversettelsen til ditt språk vises når du trykker på teksten.',
+      lang: 'Språk',
+      t1: '📖 Tegneserier med lyd', d1: 'A1–B2, ekte stemmer, oversettelse av hvert ord',
+      t2: '🧩 Prøver og kort', d2: 'de henter fram nettopp ordene du bommer på',
+      t3: '🔤 Ord etter tema', d3: 'med bilde og lyd — fra det enkleste til jobb og bolig',
+      t4: '🎮 Spill sammen', d4: 'et rom med QR-kode for klassen, familien eller venner',
+      promo_t: '🎁 De første 100 brukerne får full tilgang for alltid',
+      promo_d: 'Du er en av dem. Ingenting å betale: kontoen åpner alt, uten grenser.',
+      l_new: '✨ Hva er nytt', l_help: '📘 Slik virker det', l_write: '🐞 Skriv til oss',
+      write_hint: 'Fant du en feil, eller ønsker du et tema til en ny tegneserie — skriv rett fra appen.',
+      go: '🚀 Kom i gang',
+    },
+  };
+  if (window.KL_T_FILL) KL_T_FILL(TOUR_T, 'app.js:TOUR_T');
+  const tourTx = k => (TOUR_T[ui] || TOUR_T.en)[k];
+
+  function showTour() {
+    $$('.modal-back').forEach(m => m.remove());
+    const back = h('div', { class: 'modal-back' });
+    const close = () => { store.set('tourSeen', 1); back.remove(); route(); };
+    const jump = href => e => { e.preventDefault(); close(); location.hash = href; };
+    const tile = (t, d) => h('div', { class: 'tour-tile' }, h('b', {}, t), h('span', {}, d));
+    /* Мова — випадним списком із прапорцем і власною назвою: у перший момент
+       людина шукає свою мову очима, а не читає підписи. */
+    const sel = h('select', { class: 'tour-lang', 'aria-label': tourTx('lang') },
+      LANGS.map(([v, label]) => h('option', { value: v, selected: v === ui }, label)));
+    sel.addEventListener('change', () => { setUi(sel.value); back.remove(); showTour(); });
+    back.append(h('div', { class: 'modal tour', role: 'dialog', 'aria-modal': 'true' },
+      h('div', { class: 'tour-head' }, h('h2', {}, tourTx('title')),
+        h('label', { class: 'tour-lang-box' }, h('span', {}, tourTx('lang')), sel)),
+      h('p', { class: 'tour-lead' }, tourTx('lead')),
+      h('div', { class: 'tour-grid' },
+        tile(tourTx('t1'), tourTx('d1')), tile(tourTx('t2'), tourTx('d2')),
+        tile(tourTx('t3'), tourTx('d3')), tile(tourTx('t4'), tourTx('d4'))),
+      h('div', { class: 'tour-promo' }, h('b', {}, tourTx('promo_t')), h('span', {}, tourTx('promo_d'))),
+      h('div', { class: 'tour-links' },
+        h('a', { href: '#/whatsnew', onclick: jump('#/whatsnew') }, tourTx('l_new')),
+        h('a', { href: '#/install', onclick: jump('#/install') }, tourTx('l_help')),
+        h('a', { href: '#', onclick: e => { e.preventDefault(); close(); if (window.KomiksFeedback) window.KomiksFeedback.open(); } }, tourTx('l_write'))),
+      h('p', { class: 'tour-hint' }, tourTx('write_hint')),
+      h('button', { type: 'button', class: 'btn accent big', onclick: close }, tourTx('go'))));
+    document.body.append(back);
+  }
+  /* Кличе auth.js одразу після входу: показуємо лише тому, хто справді ввійшов
+     у свій акаунт, і лише якщо цей акаунт вікна ще не бачив. */
+  function tourIfNew() {
+    const u = currentUser();
+    if (!u || !u.server || u.demo) return;
+    if (store.get('tourSeen', 0)) return;
+    if (!hasConsent()) return;            // спершу правила, знайомство потім
+    setTimeout(showTour, 300);
   }
 
   /* ================= головна ================= */
@@ -1478,6 +1649,7 @@
     no: { all: 'Alle', drawn: '✏️ Tegnet', photo: '📷 Ekte bilder', label: 'Bilder', tag_p: '📷 foto', tag_d: '✏️ tegnet' },
     ar: { all: 'الكل', drawn: '✏️ مرسومة', photo: '📷 صور حقيقية', label: 'الرسوم', tag_p: '📷 صورة', tag_d: '✏️ مرسوم' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(ART_T, 'app.js:ART_T');
   const at = k => (ART_T[ui] || ART_T.en)[k];
   function comicCard(c) {
     const st = bestStars(c.id);
@@ -1500,6 +1672,7 @@
     no: { done: 'BESTÅTT', of: 'av 100', best: 'beste poengsum' },
     ar: { done: 'مُنجز', of: 'من 100', best: 'أفضل نتيجة' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(STAMP, 'app.js:STAMP');
   const stampT = k => (STAMP[ui] || STAMP.en)[k];
   const scoreOf = key => { const p = store.get('progress', {})[key]; return p && typeof p.best === 'number' && p.best > 0 ? p.best : null; };
   function stampEl(key) {
@@ -1525,6 +1698,7 @@
       li: ['🏅 وسام «PRO #N» في ملفك — للأبد', '🛡 حق إزالة المنشورات السيئة من الجدران', '✉️ دعوات للأصدقاء', '💬 اسمك بين من كانوا هنا منذ البداية'],
       cta: 'احجز مقعدك', left: n => `بقي ${n} من 100 مقعد`, gone: 'اكتملت المقاعد المئة', gone_p: 'وُزّعت كل الأوسمة. ويبقى التعلّم مجانيًا للجميع.', mine: n => `🏅 لديك وسام PRO رقم ${n}. شكرًا لوجودك منذ البداية!` }
   };
+  if (window.KL_T_FILL) KL_T_FILL(FOUND, 'app.js:FOUND');
   let slotsCache = null, slotsAt = 0;
   function slotsInfo() {
     if (slotsCache && Date.now() - slotsAt < 60000) return Promise.resolve(slotsCache);
@@ -1549,6 +1723,54 @@
       bar.firstChild.style.width = Math.min(100, Math.max(4, pc)) + '%';
       left.textContent = n > 0 ? T.left(n) : T.gone;
       if (n <= 0) { box.classList.add('over'); box.querySelector('p').textContent = T.gone_p; }
+    });
+    return box;
+  }
+  /* ---------- 📈 Пульс сайту на головній ----------
+     Що додалося цього місяця і як це порівняно з тим самим відрізком минулого (api/pulse.php рахує
+     раз на 5 годин). Лише суми, без людей. Немає сервера (file://, офлайн-збірка) — блоку немає. */
+  const PULSE = {
+    uk: { h: '📈 Комікс·Lab цього місяця', d: (m) => `Що додалося з 1 ${m} — порівняно з тими самими днями минулого місяця. Оновлюється раз на 5 годин.`,
+      uv: 'відвідувачів', pv: 'переглядів сторінок', reg: 'нових акаунтів', quiz: 'пройдених тестів', learn: 'учнів навчалися',
+      vs: (p, n) => `${p}: ${n}`, all: (p, n) => `за весь ${p}: ${n}`, fresh: 'нове', total: n => `Усього акаунтів: ${n}` },
+    en: { h: '📈 Komiks·Lab this month', d: (m, p) => `What was added since ${m} 1 — compared with the same days of ${p}. Updated every 5 hours.`,
+      uv: 'visitors', pv: 'page views', reg: 'new accounts', quiz: 'quizzes completed', learn: 'learners studied',
+      vs: (p, n) => `${p}: ${n}`, all: (p, n) => `all of ${p}: ${n}`, fresh: 'new', total: n => `Accounts in total: ${n}` },
+    no: { h: '📈 Komiks·Lab denne måneden', d: (m, p) => `Hva som har kommet til siden 1. ${m} — sammenlignet med de samme dagene i ${p}. Oppdateres hver 5. time.`,
+      uv: 'besøkende', pv: 'sidevisninger', reg: 'nye kontoer', quiz: 'fullførte prøver', learn: 'elever lærte',
+      vs: (p, n) => `${p}: ${n}`, all: (p, n) => `hele ${p}: ${n}`, fresh: 'nytt', total: n => `Kontoer totalt: ${n}` },
+  };
+  let pulseCache = null;
+  // 📈 окрема сторінка «Статистика» (посилання у футері)
+  function renderStats() {
+    const title = (PULSE[ui] || PULSE.en).h.replace(/^📈\s*/, '');
+    return h('section', { class: 'stats-page' }, pageHead('📈 ' + title), pulseBlock() || h('p', { class: 'muted' }, '—'));
+  }
+  function pulseBlock() {
+    if (OFFLINE || !location.protocol.startsWith('http') && !window.KOMIKS_API_BASE) return null;
+    const T = PULSE[ui] || PULSE.en;
+    const box = h('section', { class: 'pulse' });
+    box.hidden = true;
+    (pulseCache || (pulseCache = fetch('api/pulse.php').then(r => r.ok ? r.json() : null).catch(() => null))).then(j => {
+      if (!j || !j.ok || !j.cur) return;
+      const loc = { uk: 'uk-UA', no: 'nb-NO', ar: 'ar' }[ui] || ui;
+      const mon = (ym, form) => { try { return new Intl.DateTimeFormat(loc, { month: 'long', ...(form || {}) }).format(new Date(ym + '-15T12:00:00')); } catch { return ym; } };
+      // «з 1 жовтня»: в українській потрібен родовий відмінок — його дає повна дата
+      const curM = ui === 'uk' ? mon(j.month, { day: 'numeric' }).replace(/^\d+\s*/, '') : mon(j.month);
+      const prevM = mon(j.prev_month);
+      const fmt = n => (n | 0).toLocaleString(loc);
+      const tile = k => {
+        const now = j.cur[k] | 0, before = j.prev[k] | 0;
+        const pct = before > 0 ? Math.round((now - before) / before * 100) : null;
+        const delta = pct === null ? (now > 0 ? h('span', { class: 'pl-d up' }, T.fresh) : null)
+          : h('span', { class: 'pl-d ' + (pct > 0 ? 'up' : pct < 0 ? 'down' : '') }, (pct > 0 ? '▲ ' : pct < 0 ? '▼ ' : '') + Math.abs(pct) + '%');
+        return h('div', { class: 'pl-tile' }, h('b', {}, fmt(now)), delta, h('span', {}, T[k]),
+          h('small', {}, T.vs(prevM, fmt(before))), h('small', {}, T.all(prevM, fmt(j.prev_full[k]))));
+      };
+      box.append(h('h2', { class: 'sec-title' }, T.h), h('p', { class: 'muted' }, T.d(curM, prevM)),
+        h('div', { class: 'pl-grid' }, ['uv', 'pv', 'reg', 'quiz', 'learn'].map(tile)),
+        j.total && j.total.reg ? h('p', { class: 'pl-total' }, T.total(fmt(j.total.reg))) : null);
+      box.hidden = false;
     });
     return box;
   }
@@ -1613,11 +1835,15 @@
       tip_listen: 'شغّل 🔊 وكرّر بصوت عالٍ — النطق والاستماع يتقدّمان معًا.',
       tip_plan: 'اتبع خطة التعلّم: الخطوة التالية مُختارة لمستواك.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(AN, 'app.js:AN');
   const AN_T = () => AN[ui] || AN.en;
 
   // тест-повторення: беремо слова з журналу помилок і робимо з них завдання
   function buildMistakeQuiz() {
-    const list = errList().filter(e => /^[\p{L}\s'’-]+$/u.test(e.k)).slice(0, 14);
+    const words = errList().filter(e => /^[\p{L}\s'’-]+$/u.test(e.k));
+    const now = Date.now();
+    // спершу ті, кому настав час повторення; найчастіші помилки — першими
+    const list = words.filter(e => (e.due || 0) <= now).concat(words.filter(e => (e.due || 0) > now)).slice(0, 14);
     if (!list.length) return [];
     const pool = uniq(list.map(e => e.k).concat(allVocab().map(v => v.no))).filter(Boolean);
     const nOpt = diff().opts;
@@ -1631,36 +1857,119 @@
     return finishSet(qs, Math.min(quizSize(), qs.length));
   }
 
+  /* Додаткові тексти аналізу: повторення за інтервалами, динаміка, типи помилок, етапи слів. */
+  const AN2 = {
+    uk: { today: '📅 Повторення на сьогодні', today_none: '✨ На сьогодні все повторено. Нові помилки й слова з’являться тут самі.',
+      due_err: n => `🔁 Помилки (${n})`, due_cards: n => `🃏 Картки (${n})`, today_d: 'Помилка зникає, коли ти правильно відповіси на неї тричі в різні дні: сьогодні, завтра й через три дні.',
+      dyn: '📈 Динаміка тестів', dyn_d: n => `Останні ${n} тестів: кожна точка — результат одного тесту.`, types: '🧩 Де я помиляюся', types_d: 'Які завдання найчастіше даються важко.',
+      fixed: '✅ Виправлені помилки', fixed_d: n => `Уже виправлено: ${n}. Ці слова ти тричі згадав правильно в різні дні.`, s_fixed: 'виправлено помилок',
+      stages: '🗂 Слова: етапи вивчення', stage: ['нові', 'вчу', 'повторюю', 'вивчено'], stages_d: 'Усі слова з коміксів і тем. «Вивчено» — ті, що ти позначив «Знаю».',
+      next: { now: 'сьогодні', d1: 'завтра', dn: n => `через ${n} дн.` }, step: (a, b) => `${a} з ${b}` },
+    en: { today: '📅 Due for review today', today_none: '✨ Everything is reviewed for today. New mistakes and words will appear here.',
+      due_err: n => `🔁 Mistakes (${n})`, due_cards: n => `🃏 Flashcards (${n})`, today_d: 'A mistake disappears when you answer it correctly three times on different days: today, tomorrow and three days later.',
+      dyn: '📈 Test progress', dyn_d: n => `Your last ${n} tests: each dot is one test result.`, types: '🧩 Where I make mistakes', types_d: 'The kinds of tasks that are hardest for you.',
+      fixed: '✅ Fixed mistakes', fixed_d: n => `Fixed so far: ${n}. You recalled these correctly three times on different days.`, s_fixed: 'mistakes fixed',
+      stages: '🗂 Words by stage', stage: ['new', 'learning', 'reviewing', 'learned'], stages_d: 'All words from comics and topics. “Learned” are the ones you marked “I know it”.',
+      next: { now: 'today', d1: 'tomorrow', dn: n => `in ${n} days` }, step: (a, b) => `${a} of ${b}` },
+    no: { today: '📅 Repetisjon i dag', today_none: '✨ Alt er repetert for i dag. Nye feil og ord dukker opp her av seg selv.',
+      due_err: n => `🔁 Feil (${n})`, due_cards: n => `🃏 Kort (${n})`, today_d: 'En feil forsvinner når du svarer riktig tre ganger på ulike dager: i dag, i morgen og om tre dager.',
+      dyn: '📈 Utvikling i prøvene', dyn_d: n => `De siste ${n} prøvene: hvert punkt er ett resultat.`, types: '🧩 Hvor jeg gjør feil', types_d: 'Oppgavetypene som er vanskeligst for deg.',
+      fixed: '✅ Rettede feil', fixed_d: n => `Rettet så langt: ${n}. Disse husket du riktig tre ganger på ulike dager.`, s_fixed: 'feil rettet',
+      stages: '🗂 Ord etter nivå', stage: ['nye', 'lærer', 'repeterer', 'lært'], stages_d: 'Alle ord fra tegneserier og temaer. «Lært» er ordene du merket «Kan det».',
+      next: { now: 'i dag', d1: 'i morgen', dn: n => `om ${n} dager` }, step: (a, b) => `${a} av ${b}` },
+    ar: { today: '📅 للمراجعة اليوم', today_none: '✨ راجعت كل شيء لليوم. ستظهر الأخطاء والكلمات الجديدة هنا تلقائيًا.',
+      due_err: n => `🔁 الأخطاء (${n})`, due_cards: n => `🃏 البطاقات (${n})`, today_d: 'يختفي الخطأ عندما تجيب عنه صحيحًا ثلاث مرات في أيام مختلفة: اليوم وغدًا وبعد ثلاثة أيام.',
+      dyn: '📈 تقدّم الاختبارات', dyn_d: n => `آخر ${n} اختبارات: كل نقطة نتيجة اختبار.`, types: '🧩 أين أخطئ', types_d: 'أنواع المهام الأصعب بالنسبة لك.',
+      fixed: '✅ أخطاء صُحّحت', fixed_d: n => `صُحّح حتى الآن: ${n}. تذكّرتها صحيحًا ثلاث مرات في أيام مختلفة.`, s_fixed: 'أخطاء صُحّحت',
+      stages: '🗂 الكلمات حسب المرحلة', stage: ['جديدة', 'أتعلّمها', 'أراجعها', 'متقنة'], stages_d: 'كل كلمات القصص والمواضيع. «متقنة» هي التي علّمتها «أعرفها».',
+      next: { now: 'اليوم', d1: 'غدًا', dn: n => `بعد ${n} أيام` }, step: (a, b) => `${a} من ${b}` }
+  };
+  if (window.KL_T_FILL) KL_T_FILL(AN2, 'app.js:AN2');
+  const an2 = (k, ...a) => { const tb = AN2[ui] || AN2.en; const v = k in tb ? tb[k] : AN2.en[k]; return typeof v === 'function' ? v(...a) : v; };
+
   function renderAnalysis() {
     const T = AN_T();
     const log = store.get('quizlog', []);
     const stats = store.get('stats', {});
     const errs = errList();
+    const now = Date.now();
     const pct = arr => (arr.length ? Math.round(arr.reduce((a, x) => a + (x.total ? x.score / x.total : 0), 0) / arr.length * 100) : 0);
     const last10 = log.slice(0, 10), prev10 = log.slice(10, 20);
     const acc = pct(last10);
     const trend = !prev10.length ? 'flat' : acc - pct(prev10) >= 6 ? 'up' : pct(prev10) - acc >= 6 ? 'down' : 'flat';
-    const known = store.get('known', []).length + store.get('knownEn', []).length;
+    // вивчені слова: «Знаю» на сторінці «Слова» (обидва курси) + «Знаю» в картках
+    const cardsState = store.get('cards', {}), wk = knownFromWords();
+    const vocab = allVocab();
+    const learned = vocab.filter(v => isLearned(v, cardsState, wk)).length;
+    const known = learned + (store.get('wordsKnownEn', []) || []).length;
+    const fixedList = store.get('errFixed', []) || [];
     const read = COMICS.filter(comicRead).length;
     const cell = (v, label) => h('div', { class: 'stat-cell' }, h('b', {}, v), h('small', {}, label));
 
-    // 🔁 найчастіші помилки
-    const cards = store.get('cards', {});
+    // 📅 на сьогодні
+    const dueErr = errDue().length;
+    const dueCards = vocab.filter(v => !isLearned(v, cardsState, wk) && cardsState[v.key] && (cardsState[v.key].due || 0) <= now).length;
+    const todayBox = h('div', { class: 'box an-today' }, h('h3', {}, an2('today')),
+      dueErr || dueCards ? h('div', { class: 'row-left' },
+        dueErr ? h('a', { class: 'btn accent', href: '#/quiz/mistakes' }, an2('due_err', dueErr)) : null,
+        dueCards ? h('a', { class: 'btn primary', href: '#/cards' }, an2('due_cards', dueCards)) : null) : h('p', {}, an2('today_none')),
+      h('p', { class: 'hint' }, an2('today_d')));
+
+    // 📈 динаміка: останні 20 тестів, від старих до нових
+    const series = log.slice(0, 20).filter(r => r.total).reverse().map(r => Math.round(r.score / r.total * 100));
+    let dyn = null;
+    if (series.length >= 2) {
+      const W = 600, H = 150, L = 34, R = 10, Tp = 10, B = 20, pw = W - L - R, ph = H - Tp - B, n = series.length;
+      const X = i => L + (n > 1 ? i / (n - 1) * pw : pw / 2), Y = v => Tp + ph - v / 100 * ph;
+      let svg = '';
+      [0, 60, 90, 100].forEach(v => { svg += `<line x1="${L}" x2="${W - R}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v === 60 || v === 90 ? '#c9d2dc' : '#e7ebef'}" stroke-dasharray="${v === 60 || v === 90 ? '4 4' : '0'}"/><text x="${L - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="11" fill="#6b7480">${v}%</text>`; });
+      svg += `<polyline points="${series.map((v, i) => X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ')}" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>`;
+      series.forEach((v, i) => { svg += `<circle cx="${X(i).toFixed(1)}" cy="${Y(v).toFixed(1)}" r="4.5" fill="${v >= 90 ? '#0ca30c' : v >= 60 ? '#2a78d6' : '#e34948'}" stroke="#fff" stroke-width="2"><title>${v}%</title></circle>`; });
+      dyn = h('div', { class: 'box' }, h('h3', {}, an2('dyn')), h('p', { class: 'hint' }, an2('dyn_d', n)),
+        h('div', { class: 'an-dyn' }, svgEl(`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${an2('dyn')}">${svg}</svg>`)),
+        h('p', { class: 'an-trend ' + trend }, T['trend_' + trend]));
+    }
+
+    // 🧩 типи завдань, де найбільше помилок
+    const byType = {};
+    errs.forEach(e => { const lb = QNO[e.type] ? QNO[e.type][1] : e.type; byType[lb] = (byType[lb] || 0) + e.n; });
+    const typeRows = Object.entries(byType).sort((a, b) => b[1] - a[1]).slice(0, 7);
+    const tmax = Math.max(1, ...typeRows.map(r => r[1]));
+    const types = typeRows.length ? h('div', { class: 'box' }, h('h3', {}, an2('types')), h('p', { class: 'hint' }, an2('types_d')),
+      h('div', { class: 'an-weak' }, typeRows.map(([lb, n]) => h('div', { class: 'an-weak-row' }, h('b', {}, lb), h('span', { class: 'an-bar' }, h('i', { style: { width: Math.max(4, n / tmax * 100) + '%' } })), h('span', {}, T.times(n)))))) : null;
+
+    // 🔁 мої помилки: скільки кроків до «виправлено» і коли наступне повторення
+    const nextTxt = e => { const d = Math.ceil(((e.due || 0) - now) / 864e5); const N = an2('next'); return d <= 0 ? N.now : d === 1 ? N.d1 : N.dn(d); };
     const errRow = e => {
-      const row = h('div', { class: 'an-err' },
+      const box = Math.min(e.box || 0, REV_DAYS.length);
+      const row = h('div', { class: 'an-err' + ((e.due || 0) <= now ? ' due' : '') },
         h('button', { class: 'play small', type: 'button', title: '🔊', onclick: () => Speech.speak(e.k, 'narrator', { rate: 0.85 }) }, '🔊'),
         h('div', { class: 'an-err-txt' }, h('b', { lang: 'nb' }, e.k),
           h('small', {}, [e.uk, e.en].filter(Boolean).join(' · ') || (QNO[e.type] ? QNO[e.type][1] : '')),
           e.line ? h('em', { lang: 'nb' }, '«' + e.line + '»') : null),
+        h('span', { class: 'an-prog', title: an2('step', box, REV_DAYS.length) }, REV_DAYS.map((_, k) => h('i', { class: k < box ? 'on' : '' })), h('small', {}, nextTxt(e))),
         h('span', { class: 'an-n' }, T.times(e.n)),
-        h('button', { class: 'btn small', type: 'button', onclick: () => { errForget(e.k); row.remove(); } }, T.forget));
+        h('button', { class: 'btn small', type: 'button', onclick: () => { errResolve(e.k); row.remove(); } }, T.forget));
       return row;
     };
     const addCards = btn => {
       const c = store.get('cards', {});
-      errs.slice(0, 20).forEach(e => { if (!c[e.k]) c[e.k] = { due: Date.now(), box: 0, no: e.k, uk: e.uk, en: e.en }; });
+      errs.slice(0, 20).forEach(e => { const k = norm(e.k); if (!c[k]) c[k] = { due: Date.now(), box: 0, no: e.k, uk: e.uk, en: e.en }; });
       store.set('cards', c); btn.textContent = T.added; btn.disabled = true; Sfx.good();
     };
+
+    // 🗂 етапи слів
+    const stVals = [0, 0, 0, learned];
+    vocab.forEach(v => { if (isLearned(v, cardsState, wk)) return; const b = cardsState[v.key] ? cardsState[v.key].box || 0 : 0; stVals[b === 0 ? 0 : b <= 2 ? 1 : 2]++; });
+    const stTotal = Math.max(1, vocab.length);
+    const stages = h('div', { class: 'box' }, h('h3', {}, an2('stages')), h('p', { class: 'hint' }, an2('stages_d')),
+      h('div', { class: 'an-stages' }, stVals.map((n, k) => h('i', { class: 's' + k, style: { width: (n / stTotal * 100) + '%' }, title: an2('stage')[k] + ': ' + n }))),
+      h('div', { class: 'an-stage-lg' }, stVals.map((n, k) => h('span', {}, h('i', { class: 's' + k }), an2('stage')[k] + ' ', h('b', {}, n)))),
+      h('div', { class: 'row-left' }, h('a', { class: 'btn', href: '#/cards' }, '🃏 ' + navT('cards')), h('a', { class: 'btn', href: '#/words' }, '📝 ' + navT('words'))));
+
+    // ✅ виправлені
+    const fixed = fixedList.length ? h('div', { class: 'box' }, h('h3', {}, an2('fixed')), h('p', { class: 'hint' }, an2('fixed_d', fixedList.length)),
+      h('div', { class: 'an-fixed' }, fixedList.slice(0, 16).map(f => h('span', { class: 'an-chip', title: [f.uk, f.en].filter(Boolean).join(' · ') }, '✓ ' + f.k)))) : null;
 
     // 🎯 слабкі тести
     const byQuiz = {};
@@ -1673,6 +1982,7 @@
     const quizHref = key => (COMICS.some(c => c.id === key) ? '#/quiz/' + key : key.startsWith('level:') ? '#/quiz/level/' + key.slice(6) : '#/tests');
 
     const tips = [];
+    if (dueErr) tips.push(an2('today_d'));
     if (acc < 60) tips.push(T.tip_read);
     if (errs.length >= 5) tips.push(T.tip_cards);
     if (errs.some(e => e.type === 'listen' || e.type === 'who')) tips.push(T.tip_listen);
@@ -1682,14 +1992,18 @@
       h('p', { class: 'lead-p' }, T.intro),
       h('div', { class: 'box' }, h('div', { class: 'stat-grid' },
         cell(stats.quizzes || log.length, T.s_tests), cell(acc + ' %', T.s_acc), cell(streak(), T.s_days),
-        cell(known, T.s_words), cell(`${read}/${COMICS.length}`, T.s_comics), cell(COMICS.reduce((a, c) => a + bestStars(c.id), 0), T.s_stars)),
-        h('p', { class: 'an-trend ' + trend }, T['trend_' + trend])),
+        cell(known, T.s_words), cell(fixedList.length, an2('s_fixed')), cell(`${read}/${COMICS.length}`, T.s_comics), cell(COMICS.reduce((a, c) => a + bestStars(c.id), 0), T.s_stars))),
+      todayBox,
+      dyn,
       h('div', { class: 'box' }, h('h3', {}, T.errs), h('p', { class: 'hint' }, T.errs_d),
-        errs.length ? h('div', { class: 'an-errs' }, errs.slice(0, 12).map(errRow)) : h('p', {}, T.none),
+        errs.length ? h('div', { class: 'an-errs' }, errs.slice(0, 15).map(errRow)) : h('p', {}, T.none),
         errs.length ? h('div', { class: 'row-left' },
           h('a', { class: 'btn accent', href: '#/quiz/mistakes' }, T.redo),
           h('button', { class: 'btn', type: 'button', onclick: e => addCards(e.currentTarget) }, T.cards)) : null,
         errs.length ? h('p', { class: 'hint' }, T.redo_d) : null),
+      types,
+      fixed,
+      stages,
       weak.length ? h('div', { class: 'box' }, h('h3', {}, T.weak), h('p', { class: 'hint' }, T.weak_d),
         h('div', { class: 'an-weak' }, weak.map(b => h('a', { class: 'an-weak-row', href: quizHref(b.key) },
           h('b', {}, b.title || b.key), h('span', { class: 'an-bar' }, h('i', { style: { width: Math.max(4, b.p) + '%' } })), h('span', {}, b.p + ' %'))))) : null,
@@ -1697,7 +2011,104 @@
   }
 
   let homeAuthWaited = false;
+  function homeFeature() {
+    let storage;
+    try { storage = window.localStorage; } catch (_) {}
+    const c = window.KomiksHomeFeature?.choose(COMICS, storage);
+    if (!c) return null;
+    const labels = {
+      uk: ['Слухати кадр', 'Зупинити', 'Читати історію'],
+      en: ['Listen to this panel', 'Stop', 'Read the story'],
+      no: ['Lytt til ruten', 'Stopp', 'Les historien'],
+      lt: ['Klausyti kadro', 'Sustabdyti', 'Skaityti istoriją'],
+      de: ['Bild anhören', 'Stoppen', 'Geschichte lesen'],
+      pl: ['Posłuchaj kadru', 'Zatrzymaj', 'Czytaj historię'],
+      tr: ['Kareyi dinle', 'Durdur', 'Hikâyeyi oku'],
+      ar: ['استمع إلى المشهد', 'إيقاف', 'اقرأ القصة']
+    }[ui] || ['Listen to this panel', 'Stop', 'Read the story'];
+    let active = false;
+    const button = h('button', { type: 'button', class: 'hero-play', 'aria-pressed': 'false' }, '▶ ' + labels[0]);
+    const reset = () => { active = false; button.textContent = '▶ ' + labels[0]; button.setAttribute('aria-pressed', 'false'); };
+    button.addEventListener('click', async () => {
+      if (active) { stopAll(); reset(); return; }
+      active = true;
+      button.textContent = '■ ' + labels[1];
+      button.setAttribute('aria-pressed', 'true');
+      const token = await claim();
+      try {
+        for (const line of c.panels[0].lines) {
+          if (token !== playToken || !button.isConnected) break;
+          await Speech.speak(line.no, line.who || 'narrator', { lang: 'no' });
+        }
+      } finally { reset(); }
+    });
+    return h('div', { class: 'hero-cover hero-feature', 'data-comic': c.id },
+      h('a', { href: `#/read/${c.id}/0`, 'aria-label': labels[2] + ': ' + c.title },
+        svgEl(ART ? ART.panel(c, 0, { lang: L, tr: 'both', chars: CH }) : fallbackSVG(c, 0))),
+      h('div', { class: 'hero-feature-caption' },
+        withTr(h('strong', {}, c.title), titleTr(c)), h('span', {}, c.level),
+        button, h('a', { href: `#/read/${c.id}/0` }, labels[2] + ' →')));
+  }
+  /* 🇳🇴/🇬🇧 Що я вчу: перемикає головну між норвезьким курсом і англійським (settings.learnLang).
+     Той самий перемикач — у налаштуваннях, кабінеті й на головній англійського курсу. */
+  const LEARN_T = { uk: ['Що я вчу', '🇳🇴 Норвезьку', '🇬🇧 Англійську'], en: ['What I am learning', '🇳🇴 Norwegian', '🇬🇧 English'], no: ['Hva jeg lærer', '🇳🇴 Norsk', '🇬🇧 Engelsk'],
+    ar: ['ماذا أتعلّم', '🇳🇴 النرويجية', '🇬🇧 الإنجليزية'], de: ['Was ich lerne', '🇳🇴 Norwegisch', '🇬🇧 Englisch'], pl: ['Czego się uczę', '🇳🇴 Norweski', '🇬🇧 Angielski'], tr: ['Ne öğreniyorum', '🇳🇴 Norveççe', '🇬🇧 İngilizce'], lt: ['Ko mokausi', '🇳🇴 Norvegų', '🇬🇧 Anglų'] };
+  const COURSE_SUB = {
+    uk: { no: 'Вчимо норвезьку', en: 'Вчимо англійську' },
+    en: { no: 'Learn Norwegian', en: 'Learn English' },
+    no: { no: 'Lær norsk', en: 'Lær engelsk' },
+    de: { no: 'Norwegisch lernen', en: 'Englisch lernen' },
+    pl: { no: 'Uczymy się norweskiego', en: 'Uczymy się angielskiego' },
+    tr: { no: 'Norveççe öğren', en: 'İngilizce öğren' },
+    lt: { no: 'Mokomės norvegų', en: 'Mokomės anglų' },
+    ar: { no: 'نتعلم النرويجية', en: 'نتعلم الإنجليزية' }
+  };
+  const learnLang = () => (settings.learnLang === 'en' && window.KomiksEnglish ? 'en' : 'no');
+  const activeCourse = () => /^#\/(english(?:\/|$)|quiz\/en(?:[-/]|$))/.test(location.hash || '') ? 'en' : learnLang();
+  function learnSwitch() {
+    const [label, no, en] = LEARN_T[ui] || LEARN_T.en;
+    const btn = (v, text) => h('button', { type: 'button', class: learnLang() === v ? 'on' : '', 'aria-pressed': String(learnLang() === v), onclick: () => {
+      if (learnLang() === v) return;
+      settings.learnLang = v; saveSettings();
+      if ((location.hash || '#/') === '#/') route(); else location.hash = '#/';
+    } }, text);
+    return h('div', { class: 'learn-switch', role: 'group', 'aria-label': label }, h('span', {}, label), btn('no', no), window.KomiksEnglish ? btn('en', en) : null);
+  }
+  const HOME_CODING = {
+    uk: { fresh: 'НОВИНКА', title: 'Програмування для дітей', desc: 'Базовий курс пояснює команди, алгоритми, сайти, ігри, бази даних і цифрову безпеку через короткі комікси та тести.', profile: 'У профілі видно прочитані уроки, результати тестів, значки та наступний крок.', try: 'Спробувати курс', progress: 'Твій прогрес', paths: n => `${n} напрямів`, lessons: n => `${n} коміксів`, badge: 'Профіль і значки' },
+    en: { fresh: 'NEW', title: 'Coding for children', desc: 'A foundation course explains commands, algorithms, websites, games, databases and digital safety through short comics and quizzes.', profile: 'Your profile shows completed lessons, quiz results, badges and the next step.', try: 'Try the course', progress: 'Your progress', paths: n => `${n} paths`, lessons: n => `${n} comics`, badge: 'Profile and badges' },
+    no: { fresh: 'NYHET', title: 'Programmering for barn', desc: 'Et grunnkurs forklarer kommandoer, algoritmer, nettsider, spill, databaser og digital sikkerhet med korte tegneserier og tester.', profile: 'Profilen viser leste leksjoner, testresultater, merker og neste steg.', try: 'Prøv kurset', progress: 'Fremgangen din', paths: n => `${n} spor`, lessons: n => `${n} tegneserier`, badge: 'Profil og merker' },
+    ar: { fresh: 'جديد', title: 'البرمجة للأطفال', desc: 'دورة تأسيسية تشرح الأوامر والخوارزميات والمواقع والألعاب وقواعد البيانات والسلامة الرقمية من خلال قصص واختبارات قصيرة.', profile: 'يعرض ملفك الدروس المكتملة ونتائج الاختبارات والشارات والخطوة التالية.', try: 'جرّب الدورة', progress: 'تقدّمك', paths: n => `${n} مسارًا`, lessons: n => `${n} قصة`, badge: 'الملف والشارات' },
+    de: { fresh: 'NEU', title: 'Programmieren für Kinder', desc: 'Ein Grundkurs erklärt Befehle, Algorithmen, Webseiten, Spiele, Datenbanken und digitale Sicherheit mit kurzen Comics und Tests.', profile: 'Im Profil siehst du gelesene Lektionen, Testergebnisse, Abzeichen und den nächsten Schritt.', try: 'Kurs ausprobieren', progress: 'Dein Fortschritt', paths: n => `${n} Lernwege`, lessons: n => `${n} Comics`, badge: 'Profil und Abzeichen' },
+    pl: { fresh: 'NOWOŚĆ', title: 'Programowanie dla dzieci', desc: 'Kurs podstawowy wyjaśnia polecenia, algorytmy, strony, gry, bazy danych i bezpieczeństwo cyfrowe w krótkich komiksach i testach.', profile: 'Profil pokazuje przeczytane lekcje, wyniki testów, odznaki i kolejny krok.', try: 'Wypróbuj kurs', progress: 'Twój postęp', paths: n => `${n} ścieżek`, lessons: n => `${n} komiksów`, badge: 'Profil i odznaki' },
+    tr: { fresh: 'YENİ', title: 'Çocuklar için kodlama', desc: 'Temel kurs; komutları, algoritmaları, web sitelerini, oyunları, veritabanlarını ve dijital güvenliği kısa çizgi roman ve testlerle açıklar.', profile: 'Profilin tamamlanan dersleri, test sonuçlarını, rozetleri ve sıradaki adımı gösterir.', try: 'Kursu dene', progress: 'İlerlemen', paths: n => `${n} yol`, lessons: n => `${n} çizgi roman`, badge: 'Profil ve rozetler' },
+    lt: { fresh: 'NAUJIENA', title: 'Programavimas vaikams', desc: 'Pagrindų kursas trumpais komiksais ir testais paaiškina komandas, algoritmus, svetaines, žaidimus, duomenų bazes ir skaitmeninį saugumą.', profile: 'Profilyje matysi perskaitytas pamokas, testų rezultatus, ženklelius ir kitą žingsnį.', try: 'Išbandyti kursą', progress: 'Tavo pažanga', paths: n => `${n} kryptys`, lessons: n => `${n} komiksai`, badge: 'Profilis ir ženkleliai' }
+  };
+  function homeCodingPromo() {
+    if (!window.KomiksKoding) return null;
+    const T = HOME_CODING[ui] || HOME_CODING.en;
+    const lessons = COMICS.filter(c => c.category === 'koding');
+    const paths = new Set(lessons.map(c => c.track || 'basics')).size;
+    const done = lessons.filter(c => comicRead_(c) && bestStars(c.id) > 0).length;
+    const pct = lessons.length ? Math.round(done / lessons.length * 100) : 0;
+    return h('section', { class: 'home-coding-promo', 'aria-labelledby': 'home-coding-title' },
+      h('div', { class: 'home-coding-copy' },
+        h('span', { class: 'home-coding-new' }, T.fresh),
+        h('h2', { id: 'home-coding-title' }, T.title),
+        h('p', {}, T.desc),
+        h('div', { class: 'home-coding-facts' }, h('span', {}, '📚 ', T.lessons(lessons.length)), h('span', {}, '🧭 ', T.paths(paths)), h('span', {}, '🏅 ', T.badge)),
+        h('p', { class: 'home-coding-profile' }, T.profile),
+        h('div', { class: 'home-coding-actions' }, h('a', { class: 'btn accent big', href: '#/koding' }, '💻 ', T.try),
+          h('div', { class: 'home-coding-progress' }, h('span', {}, T.progress, h('b', {}, `${done}/${lessons.length}`)), h('span', { class: 'bar', role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': lessons.length, 'aria-valuenow': done }, h('i', { style: { width: pct + '%' } }))))),
+      h('div', { class: 'home-coding-art', 'aria-hidden': 'true' },
+        h('div', { class: 'home-code-window' }, h('div', { class: 'home-code-top' }, h('i'), h('i'), h('i'), h('b', {}, 'KOMIKS·LAB / KODE')),
+          h('div', { class: 'home-code-lines' }, h('span', {}, 'hvis ', h('b', {}, 'nysgjerrig'), ':'), h('span', {}, '  lær(', h('em', {}, '"koding"'), ')'), h('span', {}, '  bygg(', h('em', {}, '"din idé"'), ')'))),
+        h('div', { class: 'home-code-robo' }, '🤖'),
+        h('div', { class: 'home-code-bits' }, h('span', {}, 'HTML'), h('span', {}, '🎮'), h('span', {}, 'SQL'), h('span', {}, '🛡️'))));
+  }
   function renderHome() {
+    // учень обрав англійську — головна веде одразу в англійський курс
+    if (learnLang() === 'en') return window.KomiksEnglish.render(true);
     const total = COMICS.reduce((s, c) => s + bestStars(c.id), 0);
     const firstA1 = COMICS.find(c => c.level === 'A1') || COMICS[0];
     /* Тільки для тих, хто ввійшов: у гостя прогрес живе до першого очищення
@@ -1720,9 +2131,8 @@
     const allRead = signedIn && !unread.length;
     const hero = h('section', { class: 'hero' },
       h('div', {},
-        h('h1', {}, t('h1a'), h('span', {}, t('h1b'))),
+        h('h1', {}, h('span', { class: 'norway-flag', 'aria-hidden': 'true' }), t('h1a'), h('span', {}, t('h1b'))),
         h('p', {}, t('lead')),
-        h('p', { class: 'ai-note' }, (tx('foot') || {}).ai),
         h('div', { class: 'stat-row' }, h('span', { class: 'stat' }, t('stat_stars', total, COMICS.length * 3)), h('span', { class: 'stat' }, t('stat_streak', streak())), h('span', { class: 'stat' }, t('stat_comics', COMICS.length))),
         h('div', { class: 'row-left' },
           h('a', { class: 'btn accent big', href: '#/today' }, td('title')),
@@ -1733,11 +2143,12 @@
           allRead ? h('span', { class: 'btn big done-all' }, t('cta_next_done')) : null,
           h('a', { class: 'btn big', href: '#/plan' }, t('cta_plan')),
           firstA1 && !nextUp && !allRead ? h('a', { class: 'btn big', href: `#/read/${firstA1.id}/0` }, t('cta_start')) : null)),
-      firstA1 ? h('a', { class: 'hero-cover', href: `#/read/${firstA1.id}/0` }, svgEl(ART ? ART.panel(firstA1, 0, { lang: L, tr: 'both', chars: CH }) : fallbackSVG(firstA1, 0))) : null);
+      homeFeature());
 
     const mods = tx('modules');
-    const modules = h('section', {}, h('h2', { class: 'sec-title' }, t('modules_title')),
-      h('div', { class: 'module-grid' }, ['race', 'chess', 'game', 'words', 'grammar', 'english', 'math', 'alphabet', 'numbers', 'plan', 'tests', 'rating'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2])))));
+    const modules = h('section', { class: 'home-modules' }, h('h2', { class: 'sec-title' }, t('modules_title')),
+      h('div', { class: 'module-grid' }, ['alphabet', 'words', 'koding', 'plan', 'tests'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2])))),
+      h('details', { class: 'home-disclosure' }, h('summary', {}, ({"uk":"Усі розділи","en":"All sections","no":"Alle seksjoner","ar":"جميع الأقسام","de":"Alle Bereiche","pl":"Wszystkie sekcje","tr":"Tüm bölümler","lt":"Visi skyriai"})[ui] || 'All sections'), h('div', { class: 'module-grid' }, ['numbers', 'grammar', 'english', 'math', 'game', 'race', 'chess', 'rating'].filter(k => mods[k]).map(k => h('a', { class: 'module m-' + k, href: '#/' + k }, window.KomiksIcons && window.KomiksIcons.MODULES[k] ? window.KomiksIcons.badge(...window.KomiksIcons.MODULES[k], 30) : h('b', {}, mods[k][0]), h('span', {}, mods[k][1]), h('small', {}, mods[k][2]))))));
 
     const how = h('section', { class: 'how' }, h('h2', { class: 'sec-title' }, t('how_title')),
       h('ol', { class: 'how-grid' }, tx('how').map(([icon, title, text], i) => h('li', { class: 'how-step' }, h('span', { class: 'how-num' }, i + 1), h('span', { class: 'how-icon' }, icon), h('b', {}, title), h('span', {}, text)))),
@@ -1787,7 +2198,8 @@
 
     const stats = store.get('stats', {});
     const cardsState = store.get('cards', {});
-    const due = allVocab().filter(v => !cardsState[v.key] || cardsState[v.key].due <= Date.now()).length;
+    const wkHome = knownFromWords();
+    const due = allVocab().filter(v => !isLearned(v, cardsState, wkHome) && (!cardsState[v.key] || cardsState[v.key].due <= Date.now())).length;
     const got = BADGES.filter(b => b.test(stats)).length;
     const train = h('section', { class: 'train' }, h('h2', { class: 'sec-title' }, t('train_title')),
       h('div', { class: 'train-grid' },
@@ -1798,7 +2210,8 @@
         h('div', { class: 'train-tile' }, h('b', {}, '🔥'), h('span', {}, t('train_streak', streak())), h('small', {}, t('train_streak_d')))),
       window.KomiksPlayers ? window.KomiksPlayers.badgeGrid() : [h('h3', { class: 'sec-sub' }, t('badges_title', got, BADGES.length)),
       h('div', { class: 'badges' }, BADGES.map((b, i) => { const ok = b.test(stats); return h('div', { class: 'badge-item' + (ok ? ' got' : '') }, h('span', { class: 'bi' }, b.icon), h('b', {}, tx('badges')[i][0]), h('small', {}, ok ? t('badge_got') : tx('badges')[i][1])); }))]);
-    return h('div', {}, hero, OFFLINE ? null : founderBlock(), OFFLINE || !(window.KomiksExtras && window.KomiksExtras.playHero) ? null : window.KomiksExtras.playHero(), window.KomiksExtras && window.KomiksExtras.journal ? window.KomiksExtras.journal() : null, modules, grid, how, train);
+    const games = NO_EXTERNAL || !window.KomiksGames ? null : window.KomiksGames.homeSection();
+    return h('div', {}, !OFFLINE && window.KomiksDownloads && window.KomiksDownloads.smart ? window.KomiksDownloads.smart() : null, hero, window.KomiksEnglish ? learnSwitch() : null, modules, homeCodingPromo(), !signedIn && !OFFLINE && window.KomiksDownloads ? window.KomiksDownloads.section() : null, OFFLINE || !(window.KomiksExtras && window.KomiksExtras.playHero) ? null : window.KomiksExtras.playHero(), games, grid, how, train, window.KomiksExtras && window.KomiksExtras.journal ? window.KomiksExtras.journal() : null);
   }
 
   /* ================= допомога, умови ================= */
@@ -1813,8 +2226,9 @@
     return h('section', { class: 'help terms' }, pageHead(t('terms_title')),
       h('div', { class: 'warn-box' }, h('h3', {}, t('warn_title')), h('ul', {}, tx('warn_points').map(x => h('li', {}, x)))),
       termsList(),
-      consent ? h('p', { class: 'hint' }, t('consent_given', fmtDate(consent.at))) : null,
-      h('p', { class: 'hint' }, t('terms_updated', TERMS_VERSION)));
+      h('div', { class: 'consent-stamp' },
+        consent ? h('p', {}, '✓ ', t('consent_given', fmtDate(consent.at))) : null,
+        h('p', {}, t('terms_updated', fmtDate(TERMS_VERSION)))));
   }
 
   /* ================= читання ================= */
@@ -2035,12 +2449,50 @@
     if (!v || !v.key) return;
     const st = store.get('cards', {});
     const s0 = st[v.key] || { box: 0 };
+    if (ok && s0.known) return;   // уже вивчене — нічого не змінюємо
+    if (!ok) delete s0.known;      // помилився — слово повертається в навчання
     s0.box = ok ? Math.min(5, (s0.box || 0) + 1) : 1;
     s0.due = Date.now() + BOX_DAYS[s0.box] * DAY;
     s0.no = s0.no || v.no; s0.uk = s0.uk || v.uk; s0.en = s0.en || v.en;
     st[v.key] = s0; store.set('cards', st);
     if (!ok) errWord(v.no, v.uk, v.en, source || 'pairs', '');
-    else if (s0.box >= 3) errForget(v.no);   // тричі поспіль згадав — прибираємо з помилок
+    else errReviewed(v.no);   // згадав — помилка наближається до «виправлено» (інтервали — у errReviewed)
+  }
+  /* 🃏 Картки. Три відповіді:
+       😕 Не знаю      — слово повернеться ще в цій сесії й потрапить у «Мої помилки»;
+       🔁 Ще повторити — інтервали Лейтнера (1 → 3 → 7 → 14 днів);
+       ✅ Знаю         — слово вивчене: більше не показуємо (повернути можна у «Вивчених словах»).
+     «Знаю» спільне зі сторінкою «Слова»: позначене там теж не потрапляє в картки. */
+  const CARD_T = {
+    uk: { no: '😕 Не знаю', again: '🔁 Ще повторити', yes: '✅ Знаю', yes_d: 'більше не показувати', keys: 'Клавіші: Пробіл — перевернути · 1 — не знаю · 2 — ще повторити · 3 — знаю',
+      sum: (a, b, c) => `✅ Знаю: ${a} · 🔁 Повторити: ${b} · 😕 Не знаю: ${c}`, known_t: n => `✅ Вивчені слова (${n})`, known_d: 'Ці слова більше не з’являються в картках. Передумали — поверніть слово в навчання.',
+      restore: '↩ Повернути', learned: '✅ Вивчено — більше не покажемо', none_left: 'Усі слова цієї колоди вже вивчені або чекають свого дня. Заходьте завтра!', stage: ['нові', 'вчу', 'повторюю', 'вивчено'] },
+    en: { no: '😕 Don’t know', again: '🔁 Review again', yes: '✅ I know it', yes_d: 'don’t show again', keys: 'Keys: Space — flip · 1 — don’t know · 2 — review again · 3 — I know it',
+      sum: (a, b, c) => `✅ Known: ${a} · 🔁 Review: ${b} · 😕 Don’t know: ${c}`, known_t: n => `✅ Learned words (${n})`, known_d: 'These words no longer appear in flashcards. Changed your mind? Put a word back into learning.',
+      restore: '↩ Put back', learned: '✅ Learned — we won’t show it again', none_left: 'Every word in this deck is learned or waiting for its day. Come back tomorrow!', stage: ['new', 'learning', 'reviewing', 'learned'] },
+    no: { no: '😕 Kan ikke', again: '🔁 Repeter igjen', yes: '✅ Kan det', yes_d: 'ikke vis igjen', keys: 'Taster: Mellomrom — snu · 1 — kan ikke · 2 — repeter · 3 — kan det',
+      sum: (a, b, c) => `✅ Kan: ${a} · 🔁 Repeter: ${b} · 😕 Kan ikke: ${c}`, known_t: n => `✅ Lærte ord (${n})`, known_d: 'Disse ordene vises ikke lenger i kortene. Ombestemt deg? Legg ordet tilbake.',
+      restore: '↩ Legg tilbake', learned: '✅ Lært — vi viser det ikke igjen', none_left: 'Alle ordene i denne kortstokken er lært eller venter på sin dag. Kom tilbake i morgen!', stage: ['nye', 'lærer', 'repeterer', 'lært'] },
+    ar: { no: '😕 لا أعرفها', again: '🔁 كرّرها لاحقًا', yes: '✅ أعرفها', yes_d: 'لا تعرضها مجددًا', keys: 'المفاتيح: مسافة — قلب · 1 — لا أعرف · 2 — كرّر · 3 — أعرف',
+      sum: (a, b, c) => `✅ أعرفها: ${a} · 🔁 للتكرار: ${b} · 😕 لا أعرفها: ${c}`, known_t: n => `✅ كلمات متقنة (${n})`, known_d: 'لم تعد هذه الكلمات تظهر في البطاقات. غيّرت رأيك؟ أعد الكلمة إلى التعلّم.',
+      restore: '↩ أعِدها', learned: '✅ أُتقنت — لن نعرضها مجددًا', none_left: 'كل كلمات هذه المجموعة متقنة أو تنتظر موعدها. عد غدًا!', stage: ['جديدة', 'أتعلّمها', 'أراجعها', 'متقنة'] }
+  };
+  if (window.KL_T_FILL) KL_T_FILL(CARD_T, 'app.js:CARD_T');
+  const ct = (k, ...a) => { const tb = CARD_T[ui] || CARD_T.en; const v = k in tb ? tb[k] : CARD_T.en[k]; return typeof v === 'function' ? v(...a) : v; };
+  // «знаю» зі сторінки «Слова» (ключі «тема|слово») — у нормалізованому вигляді, як ключі карток
+  const knownFromWords = () => new Set((store.get('wordsKnown', []) || []).map(x => norm(String(x).split('|').slice(1).join('|') || x)));
+  const isLearned = (v, state, wk) => !!((state[v.key] && state[v.key].known) || wk.has(v.key));
+  function markLearned(v, state) {
+    const s = state[v.key] || { box: 0 };
+    s.known = true; s.box = 5; s.due = 0; s.no = s.no || v.no; s.uk = s.uk || v.uk; s.en = s.en || v.en; s.learned = today();
+    state[v.key] = s; store.set('cards', state);
+    if (v.th) { const list = store.get('wordsKnown', []) || [], key = v.th.id + '|' + v.no; if (!list.includes(key)) store.set('wordsKnown', [...list, key]); }
+    errResolve(v.no);
+  }
+  function unlearn(key) {
+    const state = store.get('cards', {});
+    if (state[key]) { delete state[key].known; state[key].box = 1; state[key].due = Date.now(); store.set('cards', state); }
+    store.set('wordsKnown', (store.get('wordsKnown', []) || []).filter(x => norm(String(x).split('|').slice(1).join('|') || x) !== key));
   }
   function renderCards(cid) {
     const c0 = COMICS.find(x => x.id === cid);
@@ -2048,46 +2500,78 @@
     const state = store.get('cards', {});
     const limit = settings.level === 'kids' ? 10 : 20;
     const boxOf = v => (state[v.key] ? state[v.key].box : 0);
-    let queue = shuffle(deck.filter(v => !state[v.key] || state[v.key].due <= Date.now())).sort((a, b) => boxOf(a) - boxOf(b)).slice(0, limit);
-    let i = 0, known = 0, reviewed = 0;
+    const wk = knownFromWords();
+    const errSet = new Set(errList().map(e => norm(e.k)));
+    // черга: лише невивчені, яким настав час; спершу слова з помилками, далі — за коробкою
+    let queue = shuffle(deck.filter(v => !isLearned(v, state, wk) && (!state[v.key] || (state[v.key].due || 0) <= Date.now())))
+      .sort((a, b) => (errSet.has(b.key) - errSet.has(a.key)) || (boxOf(a) - boxOf(b))).slice(0, limit);
+    let i = 0, cntYes = 0, cntAgain = 0, cntNo = 0, reviewed = 0;
+    const requeued = new Set();
     const root = h('section', { class: 'cards-view' });
-    const boxes = () => h('div', { class: 'boxes', title: t('boxes_tip') }, range(6).map(b => { const cnt = deck.filter(v => boxOf(v) === b).length; return h('div', { class: 'box-col b' + b }, h('i', { style: { height: Math.max(4, cnt / Math.max(1, deck.length) * 100) + '%' } }), h('small', {}, b === 0 ? t('box_new') : b), h('b', {}, cnt)); }));
+    // етапи: нові · вчу (1–2) · повторюю (3–5) · вивчено
+    const stages = () => {
+      const learnedN = deck.filter(v => isLearned(v, state, wk)).length;
+      const rest = deck.filter(v => !isLearned(v, state, wk));
+      const vals = [rest.filter(v => boxOf(v) === 0).length, rest.filter(v => boxOf(v) >= 1 && boxOf(v) <= 2).length, rest.filter(v => boxOf(v) >= 3).length, learnedN];
+      return h('div', { class: 'cd-stages', title: t('boxes_tip') }, vals.map((n, k) => h('div', { class: 'cd-st s' + k },
+        h('span', { class: 'cd-st-bar' }, h('i', { style: { width: Math.max(n ? 4 : 0, n / Math.max(1, deck.length) * 100) + '%' } })), h('b', {}, n), h('small', {}, ct('stage')[k]))));
+    };
+    const learnedBox = () => {
+      const list = deck.filter(v => isLearned(v, state, wk));
+      if (!list.length) return null;
+      const ul = h('div', { class: 'cd-known' }, list.slice(0, 200).map(v => {
+        const row = h('div', { class: 'cd-known-row' }, h('b', { lang: 'nb' }, v.no), h('small', {}, trText(v.en, v.uk, trLang())),
+          h('button', { class: 'btn small', type: 'button', onclick: () => { unlearn(v.key); delete (state[v.key] || {}).known; wk.delete(v.key); row.remove(); } }, ct('restore')));
+        return row;
+      }));
+      return h('details', { class: 'box cd-known-box' }, h('summary', {}, ct('known_t', list.length)), h('p', { class: 'hint' }, ct('known_d')), ul);
+    };
     const head = () => h('div', { class: 'q-head' }, h('a', { class: 'btn', href: '#/' }, t('exit')), h('h2', {}, `${t('cards_title')}: ${c0 ? c0.title : t('cards_all')}`), h('span', { class: 'stat' }, queue.length ? `${Math.min(i + 1, queue.length)} / ${queue.length}` : '✓'));
     function draw() {
       stopAll();
       if (i >= queue.length) {
         if (reviewed) { bump('cardsReviewed', reviewed); markDay('cards', reviewed); }
-        if (reviewed && known === reviewed) { confetti(); Sfx.win(); }
+        if (reviewed && cntNo === 0) { confetti(); Sfx.win(); }
         root.replaceChildren(head(), h('div', { class: 'q-card result' }, h('div', { style: { fontSize: '4rem' } }, queue.length ? '🎉' : '😎'),
-          h('h2', {}, queue.length ? t('cards_done', reviewed) : t('cards_all_done')), h('p', { class: 'score' }, queue.length ? t('cards_known', known, reviewed - known) : t('cards_later')), boxes(),
-          h('div', { class: 'row-center' }, h('button', { class: 'btn accent', type: 'button', onclick: () => { queue = sample(deck, limit); i = 0; known = 0; reviewed = 0; draw(); } }, t('cards_again')), h('a', { class: 'btn', href: '#/' }, t('home')))));
+          h('h2', {}, queue.length ? t('cards_done', reviewed) : t('cards_all_done')), h('p', { class: 'score' }, queue.length ? ct('sum', cntYes, cntAgain, cntNo) : ct('none_left')), stages(),
+          h('div', { class: 'row-center' }, h('button', { class: 'btn accent', type: 'button', onclick: () => { route(); } }, t('cards_again')),
+            errList().length ? h('a', { class: 'btn', href: '#/quiz/mistakes' }, AN_T().redo) : null, h('a', { class: 'btn', href: '#/analysis' }, AN_T().short))), learnedBox());
         return;
       }
-      const v = queue[i], ex = exampleFor(v), tl = trLang();
+      const v = queue[i], ex = exampleFor(v);
       const say = () => Speech.speak(v.no, 'narrator', { rate: 0.9 });
       const card = h('button', { class: 'flash', type: 'button', 'aria-label': t('flip_aria') },
         h('div', { class: 'face front' }, h('span', { class: 'face-tag' }, 'NO'),
-          window.KomiksPics && window.KomiksPics.has(v.no) ? h('div', { class: 'fpic' }, window.KomiksPics.el(v.no, 90)) : null,   // мальована картка замість емодзі
+          window.KomiksPics && window.KomiksPics.has(v.no, v.uk) ? h('div', { class: 'fpic' }, window.KomiksPics.el(v.no, 90, v.uk)) : null,   // мальована картка замість емодзі
           h('div', { class: 'fw' }, v.no), ex ? h('div', { class: 'fex' }, '«' + ex.no + '»') : null, h('small', { class: 'flip-hint' }, t('flip_hint'))),
         (() => { const tr = both(v.uk, v.en), et = ex ? both(ex.uk, ex.en) : null, ls = trLangs().filter(l => tr[l]); const use = ls.length ? ls : ['en'];
           return h('div', { class: 'face back' }, h('span', { class: 'face-tag alt' }, use.map(l => FLAG[l][0]).join(' · ')), use.map((l, k) => h('div', { class: k ? 'fw-en' : 'fw', dir: l === 'ar' ? 'rtl' : null }, tr[l])),
             et ? h('div', { class: 'fex' }, use.map((l, k) => [k ? h('br') : null, et[l] ? '«' + et[l] + '»' : null])) : null); })());
       const flip = () => { card.classList.toggle('flipped'); if (!card.classList.contains('flipped')) say(); };
       card.addEventListener('click', flip);
-      const grade = ok => {
+      const grade = mode => {
         const s = state[v.key] || { box: 0 };
-        s.box = ok ? Math.min(5, s.box + 1) : 1; s.due = Date.now() + BOX_DAYS[s.box] * DAY;
-        state[v.key] = s; store.set('cards', state);
-        reviewed++; if (ok) { known++; Sfx.tick(); }
+        s.no = s.no || v.no; s.uk = s.uk || v.uk; s.en = s.en || v.en;
+        if (mode === 'yes') { markLearned(v, state); cntYes++; Sfx.good(); }
+        else if (mode === 'again') { s.box = Math.min(5, Math.max(1, (s.box || 0) + 1)); s.due = Date.now() + BOX_DAYS[s.box] * DAY; state[v.key] = s; store.set('cards', state); cntAgain++; Sfx.tick(); errReviewed(v.no); }
+        else {
+          s.box = 1; s.due = Date.now(); state[v.key] = s; store.set('cards', state); cntNo++;
+          errWord(v.no, v.uk, v.en, 'cards', '');
+          if (!requeued.has(v.key)) { requeued.add(v.key); queue.push(v); }   // ще раз наприкінці сесії
+        }
+        reviewed++;
+        if (mode === 'yes') { const note = h('div', { class: 'cd-toast', role: 'status' }, ct('learned')); root.append(note); setTimeout(() => note.remove(), 1600); }
         i++; draw();
       };
       const recOut = h('div', { class: 'rec-out center' });
       root.replaceChildren(head(), h('div', { class: 'bar' }, h('i', { style: { width: (i / queue.length * 100) + '%' } })), h('div', { class: 'flash-wrap' }, card),
         h('div', { class: 'row-center' }, h('button', { class: 'btn', type: 'button', onclick: say }, t('listen_btn')), h('button', { class: 'btn', type: 'button', onclick: e => practice(v.no, recOut, e.currentTarget) }, t('say_btn'))),
-        recOut, h('div', { class: 'row-center grade' }, h('button', { class: 'btn accent big', type: 'button', onclick: () => grade(false) }, t('dont_know')), h('button', { class: 'btn good big', type: 'button', onclick: () => grade(true) }, t('know'))),
-        h('p', { class: 'hint center' }, t('cards_keys')), boxes());
+        recOut, h('div', { class: 'row-center grade grade2' },
+          h('button', { class: 'btn accent', type: 'button', onclick: () => grade('no') }, ct('no')),
+          h('button', { class: 'btn good', type: 'button', onclick: () => grade('yes') }, h('span', {}, ct('yes')), h('small', {}, ct('yes_d')))),
+        stages());   // підказку про клавіші прибрано на прохання — самі клавіші (Пробіл, 1, 2, 3) працюють
       setTimeout(say, 350);
-      keyHandler = e => { if (e.key === ' ') { e.preventDefault(); flip(); } else if (e.key === '1') grade(false); else if (e.key === '2') grade(true); };
+      keyHandler = e => { if (e.key === ' ') { e.preventDefault(); flip(); } else if (e.key === '1' || e.key === 'ArrowLeft') grade('no'); else if (e.key === '2' || e.key === '3' || e.key === 'ArrowRight') grade('yes'); };   // дві кнопки: не знаю (на повторення) / знаю (більше не показувати)
     }
     draw();
     return root;
@@ -2099,7 +2583,7 @@
     const root = h('section', { class: 'pairs-view' });
     function start() {
       stopAll();
-      const trOf = p => (tl === 'ar' ? arFor(p[2]) || p[2] || p[1] : tl === 'en' ? p[2] || p[1] : p[1]);
+      const trOf = p => trText(p[2], p[1], tl);
       const items = sample(c.vocab.filter(p => p[0].length <= 16 && trOf(p).length <= 26), n).map(p => [p[0], trOf(p)]);
       const tiles = shuffle(items.flatMap(([no, tr], k) => [{ k, lang: 'no', text: no }, { k, lang: tl, text: tr }]));
       let open = [], moves = 0, matched = 0, lock = false;
@@ -2202,13 +2686,19 @@
   }
 
   /* ================= алфавіт ================= */
+  /* 🔤 картинка до літери (data/alphabet-pics.js) — лише якщо вона саме для слова з алфавіту; інакше емодзі */
+  const alphaPic = (letter, word, size = 64) => {
+    const p = (window.ALPHA_PICS || {})[letter];
+    if (!p || norm(p[1]) !== norm(word)) return null;
+    return h('img', { class: 'pic-photo alpha-pic', src: p[0], width: size, height: size, alt: word, loading: 'lazy', decoding: 'async' });
+  };
   function renderAlphabet() {
     bump('alphaVisits'); store.set('alphaVisited', true);
     const spec = B.special || {};
     const cardFor = ([letter, name, word, emoji, uk, en]) => {
       const tr = both(uk, en);
       const el = h('button', { class: 'letter-card' + (spec[letter] ? ' special' : ''), type: 'button', onclick: async () => { const my = await claim(); await Speech.speak(name, 'narrator', { rate: 0.85 }); if (my !== playToken) return; await sleep(250); Speech.speak(word, 'narrator', { rate: 0.9 }); } },
-        h('span', { class: 'lc-letter' }, letter, h('small', {}, letter.toLowerCase())), h('span', { class: 'lc-emoji' }, emoji), h('span', { class: 'lc-word' }, word));
+        h('span', { class: 'lc-letter' }, letter, h('small', {}, letter.toLowerCase())), h('span', { class: 'lc-emoji' }, alphaPic(letter, word) || emoji), h('span', { class: 'lc-word' }, word));
       return withTr(el, tr);
     };
     const playAll = async () => { const my = await claim(); for (const [, name] of B.alphabet) { if (my !== playToken) return; await Speech.speak(name, 'narrator', { rate: 0.9 }); await sleep(120); } };
@@ -2287,7 +2777,11 @@
       ar: ['🎬 غرفة الأفعال', 'الأفعال النرويجية في قصص وتمارين تفاعلية — غرفة منفصلة مناسبة للصف.'] }[ui] || ['🎬 Verb room', ''];
     return h('section', { class: 'tests' }, pageHead(t('tests_title')),
       h('p', { class: 'lead-p' }, t('tests_intro')),
-      h('div', { class: 'test-grid' }, h('a', { class: 'test-tile room-tile', href: 'https://bilohash.com/comiks/room_1/' },
+      /* Кімната живе на сервері, тож в офлайн-збірці її немає. Посилання в
+         браузер із застосунку, який обіцяє працювати без мережі, — це і
+         непрацююча кнопка, і привід для відмови за правилом App Store 4.2
+         («це просто обгортка навколо сайту»). */
+      OFFLINE ? null : h('div', { class: 'test-grid' }, h('a', { class: 'test-tile room-tile', href: 'https://bilohash.com/comiks/room_1/' },
         h('b', {}, ROOM[0]), h('small', {}, ROOM[1]))),
       h('h3', { class: 'sec-sub' }, t('tests_levels')),
       h('div', { class: 'test-grid' }, B.levels.map(l => { const n = COMICS.filter(c => c.level === l).length; return n ? tile(`#/quiz/level/${l}`, t('level_test', l), t('level_test_d', n), 'level:' + l) : h('div', { class: 'test-tile off' }, h('b', {}, t('level_test', l)), h('small', {}, t('no_comics_level'))); })),
@@ -2301,16 +2795,18 @@
       h('h3', { class: 'sec-sub' }, t('tests_basics')),
       h('div', { class: 'test-grid' }, tile('#/quiz/alphabet', (tx('modules') || {}).alphabet[1], (tx('modules') || {}).alphabet[2], 'alphabet'), tile('#/quiz/numbers', (tx('modules') || {}).numbers[1], (tx('modules') || {}).numbers[2], 'numbers')),
       window.KomiksMath ? [h('h3', { class: 'sec-sub' }, window.KomiksMath.text('tests')),
-        h('div', { class: 'test-grid' }, tile('#/quiz/math/mul/10', '✖️ ' + window.KomiksMath.text('test_mul'), '1–10 × 1–10', 'math:mul'), tile('#/quiz/math/add/20', '➕ ' + window.KomiksMath.text('test_add'), '0–20', 'math:add'), tile('#/quiz/math/div/10', '➗ ÷', '1–100', 'math:div'), tile('#/math/rocket', '🚀 Math Rocket', window.KomiksMath.text('best', store.get('mathBest', 0)), 'rocket'))] : null,
+        h('div', { class: 'test-grid' }, tile('#/quiz/math/mul/10', '✖️ ' + window.KomiksMath.text('test_mul'), '1–10 × 1–10', 'math:mul'), tile('#/quiz/math/add/20', '➕ ' + window.KomiksMath.text('test_add'), '0–20', 'math:add'), tile('#/quiz/math/div/10', '➗ ÷', '1–100', 'math:div'), window.KomiksFractions ? tile('#/quiz/math/frac', window.KomiksFractions.text('title'), '1/2 · 3/4 · 2/5', 'math:frac') : null, tile('#/math/rocket', '🚀 Math Rocket', window.KomiksMath.text('best', store.get('mathBest', 0)), 'rocket'))] : null,
       window.KomiksEnglish ? [h('h3', { class: 'sec-sub' }, window.KomiksEnglish.text('tests_title')),
         h('div', { class: 'test-grid' }, window.KomiksEnglish.comics().map(c => tile('#/quiz/en/' + c.id, '\uD83C\uDDEC\uD83C\uDDE7 ' + c.title, `${c.level} \u00b7 ${c.titleUk}`, 'en:' + c.id)))] : null,
+      window.KomiksKoding ? [h('h3', { class: 'sec-sub' }, '💻 ' + window.KomiksKoding.text('nav')),
+        h('div', { class: 'test-grid' }, ['', 'robot', 'code', 'html', 'algo', 'bug', 'lang'].map(k => tile('#/quiz/koding' + (k ? '/' + k : ''), window.KomiksKoding.text('t_' + (k || 'mix')), window.KomiksKoding.text('d_' + (k || 'mix')), 'koding' + (k ? ':' + k : ''))))] : null,
       window.KomiksWords ? [h('h3', { class: 'sec-sub' }, window.KomiksWords.text('tests')),
         h('div', { class: 'test-grid' }, tile('#/quiz/words', '\uD83D\uDCDD ' + window.KomiksWords.text('all_test').replace(/^\uD83E\uDDE9\s*/, ''), (tx('modules') || {}).words[2], 'words'),
           window.KomiksWords.themes().map(th => tile('#/quiz/words/' + th.id, th.icon + ' ' + th.no, `${th.level} · ${window.KomiksWords.name(th)}`, 'words:' + th.id)))] : null,
       window.KomiksGrammar ? [h('h3', { class: 'sec-sub' }, window.KomiksGrammar.text('tests')),
         h('div', { class: 'test-grid' }, tile('#/quiz/grammar', '📐 ' + window.KomiksGrammar.text('mix_test').replace(/^🧩\s*/, ''), (tx('modules') || {}).grammar[2], 'grammar'),
           tile('#/quiz/clock', (tx('modules') || {}).clock[0] + ' ' + (tx('modules') || {}).clock[1], (tx('modules') || {}).clock[2], 'clock'),
-          window.KomiksGrammar.topics().map(tp => tile('#/quiz/grammar/' + tp.id, tp.icon + ' ' + tp.no, `${tp.level} · ${ui === 'no' ? tp.no : tp[ui] || tp.en || tp.uk}`, 'grammar:' + tp.id)))] : null,
+          window.KomiksGrammar.topics().map(tp => tile('#/quiz/grammar/' + tp.id, tp.icon + ' ' + tp.no, `${tp.level} · ${ui === 'no' ? tp.no : tp[ui] || trText(tp.en, tp.uk, ui)}`, 'grammar:' + tp.id)))] : null,
       h('h3', { class: 'sec-sub' }, t('tests_comics')),
       h('div', { class: 'test-grid' }, COMICS.map(c => withTr(tile(`#/quiz/${c.id}`, c.title, `${c.level} · ${catLabel(c.category)}`, c.id), titleTr(c)))));
   }
@@ -2327,6 +2823,7 @@
     no: { title: '🎯 Min læringsplan', intro: 'Slå av det du allerede kan – planen og sjekklisten blir kortere.', groups: 'Hva planen inneholder', show_steps: n => `Velg enkelttrinn (${n})`, hidden: n => `Skjulte trinn: ${n}`, reset: '↺ Vis alt igjen', know: '✓ Kan det', know_t: 'Jeg kan dette – fjern fra planen', setup: '⚙️ Tilpass planen', open: 'Åpne planen →',
       g: { basics: '🔤 Alfabet og tall', words: '📝 Ord etter tema', grammar: '📐 Grammatikk', clock: '🕐 Klokka', read: '📖 Lese tegneserier', quiz: '🧩 Tegneserietester', level: '🏆 Nivåtester' } }
   };
+  if (window.KL_T_FILL) KL_T_FILL(PS, 'app.js:PS');
   const ps = (k, ...a) => { const T = PS[ui] || PS.en; const v = k in T ? T[k] : PS.en[k]; return typeof v === 'function' ? v(...a) : v; };
   const planOff = () => store.get('planOff', {}) || {};
   const planKnown = () => store.get('planKnown', []) || [];
@@ -2350,7 +2847,7 @@
       const Wd = window.KomiksWords;
       if (Wd) Wd.themes().filter(th => th.level === lv[k]).forEach(th => steps.push({ grp: 'words', label: Wd.text('step', Wd.name(th)), href: '#/words/' + th.id, done: bestStars('words:' + th.id) > 0, level: lv[k] }));
       const G = window.KomiksGrammar;
-      if (G) G.topics().filter(tp => tp.level === lv[k]).forEach(tp => steps.push({ grp: 'grammar', label: G.text('step', ui === 'no' ? tp.no : tp[ui] || tp.en || tp.uk), href: '#/grammar/' + tp.id, done: bestStars('grammar:' + tp.id) > 0, level: lv[k] }));
+      if (G) G.topics().filter(tp => tp.level === lv[k]).forEach(tp => steps.push({ grp: 'grammar', label: G.text('step', ui === 'no' ? tp.no : tp[ui] || trText(tp.en, tp.uk, ui)), href: '#/grammar/' + tp.id, done: bestStars('grammar:' + tp.id) > 0, level: lv[k] }));
       if (G && k === 0) steps.push({ grp: 'clock', label: G.text('step', G.text('clock')[1]), href: '#/quiz/clock', done: bestStars('clock') > 0, level: lv[k] });
       const list = COMICS.filter(c => c.level === lv[k]);
       list.forEach(c => {
@@ -2370,6 +2867,7 @@
     no: { tests: 'tester fullført', tries: 'forsøk totalt', avg: 'gjennomsnitt', perfect: 'med 3 stjerner', all: 'Alle', redo: '🔁 Må øves mer', good: '🌟 Utmerket', best: 'beste', last: 'sist', attempts: n => `forsøk: ${n}`, today: 'i dag', yesterday: 'i går', improve: '🔁 Forbedre', again: '▶ Igjen', place: (p, n) => `beste plass ${p} av ${n}`, legend: '⭐⭐⭐ — fra 90 % · ⭐⭐ — fra 60 % · ⭐ — fra 30 %', none: 'Ingenting her – bra jobba!', more: n => `Vis ${n} til`,
       math: { mul: '✖️ Ganging', add: '➕ Pluss og minus', div: '➗ Deling', all: '🧮 All matte', row: n => `✖️ ${n}-gangen` }, race: '🏁 Logikkløpet', rocket: '🚀 Matte-raketten', lv: { easy: '🟢 Lett', medium: '🟡 Middels', hard: '🔴 Vanskelig', expert: '🟣 Ekspert' } }
   };
+  if (window.KL_T_FILL) KL_T_FILL(CHK, 'app.js:CHK');
   CHK.ar = { tests: 'اختبارات منجزة', tries: 'محاولات', avg: 'متوسط النتيجة', perfect: 'بثلاث نجوم', all: 'الكل', redo: '🔁 تحتاج تدريبًا', good: '🌟 ممتاز', best: 'الأفضل', last: 'آخر مرة', attempts: n => `المحاولات: ${n}`, today: 'اليوم', yesterday: 'أمس', improve: '🔁 حسّن', again: '▶ مجددًا', place: (p, n) => `أفضل مركز ${p} من ${n}`, legend: '⭐⭐⭐ — من 90٪ · ⭐⭐ — من 60٪ · ⭐ — من 30٪', none: 'لا شيء هنا — أحسنت!', more: n => `اعرض ${n} أخرى`,
     math: { mul: '✖️ الضرب', add: '➕ الجمع والطرح', div: '➗ القسمة', all: '🧮 كل الرياضيات', row: n => `✖️ جدول ضرب ${n}` }, race: '🏁 سباق المنطق', rocket: '🚀 Math Rocket', lv: { easy: '🟢 سهل', medium: '🟡 متوسط', hard: '🔴 صعب', expert: '🟣 خبير' } };
   // куди веде «Ще раз» для кожного типу тесту
@@ -2464,6 +2962,7 @@
       parent: '👤 أنا الوالد', parent_d: 'افتح كل شيء لمدة 30 دقيقة', open: '🔓 كل شيء مفتوح لمدة 30 دقيقة', ok: 'تم', cancel: 'إلغاء',
       on_note: '🔒 الوضع الصارم مفعّل', off_note: 'الوضع الصارم متوقف' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(ST, 'app.js:ST');
   const st = k => (ST[ui] || ST.en)[k];
   const strictOn = () => settings.strict === true && !!settings.parentHash;
   const parentOpen = () => (store.get('parentUntil', 0) || 0) > Date.now();
@@ -2597,10 +3096,24 @@
       more_t: '➕ مهمة إضافية', more_d: 'انتهت حصة اليوم — لكن يمكنك أخذ مهمة أخرى. اختر ما يحلو لك.',
       more_new: '🎲 مهمة أخرى', more_done: n => `المهام الإضافية اليوم: ${n}` }
   };
+  /* 📅 Нова «Сьогодні»: вітання, кільце прогресу дня, тиждень серії, слово дня (картка-перевертиш). */
+  Object.assign(TD.uk, { hi: ['Доброї ночі', 'Доброго ранку', 'Доброго дня', 'Доброго вечора'], ring: (a, b) => `${a} з ${b}`, ring_l: 'справ на сьогодні', week: 'Цей тиждень',
+    wod: '✨ Слово дня', wod_tap: 'Натисни на картку — побачиш переклад', wod_know: '✅ Знаю', wod_learn: '📌 Вчити', wod_known: 'Чудово! Слово позначено як вивчене.', wod_saved: 'Додано до сьогоднішнього повторення.',
+    mins: n => `≈ ${n} хв`, party: '🎉 Денну норму виконано! Так тримати.', wd: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'] });
+  Object.assign(TD.en, { hi: ['Good night', 'Good morning', 'Good afternoon', 'Good evening'], ring: (a, b) => `${a} of ${b}`, ring_l: 'tasks for today', week: 'This week',
+    wod: '✨ Word of the day', wod_tap: 'Tap the card to see the translation', wod_know: '✅ I know it', wod_learn: '📌 Learn it', wod_known: 'Great! The word is marked as learned.', wod_saved: 'Added to today’s review.',
+    mins: n => `≈ ${n} min`, party: '🎉 Daily goal done! Keep it up.', wd: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'] });
+  Object.assign(TD.no, { hi: ['God natt', 'God morgen', 'God dag', 'God kveld'], ring: (a, b) => `${a} av ${b}`, ring_l: 'oppgaver i dag', week: 'Denne uka',
+    wod: '✨ Dagens ord', wod_tap: 'Trykk på kortet for å se oversettelsen', wod_know: '✅ Jeg kan det', wod_learn: '📌 Lær det', wod_known: 'Flott! Ordet er merket som lært.', wod_saved: 'Lagt til dagens repetisjon.',
+    mins: n => `≈ ${n} min`, party: '🎉 Dagens mål er nådd! Fortsett sånn.', wd: ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'] });
+  Object.assign(TD.ar, { hi: ['تصبح على خير', 'صباح الخير', 'نهارك سعيد', 'مساء الخير'], ring: (a, b) => `${a} من ${b}`, ring_l: 'مهام اليوم', week: 'هذا الأسبوع',
+    wod: '✨ كلمة اليوم', wod_tap: 'اضغط على البطاقة لترى الترجمة', wod_know: '✅ أعرفها', wod_learn: '📌 أتعلّمها', wod_known: 'رائع! وُضعت الكلمة في «أعرف».', wod_saved: 'أُضيفت إلى مراجعة اليوم.',
+    mins: n => `≈ ${n} د`, party: '🎉 أنجزت هدف اليوم! استمر.', wd: ['ن', 'ث', 'ر', 'خ', 'ج', 'س', 'ح'] });
+  if (window.KL_T_FILL) KL_T_FILL(TD, 'app.js:TD');
   const td = k => (TD[ui] || TD.en)[k];
   function dueCards() {
-    const st = store.get('cards', {});
-    return allVocab().filter(v => !st[v.key] || st[v.key].due <= Date.now()).length;
+    const st = store.get('cards', {}), wkDue = knownFromWords();
+    return allVocab().filter(v => !isLearned(v, st, wkDue) && (!st[v.key] || st[v.key].due <= Date.now())).length;
   }
   /* Коли всі кроки закрито, план більше не має що показувати — пропонуємо наступний рівень. */
   function nextPlanBox() {
@@ -2633,7 +3146,7 @@
     const Wd = window.KomiksWords;
     if (Wd) { const th = pick(Wd.themes()); if (th) pool.push(['📝', Wd.text('step', Wd.name(th)), '#/quiz/words/' + th.id]); }
     const G = window.KomiksGrammar;
-    if (G) { const tp = pick(G.topics()); if (tp) pool.push(['📐', G.text('step', ui === 'no' ? tp.no : tp[ui] || tp.en || tp.uk), '#/quiz/grammar/' + tp.id]); }
+    if (G) { const tp = pick(G.topics()); if (tp) pool.push(['📐', G.text('step', ui === 'no' ? tp.no : tp[ui] || trText(tp.en, tp.uk, ui)), '#/quiz/grammar/' + tp.id]); }
     pool.push(['🃏', td('cards'), '#/cards']);
     if (window.KomiksPairs) pool.push(['🧠', window.KomiksPairs.text('daily'), '#/pairs']);
     pool.push(['✍️', window.KomiksWrite ? window.KomiksWrite.text('nav') : '✍️', '#/write']);
@@ -2652,6 +3165,27 @@
     return box;
   }
 
+  // ✨ слово дня: одне на день (за датою), з тих, що ще не вивчені
+  function wordOfDay() {
+    const st = store.get('cards', {}), wk = knownFromWords();
+    const pool = allVocab().filter(v => v && v.no && !isLearned(v, st, wk));
+    if (!pool.length) return null;
+    const d = isoDay(new Date());
+    let x = 0; for (const ch of d) x = (x * 31 + ch.charCodeAt(0)) >>> 0;
+    const v = pool[x % pool.length];
+    const tr = ui === 'uk' ? v.uk || v.en : ui === 'no' ? v.uk || v.en : v.en || v.uk;
+    const msg = h('p', { class: 'wod-msg', 'aria-live': 'polite' });
+    const card = h('button', { class: 'wod-card', type: 'button', 'aria-label': td('wod_tap') },
+      h('span', { class: 'wod-face wod-front' }, h('b', {}, v.no), h('small', {}, td('wod_tap'))),
+      h('span', { class: 'wod-face wod-back' }, h('b', {}, tr || '—'), v.en && v.en !== tr ? h('small', {}, v.en) : null));
+    card.addEventListener('click', () => { card.classList.toggle('flip'); if (card.classList.contains('flip')) Speech.speak(v.no, 'narrator'); });
+    const know = h('button', { class: 'btn small', type: 'button', onclick: () => { markLearned(v, store.get('cards', {})); msg.textContent = td('wod_known'); Sfx.good(); know.disabled = learn.disabled = true; } }, td('wod_know'));
+    const learn = h('button', { class: 'btn small accent', type: 'button', onclick: () => {
+      const s = store.get('cards', {}); s[v.key] = Object.assign(s[v.key] || { box: 0 }, { due: Date.now(), no: v.no, uk: v.uk, en: v.en }); store.set('cards', s);
+      msg.textContent = td('wod_saved'); Sfx.tick(); know.disabled = learn.disabled = true; } }, td('wod_learn'));
+    return h('div', { class: 'box wod' }, h('div', { class: 'wod-head' }, h('h3', {}, td('wod')), h('button', { class: 'btn small icon', type: 'button', title: '🔊', onclick: () => Speech.speak(v.no, 'narrator') }, '🔊')),
+      card, h('div', { class: 'row-left' }, know, learn), msg);
+  }
   function renderToday() {
     const log = dayLog();
     const P = window.KomiksPairs;
@@ -2660,34 +3194,54 @@
     const p = Object.assign({ from: 'zero', goal: 'A2', pace: 'normal' }, store.get('plan', {}));
     const next = planSteps(p).find(x => !x.done) || null;
     const tasks = [
-      { k: 'cards', icon: '🃏', title: td('cards'), note: due ? td('cards_d')(Math.min(due, settings.level === 'kids' ? 10 : 20)) : td('cards_none'),
+      { k: 'cards', icon: '🃏', min: 4, title: td('cards'), note: due ? td('cards_d')(Math.min(due, settings.level === 'kids' ? 10 : 20)) : td('cards_none'),
         href: '#/cards', done: log.cards > 0 || !due, skip: !due },
-      { k: 'steps', icon: '▶️', title: td('step'), note: next ? next.label : td('step_none'),
+      { k: 'steps', icon: '▶️', min: 6, title: td('step'), note: next ? next.label : td('step_none'),
         href: next ? next.href : '#/plan', done: log.steps > 0 || !next, skip: !next },
-      { k: 'mistakes', icon: '🔁', title: td('mist'), note: errs ? td('mist_d')(errs) : td('mist_none'),
+      { k: 'mistakes', icon: '🔁', min: 3, title: td('mist'), note: errs ? td('mist_d')(errs) : td('mist_none'),
         href: '#/quiz/mistakes', done: log.mistakes > 0 || !errs, skip: !errs },
-      ...(P ? [{ k: 'pairs', icon: '🧠', title: P.text('daily'), note: P.text('daily_d')(settings.level === 'kids' ? 6 : 8),
+      ...(P ? [{ k: 'pairs', icon: '🧠', min: 3, title: P.text('daily'), note: P.text('daily_d')(settings.level === 'kids' ? 6 : 8),
         href: '#/pairs', done: log.pairs > 0 }] : [])
     ];
-    const left = tasks.filter(x => !x.done).length;
+    const left = tasks.filter(x => !x.done).length, doneN = tasks.length - left;
     const st = streak();
-    const tile = x => h(x.done ? 'div' : 'a', Object.assign({ class: 'day-task' + (x.done ? ' done' : '') }, x.done ? {} : { href: x.href }),
+    // кільце прогресу: заповнюється після появи на екрані
+    const R = 46, CIRC = 2 * Math.PI * R;
+    const arc = svgEl(`<svg viewBox="0 0 120 120" class="td-ring" aria-hidden="true"><circle cx="60" cy="60" r="${R}" class="td-ring-bg"/><circle cx="60" cy="60" r="${R}" class="td-ring-fg" stroke-dasharray="${CIRC.toFixed(1)}" stroke-dashoffset="${CIRC.toFixed(1)}" transform="rotate(-90 60 60)"/></svg>`);
+    setTimeout(() => { const fg = arc.querySelector('.td-ring-fg'); if (fg) fg.style.strokeDashoffset = String(CIRC * (1 - doneN / Math.max(1, tasks.length))); }, 60);
+    // тиждень: пн–нд, вогник — день з навчанням
+    const days = new Set(store.get('days', []));
+    const mon = new Date(); mon.setDate(mon.getDate() - ((mon.getDay() + 6) % 7));
+    const todayIso = isoDay(new Date());
+    const week = h('div', { class: 'td-week', 'aria-label': td('week') }, td('wd').map((label, i) => {
+      const d = new Date(mon); d.setDate(mon.getDate() + i); const iso = isoDay(d);
+      return h('span', { class: 'td-day' + (days.has(iso) ? ' on' : '') + (iso === todayIso ? ' today' : '') + (iso > todayIso ? ' fut' : '') }, h('i', {}, days.has(iso) ? '🔥' : iso > todayIso ? '' : '·'), h('small', {}, label));
+    }));
+    const u = currentUser();
+    const hr = new Date().getHours();
+    const hi = td('hi')[hr < 5 ? 0 : hr < 12 ? 1 : hr < 18 ? 2 : 3] + (u && u.name ? ', ' + u.name : '') + '!';
+    let dateTxt = ''; try { dateTxt = new Intl.DateTimeFormat(locale(), { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date()); } catch { /* ignore */ }
+    const tile = x => h(x.done ? 'div' : 'a', Object.assign({ class: 'day-task td-task' + (x.done ? ' done' : '') }, x.done ? {} : { href: x.href }),
       h('span', { class: 'day-ic' }, x.done ? '✅' : x.icon),
       h('div', {}, h('b', {}, x.title), h('small', {}, x.note)),
-      x.done ? h('span', { class: 'day-ok' }, td('done')) : h('span', { class: 'day-go' }, '→'));
+      x.done ? h('span', { class: 'day-ok' }, td('done')) : h('span', { class: 'td-min' }, td('mins')(x.min), h('span', { class: 'day-go' }, '→')));
+    // свято — один раз на день, коли все зроблено
+    if (!left && store.get('todayParty', '') !== todayIso) { store.set('todayParty', todayIso); setTimeout(() => { confetti(); Sfx.win(); }, 400); }
     return h('section', { class: 'today-page' }, pageHead(td('title')),
+      window.KomiksTodayFx ? window.KomiksTodayFx.scene({ tasks: tasks.map(x => ({ icon: x.icon, title: x.title, done: x.done, href: x.href })), streak: st }) : null,
+      h('div', { class: 'td-hero' },
+        h('div', { class: 'td-ring-wrap' }, arc, h('div', { class: 'td-ring-txt' }, h('b', {}, td('ring')(doneN, tasks.length)), h('small', {}, td('ring_l')))),
+        h('div', { class: 'td-hello' }, h('h2', {}, hi), dateTxt ? h('p', { class: 'td-date' }, dateTxt) : null,
+          h('p', { class: 'td-streak' }, st ? td('streak')(st) : td('streak0')), week,
+          h('p', { class: 'td-left' + (left ? '' : ' all') }, left ? td('left')(left) : td('party')))),
       h('p', { class: 'lead-p' }, td('lead')),
-      h('div', { class: 'day-head' }, h('b', { class: 'day-streak' }, st ? td('streak')(st) : td('streak0')),
-        h('span', { class: 'day-left' }, left ? td('left')(left) : td('all_done'))),
-      h('div', { class: 'day-bar' }, h('i', { style: { width: Math.round((tasks.length - left) / tasks.length * 100) + '%' } })),
-      h('div', { class: 'day-tasks' }, tasks.map(tile)),
+      h('div', { class: 'td-grid' }, h('div', { class: 'day-tasks td-tasks' }, tasks.map(tile)), wordOfDay()),
+      window.KomiksTodayFx ? window.KomiksTodayFx.quiz() : null,
       left ? null : bonusBox(),
       next ? null : nextPlanBox(),
-      h('div', { class: 'box' }, h('h3', {}, td('extra')),
-        h('div', { class: 'row-left' }, h('a', { class: 'btn', href: '#/call' }, td('call')),
-          h('a', { class: 'btn', href: '#/write' }, td('write')),
-          h('a', { class: 'btn', href: '#/exam' }, window.KomiksExam ? window.KomiksExam.text('nav') : '🏁'),
-          h('a', { class: 'btn', href: '#/plan' }, td('plan')))));
+      h('div', { class: 'box td-extra' }, h('h3', {}, td('extra')),
+        h('div', { class: 'td-extra-grid' }, [['📞', td('call'), '#/call'], ['✍️', td('write'), '#/write'], ['🏁', window.KomiksExam ? window.KomiksExam.text('nav') : '🏁', '#/exam'], ['🎯', td('plan'), '#/plan'], ['📊', AN_T().title, '#/account/learn']]
+          .map(([ic, label, href]) => h('a', { class: 'td-x', href }, h('span', {}, ic), h('b', {}, String(label).replace(/^\S+\s/, '')))))));
   }
 
   function renderPlan() {
@@ -2715,6 +3269,8 @@
         h('b', {}, t('plan_progress', done, steps.length)),
         nextStep ? h('a', { class: 'btn accent', href: nextStep.href }, t('next_step'), ' ', h('small', {}, nextStep.label)) : h('b', { class: 'plan-done' }, t('plan_done'))),
       nextStep ? null : nextPlanBox(),
+      // 🔥 активність за рік (як на GitHub), рівень, серії й посилання на детальний дашборд
+      window.KomiksLearnDash && window.KomiksLearnDash.activity ? window.KomiksLearnDash.activity() : null,
       h('div', { class: 'plan-setup' }, hiddenN ? h('span', { class: 'hint' }, ps('hidden', hiddenN)) : null, h('a', { class: 'btn small', href: '#/plan/settings' }, ps('setup'))),
       h('div', { class: 'weeks' }, weeks.map((ws, w) => h('div', { class: 'week' + (ws.every(s => s.done) ? ' done' : '') },
         h('h3', {}, t('week', w + 1)),
@@ -2819,59 +3375,87 @@
   const AUTH_VIEWS = ['login', 'register', 'verify-sent', 'welcome', 'verify-failed', 'forgot', 'reset', 'magic', 'login-pass'];
   const serverAuth = () => !!(window.KomiksAuth && window.KomiksAuth.server);
   const logoutAll = () => { if (serverAuth() && window.KomiksAuth.user) window.KomiksAuth.logout(); else { setSession(null); location.hash = '#/'; route(); } };
-  function renderAccount() {
+  function renderAccount(tab) {
     const u = currentUser();
     if (!u) return serverAuth() ? window.KomiksAuth.render('login') : renderLogin();
-    if (u.server && serverAuth() && window.KomiksAuth.user) return renderAccountBoxes(u, window.KomiksAuth.accountBox());
-    return renderAccountBoxes(u, null);
+    return renderAccountBoxes(u, !!(u.server && serverAuth() && window.KomiksAuth.user), tab);
   }
-  function renderAccountBoxes(u, serverBox) {
-    const read = COMICS.filter(comicRead).length;
-    const tests = Object.values(store.get('progress', {})).filter(x => x.stars > 0).length;
-    const words = Object.values(store.get('cards', {})).filter(x => x.box >= 3).length;
-    const known = (store.get('wordsKnown', []) || []).length;
-    const knownEn = (store.get('wordsKnownEn', []) || []).length;
-    const email = h('input', { type: 'email', value: u.email || '' });
-    const emailMsg = h('span', { class: 'ok-msg' });
-    const newPass = h('input', { type: 'password', autocomplete: 'new-password' });
-    const passMsg = h('span', { class: 'ok-msg' });
-    const saveEmail = () => { const all = users(); all[u.id].email = email.value.trim(); raw.set('comiks.users', all); emailMsg.textContent = t('saved'); };
-    const savePass = async () => { if (!newPass.value) return; const all = users(); all[u.id].pass = await hashPass(newPass.value); raw.set('comiks.users', all); newPass.value = ''; passMsg.textContent = t('pass_changed'); };
-    const del = () => {
-      if (!confirm(t('delete_confirm'))) return;
-      try { const keys = []; for (let i = 0; i < localStorage.length; i++) keys.push(localStorage.key(i)); keys.filter(k => k.startsWith(`comiks.u.${u.id}.`)).forEach(k => localStorage.removeItem(k)); } catch { /* ignore */ }
-      const all = users(); delete all[u.id]; raw.set('comiks.users', all);
-      setSession(null); location.hash = '#/'; route();
-    };
-    // картка-герой: аватар, ім’я, статуси й код друга — усе в одному місці
-    const A = window.KomiksAvatars, P = window.KomiksProfile, au = serverAuth() ? window.KomiksAuth.user : null;
+  /* 👤 Кабінет = профіль гравця + досягнення + навчання + акаунт. Колишній #/player
+     живе тут, вкладки — #/account/<profile|badges|learn|settings>. */
+  const ACC_TABS = ['profile', 'badges', 'learn', 'settings'];
+  function renderAccountBoxes(u, server, tab) {
+    tab = ACC_TABS.includes(tab) ? tab : 'profile';
+    const A = window.KomiksAvatars, P = window.KomiksProfile, KA = window.KomiksAuth, PL = window.KomiksPlayers;
+    const au = server ? KA.user : null;
+    const AT = { uk: { edit: '🎨 Аватар', code: 'Код друга', copied: 'Скопійовано ✓', privacy: '🔒 Конфіденційність', privacy_d: 'Хто бачить мене в пошуку та хто може писати.', msgs: '✉️ Повідомлення', alerts: '🔔 Оновлення', tabs: ['👤 Профіль', '🏅 Досягнення', '📊 Навчання', '🔐 Акаунт'], admin: '⚙️ Адмінпанель', inv: '🎟 Запросити друга' },
+      en: { edit: '🎨 Avatar', code: 'Friend code', copied: 'Copied ✓', privacy: '🔒 Privacy', privacy_d: 'Who can find me in search and who can message me.', msgs: '✉️ Messages', alerts: '🔔 Updates', tabs: ['👤 Profile', '🏅 Achievements', '📊 Learning', '🔐 Account'], admin: '⚙️ Admin panel', inv: '🎟 Invite a friend' },
+      no: { edit: '🎨 Avatar', code: 'Vennekode', copied: 'Kopiert ✓', privacy: '🔒 Personvern', privacy_d: 'Hvem finner meg i søket og hvem kan sende meldinger.', msgs: '✉️ Meldinger', alerts: '🔔 Nytt', tabs: ['👤 Profil', '🏅 Prestasjoner', '📊 Læring', '🔐 Konto'], admin: '⚙️ Adminpanel', inv: '🎟 Inviter en venn' },
+      ar: { edit: '🎨 الشخصية', code: 'رمز الصديق', copied: 'تم النسخ ✓', privacy: '🔒 الخصوصية', privacy_d: 'من يجدني في البحث ومن يمكنه مراسلتي.', msgs: '✉️ الرسائل', alerts: '🔔 الجديد', tabs: ['👤 الملف', '🏅 الإنجازات', '📊 التعلّم', '🔐 الحساب'], admin: '⚙️ لوحة الإدارة', inv: '🎟 ادعُ صديقًا' } }[ui] || {};
+    if (window.KL_T_FILL) KL_T_FILL(AT, 'app.js:AT');
+    const parts = PL && PL.accountParts ? PL.accountParts() : null;
     const code = raw.get(`comiks.u.${u.id}.friendCode`, null);
-    const AT = { uk: { edit: '🎨 Змінити аватар', prof: '👤 Мій профіль', code: 'Код друга', copied: 'Скопійовано ✓', privacy: '🔒 Конфіденційність', privacy_d: 'Хто бачить мене в пошуку та хто може писати.', msgs: '✉️ Повідомлення' },
-      en: { edit: '🎨 Edit avatar', prof: '👤 My profile', code: 'Friend code', copied: 'Copied ✓', privacy: '🔒 Privacy', privacy_d: 'Who can find me in search and who can message me.', msgs: '✉️ Messages' },
-      no: { edit: '🎨 Endre avatar', prof: '👤 Min profil', code: 'Vennekode', copied: 'Kopiert ✓', privacy: '🔒 Personvern', privacy_d: 'Hvem finner meg i søket og hvem kan sende meldinger.', msgs: '✉️ Meldinger' },
-      ar: { edit: '🎨 عدّل الشخصية', prof: '👤 ملفي', code: 'رمز الصديق', copied: 'تم النسخ ✓', privacy: '🔒 الخصوصية', privacy_d: 'من يجدني في البحث ومن يمكنه مراسلتي.', msgs: '✉️ الرسائل' } }[ui] || {};
-    const tags = [au && au.founder ? h('span', { class: 'acc-tag prem' }, '🏅 PRO #' + au.founder) : null,
-      au && au.role === 'admin' ? h('span', { class: 'acc-tag staff' }, '👑 Admin') : au && au.role === 'moderator' ? h('span', { class: 'acc-tag staff' }, '🛡 Moderator') : null,
-      au && au.verified ? h('span', { class: 'acc-tag ok' }, '✅ ' + (u.email || '')) : u.email ? h('span', { class: 'acc-tag' }, u.email) : null].filter(Boolean);
     const codeChip = code ? h('button', { class: 'acc-code', type: 'button', title: AT.code, onclick: e => { try { navigator.clipboard.writeText(code); } catch { /* ignore */ } e.currentTarget.lastChild.textContent = AT.copied; } }, h('small', {}, AT.code), h('b', {}, code)) : null;
+    const share = parts && window.KomiksExtras && window.KomiksExtras.shareButton ? window.KomiksExtras.shareButton(parts.shareUrl(), `${u.name} · Komiks·Lab`) : null;
     const hero = h('div', { class: 'box acc-hero' },
       h('a', { class: 'acc-ava', href: '#/avatar', 'aria-label': AT.edit }, P && A ? A.el(P.avatar(), { size: 132, mood: 'cheer' }) : h('span', { class: 'avatar-big' }, u.name.slice(0, 1).toUpperCase())),
-      h('div', { class: 'acc-id' }, h('h2', {}, u.name), tags.length ? h('div', { class: 'acc-tags' }, tags) : null, codeChip,
-        h('div', { class: 'acc-actions' }, h('a', { class: 'btn accent', href: '#/avatar' }, AT.edit), h('a', { class: 'btn', href: '#/player' }, AT.prof),
-          window.KomiksMessages && au ? h('a', { class: 'btn', href: '#/messages' }, AT.msgs) : null, h('a', { class: 'btn', href: '#/friends' }, '👥 ' + navT('friends')))));
-    return h('section', { class: 'account' }, pageHead(t('cab_title', u.name)),
-      h('div', { class: 'acc-grid' },
-        hero,
-        h('div', { class: 'box acc-priv' }, h('h3', {}, AT.privacy), h('p', { class: 'hint' }, AT.privacy_d), h('a', { class: 'btn accent', href: '#/privacy' }, AT.privacy)),
-        premiumBox(au),
-        ...(serverBox ? [] : [h('div', { class: 'box' }, h('h3', {}, t('profile')), field(t('f_email'), email), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: saveEmail }, t('save')), emailMsg),
-          h('p', { class: 'hint' }, t('email_note')))]),
-        h('div', { class: 'box' }, h('h3', {}, t('my_stats')),
+      h('div', { class: 'acc-id' }, h('h2', {}, u.name, au && au.founder ? h('span', { class: 'pro-badge acc-pro', title: 'PRO' }, '🏅 PRO #' + au.founder) : null),
+        parts && parts.since ? h('small', { class: 'acc-since' }, parts.since) : null, codeChip,
+        h('div', { class: 'acc-actions' }, h('a', { class: 'btn small', href: '#/avatar' }, AT.edit),
+          window.KomiksMessages && au ? h('a', { class: 'btn small', href: '#/messages' }, AT.msgs) : null, h('a', { class: 'btn small', href: '#/friends' }, '👥 ' + navT('friends')),
+          window.KomiksAlerts && au ? h('a', { class: 'btn small', href: '#/alerts' }, AT.alerts) : null,
+          h('a', { class: 'btn small', href: '#/settings' }, '⚙️ ' + navT('settings')), share)));
+    const tabs = h('nav', { class: 'acc-tabs', role: 'tablist' }, ACC_TABS.map((k, i) => h('a', { class: 'acc-tab' + (k === tab ? ' on' : ''), role: 'tab', 'aria-selected': String(k === tab), href: '#/account/' + k }, ...(([ic, ...rest]) => [h('span', { class: 'acc-tab-ic' }, ic), h('span', {}, rest.join(' '))])(AT.tabs[i].split(' ')))));
+    let body;
+    if (tab === 'profile') {
+      // 🎮 моє лобі: QR для друзів — сканують і одразу в кімнаті «Гри разом»
+      const lobby = !OFFLINE && window.KomiksGame && window.KomiksGame.lobbyBox ? window.KomiksGame.lobbyBox() : null;
+      // 🔥 календар активності за рік (як на GitHub) — першим у профілі
+      const act = window.KomiksLearnDash && window.KomiksLearnDash.activity ? window.KomiksLearnDash.activity() : null;
+      body = parts ? [act, lobby, h('div', { class: 'box acc-cells' }, parts.cells), parts.friends, h('div', { class: 'pl-cols' }, parts.recent, parts.wall()), parts.visibility]
+        : [h('p', { class: 'muted' }, '…')];
+    } else if (tab === 'badges') {
+      body = [h('div', { class: 'box' }, parts ? parts.badges : PL.badgeGrid())];
+    } else if (tab === 'learn' && window.KomiksLearnDash) {
+      body = [window.KomiksEnglish ? learnSwitch() : null, window.KomiksLearnDash.render(), !OFFLINE && window.KomiksWatch ? window.KomiksWatch.shareBox() : null,
+        h('div', { class: 'box plan-cfg-link' }, h('h3', {}, ps('title')), h('p', { class: 'hint' }, ps('intro')), h('a', { class: 'btn accent', href: '#/plan/settings' }, ps('setup'))),
+        premiumBox(au)];
+    } else if (tab === 'learn') {
+      const read = COMICS.filter(comicRead).length;
+      const tests = Object.values(store.get('progress', {})).filter(x => x.stars > 0).length;
+      const words = Object.values(store.get('cards', {})).filter(x => x.box >= 3).length;
+      const known = (store.get('wordsKnown', []) || []).length, knownEn = (store.get('wordsKnownEn', []) || []).length;
+      body = [h('div', { class: 'box' }, h('h3', {}, t('my_stats')),
           h('div', { class: 'stat-grid' }, [[t('st_read'), `${read}/${COMICS.length}`], [t('st_tests'), tests], [t('st_known'), known], ['🇬🇧 ' + t('st_known'), knownEn], [t('st_words'), words], [t('st_streak'), streak()]].map(([k, v]) => h('div', { class: 'stat-cell' }, h('b', {}, v), h('small', {}, k)))),
           h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/plan' }, t('cta_plan')), h('a', { class: 'btn', href: '#/analysis' }, AN_T().title), h('a', { class: 'btn', href: '#/words' }, '📝 ' + navT('words')), h('a', { class: 'btn', href: '#/tests' }, '🧩 ' + navT('tests')))),
         h('div', { class: 'box plan-cfg-link' }, h('h3', {}, ps('title')), h('p', { class: 'hint' }, ps('intro')), h('a', { class: 'btn accent', href: '#/plan/settings' }, ps('setup'))),
-        serverBox || h('div', { class: 'box' }, h('h3', {}, t('change_pass')), field(t('new_pass'), newPass), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: savePass }, t('save')), passMsg),
-          h('hr'), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: logoutAll }, '🚪 ' + navT('logout')), h('button', { class: 'btn accent', type: 'button', onclick: del }, t('delete_acc'))))));
+        premiumBox(au)];
+    } else if (server) {
+      body = [KA.googleManage ? KA.googleManage() : null, KA.accountBox(),
+        h('div', { class: 'box acc-priv' }, h('h3', {}, AT.privacy), h('p', { class: 'hint' }, AT.privacy_d), h('a', { class: 'btn', href: '#/privacy' }, AT.privacy)),
+        au && au.can_invite && !au.demo && KA.inviteBox ? h('details', { class: 'box au-det acc-inv' }, h('summary', {}, AT.inv), KA.inviteBox()) : null,
+        au && au.role === 'admin' ? h('p', { class: 'acc-admin' }, h('a', { class: 'btn small', href: 'admin.php' }, AT.admin)) : null];
+    } else {
+      // локальний акаунт (без сервера): пошта, пароль, видалення — як і раніше
+      const email = h('input', { type: 'email', value: u.email || '' }), emailMsg = h('span', { class: 'ok-msg' });
+      const newPass = h('input', { type: 'password', autocomplete: 'new-password' }), passMsg = h('span', { class: 'ok-msg' });
+      const saveEmail = () => { const all = users(); all[u.id].email = email.value.trim(); raw.set('comiks.users', all); emailMsg.textContent = t('saved'); };
+      const savePass = async () => { if (!newPass.value) return; const all = users(); all[u.id].pass = await hashPass(newPass.value); raw.set('comiks.users', all); newPass.value = ''; passMsg.textContent = t('pass_changed'); };
+      const del = () => {
+        if (!confirm(t('delete_confirm'))) return;
+        try { const keys = []; for (let i = 0; i < localStorage.length; i++) keys.push(localStorage.key(i)); keys.filter(k => k.startsWith(`comiks.u.${u.id}.`)).forEach(k => localStorage.removeItem(k)); } catch { /* ignore */ }
+        const all = users(); delete all[u.id]; raw.set('comiks.users', all);
+        setSession(null); location.hash = '#/'; route();
+      };
+      body = [h('div', { class: 'box' }, h('h3', {}, t('profile')), field(t('f_email'), email), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: saveEmail }, t('save')), emailMsg), h('p', { class: 'hint' }, t('email_note'))),
+        h('div', { class: 'box' }, h('h3', {}, t('change_pass')), field(t('new_pass'), newPass), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: savePass }, t('save')), passMsg),
+          h('hr'), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: logoutAll }, '🚪 ' + navT('logout')), h('button', { class: 'btn accent', type: 'button', onclick: del }, t('delete_acc')))),
+        h('div', { class: 'box acc-priv' }, h('h3', {}, AT.privacy), h('p', { class: 'hint' }, AT.privacy_d), h('a', { class: 'btn', href: '#/privacy' }, AT.privacy))];
+    }
+    // перенесення прогресу з пристрою — лише поки є що переносити
+    const imp = server && KA.importBox ? KA.importBox() : null;
+    return h('section', { class: 'account' }, pageHead(t('cab_title', u.name)),
+      hero, imp ? h('div', { class: 'box acc-imp' }, imp) : null, tabs,
+      h('div', { class: 'acc-body acc-' + tab }, body.filter(Boolean)));
   }
 
   /* 🎁 Навчання безкоштовне, тож у кабінеті замість підписки — просто підтвердження цього
@@ -2882,6 +3466,7 @@
     no: { t: '🎁 Alt er gratis', d: 'Tegneserier, prøver, kort, spill, ord og grammatikk – uten grenser og uten betaling.', pro: 'Du er blant de hundre første – PRO-merket blir hos deg.' },
     ar: { t: '🎁 كل شيء مجاني', d: 'القصص والاختبارات والبطاقات والألعاب والكلمات والقواعد — بلا حدود وبلا دفع.', pro: 'أنت من أول مئة — وسام PRO يبقى لك.' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(FREE_T, 'app.js:FREE_T');
   function premiumBox(au) {
     const L = FREE_T[ui] || FREE_T.en;
     const founder = au && au.founder;
@@ -2896,7 +3481,7 @@
   const BUDDY_T = { uk: ['🐾 Тамагочі в кутку', 'Озвучувати похвалу («Veldig bra!», «Prøv igjen!»)'], en: ['🐾 Corner buddy', 'Speak the praise out loud (“Veldig bra!”, “Prøv igjen!”)'], no: ['🐾 Kompisen i hjørnet', 'Si rosen høyt («Veldig bra!», «Prøv igjen!»)'], ar: ['🐾 الرفيق في الزاوية', 'انطق المديح بصوت عالٍ («Veldig bra!»، «Prøv igjen!»)'] };
   function setCheerVoice(on) { settings.cheerVoice = !!on; saveSettings(); document.dispatchEvent(new CustomEvent('cheervoice')); }
   function renderSettings() {
-    const root = h('section', { class: 'settings' }, pageHead(t('settings_title')));
+    const root = h('section', { class: 'settings' }, pageHead(t('settings_title')), window.KomiksEnglish ? h('div', { class: 'box' }, learnSwitch()) : null);
     const langSel = h('select', { 'aria-label': t('lang_label') }, LANGS.map(([v, label]) => h('option', { value: v, selected: v === ui }, label)));
     langSel.addEventListener('change', () => setUi(langSel.value));
     const learner = h('div', { class: 'choices' }, ['kids', 'adults', 'hard', 'expert'].map(v => { const [label, sub] = tx('learner')[v]; return h('button', { type: 'button', class: 'choice' + (settings.level === v ? ' on' : ''), onclick: () => { settings.level = v; saveSettings(); route(); } }, h('b', {}, label), h('small', {}, sub)); }));
@@ -2965,20 +3550,24 @@
     const cheerBox = h('input', { type: 'checkbox', checked: settings.cheerVoice !== false });
     cheerBox.addEventListener('change', () => { setCheerVoice(cheerBox.checked); if (cheerBox.checked) cheer(true); });
     const u = currentUser();
+    const A11 = window.KomiksA11y;
     root.append(
+      ...(A11 ? [h('div', { class: 'box a11y-set' }, h('h3', {}, A11.text('title'), A11.isOn() ? h('span', { class: 'a11y-on' }, A11.text('on')) : null), h('p', { class: 'hint' }, A11.text('desc')), A11.button('btn accent'))] : []),
       h('div', { class: 'box' }, h('h3', {}, '🌐 ' + t('lang_label')), langSel),
       h('div', { class: 'box' }, h('h3', {}, TRL[0]), h('p', { class: 'hint' }, TRL[1]), trBox),
       h('div', { class: 'box' }, h('h3', {}, t('s_learner')), learner),
-      h('div', { class: 'box strict-box' + (strictOn() ? ' on' : '') }, h('h3', {}, st('title')), h('p', { class: 'hint' }, st('d')),
+      ...(u ? [h('div', { class: 'box strict-box' + (strictOn() ? ' on' : '') }, h('h3', {}, st('title')), h('p', { class: 'hint' }, st('d')),
         h('div', { class: 'row-left' }, strictBtn, strictOn() && !parentOpen() ? h('button', { class: 'btn', type: 'button', onclick: () => parentAsk() }, st('parent')) : null,
-          parentOpen() ? h('b', { class: 'strict-open' }, st('open')) : null)),
+          parentOpen() ? h('b', { class: 'strict-open' }, st('open')) : null))] : []),
       h('div', { class: 'box' }, h('h3', {}, AUTO_S[0]), h('label', { class: 'check' }, autoBox, h('span', {}, AUTO_S[1]))),
-      h('div', { class: 'box' }, h('h3', {}, CALL_S[0]), h('label', { class: 'check' }, callBox, h('span', {}, CALL_S[1])),
-        h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/call' }, window.KomiksCall ? window.KomiksCall.text().start : '📞'))),
+      ...(u ? [h('div', { class: 'box call-settings' }, h('h3', {}, CALL_S[0]), h('label', { class: 'check' }, callBox, h('span', {}, CALL_S[1])),
+        h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/call' }, window.KomiksCall ? window.KomiksCall.text().start : '📞')))] : []),
       h('div', { class: 'box' }, h('h3', {}, t('s_level')), lvlSel, h('p', { class: 'hint' }, t('s_level_d'))),
       h('div', { class: 'box' }, h('h3', {}, t('s_account')), u
-        ? h('div', { class: 'row-left' }, h('b', {}, u.name), h('a', { class: 'btn', href: '#/account' }, navT('account')))
+        ? h('div', { class: 'row-left' }, h('b', {}, u.name), h('a', { class: 'btn', href: '#/account' }, navT('account')), h('a', { class: 'btn', href: '#/account/settings' }, '🔐'))
         : h('div', { class: 'row-left' }, h('a', { class: 'btn accent', href: '#/register' }, navT('register')), h('a', { class: 'btn', href: '#/login' }, navT('login')))),
+      // 🔑 Google: підключити / відв’язати — те саме, що на вкладці «Акаунт»
+      ...[u && u.server && serverAuth() && window.KomiksAuth.user && window.KomiksAuth.googleManage ? window.KomiksAuth.googleManage() : null].filter(Boolean),
       h('div', { class: 'box' }, h('h3', {}, t('vm_title')), modeBtns, modeDesc, h('label', { class: 'check' }, audioBox, t('neural', window.AUDIO ? Object.keys(window.AUDIO).length : 0))),
       h('div', { class: 'box' }, h('h3', {}, BUDDY_T[ui] ? BUDDY_T[ui][0] : BUDDY_T.en[0]), h('label', { class: 'check' }, cheerBox, BUDDY_T[ui] ? BUDDY_T[ui][1] : BUDDY_T.en[1])),
       h('div', { class: 'box' }, h('h3', {}, t('reading')), h('div', { class: 'check' }, t('speed'), rate, rateVal)),
@@ -2995,11 +3584,24 @@
   /* ================= шапка, футер, маршрути ================= */
   const app = $('#app');
   let keyHandler = null;
+  /* Написи модулів для німецької, польської, турецької та литовської лежать
+     окремим файлом і вантажаться лише своєю мовою (див. assets/boot.js). Коли
+     мову перемикають уже в застосунку, цього файла ще немає — довантажуємо й
+     перемальовуємо, інакше половина написів лишилася б англійською до
+     наступного перезавантаження. */
+  function ensureAppText(code, done) {
+    if (!(window.KL_T_LANGS || []).includes(code) || (window.KL_T_HAVE || []).includes(code)) return done();
+    const sc = document.createElement('script');
+    sc.src = 'data/app-i18n-' + code + '.js?v=' + ((window.KOMIKS_DATA || {}).version || '');
+    sc.onload = () => { if (window.KL_T_APPLY) window.KL_T_APPLY(); done(); };
+    sc.onerror = done;
+    document.head.append(sc);
+  }
   function setUi(code) {
     if (!I18N[code]) return;
     ui = code; raw.set('comiks.ui', code);
     if (window.KomiksA11y) setTimeout(window.KomiksA11y.relabel, 0);
-    syncChrome(); route();
+    ensureAppText(code, () => { syncChrome(); route(); });
   }
   function renderFooter() {
     const foot = $('.foot');
@@ -3010,16 +3612,18 @@
     const langBtns = h('ul', {}, LANGS.map(([code, label]) => h('li', {}, h('a', { href: '#', onclick: e => { e.preventDefault(); setUi(code); }, class: ui === code ? 'on' : '' }, label))));
     // колонки за категоріями; на ПК — однакова висота (див. .foot-inner у style.css)
     const FX = { uk: { games: '🎮 Ігри', community: '👥 Спільнота', players: '🔎 Пошук гравців', news: '✨ Що нового' }, en: { games: '🎮 Games', community: '👥 Community', players: '🔎 Find players', news: '✨ What’s new' }, no: { games: '🎮 Spill', community: '👥 Fellesskap', players: '🔎 Finn spillere', news: '✨ Hva er nytt' }, ar: { games: '🎮 الألعاب', community: '👥 المجتمع', players: '🔎 ابحث عن لاعبين', news: '✨ ما الجديد' } }[ui] || {};
+    if (window.KL_T_FILL) KL_T_FILL(FX, 'app.js:FX');
     const col = (title, items, extra) => h('nav', { class: 'foot-col' }, h('h4', {}, title), h('ul', {}, items), extra || null);
     foot.replaceChildren(
+      // значки Google Play і Microsoft Store переїхали в QR-блок над футером (KomiksExtras.storeBadges)
       h('div', { class: 'foot-inner' },
         h('div', { class: 'foot-col about' }, h('a', { class: 'logo small', href: '#/' }, h('span', { class: 'logo-bubble' }, '💬'), h('span', { class: 'logo-text' }, h('b', {}, (tx('brand') || ['Комікс', '·Lab'])[0]), h('i', {}, (tx('brand') || ['', '·Lab'])[1]))),
           h('p', {}, F.about), h('p', { class: 'ai' }, F.ai)),
-        col('📚 ' + F.learn, [link('#/today', td('title')), link('#/write', window.KomiksWrite ? window.KomiksWrite.text('nav') : '✍️'), link('#/exam', window.KomiksExam ? window.KomiksExam.text('nav') : '🏁'), link('#/placement', window.KomiksPlacement ? window.KomiksPlacement.text('nav') : '🎯'), link('#/analysis', AN_T().title), link('#/', navT('comics')), link('#/words', navT('words')), link('#/grammar', navT('grammar')), link('#/english', navT('english')), link('#/math', navT('math')), link('#/alphabet', navT('alphabet')), link('#/numbers', navT('numbers')), link('#/cards', navT('cards')), link('#/pairs', window.KomiksPairs ? window.KomiksPairs.text('nav') : '🧠'), link('#/cross', window.KomiksCross ? window.KomiksCross.text('title') : '🧩'), link('#/plan', navT('plan'))]),
-        col(FX.games, [h('li', {}, h('a', { href: 'https://bilohash.com/comiks/room_1/' }, ({ uk: '🎬 Кімната дієслів', en: '🎬 Verb room', no: '🎬 Verbrommet', ar: '🎬 غرفة الأفعال' })[ui] || '🎬 Verb room')), link('#/call', window.KomiksCall ? window.KomiksCall.text().title : '📞'), link('#/race', '🏁 ' + navT('race')), link('#/chess', '♟ ' + navT('chess')), link('#/math/rocket', '🚀 Math Rocket'), link('#/math/race', window.KomiksRocket ? window.KomiksRocket.text('with_class') : '👥 Math Rocket'), link('#/game', navT('game')), link('#/tests', navT('tests')), link('#/rating', navT('rating'))]),
-        OFFLINE ? null : col(FX.community, [link('#/friends', navT('friends')), link('#/players', FX.players), ...(u ? [link('#/player', '👤 ' + navT('account')), h('li', {}, h('a', { href: '#/', onclick: e => { e.preventDefault(); logoutAll(); } }, navT('logout')))] : [link('#/login', navT('login')), link('#/register', navT('register'))]), link('#/settings', navT('settings'))]),
-        col('ℹ️ ' + F.info, [window.KomiksFeedback ? h('li', {}, h('a', { href: '#', onclick: e => { e.preventDefault(); window.KomiksFeedback.open(); } }, window.KomiksFeedback ? '💌 ' + (({ uk: 'Відгук', en: 'Feedback', no: 'Tilbakemelding', ar: 'ملاحظات' })[ui] || 'Feedback') : '')) : null, link('#/help', navT('help')), link('#/whatsnew', FX.news), link('#/install', '📲 ' + ({ uk: 'Застосунок', en: 'Get the app', no: 'Få appen', ar: 'التطبيق' }[ui] || 'Get the app')), link('#/teacher', '🎓 ' + ({ uk: 'Для вчителів', en: 'For teachers', no: 'For lærere', ar: 'للمعلّمين' }[ui] || 'For teachers')), link('#/terms', navT('terms')), link('#/sitemap', '🗺️ Sitemap')], [h('h4', {}, F.langs), langBtns])),
-      h('div', { class: 'foot-bottom' }, h('span', {}, F.rights ? F.rights(new Date().getFullYear()) : ''), h('a', { class: 'made', href: 'https://bilohash.com/news/', target: '_blank', rel: 'noopener' }, F.made), h('span', { class: 'keys' }, F.keys)));
+        col('📚 ' + F.learn, [link('#/today', td('title')), link('#/write', window.KomiksWrite ? window.KomiksWrite.text('nav') : '✍️'), link('#/exam', window.KomiksExam ? window.KomiksExam.text('nav') : '🏁'), link('#/placement', window.KomiksPlacement ? window.KomiksPlacement.text('nav') : '🎯'), link('#/analysis', AN_T().title), link('#/', navT('comics')), link('#/words', navT('words')), link('#/grammar', navT('grammar')), link('#/english', navT('english')), link('#/math', navT('math')), window.KomiksKoding ? link('#/koding', '💻 ' + window.KomiksKoding.text('nav')) : null, link('#/alphabet', navT('alphabet')), link('#/numbers', navT('numbers')), link('#/cards', navT('cards')), link('#/pairs', window.KomiksPairs ? window.KomiksPairs.text('nav') : '🧠'), link('#/cross', window.KomiksCross ? window.KomiksCross.text('title') : '🧩'), link('#/plan', navT('plan'))]),
+        col(FX.games, [NO_EXTERNAL || !window.KomiksGames ? null : h('li', {}, h('a', { href: '#/games' }, window.KomiksGames.text('nav'))), OFFLINE ? null : h('li', {}, h('a', { href: 'https://bilohash.com/comiks/room_1/' }, ({ uk: '🎬 Кімната дієслів', en: '🎬 Verb room', no: '🎬 Verbrommet', ar: '🎬 غرفة الأفعال' })[ui] || '🎬 Verb room')), link('#/call', window.KomiksCall ? window.KomiksCall.text().title : '📞'), link('#/race', '🏁 ' + navT('race')), link('#/chess', '♟ ' + navT('chess')), link('#/math/rocket', '🚀 Math Rocket'), link('#/math/race', window.KomiksRocket ? window.KomiksRocket.text('with_class') : '👥 Math Rocket'), link('#/game', navT('game')), link('#/tests', navT('tests')), link('#/rating', navT('rating'))]),
+        OFFLINE ? null : col(FX.community, [link('#/friends', navT('friends')), link('#/players', FX.players), link('#/watch', '👨‍👩‍👧 ' + (({ uk: 'Батькам і вчителям', en: 'For parents & teachers', no: 'For foreldre og lærere', ar: 'للآباء والمعلمين', de: 'Für Eltern & Lehrkräfte', pl: 'Dla rodziców i nauczycieli', tr: 'Ebeveynler ve öğretmenler için', lt: 'Tėvams ir mokytojams' })[ui] || 'For parents & teachers')), ...(u ? [link('#/account', '👤 ' + navT('account')), h('li', {}, h('a', { href: '#/', onclick: e => { e.preventDefault(); logoutAll(); } }, navT('logout')))] : [link('#/login', navT('login')), link('#/register', navT('register'))]), link('#/settings', navT('settings'))]),
+        col('ℹ️ ' + F.info, [window.KomiksFeedback ? h('li', {}, h('a', { href: '#', onclick: e => { e.preventDefault(); window.KomiksFeedback.open(); } }, window.KomiksFeedback ? '💌 ' + (({ uk: 'Відгук', en: 'Feedback', no: 'Tilbakemelding', ar: 'ملاحظات' })[ui] || 'Feedback') : '')) : null, link('#/help', navT('help')), link('#/whatsnew', FX.news), OFFLINE ? null : link('#/stats', '📈 ' + (({ uk: 'Статистика', en: 'Statistics', no: 'Statistikk', ar: 'الإحصاءات', de: 'Statistik', pl: 'Statystyki', tr: 'İstatistikler', lt: 'Statistika' })[ui] || 'Statistics')), link('#/install', '📲 ' + ({ uk: 'Застосунок', en: 'Get the app', no: 'Få appen', ar: 'التطبيق' }[ui] || 'Get the app')), link('#/teacher', '🎓 ' + ({ uk: 'Для вчителів', en: 'For teachers', no: 'For lærere', ar: 'للمعلّمين' }[ui] || 'For teachers')), link('#/terms', navT('terms')), link('#/sitemap', '🗺️ Sitemap')], [h('h4', {}, F.langs), langBtns])),
+      h('div', { class: 'foot-bottom' }, h('span', {}, F.rights ? F.rights(new Date().getFullYear()) : ''), h('a', { class: 'made', href: 'https://bilohash.com/news/', target: '_blank', rel: 'noopener' }, F.made)));   // підказку про клавіші з футера прибрано на прохання — клавіші в читалці працюють
     if (window.KomiksExtras) window.KomiksExtras.qrPromo();
   }
   /* Прибираємо з верхнього меню те, чого в офлайні немає. Робимо це один раз
@@ -3029,18 +3633,33 @@
     $$('#mainNav a[data-k]').forEach(a => { if (ONLINE_ONLY.has(a.dataset.k)) a.remove(); });
     const acc = $('#accBtn'); if (acc) acc.remove();
   }
+  /* 🔎 Відкритий комікс — свій заголовок вкладки й опис мовою інтерфейсу (тема з data/seo.js:
+     «Основи HTML для дітей — Сайт про Пуса»). Поза коміксом syncChrome повертає загальні. */
+  function comicMeta(view, c) {
+    const S = window.KOMIKS_SEO;
+    if (!S || !c || (view !== 'read' && view !== 'quiz')) return;
+    const nm = ui === 'no' ? c.title : ui === 'uk' ? (c.titleUk || c.title) : (packFor(ui, c.titleEn) || c.titleEn || c.title);
+    const topic = S.topic(c, ui);
+    document.title = (topic ? (S.own(c) ? `${topic} — ${nm}` : `${nm} — ${topic}`) : nm) + ' | Komiks·Lab';
+    const md = $('meta[name="description"]');
+    if (md) md.setAttribute('content', `${topic ? topic[0].toUpperCase() + topic.slice(1) + ': ' : ''}${summaryOf(c)}`.slice(0, 160));
+  }
   function syncChrome() {
     document.documentElement.lang = ui === 'no' ? 'nb' : ui;
     // арабська — справа наліво + шрифт з арабськими літерами (підвантажується лише для неї)
     document.documentElement.dir = ui === 'ar' ? 'rtl' : 'ltr';
     ensureAr();
-    if (ui === 'ar' && !document.getElementById('font-ar')) { const l = document.createElement('link'); l.id = 'font-ar'; l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap'; document.head.append(l); }
+    /* Арабський шрифт тягнеться з мережі, тож в офлайн-збірці його не беремо:
+       там малює системний. Інакше застосунок, який обіцяє нікуди не ходити,
+       робив би запит до Google при першому ж перемиканні на арабську — і це
+       вже не дрібниця, а розбіжність із власною політикою приватності. */
+    if (!OFFLINE && ui === 'ar' && !document.getElementById('font-ar')) { const l = document.createElement('link'); l.id = 'font-ar'; l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap'; document.head.append(l); }
     const meta = tx('meta') || {};
     if (meta.title) document.title = meta.title;
     const md = $('meta[name="description"]'); if (md && meta.description) md.setAttribute('content', meta.description);
     document.body.classList.toggle('kids', settings.level === 'kids');
     const sel = $('#uiSel'); if (sel) sel.value = ui;
-    const sub = $('.logo-text small'); if (sub) sub.textContent = t('app_sub');
+    const sub = $('.logo-text small'); if (sub) { const ct = COURSE_SUB[ui] || COURSE_SUB.en; sub.textContent = ct[activeCourse()] || t('app_sub'); }
     const brand = tx('brand') || ['Комікс', '·Lab'];
     $$('.logo-text').forEach(el => { const b = $('b', el), i = $('i', el); if (b) b.textContent = brand[0]; if (i) i.textContent = brand[1]; });
     const vm = VOICE_MODES.find(x => x[0] === settings.voiceMode) || VOICE_MODES[0];
@@ -3049,7 +3668,7 @@
     const ab = $('#accBtn'); if (ab) { ab.replaceChildren(h('span', { class: 'acc-ico' }, u ? u.name.slice(0, 1).toUpperCase() : '👤'), h('span', { class: 'acc-name' }, u ? u.name : navT('login'))); ab.href = u ? '#/account' : '#/login'; if (u && window.KomiksProfile) window.KomiksProfile.refreshHeader(); }
     const hb = $('#helpBtn'); if (hb) hb.title = navT('help');
     const sb = $('#setBtn'); if (sb) sb.title = navT('settings');
-    $$('#mainNav a').forEach(a => { a.textContent = navT(a.dataset.k); a.classList.toggle('on', (location.hash || '#/').startsWith(a.getAttribute('href')) && a.getAttribute('href') !== '#/'); });
+    $$('#mainNav a').forEach(a => { a.textContent = a.dataset.k === 'search' ? (window.KomiksSearch ? window.KomiksSearch.text('title') : '🔍') : navT(a.dataset.k); a.classList.toggle('on', (location.hash || '#/').startsWith(a.getAttribute('href')) && a.getAttribute('href') !== '#/'); });
     renderFooter();
   }
   const topbar = () => document.querySelector('.topbar');
@@ -3061,21 +3680,16 @@
     no: { profile: '👤 Min profil', friends: '👥 Venner', msgs: '✉️ Meldinger', alerts: '🔔 Nytt fra venner', settings: '⚙️ Innstillinger', out: '🚪 Logg ut' },
     ar: { profile: '👤 ملفي', friends: '👥 الأصدقاء', msgs: '✉️ الرسائل', alerts: '🔔 جديد الأصدقاء', settings: '⚙️ الإعدادات', out: '🚪 خروج' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(NAV_ACC, 'app.js:NAV_ACC');
   const navAccT = k => (NAV_ACC[ui] || NAV_ACC.en)[k];
   function navAccBox() {
     const u = currentUser();
     if (!u) return null;
     const av = window.KomiksProfile ? window.KomiksProfile.avatar() : '🙂';
     const AVx = window.KomiksAvatars ? window.KomiksAvatars.el(av, { size: 48, mood: 'cheer' }) : document.createTextNode('🙂');
-    const row = (href, label, extra) => h('a', { class: 'nav-acc-row', href }, h('span', {}, label), extra || null);
     return h('div', { class: 'nav-acc' },
-      h('a', { class: 'nav-acc-me', href: '#/player' }, h('span', { class: 'nav-acc-ava' }, AVx),
-        h('div', {}, h('b', {}, u.name || ''), h('small', {}, navAccT('profile')))),
-      h('div', { class: 'nav-acc-list' },
-        row('#/friends', navAccT('friends')),
-        row('#/messages', navAccT('msgs')),
-        row('#/alerts', navAccT('alerts')),
-        row('#/settings', navAccT('settings'))));
+      h('a', { class: 'nav-acc-me', href: '#/account' }, h('span', { class: 'nav-acc-ava' }, AVx),
+        h('div', {}, h('b', {}, u.name || ''), h('small', {}, navAccT('profile')))));
   }
   function paintNavAcc(open) {
     const t = topbar(); if (!t) return;
@@ -3116,7 +3730,9 @@
   function route() {
     closeNav();
     if (!(location.hash || '').startsWith('#/quiz/')) quizFocus(false);
-    if (!(location.hash || '').startsWith('#/read/')) readFocus(false);
+    /* Читання — це і норвезький комікс, і історія з курсу англійської; обидва
+       лишаються в режимі одного екрана, доки з них не вийшли. */
+    if (!/^#\/(read|english)\/[^/]+\//.test(location.hash || '')) readFocus(false);
     if (window.KomiksGame) window.KomiksGame.onRoute((location.hash || '#/').split('/')[1] || '');
     if (window.KomiksPairs) window.KomiksPairs.onRoute((location.hash || '#/').split('/')[1] || '');
     stopAll(); hideWordTip(); keyHandler = null;
@@ -3124,6 +3740,8 @@
     if (!auto) autoplay = false;
     const parts = (location.hash || '#/').split('/');
     const [, view = '', id, arg] = parts;
+    const englishCourseRoute = view === 'english' || (view === 'quiz' && /^en(?:-|$)/.test(id || ''));
+    if (englishCourseRoute && settings.learnLang !== 'en') { settings.learnLang = 'en'; saveSettings(); }
     const c = COMICS.find(x => x.id === id);
     let el;
     if (!strictAllows(location.hash)) {                      // 🔒 строгий режим: лише поточний крок плану
@@ -3143,17 +3761,23 @@
     }
     else if (view === 'quiz' && id === 'alphabet') el = runQuiz({ key: 'alphabet', title: 'Alfabettest', qs: buildAlphabetQuiz(), reread: '#/alphabet', back: '#/alphabet' });
     else if (view === 'quiz' && id === 'grammar' && window.KomiksGrammar) { const G = window.KomiksGrammar; el = runQuiz({ key: arg ? 'grammar:' + arg : 'grammar', title: arg ? G.label(arg) : 'Grammatikk', qs: G.quiz(arg), reread: arg ? '#/grammar/' + arg : '#/grammar', back: '#/grammar' }); }
+    else if (view === 'search' && window.KomiksSearch) el = window.KomiksSearch.page(id, arg);
+    else if (view === 'koding' && window.KomiksKoding) el = id === 'spill' && window.KomiksKodeGame ? window.KomiksKodeGame.render(arg) : window.KomiksKoding.page(id);
+    else if (view === 'quiz' && id === 'koding' && window.KomiksKoding) el = runQuiz({ key: arg ? 'koding:' + arg : 'koding', title: '💻 ' + (arg ? window.KomiksKoding.title(arg) : 'Programmering'), qs: window.KomiksKoding.quiz(arg, kidsMode(), quizSize()), reread: '#/koding', back: '#/koding' });
     else if (view === 'quiz' && id === 'clock' && window.KomiksGrammar) el = runQuiz({ key: 'clock', title: 'Hva er klokka?', qs: window.KomiksGrammar.clock(quizSize(), settings.level === 'kids'), reread: '#/grammar/clock', back: '#/grammar' });
     else if (view === 'grammar' && window.KomiksGrammar) el = window.KomiksGrammar.render(id);
     else if (view === 'words' && window.KomiksWords) el = window.KomiksWords.render(id);
-    else if (view === 'english' && window.KomiksEnglish) el = id === 'words' ? window.KomiksEnglish.words(arg) : id ? window.KomiksEnglish.read(id, parseInt(arg, 10) || 0) : window.KomiksEnglish.render();
+    else if (view === 'english' && window.KomiksEnglish) el = id === 'alphabet' ? window.KomiksEnglish.alphabet() : id === 'words' ? window.KomiksEnglish.words(arg) : id === 'plan' && window.KomiksEnglish.plan ? window.KomiksEnglish.plan() : id ? window.KomiksEnglish.read(id, parseInt(arg, 10) || 0) : window.KomiksEnglish.render();
     else if (view === 'quiz' && id === 'en' && window.KomiksEnglish) el = window.KomiksEnglish.quiz(arg);
+    else if (view === 'quiz' && id === 'en-alphabet' && window.KomiksEnglish) el = window.KomiksEnglish.alphabetQuiz();
     else if (view === 'quiz' && id === 'en-words' && window.KomiksEnglish) el = window.KomiksEnglish.wordsQuiz(arg);
+    else if (view === 'quiz' && id === 'en-mistakes' && window.KomiksEnglish) el = window.KomiksEnglish.missQuiz();
     else if (view === 'race' && window.KomiksRace) el = window.KomiksRace.render(id, arg);
     else if (view === 'chess' && window.KomiksChess) el = window.KomiksChess.render(id, arg);
     else if ((view === 'messages' || view === 'privacy') && window.KomiksMessages) el = window.KomiksMessages.render(view, id);
     else if (view === 'whatsnew' && window.KomiksNews) el = window.KomiksNews.render();
     else if (view === 'cross' && window.KomiksCross) el = window.KomiksCross.render(id);
+    else if (view === 'games' && window.KomiksGames) el = window.KomiksGames.render(id);
     else if (view === 'install' && window.KomiksInstall) el = window.KomiksInstall.page();
     else if (view === 'premium' && window.KomiksPremium) el = window.KomiksPremium.render(id);
     else if (view === 'analysis') el = renderAnalysis();
@@ -3174,7 +3798,7 @@
       el = runQuiz({ key: `exam:${E.level()}:${n}`, title: E.text(n === '1' ? 'p1' : 'p2'), qs: E.questions(n), back: '#/exam' });
     }
     else if (view === 'quiz' && id === 'mistakes') { const qs = buildMistakeQuiz(); el = qs.length ? runQuiz({ key: 'mistakes', title: AN_T().short, qs, back: '#/analysis' }) : renderAnalysis(); }
-    else if (view === 'quiz' && c) el = runQuiz({ key: c.id, title: c.title, qs: buildComicQuiz(c), reread: `#/read/${c.id}/0` });
+    else if (view === 'quiz' && c) el = runQuiz({ key: c.id, title: c.title, qs: buildComicQuiz(c, true), reread: `#/read/${c.id}/0`, back: c.category === 'koding' ? '#/koding' : undefined });
     else if (view === 'cards') el = renderCards(id);
     else if (view === 'pairs' && window.KomiksPairs) el = window.KomiksPairs.render(id, arg);
     else if (view === 'pairs' && c) el = renderPairs(c);
@@ -3185,7 +3809,7 @@
     else if (view === 'plan' && id === 'settings') el = renderPlanSettings();
     else if (view === 'plan') el = renderPlan();
     else if (view === 'account' && id === 'plan') el = renderPlanSettings(); // старе посилання
-    else if (view === 'account') el = renderAccount();
+    else if (view === 'account') el = renderAccount(id);
     else if (view === 'player' && window.KomiksPlayers) el = window.KomiksPlayers.render(id, arg);
     else if (view === 'players' && window.KomiksPlayers) el = window.KomiksPlayers.list(id === 'tag' ? arg : '');
     else if (view === 'friends' && window.KomiksFriends) el = window.KomiksFriends.render(id, arg);
@@ -3196,12 +3820,15 @@
     else if (view === 'settings') el = renderSettings();
     else if (view === 'help') el = window.KomiksExtras ? window.KomiksExtras.renderHelp() : renderHelp();
     else if (view === 'rating' && window.KomiksExtras) el = window.KomiksExtras.renderRating();
+    else if (view === 'stats') el = renderStats();
+    else if (view === 'watch' && window.KomiksWatch) el = window.KomiksWatch.render(id);
     else if (view === 'sitemap' && window.KomiksExtras) el = window.KomiksExtras.renderSitemap();
     else if (view === 'terms') el = renderTerms();
     else if ((view === 'game' || view === 'join') && window.KomiksGame) el = window.KomiksGame.render(view, id);
     else el = renderHome();
     app.replaceChildren(el);
     syncChrome();
+    comicMeta(view, c);
     if (!auto) window.scrollTo({ top: 0 });
 
   }
@@ -3234,13 +3861,26 @@
     h, $, $$, sleep, clamp, range, pick, shuffle, sample, uniq, svgEl, norm, ch, stars,
     t, tx, navT, withTr, qtr, both, panelView, pageHead, catLabel, Speech, Sfx, confetti, claim, cheer, stopAll, wordSpans, hoverWords, lookup,
     COMICS, CH, B, ART, QNO, NO, LANGS, raw, store, bump,
-    get ui() { return ui; }, get settings() { return settings; }, setCheerVoice, arFor, currentUser, setSession, copyGuestProgressTo,
+    /* Сторонні ігри живуть на сайті, але не в збірці для крамниці — див. NATIVE. */
+    OFFLINE, NATIVE, NO_EXTERNAL, GAMES: window.KOMIKS_GAMES || [],
+    get ui() { return ui; }, get settings() { return settings; }, learnSwitch, setCheerVoice, arFor, currentUser, setSession, copyGuestProgressTo,
     buildComicQuiz, buildLevelQuiz, buildAlphabetQuiz, buildNumbersQuiz, comicQuestions, recordQuiz, route,
     practice, canRecord: () => !!Rec.Ctor,
     // спільна пам'ять акаунта — щоб ігри й тести рахували «знаю / не знаю» разом
-    allVocab, exampleFor, gradeWord, trLangs, trLang, FLAG,
+    allVocab, exampleFor, gradeWord, trLangs, trLang, trText, packFor, locale, FLAG,
+    /* Режим одного екрана для читання й тесту. Курс англійської малює свої
+       сторінки сам, але вигляд на телефоні має бути той самий, тож перемикачі
+       віддаємо назовні, а не копіюємо правила в інший файл. */
+    readFocus, quizFocus, autoNext,
+    tourIfNew, showTour,
+    /* Чи прийняті чинні умови у вікні привітання — потрібно входу через Google:
+       новий акаунт створюємо лише з цією згодою. */
+    hasConsent,
+    /* Ліміт для гостя — один тест на весь сайт, а не один на кожен розділ:
+       тести курсу англійської мусять рахуватися разом із норвезькими. */
+    quizGate, guestCount, quizLeftNote,
     cards: { get: () => store.get('cards', {}), set: v => store.set('cards', v), boxDays: BOX_DAYS, day: DAY },
-    errs: { list: errList, forget: errForget, add: errWord },
+    errs: { list: errList, forget: errForget, add: errWord, resolve: errResolve, reviewed: errReviewed, due: errDue },
     day: { log: dayLog, mark: markDay }
   };
 

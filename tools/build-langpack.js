@@ -9,7 +9,12 @@ const fs = require('fs'), path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const SRC = path.join(__dirname, 'lang');
-const NAMES = { de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių' };
+const NAMES = { de: 'Deutsch', pl: 'Polski', tr: 'Türkçe', lt: 'Lietuvių', ar: 'العربية' };
+/* Арабська старша за решту мов і живе в окремому файлі під власною назвою:
+   застосунок вантажить її як AR_EN, а не як TR_PACK.ar. Переписувати застосунок
+   заради однаковості не варто — дешевше описати виняток тут. */
+const OUT = { ar: { file: 'data/arabic.js', assign: 'window.AR_EN = ' } };
+const out1 = l => OUT[l] || { file: `data/lang-${l}.js`, assign: `window.TR_PACK.${l} = ` };
 
 const want = process.argv.slice(2).filter(x => !x.startsWith('-'));
 const langs = (want.length ? want : Object.keys(NAMES)).filter(l => fs.existsSync(path.join(SRC, l)));
@@ -29,11 +34,12 @@ for (const lang of langs) {
       if (en && tr) map[en] = tr;
     }
   }
+  const o = out1(lang);
   const out = `/* ${NAMES[lang] || lang} — переклади для підказок: англійський рядок → переклад.\n`
     + `   Збирається з tools/lang/${lang}/*.tsv (node tools/build-langpack.js ${lang}).\n`
     + '   Вантажиться лише тоді, коли учень обрав цю мову перекладу. */\n'
-    + 'window.TR_PACK = window.TR_PACK || {};\n'
-    + `window.TR_PACK.${lang} = ` + JSON.stringify(map, null, 0).replace(/","/g, '",\n"') + ';\n';
-  fs.writeFileSync(path.join(ROOT, 'data', `lang-${lang}.js`), out, 'utf8');
-  console.log(`🌍 data/lang-${lang}.js · рядків у словнику: ${Object.keys(map).length} (прочитано ${lines})`);
+    + (OUT[lang] ? '' : 'window.TR_PACK = window.TR_PACK || {};\n')
+    + o.assign + JSON.stringify(map, null, 0).replace(/","/g, '",\n"') + ';\n';
+  fs.writeFileSync(path.join(ROOT, o.file), out, 'utf8');
+  console.log(`🌍 ${o.file} · рядків у словнику: ${Object.keys(map).length} (прочитано ${lines})`);
 }

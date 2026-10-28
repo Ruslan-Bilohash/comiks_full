@@ -1,0 +1,230 @@
+What is coding?	Kas yra programavimas?
+The school has a robot called Robo. He only follows exact commands, and the children learn that a program is commands in the right order.	Mokykla turi robotą Robo. Jis vykdo tik tikslias komandas, o vaikai sužino, kad programa – tai komandos teisinga tvarka.
+Look, Nora! The school has got a robot.	Žiūrėk, Nora! Mokykla gavo robotą.
+Hi, robot! What is your name?	Labas, robote! Kuo tu vardu?
+Hi! My name is Robo. I do what you tell me.	Labas! Mano vardas Robo. Darau tai, ką man liepiate.
+Robo only understands commands. We call that programming.	Robo supranta tik komandas. Tai vadiname programavimu.
+What is a command?	Kas yra komanda?
+A command is a short instruction, for example “walk” or “turn”.	Komanda – tai trumpas nurodymas, pavyzdžiui, „eik“ arba „pasisuk“.
+Robo, take two steps forward!	Robo, žengk du žingsnius į priekį!
+Walking. One, two. Done!	Einu. Vienas, du. Baigta!
+Robo, make me a pizza!	Robo, padaryk man picą!
+Error! I do not know the command “pizza”.	Klaida! Nežinau komandos „pica“.
+A program is many commands in the right order.	Programa – tai daug komandų teisinga tvarka.
+So we have to think step by step!	Vadinasi, turime galvoti žingsnis po žingsnio!
+I want to learn to code!	Noriu išmokti programuoti!
+And I want to learn to make pizza.	O aš noriu išmokti kepti picą.
+a robot	robotas
+programming, coding	programavimas
+to code	programuoti
+a command	komanda
+a program	programa
+a message, an instruction	žinutė, nurodymas
+to understand	suprasti
+forward	į priekį
+to turn	pasisukti
+done, finished	baigta
+error; wrong	klaida; neteisingai
+to know	žinoti
+an order, a sequence	tvarka, seka
+right, correct	teisingas
+step by step	žingsnis po žingsnio
+The sandwich algorithm	Sumuštinio algoritmas
+Leo teaches Robo the robot to make a sandwich. Robo does everything literally, so Leo learns that an algorithm must be exact and in the right order.	Leo moko robotą Robo pasigaminti sumuštinį. Robo viską daro pažodžiui, todėl Leo sužino, kad algoritmas turi būti tikslus ir teisinga tvarka.
+Dad, I am going to teach Robo to make a sandwich.	Tėti, išmokysiu Robo pasigaminti sumuštinį.
+Then you need an algorithm.	Tada tau reikia algoritmo.
+What is an algorithm?	Kas yra algoritmas?
+An algorithm is like a recipe: step by step, in the right order.	Algoritmas – kaip receptas: žingsnis po žingsnio, teisinga tvarka.
+Step one: Take the bread. Step two: Put on butter.	Pirmas žingsnis: paimk duoną. Antras žingsnis: patepk sviestu.
+Butter on … the table? Done!	Sviestas ant… stalo? Atlikta!
+Ha ha! You have to say exactly what Robo should do.	Cha cha! Turi tiksliai pasakyti, ką Robo turi daryti.
+New step two: Put butter on the slice of bread!	Naujas antras žingsnis: patepk duonos riekę sviestu!
+Step three: Put on cheese. Step four: Give the sandwich to Leo.	Trečias žingsnis: uždėk sūrio. Ketvirtas žingsnis: duok sumuštinį Leo.
+Done! Here you are.	Atlikta! Prašom.
+Mmm! The algorithm works!	Mmm! Algoritmas veikia!
+And remember: the order is important. First butter, then cheese.	Ir atsimink: tvarka svarbi. Pirma sviestas, paskui sūris.
+an algorithm	algoritmas
+a slice of bread, a sandwich	duonos riekė, sumuštinis
+a cheese	sūris
+to put on	uždėti
+done, carried out	atlikta
+important	svarbus
+then	paskui
+Repeat! Robo dances	Kartok! Robo šoka
+Nora wants Robo to dance, but there are too many commands. The teacher shows a loop: “repeat 4 times” — and the program becomes short.	Nora nori, kad Robo šoktų, bet komandų per daug. Mokytoja parodo ciklą: „kartok 4 kartus“ – ir programa tampa trumpa.
+Robo, jump! Clap! Jump! Clap! Jump! Clap!	Robo, šok! Suplok! Šok! Suplok! Šok! Suplok!
+Jump. Clap. Jump. Clap …	Šuolis. Pliaukš. Šuolis. Pliaukš…
+Phew, that is a lot to write.	Uf, tiek daug rašyti.
+Use a loop! A loop repeats commands.	Naudok ciklą! Ciklas kartoja komandas.
+Write: repeat four times: jump and clap.	Rašyk: kartok keturis kartus: šuolis ir pliaukštelėjimas.
+So short!	Kaip trumpai!
+Jump, clap! Jump, clap! Jump, clap! Jump, clap!	Šuolis, pliaukš! Šuolis, pliaukš! Šuolis, pliaukš! Šuolis, pliaukš!
+Robo is dancing!	Robo šoka!
+Can we repeat it a hundred times?	Ar galime pakartoti šimtą kartų?
+Yes. Computers never get tired.	Taip. Kompiuteriai niekada nepavargsta.
+But Robo is getting dizzy …	Bet Robo apsvaigsta…
+Ha ha! We are stopping the loop now.	Cha cha! Dabar sustabdome ciklą.
+a loop	ciklas
+to jump	šokinėti
+to clap	ploti
+a lot	daug
+to use	naudoti
+four times	keturis kartus
+a hundred	šimtas
+to stop	sustabdyti
+If it rains …	Jei lyja…
+Robo does not know when to take an umbrella. Leo and Mum write him a rule: if it rains — an umbrella, otherwise — sunglasses.	Robo nežino, kada pasiimti skėtį. Leo ir mama parašo jam taisyklę: jei lyja – skėtis, kitaip – akiniai nuo saulės.
+Robo, we are going out. Bring an umbrella.	Robo, einame į lauką. Pasiimk skėtį.
+Why? The sun is shining.	Kodėl? Šviečia saulė.
+You are right, Robo. We need a rule.	Tu teisus, Robo. Mums reikia taisyklės.
+If it rains, we take an umbrella.	Jei lyja, imame skėtį.
+If it rains, then we take an umbrella. Otherwise we take sunglasses.	Jei lyja, tada imame skėtį. Kitaip imame akinius nuo saulės.
+If … then … otherwise. Understood!	Jei… tai… kitaip. Supratau!
+It is raining. I am taking the umbrella.	Lyja. Imu skėtį.
+Good, Robo!	Šaunu, Robo!
+Now the sun is shining. I am taking sunglasses.	Dabar šviečia saulė. Imu akinius nuo saulės.
+Robo thinks like a computer.	Robo galvoja kaip kompiuteris.
+If I tidy my room, then I get ice cream?	Jei susitvarkysiu kambarį, gausiu ledų?
+Yes! That is a good rule.	Taip! Tai gera taisyklė.
+otherwise, else	kitaip
+an umbrella	skėtis
+sunglasses	akiniai nuo saulės
+the sun is shining	šviečia saulė
+to go out	išeiti į lauką
+to bring	pasiimti
+to be right	būti teisiam
+understood	supratau
+to think	galvoti
+Points in the box	Taškai dėžutėje
+Nora and Leo make a game: a cat catches fish and gets points. The teacher explains a variable — a box with a name where the computer keeps a number.	Nora ir Leo kuria žaidimą: katė gaudo žuvis ir gauna taškų. Mokytoja paaiškina kintamąjį – dėžutę su pavadinimu, kurioje kompiuteris laiko skaičių.
+We are making a game! Every time the cat catches a fish, we get a point.	Kuriame žaidimą! Kiekvieną kartą, kai katė pagauna žuvį, gauname tašką.
+But where will the computer remember the points?	Bet kur kompiuteris atsimins taškus?
+In a variable. A variable is like a box with a name.	Kintamajame. Kintamasis – kaip dėžutė su pavadinimu.
+The box is called “points”. Right now there is zero in the box.	Dėžutė vadinasi „taškai“. Dabar joje nulis.
+The cat catches a fish!	Katė pagauna žuvį!
+Then we write: points equals points plus one.	Tada rašome: taškai lygu taškai plius vienas.
+Points is one. Points is two. Points is three!	Taškai – vienas. Taškai – du. Taškai – trys!
+The value in the box changes!	Reikšmė dėžutėje keičiasi!
+Can we have more boxes?	Ar galime turėti daugiau dėžučių?
+Yes. Name, lives and speed … A game has many variables.	Taip. Vardas, gyvybės ir greitis… Žaidimas turi daug kintamųjų.
+We have ten points! We won!	Turime dešimt taškų! Laimėjome!
+The variable “joy” is now a hundred.	Kintamasis „džiaugsmas“ dabar lygus šimtui.
+a point	taškas
+a variable	kintamasis
+a box	dėžutė
+a name	vardas, pavadinimas
+a value	reikšmė
+to catch	gaudyti
+every time	kiekvieną kartą
+zero	nulis
+a life	gyvybė
+a speed	greitis
+to win	laimėti
+a joy	džiaugsmas
+to keep, to take care of	laikyti, rūpintis
+Find the bug!	Rask klaidą!
+Robo has to reach the star but walks into a wall. The children read the program line by line, find the bug and fix it.	Robo turi nueiti iki žvaigždės, bet atsitrenkia į sieną. Vaikai skaito programą eilutė po eilutės, randa klaidą ir ją ištaiso.
+Robo has to walk to the star. I have written the program.	Robo turi nueiti iki žvaigždės. Parašiau programą.
+I am starting the program now.	Dabar paleidžiu programą.
+Ouch! I walked straight into the wall.	Ai! Nuėjau tiesiai į sieną.
+Oops! The program has a bug.	Oi! Programoje yra klaida.
+We call an error in a program a bug.	Programos klaidą vadiname bugu.
+Finding and fixing the error is called debugging.	Klaidos paieška ir taisymas vadinamas derinimu.
+We read the program line by line: forward, forward, right …	Skaitome programą eilutė po eilutės: pirmyn, pirmyn, dešinėn…
+There! It should say left, not right.	Štai! Turi būti kairėn, ne dešinėn.
+Now I will fix the bug and try again.	Dabar ištaisysiu klaidą ir bandysiu dar kartą.
+I am at the star! The program works.	Aš prie žvaigždės! Programa veikia.
+All programmers make mistakes. The important thing is to try again.	Visi programuotojai klysta. Svarbiausia – bandyti dar kartą.
+Mistakes are part of learning!	Klaidos yra mokymosi dalis!
+to start	paleisti, pradėti
+straight into	tiesiai į
+a mistake, an error	klaida
+a bug	bugas, programos klaida
+debugging	derinimas, klaidų paieška
+to fix, to correct	taisyti
+right	dešinėn
+to try again	bandyti dar kartą
+learning	mokymasis
+a part of	dalis
+Which language?	Kuri kalba?
+Leo asks Robo which language he speaks. The teacher explains programming languages: Scratch, Python, JavaScript, HTML and CSS, Swift, Kotlin and C#.	Leo klausia Robo, kokia kalba jis kalba. Mokytoja paaiškina programavimo kalbas: Scratch, Python, JavaScript, HTML ir CSS, Swift, Kotlin ir C#.
+Robo, which language do you speak? Norwegian?	Robo, kokia kalba kalbi? Norvegiškai?
+I understand programming languages. There are many!	Suprantu programavimo kalbas. Jų yra daug!
+Children often start with Scratch. There we move colourful blocks.	Vaikai dažnai pradeda nuo Scratch. Ten stumdome spalvotus blokus.
+It looks like Lego!	Atrodo kaip Lego!
+Python is easy to read. It is used for games, data and artificial intelligence.	Python lengva skaityti. Jis naudojamas žaidimams, duomenims ir dirbtiniam intelektui.
+Artificial intelligence? Like Robo?	Dirbtinis intelektas? Kaip Robo?
+HTML builds web pages, and CSS makes them pretty. JavaScript makes them move.	HTML kuria tinklalapius, o CSS juos padaro gražius. JavaScript juos pajudina.
+So the school website is made with them?	Vadinasi, mokyklos svetainė padaryta su jomis?
+We make iPhone apps with Swift, and Android apps with Kotlin.	iPhone programėles kuriame su Swift, o Android – su Kotlin.
+And games?	O žaidimai?
+Many games are made with C#.	Daug žaidimų kuriama su C#.
+Which language should I learn first?	Kurią kalbą man mokytis pirmiausia?
+Start with Scratch or Python. The most important thing is to think logically.	Pradėk nuo Scratch arba Python. Svarbiausia – mąstyti logiškai.
+a programming language	programavimo kalba
+to exist	egzistuoti, būti
+colourful	spalvingas
+a block	blokas
+simple, easy	paprastas, lengvas
+artificial intelligence	dirbtinis intelektas
+data	duomenys
+a web page, a website	tinklalapis, svetainė
+logically	logiškai
+the most important thing	svarbiausia
+A model of the school	Mokyklos modelis
+The class makes a model of the schoolyard. The children learn that a model is a simple copy, that things in a program have properties, and that you draw the plan before the code.	Klasė kuria mokyklos kiemo modelį. Vaikai sužino, kad modelis – paprasta kopija, kad daiktai programoje turi savybių ir kad planą piešiame prieš kodą.
+Today we are making a model of the schoolyard.	Šiandien kuriame mokyklos kiemo modelį.
+What is a model?	Kas yra modelis?
+A model is a simple copy of something real. A map is a model too.	Modelis – tai paprasta kažko tikro kopija. Žemėlapis irgi yra modelis.
+Like the map in a game!	Kaip žemėlapis žaidime!
+We only draw the important things: the school, the gate and the football pitch.	Piešiame tik tai, kas svarbu: mokyklą, vartus ir futbolo aikštę.
+We do not need to draw every single leaf.	Nereikia piešti kiekvieno lapelio.
+In a program we describe things with properties. A ball has a colour, a size and a speed.	Programoje daiktus aprašome savybėmis. Kamuolys turi spalvą, dydį ir greitį.
+So the ball is white and fast!	Vadinasi, kamuolys baltas ir greitas!
+And a flowchart shows what happens, step by step.	O blokinė schema rodo, kas vyksta, žingsnis po žingsnio.
+First we draw the plan, then we write the code.	Pirmiausia piešiame planą, paskui rašome kodą.
+I have made a model of Leo: hungry, happy and likes football.	Padariau Leo modelį: alkanas, linksmas ir mėgsta futbolą.
+Ha ha! That is right!	Cha cha! Tiesa!
+a model	modelis
+a schoolyard	mokyklos kiemas
+a copy	kopija
+to draw	piešti
+a gate	vartai
+a football pitch	futbolo aikštė
+a leaf	lapas
+to describe	aprašyti
+a property	savybė
+a colour	spalva
+a flowchart	blokinė schema
+a plan	planas
+a code	kodas
+that is right	tiesa
+A website for Pus: HTML basics	Svetainė Pusui: HTML pagrindai
+Nora and Leo make a website about Pus the cat. Robo explains HTML: tags in angle brackets, a heading <h1>, a paragraph <p>, an image <img> and a link <a>.	Nora ir Leo kuria svetainę apie katiną Pusą. Robo paaiškina HTML: žymes kampiniuose skliaustuose, antraštę <h1>, pastraipą <p>, paveikslėlį <img> ir nuorodą <a>.
+I want to make a website about our cat, Pus!	Noriu sukurti svetainę apie mūsų katiną Pusą!
+Then we need HTML.	Tada mums reikia HTML.
+HTML builds web pages. It is made of tags.	HTML kuria tinklalapius. Jis sudarytas iš žymių.
+What is a tag?	Kas yra žymė?
+A tag is a short word in angle brackets, for example p.	Žymė – tai trumpas žodis kampiniuose skliaustuose, pavyzdžiui, p.
+Most tags have a start and an end. The end tag has a slash.	Dauguma žymių turi pradžią ir pabaigą. Uždaromoji žymė turi pasvirąjį brūkšnį.
+Like a sandwich!	Kaip sumuštinis!
+I write h1 and “Pus”. It becomes a big heading!	Rašau h1 ir „Pus“. Gaunasi didelė antraštė!
+Yes. h1 means heading number one.	Taip. h1 reiškia pirmo lygio antraštę.
+With p we make a paragraph, and with img we show a picture.	Su p kuriame pastraipą, o su img rodome paveikslėlį.
+Look, a picture of Pus!	Žiūrėk, Puso nuotrauka!
+Finally a link. The a tag takes us to another page.	Galiausiai nuoroda. Žymė a nuveda į kitą puslapį.
+The website is ready! Next time we will make it pretty with CSS.	Svetainė paruošta! Kitą kartą ją pagražinsime su CSS.
+a website, a web page	svetainė, tinklalapis
+HTML — the language of web pages	HTML – tinklalapių kalba
+a tag	žymė
+angle brackets < >	kampiniai skliaustai < >
+to consist of	susidaryti iš
+a start	pradžia
+an end	pabaiga
+an end tag	uždaromoji žymė
+a slash /	pasvirasis brūkšnys /
+a heading	antraštė
+a paragraph	pastraipa
+a picture, an image	paveikslėlis, nuotrauka
+to show	rodyti
+next time	kitą kartą

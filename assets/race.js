@@ -49,6 +49,7 @@
       trip: 'Oi! Du snublet …', streak: n => `🔥 ${n} på rad`, done_wait: '🏁 I mål! Venter på de andre …', your_pos: (r, n) => `Du er nr. ${r} av ${n}`, bots: ['Robo', 'Botto', 'Pixel'], local_warn: '⚠️ Siden er åpnet fra en fil.'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'race.js:TX');
   TX.ar = {
     title: '🏁 سباق المنطق', sub: 'يظهر على الشاشة لغز وأربع إجابات. إن اخترت الصحيحة يتقدّم بطلك خطوة، وإن أخطأت تتعثّر ثانية ونصفًا. من يصل إلى خط النهاية أولًا يفوز.',
     class_btn: '📺 سباق مع الصف', class_d: 'المضمار على الشاشة الكبيرة، والتلاميذ يجيبون على هواتفهم', bots_btn: '🤖 سباق ضد الروبوتات', bots_d: 'العب وحدك ضد ثلاثة منافسين',
@@ -66,6 +67,13 @@
   const MOD = { uk: ['🏁', 'Логік-гонка', 'аватари мчать наввипередки за логіку'], en: ['🏁', 'Logic Race', 'avatars race each other on logic'], no: ['🏁', 'Logikkløpet', 'avatarer kappløper med logikk'], ar: ['🏁', 'سباق المنطق', 'شخصيات تتسابق بالمنطق'] };
   if (window.I18N) for (const l of ['uk', 'en', 'no']) { const I = window.I18N[l]; if (!I) continue; I.nav = Object.assign({}, I.nav, { race: MOD[l][1] }); I.modules = Object.assign({}, I.modules, { race: MOD[l] }); }
   const C = () => window.KomiksCore;
+  const L = () => window.KomiksLogic;
+  const gameMode = value => L() ? L().mode(value) : 'mixed';
+  const savedMode = () => gameMode(C().store.get('raceMode', 'mixed'));
+  const modeTitle = value => L() ? L().title(value) : tx('title');
+  const modeRoute = value => value && value !== 'mixed' ? '#/race/' + value : '#/race';
+  const safeLevel = value => ['easy', 'medium', 'hard', 'expert'].includes(value) ? value : 'easy';
+  const ageHint = (level, mode) => mode !== 'mixed' && L() ? L().text('ages')[LEVELS.indexOf(safeLevel(level))] : tx('lvd')[safeLevel(level)];
   const tx = (k, ...a) => { const t = TX[C().ui] || TX.en || TX.uk; const v = k in t ? t[k] : (TX.en || TX.uk)[k]; return typeof v === 'function' ? v(...a) : v; };
   const AV = (code, o) => (window.KomiksAvatars ? window.KomiksAvatars.el(code, o) : document.createTextNode(code));
   const SITE = 'https://bilohash.com/comiks/', PREFIX = 'komiks-lab-race-', CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -313,15 +321,20 @@
   }
 
   /* ================= гра на телефоні (з кімнатою або ботами) ================= */
-  function playerGame(S, { seed, level, onProgress, onFinish, standings }) {
+  function playerGame(S, { seed, level, mode = 'mixed', onProgress, onFinish, standings }) {
     const K = C(), { h } = K;
     const rand = mulberry32(seed);
-    const G = { step: 0, correct: 0, wrong: 0, streak: 0, done: false, t0: Date.now(), lock: false, chest: false };
+    const G = { step: 0, correct: 0, wrong: 0, streak: 0, done: false, t0: Date.now(), lock: false, chest: false, stopped: false };
+    if (S.game) S.game.stop();
+    S.game = G;
+    G.stop = () => { G.stopped = true; G.lock = true; };
+    const later = (fn, delay) => S.later(() => { if (!G.stopped) fn(); }, delay);
     const top = h('div', { class: 'lr-me-top' });
     const mini = h('div', { class: 'lr-mini' });
     const area = h('div', { class: 'lr-area' });
-    S.ui.replaceChildren(h('div', { class: 'lr-phone' }, top, mini, area));
+    S.ui.replaceChildren(h('div', { class: 'lr-phone' }, h('p', { class: 'lg-active' }, modeTitle(mode)), top, mini, area));
     const drawTop = () => {
+      if (G.stopped) return;
       const pos = standings && standings();
       top.replaceChildren(...[AV(myAvatar(), { size: 46, mood: G.done ? 'cheer' : 'idle' }),
         h('div', { class: 'lr-bar' }, h('i', { style: { width: (G.step / STEPS * 100) + '%' } })),
@@ -329,27 +342,16 @@
       if (pos && pos.runners) mini.replaceChildren(track(pos.runners, { big: false }));
     };
     let prevType = null, firstShown = false;
-    // короткий відлік, щоб гонка починалася як гонка, а не зненацька
-    function countdown(then) {
-      const box = h('div', { class: 'lr-count3' }, h('b', {}, '3'), h('small', {}, tx('ready')));
-      area.replaceChildren(box);
-      let n = 3;
-      const t = setInterval(() => {
-        n--;
-        if (n > 0) { box.querySelector('b').textContent = String(n); K.Sfx.tick(); return; }
-        clearInterval(t);
-        box.querySelector('b').textContent = tx('go_now');
-        box.classList.add('go');
-        K.Sfx.good();
-        setTimeout(then, 500);
-      }, 700);
-    }
     const next = () => {
-      if (G.done) return;
-      const q = makeQ(rand, level, prevType);
+      if (G.done || G.stopped || (S.endsAt && Date.now() >= S.endsAt)) return;
+      G.lock = false;
+      const q = (mode !== 'mixed' && L() ? L().makeQ(mode, rand, level) : null) || makeQ(rand, level, prevType);
       prevType = q.type;
-      const card = questionCard(q, (o, btn) => {
-        if (G.lock || G.done) return;
+      const onAnswer = (o, btn) => {
+        if (G.lock || G.done || G.stopped || (S.endsAt && Date.now() >= S.endsAt)) return;
+        G.lock = true;
+        card.querySelectorAll('button').forEach(b => { b.disabled = true; });
+        if (card.showFeedback) card.showFeedback(o === q.answer);
         if (o === q.answer) {
           G.step++; G.correct++; G.streak++; btn.classList.add('good'); K.Sfx.good();
           const plus = h('span', { class: 'lr-plus' }, tx('plus'));   // видно, що крок зараховано
@@ -357,23 +359,24 @@
           if (G.step >= STEPS) { G.done = true; G.time = Date.now() - G.t0; }
           onProgress && onProgress(G, true);
           drawTop();
-          if (G.streak === 5 && !G.chest && window.KomiksProfile) { G.chest = true; setTimeout(() => window.KomiksProfile.rewardModal(0.6), 300); }
-          if (G.done) { onFinish && onFinish(G); return; }
-          setTimeout(next, 250);
+          if (G.streak === 5 && !G.chest && window.KomiksProfile) { G.chest = true; later(() => window.KomiksProfile.rewardModal(0.6), 300); }
+          if (G.done) { later(() => { onFinish && onFinish(G); }, mode === 'mixed' ? 0 : 1100); return; }
+          later(next, mode === 'mixed' ? 250 : 1100);
         } else {
           G.wrong++; G.streak = 0; G.lock = true; btn.classList.add('bad'); K.Sfx.bad();
           onProgress && onProgress(G, false);
           area.classList.add('trip'); const note = h('div', { class: 'lr-trip' }, tx('trip')); area.append(note);
-          setTimeout(() => { G.lock = false; area.classList.remove('trip'); next(); }, TRIP);
+          later(() => { G.lock = false; area.classList.remove('trip'); next(); }, mode === 'mixed' ? TRIP : 1900);
           drawTop();
         }
-      });
+      };
+      const card = mode !== 'mixed' && L() ? L().card(q, onAnswer, later) : questionCard(q, onAnswer);
       // один рядок правил — лише перед першим питанням, далі не заважає
-      if (!firstShown) { firstShown = true; card.prepend(h('p', { class: 'lr-rules1' }, tx('rules_one'))); }
+      if (!firstShown) { firstShown = true; card.prepend(h('p', { class: 'lr-rules1' }, mode === 'mixed' ? tx('rules_one') : L().text(mode + 'Help'))); }
       area.replaceChildren(card);
     };
     drawTop();
-    countdown(next);
+    next();
     G.redraw = drawTop;
     return G;
   }
@@ -386,35 +389,42 @@
     root.append(h('div', { class: 'lr-sky', 'aria-hidden': 'true' }, h('i'), h('i'), h('i')), ui);
     document.body.classList.add('in-rocket');
     if (window.KomiksMusic) { root.append(window.KomiksMusic.button('lr-music')); window.KomiksMusic.bind(root, 'lobby'); }
-    const S = { root, ui, timers: [] };
+    const S = { root, ui, timers: [], alive: true };
+    S.later = (fn, delay) => { const t = setTimeout(() => { if (S.alive && root.isConnected) fn(); }, delay); S.timers.push(t); return t; };
     // вихід з гри — завжди під рукою (на телефоні інших кнопок сайту не видно)
     if (cls) root.append(h('a', { class: 'cz-exit lr-exit', href: '#/race', title: '✕', 'aria-label': 'Exit', onclick: () => endSession() }, '✕'));
-    const watch = setInterval(() => { if (!root.isConnected) { clearInterval(watch); if (!document.querySelector('section.lr')) document.body.classList.remove('in-rocket'); S.timers.forEach(t => clearInterval(t)); if (S.onLeave) S.onLeave(); } }, 500);
+    const watch = setInterval(() => { if (!root.isConnected) { S.alive = false; clearInterval(watch); if (S.game) S.game.stop(); if (!document.querySelector('section.lr')) document.body.classList.remove('in-rocket'); S.timers.forEach(t => clearInterval(t)); if (S.onLeave) S.onLeave(); } }, 500);
     return S;
   }
-  function menu() {
+  function menu(chosen) {
     const K = C(), { h } = K;
     const S = scene();
-    let level = K.store.get('raceLevel', 'easy');
+    let level = safeLevel(K.store.get('raceLevel', 'easy'));
+    let mode = chosen ? gameMode(chosen) : savedMode();
+    K.store.set('raceMode', mode);
     const draw = () => S.ui.replaceChildren(h('div', { class: 'lr-menu' },
-      h('div', { class: 'lr-hero' }, h('div', { class: 'lr-hero-run' }, ['🦊', '🐼', '🐸', '🦁'].map((a, i) => h('span', { style: { animationDelay: (i * 0.2) + 's' } }, AV(i === 0 ? myAvatar() : a, { size: 76 })))), h('h1', {}, tx('title')), h('p', {}, tx('sub'))),
+      h('div', { class: 'lr-hero' }, h('div', { class: 'lr-hero-run' }, ['🦊', '🐼', '🐸', '🦁'].map((a, i) => h('span', { style: { animationDelay: (i * 0.2) + 's' } }, AV(i === 0 ? myAvatar() : a, { size: 76 })))), h('h1', {}, modeTitle(mode)), h('p', {}, mode === 'mixed' ? tx('sub') : L().info(mode)[2])),
+      L() ? L().picker(mode, value => { mode = value; K.store.set('raceMode', mode); draw(); }) : null,
       h('div', { class: 'lr-levels' }, LEVELS.map(l => h('button', { class: 'lr-lv' + (l === level ? ' on' : ''), type: 'button', onclick: () => { level = l; K.store.set('raceLevel', l); draw(); } }, tx(l)))),
-      h('p', { class: 'lr-lvd' }, tx('lvd')[level] || ''),
+      h('p', { class: 'lr-lvd' }, ageHint(level, mode)),
+      mode !== 'mixed' ? h('p', { class: 'lg-help' }, L().text(mode + 'Help')) : null,
       cfgPickers(draw),
       h('div', { class: 'lr-choices' },
-        h('a', { class: 'lr-choice', href: '#/race/host' }, h('b', {}, tx('class_btn')), h('small', {}, tx('class_d'))),
-        h('a', { class: 'lr-choice', href: '#/race/bots' }, h('b', {}, tx('bots_btn')), h('small', {}, tx('bots_d')))),
-      h('ul', { class: 'lr-how' }, tx('how').map(x => h('li', {}, x))),
+        h('a', { class: 'lr-choice', href: '#/race/host/' + mode }, h('b', {}, mode === 'mixed' ? tx('class_btn') : L().text('room')), h('small', {}, tx('class_d'))),
+        h('a', { class: 'lr-choice', href: '#/race/bots/' + mode }, h('b', {}, mode === 'mixed' ? tx('bots_btn') : L().text('practice')), h('small', {}, tx('bots_d')))),
+      L() ? h('a', { class: 'lr-btn', href: '#/race/join' }, L().text('join')) : null,
+      mode === 'mixed' ? h('ul', { class: 'lr-how' }, tx('how').map(x => h('li', {}, x))) : h('p', { class: 'lg-help' }, L().text('how')),
       h('a', { class: 'lr-link', href: '#/' }, tx('back'))));
     draw();
     return S.root;
   }
 
   /* ================= гонка з ботами ================= */
-  function bots(opp) {
+  function bots(opp, chosen) {
     const K = C(), { h } = K;
     const S = scene('solo');
-    const level = K.store.get('raceLevel', 'easy');
+    const level = safeLevel(K.store.get('raceLevel', 'easy')), mode = chosen ? gameMode(chosen) : savedMode();
+    K.store.set('raceMode', mode);
     useCfg(...savedCfg());
     const pool = (window.KomiksAvatars ? window.KomiksAvatars.list : ['🐼', '🐸', '🦁']).filter(a => a !== myAvatar().split('|')[0]);
     const bot = (name, i) => ({ id: 'b' + i, name, avatar: K.pick(pool) + '|' + K.pick(['cap', 'beanie', 'party', '', '']) + '|' + K.pick(['round', 'sun', '', '']), step: 0, done: false, place: 0, last: 0, speed: ({ easy: 5.2, medium: 4.4, hard: 3.6, expert: 3.0 }[level] || 4.4) + Math.random() * 2.2 });
@@ -422,17 +432,19 @@
     // суперники — віртуальні гравці зі своєю швидкістю й точністю; #/race/bots/<КОД> — змагання з конкретним гравцем
     const rivals = window.KomiksBots ? window.KomiksBots.opponents(3, level, opp) : null;
     const runners = [me, ...(rivals ? rivals.map((b, i) => ({ id: 'b' + i, name: b.name, avatar: b.avatar, step: 0, done: false, place: 0, last: 0, speed: b.speed, acc: b.acc })) : tx('bots').map(bot))];
+    runners.filter(r => !r.me).forEach(r => { r.speed += mode === 'memory' ? 4 : mode === 'mixed' ? 0 : 1.5; });
     let places = 0, t0 = Date.now();
     const standings = () => { const r = rankOf(runners); r.forEach((x, i) => { x.lead = i === 0 && x.step > 0; }); return { place: r.indexOf(me) + 1, total: r.length, runners }; };
     let G;
     const countdown = h('div', { class: 'lr-count' }, '3');
     S.ui.append(countdown);
     let c = 3;
-    const cd = setInterval(() => { c--; if (c > 0) { countdown.textContent = c; K.Sfx.tick(); } else { clearInterval(cd); countdown.textContent = tx('go'); setTimeout(() => countdown.remove(), 500); begin(); } }, 700);
+    const cd = setInterval(() => { c--; if (c > 0) { countdown.textContent = c; K.Sfx.tick(); } else { clearInterval(cd); begin(); } }, 700);
+    S.timers.push(cd);
     function begin() {
       t0 = Date.now(); S.endsAt = t0 + DURATION * 1000;
       if (window.KomiksMusic) window.KomiksMusic.play('calm');
-      G = playerGame(S, { seed: Math.floor(Math.random() * 1e9), level, standings,
+      G = playerGame(S, { seed: Math.floor(Math.random() * 1e9), level, mode, standings,
         onProgress: g => { me.step = g.step; me.last = Date.now(); if (g.done && !me.done) { me.done = true; me.place = ++places; } },
         onFinish: () => { S.ui.querySelector('.lr-area').replaceChildren(h('div', { class: 'lr-wait' }, tx('done_wait'))); } });
       const tick = setInterval(() => {
@@ -444,14 +456,15 @@
       S.timers.push(tick);
     }
     function end() {
+      if (G) G.stop();
       const rank = rankOf(runners);
       const board = rank.map(r => ({ pid: r.id, name: r.name, avatar: r.avatar, score: r.done ? `🏁 #${r.place}` : `${r.step}/${STEPS}` }));
       const myPlace = rank.indexOf(me) + 1;
-      K.recordQuiz('race:' + level, tx('title') + ' · ' + tx(level), Math.min(me.step, STEPS), STEPS, { place: myPlace, of: rank.length });
+      K.recordQuiz('race:' + level + (mode === 'mixed' ? '' : ':' + mode), modeTitle(mode) + ' · ' + tx(level), Math.min(me.step, STEPS), STEPS, { place: myPlace, of: rank.length });
       if (myPlace === 1) K.bump('raceWins');
       S.ui.replaceChildren(h('div', { class: 'lr-end' }, h('h2', {}, tx('results')),
         window.KomiksAvatars ? window.KomiksAvatars.podium(board, { meId: 'me', you: tx('you'), fmt: v => v, place: (r, n) => tx('place', r, n), show: true }) : null,
-        h('div', { class: 'row-center' }, h('button', { class: 'lr-btn primary', type: 'button', onclick: () => { const el = bots(opp); S.root.replaceWith(el); } }, tx('again')), h('a', { class: 'lr-btn', href: '#/race' }, tx('back')))));
+        h('div', { class: 'row-center' }, h('button', { class: 'lr-btn primary', type: 'button', onclick: () => { const el = bots(opp, mode); S.root.replaceWith(el); } }, tx('again')), h('a', { class: 'lr-btn', href: modeRoute(mode) }, tx('back')))));
       if (myPlace <= 3) { K.confetti(); K.Sfx.win(); }
       if (window.KomiksProfile) setTimeout(() => window.KomiksProfile.rewardModal(myPlace === 1 ? 1 : myPlace <= 3 ? 0.6 : 0.2), 2600);
     }
@@ -461,16 +474,19 @@
   /* ================= кімната: монітор ведучого ================= */
   let session = null;
   const endSession = () => { if (session) { try { session.destroy(); } catch { /* ignore */ } session = null; } };
-  function host() {
+  function host(chosen) {
     const K = C(), { h } = K;
     endSession();
     const S = scene('host');
-    const R = { code: genCode(), players: new Map(), phase: 'creating', level: K.store.get('raceLevel', 'easy'), places: 0, feed: [] };
+    const R = { code: genCode(), players: new Map(), phase: 'creating', level: safeLevel(K.store.get('raceLevel', 'easy')), mode: chosen ? gameMode(chosen) : savedMode(), places: 0, feed: [] };
+    K.store.set('raceMode', R.mode);
     session = R;
     S.onLeave = () => { if (session === R) endSession(); };
     const send = (p, m) => { if (p.conn && p.conn.open) { try { p.conn.send(m); } catch { /* ignore */ } } };
     const broadcast = m => R.players.forEach(p => send(p, m));
     const list = () => [...R.players.values()].map(p => ({ pid: p.pid, name: p.name, avatar: p.avatar, online: p.online }));
+    const lobbyMessage = reset => ({ t: 'lobby', players: list(), mode: R.mode, level: R.level, reset: !!reset });
+    const startMessage = startIn => ({ t: 'start', seed: R.seed, level: R.level, mode: R.mode, steps: STEPS, dur: DURATION, startIn, remaining: Math.max(0, R.endsAt - Date.now()) });
     R.destroy = () => { broadcast({ t: 'closed' }); setTimeout(() => { try { R.peer && R.peer.destroy(); } catch { /* ignore */ } }, 150); };
     let prevOrder = [];
     const feedEl = h('div', { class: 'lr-feed' });
@@ -482,9 +498,11 @@
       if (R.phase === 'lobby') {
         const pl = [...R.players.values()];
         S.ui.replaceChildren(h('div', { class: 'lr-lobby' },
-          h('div', { class: 'lr-card lr-qr-card' }, h('h2', {}, tx('title')), h('div', { class: 'lr-qr' }, K.svgEl(qrSvg(url))), h('p', {}, tx('scan')), h('code', {}, url), h('div', { class: 'lr-code' }, R.code), location.protocol === 'file:' ? h('p', { class: 'lr-warn' }, tx('local_warn')) : null),
+          h('div', { class: 'lr-card lr-qr-card' }, h('h2', {}, modeTitle(R.mode)), h('div', { class: 'lr-qr' }, K.svgEl(qrSvg(url))), h('p', {}, tx('scan')), h('code', {}, url), h('div', { class: 'lr-code' }, R.code), location.protocol === 'file:' ? h('p', { class: 'lr-warn' }, tx('local_warn')) : null),
           h('div', { class: 'lr-card' },
-            h('div', { class: 'lr-levels' }, LEVELS.map(l => h('button', { class: 'lr-lv' + (l === R.level ? ' on' : ''), type: 'button', onclick: () => { R.level = l; K.store.set('raceLevel', l); draw(); } }, tx(l)))),
+            L() ? L().picker(R.mode, value => { R.mode = value; K.store.set('raceMode', value); broadcast(lobbyMessage()); draw(); }, true) : null,
+            h('div', { class: 'lr-levels' }, LEVELS.map(l => h('button', { class: 'lr-lv' + (l === R.level ? ' on' : ''), type: 'button', onclick: () => { R.level = l; K.store.set('raceLevel', l); broadcast(lobbyMessage()); draw(); } }, tx(l)))),
+            h('p', { class: 'lr-lvd' }, ageHint(R.level, R.mode)),
             cfgPickers(draw),
             h('h3', {}, tx('players', pl.filter(p => p.online).length)),
             pl.length ? h('div', { class: 'lr-startline' }, pl.map(p => h('div', { class: 'lr-starter' + (p.online ? '' : ' off') }, AV(p.avatar, { size: 72 }), h('b', {}, p.name)))) : h('p', {}, tx('waiting')),
@@ -497,11 +515,11 @@
       if (R.phase === 'final') {
         const board = rank.map(r => ({ pid: r.id, name: r.name, avatar: r.avatar, score: r.done ? `🏁 #${r.place}` : `${r.step}/${STEPS}` }));
         S.ui.replaceChildren(h('div', { class: 'lr-end' }, h('h2', {}, tx('results')), window.KomiksAvatars ? window.KomiksAvatars.podium(board, { fmt: v => v, show: true }) : null,
-          h('div', { class: 'row-center' }, h('button', { class: 'lr-btn primary', type: 'button', onclick: () => { R.phase = 'lobby'; if (window.KomiksMusic) window.KomiksMusic.play('lobby'); R.players.forEach(p => { p.step = 0; p.done = false; p.place = 0; }); broadcast({ t: 'lobby', players: list(), reset: true }); draw(); } }, tx('again')), h('a', { class: 'lr-btn', href: '#/race', onclick: endSession }, tx('close')))));
+          h('div', { class: 'row-center' }, h('button', { class: 'lr-btn primary', type: 'button', onclick: () => { R.phase = 'lobby'; if (window.KomiksMusic) window.KomiksMusic.play('lobby'); R.players.forEach(p => { p.step = 0; p.done = false; p.place = 0; }); broadcast(lobbyMessage(true)); draw(); } }, tx('again')), h('a', { class: 'lr-btn', href: modeRoute(R.mode), onclick: endSession }, tx('close')))));
         return;
       }
       S.ui.replaceChildren(h('div', { class: 'lr-monitor' },
-        h('div', { class: 'lr-top' }, h('b', { class: 'lr-logo' }, tx('title')), h('span', { class: 'lr-chip' }, tx(R.level)), h('span', { class: 'lr-chip time' + (left <= 10 ? ' hurry' : '') }, '⏱️ ' + left), h('span', { class: 'lr-chip' }, tx('code') + ': ' + R.code)),
+        h('div', { class: 'lr-top' }, h('b', { class: 'lr-logo' }, modeTitle(R.mode)), h('span', { class: 'lr-chip' }, tx(R.level)), h('span', { class: 'lr-chip time' + (left <= 10 ? ' hurry' : '') }, '⏱️ ' + left), h('span', { class: 'lr-chip' }, tx('code') + ': ' + R.code)),
         feedEl, track(runners)));
     };
     function startRace() {
@@ -509,7 +527,7 @@
       R.players.forEach(p => { p.step = 0; p.done = false; p.place = 0; p.last = 0; });
       useCfg(...savedCfg());
       R.phase = 'race'; R.endsAt = Date.now() + 2100 + DURATION * 1000;
-      broadcast({ t: 'start', seed: R.seed, level: R.level, steps: STEPS, dur: DURATION, startIn: 2100 });
+      broadcast(startMessage(2100));
       if (window.KomiksMusic) window.KomiksMusic.play('calm');
       draw();
       const tick = setInterval(() => {
@@ -529,7 +547,7 @@
       const runners = [...R.players.values()].map(p => ({ id: p.pid, name: p.name, avatar: p.avatar, fc: p.fc || '', step: p.step || 0, done: !!p.done, place: p.place || 0, last: p.last || 0 }));
       const rank = rankOf(runners);
       broadcast({ t: 'end', board: rank.map(r => ({ pid: r.id, name: r.name, avatar: r.avatar, score: r.done ? `🏁 #${r.place}` : `${r.step}/${STEPS}` })) });
-      if (window.KomiksExtras) window.KomiksExtras.saveGame({ id: 'race-' + R.code + '-' + Date.now().toString(36), topic: tx('title') + ' · ' + tx(R.level), total: STEPS, board: rank.map(r => ({ pid: r.id, name: r.name, avatar: r.avatar, fc: r.fc, score: r.done ? 1000 - r.place * 10 : r.step * 50, correct: r.step, answered: r.step })) });
+      if (window.KomiksExtras) window.KomiksExtras.saveGame({ id: 'race-' + R.code + '-' + Date.now().toString(36), topic: modeTitle(R.mode) + ' · ' + tx(R.level), total: STEPS, board: rank.map(r => ({ pid: r.id, name: r.name, avatar: r.avatar, fc: r.fc, score: r.done ? 1000 - r.place * 10 : r.step * 50, correct: r.step, answered: r.step })) });
       K.confetti(); K.Sfx.win(); draw();
     }
     const onMessage = (conn, m) => {
@@ -539,14 +557,14 @@
         const ok = window.KomiksAvatars ? window.KomiksAvatars.valid(m.avatar) : true;
         const p = Object.assign(R.players.get(pid) || {}, { pid, name: String(m.name || '?').slice(0, 20), avatar: ok ? m.avatar : '🙂', conn, online: true, fc: /^[A-HJ-NP-Z2-9]{6}$/.test(m.fc || '') ? m.fc : '' });
         R.players.set(pid, p);
-        send(p, { t: 'welcome' }); broadcast({ t: 'lobby', players: list() });
-        if (R.phase === 'race') send(p, { t: 'start', seed: R.seed, level: R.level, steps: STEPS, dur: DURATION, startIn: 0 });
+        send(p, { t: 'welcome', mode: R.mode, level: R.level }); broadcast(lobbyMessage());
+        if (R.phase === 'race') send(p, startMessage(Math.max(0, R.endsAt - DURATION * 1000 - Date.now())));
         K.Sfx.tick(); draw();
       } else if (m.t === 'prog') {
         const p = [...R.players.values()].find(x => x.conn === conn); if (!p || R.phase !== 'race') return;
         const before = rankOf([...R.players.values()].map(x => ({ id: x.pid, step: x.step || 0, done: !!x.done, place: x.place || 0, last: x.last || 0 }))).map(x => x.id);
         if (m.ok) p.boostUntil = Date.now() + 500; else p.tripUntil = Date.now() + TRIP;
-        p.step = Math.min(STEPS, m.step | 0); p.last = Date.now();
+        p.step = Math.max(p.step || 0, Math.min(STEPS, Math.max(0, m.step | 0))); p.last = Date.now();
         if (p.step >= STEPS && !p.done) { p.done = true; p.place = ++R.places; toast(tx('finished', p.name, p.place)); }
         const after = rankOf([...R.players.values()].map(x => ({ id: x.pid, step: x.step || 0, done: !!x.done, place: x.place || 0, last: x.last || 0 }))).map(x => x.id);
         const was = before.indexOf(p.pid), now = after.indexOf(p.pid);
@@ -559,7 +577,7 @@
         R.peer = new window.Peer(PREFIX + R.code, { debug: 0 });
         R.peer.on('open', () => { R.phase = 'lobby'; draw(); });
         R.peer.on('error', err => { if (err.type === 'unavailable-id') { try { R.peer.destroy(); } catch { /* ignore */ } R.code = genCode(); open(); return; } if (R.phase === 'creating') { R.phase = 'error'; draw(); } });
-        R.peer.on('connection', conn => { conn.on('data', m => onMessage(conn, m)); conn.on('close', () => { for (const p of R.players.values()) if (p.conn === conn) p.online = false; broadcast({ t: 'lobby', players: list() }); draw(); }); });
+        R.peer.on('connection', conn => { conn.on('data', m => onMessage(conn, m)); conn.on('close', () => { for (const p of R.players.values()) if (p.conn === conn) p.online = false; broadcast(lobbyMessage()); draw(); }); });
       };
       open();
     }).catch(() => { R.phase = 'error'; draw(); });
@@ -591,45 +609,52 @@
     };
     const connect = (c, name) => {
       let pid; try { pid = sessionStorage.getItem('komiks.race.pid') || ('r' + Math.random().toString(36).slice(2, 10)); sessionStorage.setItem('komiks.race.pid', pid); } catch { pid = 'r' + Math.random().toString(36).slice(2, 10); }
-      const P = { phase: 'connecting', std: null, G: null };
+      const P = { phase: 'connecting', std: null, G: null, mode: 'mixed', roundId: 0 };
       session = P;
       S.onLeave = () => { if (session === P) endSession(); };
-      P.destroy = () => { try { P.conn && P.conn.close(); } catch { /* ignore */ } try { P.peer && P.peer.destroy(); } catch { /* ignore */ } };
+      P.destroy = () => { P.roundId++; if (P.G) P.G.stop(); try { P.conn && P.conn.close(); } catch { /* ignore */ } try { P.peer && P.peer.destroy(); } catch { /* ignore */ } };
       const status = (text, extra) => S.ui.replaceChildren(h('div', { class: 'lr-menu' }, h('div', { class: 'lr-card lr-wait-card' }, AV(avatar, { size: 120, mood: 'cheer' }), h('b', {}, name), h('p', {}, text), extra || null, h('a', { class: 'lr-link', href: '#/race', onclick: endSession }, tx('back')))));
       const send = m => { try { P.conn && P.conn.open && P.conn.send(m); } catch { /* ignore */ } };
-      const fail = t => { if (session === P) { P.phase = 'error'; status(t); } };
+      const fail = t => { if (session === P) { P.roundId++; if (P.G) P.G.stop(); P.phase = 'error'; status(t); } };
       status('⏳ ' + tx('connecting'));
       loadLibs().then(() => {
         P.peer = new window.Peer({ debug: 0 });
-        const guard = setTimeout(() => { if (P.phase === 'connecting') fail(tx('err_room')); }, 15000);
+        const guard = S.later(() => { if (P.phase === 'connecting') fail(tx('err_room')); }, 15000);
         P.peer.on('open', () => {
           P.conn = P.peer.connect(PREFIX + c, { reliable: true });
           P.conn.on('open', () => { clearTimeout(guard); send({ t: 'hello', pid, name, avatar, fc: window.KomiksPlayers ? window.KomiksPlayers.myPublicCode() : '' }); });
           P.conn.on('data', m => {
             if (!m || typeof m !== 'object') return;
             if (m.t === 'welcome' || (m.t === 'lobby' && (P.phase === 'connecting' || P.phase === 'lobby' || m.reset))) {
+              if (P.G) P.G.stop(); P.roundId++;
               P.phase = 'lobby';
+              P.mode = gameMode(m.mode); P.level = safeLevel(m.level);
               const pl = m.players || P.players || []; if (m.players) P.players = m.players;
-              status(tx('wait_start'), h('div', {}, h('h3', {}, tx('in_room')), h('div', { class: 'lr-startline small' }, pl.map(p => h('div', { class: 'lr-starter' + (p.pid === pid ? ' me' : '') }, AV(p.avatar, { size: 48 }), h('b', {}, p.name))))));
+              status(tx('wait_start'), h('div', {}, h('div', { class: 'lg-room-detail' }, h('strong', {}, modeTitle(P.mode)), h('small', {}, ageHint(P.level, P.mode))), h('h3', {}, tx('in_room')), h('div', { class: 'lr-startline small' }, pl.map(p => h('div', { class: 'lr-starter' + (p.pid === pid ? ' me' : '') }, AV(p.avatar, { size: 48 }), h('b', {}, p.name))))));
             } else if (m.t === 'start') {
-              useCfg(m.steps, m.dur); S.endsAt = Date.now() + (m.startIn || 0) + DURATION * 1000;
-              P.phase = 'race'; P.level = m.level;
+              if (P.G) P.G.stop();
+              const round = L() ? L().round(m) : { ...m, mode: 'mixed', remaining: (m.startIn || 0) + okDur(m.dur) * 1000 };
+              useCfg(round.steps, round.dur); S.endsAt = Date.now() + round.remaining;
+              P.phase = 'race'; P.level = safeLevel(round.level); P.mode = gameMode(round.mode); P.std = null;
+              const roundId = ++P.roundId;
               if (window.KomiksMusic) window.KomiksMusic.play('calm');
-              const begin = () => { P.G = playerGame(S, { seed: m.seed, level: m.level, standings: () => P.std,
+              const begin = () => { if (P.phase !== 'race' || P.roundId !== roundId || session !== P) return; P.G = playerGame(S, { seed: round.seed, level: P.level, mode: P.mode, standings: () => P.std,
                 onProgress: (g, ok) => send({ t: 'prog', step: g.step, ok }),
                 onFinish: () => { const a = S.ui.querySelector('.lr-area'); if (a) a.replaceChildren(h('div', { class: 'lr-wait' }, tx('done_wait'))); } }); };
-              if (m.startIn) { const cd = h('div', { class: 'lr-count' }, '3'); S.ui.replaceChildren(cd); let n = 3; const t = setInterval(() => { n--; if (n > 0) { cd.textContent = n; K.Sfx.tick(); } else { clearInterval(t); cd.textContent = tx('go'); setTimeout(begin, 400); } }, 700); } else begin();
+              if (round.startIn) { const cd = h('div', { class: 'lr-count' }, String(Math.ceil(round.startIn / 700))); S.ui.replaceChildren(cd); for (let elapsed = 700; elapsed < round.startIn; elapsed += 700) S.later(() => { if (P.roundId === roundId) { cd.textContent = String(Math.ceil((round.startIn - elapsed) / 700)); K.Sfx.tick(); } }, elapsed); S.later(begin, round.startIn); } else begin();
+              S.later(() => { if (P.phase === 'race' && P.roundId === roundId && P.G) { P.G.stop(); const a = S.ui.querySelector('.lr-area'); if (a) a.replaceChildren(h('div', { class: 'lr-wait' }, tx('done_wait'))); } }, round.remaining);
             } else if (m.t === 'standings') {
               P.std = { place: m.place, total: m.total, runners: (m.near || []).map(r => Object.assign(r, { me: r.id === pid })) };
               if (P.G) P.G.redraw();
             } else if (m.t === 'end') {
+              P.roundId++; if (P.G) P.G.stop();
               P.phase = 'end';
               const board = m.board || [], me = board.findIndex(b => b.pid === pid);
               S.ui.replaceChildren(h('div', { class: 'lr-end' }, h('h2', {}, tx('results')), window.KomiksAvatars ? window.KomiksAvatars.podium(board, { meId: pid, you: tx('you'), fmt: v => v, place: (r, n) => tx('place', r, n), show: true }) : null, h('a', { class: 'lr-btn', href: '#/race', onclick: endSession }, tx('back'))));
               if (me >= 0 && me < 3) { K.confetti(); K.Sfx.win(); }
               if (me === 0) K.bump('raceWins');
               // результат гонки в кімнаті — у профіль: пройдені кроки + місце
-              if (me >= 0) { const steps = P.G ? Math.min(P.G.step, STEPS) : 0; K.recordQuiz('race:' + (P.level || 'easy'), tx('title') + ' · ' + tx(P.level || 'easy'), steps, STEPS, { place: me + 1, of: board.length, id: 'race-' + board.map(b => b.pid + b.score).join('|') }); K.bump('games'); }
+              if (me >= 0) { const steps = P.G ? Math.min(P.G.step, STEPS) : 0; K.recordQuiz('race:' + (P.level || 'easy') + (P.mode === 'mixed' ? '' : ':' + P.mode), modeTitle(P.mode) + ' · ' + tx(P.level || 'easy'), steps, STEPS, { place: me + 1, of: board.length, id: 'race-' + board.map(b => b.pid + b.score).join('|') }); K.bump('games'); }
               if (window.KomiksProfile) setTimeout(() => window.KomiksProfile.rewardModal(me === 0 ? 1 : me >= 0 && me < 3 ? 0.6 : 0.25), 2600);
             } else if (m.t === 'closed' || m.t === 'kick') fail(tx('host_left'));
           });
@@ -643,10 +668,10 @@
   }
 
   function render(id, arg) {
-    if (id === 'host') return host();
+    if (id === 'host') return host(arg);
     if (id === 'join') return join(arg);
-    if (id === 'bots') return bots(arg && window.KomiksBots && window.KomiksBots.isBot(String(arg).toUpperCase()) ? String(arg).toUpperCase() : null);
-    return menu();
+    if (id === 'bots') return bots(arg && window.KomiksBots && window.KomiksBots.isBot(String(arg).toUpperCase()) ? String(arg).toUpperCase() : null, L() && L().modes.includes(arg) ? arg : undefined);
+    return menu(L() && L().modes.includes(id) ? id : undefined);
   }
   // код відкритої кімнати на цьому моніторі — для запрошень друзям
   const roomCode = () => (session && session.code && (session.phase === 'lobby' || session.phase === 'race') ? session.code : null);

@@ -13,6 +13,9 @@ Options -Indexes
   Header always set Permissions-Policy "camera=(), geolocation=(), payment=(), usb=(), microphone=(self)"
   # Сторінки сайту не можна вбудувати в чужий iframe.
   Header always set X-Frame-Options "SAMEORIGIN"
+  # Лише https: увесь домен і так перенаправляє http → https, тож браузер може одразу йти на https.
+  # Без includeSubDomains — піддомени bilohash.com не зачіпаємо.
+  Header always set Strict-Transport-Security "max-age=31536000"
 </IfModule>
 
 <IfModule mod_expires.c>
@@ -40,6 +43,10 @@ Options -Indexes
 # Робочі файли, яким не місце на бойовому сервері, — навіть якщо їх туди залили.
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Людська HTML-карта має коротку URL без розширення. Варіант зі слешем
+  # зводимо до одного canonical, а запит без слеша внутрішньо віддає файл.
+  RewriteRule ^sitemap/$ /comiks/sitemap [R=301,L]
+  RewriteRule ^sitemap$ sitemap.html [L]
   RewriteRule ^(_private|tools|tests|node_modules)(/|$) - [F,L]
 </IfModule>
 
@@ -66,3 +73,10 @@ Redirect 301 /comiks/no/oppdateringer/2026-10-06/ /comiks/no/oppdateringer/2026-
 Redirect 301 /comiks/updates/2026-10-07/ /comiks/updates/2026-10-03-2/
 Redirect 301 /comiks/uk/onovlennya/2026-10-07/ /comiks/uk/onovlennya/2026-10-03-2/
 Redirect 301 /comiks/no/oppdateringer/2026-10-07/ /comiks/no/oppdateringer/2026-10-03-2/
+
+# Корінь мовної теки (/comiks/uk/, /comiks/de/ …) не має власної сторінки, тож
+# сервер віддавав 403 — глухий кут і для людини, і для пошуковика. Ведемо на
+# головну сторінку тієї самої мови.
+# Саме RedirectMatch із якорем: звичайний Redirect збігається за префіксом і
+# потягнув би за собою всі /comiks/uk/komiks/… на неіснуючі адреси.
+RedirectMatch 301 ^/comiks/(uk|no|de|pl|tr|lt|ar)/?$ /comiks/$1/komiks/

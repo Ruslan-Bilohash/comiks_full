@@ -1,0 +1,230 @@
+What is coding?	Was ist Programmieren?
+The school has a robot called Robo. He only follows exact commands, and the children learn that a program is commands in the right order.	Die Schule hat einen Roboter namens Robo. Er befolgt nur genaue Befehle, und die Kinder lernen, dass ein Programm aus Befehlen in der richtigen Reihenfolge besteht.
+Look, Nora! The school has got a robot.	Schau, Nora! Die Schule hat einen Roboter bekommen.
+Hi, robot! What is your name?	Hallo, Roboter! Wie heißt du?
+Hi! My name is Robo. I do what you tell me.	Hallo! Ich heiße Robo. Ich mache, was ihr mir sagt.
+Robo only understands commands. We call that programming.	Robo versteht nur Befehle. Das nennen wir Programmieren.
+What is a command?	Was ist ein Befehl?
+A command is a short instruction, for example “walk” or “turn”.	Ein Befehl ist eine kurze Anweisung, zum Beispiel „geh“ oder „dreh dich“.
+Robo, take two steps forward!	Robo, geh zwei Schritte vorwärts!
+Walking. One, two. Done!	Ich gehe. Eins, zwei. Fertig!
+Robo, make me a pizza!	Robo, mach mir eine Pizza!
+Error! I do not know the command “pizza”.	Fehler! Ich kenne den Befehl „Pizza“ nicht.
+A program is many commands in the right order.	Ein Programm sind viele Befehle in der richtigen Reihenfolge.
+So we have to think step by step!	Also müssen wir Schritt für Schritt denken!
+I want to learn to code!	Ich will programmieren lernen!
+And I want to learn to make pizza.	Und ich will lernen, Pizza zu machen.
+a robot	ein Roboter
+programming, coding	Programmieren
+to code	programmieren
+a command	ein Befehl
+a program	ein Programm
+a message, an instruction	eine Nachricht, eine Anweisung
+to understand	verstehen
+forward	vorwärts
+to turn	sich drehen
+done, finished	fertig
+error; wrong	Fehler; falsch
+to know	kennen, wissen
+an order, a sequence	eine Reihenfolge
+right, correct	richtig
+step by step	Schritt für Schritt
+The sandwich algorithm	Der Sandwich-Algorithmus
+Leo teaches Robo the robot to make a sandwich. Robo does everything literally, so Leo learns that an algorithm must be exact and in the right order.	Leo bringt dem Roboter Robo bei, ein Sandwich zu machen. Robo nimmt alles wörtlich, und so lernt Leo, dass ein Algorithmus genau und in der richtigen Reihenfolge sein muss.
+Dad, I am going to teach Robo to make a sandwich.	Papa, ich bringe Robo bei, ein Sandwich zu machen.
+Then you need an algorithm.	Dann brauchst du einen Algorithmus.
+What is an algorithm?	Was ist ein Algorithmus?
+An algorithm is like a recipe: step by step, in the right order.	Ein Algorithmus ist wie ein Rezept: Schritt für Schritt, in der richtigen Reihenfolge.
+Step one: Take the bread. Step two: Put on butter.	Schritt eins: Nimm das Brot. Schritt zwei: Butter drauf.
+Butter on … the table? Done!	Butter auf … den Tisch? Erledigt!
+Ha ha! You have to say exactly what Robo should do.	Haha! Du musst genau sagen, was Robo tun soll.
+New step two: Put butter on the slice of bread!	Neuer Schritt zwei: Streich Butter auf die Brotscheibe!
+Step three: Put on cheese. Step four: Give the sandwich to Leo.	Schritt drei: Leg Käse drauf. Schritt vier: Gib Leo das Sandwich.
+Done! Here you are.	Erledigt! Bitte schön.
+Mmm! The algorithm works!	Mmm! Der Algorithmus funktioniert!
+And remember: the order is important. First butter, then cheese.	Und denk dran: Die Reihenfolge ist wichtig. Erst Butter, dann Käse.
+an algorithm	ein Algorithmus
+a slice of bread, a sandwich	eine Brotscheibe, ein Sandwich
+a cheese	ein Käse
+to put on	drauflegen
+done, carried out	erledigt, ausgeführt
+important	wichtig
+then	dann
+Repeat! Robo dances	Wiederhole! Robo tanzt
+Nora wants Robo to dance, but there are too many commands. The teacher shows a loop: “repeat 4 times” — and the program becomes short.	Nora will, dass Robo tanzt, aber es sind zu viele Befehle. Die Lehrerin zeigt eine Schleife: „wiederhole 4-mal“ – und das Programm wird kurz.
+Robo, jump! Clap! Jump! Clap! Jump! Clap!	Robo, spring! Klatsch! Spring! Klatsch! Spring! Klatsch!
+Jump. Clap. Jump. Clap …	Sprung. Klatschen. Sprung. Klatschen …
+Phew, that is a lot to write.	Puh, das ist viel zu schreiben.
+Use a loop! A loop repeats commands.	Nimm eine Schleife! Eine Schleife wiederholt Befehle.
+Write: repeat four times: jump and clap.	Schreib: wiederhole viermal: springen und klatschen.
+So short!	So kurz!
+Jump, clap! Jump, clap! Jump, clap! Jump, clap!	Spring, klatsch! Spring, klatsch! Spring, klatsch! Spring, klatsch!
+Robo is dancing!	Robo tanzt!
+Can we repeat it a hundred times?	Können wir es hundertmal wiederholen?
+Yes. Computers never get tired.	Ja. Computer werden nie müde.
+But Robo is getting dizzy …	Aber Robo wird schwindelig …
+Ha ha! We are stopping the loop now.	Haha! Wir stoppen jetzt die Schleife.
+a loop	eine Schleife
+to jump	springen
+to clap	klatschen
+a lot	viel
+to use	benutzen
+four times	viermal
+a hundred	hundert
+to stop	stoppen
+If it rains …	Wenn es regnet …
+Robo does not know when to take an umbrella. Leo and Mum write him a rule: if it rains — an umbrella, otherwise — sunglasses.	Robo weiß nicht, wann er einen Regenschirm mitnehmen soll. Leo und Mama schreiben ihm eine Regel: Wenn es regnet – Regenschirm, sonst – Sonnenbrille.
+Robo, we are going out. Bring an umbrella.	Robo, wir gehen raus. Nimm einen Regenschirm mit.
+Why? The sun is shining.	Warum? Die Sonne scheint.
+You are right, Robo. We need a rule.	Du hast recht, Robo. Wir brauchen eine Regel.
+If it rains, we take an umbrella.	Wenn es regnet, nehmen wir einen Regenschirm.
+If it rains, then we take an umbrella. Otherwise we take sunglasses.	Wenn es regnet, dann nehmen wir einen Regenschirm. Sonst nehmen wir eine Sonnenbrille.
+If … then … otherwise. Understood!	Wenn … dann … sonst. Verstanden!
+It is raining. I am taking the umbrella.	Es regnet. Ich nehme den Regenschirm.
+Good, Robo!	Gut, Robo!
+Now the sun is shining. I am taking sunglasses.	Jetzt scheint die Sonne. Ich nehme die Sonnenbrille.
+Robo thinks like a computer.	Robo denkt wie ein Computer.
+If I tidy my room, then I get ice cream?	Wenn ich mein Zimmer aufräume, bekomme ich dann ein Eis?
+Yes! That is a good rule.	Ja! Das ist eine gute Regel.
+otherwise, else	sonst
+an umbrella	ein Regenschirm
+sunglasses	eine Sonnenbrille
+the sun is shining	die Sonne scheint
+to go out	rausgehen
+to bring	mitnehmen
+to be right	recht haben
+understood	verstanden
+to think	denken
+Points in the box	Punkte in der Kiste
+Nora and Leo make a game: a cat catches fish and gets points. The teacher explains a variable — a box with a name where the computer keeps a number.	Nora und Leo machen ein Spiel: Eine Katze fängt Fische und bekommt Punkte. Die Lehrerin erklärt eine Variable – eine Kiste mit Namen, in der der Computer eine Zahl aufbewahrt.
+We are making a game! Every time the cat catches a fish, we get a point.	Wir machen ein Spiel! Jedes Mal, wenn die Katze einen Fisch fängt, bekommen wir einen Punkt.
+But where will the computer remember the points?	Aber wo merkt sich der Computer die Punkte?
+In a variable. A variable is like a box with a name.	In einer Variable. Eine Variable ist wie eine Kiste mit einem Namen.
+The box is called “points”. Right now there is zero in the box.	Die Kiste heißt „Punkte“. Gerade ist eine Null in der Kiste.
+The cat catches a fish!	Die Katze fängt einen Fisch!
+Then we write: points equals points plus one.	Dann schreiben wir: Punkte gleich Punkte plus eins.
+Points is one. Points is two. Points is three!	Punkte ist eins. Punkte ist zwei. Punkte ist drei!
+The value in the box changes!	Der Wert in der Kiste ändert sich!
+Can we have more boxes?	Können wir mehr Kisten haben?
+Yes. Name, lives and speed … A game has many variables.	Ja. Name, Leben und Tempo … Ein Spiel hat viele Variablen.
+We have ten points! We won!	Wir haben zehn Punkte! Wir haben gewonnen!
+The variable “joy” is now a hundred.	Die Variable „Freude“ ist jetzt hundert.
+a point	ein Punkt
+a variable	eine Variable
+a box	eine Kiste
+a name	ein Name
+a value	ein Wert
+to catch	fangen
+every time	jedes Mal
+zero	null
+a life	ein Leben
+a speed	eine Geschwindigkeit
+to win	gewinnen
+a joy	eine Freude
+to keep, to take care of	aufbewahren, sich kümmern um
+Find the bug!	Finde den Fehler!
+Robo has to reach the star but walks into a wall. The children read the program line by line, find the bug and fix it.	Robo soll zum Stern gehen, läuft aber gegen eine Wand. Die Kinder lesen das Programm Zeile für Zeile, finden den Fehler und beheben ihn.
+Robo has to walk to the star. I have written the program.	Robo soll zum Stern gehen. Ich habe das Programm geschrieben.
+I am starting the program now.	Ich starte jetzt das Programm.
+Ouch! I walked straight into the wall.	Autsch! Ich bin direkt gegen die Wand gelaufen.
+Oops! The program has a bug.	Hoppla! Das Programm hat einen Fehler.
+We call an error in a program a bug.	Einen Fehler in einem Programm nennen wir Bug.
+Finding and fixing the error is called debugging.	Den Fehler zu finden und zu beheben, nennt man Debugging.
+We read the program line by line: forward, forward, right …	Wir lesen das Programm Zeile für Zeile: vorwärts, vorwärts, rechts …
+There! It should say left, not right.	Da! Da muss links stehen, nicht rechts.
+Now I will fix the bug and try again.	Jetzt behebe ich den Fehler und versuche es noch mal.
+I am at the star! The program works.	Ich bin beim Stern! Das Programm funktioniert.
+All programmers make mistakes. The important thing is to try again.	Alle Programmierer machen Fehler. Wichtig ist, es noch mal zu versuchen.
+Mistakes are part of learning!	Fehler gehören zum Lernen dazu!
+to start	starten
+straight into	direkt gegen
+a mistake, an error	ein Fehler
+a bug	ein Bug
+debugging	Fehlersuche, Debugging
+to fix, to correct	beheben, korrigieren
+right	rechts
+to try again	es noch mal versuchen
+learning	das Lernen
+a part of	ein Teil von
+Which language?	Welche Sprache?
+Leo asks Robo which language he speaks. The teacher explains programming languages: Scratch, Python, JavaScript, HTML and CSS, Swift, Kotlin and C#.	Leo fragt Robo, welche Sprache er spricht. Die Lehrerin erklärt Programmiersprachen: Scratch, Python, JavaScript, HTML und CSS, Swift, Kotlin und C#.
+Robo, which language do you speak? Norwegian?	Robo, welche Sprache sprichst du? Norwegisch?
+I understand programming languages. There are many!	Ich verstehe Programmiersprachen. Es gibt viele!
+Children often start with Scratch. There we move colourful blocks.	Kinder fangen oft mit Scratch an. Dort verschieben wir bunte Blöcke.
+It looks like Lego!	Das sieht aus wie Lego!
+Python is easy to read. It is used for games, data and artificial intelligence.	Python ist leicht zu lesen. Man benutzt es für Spiele, Daten und künstliche Intelligenz.
+Artificial intelligence? Like Robo?	Künstliche Intelligenz? Wie Robo?
+HTML builds web pages, and CSS makes them pretty. JavaScript makes them move.	HTML baut Webseiten, und CSS macht sie schön. JavaScript bringt sie in Bewegung.
+So the school website is made with them?	Also ist die Schulwebseite damit gemacht?
+We make iPhone apps with Swift, and Android apps with Kotlin.	iPhone-Apps machen wir mit Swift und Android-Apps mit Kotlin.
+And games?	Und Spiele?
+Many games are made with C#.	Viele Spiele werden mit C# gemacht.
+Which language should I learn first?	Welche Sprache soll ich zuerst lernen?
+Start with Scratch or Python. The most important thing is to think logically.	Fang mit Scratch oder Python an. Am wichtigsten ist es, logisch zu denken.
+a programming language	eine Programmiersprache
+to exist	existieren, es gibt
+colourful	bunt
+a block	ein Block
+simple, easy	einfach
+artificial intelligence	künstliche Intelligenz
+data	Daten
+a web page, a website	eine Webseite
+logically	logisch
+the most important thing	das Wichtigste
+A model of the school	Ein Modell der Schule
+The class makes a model of the schoolyard. The children learn that a model is a simple copy, that things in a program have properties, and that you draw the plan before the code.	Die Klasse baut ein Modell des Schulhofs. Die Kinder lernen, dass ein Modell eine einfache Kopie ist, dass Dinge in einem Programm Eigenschaften haben und dass man den Plan vor dem Code zeichnet.
+Today we are making a model of the schoolyard.	Heute bauen wir ein Modell des Schulhofs.
+What is a model?	Was ist ein Modell?
+A model is a simple copy of something real. A map is a model too.	Ein Modell ist eine einfache Kopie von etwas Echtem. Eine Karte ist auch ein Modell.
+Like the map in a game!	Wie die Karte in einem Spiel!
+We only draw the important things: the school, the gate and the football pitch.	Wir zeichnen nur das Wichtige: die Schule, das Tor und den Fußballplatz.
+We do not need to draw every single leaf.	Wir müssen nicht jedes einzelne Blatt zeichnen.
+In a program we describe things with properties. A ball has a colour, a size and a speed.	In einem Programm beschreiben wir Dinge mit Eigenschaften. Ein Ball hat eine Farbe, eine Größe und ein Tempo.
+So the ball is white and fast!	Also ist der Ball weiß und schnell!
+And a flowchart shows what happens, step by step.	Und ein Flussdiagramm zeigt, was passiert, Schritt für Schritt.
+First we draw the plan, then we write the code.	Erst zeichnen wir den Plan, dann schreiben wir den Code.
+I have made a model of Leo: hungry, happy and likes football.	Ich habe ein Modell von Leo gemacht: hungrig, fröhlich und mag Fußball.
+Ha ha! That is right!	Haha! Das stimmt!
+a model	ein Modell
+a schoolyard	ein Schulhof
+a copy	eine Kopie
+to draw	zeichnen
+a gate	ein Tor
+a football pitch	ein Fußballplatz
+a leaf	ein Blatt
+to describe	beschreiben
+a property	eine Eigenschaft
+a colour	eine Farbe
+a flowchart	ein Flussdiagramm
+a plan	ein Plan
+a code	ein Code
+that is right	das stimmt
+A website for Pus: HTML basics	Eine Webseite für Pus: HTML-Grundlagen
+Nora and Leo make a website about Pus the cat. Robo explains HTML: tags in angle brackets, a heading <h1>, a paragraph <p>, an image <img> and a link <a>.	Nora und Leo machen eine Webseite über die Katze Pus. Robo erklärt HTML: Tags in spitzen Klammern, eine Überschrift <h1>, einen Absatz <p>, ein Bild <img> und einen Link <a>.
+I want to make a website about our cat, Pus!	Ich will eine Webseite über unsere Katze Pus machen!
+Then we need HTML.	Dann brauchen wir HTML.
+HTML builds web pages. It is made of tags.	HTML baut Webseiten. Es besteht aus Tags.
+What is a tag?	Was ist ein Tag?
+A tag is a short word in angle brackets, for example p.	Ein Tag ist ein kurzes Wort in spitzen Klammern, zum Beispiel p.
+Most tags have a start and an end. The end tag has a slash.	Die meisten Tags haben einen Anfang und ein Ende. Das End-Tag hat einen Schrägstrich.
+Like a sandwich!	Wie ein Sandwich!
+I write h1 and “Pus”. It becomes a big heading!	Ich schreibe h1 und „Pus“. Das wird eine große Überschrift!
+Yes. h1 means heading number one.	Ja. h1 bedeutet Überschrift Nummer eins.
+With p we make a paragraph, and with img we show a picture.	Mit p machen wir einen Absatz, und mit img zeigen wir ein Bild.
+Look, a picture of Pus!	Schau, ein Bild von Pus!
+Finally a link. The a tag takes us to another page.	Zum Schluss ein Link. Das a-Tag bringt uns auf eine andere Seite.
+The website is ready! Next time we will make it pretty with CSS.	Die Webseite ist fertig! Nächstes Mal machen wir sie mit CSS schön.
+a website, a web page	eine Webseite
+HTML — the language of web pages	HTML – die Sprache der Webseiten
+a tag	ein Tag
+angle brackets < >	spitze Klammern < >
+to consist of	bestehen aus
+a start	ein Anfang
+an end	ein Ende
+an end tag	ein End-Tag
+a slash /	ein Schrägstrich /
+a heading	eine Überschrift
+a paragraph	ein Absatz
+a picture, an image	ein Bild
+to show	zeigen
+next time	nächstes Mal

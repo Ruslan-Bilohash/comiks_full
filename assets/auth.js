@@ -117,6 +117,7 @@
       err: { wrong: 'Feil e-post eller passord.', unverified: 'E-posten er ikke bekreftet ennå. Sjekk e-posten eller send den på nytt.', pass_short: 'Passordet er for kort – minst 8 tegn.', pass_weak: 'Dette passordet er for enkelt.', pass_long: 'Passordet er for langt.', name: 'Skriv et navn (2–30 tegn, uten lenker).', email: 'Sjekk e-postadressen.', consent: 'Du må godta vilkårene.', slow_down: 'For mange forsøk. Prøv igjen om noen minutter.', token: 'Lenken er utløpt – be om en ny.', mismatch: 'Passordene er ikke like.', net: 'Ingen forbindelse til serveren. Prøv igjen.', server: 'Serverfeil. Prøv senere.', csrf: 'Last inn siden på nytt og prøv igjen.', blocked: 'Kontoen er sperret. Kontakt oss hvis dette er en feil.', demo: 'Demokontoen kan ikke bytte passord eller slettes.' }
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'auth.js:TX');
   TX.ar = {
     login_t: 'تسجيل الدخول', login_d: 'سجّل الدخول ليُحفظ تقدّمك على كل أجهزتك.', email: 'البريد الإلكتروني', pass: 'كلمة المرور', pass2: 'أعد كتابة كلمة المرور', name: 'الاسم أو اللقب', login_btn: 'دخول', no_acc: 'ليس لديك حساب؟', reg_link: 'أنشئ حسابًا', forgot_link: 'نسيت كلمة المرور؟',
     demo_h: 'جرّب بلا كلمة مرور', demo_sum: '👀 تجوّل بحساب تجريبي', demo_d: 'تلاميذ تجريبيون للصف. اضغط الاسم وادخل.', demo_as: n => 'العب كـ ' + n, demo_note: 'حساب تجريبي مشترك بلا كلمة مرور. لا تحفظ فيه شيئًا شخصيًا.',
@@ -172,12 +173,27 @@
       warn_t: 'Sånn kan vi ikke skrive 🙅', warn_d: 'En moderator fjernet innlegget ditt fra en vegg. Vær snill mot andre – skriv noe som er hyggelig å lese.', ban_t: 'Pause fra veggen ⏸️', ban_d: 'En moderator fjernet innlegget ditt og satte skriving på vegger på pause en stund. Du kan fortsatt spille og lære!', your_text: 'Innlegget ditt:', understood: 'Skjønner 👍',
       note_t: 'En melding fra oss ✉️', note_d: 'Vi har noe å si deg:' }
   };
+  if (window.KL_T_FILL) KL_T_FILL(PX3, 'auth.js:PX3');
   PX3.ar = { share_t: '🔎 أظهرني في البحث عن اللاعبين', share_d: 'يمكن للمتعلّمين الآخرين إيجادك بالاسم ورؤية شخصيتك ونجومك ودعوتك للعب. لا يظهر بريدك أبدًا. يمكنك تغيير ذلك في «🔒 الخصوصية».', inv_banner: n => `🎟 دعاك ${n}! سيكون هذا الحساب مجانيًا إلى الأبد 💎`, inv_bad: 'هذه الدعوة مستخدمة أو منتهية — يمكنك التسجيل بشكل عادي.',
     premium: '💎 مميّز — مجاني إلى الأبد', staff: { admin: '👑 مدير', moderator: '🛡 مشرف' }, inv_t: '🎟 ادعُ صديقًا', inv_d: 'الأصدقاء الذين تدعوهم يحصلون على حساب مجاني إلى الأبد. كل رابط يُستخدم مرة واحدة ويصلح 30 يومًا.',
     inv_new: '🎟 أنشئ رابطًا', copy: '📋 نسخ', copied: 'تم النسخ ✓', share: '📤 مشاركة', inv_used: n => `✅ انضم ${n}`, inv_wait: d => `⏳ ينتظر حتى ${d}`, inv_old: '⌛ منتهية', inv_list: 'دعواتي',
     imp_t: '📥 انقل التقدّم من هذا الجهاز', imp_d: 'تنتقل النجوم والاختبارات المنجزة والكلمات والشخصية ورمز الصديق من الحساب المحلي إلى حسابك على الخادم — وتُحفظ أفضل النتائج.', imp_guest: 'تقدّم الزائر', imp_done: n => `تم! نُقل ${n} سجلًا. جارٍ تحديث الصفحة…`,
     warn_t: 'هذا غير مقبول 🙅', warn_d: 'أزال مشرف تعليقك من الجدار. كن لطيفًا مع الآخرين — اكتب ما يسعد قراءته.', ban_t: 'استراحة من الجدار ⏸️', ban_d: 'أزال مشرف تعليقك وأوقف الكتابة على الجدران لفترة. ما زال بإمكانك اللعب والتعلّم!', your_text: 'تعليقك:', understood: 'فهمت 👍' };
   const a3 = (k, ...a) => { const t = PX3[C().ui] || PX3.en; const v = t[k]; return typeof v === 'function' ? v(...a) : v; };
+  // A successful request is not a delivery receipt; account existence remains private.
+  const MAIL_REQUEST_TEXT = {
+    uk: ['Запит прийнято. Перевірте пошту та папку «Спам». Якщо лист не надходить, зачекайте або скористайтеся входом із паролем.', 'Пошту підтверджено. Акаунт активний, прогрес зберігається на сервері.'],
+    en: ['Request received. Check your inbox and spam folder. If no email arrives, wait or sign in with your password.', 'Your email is confirmed. Your account is active and progress is saved on the server.'],
+    no: ['Forespørselen er mottatt. Sjekk innboksen og søppelpost. Hvis e-posten ikke kommer, vent eller logg inn med passord.', 'E-posten er bekreftet. Kontoen er aktiv, og fremgangen lagres på serveren.'],
+    de: ['Anfrage erhalten. Prüfe deinen Posteingang und Spamordner. Wenn keine E-Mail ankommt, warte oder melde dich mit deinem Passwort an.', 'Deine E-Mail ist bestätigt. Dein Konto ist aktiv und dein Fortschritt wird auf dem Server gespeichert.'],
+    pl: ['Prośba została przyjęta. Sprawdź skrzynkę i spam. Jeśli wiadomość nie dotrze, poczekaj lub zaloguj się hasłem.', 'Adres e-mail jest potwierdzony. Konto jest aktywne, a postępy są zapisywane na serwerze.'],
+    lt: ['Užklausa gauta. Patikrinkite paštą ir šlamšto aplanką. Jei laiškas neateina, palaukite arba prisijunkite slaptažodžiu.', 'El. paštas patvirtintas. Paskyra aktyvi, o pažanga saugoma serveryje.'],
+    tr: ['İstek alındı. Gelen kutunuzu ve spam klasörünü kontrol edin. E-posta gelmezse bekleyin veya parolanızla giriş yapın.', 'E-postanız doğrulandı. Hesabınız etkin ve ilerlemeniz sunucuda kaydediliyor.'],
+    ar: ['تم استلام الطلب. تحقّق من البريد الوارد ومجلد الرسائل غير المرغوب فيها. إذا لم تصل رسالة، انتظر أو سجّل الدخول بكلمة المرور.', 'تم تأكيد بريدك. حسابك نشط ويُحفظ تقدّمك على الخادم.']
+  };
+  for (const [lang, [message, welcome]] of Object.entries(MAIL_REQUEST_TEXT)) {
+    TX[lang] = Object.assign({}, TX.en, TX[lang] || {}, { sent_d: e => `${message}<br><b>${e}</b>`, resent: message, forgot_ok: message, magic_sent: message, welcome_d: welcome });
+  }
   const ax = (k, ...a) => { const t = TX[C().ui] || TX.en; const v = k in t ? t[k] : TX.en[k]; return typeof v === 'function' ? v(...a) : v; };
   const errText = e => (ax('err')[e] || ax('err').server);
 
@@ -202,7 +218,13 @@
     if (switched && cur && !String(cur).startsWith('s')) S.importFrom = String(cur);
     if (switched) K.setSession(sid);
     K.raw.set(`comiks.u.${sid}.friendCode`, u.friend_code); // один код друга на всіх пристроях
-    return (pull ? pullData(sid) : Promise.resolve()).then(() => { if (switched) K.route(); });
+    /* Після входу — знайомство, але рівно один раз на акаунт. Чекаємо на
+       pullData: позначка «вже бачив» лежить у даних акаунта, і до її
+       завантаження вікно вискочило б удруге на кожному новому пристрої. */
+    return (pull ? pullData(sid) : Promise.resolve()).then(() => {
+      if (switched) K.route();
+      if (K.tourIfNew) K.tourIfNew();
+    });
   }
   /* ---- перенесення прогресу з пристрою в серверний акаунт: розумне злиття ---- */
   const GLOBAL_KEYS = GLOBAL;
@@ -253,6 +275,9 @@
       const r = await post('adopt_code', { code: oldCode, secret: secret || '' });
       if (r.ok) { S.user.friend_code = r.friend_code; K.raw.set(`comiks.u.${sid}.friendCode`, r.friend_code); if (secret) { K.raw.set(`comiks.u.${sid}.wallSecret`, secret); S.dirty.add('wallSecret'); } }
     }
+    // позначка «вже перенесено»: блок перенесення більше не з’являється
+    const done = K.raw.get(`comiks.u.${sid}.imported`, []) || [];
+    if (!done.includes(String(from))) { K.raw.set(`comiks.u.${sid}.imported`, [...done, String(from)]); S.dirty.add('imported'); schedule(300); }
     if (n) schedule(300);
     return n;
   }
@@ -324,6 +349,124 @@
   const msgEl = () => h('p', { class: 'au-msg', role: 'alert' });
   const busy = (btn, on) => { btn.disabled = on; btn.classList.toggle('busy', on); };
 
+  const GOOGLE_TEXT = {
+    uk: { login: 'Увійти через Google', signup: 'Зареєструватися через Google', link: 'Прив’язати Google', consent: 'Прийміть умови використання вище, щоб створити акаунт.', error: 'Вхід через Google не завершено. Спробуйте ще раз або увійдіть із паролем.', existing: 'Спочатку увійдіть у свій наявний акаунт із паролем або поштовим кодом. У кабінеті натисніть «Прив’язати Google», потім зможете входити через Google.', create: 'Спочатку відкрийте реєстрацію, прийміть умови та оберіть Google.', cancelled: 'Вхід через Google скасовано.', unavailable: 'Вхід через Google ще не налаштовано.', linked: 'Google прив’язано. Надалі можна входити через Google.' },
+    en: { login: 'Sign in with Google', signup: 'Sign up with Google', link: 'Link Google', consent: 'Accept the terms above to create an account.', error: 'Google sign-in did not finish. Try again or use your password.', existing: 'First sign in to your existing account with your password or email code. Choose “Link Google” in your account to use Google next time.', create: 'Open registration, accept the terms and choose Google to create an account.', cancelled: 'Google sign-in was cancelled.', unavailable: 'Google sign-in is not configured yet.', linked: 'Google is linked. You can now sign in with Google.' },
+    no: { login: 'Logg inn med Google', signup: 'Registrer deg med Google', link: 'Koble til Google', consent: 'Godta vilkårene ovenfor for å opprette en konto.', error: 'Google-innloggingen ble ikke fullført. Prøv igjen eller bruk passord.', existing: 'Logg først inn på den eksisterende kontoen med passord eller e-postkode. Velg «Koble til Google» på kontosiden.', create: 'Åpne registrering, godta vilkårene og velg Google.', cancelled: 'Google-innloggingen ble avbrutt.', unavailable: 'Google-innlogging er ikke konfigurert ennå.', linked: 'Google er koblet til. Du kan nå logge inn med Google.' }
+  };
+  const gx = key => (GOOGLE_TEXT[C().ui] || GOOGLE_TEXT.en)[key];
+  const OR = { uk: 'або', en: 'or', no: 'eller', de: 'oder', pl: 'lub', tr: 'veya', lt: 'arba', ar: 'أو' };
+  /* Під кнопкою входу: людина має знати, що натиск може створити акаунт. */
+  const GNOTE = {
+    uk: 'Немає акаунта? Його буде створено на умовах використання, які ви вже прийняли.',
+    en: 'No account yet? One will be created under the terms of use you have already accepted.',
+    no: 'Ingen konto ennå? Den opprettes etter bruksvilkårene du allerede har godtatt.',
+    de: 'Noch kein Konto? Es wird nach den Nutzungsbedingungen erstellt, die Sie bereits akzeptiert haben.',
+    pl: 'Nie masz konta? Zostanie utworzone zgodnie z regulaminem, który już zaakceptowano.',
+    tr: 'Hesabınız yok mu? Daha önce kabul ettiğiniz kullanım koşullarıyla oluşturulur.',
+    lt: 'Dar neturite paskyros? Ji bus sukurta pagal jau priimtas naudojimo sąlygas.',
+    ar: 'ليس لديك حساب؟ سيُنشأ وفق شروط الاستخدام التي قبلتها بالفعل.',
+  };
+  /* Фірмова «G» без змін — так вимагають правила оформлення кнопок Google:
+     логотип не перефарбовуємо й не обрізаємо, лише ставимо поруч із текстом. */
+  function googleMark() {
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 48 48'); svg.setAttribute('width', '20'); svg.setAttribute('height', '20'); svg.setAttribute('aria-hidden', 'true');
+    for (const [fill, d] of [
+      ['#EA4335', 'M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z'],
+      ['#4285F4', 'M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z'],
+      ['#FBBC05', 'M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z'],
+      ['#34A853', 'M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'],
+    ]) { const p = document.createElementNS(NS, 'path'); p.setAttribute('fill', fill); p.setAttribute('d', d); svg.append(p); }
+    return svg;
+  }
+  let googleStatus, googlePending;
+  function googleBox(mode, consent = () => false) {
+    const box = h('div', { class: 'au-google au-google--' + mode, hidden: true });
+    /* У застосунку Google відкривається в системному браузері (вбудовані Google не пускає),
+       а назад повертає одноразовий код через komikslab:// — див. appHandoff(). */
+    const native = appShell();
+    if (!location.protocol.startsWith('http') || (!native && /; wv\)|\bwv\b|KomiksApp/i.test(navigator.userAgent))) return box;
+    if (native && mode === 'link') return box;
+    const msg = msgEl(), button = h('button', { class: 'g-btn', type: 'button' }, googleMark(), h('span', {}, gx(mode)));
+    /* «або» відділяє Google від форми пароля: на вході кнопка над формою, на
+       реєстрації — під нею, тож і розділювач стоїть з відповідного боку. */
+    const or = h('div', { class: 'au-or', role: 'separator' }, h('span', {}, OR[C().ui] || OR.en));
+    /* На сторінці входу кнопка — «продовжити з Google»: заходить, а кого ще немає,
+       реєструє. Новий акаунт можливий лише зі згодою з умовами, і тут вона та
+       сама, що людина вже дала у вікні привітання; без неї — звичайний вхід. */
+    const flow = () => (mode === 'login' && C().hasConsent && C().hasConsent() ? 'continue' : mode);
+    const note = mode === 'login' ? h('p', { class: 'au-gnote' }, GNOTE[C().ui] || GNOTE.en) : null;
+    button.addEventListener('click', async () => {
+      if (mode === 'signup' && !consent()) { msg.textContent = gx('consent'); return; }
+      busy(button, true); msg.textContent = '';
+      const f = flow();
+      const app_ch = native ? await appSecret().catch(() => '') : undefined;
+      const result = await fetch('api/google-start.php', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-Komiks': '1' }, body: JSON.stringify({ mode: f, lang: C().ui, consent: f === 'continue' || (mode === 'signup' && consent()), app_ch }) }).then(r => r.json()).catch(() => ({ ok: false }));
+      if (result.ok && typeof result.url === 'string' && result.url.startsWith('https://accounts.google.com/')) { location.assign(result.url); if (native) setTimeout(() => busy(button, false), 4000); return; }
+      busy(button, false); msg.textContent = result.error === 'consent' ? gx('consent') : gx('error');
+    });
+    if (mode === 'login') box.append(button, flow() === 'continue' ? note : null, msg, or);
+    else if (mode === 'signup') box.append(or, button, msg);
+    else box.append(button, msg);
+    (googleStatus ||= get('google_status')).then(result => { box.hidden = !result?.enabled; });
+    return box;
+  }
+  /* Секрет застосунку для входу через Google: на сервер іде лише його sha256, сам він
+     лежить тут і потрібен, щоб обміняти код повернення на сесію. */
+  const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
+  async function appSecret() {
+    const ver = hex(crypto.getRandomValues(new Uint8Array(32)));
+    try { localStorage.setItem('kl.gAppVer', JSON.stringify({ v: ver, t: Date.now() })); } catch { /* ignore */ }
+    return hex(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ver)));
+  }
+  // застосунки, що вміють прийняти komikslab://: Android-оболонка (власний WebView) і Capacitor
+  const appShell = () => !!window.Capacitor?.isNativePlatform?.() || /KomiksLabAndroid\//.test(navigator.userAgent);
+  let handoffBusy = false;
+  async function appHandoff(url) {
+    const m = /^komikslab:\/\/google\?(.+)$/i.exec(url || '');
+    if (!m || handoffBusy) return;
+    const p = new URLSearchParams(m[1]);
+    const err = p.get('e'), code = p.get('h');
+    if (err) { location.hash = '#/login/' + (/^google-[a-z-]+$/.test(err) ? err : 'google-error'); return; }
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem('kl.gAppVer') || 'null'); localStorage.removeItem('kl.gAppVer'); } catch { /* ignore */ }
+    if (!code || !saved || Date.now() - saved.t > 15 * 60000) { location.hash = '#/login/google-error'; return; }
+    handoffBusy = true;
+    const r = await post('google_handoff', { code, verifier: saved.v });
+    handoffBusy = false;
+    if (!r.ok) { location.hash = '#/login/' + (r.error === 'blocked' ? 'google-blocked' : 'google-error'); return; }
+    S.server = true;
+    if (r.need2fa) { location.hash = '#/login'; setTimeout(() => showTfa(r.ticket), 80); return; }
+    await applyUser(r.user);
+    location.hash = '#/account'; C().route();
+  }
+  // Android-оболонка передає повернення через адресу: #/login/gapp?h=…
+  function hashHandoff() {
+    const m = /^#\/login\/gapp\?([A-Za-z0-9=&_-]{1,200})$/.exec(location.hash);
+    if (!m) return;
+    history.replaceState(null, '', location.pathname + location.search + '#/login');
+    appHandoff('komikslab://google?' + m[1]);
+  }
+  function listenHandoff() {
+    hashHandoff();
+    window.addEventListener('hashchange', hashHandoff);
+    const A = window.Capacitor?.isNativePlatform?.() && window.Capacitor.Plugins?.App;
+    if (!A) return;
+    try { A.addListener('appUrlOpen', e => appHandoff(e && e.url)); } catch { /* старий застосунок без плагіна */ }
+    try { A.getLaunchUrl?.().then(r => r && r.url && appHandoff(r.url)).catch(() => {}); } catch { /* ignore */ }
+  }
+  function googleReturn(arg) {
+    if (!arg?.startsWith('google-')) return null;
+    const note = msgEl();
+    if (arg === 'google-2fa') {
+      note.textContent = ax('tfa_login_d');
+      (googlePending ||= post('google_pending')).then(r => { if (!location.hash.includes('/google-2fa')) return; if (r.ok) showTfa(r.ticket); else note.textContent = gx('error'); });
+    } else note.textContent = gx(({ 'google-link-required': 'existing', 'google-signup': 'create', 'google-cancelled': 'cancelled', 'google-unavailable': 'unavailable' })[arg] || 'error');
+    return note;
+  }
+
   function loginView() {
     const K = C();
     const email = input('email', { autocomplete: 'email', required: true }), pass = input('password', { autocomplete: 'current-password', required: true });
@@ -362,7 +505,7 @@
       busy(btn, false);
       if (!r.ok) {
         msg.textContent = errText(r.error);
-        if (r.error === 'unverified') extra.append(h('button', { class: 'btn', type: 'button', onclick: async ev => { busy(ev.target, true); await post('resend', { email: email.value.trim() }); try { sessionStorage.setItem('kl.pendingEmail', email.value.trim()); } catch { /* ignore */ } location.hash = '#/verify-sent'; } }, ax('resend')));
+        if (r.error === 'unverified') extra.append(h('button', { class: 'btn', type: 'button', onclick: async ev => { busy(ev.target, true); const resent = await post('resend', { email: email.value.trim() }); busy(ev.target, false); if (!resent.ok) { msg.textContent = errText(resent.error); return; } try { sessionStorage.setItem('kl.pendingEmail', email.value.trim()); } catch { /* ignore */ } location.hash = '#/verify-sent'; } }, ax('resend')));
         return;
       }
       if (r.need2fa) { showTfa(r.ticket); return; }
@@ -370,7 +513,7 @@
       location.hash = '#/account'; K.route();
     });
     setTimeout(() => email.focus(), 50);
-    return shell('au-login', art('🔐'), h('h2', {}, ax('login_t')), h('p', { class: 'au-lead' }, ax('login_d')), form, demos,
+    return shell('au-login', art('🔐'), h('h2', {}, ax('login_t')), h('p', { class: 'au-lead' }, ax('login_d')), googleBox('login'), form, demos,
       h('p', { class: 'au-alt' }, ax('no_acc'), ' ', h('a', { href: '#/register' }, ax('reg_link'))));
   }
   function registerView(invite) {
@@ -398,7 +541,7 @@
       location.hash = '#/verify-sent';
     });
     setTimeout(() => name.focus(), 50);
-    return shell('au-register', art(code ? '🎟' : 'logo'), h('h2', {}, ax('reg_t')), banner, h('p', { class: 'au-lead' }, ax('reg_d')), form,
+    return shell('au-register', art(code ? '🎟' : 'logo'), h('h2', {}, ax('reg_t')), banner, h('p', { class: 'au-lead' }, ax('reg_d')), form, googleBox('signup', () => consent.checked),
       h('p', { class: 'au-alt' }, ax('have_acc'), ' ', h('a', { href: '#/login' }, ax('login_btn'))));
   }
   function resendButton(getEmail) {
@@ -426,9 +569,9 @@
       // перенести гостьовий прогрес, якщо користувач так вибрав під час реєстрації
       let move = ''; try { move = sessionStorage.getItem('kl.moveGuest') || ''; sessionStorage.removeItem('kl.moveGuest'); } catch { /* ignore */ }
       if (move && K.copyGuestProgressTo) K.copyGuestProgressTo(sidOf(j.user));
-      let wantShare = '1'; try { wantShare = sessionStorage.getItem('kl.share') || '1'; sessionStorage.removeItem('kl.share'); } catch { /* ignore */ }
+      let wantShare = null; try { wantShare = sessionStorage.getItem('kl.share'); sessionStorage.removeItem('kl.share'); } catch { /* ignore */ }
       await applyUser(j.user);
-      if (window.KomiksPlayers) setTimeout(() => window.KomiksPlayers.setShare(wantShare === '1'), 400); // показ у пошуку — як обрав під час реєстрації
+      if (wantShare !== null && window.KomiksPlayers) setTimeout(() => window.KomiksPlayers.setShare(wantShare === '1'), 400); // показ у пошуку — як обрав під час реєстрації
       const av = window.KomiksProfile ? window.KomiksProfile.avatar() : '🦊';
       box.querySelector('.au-card').replaceChildren(
         h('div', { class: 'au-hero' }, window.KomiksAvatars ? window.KomiksAvatars.el(av, { size: 150, mood: 'cheer' }) : h('span', {}, '🎉'), h('div', { class: 'au-rays', 'aria-hidden': 'true' })),
@@ -463,6 +606,7 @@
       const r = await post('reset', { token: String(token || ''), password: p1.value });
       busy(btn, false);
       if (!r.ok) { msg.textContent = errText(r.error); return; }
+      if (r.need2fa) { showTfa(r.ticket); return; }
       await applyUser(r.user);
       location.hash = '#/account'; K.route();
     });
@@ -471,7 +615,7 @@
   /* Вхід без пароля. Поле коду з'являється одразу після надсилання: лист часто
      приходить на телефон, а заходять із комп'ютера — переписати шість цифр
      швидше, ніж шукати, як перекинути посилання. */
-  function magicView() {
+  function magicView(googleArg) {
     const email = input('email', { autocomplete: 'email', required: true });
     const code = input('text', { inputmode: 'numeric', autocomplete: 'one-time-code', maxlength: 7, placeholder: '000 000' });
     const msg = msgEl();
@@ -488,6 +632,7 @@
       busy(target, true);
       const r = await post('magic', { email: mail });
       busy(target, false);
+      if (!r.ok) { msg.classList.remove('ok'); msg.textContent = errText(r.error); return; }
       msg.textContent = ax('magic_sent');
       msg.classList.add('ok');
       step2.hidden = false;
@@ -516,7 +661,7 @@
       if (d.length === 6) codeBtn.click();
     });
     setTimeout(() => email.focus(), 50);
-    return shell('au-magic', art('🔑'), h('h2', {}, ax('magic_t')), h('p', { class: 'au-lead' }, ax('magic_d')), form,
+    return shell('au-magic', art('🔑'), h('h2', {}, ax('magic_t')), h('p', { class: 'au-lead' }, ax('magic_d')), googleReturn(googleArg), googleBox('login'), form,
       h('p', { class: 'au-alt' }, h('a', { href: '#/login-pass' }, ax('pass_link'))),
       h('p', { class: 'au-alt' }, ax('no_acc'), ' ', h('a', { href: '#/register' }, ax('reg_link'))));
   }
@@ -541,7 +686,7 @@
   }
 
   function render(view, arg) {
-    if (view === 'login') return magicView();        // код із листа — головний шлях
+    if (view === 'login') return magicView(arg);     // callback notices share the existing login route
     if (view === 'login-pass') return loginView();   // пароль лишається для тих, хто його має
     if (view === 'register') return registerView(arg);
     if (view === 'verify-sent') return sentView();
@@ -663,32 +808,100 @@
     return wrap;
   }
 
+  /* Тексти кабінету: Google, видалення кодом. */
+  const ACC = {
+    uk: { g_t: 'Вхід через Google', g_on: '✅ Google підключено — можна входити однією кнопкою.', g_off: 'Підключіть Google, щоб входити без пароля.', g_unlink: 'Відв’язати Google', g_unlink_q: 'Відв’язати Google від акаунта? Прогрес не зміниться. Входити можна буде паролем або кодом на пошту.', g_unlinked: 'Google відв’язано ✓',
+      del_how: 'Підтвердіть паролем або кодом із листа.', del_send: '📧 Надіслати код на пошту', del_sent: e => `Код надіслано на ${e}. Він діє 15 хвилин.`, del_code: 'Код з листа', del_pass: 'Пароль', del_or: 'або', forgot: 'Немає пароля? Задати його', del_wrong_c: 'Код не підходить або вже минув. Надішліть новий.', del_wrong_p: 'Пароль не підходить.', app_note: 'Google підключається в браузері: відкрийте bilohash.com/comiks.' },
+    en: { g_t: 'Sign in with Google', g_on: '✅ Google is connected — sign in with one tap.', g_off: 'Connect Google to sign in without a password.', g_unlink: 'Disconnect Google', g_unlink_q: 'Disconnect Google from this account? Progress stays. You can sign in with your password or an email code.', g_unlinked: 'Google disconnected ✓',
+      del_how: 'Confirm with your password or a code from email.', del_send: '📧 Email me a code', del_sent: e => `Code sent to ${e}. It works for 15 minutes.`, del_code: 'Code from the email', del_pass: 'Password', del_or: 'or', forgot: 'No password? Set one', del_wrong_c: 'The code is wrong or has expired. Send a new one.', del_wrong_p: 'Wrong password.', app_note: 'Google is connected in a browser: open bilohash.com/comiks.' },
+    no: { g_t: 'Logg inn med Google', g_on: '✅ Google er koblet til – logg inn med ett trykk.', g_off: 'Koble til Google for å logge inn uten passord.', g_unlink: 'Koble fra Google', g_unlink_q: 'Koble Google fra kontoen? Fremgangen blir værende. Du kan logge inn med passord eller e-postkode.', g_unlinked: 'Google er koblet fra ✓',
+      del_how: 'Bekreft med passord eller en kode fra e-posten.', del_send: '📧 Send meg en kode', del_sent: e => `Koden er sendt til ${e}. Den virker i 15 minutter.`, del_code: 'Kode fra e-posten', del_pass: 'Passord', del_or: 'eller', forgot: 'Ikke passord? Lag et', del_wrong_c: 'Koden stemmer ikke eller er utløpt. Send en ny.', del_wrong_p: 'Feil passord.', app_note: 'Google kobles til i nettleseren: åpne bilohash.com/comiks.' },
+    ar: { g_t: 'الدخول عبر Google', g_on: '✅ Google متصل — ادخل بلمسة واحدة.', g_off: 'اربط Google للدخول دون كلمة مرور.', g_unlink: 'افصل Google', g_unlink_q: 'فصل Google عن الحساب؟ يبقى التقدّم كما هو. يمكنك الدخول بكلمة المرور أو برمز البريد.', g_unlinked: 'تم فصل Google ✓',
+      del_how: 'أكّد بكلمة المرور أو برمز من البريد.', del_send: '📧 أرسل لي رمزًا', del_sent: e => `أُرسل الرمز إلى ${e}. صالح لمدة 15 دقيقة.`, del_code: 'الرمز من الرسالة', del_pass: 'كلمة المرور', del_or: 'أو', forgot: 'لا توجد كلمة مرور؟ أنشئ واحدة', del_wrong_c: 'الرمز غير صحيح أو انتهت صلاحيته. أرسل رمزًا جديدًا.', del_wrong_p: 'كلمة المرور غير صحيحة.', app_note: 'يُربط Google من المتصفح: افتح bilohash.com/comiks.' }
+  };
+  if (window.KL_T_FILL) KL_T_FILL(ACC, 'auth.js:ACC');
+  const acx = (k, ...a) => { const t = ACC[C().ui] || ACC.en; const v = k in t ? t[k] : ACC.en[k]; return typeof v === 'function' ? v(...a) : v; };
+  const inApp = () => window.Capacitor?.isNativePlatform?.() || /; wv\)|\bwv\b|KomiksApp/i.test(navigator.userAgent);
+
+  /* 🔑 Google: підключити або відв’язати. Показуємо і в кабінеті, і в налаштуваннях. */
+  function googleManage() {
+    const u = S.user; if (!u || u.demo || !S.server) return null;
+    const box = h('div', { class: 'box au-gman', hidden: true });
+    const msg = msgEl();
+    const draw = () => {
+      const head = h('h3', { class: 'au-gman-h' }, googleMark(), h('span', {}, acx('g_t')));
+      if (S.user && S.user.google) {
+        const btn = h('button', { class: 'btn small', type: 'button' }, acx('g_unlink'));
+        btn.addEventListener('click', async () => {
+          if (!confirm(acx('g_unlink_q'))) return;
+          busy(btn, true); const r = await post('google_unlink', {}); busy(btn, false);
+          if (!r.ok) { msg.textContent = errText(r.error); return; }
+          await applyUser(r.user, { pull: false }); draw(); msg.textContent = acx('g_unlinked');
+        });
+        box.replaceChildren(head, h('p', { class: 'au-hint' }, acx('g_on')), h('div', { class: 'row-left' }, btn), msg);
+      } else {
+        box.replaceChildren(head, h('p', { class: 'au-hint' }, acx(inApp() ? 'app_note' : 'g_off')), inApp() ? null : googleBox('link'), msg);
+      }
+    };
+    draw();
+    // Google на сайті вимкнено і не прив’язаний — блок не потрібен
+    (googleStatus ||= get('google_status')).then(r => { box.hidden = !(r?.enabled || (S.user && S.user.google)); });
+    return box;
+  }
+
+  /* Видалення: пароль або код із листа (у тих, хто ввійшов через Google, пароля немає). */
+  function deleteBox() {
+    const K = C(), u = S.user; if (!u || u.demo) return null;
+    const delP = input('password', { autocomplete: 'current-password' });
+    const code = input('text', { inputmode: 'numeric', maxlength: 7, placeholder: '000 000', autocomplete: 'one-time-code' });
+    const codeWrap = h('div', { hidden: true }, field(acx('del_code'), code));
+    const dm = h('small', { class: 'au-msg' });
+    const send = h('button', { class: 'btn small', type: 'button' }, acx('del_send'));
+    send.addEventListener('click', async () => {
+      busy(send, true); const r = await post('delete_code', {}); busy(send, false);
+      if (!r.ok) { dm.textContent = errText(r.error); return; }
+      codeWrap.hidden = false; dm.textContent = acx('del_sent', u.email); code.focus();
+    });
+    const del = async ev => {
+      const btn = ev.currentTarget, c = code.value.replace(/\D+/g, ''), p = delP.value;
+      if (!c && !p) { dm.textContent = acx('del_how'); return; }
+      if (!confirm(ax('del_confirm'))) return;
+      busy(btn, true);
+      const r = await post('delete', c ? { code: c } : { password: p });
+      busy(btn, false);
+      if (!r.ok) { dm.textContent = r.error === 'wrong' ? acx(c ? 'del_wrong_c' : 'del_wrong_p') : errText(r.error); return; }
+      try { const pre = `comiks.u.${sidOf(u)}.`, ks = []; for (let i = 0; i < localStorage.length; i++) ks.push(localStorage.key(i)); ks.filter(k => k.startsWith(pre)).forEach(k => localStorage.removeItem(k)); } catch { /* ignore */ }
+      const all = K.raw.get('comiks.users', {}); delete all[sidOf(u)]; K.raw.set('comiks.users', all); S.user = null; K.setSession(null); location.hash = '#/'; K.route();
+    };
+    const or = h('p', { class: 'au-or-small' }, acx('del_or'));
+    const passPart = field(acx('del_pass'), delP), codePart = [h('div', { class: 'row-left' }, send), codeWrap];
+    // хто прийшов через Google, найпевніше пароля не знає — код ставимо першим
+    const parts = u.google ? [...codePart, or, passPart] : [passPart, or, ...codePart];
+    return h('details', { class: 'au-det danger' }, h('summary', {}, ax('del_t')), h('p', { class: 'au-hint' }, ax('del_d')), h('p', { class: 'au-hint' }, acx('del_how')),
+      ...parts, h('div', { class: 'row-left' }, h('button', { class: 'btn accent', type: 'button', onclick: del }, ax('del_btn'))), dm);
+  }
+
+  /* 🔐 Безпека: пароль, двофакторна, вихід, видалення. Значки-статуси прибрано з кабінету. */
   function accountBox() {
-    const K = C(), u = S.user; if (!u) return null;
+    const u = S.user; if (!u) return null;
     const oldP = input('password', { autocomplete: 'current-password' }), newP = input('password', { autocomplete: 'new-password' });
     const pm = h('small', { class: 'au-hint' });
-    const delP = input('password', { autocomplete: 'current-password' }), dm = h('small', { class: 'au-msg' });
     const savePass = async () => { pm.textContent = ''; const r = await post('password', { old: oldP.value, password: newP.value }); pm.textContent = r.ok ? ax('saved') : errText(r.error); if (r.ok) { oldP.value = ''; newP.value = ''; } };
-    const del = async () => { if (!confirm(ax('del_confirm'))) return; const r = await post('delete', { password: delP.value }); if (!r.ok) { dm.textContent = errText(r.error); return; }
-      try { const pre = `comiks.u.${sidOf(u)}.`, ks = []; for (let i = 0; i < localStorage.length; i++) ks.push(localStorage.key(i)); ks.filter(k => k.startsWith(pre)).forEach(k => localStorage.removeItem(k)); } catch { /* ignore */ }
-      const all = K.raw.get('comiks.users', {}); delete all[sidOf(u)]; K.raw.set('comiks.users', all); S.user = null; K.setSession(null); location.hash = '#/'; K.route(); };
     return h('div', { class: 'box au-acc' }, h('h3', {}, ax('acc_t')),
-      h('p', {}, h('b', {}, u.demo ? u.name : u.email), h('br'),
-        u.demo ? h('span', { class: 'au-badge prem' }, ax('demo_h')) : [h('span', { class: 'au-badge' }, ax('verified')), ' ', h('span', { class: 'au-badge sync' }, ax('synced'))],
-        u.premium ? [' ', h('span', { class: 'au-badge prem' }, a3('premium'))] : null, u.role && u.role !== 'user' ? [' ', h('span', { class: 'au-badge staff' }, a3('staff')[u.role])] : null,
-        u.role === 'admin' ? [' ', h('a', { class: 'au-badge staff', href: 'admin.php' }, '⚙️ Admin')] : null),
       u.demo ? h('p', { class: 'au-hint' }, ax('demo_note')) : null,
-      u.can_invite && !u.demo ? inviteBox() : null,
-      u.demo ? null : importBox(),
-      u.demo ? null : h('details', { class: 'au-det' }, h('summary', {}, ax('change_pass')), field(ax('old_pass'), oldP), field(ax('new_pass'), newP), h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: savePass }, ax('save')), pm)),
+      u.demo ? null : h('details', { class: 'au-det' }, h('summary', {}, ax('change_pass')), field(ax('old_pass'), oldP), field(ax('new_pass'), newP),
+        h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: savePass }, ax('save')), pm),
+        h('p', { class: 'au-hint' }, h('a', { href: '#/forgot' }, acx('forgot')))),
       totpBox(),
       h('div', { class: 'row-left' }, h('button', { class: 'btn', type: 'button', onclick: logout }, ax('logout'))),
-      u.demo ? null : h('details', { class: 'au-det danger' }, h('summary', {}, ax('del_t')), h('p', { class: 'au-hint' }, ax('del_d')), field(ax('pass'), delP), h('button', { class: 'btn accent', type: 'button', onclick: del }, ax('del_btn')), dm));
+      deleteBox());
   }
 
   function importBox() {
     const K = C(), sid = sidOf(S.user);
-    const list = localAccounts(), guest = guestHasData();
+    // що вже перенесли в цей акаунт, більше не пропонуємо
+    const done = new Set(K.raw.get(`comiks.u.${sid}.imported`, []) || []);
+    const list = localAccounts().filter(x => !done.has(String(x.id))), guest = guestHasData() && !done.has('');
     if (!list.length && !guest) return null;
     const msg = h('small', { class: 'au-hint' });
     const run = async (from, btn) => { busy(btn, true); const n = await importLocal(from, sid); await push(); busy(btn, false); msg.textContent = a3('imp_done', n); K.Sfx.good(); setTimeout(() => location.reload(), 1600); };
@@ -699,7 +912,7 @@
   function inviteBox() {
     const K = C();
     const out = h('div', { class: 'au-inv-out' }), list = h('ul', { class: 'au-inv-list' });
-    const fmtD = d => { try { return new Date(d).toLocaleDateString(K.ui === 'uk' ? 'uk-UA' : K.ui === 'no' ? 'nb-NO' : 'en-GB'); } catch { return ''; } };
+    const fmtD = d => { try { return new Date(d).toLocaleDateString(K.locale()); } catch { return ''; } };
     const loadList = async () => {
       const j = await get('invites'); const rows = j && j.ok ? j.invites : [];
       list.replaceChildren(...rows.map(r => h('li', {}, r.used ? a3('inv_used', r.name || '🙂') : new Date(r.expires) < new Date() ? a3('inv_old') : a3('inv_wait', fmtD(r.expires)), h('small', {}, fmtD(r.created)))));
@@ -745,19 +958,20 @@
     if (!window.KomiksCore) { setTimeout(init, 50); return; }
     hookStore();
     if (!location.protocol.startsWith('http')) { readyDone(false); return; }
+    listenHandoff();
     get('me').then(async j => {
       if (!j || !j.auth) return false;
       S.server = true;
       await applyUser(j.user || null);
       if (j.notice) setTimeout(() => showNotice(j.notice), 1200);
-      setInterval(pollNotice, 180000);
+      setInterval(pollNotice, 120000);   // заодно «я тут» для адмінки: хто онлайн і коли була остання активність
       const view = (location.hash || '#/').split('/')[1] || '';
-      if (['login', 'register', 'account'].includes(view)) C().route(); // перемалювати серверною версією
+      if (['login', 'register', 'account', 'settings'].includes(view)) C().route(); // перемалювати серверною версією
       return true;
     }).then(readyDone, () => readyDone(false));
   }
   // перечитати акаунт із сервера (після оплати Преміуму тощо)
   const refresh = async () => { const j = await get('me'); if (j && j.user) await applyUser(j.user); return j && j.user; };
-  window.KomiksAuth = { render, accountBox, logout, push, refresh, get server() { return S.server; }, get user() { return S.user; }, ready: () => S.ready };
+  window.KomiksAuth = { render, accountBox, googleManage, importBox, inviteBox, logout, push, refresh, get server() { return S.server; }, get user() { return S.user; }, ready: () => S.ready };
   init();
 })();

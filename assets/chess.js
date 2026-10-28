@@ -257,6 +257,7 @@
       vs: 'mot', level: { baby: '🐣 Nybegynner', easy: '🟢 Lett', medium: '🟡 Middels', hard: '🔴 Sterk', master: '🟣 Mester' }, captured: 'Slått', coach: 'Tips: få ut springere og løpere først, og sett kongen i sikkerhet med rokade (O-O).'
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'chess.js:TX');
   TX.ar = {
     title: '♟ الشطرنج', sub: 'شطرنج حقيقي بقطع ثلاثية الأبعاد: العب مع الروبوتات أو مع صديق أو نظّم بطولة للصف كله. تُكتب النقلات بالنرويجية — تتعلّم وأنت تلعب!',
     bot: '🤖 العب مع روبوت', bot_d: 'اختر خصمًا من سلّم التصنيف', local: '👥 لاعبان على جهاز واحد', local_d: 'تناوبا على الهاتف أو الجهاز اللوحي', room: '🌐 العب مع صديق عبر الإنترنت', room_d: 'رابط أو رمز QR — وتلعبان على جهازين مختلفين', host: '📺 بطولة الصف', host_d: 'شاشة برمز QR، والتلاميذ يلعبون على هواتفهم، بجولات وجدول',

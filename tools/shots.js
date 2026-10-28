@@ -63,7 +63,19 @@ const SHOTS = [
   ['whatsnew', '#/whatsnew', '.news-list, main', null],
   ['english', '#/english', 'main', null],
   ['math', '#/math', 'main', null],
+  ['fractions', '#/math/fractions', '.fr-page .fr-anatomy', null],
+  ['fracquiz', '#/quiz/math/frac', '.fr-quiz .opt', null],
+  ['settings', '#/settings', '.a11y-set', null],
+  ['games', '#/games', '.gm-game, main', null],
+  ['game', '#/game', '.gh-hero, main', null],
 ];
+
+/* Зняти лише частину кадрів: --only games,read. Повний прохід — двадцять сім
+   сторінок і кілька хвилин, а правка зазвичай стосується однієї. */
+const onlyArg = process.argv.indexOf('--only');
+const ONLY = onlyArg > -1 ? String(process.argv[onlyArg + 1] || '').split(',').filter(Boolean) : null;
+const PICK = ONLY ? SHOTS.filter(x => ONLY.includes(x[0])) : SHOTS;
+if (ONLY && !PICK.length) { console.error('✖ --only: немає таких кадрів: ' + ONLY.join(', ')); process.exit(1); }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -122,6 +134,9 @@ class Session {
     try {
       localStorage.setItem('comiks.consent', JSON.stringify({ v: ${JSON.stringify(terms)}, at: new Date().toISOString().slice(0, 10) }));
       localStorage.setItem('comiks.welcomed', JSON.stringify(true));
+      // вікно знайомства з відгуками й смужка «є застосунок» затуляли пів кадру
+      localStorage.setItem('kl.fbIntro', '1');
+      localStorage.setItem('comiks.smartHide', String(Date.now() + 30 * 864e5));
       localStorage.setItem('comiks.ui', JSON.stringify(${JSON.stringify(LANG)}));
       const st = JSON.parse(localStorage.getItem('comiks.settings') || '{}');
       localStorage.setItem('comiks.settings', JSON.stringify(Object.assign({ level: 'adults', levelFilter: 'all', rate: 1, voices: {}, audio: true, v: 5 }, st)));
@@ -145,7 +160,7 @@ class Session {
     edge.kill(); process.exit(1);
   }
 
-  for (const [name, hash, ready, mode] of SHOTS) {
+  for (const [name, hash, ready, mode] of PICK) {
     await s.send('Page.navigate', { url: `http://localhost:${PORT}/#/` });
     await sleep(700);
     await s.eval(`location.hash = ${JSON.stringify(hash)}; true`);

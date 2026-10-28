@@ -20,7 +20,7 @@
       k_like: n => `${n} вподобав твій результат ❤️`,
       like: 'Подобається', liked: 'Вже подобається', open: 'Відкрити',
       ago: { now: 'щойно', m: n => `${n} хв тому`, h: n => `${n} год тому`, d: n => `${n} дн тому` },
-      off: 'Сповіщення працюють на bilohash.com — тут сервера немає.' },
+      more: 'Показати ще', off: 'Сповіщення працюють на bilohash.com — тут сервера немає.' },
     en: { title: '🔔 Notifications', nav: '🔔 Notifications',
       lead: 'What your friends have been up to. Only people you added as friends show up here — and only if they allow their profile to be shown.',
       empty: 'Quiet for now. Add friends and you will see them passing tests and moving up levels.',
@@ -31,7 +31,7 @@
       k_like: n => `${n} liked your result ❤️`,
       like: 'Like', liked: 'Liked', open: 'Open',
       ago: { now: 'just now', m: n => `${n} min ago`, h: n => `${n} h ago`, d: n => `${n} d ago` },
-      off: 'Notifications work on bilohash.com — there is no server here.' },
+      more: 'Show more', off: 'Notifications work on bilohash.com — there is no server here.' },
     no: { title: '🔔 Varsler', nav: '🔔 Varsler',
       lead: 'Hva vennene dine har gjort. Bare de du har lagt til som venner vises her – og bare hvis de har tillatt at profilen vises.',
       empty: 'Stille så langt. Legg til venner, så ser du dem ta prøver og gå opp i nivå.',
@@ -42,7 +42,7 @@
       k_like: n => `${n} likte resultatet ditt ❤️`,
       like: 'Lik', liked: 'Likt', open: 'Åpne',
       ago: { now: 'akkurat nå', m: n => `${n} min siden`, h: n => `${n} t siden`, d: n => `${n} d siden` },
-      off: 'Varsler virker på bilohash.com – her finnes ingen server.' },
+      more: 'Vis flere', off: 'Varsler virker på bilohash.com – her finnes ingen server.' },
     ar: { title: '🔔 الإشعارات', nav: '🔔 الإشعارات',
       lead: 'ما فعله أصدقاؤك. يظهر هنا من أضفتهم أصدقاء فقط — وفقط إن سمحوا بعرض ملفهم.',
       empty: 'هادئ حتى الآن. أضف أصدقاء لترى إنجازهم للاختبارات وصعودهم في المستويات.',
@@ -53,7 +53,7 @@
       k_like: n => `${n} أعجبته نتيجتك ❤️`,
       like: 'إعجاب', liked: 'أعجبني', open: 'افتح',
       ago: { now: 'الآن', m: n => `قبل ${n} د`, h: n => `قبل ${n} س`, d: n => `قبل ${n} ي` },
-      off: 'تعمل الإشعارات على bilohash.com — لا يوجد خادم هنا.' },
+      more: 'عرض المزيد', off: 'تعمل الإشعارات على bilohash.com — لا يوجد خادم هنا.' },
     de: { title: '🔔 Benachrichtigungen', nav: '🔔 Benachrichtigungen',
       lead: 'Was deine Freunde gemacht haben. Hier erscheinen nur Leute, die du als Freunde hinzugefügt hast — und nur, wenn sie ihr Profil zeigen lassen.',
       empty: 'Noch ruhig. Füge Freunde hinzu, dann siehst du, wie sie Tests bestehen und Stufen aufsteigen.',
@@ -64,7 +64,7 @@
       k_like: n => `${n} gefällt dein Ergebnis ❤️`,
       like: 'Gefällt mir', liked: 'Gefällt dir', open: 'Öffnen',
       ago: { now: 'gerade eben', m: n => `vor ${n} Min.`, h: n => `vor ${n} Std.`, d: n => `vor ${n} T.` },
-      off: 'Benachrichtigungen laufen auf bilohash.com — hier gibt es keinen Server.' },
+      more: 'Mehr anzeigen', off: 'Benachrichtigungen laufen auf bilohash.com — hier gibt es keinen Server.' },
     pl: { title: '🔔 Powiadomienia', nav: '🔔 Powiadomienia',
       lead: 'Co porabiali twoi znajomi. Pojawiają się tu tylko osoby dodane do znajomych — i tylko jeśli pozwalają pokazywać swój profil.',
       empty: 'Na razie cisza. Dodaj znajomych, a zobaczysz, jak zdają testy i wchodzą na wyższe poziomy.',
@@ -75,7 +75,7 @@
       k_like: n => `${n} polubił twój wynik ❤️`,
       like: 'Lubię to', liked: 'Polubione', open: 'Otwórz',
       ago: { now: 'przed chwilą', m: n => `${n} min temu`, h: n => `${n} godz. temu`, d: n => `${n} dni temu` },
-      off: 'Powiadomienia działają na bilohash.com — tutaj nie ma serwera.' },
+      more: 'Pokaż więcej', off: 'Powiadomienia działają na bilohash.com — tutaj nie ma serwera.' },
     tr: { title: '🔔 Bildirimler', nav: '🔔 Bildirimler',
       lead: 'Arkadaşların neler yapmış. Burada yalnızca arkadaş olarak eklediğin kişiler görünür — üstelik yalnızca profillerinin gösterilmesine izin veriyorlarsa.',
       empty: 'Şimdilik sessiz. Arkadaş ekle, testleri geçişlerini ve seviye atlayışlarını gör.',
@@ -86,7 +86,7 @@
       k_like: n => `${n} sonucunu beğendi ❤️`,
       like: 'Beğen', liked: 'Beğenildi', open: 'Aç',
       ago: { now: 'az önce', m: n => `${n} dk önce`, h: n => `${n} sa önce`, d: n => `${n} gün önce` },
-      off: 'Bildirimler bilohash.com üzerinde çalışır — burada sunucu yok.' },
+      more: 'Daha fazla göster', off: 'Bildirimler bilohash.com üzerinde çalışır — burada sunucu yok.' },
     lt: { title: '🔔 Pranešimai', nav: '🔔 Pranešimai',
       lead: 'Ką veikė tavo draugai. Čia rodomi tik tie, kuriuos įsitraukei į draugus — ir tik jei jie leidžia rodyti savo profilį.',
       empty: 'Kol kas tylu. Pridėk draugų ir matysi, kaip jie išlaiko testus ir kyla lygiais.',
@@ -97,7 +97,7 @@
       k_like: n => `${n} patiko tavo rezultatas ❤️`,
       like: 'Patinka', liked: 'Patiko', open: 'Atidaryti',
       ago: { now: 'ką tik', m: n => `prieš ${n} min.`, h: n => `prieš ${n} val.`, d: n => `prieš ${n} d.` },
-      off: 'Pranešimai veikia bilohash.com — čia serverio nėra.' }
+      more: 'Rodyti daugiau', off: 'Pranešimai veikia bilohash.com — čia serverio nėra.' }
   };
   const tx = () => T[(C() || {}).ui] || T.en;
   const AV = (code, o) => (window.KomiksAvatars ? window.KomiksAvatars.el(code, o) : document.createTextNode(String(code || '🙂').split('|')[0]));
@@ -106,7 +106,7 @@
   const post = body => fetch(API, { method: 'POST', credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json', 'X-Komiks': '1' }, body: JSON.stringify(body) })
     .then(r => r.json()).catch(() => null);
-  const feed = () => fetch(API + '?action=feed', { credentials: 'same-origin', cache: 'no-store' })
+  const feed = (q = '') => fetch(API + '?action=feed' + q, { credentials: 'same-origin', cache: 'no-store' })
     .then(r => r.json()).catch(() => null);
 
   const when = at => {
@@ -149,12 +149,30 @@
       return root;
     }
 
-    feed().then(j => {
+    // спершу 10 свіжих, далі «Показати ще» по 30 старших
+    const FIRST = 10, NEXT = 30;
+    const moreBtn = h('button', { class: 'btn al-more', type: 'button' }, L.more || 'Show more');
+    moreBtn.hidden = true;
+    let lastId = 0;
+    const add = (items, want) => {
+      list.append(...items.map(card));
+      if (items.length) lastId = items[items.length - 1].id;
+      moreBtn.hidden = items.length < want;
+    };
+    moreBtn.addEventListener('click', async () => {
+      moreBtn.disabled = true;
+      const j = await feed(`&before=${lastId}&limit=${NEXT}`);
+      moreBtn.disabled = false;
+      if (j && j.ok) add(j.items, NEXT);
+    });
+    list.after(moreBtn);
+    feed(`&limit=${FIRST}`).then(j => {
       if (!j || !j.ok) { list.replaceChildren(h('p', { class: 'muted' }, L.off)); return; }
       unseen = 0; paintBell();
       post({ action: 'seen' });
       if (!j.items.length) { list.replaceChildren(h('div', { class: 'box center' }, h('p', {}, L.empty))); return; }
-      list.replaceChildren(...j.items.map(card));
+      list.replaceChildren();
+      add(j.items, FIRST);
     });
 
     function card(it) {

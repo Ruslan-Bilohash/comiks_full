@@ -40,6 +40,7 @@
       act: { read: '📖 leser en tegneserie', words: '📝 lærer ord', grammar: '📐 grammatikk', english: '🇬🇧 engelsk', math: '🧮 matte', race: '🏁 i Logikkløpet', game: '🎮 i et spill', join: '🎮 i et spill', quiz: '🧩 tar en test', tests: '🧩 tester', alphabet: '🔤 alfabetet', numbers: '🔢 tall', avatar: '🎨 kler på avataren', friends: '👥 venner', '': '🏠 på siden' }
     }
   };
+  if (window.KL_T_FILL) KL_T_FILL(TX, 'friends.js:TX');
   if (window.I18N) for (const [l, n] of [['uk', 'Друзі'], ['en', 'Friends'], ['no', 'Venner']]) { const I = window.I18N[l]; if (I) I.nav = Object.assign({}, I.nav, { friends: n }); }
   const C = () => window.KomiksCore;
   TX.ar = {
@@ -319,11 +320,21 @@
   const mountPill = () => { if (!window.KomiksCore || !document.body) { setTimeout(mountPill, 200); return; } document.body.append(pill()); };
   mountPill();
 
+  // відкладене додавання друга з QR (див. render): щойно людина ввійшла
+  window.addEventListener('hashchange', () => {
+    const K = C(); if (!K || !K.currentUser()) return;
+    const code = K.raw.get('comiks.pendingFriend', null); if (!code) return;
+    K.raw.set('comiks.pendingFriend', null);
+    const msg = add(code); if (msg) setTimeout(() => toast(msg), 300);
+  });
+
   /* ---------- сторінка #/friends ---------- */
   function render(id, arg) {
     const K = C(), { h } = K;
     const root = h('section', { class: 'friends' });
     if (id === 'add' && arg && K.currentUser()) { const msg = add(arg); if (msg) setTimeout(() => toast(msg), 300); history.replaceState(null, '', '#/friends'); }
+    // QR «Стати друзями» відсканував гість: запам’ятовуємо код і просимо ввійти — додамо після входу
+    if (id === 'add' && arg && !K.currentUser()) { K.raw.set('comiks.pendingFriend', String(arg).toUpperCase().slice(0, 6)); location.replace('#/login'); return root; }
     const draw = () => {
       if (!root.isConnected && root.__drawn) { N.listeners.delete(draw); return; }
       root.__drawn = true;
@@ -358,6 +369,7 @@
             f.status === 'friend' && on ? [h('button', { class: 'btn accent', type: 'button', onclick: () => together(f.code) }, fx('together')),
               room ? h('button', { class: 'btn', type: 'button', onclick: () => { if (invite(f.code, 'game')) toast(fx('invited', f.name), null, f.avatar); } }, fx('inv_game') + ' ' + room) : null,
               h('button', { class: 'btn', type: 'button', onclick: () => hug(f.code) }, f.best ? fx('hug') : fx('five'))] : null,
+            f.status === 'friend' && window.KomiksGifts ? window.KomiksGifts.button(f, 'btn small') : null,
             f.status === 'friend' ? h('label', { class: 'fr-best', title: fx('best_hint') }, h('input', { type: 'checkbox', checked: !!f.best, onchange: e => setBest(f.code, e.target.checked) }), h('span', {}, fx('best'))) : null,
             f.status !== 'incoming' ? h('button', { class: 'fr-x', type: 'button', title: fx('remove'), 'aria-label': fx('remove'), onclick: () => { if (confirm(fx('remove') + '?')) remove(f.code); } }, '✕') : null));
       };

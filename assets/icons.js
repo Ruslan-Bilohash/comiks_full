@@ -18,6 +18,7 @@
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
     smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/>',
     eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    code: '<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>',
     calc: '<rect x="5" y="2.5" width="14" height="19" rx="2.5"/><path d="M8 6.5h8M8.5 11h.01M12 11h.01M15.5 11h.01M8.5 14.5h.01M12 14.5h.01M15.5 14.5h.01M8.5 18h.01M12 18h.01M15.5 18h.01"/>',
     rocket: '<path d="M5 15.5c-1.4 1.2-2 4.5-2 4.5s3.3-.6 4.5-2c.7-.8.7-2-.1-2.7a2 2 0 0 0-2.4.2z"/><path d="M12 15l-3-3a21 21 0 0 1 2-3.9A12.9 12.9 0 0 1 21.5 2.5c0 2.6-.8 7.2-5.5 10.5a22 22 0 0 1-4 2z"/><path d="M9 12H4.5s.6-2.9 2-3.9c1.5-1 4.5 0 4.5 0M12 15v4.5s2.9-.6 3.9-2c1-1.5 0-4.5 0-4.5"/>',
     trophy: '<path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
@@ -41,9 +42,10 @@
     who: ['speech', '#7e57c2'], panel: ['layout', '#1e88e5'], order: ['sort', '#00897b'], listen: ['headphones', '#d81b60'],
     picture: ['image', '#f4511e'], blank: ['pencil', '#3949ab'], type: ['keyboard', '#546e7a'], truefalse: ['checkx', '#2e7d32'],
     letter: ['abc', '#8e24aa'], firstletter: ['abc', '#8e24aa'], number: ['hash', '#ef6c00'], numword: ['hash', '#ef6c00'], numtype: ['keyboard', '#ef6c00'],
-    grammar: ['book', '#5e35b1'], clock: ['clock', '#00838f'], emoji: ['smile', '#f9a825'], speaker: ['eye', '#6d4c41'], math: ['calc', '#e53935']
+    grammar: ['book', '#5e35b1'], clock: ['clock', '#00838f'], emoji: ['smile', '#f9a825'], speaker: ['eye', '#6d4c41'], math: ['calc', '#e53935'],
+    robot: ['code', '#00838f'], code: ['code', '#3949ab'], algo: ['sort', '#00897b'], bug: ['checkx', '#e53935'], lang: ['globe', '#1e88e5'], html: ['code', '#e65100'], concept: ['code', '#7e57c2']
   };
-  const MODULES = { race: ['flag', '#1565c0'], chess: ['chess', '#37474f'], game: ['gamepad', '#e53935'], words: ['tag', '#00897b'], grammar: ['book', '#5e35b1'], english: ['globe', '#1e88e5'], math: ['calc', '#ef6c00'],
+  const MODULES = { race: ['flag', '#1565c0'], chess: ['chess', '#37474f'], game: ['gamepad', '#e53935'], words: ['tag', '#00897b'], grammar: ['book', '#5e35b1'], english: ['globe', '#1e88e5'], math: ['calc', '#ef6c00'], koding: ['code', '#3949ab'],
     alphabet: ['abc', '#8e24aa'], numbers: ['hash', '#f9a825'], plan: ['map', '#43a047'], tests: ['checklist', '#d81b60'], rating: ['trophy', '#ffb300'], cards: ['layout', '#546e7a'] };
   const svg = (name, size = 24) => `<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[name] || P.star}</svg>`;
   const el = (name, size) => { const t = document.createElement('template'); t.innerHTML = svg(name, size); return t.content.firstChild; };

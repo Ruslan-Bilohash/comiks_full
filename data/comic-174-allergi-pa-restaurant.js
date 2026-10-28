@@ -56,7 +56,7 @@ COMICS.push({
   ],
 
   words: {
-    no: { "allergi": "алергія", "tåler": "переношу", "nøtter": "горіхи", "inneholder": "містить", "salaten": "салат", "valnøtter": "волоські горіхи", "dressingen": "заправка", "bytte": "замінити", "porsjon": "порція", "kniv": "ніж", "brett": "дошка", "redskaper": "начиння", "alvor": "серйозно", "trygg": "безпечна", "bestillingen": "замовлення" },
-    en: { "allergi": "allergy", "tåler": "tolerate", "nøtter": "nuts", "inneholder": "contains", "salaten": "the salad", "valnøtter": "walnuts", "dressingen": "the dressing", "bytte": "to swap", "porsjon": "portion", "kniv": "knife", "brett": "board", "redskaper": "tools", "alvor": "seriously", "trygg": "safe", "bestillingen": "the order" }
+    no: { "allergi": "алергія", "allergier": "алергії", "tåler": "переношу", "nøtter": "горіхи", "inneholder": "містить", "salaten": "салат", "valnøtter": "волоські горіхи", "dressingen": "заправка", "bytte": "замінити", "porsjon": "порція", "kniv": "ніж", "brett": "дошка", "redskaper": "начиння", "alvor": "серйозно", "trygg": "безпечна", "bestillingen": "замовлення" },
+    en: { "allergi": "allergy", "allergier": "allergies", "tåler": "tolerate", "nøtter": "nuts", "inneholder": "contains", "salaten": "the salad", "valnøtter": "walnuts", "dressingen": "the dressing", "bytte": "to swap", "porsjon": "portion", "kniv": "knife", "brett": "board", "redskaper": "tools", "alvor": "seriously", "trygg": "safe", "bestillingen": "the order" }
   }
 });

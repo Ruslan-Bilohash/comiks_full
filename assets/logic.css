@@ -1,0 +1,49 @@
+/* Logic adventures share the existing race scene and animated avatar track. */
+.lg-picker { width: min(900px, 100%); border: 0; margin: 0; padding: 0; text-align: start; }
+.lg-picker legend { font: 800 1.08rem Rubik, system-ui, sans-serif; margin-bottom: 12px; }
+.lg-modes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.lg-mode { display: grid; align-content: start; gap: 6px; padding: 16px; border: 2px solid #10233a; border-radius: 18px; background: #fffaf0; color: #10233a; text-align: start; cursor: pointer; box-shadow: 0 3px 0 #10233a; }
+.lg-mode.on { background: #ffe179; outline: 3px solid #10233a; outline-offset: 2px; transform: translateY(-2px); }
+.lg-mode-icon { font-size: 1.8rem; }
+.lg-mode b { font-size: 1rem; line-height: 1.25; }
+.lg-mode small { font-size: .8rem; line-height: 1.4; }
+.lg-picker.compact .lg-modes { grid-template-columns: repeat(2, 1fr); }
+.lg-picker.compact .lg-mode { padding: 10px; }
+.lg-picker.compact .lg-mode small { display: none; }
+.lg-mode:focus-visible, .lg-q button:focus-visible { outline: 4px solid #10233a; outline-offset: 4px; }
+.lg-help { max-width: 600px; margin: 0; font-size: .96rem; line-height: 1.5; }
+.lg-active { font-weight: 800; text-align: center; margin: 8px 0; }
+.lg-q [hidden] { display: none !important; }
+.lg-q { color: #10233a; }
+.lg-puzzle { width: 100%; }
+.lg-shelf, .lg-search { display: grid; grid-template-columns: repeat(var(--lg-columns, 4), minmax(0, 1fr)); gap: 7px; }
+.lg-shelf { padding: 7px; border-bottom: 5px solid #c7a881; border-radius: 10px; background: #fff7e6; }
+.lg-object { position: relative; display: grid; min-height: 54px; place-items: center; padding: 4px; background: white; border-radius: 11px; font-size: clamp(1.6rem, 5vw, 2.3rem); border: 2px solid #e6dfd3; line-height: 1.3; }
+.lg-object small { position: absolute; top: 2px; left: 5px; font: 700 .65rem system-ui, sans-serif; color: #576479; }
+.lg-object b { padding-top: 6px; font-weight: 400; }
+.lg-object.missing, .lg-sequence .missing { background: #ffe179; border: 2px dashed #10233a; font-weight: 900; }
+.lg-compare { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: center; }
+.lg-shelf-label { text-align: center; font-size: .9rem; }
+.lg-sequence { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; padding: 12px 0; }
+.lg-sequence span { display: grid; place-items: center; min-width: 44px; min-height: 48px; padding: 4px 8px; border: 2px solid #e6dfd3; border-radius: 10px; font: 800 1.5rem Rubik, system-ui, sans-serif; background: #fff7e6; }
+.lg-sequence.emoji span { font-family: system-ui, sans-serif; font-size: 1.8rem; }
+.lg-status { min-height: 24px; margin: 0; text-align: center; font-weight: 700; }
+.lg-status.feedback { display: grid; gap: 4px; border-radius: 12px; padding: 10px; background: #eef5fa; line-height: 1.4; }
+.lg-status.feedback span { font-weight: 500; }
+.lg-status.correct { background: #e2f4de; }
+.lg-object.found { background: #e2f4de; border: 3px solid #2a7321; }
+.lg-check { position: absolute; right: 8px; top: 4px; font-size: 1rem; }
+.lg-q .lr-opt:disabled { cursor: default; }
+.lg-q .lr-opt.good { outline: 4px solid #10233a; outline-offset: -4px; }
+.lg-room-detail { display: grid; gap: 4px; margin: 8px 0 16px; }
+@media (max-width: 650px) {
+  .lg-modes { grid-template-columns: repeat(2, 1fr); }
+  .lg-mode { padding: 12px; }
+  .lg-object { min-height: 48px; }
+  .lg-sequence { gap: 5px; }
+  .lg-sequence span { min-width: 36px; min-height: 42px; padding: 3px 5px; font-size: 1.2rem; }
+  .lg-sequence.emoji span { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .lg-mode { transform: none; } }
+/* A result toast from the previous round must not cover the next round's answers. */
+body:has(.lr-phone) .praise-toast { display: none; }

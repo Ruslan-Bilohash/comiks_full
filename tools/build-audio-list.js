@@ -100,6 +100,12 @@ if (BASICS.numberWord) {
   for (let a = 0; a <= 20; a++) for (let b = 0; a + b <= 20; b++) phrases.add(`${N(a)} pluss ${N(b)}`);
   for (let a = 0; a <= 20; a++) for (let b = 0; b <= a; b++) phrases.add(`${N(a)} minus ${N(b)}`);
   ['pluss', 'minus', 'ganger', 'delt på', 'er', 'lik'].forEach(w => words.no.add(w));
+  // ½ дроби: назви (1/2 … 10/10), «en tredjedel av ni (er tre)» і слова уроку
+  if (BASICS.fractionWord) {
+    for (let d = 2; d <= 10; d++) for (let n = 1; n <= d; n++) phrases.add(BASICS.fractionWord(n, d));
+    for (const [n, d, t] of BASICS.fractionOfTasks()) { phrases.add(BASICS.fractionOf(n, d, t, true)); phrases.add(BASICS.fractionOf(n, d, t, false)); }
+    [...BASICS.FRACTION_WORDS, 'teller', 'nevner', 'brøkstrek'].forEach(w => words.no.add(w));
+  }
   // похвала голосом (KomiksCore.cheer)
   // беремо списки CHEER_OK / CHEER_NO прямо з assets/app.js, щоб озвучка не відставала від коду
   const appSrc = fs.readFileSync(path.join(__dirname, '..', 'assets', 'app.js'), 'utf8');
@@ -113,6 +119,11 @@ if (BASICS.numberWord) {
   const cm = /const SAY = \[([^\]]*)\];/.exec(chessSrc);
   if (!cm) throw new Error('SAY не знайдено в assets/chess.js');
   (cm[1].match(/'[^']+'/g) || []).forEach(q => phrases.add(q.slice(1, -1)));
+  // 🎁 побажання в подарунках — перший рядок кожного запису NOTES з assets/gifts.js
+  const giftSrc = fs.readFileSync(path.join(__dirname, '..', 'assets', 'gifts.js'), 'utf8');
+  const gm = /const NOTES = \[([\s\S]*?)\n {2}\];/.exec(giftSrc);
+  if (!gm) throw new Error('NOTES не знайдено в assets/gifts.js');
+  for (const r of gm[1].matchAll(/\['([^']+)'/g)) phrases.add(r[1]);
 }
 // ключ — у нижньому регістрі: так шукає Speech.audioFile (раніше фрази з великої літери не знаходилися)
 for (const p of phrases) add(`word|no|${p.toLowerCase()}`, p, wordVoice('no'));

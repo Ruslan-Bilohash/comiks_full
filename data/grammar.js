@@ -174,6 +174,110 @@ window.GRAMMAR = {
       ]
     },
     {
+      id: 'possessive-my-your', level: 'A1', icon: '🎒',
+      no: 'Min, mi, mitt, mine · din, di, ditt, dine', uk: 'Мій/твій: min, mi, mitt, mine · din, di, ditt, dine', en: 'My/your: min, mi, mitt, mine · din, di, ditt, dine',
+      rule: {
+        uk: 'Форма залежить від речі, а не від власника: en bil → bilen min/din, ei bok → boka mi/di, et hus → huset mitt/ditt, множина → vennene mine/dine.',
+        en: 'The form follows the owned item, not its owner: en bil → bilen min/din, ei bok → boka mi/di, et hus → huset mitt/ditt, plural → vennene mine/dine.',
+        no: 'Formen følger tingen: en bil → bilen min/din, ei bok → boka mi/di, et hus → huset mitt/ditt, flertall → vennene mine/dine.'
+      },
+      table: [['en bil', 'bilen min / bilen din', 'my car / your car'], ['ei bok', 'boka mi / boka di', 'my book / your book'], ['et hus', 'huset mitt / huset ditt', 'my house / your house'], ['venner', 'vennene mine / vennene dine', 'my friends / your friends']],
+      examples: [['Sekken min er blå.', 'Мій рюкзак синій.', 'My backpack is blue.'], ['Er dette lua di?', 'Це твоя шапка?', 'Is this your hat?'], ['Passet mitt ligger her.', 'Мій паспорт лежить тут.', 'My passport is here.']],
+      items: [
+        ['Dette er bilen _. (jeg)', 'min', ['mi', 'mitt', 'mine']], ['Hvor er boka _? (jeg)', 'mi', ['min', 'mitt', 'mine']],
+        ['Passet _ ligger i sekken. (jeg)', 'mitt', ['min', 'mi', 'mine']], ['Skoene _ er våte. (jeg)', 'mine', ['min', 'mi', 'mitt']],
+        ['Er dette sekken _? (du)', 'din', ['di', 'ditt', 'dine']], ['Flaska _ er full. (du)', 'di', ['din', 'ditt', 'dine']],
+        ['Håndkleet _ er tørt. (du)', 'ditt', ['din', 'di', 'dine']], ['Brillene _ ligger her. (du)', 'dine', ['din', 'di', 'ditt']],
+        ['Jeg finner nøkkelen _.', 'min', ['mi', 'mitt', 'mine']], ['Du vasker rommet _.', 'ditt', ['din', 'di', 'dine']]
+      ]
+    },
+    {
+      id: 'possessive-our-third', level: 'A2', icon: '👨‍👩‍👧',
+      no: 'Vår, vårt, våre · hans, hennes, deres', uk: 'Наш/його/її/їхній: vår, vårt, våre · hans, hennes, deres', en: 'Our/his/her/their: vår, vårt, våre · hans, hennes, deres',
+      rule: {
+        uk: 'Vår змінюється за родом і числом речі: vår bil, vårt hus, våre venner. Hans, hennes і deres не змінюються. Deres може означати «ваш» до кількох людей або «їхній» — значення дає контекст.',
+        en: 'Vår agrees with the item: vår bil, vårt hus, våre venner. Hans, hennes and deres do not change. Deres can mean plural “your” or “their”; context decides.',
+        no: 'Vår bøyes etter tingen: vår bil, vårt hus, våre venner. Hans, hennes og deres bøyes ikke. Deres kan bety både deres (dere) og deres (de); sammenhengen viser meningen.'
+      },
+      table: [['en/ei', 'bilen vår / gata vår', 'our car / our street'], ['et', 'huset vårt', 'our house'], ['flertall', 'vennene våre', 'our friends'], ['han / hun / de', 'hans / hennes / deres', 'his / her / their']],
+      examples: [['Huset vårt er gult.', 'Наш будинок жовтий.', 'Our house is yellow.'], ['Modellen hennes lyser.', 'Її модель світиться.', 'Her model lights up.'], ['Bøkene deres står her.', 'Їхні книжки стоять тут.', 'Their books are here.'], ['Veska hennes er tung.', 'Її сумка важка.', 'Her bag is heavy.'], ['Hennes veske er tung.', 'Її сумка важка — наголос на власниці.', 'Her bag is heavy — with emphasis on the owner.'], ['Barnet deres er flinkt.', 'Їхня дитина здібна.', 'Their child is capable.'], ['Deres barn er flinkt.', 'Їхня дитина здібна — наголос на власниках.', 'Their child is capable — with emphasis on the owners.'], ['Barna deres er flinke.', 'Їхні діти здібні.', 'Their children are capable.']],
+      items: [
+        ['Veien _ går til skolen. (vi)', 'vår', ['vårt', 'våre', 'oss']], ['Huset _ har rød dør. (vi)', 'vårt', ['vår', 'våre', 'oss']],
+        ['Naboene _ er hyggelige. (vi)', 'våre', ['vår', 'vårt', 'oss']], ['Leo har en robot. Roboten _ virker.', 'hans', ['hennes', 'deres', 'sin']],
+        ['Nora har ei bok. Boka _ er ny.', 'hennes', ['hans', 'deres', 'si']], ['Tvillingene har en hund. Hunden _ heter Max.', 'deres', ['hans', 'hennes', 'sin']],
+        ['Leo har et hus. Huset _ er blått.', 'hans', ['hennes', 'deres', 'sitt']], ['Nora har flere bilder. Bildene _ er fine.', 'hennes', ['hans', 'deres', 'sine']],
+        ['Foreldrene har en bil. Bilen _ står ute.', 'deres', ['hans', 'hennes', 'sin']], ['Skolen _ ligger nær parken. (vi)', 'vår', ['vårt', 'våre', 'oss']],
+        ['Velg riktig setning:', 'Veska hennes er tung.', ['Hennes tung er veska.', 'Veska er hennes tung.', 'Tung hennes veska er.']],
+        ['Velg riktig setning med ekstra trykk på eieren:', 'Hennes veske er tung.', ['Hennes tung er veska.', 'Hennes veska er tung.', 'Veske hennes tung er.']],
+        ['Én person: Velg riktig setning.', 'Barnet deres er flinkt.', ['Barnet deres er flinke.', 'Deres barn er flunke.', 'Barna deres er flinkt.']],
+        ['Flere personer: Velg riktig setning.', 'Barna deres er flinke.', ['Barnet deres er flinke.', 'Barna deres er flinkt.', 'Deres barna er flinke.']],
+        ['Velg riktig setning med ekstra trykk på eierne:', 'Deres barn er flinkt.', ['Deres barnet er flinkt.', 'Deres barn er flunke.', 'Barn deres er flinkt.']]
+      ]
+    },
+    {
+      id: 'possessive-order', level: 'A2', icon: '↔️',
+      no: 'Bilen min eller min bil?', uk: 'Bilen min чи min bil? Порядок слів', en: 'Bilen min or min bil? Word order',
+      rule: {
+        uk: 'Обидва порядки правильні. Після іменника: означена форма + присвійне слово — bilen min, boka di, huset vårt. Перед іменником: присвійне слово + неозначена форма — min bil, di bok, vårt hus. Варіант після іменника дуже поширений; перед іменником часто підкреслює власника.',
+        en: 'Both orders are correct. After the noun: definite noun + possessive — bilen min, boka di, huset vårt. Before the noun: possessive + indefinite noun — min bil, di bok, vårt hus. The post-noun pattern is very common; front position often stresses the owner.',
+        no: 'Begge rekkefølgene er riktige. Etter substantivet: bestemt form + possessiv — bilen min. Før substantivet: possessiv + ubestemt form — min bil. Etterstilling er svært vanlig; foranstilling kan gi ekstra trykk.'
+      },
+      table: [['bestemt + possessiv', 'bilen min', 'my car'], ['possessiv + ubestemt', 'min bil', 'MY car'], ['bestemt + possessiv', 'huset vårt', 'our house'], ['possessiv + ubestemt', 'vårt hus', 'OUR house']],
+      examples: [['Dette er bilen min.', 'Це моя машина.', 'This is my car.'], ['Det er min bil, ikke hans.', 'Це моя машина, не його.', 'It is MY car, not his.'], ['Hvor er bøkene dine?', 'Де твої книжки?', 'Where are your books?']],
+      items: [
+        ['Velg riktig:', 'bilen min', ['bil min', 'min bilen', 'bilen mitt']], ['Velg riktig:', 'min bil', ['min bilen', 'bil min', 'mitt bil']],
+        ['Velg riktig:', 'boka di', ['bok di', 'di boka', 'boka ditt']], ['Velg riktig:', 'di bok', ['di boka', 'bok di', 'ditt bok']],
+        ['Velg riktig:', 'huset vårt', ['hus vårt', 'vårt huset', 'huset vår']], ['Velg riktig:', 'vårt hus', ['vårt huset', 'hus vårt', 'vår hus']],
+        ['Velg riktig:', 'vennene mine', ['venner mine', 'mine vennene', 'vennene mitt']], ['Velg riktig:', 'mine venner', ['mine vennene', 'venner mine', 'mitt venner']],
+        ['Etter substantivet bruker vi vanligvis _ form.', 'bestemt', ['ubestemt', 'verb', 'infinitiv']], ['Før substantivet bruker vi _ form.', 'ubestemt', ['bestemt', 'flertall', 'preteritum']]
+      ]
+    },
+    {
+      id: 'connectors-reason-contrast', level: 'A2', icon: '🔗',
+      no: 'Årsak, følge, tillegg og kontrast', uk: 'Причина, наслідок, доповнення й протиставлення', en: 'Reason, result, addition and contrast',
+      rule: {
+        uk: 'Слова-зв’язки показують логіку тексту. Derfor, likevel і dessuten — прислівники: якщо вони стоять першими, відмінюване дієслово йде одразу після них (Derfor sparer Liv). Ettersom вводить підрядне речення з порядком «підмет + дієслово». På grunn av та i motsetning til вживаються з іменником або займенником. For å + інфінітив пояснює мету.',
+        en: 'Linking expressions show the logic of a text. Derfor, likevel and dessuten are adverbs: when placed first, the finite verb follows directly (Derfor sparer Liv). Ettersom introduces a subordinate clause with subject before verb. På grunn av and i motsetning til take a noun or pronoun. For å + infinitive explains purpose.',
+        no: 'Bindeord viser sammenhengen i en tekst. Derfor, likevel og dessuten er adverb; når de står først, kommer verbet direkte etterpå. Ettersom innleder en leddsetning. På grunn av og i motsetning til står foran substantiv eller pronomen. For å + infinitiv uttrykker hensikt.'
+      },
+      table: [
+        ['derfor + verb + subjekt', 'тому, отже — наслідок', 'therefore — result'],
+        ['likevel + verb + subjekt', 'проте, усе ж — несподіваний контраст', 'nevertheless — surprising contrast'],
+        ['dessuten + verb + subjekt', 'крім того — додаткова інформація', 'moreover — additional information'],
+        ['ettersom + subjekt + verb', 'оскільки — причина в підрядному реченні', 'since/as — reason in a subordinate clause'],
+        ['på grunn av + substantiv', 'через / унаслідок + іменник', 'because of + noun'],
+        ['for å + infinitiv', 'щоб + інфінітив — мета', 'in order to + infinitive — purpose'],
+        ['i motsetning til + substantiv', 'на відміну від + іменник', 'unlike / in contrast to + noun']
+      ],
+      examples: [
+        ['Husleia er høy. Derfor lager Liv et budsjett.', 'Оренда висока. Тому Лів складає бюджет.', 'The rent is high. Therefore Liv makes a budget.'],
+        ['Jakka er billig. Likevel kjøper Mia den ikke.', 'Куртка дешева. Проте Мія її не купує.', 'The jacket is cheap. Nevertheless, Mia does not buy it.'],
+        ['Kjøkkenet er moderne. Dessuten har stua store vinduer.', 'Кухня сучасна. Крім того, у вітальні великі вікна.', 'The kitchen is modern. Moreover, the living room has large windows.'],
+        ['Liv venter ettersom hun vil tenke først.', 'Лів чекає, оскільки хоче спочатку подумати.', 'Liv waits since she wants to think first.'],
+        ['Leo forsov seg på grunn av en tom mobil.', 'Лео проспав через розряджений телефон.', 'Leo overslept because of a flat phone.'],
+        ['Mia sammenligner priser for å velge riktig jakke.', 'Мія порівнює ціни, щоб обрати правильну куртку.', 'Mia compares prices in order to choose the right jacket.'],
+        ['I motsetning til den blå jakka er den grønne vanntett.', 'На відміну від синьої куртки, зелена є водонепроникною.', 'Unlike the blue jacket, the green one is waterproof.']
+      ],
+      items: [
+        ['Husleia er høy. _ lager Liv et budsjett.', 'Derfor', ['Ettersom', 'For å', 'På grunn av']],
+        ['Jakka er billig. _ kjøper Mia den ikke.', 'Likevel', ['Ettersom', 'For å', 'I motsetning til']],
+        ['Kjøkkenet er moderne. _ har stua store vinduer.', 'Dessuten', ['På grunn av', 'For å', 'Ettersom']],
+        ['Liv venter _ hun vil tenke først.', 'ettersom', ['derfor', 'dessuten', 'på grunn av']],
+        ['Leo kom for sent _ en tom mobil.', 'på grunn av', ['derfor', 'for å', 'likevel']],
+        ['Mia sammenligner priser _ velge riktig jakke.', 'for å', ['på grunn av', 'dessuten', 'likevel']],
+        ['_ den blå jakka er den grønne vanntett.', 'I motsetning til', ['Derfor', 'Ettersom', 'For å']],
+        ['Bussen gikk. _ måtte Leo vente.', 'Derfor', ['Ettersom', 'For å', 'På grunn av']],
+        ['Det regnet. _ gikk klassen på tur.', 'Likevel', ['Ettersom', 'På grunn av', 'For å']],
+        ['Butikken er nær. _ har den gode priser.', 'Dessuten', ['Ettersom', 'På grunn av', 'For å']],
+        ['Nora hjelper Leo _ hun er ferdig med leksene.', 'ettersom', ['derfor', 'likevel', 'dessuten']],
+        ['Visningen ble utsatt _ sykdom.', 'på grunn av', ['for å', 'derfor', 'ettersom']],
+        ['Liv sparer _ kunne kjøpe bolig senere.', 'for å', ['derfor', 'på grunn av', 'likevel']],
+        ['_ en leid bolig kan en eid bolig selges.', 'I motsetning til', ['Derfor', 'Ettersom', 'Dessuten']],
+        ['Velg riktig ordstilling:', 'Derfor sparer Liv hver måned.', ['Derfor Liv sparer hver måned.', 'Derfor hver måned Liv sparer.', 'Derfor å spare Liv hver måned.']],
+        ['Velg riktig ordstilling:', 'Likevel kjøper Mia ikke jakka.', ['Likevel Mia kjøper ikke jakka.', 'Likevel ikke Mia kjøper jakka.', 'Likevel å kjøpe Mia ikke jakka.']]
+      ]
+    },
+    {
       id: 'verb-past', level: 'A2', icon: '⏪',
       no: 'Verb i preteritum', uk: 'Дієслова: минулий час', en: 'Verbs: past tense',
       rule: {
