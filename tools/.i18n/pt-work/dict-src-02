@@ -1,0 +1,255 @@
+demp	p252: Lag volumvalg og demp musikk under viktig tale.
+miks	p252: God miks gjør informasjonen lett å høre.
+crud	p253: CRUD beskriver fire vanlige handlinger med lagrede data.
+opprettes	p253: Valider data før de opprettes eller endres.
+sletting	p253: Bekreft sletting og vis resultatet tydelig.
+indeks	p254: Lag en passende indeks og mål spørringen.
+rader	p254: En indeks hjelper databasen å finne bestemte rader raskere.
+feltene	p254: Finn feltene som ofte brukes i søk.
+passende	p254: Lag en passende indeks og mål spørringen.
+indekser	p254: For mange indekser kan gjøre skriving tregere.
+skriving	p254: For mange indekser kan gjøre skriving tregere.
+tregere	p254: For mange indekser kan gjøre skriving tregere.
+json	p255: JSON sender objekter, lister, tekst, tall og boolske verdier.
+objekter	p255: JSON sender objekter, lister, tekst, tall og boolske verdier.
+lister	p255: JSON sender objekter, lister, tekst, tall og boolske verdier.
+boolske	p255: JSON sender objekter, lister, tekst, tall og boolske verdier.
+avtal	p255: Avtal tydelige feltnavn og datatyper.
+feltnavn	p255: Avtal tydelige feltnavn og datatyper.
+datatyper	p255: Avtal tydelige feltnavn og datatyper.
+manglende	p255: Les svaret og kontroller manglende felt.
+stabilt	p255: Et stabilt format gjør systemer lettere å koble.
+systemer	p289: Oppdaterte systemer tetter kjente sikkerhetshull.
+migrering	p256: En migrering endrer databasestrukturen på en kontrollert måte.
+databasestrukturen	p256: En migrering endrer databasestrukturen på en kontrollert måte.
+endringen	p256: Ta sikkerhetskopi og beskriv endringen.
+migreringen	p256: Test migreringen på en kopi før produksjon.
+produksjon	p256: Test migreringen på en kopi før produksjon.
+flyttingen	p256: Kontroller antall og innhold etter flyttingen.
+evakueringsplan	p257: En tydelig evakueringsplan hjelper alle ut rolig og raskt.
+utgang	p257: Finn nærmeste trygge utgang på forhånd.
+trappen	p257: Følg læreren, ikke hent ting og bruk trappen.
+møt	p257: Møt på avtalt sted og vent på beskjed.
+veier	p258: Se begge veier og gi tegn før du svinger.
+synlighet	p258: Synlighet og rolige valg forebygger ulykker.
+rolige	p258: Synlighet og rolige valg forebygger ulykker.
+forebygger	p258: Synlighet og rolige valg forebygger ulykker.
+ulykker	p258: Synlighet og rolige valg forebygger ulykker.
+førstehjelpsvalg	p259: Barn skal hente hjelp og gjøre enkle, trygge førstehjelpsvalg.
+nødnummer	p277: Hun går i sikkerhet og ringer politiets nødnummer 112.
+råd	p299: Liv har fast inntekt, men hun vil vite om hun har råd til leilig
+kontaktdata	p260: Personverninnstillinger styrer hvem som ser innlegg, bilder og k
+standardvalgene	p260: Gå gjennom standardvalgene sammen med en voksen.
+begrens	p260: Begrens profilen og godkjenn følgere du kjenner.
+godkjenn	p260: Begrens profilen og godkjenn følgere du kjenner.
+følgere	p260: Begrens profilen og godkjenn følgere du kjenner.
+innstillingene	p267: Fjern gamle tillatelser i innstillingene.
+stjele	p289: Skadevaren kan stjele data, vise reklame eller styre enheten.
+skolepassord	p261: En falsk e-post prøver å stjele skolepassord gjennom en kopi av 
+innloggingssiden	p261: En falsk e-post prøver å stjele skolepassord gjennom en kopi av 
+trusler	p290: Ved svindel, trusler eller datakriminalitet kan politiet kontakt
+avsender	p261: Stopp ved hastverk, trusler og ukjent avsender.
+bokmerke	p261: Åpne skolens side fra et lagret bokmerke.
+bytt	p268: Bytt viktige passord hvis telefonen ikke kommer tilbake.
+gjentatte	p262: Gjentatte sårende meldinger skal stoppes, lagres som bevis og fo
+sårende	p262: Gjentatte sårende meldinger skal stoppes, lagres som bevis og fo
+stoppes	p262: Gjentatte sårende meldinger skal stoppes, lagres som bevis og fo
+fortelles	p262: Gjentatte sårende meldinger skal stoppes, lagres som bevis og fo
+krenkelser	p262: Ikke svar med nye krenkelser.
+nedlastinger	p270: Logg ut, fjern nedlastinger og ikke lagre passord.
+kilder	p274: Jeg følger mitt eget vedtak, bruker offisielle kilder og ber om 
+åpning	p263: Trygge nedlastinger kommer fra offisielle kilder og trenger kont
+utvikler	p289: De sjekker navn, utvikler, omtaler og nødvendige tillatelser.
+filtype	p263: Bekreft utvikler, domene og filtype.
+skann	p263: Skann filen og avvis uventede tillatelser.
+uventede	p263: Skann filen og avvis uventede tillatelser.
+tillatelser	p289: De sjekker navn, utvikler, omtaler og nødvendige tillatelser.
+oppdatert	p263: Oppdatert beskyttelse reduserer risikoen.
+markedsplassannonse	p264: En markedsplassannonse lokker med lav pris, tidspress og betalin
+lokker	p264: En markedsplassannonse lokker med lav pris, tidspress og betalin
+normal	p280: Ved normal pust følger han råd om sideleie; uten normal pust sta
+plattformens	p264: Bruk plattformens betaling og kjøperbeskyttelse.
+kjøperbeskyttelse	p264: Bruk plattformens betaling og kjøperbeskyttelse.
+skjuler	p265: Et tilbud skjuler automatisk fornyelse og vanskelig oppsigelse i
+fornyelse	p265: Ta skjermbilde og sett en påminnelse før fornyelse.
+periode	p265: Les pris, periode og oppsigelsesvilkår før start.
+oppsigelsesvilkår	p265: Les pris, periode og oppsigelsesvilkår før start.
+skjermbilde	p265: Ta skjermbilde og sett en påminnelse før fornyelse.
+gevinst	p266: En QR-kode lover gevinst, men leder til en side som ber om kortd
+leder	p266: En QR-kode lover gevinst, men leder til en side som ber om kortd
+kortdata	p266: En QR-kode lover gevinst, men leder til en side som ber om kortd
+forhåndsvis	p266: Forhåndsvis adressen og åpne arrangørens side selv.
+pin	p266: En ekte premie krever ikke hemmelig gebyr eller PIN.
+apptillatelser	p267: Apptillatelser bør passe til funksjonen brukeren faktisk valgte.
+valgte	p299: Hun valgte med både hjertet og budsjettet.
+kontakter	p289: Appen vil lese kontakter, meldinger, bilder og mikrofon.
+tillat	p267: Tillat bare det som trengs, helst bare mens appen brukes.
+skjermlås	p268: Skjermlås, sikkerhetskopi og finn-enhet beskytter en mistet tele
+finn-enhet	p268: Skjermlås, sikkerhetskopi og finn-enhet beskytter en mistet tele
+skjul	p272: Skjul knappen i grensesnittet, men beskytt også API-et.
+låseskjermen	p268: Bruk en sterk kode og skjul varsler på låseskjermen.
+hel	p269: Hel kabel, riktig lader og fri luft reduserer risiko ved lading.
+kabel	p269: Hel kabel, riktig lader og fri luft reduserer risiko ved lading.
+lader	p301: Om kvelden lader han mobilen og setter en ekstra alarmklokke.
+risiko	p288: Oppdateringer, forsiktighet og backup reduserer risiko.
+skader	p269: Se etter skader, misfarging og løs kontakt.
+misfarging	p269: Se etter skader, misfarging og løs kontakt.
+lad	p269: Lad på hardt underlag og stopp ved sterk varme eller lukt.
+underlag	p282: Personen ligger på ryggen på et hardt underlag.
+varme	p269: Lad på hardt underlag og stopp ved sterk varme eller lukt.
+lukt	p269: Lad på hardt underlag og stopp ved sterk varme eller lukt.
+delte	p270: På delte enheter må konto, filer og nettleserdata ryddes etter b
+enheter	p270: På delte enheter må konto, filer og nettleserdata ryddes etter b
+nettleserdata	p270: På delte enheter må konto, filer og nettleserdata ryddes etter b
+ryddes	p270: På delte enheter må konto, filer og nettleserdata ryddes etter b
+sikker	p271: En sikker økt bruker en tilfeldig informasjonskapsel etter innlo
+informasjonskapsel	p271: En sikker økt bruker en tilfeldig informasjonskapsel etter innlo
+økt-id	p271: Lag ny økt-ID etter vellykket innlogging.
+vellykket	p271: Lag ny økt-ID etter vellykket innlogging.
+secure	p271: Bruk Secure, HttpOnly, SameSite og tidsgrense.
+httponly	p271: Bruk Secure, HttpOnly, SameSite og tidsgrense.
+samesite	p271: Bruk Secure, HttpOnly, SameSite og tidsgrense.
+tidsgrense	p271: Bruk Secure, HttpOnly, SameSite og tidsgrense.
+slett	p271: Slett økten på serveren ved utlogging.
+økten	p271: Slett økten på serveren ved utlogging.
+utlogging	p271: Slett økten på serveren ved utlogging.
+rettigheter	p272: Autorisasjon kontrollerer rettigheter på serveren for hver handl
+definer	p272: Definer roller og eierskap tydelig.
+roller	p272: Definer roller og eierskap tydelig.
+eierskap	p272: Definer roller og eierskap tydelig.
+ressurs	p272: Kontroller bruker og ressurs før lesing eller endring.
+grensesnittet	p272: Skjul knappen i grensesnittet, men beskytt også API-et.
+api-et	p272: Skjul knappen i grensesnittet, men beskytt også API-et.
+utvikleren	p273: Brukeren får en enkel melding mens detaljer lagres sikkert for u
+tekniske	p273: Logg tekniske detaljer uten passord, nøkler eller persondata.
+nøkler	p273: Logg tekniske detaljer uten passord, nøkler eller persondata.
+hendelses-id	p273: En hendelses-ID kobler brukerens melding til riktig logg.
+brukerens	p273: En hendelses-ID kobler brukerens melding til riktig logg.
+ordene	p274: Uttransportering betyr at politiet gjennomfører reisen ut. Orden
+utreiseplikt	p274: En utreiseplikt kan registreres i SIS, slik at landene kan kontr
+sis	p274: Kan jeg få vite hvilke opplysninger om meg som finnes i SIS?
+dømt	p274: Jeg har fått et vedtak med ordene «utreiseplikt» og «SIS». Betyr
+register	p274: Nei. SIS er et digitalt register som Schengen-landenes myndighet
+schengen-landenes	p274: Nei. SIS er et digitalt register som Schengen-landenes myndighet
+myndigheter	p277: Ved fare følger vi rådene fra politiet og andre myndigheter.
+registreres	p274: Et innreiseforbud kan også registreres. Da viser vedtaket hvor f
+landene	p274: En utreiseplikt kan registreres i SIS, slik at landene kan kontr
+reist	p274: En utreiseplikt kan registreres i SIS, slik at landene kan kontr
+schengenområdet	p274: En utreiseplikt kan registreres i SIS, slik at landene kan kontr
+innreiseforbud	p274: Bortvisning betyr at du nektes innreise eller opphold og må reis
+forbudet	p274: Et innreiseforbud kan også registreres. Da viser vedtaket hvor f
+bortvisning	p274: Bortvisning betyr at du nektes innreise eller opphold og må reis
+nektes	p274: Bortvisning betyr at du nektes innreise eller opphold og må reis
+innreise	p274: Bortvisning betyr at du nektes innreise eller opphold og må reis
+utvisning	p274: Bortvisning betyr at du nektes innreise eller opphold og må reis
+uttransportering	p274: Uttransportering betyr at politiet gjennomfører reisen ut. Orden
+gjennomfører	p274: Uttransportering betyr at politiet gjennomfører reisen ut. Orden
+utreisefrist	p274: Hvis vedtaket har en utreisefrist, må du følge fristen og sørge 
+fristen	p274: Hvis vedtaket har en utreisefrist, må du følge fristen og sørge 
+sørge	p274: Hvis vedtaket har en utreisefrist, må du følge fristen og sørge 
+utreisen	p274: Hvis utreisen ikke ble registrert, kan jeg sende dokumentasjon t
+grensekontrollen	p274: Hvis vedtaket har en utreisefrist, må du følge fristen og sørge 
+myndigheten	p274: Hvis utreisen ikke ble registrert, kan jeg sende dokumentasjon t
+behandler	p274: Hvis utreisen ikke ble registrert, kan jeg sende dokumentasjon t
+innsyn	p274: Ja. Du kan be om innsyn. Du kan også kreve å rette feil data ell
+slette	p274: Ja. Du kan be om innsyn. Du kan også kreve å rette feil data ell
+utreiseplikten	p274: Vedtaket forteller hvordan og innen hvilken frist du kan klage. 
+udi	p274: Vedtaket forteller hvordan og innen hvilken frist du kan klage. 
+advokat	p274: Vedtaket forteller hvordan og innen hvilken frist du kan klage. 
+tolk	p274: Jeg følger mitt eget vedtak, bruker offisielle kilder og ber om 
+erstatter	p274: Jeg følger mitt eget vedtak, bruker offisielle kilder og ber om 
+røykvarsleren	p275: Røykvarsleren piper, og det kommer røyk fra kjøkkenet.
+piper	p275: Røykvarsleren piper, og det kommer røyk fra kjøkkenet.
+roper	p288: Leo slutter å klikke og roper på læreren.
+brann	p275: Jeg roper «Brann!» og varsler alle med en gang.
+brann-	p275: Brann- og redningsvesenet har nødnummer 110.
+redningsvesenet	p275: Brann- og redningsvesenet har nødnummer 110.
+110	p275: Jeg forteller 110 adressen, hvor røyken er og om noen mangler.
+møtestedet	p275: På møtestedet ser vi raskt om alle har kommet ut.
+røyken	p275: Jeg forteller 110 adressen, hvor røyken er og om noen mangler.
+instrukser	p275: Operatøren gir instrukser og sender riktig hjelp.
+slokker	p275: Jeg slokker bare hvis brannen er liten og det er trygt å gjøre d
+brannen	p275: Jeg slokker bare hvis brannen er liten og det er trygt å gjøre d
+slokke	p275: Husk: redde, varsle og slokke når det er forsvarlig.
+forsvarlig	p275: Husk: redde, varsle og slokke når det er forsvarlig.
+mann	p276: En mann faller om og svarer ikke når Leo snakker til ham.
+helse	p290: Ved akutt fare for liv eller helse brukes nødnummeret.
+113	p282: 113 hjelper med tempo, teknikk og videre handling.
+medisinsk	p279: Medisinsk kull gis bare etter råd fra Giftinformasjonen eller le
+nødtelefon	p276: 113 er medisinsk nødtelefon ved alvorlig sykdom eller skade.
+sykdom	grammar connectors-reason-contrast: Visningen ble utsatt på grunn av s
+ringe	p281: Maria spør hva vennen trenger og om hun vil ha hjelp til å ringe
+legevakt	p276: Når hjelpen haster, men det ikke står om liv, ringer vi legevakt
+åpningstiden	p276: Fastlegen hjelper med vanlige helseproblemer i åpningstiden.
+symptomene	p276: Leo sier navnet sitt, stedet, telefonnummeret og symptomene.
+veileder	p282: 113 veileder henne og sender ambulanse.
+ambulansen	p278: Operatøren gir førstehjelpsråd til ambulansen kommer.
+mannen	p276: Leo legger ikke på og flytter ikke mannen uten grunn.
+instruksene	p278: Hun holder personen varm og følger instruksene fra 113.
+helseproblemer	p276: Fastlegen hjelper med vanlige helseproblemer i åpningstiden.
+person	grammar possessive-our-third: Én person: Velg riktig setning.
+truet	p277: Alina ser at en person blir truet på gaten akkurat nå.
+gaten	p277: Alina ser at en person blir truet på gaten akkurat nå.
+sikkerhet	p280: Sjekk sikkerhet, reaksjon, luftvei og pust, og ring 113.
+politiets	p277: 112 er akutt. 02800 er politiets nummer når det ikke haster.
+øyeblikkelig	p277: 112 brukes når noen trenger øyeblikkelig hjelp.
+nødnummeret	p290: Ved akutt fare for liv eller helse brukes nødnummeret.
+akutte	p277: For spørsmål og hendelser som ikke er akutte, ringer vi 02800.
+02800	p277: 112 er akutt. 02800 er politiets nummer når det ikke haster.
+tyveri	p277: Tyveri og skadeverk kan ofte også anmeldes på politiet.no.
+skadeverk	p277: Tyveri og skadeverk kan ofte også anmeldes på politiet.no.
+anmeldes	p286: Identitetstyveri bør anmeldes til politiet.
+no	p277: Tyveri og skadeverk kan ofte også anmeldes på politiet.no.
+spørsmålene	p277: Hun svarer rolig på spørsmålene fra operatøren.
+nærmere	p277: Hun går ikke nærmere og prøver ikke å stoppe en farlig person se
+observer	p277: Egen sikkerhet kommer først; observer fra et trygt sted.
+rådene	p279: Først skyller de munnen og følger rådene de får.
+kollidert	p278: To biler har kollidert, og en person er skadet.
+trafikken	p278: Mia stopper på trygg avstand og vurderer trafikken før hun nærme
+nærmer	p278: Mia stopper på trygg avstand og vurderer trafikken før hun nærme
+behov	p278: Ved behov kobler sentralen inn politi og brannvesen i samme samt
+sentralen	p278: Ved behov kobler sentralen inn politi og brannvesen i samme samt
+politi	p278: Ved behov kobler sentralen inn politi og brannvesen i samme samt
+brannvesen	p278: Ved behov kobler sentralen inn politi og brannvesen i samme samt
+trafikanter	p278: Hun bruker refleksvest og varsler andre trafikanter uten å gå ut
+veinavn	p278: Mia sier veinavn, kjøreretning, antall skadde og hva som har skj
+kjøreretning	p278: Mia sier veinavn, kjøreretning, antall skadde og hva som har skj
+skadde	p278: Mia sier veinavn, kjøreretning, antall skadde og hva som har skj
+førstehjelpsråd	p278: Operatøren gir førstehjelpsråd til ambulansen kommer.
+nødetatene	p278: Nødetatene samarbeider når flere tjenester trengs.
+samarbeider	p278: Nødetatene samarbeider når flere tjenester trengs.
+tjenester	p278: Nødetatene samarbeider når flere tjenester trengs.
+væske	p279: Et barn har smakt på væske fra en flaske uten etikett.
+flaske	p292: Ei flaske passer med di.
+fjerner	p279: Nora fjerner rester fra munnen og finner en voksen med en gang.
+rester	p279: Nora fjerner rester fra munnen og finner en voksen med en gang.
+giftinformasjonen	p279: Medisinsk kull gis bare etter råd fra Giftinformasjonen eller le
+døgnet	p281: VO-linjen 116 006 gir gratis hjelp hele døgnet.
+22	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+59	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+13	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+00	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+symptomer	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+straks	p287: Hun forteller det straks til en trygg voksen.
+skyller	p279: Først skyller de munnen og følger rådene de får.
+kjemikalier	p279: Kjemikalier bør alltid oppbevares i originalemballasjen utilgjen
+oppbevares	p279: Kjemikalier bør alltid oppbevares i originalemballasjen utilgjen
+originalemballasjen	p279: Kjemikalier bør alltid oppbevares i originalemballasjen utilgjen
+utilgjengelig	p279: Kjemikalier bør alltid oppbevares i originalemballasjen utilgjen
+produkt	p279: De forteller hvilket produkt, hvor mye, når det skjedde, alder o
+alder	p279: De forteller hvilket produkt, hvor mye, når det skjedde, alder o
+emballasjen	p279: Emballasjen eller et bilde hjelper rådgiveren med vurderingen.
+rådgiveren	p279: Emballasjen eller et bilde hjelper rådgiveren med vurderingen.
+vurderingen	p279: Emballasjen eller et bilde hjelper rådgiveren med vurderingen.
+fremkaller	p279: De fremkaller vanligvis ikke brekninger hjemme.
+brekninger	p279: De fremkaller vanligvis ikke brekninger hjemme.
+gis	p279: Medisinsk kull gis bare etter råd fra Giftinformasjonen eller le
+forgiftning	p279: 22 59 13 00 gir råd ved mulig forgiftning; 113 brukes ved alvorl
+gjem	p279: Gjem nummeret og oppbevar farlige produkter trygt.
+oppbevar	p279: Gjem nummeret og oppbevar farlige produkter trygt.
+farlige	p279: Gjem nummeret og oppbevar farlige produkter trygt.
+produkter	p279: Gjem nummeret og oppbevar farlige produkter trygt.
+høyttaler	p282: Nora ringer 113, setter mobilen på høyttaler og starter HLR.
+veiledningen	p280: Han bruker høyttaler og følger veiledningen steg for steg.
+reaksjon	p280: Sjekk sikkerhet, reaksjon, luftvei og pust, og ring 113.
+sørger	p280: Han roper, ser etter reaksjon og sørger for fri luftvei.

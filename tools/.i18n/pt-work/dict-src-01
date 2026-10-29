@@ -1,0 +1,255 @@
+sertifikat	p222: Et gyldig sertifikat knytter en nøkkel til et domene.
+knytter	p222: Et gyldig sertifikat knytter en nøkkel til et domene.
+nøkkel	p232: Så lager vi en ny nøkkel og sjekker loggene.
+domene	p263: Bekreft utvikler, domene og filtype.
+kryptert	p222: Låsen betyr kryptert forbindelse, ikke at alt innhold er ærlig.
+forbindelse	p222: Låsen betyr kryptert forbindelse, ikke at alt innhold er ærlig.
+skråstreken	p222: Jeg leser domenet fra høyre del før skråstreken.
+staveforskjeller	p222: Små staveforskjeller kan føre til en falsk side.
+føre	p286: Det kalles identitetstyveri og kan føre til svindel.
+kontrollene	p222: Begge kontrollene må passe.
+passe	p267: Apptillatelser bør passe til funksjonen brukeren faktisk valgte.
+passordene	p223: Her står alle passordene lesbart i databasen.
+lesbart	p238: Innholdet skal være lesbart uten sideveis rulling.
+lekker	p232: Hvis nøkkelen lekker, deaktiverer vi den.
+passordhash	p223: En passordhash er et enveis resultat.
+selve	p223: Tjenesten trenger ikke å lagre selve passordet.
+salt	p223: Vi legger til et tilfeldig salt for hver konto.
+forskjellige	p274: Uttransportering betyr at politiet gjennomfører reisen ut. Orden
+verdier	p255: JSON sender objekter, lister, tekst, tall og boolske verdier.
+hashing	p223: Vanlig rask hashing er ikke laget for passord.
+passordfunksjon	p223: Bruk en anerkjent passordfunksjon fra plattformen.
+innlogging	p271: Lag ny økt-ID etter vellykket innlogging.
+hashes	p223: Ved innlogging hashes forsøket på samme måte.
+forsøket	p223: Ved innlogging hashes forsøket på samme måte.
+sammenligner	grammar connectors-reason-contrast: Mia sammenligner priser for å velg
+resultatene	p223: Systemet sammenligner resultatene uten å vise passordet.
+tjeneste	p268: Finn, lås og merk enheten gjennom offisiell tjeneste.
+semantisk	p224: Semantisk HTML forteller hva innholdet betyr.
+beskrivelse	p224: Bildet trenger en kort beskrivelse.
+bokstaver	p224: Lyse bokstaver på hvitt er vanskelige å lese.
+knappene	p224: Jeg kan nå alle knappene uten mus.
+mus	p224: Jeg kan nå alle knappene uten mus.
+tastaturet	p224: Synlig fokus viser hvor tastaturet er.
+skjemafeltet	p224: Skjemafeltet får en synlig etikett.
+etikett	p279: Et barn har smakt på væske fra en flaske uten etikett.
+tastatur	p224: Vi tester siden med tastatur og skjermleser.
+skjermleser	p224: Vi tester siden med tastatur og skjermleser.
+startknapp	p225: Spillet åpner med en startknapp.
+meny	p225: Meny er den første spilltilstanden.
+spilltilstanden	p225: Meny er den første spilltilstanden.
+tilstand	p225: Når jeg trykker start, bytter vi tilstand.
+beveger	p225: Nå beveger figuren seg og tiden går.
+fryser	p225: Pause fryser spillet uten å miste fremgangen.
+fremgangen	p225: Pause fryser spillet uten å miste fremgangen.
+game	p225: Da går spillet til GAME OVER.
+resultatskjermen	p225: Resultatskjermen viser poeng og beste forsøk.
+forsøk	p225: Resultatskjermen viser poeng og beste forsøk.
+skjedde	p290: De noterer tidspunkt, brukernavn, varsler og hva som skjedde.
+nullstiller	p225: Knappen nullstiller poeng, liv og posisjon.
+modellert	p226: Roboten er modellert, men den er helt grå.
+overflaten	p226: Materialet bestemmer hvordan lyset treffer overflaten.
+mønster	p226: Teksturen gir detaljer og mønster.
+markerer	p226: Vi markerer hvor modellen kan åpnes.
+sømmer	p226: Sømmer hjelper oss å pakke ut formen.
+3d-overflaten	p226: 3D-overflaten blir et flatt kart.
+uv-kart	p226: Et ryddig UV-kart gir et pent resultat.
+plasserer	p282: Nora plasserer hendene midt på brystkassen slik 113 forklarer.
+farger	p226: Vi plasserer farger på kartet.
+teksturen	p226: Teksturen gir detaljer og mønster.
+materialet	p226: Materialet bestemmer hvordan lyset treffer overflaten.
+treffer	p241: Lyd gir tilbakemelding når spilleren hopper, treffer eller vinne
+roterer	p226: Vi roterer modellen og ser etter strekk.
+pent	p226: Et ryddig UV-kart gir et pent resultat.
+skript	p227: Vi legger et skript på spillerens GameObject.
+spillerens	p227: Vi legger et skript på spillerens GameObject.
+skriptet	p227: Skriptet øker poengene og sender et signal.
+update	p227: Update kjører for hvert bilde i spillet.
+kollisjonshendelsen	p227: Kollisjonshendelsen forteller hvilket objekt vi møtte.
+objekt	p246: Nøkkelbilder forteller hvor et objekt skal være på bestemte tide
+møtte	p227: Kollisjonshendelsen forteller hvilket objekt vi møtte.
+signal	p227: Skriptet øker poengene og sender et signal.
+resultatteksten	p227: Resultatteksten oppdateres med en gang.
+treff	p227: Vi tester start, bevegelse og treff.
+console	p227: Console viser meldinger hvis noe går galt.
+meldinger	p290: Noe er galt: ukjente meldinger sendes fra kontoen.
+elev	p292: Leo spør hver elev i stedet for å gjette.
+primærnøkkel	p228: Hver elev får en unik primærnøkkel.
+påmelding	p228: En påmelding kobler elev_id til kurs_id.
+fremmednøkkel	p228: En fremmednøkkel peker til en annen tabell.
+id-en	p228: Databasen kan kontrollere at ID-en finnes.
+join	p228: JOIN henter navn og kurs i ett resultat.
+ryddige	p228: Ryddige relasjoner reduserer feil og kopier.
+relasjoner	p228: Ryddige relasjoner reduserer feil og kopier.
+kopier	p228: Ryddige relasjoner reduserer feil og kopier.
+oppdatere	p228: Da er data lettere å oppdatere.
+møtested	p229: Et avtalt møtested gjør situasjonen tryggere.
+læringspartneren	p229: Jeg går sammen med læringspartneren min.
+område	p299: Nora finner en annonse for en ledig leilighet i samme område.
+kontaktkortet	p229: Kontaktkortet ligger trygt i sekken.
+lærerens	p229: Der står lærerens nummer og skolens navn.
+tavlen	p229: Vi går rolig tilbake til den røde tavlen.
+situasjonen	p288: Han prøver ikke tilfeldige fikser som kan gjøre situasjonen verr
+nøytralt	p230: Et nøytralt brukernavn beskytter privatlivet.
+brukernavn	p290: De noterer tidspunkt, brukernavn, varsler og hva som skjedde.
+privatlivet	p230: Et nøytralt brukernavn beskytter privatlivet.
+spillchatten	p230: Personopplysninger hører ikke hjemme i spillchatten.
+forklaring	p230: Du skylder ingen fremmed en forklaring.
+meldingene	p230: Meldingene blir stygge og truende.
+stygge	p230: Meldingene blir stygge og truende.
+kontakten	p287: Etter at spor er sikret, blokkerer de kontakten.
+bevis	p284: Følelser er ikke bevis på at en melding er ekte.
+sterke	p294: Tvillingene tegnet plakaten. Fargene deres er sterke.
+følelser	p284: Følelser er ikke bevis på at en melding er ekte.
+svindlere	p231: Svindlere bruker frykt og tidspress.
+lenken	p284: Han åpner appen selv i stedet for å bruke lenken.
+kontrollspørsmål	p231: Familien har et avtalt kontrollspørsmål.
+sendte	p231: Onkelen er trygg og sendte aldri meldingen.
+rapporter	p262: Blokker, rapporter og ta vare på nødvendig bevis.
+api-nøkkelen	p232: API-nøkkelen står direkte i nettsidens kode.
+nettsidens	p232: API-nøkkelen står direkte i nettsidens kode.
+leses	p232: Alt i nettleseren kan leses av brukeren.
+skjult	p232: Skjult tekst i JavaScript er ikke en hemmelighet.
+tekst	p265: Et tilbud skjuler automatisk fornyelse og vanskelig oppsigelse i
+hemmelighet	p232: Skjult tekst i JavaScript er ikke en hemmelighet.
+server	p232: Nettleseren ber vår server om data.
+lagres	p273: Brukeren får en enkel melding mens detaljer lagres sikkert for u
+beskyttet	p232: Nøkkelen lagres i en beskyttet innstilling.
+innstilling	p232: Nøkkelen lagres i en beskyttet innstilling.
+kodearkivet	p232: Kodearkivet inneholder bare et eksempelnavn.
+eksempelnavn	p232: Kodearkivet inneholder bare et eksempelnavn.
+begrensning	p232: Begrensning reduserer skade ved lekkasje.
+skade	p283: Etikk betyr å følge regler, få lov og ikke skade andre.
+lekkasje	p232: Begrensning reduserer skade ved lekkasje.
+deaktiverer	p232: Hvis nøkkelen lekker, deaktiverer vi den.
+loggene	p232: Så lager vi en ny nøkkel og sjekker loggene.
+usant	p233: Tall, tekst og sant/usant brukes til ulike typer informasjon.
+ulike	p233: Tall, tekst og sant/usant brukes til ulike typer informasjon.
+typer	p233: Tall, tekst og sant/usant brukes til ulike typer informasjon.
+finn	p268: Finn, lås og merk enheten gjennom offisiell tjeneste.
+boolsk	p233: Velg tall, tekst eller boolsk verdi.
+kontrollert	p288: En separat, kontrollert sikkerhetskopi kan hjelpe med gjenoppret
+endring	p273: Gjør én kontrollert endring om gangen.
+hindrer	p278: Først beskytter hun seg selv og hindrer en ny ulykke hvis det ka
+sammenlign	p273: Sammenlign resultatet med målet.
+argumenter	p234: En funksjon samler kommandoer og kan ta imot argumenter.
+ansvar	p234: Gi funksjonen ett tydelig ansvar.
+returner	p234: Send inn en verdi og returner et svar.
+ryddigere	p234: Gjenbruk gjør programmet kortere og ryddigere.
+liste	p235: En liste holder flere verdier i en bestemt rekkefølge.
+elementer	p235: Les, legg til og fjern elementer.
+behandle	p235: En løkke kan behandle hele listen.
+listen	p235: En løkke kan behandle hele listen.
+deles	p286: De skal ikke deles bare fordi noen spør.
+beskriv	p256: Ta sikkerhetskopi og beskriv endringen.
+løs	p269: Se etter skader, misfarging og løs kontakt.
+settes	p236: Delene kan til slutt settes sammen.
+fører	p237: Fortell hvor lenken fører.
+href	p237: Bruk href og meningsfull lenketekst.
+meningsfull	p237: Bruk href og meningsfull lenketekst.
+lenketekst	p237: Bruk href og meningsfull lenketekst.
+navigasjon	p237: God navigasjon gjør siden enkel å forstå.
+responsivt	p249: Et responsivt Canvas passer flere skjermstørrelser.
+oppsett	p238: Et responsivt oppsett tilpasser seg mobil, nettbrett og datamask
+tilpasser	p238: Et responsivt oppsett tilpasser seg mobil, nettbrett og datamask
+mobil	grammar connectors-reason-contrast: Leo kom for sent på grunn av en to
+nettbrett	p238: Et responsivt oppsett tilpasser seg mobil, nettbrett og datamask
+smaleste	p238: Start med den smaleste skjermen.
+skjermen	p238: Start med den smaleste skjermen.
+fleksible	p238: Bruk fleksible mål og media queries.
+media	p238: Bruk fleksible mål og media queries.
+queries	p238: Bruk fleksible mål og media queries.
+sideveis	p238: Innholdet skal være lesbart uten sideveis rulling.
+rulling	p238: Innholdet skal være lesbart uten sideveis rulling.
+api	p239: Et API lar nettsiden be en tjeneste om strukturert informasjon.
+bestem	p273: Bestem hva brukeren trenger for å komme videre.
+hent	p259: Sjekk at stedet er trygt og hent en voksen.
+håndter	p239: Hent data og håndter venting og feil.
+venting	p239: Hent data og håndter venting og feil.
+relevant	p239: Vis bare trygt og relevant innhold.
+forklarer	p282: Nora plasserer hendene midt på brystkassen slik 113 forklarer.
+innsending	p240: Et godt skjema forklarer krav og finner feil før innsending.
+merk	p268: Finn, lås og merk enheten gjennom offisiell tjeneste.
+obligatoriske	p240: Merk obligatoriske felt tydelig.
+valider	p253: Valider data før de opprettes eller endres.
+presise	p298: Navnelapper og presise setninger løser forvirringen.
+feilmeldinger	p240: Presise feilmeldinger viser hvordan problemet løses.
+løses	p240: Presise feilmeldinger viser hvordan problemet løses.
+hopper	p241: Lyd gir tilbakemelding når spilleren hopper, treffer eller vinne
+lyder	p252: En Audio Mixer samler lyder i grupper med egne volum.
+handlingen	p253: Velg hvilken post handlingen gjelder.
+lyden	p241: Spill lyden når riktig hendelse skjer.
+volumkontroll	p241: Volumkontroll gjør spillet behagelig for flere.
+behagelig	p241: Volumkontroll gjør spillet behagelig for flere.
+nøkkelposisjoner	p242: Tegn tydelige nøkkelposisjoner.
+jevn	p247: Jevn topologi gjør modellen lettere å bruke videre.
+levende	p242: En jevn løkke gir en levende figur.
+figur	p242: En jevn løkke gir en levende figur.
+balanse	p243: God balanse utfordrer uten å gjøre spilleren hjelpeløs.
+utfordrer	p243: God balanse utfordrer uten å gjøre spilleren hjelpeløs.
+hjelpeløs	p243: God balanse utfordrer uten å gjøre spilleren hjelpeløs.
+øk	p243: Øk fart og hindringer litt etter litt.
+hindringer	p243: Øk fart og hindringer litt etter litt.
+spillere	p251: Sorter spillere, fiender og bakgrunn i lag.
+juster	p243: Test med flere spillere og juster nivåene.
+nivåene	p243: Test med flere spillere og juster nivåene.
+økter	p290: Passord byttes, ukjente økter avsluttes og tofaktor slås på.
+tidspunkt	p290: De noterer tidspunkt, brukernavn, varsler og hva som skjedde.
+formatet	p244: Lagre på et trygt tidspunkt og bekreft formatet.
+reserveverdi	p244: En reserveverdi hjelper hvis lagringen er skadet.
+lagringen	p244: En reserveverdi hjelper hvis lagringen er skadet.
+skadet	p278: Hun flytter ikke en alvorlig skadet person uten akutt fare.
+mirror	p245: Modeller én side og la Mirror lage den andre.
+symmetrisk	p245: Mirror lager en symmetrisk kopi mens modellen endres.
+plasser	p249: Plasser poengtekst og knapper med ankere.
+objektets	p245: Plasser objektets sentrum riktig.
+modeller	p245: Modeller én side og la Mirror lage den andre.
+symmetri	p245: Symmetri sparer tid og holder formen jevn.
+nøkkelbilder	p246: Nøkkelbilder forteller hvor et objekt skal være på bestemte tide
+bestemte	p254: En indeks hjelper databasen å finne bestemte rader raskere.
+startposisjon	p246: Velg startposisjon og sett første nøkkelbilde.
+nøkkelbilde	p246: Velg startposisjon og sett første nøkkelbilde.
+blender	p248: Riktig eksportformat tar modellen fra Blender til en spillmotor.
+skulpteringsverktøy	p247: Skulpteringsverktøy skyver og glatter en digital overflate.
+skyver	p247: Skulpteringsverktøy skyver og glatter en digital overflate.
+glatter	p247: Skulpteringsverktøy skyver og glatter en digital overflate.
+form	grammar possessive-order: Før substantivet bruker vi ubestemt form.
+pensel	p247: Start med en enkel form og stor pensel.
+bygg	p247: Bygg store former før små detaljer.
+topologi	p247: Jevn topologi gjør modellen lettere å bruke videre.
+eksportformat	p248: Riktig eksportformat tar modellen fra Blender til en spillmotor.
+spillmotor	p248: Riktig eksportformat tar modellen fra Blender til en spillmotor.
+retning	p248: Kontroller størrelse, retning og navn.
+eksporter	p248: Eksporter som glTF eller FBX med nødvendige data.
+gltf	p248: Eksporter som glTF eller FBX med nødvendige data.
+fbx	p248: Eksporter som glTF eller FBX med nødvendige data.
+nødvendige	p289: De sjekker navn, utvikler, omtaler og nødvendige tillatelser.
+importer	p248: Importer og test materialer og animasjon i målet.
+materialer	p248: Importer og test materialer og animasjon i målet.
+animasjon	p248: Importer og test materialer og animasjon i målet.
+canvas	p249: Et responsivt Canvas passer flere skjermstørrelser.
+knapper	p249: Plasser poengtekst og knapper med ankere.
+grensesnittelementer	p249: Unity Canvas holder knapper, tekst og andre grensesnittelementer
+poengtekst	p249: Plasser poengtekst og knapper med ankere.
+ankere	p249: Plasser poengtekst og knapper med ankere.
+skjermstørrelser	p249: Et responsivt Canvas passer flere skjermstørrelser.
+menyer	p250: Scenehåndtering åpner menyer og nivåer uten å blande alt sammen.
+blande	p250: Scenehåndtering åpner menyer og nivåer uten å blande alt sammen.
+scenene	p250: Legg scenene i riktig byggerekkefølge.
+byggerekkefølge	p250: Legg scenene i riktig byggerekkefølge.
+nådd	p250: Last neste scene når målet er nådd.
+lasteskjerm	p250: En lasteskjerm kan vise fremgang ved tunge nivåer.
+fremgang	p250: En lasteskjerm kan vise fremgang ved tunge nivåer.
+fysikklag	p251: Fysikklag bestemmer hvilke grupper som skal kollidere.
+grupper	p252: Del musikk, tale og effekter i grupper.
+kollidere	p251: Fysikklag bestemmer hvilke grupper som skal kollidere.
+sorter	p251: Sorter spillere, fiender og bakgrunn i lag.
+fiender	p251: Sorter spillere, fiender og bakgrunn i lag.
+lagkombinasjoner	p251: Slå av unødvendige lagkombinasjoner.
+færre	p251: Færre kontroller gir tydeligere og raskere fysikk.
+audio	p252: En Audio Mixer samler lyder i grupper med egne volum.
+mixer	p252: En Audio Mixer samler lyder i grupper med egne volum.
+volum	p252: En Audio Mixer samler lyder i grupper med egne volum.
+tale	p252: Lag volumvalg og demp musikk under viktig tale.
+effekter	p252: Del musikk, tale og effekter i grupper.
+volumvalg	p252: Lag volumvalg og demp musikk under viktig tale.

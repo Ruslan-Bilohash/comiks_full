@@ -52,7 +52,7 @@ for (const tp of ((W.GRAMMAR || {}).topics || [])) {
   (tp.table || []).forEach(r => { extraText.push([r[0], 'grammar ' + tp.id]); if (r.length !== 3) errors.push(`граматика ${tp.id}: рядок таблиці має бути [no, uk, en]`); });
   (tp.examples || []).forEach(r => { extraText.push([r[0], 'grammar ' + tp.id]); if (r.length !== 3) errors.push(`граматика ${tp.id}: приклад має бути [no, uk, en]`); });
   (tp.items || []).forEach(it => {
-    if (!Array.isArray(it) || it.length !== 3 || !String(it[0]).includes('_') || !Array.isArray(it[2]) || it[2].length < 3) { errors.push(`граматика ${tp.id}: завдання ${JSON.stringify(it)} — формат [«речення з _», відповідь, [3 хибні]]`); return; }
+    if (!Array.isArray(it) || it.length !== 3 || !(String(it[0]).includes('_') || /[:.]\s*$/.test(String(it[0]))) || !Array.isArray(it[2]) || it[2].length < 3) { errors.push(`граматика ${tp.id}: завдання ${JSON.stringify(it)} — формат [«речення з _» або «інструкція:», відповідь, [3 хибні]]`); return; }
     if (it[2].includes(it[1])) errors.push(`граматика ${tp.id}: відповідь «${it[1]}» є серед хибних`);
     extraText.push([it[0].replace('_', it[1]), 'grammar ' + tp.id]);
     // хибні варіанти часто навмисно неіснуючі форми (snakkte, boer) — їх не перекладаємо

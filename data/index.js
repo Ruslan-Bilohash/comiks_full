@@ -1,5 +1,5 @@
 window.KOMIKS_DATA = {
-  "version": 'mvsmp9vu',
+  "version": 'mvt74l0t',
   "shared": [
     "data/characters.js",
     "data/dictionary.js",

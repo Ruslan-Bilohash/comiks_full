@@ -1,0 +1,255 @@
+1	сертифікат	certificate	certificado
+2	пов'язує	links	vincula
+3	ключ	key	chave
+4	домен	domain	domínio
+5	зашифрований	encrypted	criptografado
+6	з'єднання	connection	conexão
+7	скісна риска (та)	the slash	a barra
+8	різниці в написанні	spelling differences	diferenças de grafia
+9	вести, призводити	to lead	levar
+10	перевірки (ті)	the checks	as verificações
+11	підходити, збігатися	to fit, match	combinar
+12	паролі (ті)	the passwords	as senhas
+13	читабельно	readable	legível
+14	витікає	leaks	vaza
+15	хеш пароля	password hash	hash da senha
+16	сам (самий)	itself, the actual	o próprio
+17	сіль (у криптографії)	salt	salt
+18	різні	different	diferentes
+19	значення	values	valores
+20	хешування	hashing	hashing
+21	функція для паролів	password function	função de senha
+22	вхід	login	login
+23	хешується	is hashed	é feito o hash
+24	спроба (та)	the attempt	a tentativa
+25	порівнює	compares	compara
+26	результати	the results	os resultados
+27	служба, сервіс	service	serviço
+28	семантичний	semantic	semântico
+29	опис	description	descrição
+30	літери	letters	letras
+31	кнопки (ті)	the buttons	os botões
+32	миша	mouse	mouse
+33	клавіатура (та)	the keyboard	o teclado
+34	поле форми	the form field	o campo do formulário
+35	етикетка, мітка	label	rótulo
+36	клавіатура	keyboard	teclado
+37	екранний читач	screen reader	leitor de tela
+38	кнопка «старт»	start button	botão de início
+39	меню	menu	menu
+40	стан гри	the game state	o estado do jogo
+41	стан	state	estado
+42	рухається	moves	se move
+43	заморожує	freezes	congela
+44	прогрес	the progress	o progresso
+45	гра (GAME OVER)	game	game
+46	екран результатів	the results screen	a tela de resultados
+47	спроба	attempt	tentativa
+48	сталося	happened	aconteceu
+49	скидає	resets	zera
+50	змодельований	modelled	modelado
+51	поверхня (та)	the surface	a superfície
+52	візерунок	pattern	padrão
+53	позначаємо	mark	marcamos
+54	шви	seams	costuras
+55	3D-поверхня	the 3D surface	a superfície 3D
+56	UV-розгортка	UV map	mapa UV
+57	розміщує	places	coloca
+58	кольори	colours	cores
+59	текстура	the texture	a textura
+60	матеріал	the material	o material
+61	влучає	hits	atinge
+62	обертає	rotates	gira
+63	гарний	nice	bonito
+64	скрипт	script	script
+65	гравця	the player's	do jogador
+66	скрипт (той)	the script	o script
+67	оновлення (Update)	update	update
+68	подія зіткнення	the collision event	o evento de colisão
+69	об'єкт	object	objeto
+70	зустріли	met	encontramos
+71	сигнал	signal	sinal
+72	текст результату	the score text	o texto da pontuação
+73	влучання	hit	acerto
+74	консоль	console	console
+75	повідомлення (мн.)	messages	mensagens
+76	учень	pupil	aluno
+77	первинний ключ	primary key	chave primária
+78	запис на курс	enrolment	inscrição
+79	зовнішній ключ	foreign key	chave estrangeira
+80	ID (той)	the ID	o ID
+81	об'єднання (JOIN)	join	join
+82	охайні	tidy	organizadas
+83	зв'язки	relations	relações
+84	копії	copies	cópias
+85	оновлювати	to update	atualizar
+86	місце зустрічі	meeting place	ponto de encontro
+87	напарник у навчанні	the study partner	o parceiro de estudo
+88	район	area	área
+89	контактна картка	the contact card	o cartão de contato
+90	вчителя	the teacher's	do professor
+91	табло (те)	the board	o painel
+92	ситуація	the situation	a situação
+93	нейтральне	neutral	neutro
+94	ім'я користувача	username	nome de usuário
+95	приватність	privacy	privacidade
+96	чат гри	the game chat	o chat do jogo
+97	пояснення	explanation	explicação
+98	повідомлення (ті)	the messages	as mensagens
+99	негарні, грубі	nasty	feias
+100	контакт	the contact	o contato
+101	доказ	proof	prova
+102	сильні	strong	fortes
+103	почуття	feelings	sentimentos
+104	шахраї	scammers	golpistas
+105	посилання (те)	the link	o link
+106	контрольне запитання	security question	pergunta de controle
+107	надіслав	sent	enviou
+108	повідом, поскаржся	report	denuncie
+109	API-ключ	the API key	a chave da API
+110	сайту	the website's	do site
+111	читається	can be read	pode ser lido
+112	прихований	hidden	oculto
+113	текст	text	texto
+114	таємниця	secret	segredo
+115	сервер	server	servidor
+116	зберігається	is stored	é armazenado
+117	захищений	protected	protegido
+118	налаштування	setting	configuração
+119	сховище коду	the code repository	o repositório de código
+120	назва-приклад	example name	nome de exemplo
+121	обмеження	restriction	restrição
+122	шкода	damage	dano
+123	витік	leak	vazamento
+124	деактивуємо	deactivate	desativamos
+125	журнали (ті)	the logs	os logs
+126	неправда	false	falso
+127	різні	different	diferentes
+128	типи	types	tipos
+129	знайди	find	encontre
+130	булевий	boolean	booleano
+131	контрольований	controlled	controlado
+132	зміна	change	alteração
+133	запобігає	prevents	evita
+134	порівняй	compare	compare
+135	аргументи	arguments	argumentos
+136	відповідальність	responsibility	responsabilidade
+137	поверни	return	retorne
+138	охайніший	tidier	mais organizado
+139	список	list	lista
+140	елементи	elements	elementos
+141	обробляти	to process	processar
+142	список (той)	the list	a lista
+143	ділитися (ними)	be shared	ser compartilhados
+144	опиши	describe	descreva
+145	ослаблений, нещільний	loose	solto
+146	складатися	be put (together)	ser montadas
+147	веде	leads	leva
+148	href (атрибут)	href	href
+149	змістовний	meaningful	significativo
+150	текст посилання	link text	texto do link
+151	навігація	navigation	navegação
+152	адаптивний	responsive	responsivo
+153	розмітка	layout	layout
+154	підлаштовується	adapts	se adapta
+155	мобільний	mobile	celular
+156	планшет	tablet	tablet
+157	найвужчий	narrowest	mais estreita
+158	екран (той)	the screen	a tela
+159	гнучкі	flexible	flexíveis
+160	медіа	media	media
+161	запити (queries)	queries	queries
+162	бічний	sideways	lateral
+163	прокручування	scrolling	rolagem
+164	API	API	API
+165	виріши	decide	decida
+166	принеси, отримай	fetch	busque
+167	обробляй	handle	trate
+168	очікування	waiting	espera
+169	доречний	relevant	relevante
+170	пояснює	explains	explica
+171	надсилання	submission	envio
+172	познач	mark	marque
+173	обов'язкові	required	obrigatórios
+174	перевір (валідуй)	validate	valide
+175	точні	precise	precisas
+176	повідомлення про помилки	error messages	mensagens de erro
+177	вирішується	is solved	é resolvido
+178	стрибає	jumps	pula
+179	звуки	sounds	sons
+180	дія (та)	the action	a ação
+181	звук (той)	the sound	o som
+182	регулювання гучності	volume control	controle de volume
+183	приємний	comfortable	agradável
+184	ключові пози	key poses	poses-chave
+185	рівний	smooth	uniforme
+186	живий	lively	vivo
+187	фігура	figure	figura
+188	баланс	balance	equilíbrio
+189	кидає виклик	challenges	desafia
+190	безпорадний	helpless	indefeso
+191	збільш	increase	aumente
+192	перешкоди	obstacles	obstáculos
+193	гравці	players	jogadores
+194	налаштуй	adjust	ajuste
+195	рівні (ті)	the levels	os níveis
+196	сесії	sessions	sessões
+197	момент часу	time	horário
+198	формат (той)	the format	o formato
+199	запасне значення	fallback value	valor padrão
+200	збереження (те)	the save	o salvamento
+201	пошкоджений	damaged	danificado
+202	дзеркало (Mirror)	mirror	mirror
+203	симетричний	symmetrical	simétrico
+204	розмісти	place	posicione
+205	об'єкта	the object's	do objeto
+206	моделюй	model	modele
+207	симетрія	symmetry	simetria
+208	ключові кадри	keyframes	quadros-chave
+209	певні	specific	específicos
+210	стартова позиція	start position	posição inicial
+211	ключовий кадр	keyframe	quadro-chave
+212	Blender	Blender	Blender
+213	інструменти скульптингу	sculpting tools	ferramentas de escultura
+214	штовхає, зсуває	pushes	empurra
+215	згладжує	smooths	suaviza
+216	форма	form	forma
+217	пензель	brush	pincel
+218	будуй	build	construa
+219	топологія	topology	topologia
+220	формат експорту	export format	formato de exportação
+221	ігровий рушій	game engine	motor de jogo
+222	напрямок	direction	direção
+223	експортуй	export	exporte
+224	glTF	glTF	glTF
+225	FBX	FBX	FBX
+226	потрібні	necessary	necessárias
+227	імпортуй	import	importe
+228	матеріали	materials	materiais
+229	анімація	animation	animação
+230	Canvas (полотно)	canvas	canvas
+231	кнопки	buttons	botões
+232	елементи інтерфейсу	interface elements	elementos de interface
+233	текст очок	score text	texto de pontos
+234	якорі	anchors	âncoras
+235	розміри екранів	screen sizes	tamanhos de tela
+236	меню (мн.)	menus	menus
+237	змішувати	to mix	misturar
+238	сцени (ті)	the scenes	as cenas
+239	порядок збирання	build order	ordem de build
+240	досягнуто	reached	alcançado
+241	екран завантаження	loading screen	tela de carregamento
+242	прогрес	progress	progresso
+243	фізичні шари	physics layers	camadas de física
+244	групи	groups	grupos
+245	зіштовхуватися	to collide	colidir
+246	сортуй	sort	organize
+247	вороги	enemies	inimigos
+248	комбінації шарів	layer combinations	combinações de camadas
+249	менше	fewer	menos
+250	аудіо	audio	áudio
+251	мікшер	mixer	mixer
+252	гучність	volume	volume
+253	мовлення	speech	fala
+254	ефекти	effects	efeitos
+255	вибір гучності	volume options	opções de volume

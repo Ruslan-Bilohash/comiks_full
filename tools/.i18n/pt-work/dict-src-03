@@ -1,0 +1,253 @@
+luftvei	p280: Sjekk sikkerhet, reaksjon, luftvei og pust, og ring 113.
+inntil	p280: Så sjekker han normal pust i inntil ti sekunder.
+pustelydene	p280: Operatøren kan høre pustelydene og hjelpe ham å vurdere dem.
+vurdere	p280: Operatøren kan høre pustelydene og hjelpe ham å vurdere dem.
+sideleie	p280: Ved normal pust følger han råd om sideleie; uten normal pust sta
+hlr	p282: Nora ringer 113, setter mobilen på høyttaler og starter HLR.
+overvåk	p280: Overvåk pusten helt til helsepersonellet overtar.
+pusten	p280: Overvåk pusten helt til helsepersonellet overtar.
+helsepersonellet	p280: Overvåk pusten helt til helsepersonellet overtar.
+overtar	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+ambulanse	p282: 113 veileder henne og sender ambulanse.
+vo-linjen	p281: VO-linjen 116 006 gir gratis hjelp hele døgnet.
+006	p281: Akutt fare betyr 112 eller 113. Råd og støtte finnes på 116 006 
+krisesenter	p281: Man kan kontakte et krisesenter direkte, også uten å bo der.
+kjønn	p291: Flertall får mine, uansett kjønn.
+livsfare	p281: Maria lover ikke å holde akutt livsfare hemmelig.
+konfronterer	p281: Hun konfronterer ikke en farlig person og lager ikke mer risiko.
+krisesenteret	p281: Akutt fare betyr 112 eller 113. Råd og støtte finnes på 116 006 
+modig	p281: Å be om hjelp er modig, og hjelpen kan være anonym.
+puster	p282: En voksen er bevisstløs og puster ikke normalt.
+hjertestarter	p282: En annen person henter en hjertestarter hvis det finnes en i nær
+nærheten	p282: En annen person henter en hjertestarter hvis det finnes en i nær
+hendene	p282: Nora plasserer hendene midt på brystkassen slik 113 forklarer.
+brystkassen	p282: Nora plasserer hendene midt på brystkassen slik 113 forklarer.
+30	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+brystkompresjoner	p282: Hun gir 30 brystkompresjoner og 2 innblåsinger.
+2	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+innblåsinger	p282: Hun gir 30 brystkompresjoner og 2 innblåsinger.
+tempo	p282: 113 hjelper med tempo, teknikk og videre handling.
+teknikk	p282: 113 hjelper med tempo, teknikk og videre handling.
+utstyr	p282: Hun stopper ikke for å lete lenge etter utstyr.
+hjertestarteren	p282: Hvis hjertestarteren kommer, følger hun stemmeinstruksene fra ap
+stemmeinstruksene	p282: Hvis hjertestarteren kommer, følger hun stemmeinstruksene fra ap
+apparatet	p282: Hvis hjertestarteren kommer, følger hun stemmeinstruksene fra ap
+fortsetter	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+våkner	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+helsepersonell	p282: Hun fortsetter 30 + 2 til personen våkner eller helsepersonell o
+førstehjelpskurs	p282: Et førstehjelpskurs gir trygg øvelse før en virkelig hendelse.
+øvelse	p282: Et førstehjelpskurs gir trygg øvelse før en virkelig hendelse.
+hacker	p283: En hacker bruker teknisk kunnskap til å undersøke datasystemer.
+skurk	p283: Ordet hacker betyr ikke automatisk en skurk.
+teknisk	p283: En hacker bruker teknisk kunnskap til å undersøke datasystemer.
+kunnskap	p283: En hacker bruker teknisk kunnskap til å undersøke datasystemer.
+datasystemer	p283: En hacker bruker teknisk kunnskap til å undersøke datasystemer.
+sikkerhetstester	p283: En sikkerhetstester har tydelig tillatelse fra eieren.
+bryte	p283: Å bryte seg inn uten tillatelse er ulovlig.
+ødelegge	p283: Det kan ødelegge filer, privatliv og tillit.
+kriminelle	p288: Deretter krever kriminelle løsepenger.
+hackere	p283: Kriminelle hackere kan stjele data eller kontoer.
+kontoer	p286: Misbrukte kontoer og kort blir sperret raskt.
+utpressing	p287: Dette er digital utpressing, og det er ikke Noras skyld.
+kunnskapen	p283: Den samme kunnskapen kan beskytte skolen og familien.
+beskytte	p283: Den samme kunnskapen kan beskytte skolen og familien.
+etikk	p283: Etikk betyr å følge regler, få lov og ikke skade andre.
+regler	p283: Etikk betyr å følge regler, få lov og ikke skade andre.
+lovlige	p283: Jeg øver bare i lovlige læringsmiljøer.
+læringsmiljøer	p283: Jeg øver bare i lovlige læringsmiljøer.
+stenges	p284: Leo får en melding: Kontoen stenges om ti minutter.
+sosial	p284: Dette er nettfisking, en type sosial manipulering.
+manipulering	p284: Dette er nettfisking, en type sosial manipulering.
+engangskode	p284: Avsenderen ber om passord og engangskode.
+hjelpere	p284: Ekte hjelpere trenger ikke de hemmelige kodene dine.
+kodene	p284: Ekte hjelpere trenger ikke de hemmelige kodene dine.
+sikkerhetskoder	p284: Del aldri passord, BankID eller sikkerhetskoder.
+pålogging	p285: Nora får varsel om en pålogging hun ikke kjenner.
+kapret	p285: En kapret profil kan brukes til å lure venner eller presse eiere
+lure	p285: En kapret profil kan brukes til å lure venner eller presse eiere
+tjenestens	p290: De bruker tjenestens offisielle støtte og en trygg enhet.
+hjelpeside	p285: Nora går direkte til tjenestens offisielle hjelpeside.
+hacket	p285: Hun velger Kontoen min er hacket og følger gjenopprettingen.
+gjenopprettingen	p285: Hun velger Kontoen min er hacket og følger gjenopprettingen.
+e-posten	p285: Fra en trygg enhet bytter hun først passordet til e-posten.
+avslutter	p285: Hun avslutter ukjente økter og slår på tofaktor.
+slår	p285: Hun avslutter ukjente økter og slår på tofaktor.
+kontaktopplysninger	p285: Kontaktopplysninger og sikkerhetsvalg blir kontrollert.
+sikkerhetsvalg	p290: Til slutt kontrollerer de backup, oppdateringer og sikkerhetsval
+id-bilder	p286: Navn, adresse, fødselsnummer og ID-bilder er personopplysninger.
+kriminell	p286: En kriminell bruker stjålne data til å utgi seg for å være Leo.
+stjålne	p286: En kriminell bruker stjålne data til å utgi seg for å være Leo.
+utgi	p286: En kriminell bruker stjålne data til å utgi seg for å være Leo.
+datoer	p286: De tar vare på meldinger, datoer og annen dokumentasjon.
+kanaler	p286: De kontakter banken eller tjenesten gjennom offisielle kanaler.
+misbrukte	p286: Misbrukte kontoer og kort blir sperret raskt.
+sperret	p286: Misbrukte kontoer og kort blir sperret raskt.
+sperrer	p286: En voksen hjelper Leo med dokumentasjon og nødvendige sperrer.
+aktivitet	p286: Han følger med på varsler om ukjent aktivitet.
+truer	p287: Skam tilhører den som truer, ikke barnet som ber om hjelp.
+adlyder	p287: En person truer med å dele privat innhold hvis Nora ikke adlyder
+noras	p287: Dette er digital utpressing, og det er ikke Noras skyld.
+koder	p287: Hun sender ikke flere bilder, penger eller koder.
+adlyde	p287: Å adlyde trusselen stanser ikke nødvendigvis presset.
+trusselen	p287: Å adlyde trusselen stanser ikke nødvendigvis presset.
+stanser	p287: Å adlyde trusselen stanser ikke nødvendigvis presset.
+presset	p287: Å adlyde trusselen stanser ikke nødvendigvis presset.
+videresender	p287: Hun videresender ikke sensitivt materiale til venner.
+sensitivt	p287: Hun videresender ikke sensitivt materiale til venner.
+trussel	p287: Barn skal ikke måtte løse en slik trussel alene.
+sikret	p287: Etter at spor er sikret, blokkerer de kontakten.
+tilhører	p295: Hennes betyr at jakka tilhører en annen kvinne, ikke subjektet M
+uventet	p288: En uventet e-post har et vedlegg som ser viktig ut.
+spre	p288: Falske vedlegg og lenker kan spre skadevare.
+låse	p288: Løsepengevirus kan kryptere filer eller låse en skjerm.
+deretter	p288: Deretter krever kriminelle løsepenger.
+klikke	p288: Leo slutter å klikke og roper på læreren.
+fikser	p288: Han prøver ikke tilfeldige fikser som kan gjøre situasjonen verr
+berørte	p288: Læreren kobler den berørte maskinen fra nettverket.
+separat	p288: En separat, kontrollert sikkerhetskopi kan hjelpe med gjenoppret
+forsiktighet	p288: Oppdateringer, forsiktighet og backup reduserer risiko.
+backup	p290: Til slutt kontrollerer de backup, oppdateringer og sikkerhetsval
+angrep	p288: Et angrep er en sak for voksne, IT-hjelp og eventuelt politiet.
+it-hjelp	p288: Et angrep er en sak for voksne, IT-hjelp og eventuelt politiet.
+eventuelt	p288: Et angrep er en sak for voksne, IT-hjelp og eventuelt politiet.
+spillpenger	p289: En annonse lover gratis spillpenger og hemmelige funksjoner.
+funksjoner	p289: En annonse lover gratis spillpenger og hemmelige funksjoner.
+nedlastingen	p289: Nedlastingen kommer fra en ukjent side.
+mikrofon	p289: Appen vil lese kontakter, meldinger, bilder og mikrofon.
+spilltillegg	p289: Tillatelsene passer ikke til et enkelt spilltillegg.
+inneholde	p289: Falske apper kan inneholde skadevare.
+skadevaren	p289: Skadevaren kan stjele data, vise reklame eller styre enheten.
+styre	p289: Skadevaren kan stjele data, vise reklame eller styre enheten.
+installasjonen	p289: Leo avbryter installasjonen og gir ingen administratortilgang.
+laster	p289: Han spør en voksen før han laster ned noe ukjent.
+utviklerens	p289: De bruker bare offisiell butikk eller utviklerens nettside.
+appene	p289: Telefonen og appene får sikkerhetsoppdateringer.
+sikkerhetsoppdateringer	p289: Telefonen og appene får sikkerhetsoppdateringer.
+oppdaterte	p289: Oppdaterte systemer tetter kjente sikkerhetshull.
+tetter	p289: Oppdaterte systemer tetter kjente sikkerhetshull.
+sikkerhetshull	p289: Oppdaterte systemer tetter kjente sikkerhetshull.
+aktiviteten	p290: Nora stopper aktiviteten og bruker ikke flere tilfeldige lenker.
+it-ansvarlig	p290: Hun varsler en trygg voksen, lærer eller IT-ansvarlig.
+noterer	p290: De noterer tidspunkt, brukernavn, varsler og hva som skjedde.
+byttes	p300: Hun vet at kvitteringen trengs hvis jakka må byttes.
+avsluttes	p290: Passord byttes, ukjente økter avsluttes og tofaktor slås på.
+slås	p290: Passord byttes, ukjente økter avsluttes og tofaktor slås på.
+datakriminalitet	p290: Ved svindel, trusler eller datakriminalitet kan politiet kontakt
+kontaktes	p290: Ved svindel, trusler eller datakriminalitet kan politiet kontakt
+håndtere	p290: En hendelse er lettere å håndtere når planen er kjent på forhånd
+koffert	p291: En koffert åpner seg på ferga, og tingene triller ut.
+ferga	p291: En koffert åpner seg på ferga, og tingene triller ut.
+tingene	p291: Mia får alle tingene tilbake i kofferten sin.
+triller	p291: En koffert åpner seg på ferga, og tingene triller ut.
+genseren	p291: «Genseren min», sier Mia om en genser.
+hankjønnsord	p291: Et hankjønnsord får min.
+lua	grammar possessive-my-your: Er dette lua di?
+hunkjønnsord	p293: Vår brukes også med hunkjønnsord.
+intetkjønnsord	p291: Et intetkjønnsord får mitt.
+kofferten	p291: Mia får alle tingene tilbake i kofferten sin.
+tingen	p298: Formen følger tingen, ikke personen Mia.
+svømmetimen	p292: Fire ting ligger igjen etter svømmetimen.
+amir	p300: Etter at de har handlet, spanderer Amir kakao.
+flaska	grammar possessive-my-your: Flaska di er full. (du)
+håndkleet	grammar possessive-my-your: Håndkleet ditt er tørt. (du)
+håndkle	p292: Et håndkle passer med ditt.
+svømmebrillene	p292: «Svømmebrillene dine ligger på benken.»
+substantivet	grammar possessive-order: Før substantivet bruker vi ubestemt form.
+trær	p293: «Gata vår har mange trær.»
+dør	grammar possessive-our-third: Huset vårt har rød dør. (vi)
+eier	p298: Familien kan nå forklare hvem som eier hva.
+prosjekter	p294: Tre prosjekter står uten navnelapper.
+navnelapper	p298: Navnelapper og presise setninger løser forvirringen.
+eierne	grammar possessive-our-third: Velg riktig setning med ekstra trykk på 
+bygde	p294: Leo bygde roboten. Det er prosjektet hans.
+lyser	grammar possessive-our-third: Modellen hennes lyser.
+tvillingene	grammar possessive-our-third: Tvillingene har en hund. Hunden deres he
+kjønnet	p294: Det er eieren, ikke kjønnet på tingen, som velger ordet.
+prosjektene	p294: Alle prosjektene får riktig navnelapp.
+navnelapp	p294: Alle prosjektene får riktig navnelapp.
+snuser	p295: Hunden Max snuser på en liten regnjakke.
+subjekt	grammar connectors-reason-contrast: ettersom + subjekt + verb
+halsbåndet	p295: Max tar på halsbåndet sitt.
+halsbånd	p295: Et halsbånd gjør at vi velger sitt.
+lekene	p295: Så samler Max lekene sine.
+kvinne	p295: Hennes betyr at jakka tilhører en annen kvinne, ikke subjektet M
+subjektet	p298: Hans viser til Leo, ikke til subjektet Mia.
+substantivets	p296: Begge er riktige, men substantivets form er forskjellig.
+forskjellig	p296: Begge er riktige, men substantivets form er forskjellig.
+eiendomsordet	p296: Plassen til eiendomsordet bestemmer substantivformen.
+ubestemt	grammar possessive-order: Før substantivet bruker vi ubestemt form.
+etterstilling	p296: Etterstilling er svært vanlig: boka di, huset vårt.
+førstilling	p296: Førstilling kan gi ekstra trykk: Det er min kopp!
+plassen	p296: Plassen til eiendomsordet bestemmer substantivformen.
+substantivformen	p296: Plassen til eiendomsordet bestemmer substantivformen.
+merkelapper	p297: Noen merkelapper faller av på loppemarkedet.
+loppemarkedet	p297: Noen merkelapper faller av på loppemarkedet.
+eierdetektiver	p297: Barna blir eierdetektiver.
+eiere	p297: Flere eiere kan si vår, vårt eller våre.
+bamsen	p297: «Det er bamsen hennes», sier hun.
+kasse	p297: To søsken eier en kasse med bøker.
+merkelapp	p297: Hver ting får en ny og tydelig merkelapp.
+substantiv	grammar connectors-reason-contrast: i motsetning til + substantiv
+flyttebilen	p298: Flyttebilen er full av esker uten romnavn.
+esker	p298: Flyttebilen er full av esker uten romnavn.
+romnavn	p298: Flyttebilen er full av esker uten romnavn.
+eska	p298: Mia sier «eska mi», men «bordet mitt».
+møbelet	p298: Foreldrene peker på møbelet vårt og stolene våre.
+stolene	p298: Foreldrene peker på møbelet vårt og stolene våre.
+senga	p298: Mia bærer senga hans til Leo.
+løser	p298: Navnelapper og presise setninger løser forvirringen.
+forvirringen	p298: Navnelapper og presise setninger løser forvirringen.
+tante	p299: Tante Liv trives i området ved elva, men leiligheten hennes er b
+området	p299: Tante Liv trives i området ved elva, men leiligheten hennes er b
+elva	p299: Tante Liv trives i området ved elva, men leiligheten hennes er b
+vinduer	grammar connectors-reason-contrast: Kjøkkenet er moderne. Dessuten har
+pusses	p299: Soverommet må pusses opp, men Leo sier at de kan male sammen.
+male	p299: Soverommet må pusses opp, men Leo sier at de kan male sammen.
+eie	p299: Liv vil gjerne eie en bolig en dag, men nå må hun leie.
+leie	p299: Liv vil gjerne eie en bolig en dag, men nå må hun leie.
+inntekt	p299: Liv har fast inntekt, men hun vil vite om hun har råd til leilig
+spare	p299: Budsjettet viser at Liv kan spare litt hver måned.
+takker	p299: Neste dag takker Liv ja til leiligheten og beholder spareplanen.
+beholder	p299: Neste dag takker Liv ja til leiligheten og beholder spareplanen.
+spareplanen	p299: Neste dag takker Liv ja til leiligheten og beholder spareplanen.
+hjertet	p299: Hun valgte med både hjertet og budsjettet.
+klassens	p300: Mia trenger ei lett regnjakke til klassens fjelltur.
+fjelltur	p300: Mia trenger ei lett regnjakke til klassens fjelltur.
+kikke	p300: Amir blir med for å kikke og sammenligne priser.
+sammenligne	p300: Amir blir med for å kikke og sammenligne priser.
+priser	grammar connectors-reason-contrast: Butikken er nær. Dessuten har den 
+størrelser	p300: Den ansatte viser jakka i tre størrelser.
+billigste	p300: Den billigste jakka er for trang over skuldrene.
+trang	p300: Den billigste jakka er for trang over skuldrene.
+skuldrene	p300: Den billigste jakka er for trang over skuldrene.
+kvalitet	p300: Mia sjekker likevel pris og kvalitet før hun bestemmer seg.
+handlet	p300: Etter at de har handlet, spanderer Amir kakao.
+forssover	p301: Leo forssover seg fordi mobilen gikk tom for strøm om natta.
+rekke	p301: Han må rekke skolen og hente lillesøsteren etter timen.
+lillesøsteren	p301: Bestefar kan hente lillesøsteren hvis Leo ikke rekker det.
+busskortet	p301: Leo leter etter busskortet, men finner bare en gammel billett.
+jakkelomma	p301: De ser i jakkelomma, på skrivebordet og til slutt i sekken.
+skrivebordet	p301: De ser i jakkelomma, på skrivebordet og til slutt i sekken.
+matboksen	p301: Der finner Leo kortet ved siden av matboksen.
+late	p301: Han sender læreren en kort melding i stedet for å late som ingen
+bestefar	p301: Bestefar kan hente lillesøsteren hvis Leo ikke rekker det.
+avtalene	p301: Leo kommer fram og holder begge avtalene med litt hjelp.
+alarmklokke	p301: Om kvelden lader han mobilen og setter en ekstra alarmklokke.
+tørt	grammar possessive-my-your: Håndkleet ditt er tørt. (du)
+veska	grammar possessive-our-third: Veska hennes er tung.
+veske	grammar possessive-our-third: Hennes veske er tung.
+flinkt	grammar possessive-our-third: Deres barn er flinkt.
+flinke	grammar possessive-our-third: Barna deres er flinke.
+blått	grammar possessive-our-third: Leo har et hus. Huset hans er blått.
+nær	grammar connectors-reason-contrast: Butikken er nær. Dessuten har den 
+possessiv	grammar possessive-order: possessiv + ubestemt
+verb	grammar connectors-reason-contrast: ettersom + subjekt + verb
+infinitiv	grammar connectors-reason-contrast: for å + infinitiv
+forsov	grammar connectors-reason-contrast: Leo forsov seg på grunn av en tom 
+grønne	grammar connectors-reason-contrast: I motsetning til den blå jakka er 
+visningen	grammar connectors-reason-contrast: Visningen ble utsatt på grunn av s
+utsatt	grammar connectors-reason-contrast: Visningen ble utsatt på grunn av s
+leid	grammar connectors-reason-contrast: I motsetning til en leid bolig kan
+eid	grammar connectors-reason-contrast: I motsetning til en leid bolig kan
+selges	grammar connectors-reason-contrast: I motsetning til en leid bolig kan
+ordstilling	grammar connectors-reason-contrast: Velg riktig ordstilling:

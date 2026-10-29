@@ -1,0 +1,255 @@
+1	приглуши	lower (mute)	abaixe
+2	мікс, зведення	mix	mixagem
+3	CRUD	CRUD	CRUD
+4	створюються	are created	são criados
+5	видалення	deletion	exclusão
+6	індекс	index	índice
+7	рядки	rows	linhas
+8	поля (ті)	the fields	os campos
+9	відповідний	suitable	adequado
+10	індекси	indexes	índices
+11	записування	writing	escrita
+12	повільніше	slower	mais lenta
+13	JSON	JSON	JSON
+14	об'єкти	objects	objetos
+15	списки	lists	listas
+16	булеві	boolean	booleanos
+17	домовся	agree	combine
+18	назви полів	field names	nomes de campos
+19	типи даних	data types	tipos de dados
+20	відсутні	missing	ausentes
+21	стабільний	stable	estável
+22	системи	systems	sistemas
+23	міграція	migration	migração
+24	структура бази даних	the database structure	a estrutura do banco de dados
+25	зміна (та)	the change	a alteração
+26	міграція (та)	the migration	a migração
+27	продакшн, робоча версія	production	produção
+28	перенесення (те)	the move	a transferência
+29	план евакуації	evacuation plan	plano de evacuação
+30	вихід	exit	saída
+31	сходи (ті)	the stairs	a escada
+32	зустрінься	meet	encontre-se
+33	шляхи, дороги	ways	lados
+34	видимість	visibility	visibilidade
+35	спокійні	calm	calmas
+36	запобігає	prevents	previne
+37	аварії, нещасні випадки	accidents	acidentes
+38	рішення першої допомоги	first-aid choices	escolhas de primeiros socorros
+39	номер екстреної служби	emergency number	número de emergência
+40	(мати) кошти, змогу	afford (have means)	condições (de pagar)
+41	контактні дані	contact details	dados de contato
+42	стандартні налаштування	the default settings	as configurações padrão
+43	обмеж	limit	limite
+44	схвали	approve	aprove
+45	підписники	followers	seguidores
+46	налаштування (ті)	the settings	as configurações
+47	вкрасти	to steal	roubar
+48	шкільний пароль	school password	senha da escola
+49	сторінка входу	the login page	a página de login
+50	погрози	threats	ameaças
+51	відправник	sender	remetente
+52	закладка	bookmark	favorito
+53	зміни	change	troque
+54	повторювані	repeated	repetidas
+55	образливі	hurtful	ofensivas
+56	зупинятися	be stopped	ser interrompidas
+57	розповідатися	be told	ser contadas
+58	образи	insults	ofensas
+59	завантаження (мн.)	downloads	downloads
+60	джерела	sources	fontes
+61	відкриття	opening	abertura
+62	розробник	developer	desenvolvedor
+63	тип файлу	file type	tipo de arquivo
+64	проскануй	scan	escaneie
+65	несподівані	unexpected	inesperadas
+66	дозволи	permissions	permissões
+67	оновлений	updated	atualizada
+68	оголошення на маркетплейсі	marketplace ad	anúncio de site de vendas
+69	заманює	lures	atrai
+70	нормальний	normal	normal
+71	платформи	the platform's	da plataforma
+72	захист покупця	buyer protection	proteção ao comprador
+73	приховує	hides	esconde
+74	продовження (підписки)	renewal	renovação
+75	період	period	período
+76	умови скасування	cancellation terms	condições de cancelamento
+77	знімок екрана	screenshot	captura de tela
+78	виграш	prize, winnings	prêmio
+79	веде	leads	leva
+80	дані картки	card details	dados do cartão
+81	переглянь заздалегідь	preview	visualize antes
+82	PIN-код	PIN	PIN
+83	дозволи застосунків	app permissions	permissões de apps
+84	обрав	chose	escolheu
+85	контакти	contacts	contatos
+86	дозволь	allow	permita
+87	блокування екрана	screen lock	bloqueio de tela
+88	пошук пристрою	find-my-device	localizar dispositivo
+89	сховай	hide	oculte
+90	екран блокування	the lock screen	a tela de bloqueio
+91	цілий	intact	inteiro
+92	кабель	cable	cabo
+93	заряджає; зарядний пристрій	charges; charger	carrega; carregador
+94	ризик	risk	risco
+95	пошкодження	damage	danos
+96	зміна кольору	discolouration	descoloração
+97	заряджай	charge	carregue
+98	поверхня, основа	surface	superfície
+99	тепло	heat	calor
+100	запах	smell	cheiro
+101	спільні	shared	compartilhados
+102	пристрої	devices	aparelhos
+103	дані браузера	browser data	dados do navegador
+104	прибиратися	be cleaned up	ser limpos
+105	безпечний	secure	segura
+106	кукі (файл cookie)	cookie	cookie
+107	ID сесії	session ID	ID de sessão
+108	вдалий	successful	bem-sucedido
+109	Secure	Secure	Secure
+110	HttpOnly	HttpOnly	HttpOnly
+111	SameSite	SameSite	SameSite
+112	обмеження часу	time limit	tempo limite
+113	видали	delete	apague
+114	сесія (та)	the session	a sessão
+115	вихід (з облікового запису)	logout	logout
+116	права	rights	permissões
+117	визнач	define	defina
+118	ролі	roles	papéis
+119	власність	ownership	propriedade
+120	ресурс	resource	recurso
+121	інтерфейс (той)	the interface	a interface
+122	API (те)	the API	a API
+123	розробник (той)	the developer	o desenvolvedor
+124	технічні	technical	técnicos
+125	ключі	keys	chaves
+126	ID події	incident ID	ID do incidente
+127	користувача	the user's	do usuário
+128	слова (ті)	the words	as palavras
+129	обов'язок виїзду	obligation to leave	obrigação de sair do país
+130	SIS (Шенгенська інформаційна система)	SIS (Schengen Information System)	SIS (Sistema de Informação Schengen)
+131	засуджений	convicted	condenado
+132	реєстр	register	registro
+133	країн Шенгену	the Schengen countries'	dos países de Schengen
+134	органи влади	authorities	autoridades
+135	реєструватися	be registered	ser registrado
+136	країни (ті)	the countries	os países
+137	виїхав	left (travelled)	viajou, saiu
+138	Шенгенська зона	the Schengen area	o espaço Schengen
+139	заборона в'їзду	entry ban	proibição de entrada
+140	заборона (та)	the ban	a proibição
+141	відмова у в'їзді	rejection (at the border)	recusa de entrada
+142	відмовляють	are refused	é recusado
+143	в'їзд	entry	entrada
+144	видворення	expulsion	expulsão
+145	примусове видворення	deportation	deportação
+146	здійснює	carries out	executa
+147	строк виїзду	deadline for leaving	prazo de saída
+148	строк (той)	the deadline	o prazo
+149	подбати	to make sure	providenciar
+150	виїзд (той)	the departure	a saída
+151	прикордонний контроль	the border control	o controle de fronteira
+152	орган (той)	the authority	a autoridade
+153	розглядає	processes	processa
+154	доступ до даних	access (to records)	acesso aos dados
+155	видалити	to delete	apagar
+156	обов'язок виїзду (той)	the obligation to leave	a obrigação de sair
+157	UDI (міграційна служба)	UDI (immigration directorate)	UDI (Diretoria de Imigração)
+158	адвокат	lawyer	advogado
+159	перекладач (усний)	interpreter	intérprete
+160	замінює	replaces	substitui
+161	димовий датчик	the smoke alarm	o detector de fumaça
+162	пищить	beeps	apita
+163	кричить, гукає	shouts	grita
+164	пожежа	fire	incêndio
+165	пожежна (служба)	fire (service)	bombeiros
+166	рятувальна служба	the rescue service	o serviço de resgate
+167	110 — номер пожежної	110 — fire number	110 — número dos bombeiros
+168	місце зустрічі (те)	the meeting point	o ponto de encontro
+169	дим (той)	the smoke	a fumaça
+170	інструкції	instructions	instruções
+171	гасить	puts out	apaga
+172	пожежа (та)	the fire	o incêndio
+173	гасити	to put out	apagar
+174	безпечно, обачно	safe (responsible)	seguro, prudente
+175	чоловік	man	homem
+176	здоров'я	health	saúde
+177	113 — швидка допомога	113 — ambulance number	113 — número de emergência médica
+178	медичний	medical	medicinal
+179	екстрений телефон	emergency line	linha de emergência
+180	хвороба	illness	doença
+181	дзвонити	to call	ligar
+182	невідкладна допомога	out-of-hours clinic	pronto-atendimento
+183	години роботи	the opening hours	o horário de atendimento
+184	симптоми (ті)	the symptoms	os sintomas
+185	направляє, консультує	guides	orienta
+186	швидка (та)	the ambulance	a ambulância
+187	чоловік (той)	the man	o homem
+188	інструкції (ті)	the instructions	as instruções
+189	проблеми зі здоров'ям	health problems	problemas de saúde
+190	особа, людина	person	pessoa
+191	загрожують (йому)	threatened	ameaçada
+192	вулиця (та)	the street	a rua
+193	безпека	safety	segurança
+194	поліції	the police's	da polícia
+195	негайна	immediate	imediata
+196	номер екстреної служби (той)	the emergency number	o número de emergência
+197	невідкладні	acute (urgent)	urgentes
+198	02800 — номер поліції (не терміново)	02800 — police non-emergency number	02800 — número da polícia (não urgente)
+199	крадіжка	theft	furto
+200	пошкодження майна	vandalism	vandalismo
+201	заявляти (в поліцію)	be reported	ser denunciado
+202	no (домен .no)	no (.no domain)	no (domínio .no)
+203	запитання (ті)	the questions	as perguntas
+204	ближче	closer	mais perto
+205	спостерігай	observe	observe
+206	поради (ті)	the advice	os conselhos
+207	зіткнулися	collided	colidiram
+208	рух (той)	the traffic	o trânsito
+209	наближається	approaches	se aproxima
+210	потреба	need	necessidade
+211	диспетчерська (та)	the control centre	a central
+212	поліція	police	polícia
+213	пожежна служба	fire service	bombeiros
+214	учасники руху	road users	motoristas e pedestres
+215	назва вулиці	road name	nome da rua
+216	напрямок руху	direction of travel	sentido da via
+217	поранені	injured	feridos
+218	поради першої допомоги	first-aid advice	orientações de primeiros socorros
+219	екстрені служби (ті)	the emergency services	os serviços de emergência
+220	співпрацюють	cooperate	cooperam
+221	служби	services	serviços
+222	рідина	liquid	líquido
+223	пляшка	bottle	garrafa
+224	прибирає	removes	remove
+225	залишки	remains	restos
+226	Токсикологічний центр	the Poison Information Centre	o Centro de Informação Toxicológica
+227	доба (та)	the day (24 hours)	o dia todo (24 horas)
+228	22	22	22
+229	59	59	59
+230	13	13	13
+231	00	00	00
+232	симптоми	symptoms	sintomas
+233	одразу	immediately	imediatamente
+234	полощуть	rinse	enxáguam
+235	хімікати	chemicals	produtos químicos
+236	зберігатися	be stored	ser guardados
+237	оригінальна упаковка	the original packaging	a embalagem original
+238	недоступно	out of reach	fora do alcance
+239	продукт	product	produto
+240	вік	age	idade
+241	упаковка (та)	the packaging	a embalagem
+242	консультант (той)	the adviser	o atendente
+243	оцінка (та)	the assessment	a avaliação
+244	викликають	induce	provocam
+245	блювання	vomiting	vômito
+246	дається	is given	é dado
+247	отруєння	poisoning	intoxicação
+248	збережи, сховай	keep (save)	guarde
+249	зберігай	store	guarde
+250	небезпечні	dangerous	perigosos
+251	продукти, засоби	products	produtos
+252	гучномовець	speaker	viva-voz
+253	інструкції (ті)	the guidance	as orientações
+254	реакція	response	reação
+255	дбає, забезпечує	ensures	garante

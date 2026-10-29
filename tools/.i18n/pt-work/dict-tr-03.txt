@@ -1,0 +1,253 @@
+1	дихальні шляхи	airway	vias aéreas
+2	до (не більше ніж)	up to	até
+3	звуки дихання	the breathing sounds	os sons da respiração
+4	оцінити	to assess	avaliar
+5	стабільне бокове положення	recovery position	posição lateral de segurança
+6	СЛР (серцево-легенева реанімація)	CPR	RCP
+7	стеж	monitor	monitore
+8	дихання (те)	the breathing	a respiração
+9	медики (ті)	the health personnel	a equipe de saúde
+10	переймає	takes over	assume
+11	швидка допомога	ambulance	ambulância
+12	лінія VO (допомога при насильстві)	the VO helpline	a linha VO (contra violência)
+13	006	006	006
+14	кризовий центр	crisis centre	centro de acolhimento
+15	стать	gender	gênero
+16	небезпека для життя	danger to life	risco de vida
+17	протистоїть	confronts	confronta
+18	кризовий центр (той)	the crisis centre	o centro de acolhimento
+19	сміливий	brave	corajoso
+20	дихає	breathes	respira
+21	дефібрилятор	defibrillator	desfibrilador
+22	поблизу	the vicinity	as proximidades
+23	руки (ті)	the hands	as mãos
+24	грудна клітка (та)	the chest	o peito
+25	30	30	30
+26	компресії грудної клітки	chest compressions	compressões torácicas
+27	2	2	2
+28	вдихи	rescue breaths	ventilações
+29	темп	pace	ritmo
+30	техніка	technique	técnica
+31	обладнання	equipment	equipamento
+32	дефібрилятор (той)	the defibrillator	o desfibrilador
+33	голосові інструкції	the voice instructions	as instruções de voz
+34	апарат (той)	the device	o aparelho
+35	продовжує	continues	continua
+36	прокидається	wakes up	acorda
+37	медики	health personnel	equipe de saúde
+38	курс першої допомоги	first-aid course	curso de primeiros socorros
+39	тренування, вправа	practice	treino
+40	хакер	hacker	hacker
+41	злочинець, шахрай	villain	vilão
+42	технічний	technical	técnico
+43	знання	knowledge	conhecimento
+44	комп'ютерні системи	computer systems	sistemas de computador
+45	тестувальник безпеки	security tester	testador de segurança
+46	зламувати (bryte seg inn)	to break (in)	invadir
+47	зіпсувати	to ruin	estragar
+48	злочинці	criminals	criminosos
+49	хакери	hackers	hackers
+50	облікові записи	accounts	contas
+51	шантаж	extortion	extorsão
+52	знання (ті)	the knowledge	o conhecimento
+53	захищати	to protect	proteger
+54	етика	ethics	ética
+55	правила	rules	regras
+56	законні	legal	legais
+57	навчальні середовища	learning environments	ambientes de aprendizagem
+58	закривається	will be closed	será encerrada
+59	соціальна	social	social
+60	маніпуляція	manipulation	manipulação
+61	одноразовий код	one-time code	código de uso único
+62	помічники	helpers	ajudantes
+63	коди (ті)	the codes	os códigos
+64	коди безпеки	security codes	códigos de segurança
+65	вхід (у систему)	login	login
+66	викрадений, зламаний	hijacked	sequestrado
+67	обдурити	to trick	enganar
+68	сервісу	the service's	do serviço
+69	сторінка допомоги	help page	página de ajuda
+70	зламаний	hacked	hackeada
+71	відновлення (те)	the recovery	a recuperação
+72	пошта (та)	the e-mail	o e-mail
+73	завершує	ends	encerra
+74	вмикає (slår på)	switches (on)	ativa
+75	контактні дані	contact information	informações de contato
+76	налаштування безпеки	security options	opções de segurança
+77	фото документів	ID photos	fotos de documentos
+78	злочинець	criminal	criminoso
+79	вкрадені	stolen	roubados
+80	видавати (себе за)	to pretend (to be)	se passar (por)
+81	дати	dates	datas
+82	канали	channels	canais
+83	використані зловмисно	misused	usadas indevidamente
+84	заблоковані	blocked	bloqueados
+85	блокування	blocks	bloqueios
+86	активність	activity	atividade
+87	погрожує	threatens	ameaça
+88	слухається	obeys	obedece
+89	Нори	Nora's	da Nora
+90	коди	codes	códigos
+91	слухатися	to obey	obedecer
+92	погроза (та)	the threat	a ameaça
+93	зупиняє	stops	para
+94	тиск (той)	the pressure	a pressão
+95	пересилає	forwards	encaminha
+96	чутливий	sensitive	sensível
+97	погроза	threat	ameaça
+98	збережено	secured	preservadas
+99	належить	belongs	pertence
+100	несподіваний	unexpected	inesperado
+101	поширювати	to spread	espalhar
+102	заблокувати	to lock	bloquear
+103	потім	then	depois
+104	клацати	to click	clicar
+105	виправлення	fixes	soluções
+106	уражений	affected	afetado
+107	окрема	separate	separada
+108	обережність	caution	cuidado
+109	резервна копія	backup	backup
+110	атака	attack	ataque
+111	IT-допомога	IT support	suporte de TI
+112	за потреби	if necessary	eventualmente
+113	ігрові гроші	game money	dinheiro do jogo
+114	функції	features	funções
+115	завантаження (те)	the download	o download
+116	мікрофон	microphone	microfone
+117	ігрове доповнення	game add-on	complemento do jogo
+118	містити	to contain	conter
+119	шкідлива програма (та)	the malware	o malware
+120	керувати	to control	controlar
+121	встановлення (те)	the installation	a instalação
+122	завантажує	loads	baixa
+123	розробника	the developer's	do desenvolvedor
+124	застосунки (ті)	the apps	os apps
+125	оновлення безпеки	security updates	atualizações de segurança
+126	оновлені	updated	atualizados
+127	закривають, латають	plug	corrigem
+128	діри в безпеці	security holes	falhas de segurança
+129	діяльність (та)	the activity	a atividade
+130	відповідальний за IT	IT manager	responsável de TI
+131	записують	note down	anotam
+132	міняється	be exchanged	ser trocada
+133	завершуються	are ended	são encerradas
+134	вмикається	is switched (on)	é ativada
+135	комп'ютерні злочини	cybercrime	crime cibernético
+136	зв'язуватися (з ними)	be contacted	ser contatada
+137	впоратися	to handle	lidar
+138	валіза	suitcase	mala
+139	пором (той)	the ferry	a balsa
+140	речі (ті)	the things	as coisas
+141	котяться	roll	rolam
+142	светр (той)	the sweater	o suéter
+143	слово чоловічого роду	masculine noun	substantivo masculino
+144	шапка (та)	the hat	o gorro
+145	слово жіночого роду	feminine noun	substantivo feminino
+146	слово середнього роду	neuter noun	substantivo neutro
+147	валіза (та)	the suitcase	a mala
+148	річ (та)	the thing	a coisa
+149	урок плавання (той)	the swimming lesson	a aula de natação
+150	Амір	Amir	Amir
+151	пляшка (та)	the bottle	a garrafa
+152	рушник (той)	the towel	a toalha
+153	рушник	towel	toalha
+154	окуляри для плавання (ті)	the swimming goggles	os óculos de natação
+155	іменник (той)	the noun	o substantivo
+156	дерева	trees	árvores
+157	двері	door	porta
+158	володіє	owns	é dono
+159	проєкти	projects	projetos
+160	бирки з іменами	name tags	etiquetas com nome
+161	власники (ті)	the owners	os donos
+162	збудував	built	construiu
+163	світиться	lights up	acende
+164	близнюки (ті)	the twins	os gêmeos
+165	рід (той)	the gender	o gênero
+166	проєкти (ті)	the projects	os projetos
+167	бирка з іменем	name tag	etiqueta com nome
+168	нюхає	sniffs	fareja
+169	підмет	subject	sujeito
+170	нашийник (той)	the collar	a coleira
+171	нашийник	collar	coleira
+172	іграшки (ті)	the toys	os brinquedos
+173	жінка	woman	mulher
+174	підмет (той)	the subject	o sujeito
+175	іменника	the noun's	do substantivo
+176	різна	different	diferente
+177	присвійний займенник (той)	the possessive	o possessivo
+178	неозначена	indefinite	indefinida
+179	постпозиція	post-position	posposição
+180	препозиція	pre-position	anteposição
+181	місце (те)	the place	o lugar
+182	форма іменника	the noun form	a forma do substantivo
+183	ярлики	labels	etiquetas
+184	блошиний ринок (той)	the flea market	o brechó, a feira de usados
+185	детективи власників	owner detectives	detetives de donos
+186	власники	owners	donos
+187	ведмедик (той)	the teddy bear	o ursinho
+188	ящик	box	caixa
+189	ярлик	label	etiqueta
+190	іменник	noun	substantivo
+191	вантажівка для переїзду (та)	the moving van	o caminhão de mudança
+192	коробки	boxes	caixas
+193	назви кімнат	room names	nomes dos cômodos
+194	коробка (та)	the box	a caixa
+195	меблі (ті)	the furniture	o móvel
+196	стільці (ті)	the chairs	as cadeiras
+197	ліжко (те)	the bed	a cama
+198	розв'язує	solves	resolvem
+199	плутанина (та)	the confusion	a confusão
+200	тітка	aunt	tia
+201	район (той)	the area	o bairro
+202	річка (та)	the river	o rio
+203	вікна	windows	janelas
+204	ремонтуватися	be renovated	ser reformado
+205	фарбувати	to paint	pintar
+206	володіти	to own	ter (ser dono)
+207	орендувати	to rent	alugar
+208	дохід	income	renda
+209	заощаджувати	to save	economizar
+210	дякує (takker ja — погоджується)	accepts (says yes)	aceita
+211	залишає	keeps	mantém
+212	план заощаджень (той)	the savings plan	o plano de poupança
+213	серце (те)	the heart	o coração
+214	класу	the class's	da turma
+215	похід у гори	mountain hike	trilha na montanha
+216	подивитися	to look	dar uma olhada
+217	порівняти	to compare	comparar
+218	ціни	prices	preços
+219	розміри	sizes	tamanhos
+220	найдешевша	cheapest	mais barata
+221	тісна	tight	apertada
+222	плечі (ті)	the shoulders	os ombros
+223	якість	quality	qualidade
+224	зробили покупки	shopped	fizeram compras
+225	проспав	oversleeps	dorme demais
+226	встигнути	to make it (in time)	chegar a tempo
+227	молодша сестричка (та)	the little sister	a irmãzinha
+228	проїзний (той)	the bus card	o cartão de ônibus
+229	кишеня куртки (та)	the jacket pocket	o bolso da jaqueta
+230	письмовий стіл (той)	the desk	a escrivaninha
+231	ланчбокс (той)	the lunch box	a lancheira
+232	удавати (late som)	to pretend	fingir
+233	дідусь	grandfather	avô
+234	домовленості (ті)	the agreements	os compromissos
+235	будильник	alarm clock	despertador
+236	сухий	dry	seco
+237	сумка (та)	the bag	a bolsa
+238	сумка	bag	bolsa
+239	молодець, вправне	clever	esperto
+240	молодці, вправні	clever	espertos
+241	синій	blue	azul
+242	близько	near	perto
+243	присвійний	possessive	possessivo
+244	дієслово	verb	verbo
+245	інфінітив	infinitive	infinitivo
+246	проспав	overslept	dormiu demais
+247	зелені	green	verdes
+248	перегляд (житла) (той)	the viewing	a visita
+249	відкладений	postponed	adiada
+250	орендований	rented	alugado
+251	власний (у власності)	owned	próprio
+252	продаватися	be sold	ser vendido
+253	порядок слів	word order	ordem das palavras

@@ -164,8 +164,13 @@
   function makeQ(tp, [sent, answer, wrong], nOpt) {
     const K = C();
     const at = sent.indexOf('_');
+    const options = K.shuffle([answer, ...K.sample(wrong, nOpt - 1)]);
+    /* «Velg riktig setning:» — пропуску немає, вибирають ціле речення. Тоді
+       інструкція стоїть перед пропуском, а озвучується сама відповідь. Раніше
+       indexOf давав −1, і на екрані інструкція виходила двічі. */
+    if (at < 0) return { type: 'grammar', topic: tp.id, sentence: answer, before: sent.trim() + ' ', after: '', answer, options };
     const sentence = sent.replace('_', answer).replace(/\s*\([^)]*\)\s*$/, '');
-    return { type: 'grammar', topic: tp.id, sentence, before: sent.slice(0, at), after: sent.slice(at + 1), answer, options: K.shuffle([answer, ...K.sample(wrong, nOpt - 1)]) };
+    return { type: 'grammar', topic: tp.id, sentence, before: sent.slice(0, at), after: sent.slice(at + 1), answer, options };
   }
   // filter: null — усі теми; 'level:A2' — теми до цього рівня включно; інакше — id теми
   function questions(filter, n) {

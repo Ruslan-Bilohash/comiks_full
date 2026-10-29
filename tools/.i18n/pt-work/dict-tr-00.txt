@@ -1,0 +1,255 @@
+1	безпечні	safe	seguros
+2	дорослий	adult	adulto
+3	маршрут (той)	the route	o caminho
+4	обери, вибери	choose	escolha
+5	вулиці	streets	ruas
+6	короткі шляхи	shortcuts	atalhos
+7	сам, на самоті	alone	sozinho
+8	відстань	distance	distância
+9	небезпечно, непевно	unsafe	inseguro
+10	план	plan	plano
+11	чужий, незнайомець	stranger	estranho
+12	незнайомі	unknown	desconhecidos
+13	стоячи (лишатися)	standing	de pé, parado
+14	огляд, ясність ситуації	overview	visão geral
+15	подію (ту)	the incident	o ocorrido
+16	дитини	the child's	da criança
+17	поводиться	behaves	se comporta
+18	розкажи	tell	conte
+19	план безпеки	safety plan	plano de segurança
+20	довше, більше не	any longer	mais (não mais)
+21	біжи	run	corra
+22	інформаційне табло	the information board	o painel de informações
+23	бейдж з іменем	name badge	crachá
+24	зв'язатися	to contact	entrar em contato
+25	охоронця	the guard	o segurança
+26	ім'я	the name	o nome
+27	номер телефону	the phone number	o número de telefone
+28	вивчи	learn	aprenda
+29	контактний номер	contact number	número de contato
+30	пропонує	offers	oferece
+31	дотримуватися, слідувати	to follow	seguir
+32	домовлене	agreed	combinado
+33	інформацію	the information	a informação
+34	112 — номер поліції	112 — police number	112 — número da polícia
+35	серйозні	serious	graves
+36	події	incidents	ocorrências
+37	дурниці	nonsense	brincadeira, besteira
+38	оператор	the operator	o atendente
+39	адреса	address	endereço
+40	орієнтир	landmark	ponto de referência
+41	інструкції	the instructions	as instruções
+42	екстрена служба	the emergency service	o serviço de emergência
+43	рятувати	to save, rescue	salvar
+44	короткі	short	curtos
+45	випадкові	random	aleatórios
+46	фраза	phrase	frase
+47	довжина	length	tamanho
+48	сильніший	stronger	mais forte
+49	злам даних	data breach	vazamento de dados
+50	облікові записи	the accounts	as contas
+51	менеджер паролів	password manager	gerenciador de senhas
+52	унікальні	unique	únicas
+53	захисти	protect	proteja
+54	головний пароль	master password	senha mestra
+55	підтвердження	confirmation	confirmação
+56	одноразовий код	the one-time code	o código de uso único
+57	довгі	long	longas
+58	страшне	frightening	assustadora
+59	сигнал небезпеки	warning sign	sinal de alerta
+60	адресу	the address	o endereço
+61	перевір	check	confira
+62	адресу відправника	the sender address	o endereço do remetente
+63	домен	the domain	o domínio
+64	посилання (мн.)	links	links
+65	вкладення	attachment	anexo
+66	сервіс	the service	o serviço
+67	канал	channel	canal
+68	номер	the number	o número
+69	відправник	the sender	o remetente
+70	повідомлення	the message	a mensagem
+71	видаляю	delete	apago
+72	блокую	block	bloqueio
+73	повідомляю, скаржуся	report	denuncio
+74	плакат	the poster	o cartaz
+75	приз	prize	prêmio
+76	все ще	still	ainda
+77	фальшиве	fake	falso
+78	наліпка	sticker	adesivo
+79	наклеєно	pasted	colado
+80	код	code	código
+81	уважно	carefully	com atenção
+82	номер картки	card number	número do cartão
+83	QR-код	QR code	QR code
+84	такі	such	tais, assim
+85	пропозицію	the offer	a oferta
+86	організатора	the organiser's	do organizador
+87	приз (той)	the prize	o prêmio
+88	власника	the owner	o dono
+89	скануєш	scan	escaneia
+90	викласти, класти	to put, post	colocar, postar
+91	школи	the school's	da escola
+92	номер будинку	street number	número da rua
+93	видно, показується	are shown	aparecem
+94	фон	the background	o fundo
+95	розкрити	to reveal	revelar
+96	вимкни (slå av)	switch (off)	desligue
+97	потрібна	is needed	é necessário
+98	обрізаю	crop	corto
+99	деталі	the details	os detalhes
+100	група одержувачів	group of recipients	grupo de destinatários
+101	налаштування приватності	privacy settings	configurações de privacidade
+102	копіюватися	be copied	ser copiadas
+103	виграв	won	ganhou
+104	брав участь	took part	participou
+105	конкурс	competition	concurso
+106	вимагає	demands	exige
+107	передоплата	upfront payment	pagamento adiantado
+108	ознака шахрайства	sign of a scam	sinal de golpe
+109	дуже	very	muito
+110	особисті	private	particulares
+111	пароль до банку	the bank password	a senha do banco
+112	конкурс (той)	the competition	o concurso
+113	підтвердити	to confirm	confirmar
+114	фальшиві	fake	falsos
+115	голос	the voice	a voz
+116	імітувати	to imitate	imitar
+117	зразки голосу	voice samples	amostras de voz
+118	дихання, дихай	breathing	respiração
+119	плати	pay	pague
+120	родини	the family's	da família
+121	таємні	secret	secretos
+122	кодове слово	code word	palavra-código
+123	шахрай	the scammer	o golpista
+124	розмова	the conversation	a conversa
+125	переривається	is cut off	cai
+126	збережені	saved, stored	salvos
+127	називає, вказує	gives (states)	informa
+128	відповідає	answers	responde
+129	схожість голосу	voice similarity	semelhança de voz
+130	доводить	proves	prova
+131	особа, ідентичність	identity	identidade
+132	підтверди	confirm	confirme
+133	вимога грошей	money demand	pedido de dinheiro
+134	консоль	the console	o console
+135	ціна	price	preço
+136	приманка	bait	isca
+137	продавця	the seller's	do vendedor
+138	профіль	profile	perfil
+139	історія	history	histórico
+140	оцінки, відгуки	reviews	avaliações
+141	оплата	payment	pagamento
+142	оплату	the payment	o pagamento
+143	маркетплейсу	the marketplace's	do site de vendas
+144	безпечній; убезпеч	secure; secure (it)	segura; proteja
+145	зустріч	meeting	encontro
+146	товар	the item	o produto
+147	покупку	the purchase	a compra
+148	можливо, можливий	possible	possível
+149	тиснути	to pressure	pressionar
+150	термін	deadline	prazo
+151	відмовляється	refuses	recusa
+152	профіль (той)	the profile	o perfil
+153	код входу	the login code	o código de login
+154	ні … ні	neither	nem
+155	таємниці	secrets	segredos
+156	видавання себе за іншого	impersonation	falsa identidade
+157	платформа	the platform	a plataforma
+158	дослідити	to investigate	investigar
+159	видалити	to remove	remover
+160	сповіщення	notifications	alertas
+161	контакти	the contacts	os contatos
+162	особу, людину	the person	a pessoa
+163	гра-ліхтарик	torch game	jogo de lanterna
+164	дозвіл	permission	permissão
+165	орієнтуюся (навігатор)	navigate	navego
+166	завантаж	load	carregue
+167	відгуки	reviews	avaliações
+168	дозволи	the permissions	as permissões
+169	прибери	remove	remova
+170	непотрібні	unnecessary	desnecessários
+171	пояснити	to explain	explicar
+172	системне сповіщення	system notification	notificação do sistema
+173	оновлення (мн.)	updates	atualizações
+174	помилки безпеки	security flaws	falhas de segurança
+175	реклама	advert	anúncio
+176	оновлення	update	atualização
+177	встановлюй	install	instale
+178	системні файли	system files	arquivos do sistema
+179	пристрою	the device's	do aparelho
+180	налаштування	settings	configurações
+181	операційну систему	the operating system	o sistema operacional
+182	магазин застосунків	the app store	a loja de apps
+183	файли	files	arquivos
+184	мають резервну копію	backed up	com cópia de segurança
+185	відновлюються	be restored	ser recuperados
+186	підключаю, відключає	connect	conecta, desconecta
+187	переривай	interrupt	interrompa
+188	оновлення системи	system update	atualização do sistema
+189	пристрій	the device	o aparelho
+190	виправлення безпеки	security fixes	correções de segurança
+191	автоматичні	automatic	automáticos
+192	мережа	network	rede
+193	браузер	the browser	o navegador
+194	HTTPS	HTTPS	HTTPS
+195	чутливі	sensitive	sensíveis
+196	дії	actions	ações
+197	підключати, з'єднувати	to connect	conectar
+198	забудь	forget	esqueça
+199	підтверджують	confirm	confirmam
+200	обмежує	limits	limita
+201	зменшує	reduces	reduz
+202	ризик	the risk	o risco
+203	план резервних копій	backup plan	plano de cópias de segurança
+204	файли (ті)	the files	os arquivos
+205	дивні	strange	estranhos
+206	мережа (та)	the network	a rede
+207	відповідальний за IT	the IT lead	o responsável de TI
+208	фахівець	professional	profissional
+209	резервну копію	the backup	a cópia de segurança
+210	непевний	unsure	inseguro
+211	пристрій	device	aparelho
+212	окрема	separate	separada
+213	копія	the copy	a cópia
+214	рятує	saves	salva
+215	шкільну роботу	the schoolwork	o trabalho da escola
+216	тестуй	test	teste
+217	форма, бланк	form	formulário
+218	сайт	the website	o site
+219	перевірка «людина»	human check	verificação humana
+220	CAPTCHA	CAPTCHA	CAPTCHA
+221	роботи	robots	robôs
+222	завдання, виклик	challenge	desafio
+223	збирай	gather	junte
+224	фотографії	the pictures	as fotos
+225	альтернатива	alternative	alternativa
+226	покладатися	to rely	confiar
+227	сервер	the server	o servidor
+228	гальмує; гальма	slows; brakes	freia; freios
+229	закрити, не пускати	to shut out	excluir
+230	коди підтвердження	verification codes	códigos de verificação
+231	незнайомим	strangers	estranhos
+232	перевірятися	be checked	ser verificada
+233	перевіряти	to check	verificar
+234	клієнт	the client	o cliente
+235	змінюються	are changed	são alterados
+236	приймаємо	accept	aceitamos
+237	очікуваний	expected	esperado
+238	формат	format	formato
+239	відхили	reject	recuse
+240	недійсні	invalid	inválidos
+241	будуватися	be built	ser montados
+242	запит до бази даних	the database query	a consulta ao banco
+243	параметризовані	parameterised	parametrizadas
+244	запити	queries	consultas
+245	фреймворк	the framework	o framework
+246	виправляти	be corrected	ser corrigido
+247	деталі сервера	server details	detalhes do servidor
+248	дійсні	valid	válidos
+249	захищає	protects	protege
+250	відомості, дані	information	informações
+251	TLS	TLS	TLS
+252	шифрувати	to encrypt	criptografar
+253	з'єднання	the connection	a conexão
+254	перевіряє	checks	verifica
+255	сайту	the website's	do site

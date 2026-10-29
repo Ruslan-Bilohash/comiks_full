@@ -103,6 +103,26 @@
       s += `<path d="M-10,214 Q200,198 410,214 V310 H-10Z" fill="#ffffff" stroke="#9fc4e0" stroke-width="3"/>`;
       return { svg: s, ground: 290 };
     },
+    /* Звичайна кімната (вдома, у школі, в бібліотеці): не кухня й не кабінет, тож
+       підходить до розмов про безпеку, гроші, право — коли місце дії неважливе. */
+    room() {
+      let s = `<rect width="400" height="300" fill="#ede7f6"/>`;
+      for (let x = 0; x < 400; x += 40) s += `<rect x="${x}" y="0" width="20" height="230" fill="#e3dcf3"/>`;
+      s += `<rect x="20" y="40" width="96" height="150" rx="4" fill="#a1887f" ${O}/>`;
+      for (const y of [76, 112, 148]) s += `<line x1="20" y1="${y}" x2="116" y2="${y}" ${O}/>`;
+      const books = [['#ef5350', 12], ['#42a5f5', 10], ['#66bb6a', 14], ['#ffca28', 11], ['#ab47bc', 12]];
+      for (const [row, y] of [[0, 46], [1, 82], [2, 118]]) {
+        let x = 26 + row * 4;
+        books.forEach(([c, w], i) => { if ((i + row) % 5 === 4) return; s += `<rect x="${x}" y="${y + (i % 2) * 4}" width="${w}" height="${26 - (i % 2) * 4}" fill="${c}" ${O2}/>`; x += w + 3; });
+      }
+      s += `<rect x="232" y="30" width="120" height="92" rx="4" fill="#bfe6ff" ${O}/><line x1="292" y1="30" x2="292" y2="122" ${O}/><line x1="232" y1="76" x2="352" y2="76" ${O}/>`;
+      s += `<path d="M226,24 h24 q-8,54 0,104 h-24z" fill="#ffcc80" ${O}/><path d="M358,24 h-24 q8,54 0,104 h24z" fill="#ffcc80" ${O}/>`;
+      s += `<rect x="148" y="52" width="58" height="44" fill="#fff" stroke="#8d6e63" stroke-width="5"/><path d="M152,92 L170,72 L184,84 L202,66 V92Z" fill="#81c784"/><circle cx="192" cy="62" r="6" fill="#ffca28"/>`;
+      s += `<path d="M372,230 q-6,-40 8,-62 M372,230 q4,-46 -14,-70 M372,230 q10,-30 22,-44" fill="none" stroke="#388e3c" stroke-width="6" stroke-linecap="round"/><path d="M358,230 h28 l-4,22 h-20z" fill="#ff8a65" ${O}/>`;
+      s += `<rect x="-5" y="230" width="410" height="76" fill="#d7b48a" ${O}/>`;
+      for (let x = 0; x < 400; x += 56) s += `<line x1="${x}" y1="230" x2="${x - 20}" y2="300" stroke="#b98d5e" stroke-width="3"/>`;
+      return { svg: s, ground: 292 };
+    },
     home() {
       let s = `<rect width="400" height="300" fill="#e8f5e9"/>`;
       for (let x = 10; x < 400; x += 34) s += `<rect x="${x}" y="0" width="14" height="236" fill="#dcedc8"/>`;
@@ -320,6 +340,7 @@
     thermos: () => `<rect x="-14" y="-62" width="28" height="62" rx="8" fill="#43a047" ${O}/><rect x="-16" y="-72" width="32" height="14" rx="4" fill="#9e9e9e" ${O2}/><rect x="-14" y="-40" width="28" height="8" fill="#a5d6a7"/><path d="M-6,-80 q-4,-8 0,-14 M6,-80 q-4,-8 0,-14" stroke="#90a4ae" stroke-width="3" fill="none" stroke-linecap="round"/>`,
     busstop: (o = {}) => `<rect x="-4" y="-150" width="8" height="150" fill="#9e9e9e" ${O2}/><rect x="-30" y="-152" width="60" height="44" rx="6" fill="#fdd835" ${O}/><rect x="-22" y="-146" width="44" height="20" rx="3" fill="#2e7d32"/><text x="0" y="-131" text-anchor="middle" font-family="Rubik, sans-serif" font-weight="900" font-size="12" fill="#fff">${esc(o.label || 'BUSS')}</text><text x="0" y="-114" text-anchor="middle" font-family="Rubik, sans-serif" font-weight="900" font-size="10" fill="${INK}">31 · 70</text>`,
     glass: () => `<path d="M-10,-30 H10 L8,0 H-8Z" fill="#fff" ${O2}/><path d="M-9,-20 H9 L8,-1 H-8Z" fill="#fffde7"/>`,
+    passport: () => `<rect x="-18" y="-50" width="36" height="50" rx="4" fill="#8e1b2c" ${O}/><circle cx="0" cy="-30" r="9" fill="none" stroke="#f4c542" stroke-width="2.5"/><path d="M-6,-30 h12 M0,-36 v12" stroke="#f4c542" stroke-width="2"/><rect x="-11" y="-14" width="22" height="4" rx="2" fill="#f4c542"/>`,
     stetoskop: () => `<path d="M-14,-40 Q-18,-10 0,-6 Q18,-10 14,-40" fill="none" stroke="${INK}" stroke-width="4"/><circle cx="0" cy="-6" r="6" fill="#90a4ae" ${O2}/>`
   };
 
@@ -328,6 +349,7 @@
     const pair = f => f(-11) + f(11);
     if (mood === 'happy' || mood === 'grin') return pair(x => `<path d="M${x - 6},-1 q6,-8 12,0" fill="none" ${O}/>`);
     if (mood === 'surprised') return pair(x => `<circle cx="${x}" cy="-3" r="7" fill="#fff" ${O2}/><circle cx="${x}" cy="-3" r="3" fill="${INK}"/>`);
+    if (mood === 'think') return pair(x => `<ellipse cx="${x + 2}" cy="-5" rx="3.6" ry="4.6" fill="${INK}"/>`) + `<path d="M-18,-14 L-6,-13 M6,-17 Q12,-21 18,-16" ${O}/>`;
     let s = pair(x => `<ellipse cx="${x}" cy="-2" rx="3.8" ry="5.2" fill="${INK}"/><circle cx="${x + 1.3}" cy="-4" r="1.4" fill="#fff"/>`);
     if (mood === 'sad') s += `<path d="M-18,-13 L-6,-10 M18,-13 L6,-10" ${O}/>`;
     if (mood === 'angry') s += `<path d="M-18,-10 L-6,-14 M18,-10 L6,-14" ${O}/>`;
@@ -338,7 +360,8 @@
     grin: `<path d="M-12,8 q12,17 24,0Z" fill="#c62828" ${O}/><path d="M-6,14 q6,4 12,0" fill="#ff8a80"/>`,
     surprised: `<ellipse cx="0" cy="14" rx="5.5" ry="7.5" fill="#7f1d1d" ${O2}/>`,
     sad: `<path d="M-8,17 q8,-8 16,0" fill="none" ${O}/>`,
-    angry: `<path d="M-8,14 q8,-4 16,0" fill="none" ${O}/>`
+    angry: `<path d="M-8,14 q8,-4 16,0" fill="none" ${O}/>`,
+    think: `<path d="M-4,13 q6,-1 11,-4" fill="none" ${O}/>`
   }[mood] || `<path d="M-7,12 q7,5 14,0" fill="none" ${O}/>`);
   const HAIR = {
     short: h => `<path d="M-31,-2 C-35,-42 35,-42 31,-2 C25,-20 9,-24 0,-18 C-10,-26 -25,-20 -31,-2Z" fill="${h}" ${O}/>`,
@@ -389,7 +412,8 @@
       point: [[-shx - 8, shy + armL], [shx + armL, shy - 8]],
       hold: [[-9, shy + armL * 0.6], [9, shy + armL * 0.6]],
       hips: [[-shx - 18, shy + armL * 0.5], [shx + 18, shy + armL * 0.5]],
-      walk: [[-shx - 16, shy + armL * 0.9], [shx + 16, shy + armL * 0.9]]
+      walk: [[-shx - 16, shy + armL * 0.9], [shx + 16, shy + armL * 0.9]],
+      talk: [[-shx - 8, shy + armL], [shx + armL * 0.72, shy + armL * 0.22]]
     }[pose] || [[-shx - 8, shy + armL], [shx + 8, shy + armL]];
     const sleeve = c.coat ? '#fafafa' : shirt;
     s += limb(-shx, shy, A[0][0], A[0][1], sleeve, 11) + limb(shx, shy, A[1][0], A[1][1], sleeve, 11);
@@ -426,7 +450,7 @@
     const sc = c.s || 1, mood = c.mood || 'normal', pose = c.pose || 'down';
     const body = look.body || '#4dd0e1', trim = look.trim || '#00838f', scr = '#102027', led = look.led || '#76ff03';
     const A = { down: [[-40, -46], [40, -46]], wave: [[-40, -46], [50, -124]], cheer: [[-48, -128], [48, -128]], point: [[-40, -46], [68, -92]],
-      hold: [[-18, -58], [18, -58]], hips: [[-48, -62], [48, -62]], walk: [[-42, -52], [42, -64]] }[pose] || [[-40, -46], [40, -46]];
+      hold: [[-18, -58], [18, -58]], hips: [[-48, -62], [48, -62]], walk: [[-42, -52], [42, -64]], talk: [[-40, -46], [62, -72]] }[pose] || [[-40, -46], [40, -46]];
     const arm = (x, [ex, ey]) => `<path d="M${x},-84 L${ex},${ey}" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M${x},-84 L${ex},${ey}" stroke="#b0bec5" stroke-width="6" stroke-linecap="round"/><circle cx="${ex}" cy="${ey}" r="7.5" fill="${trim}" ${O2}/>`;
     let s = `<rect x="-22" y="-36" width="12" height="28" fill="#90a4ae" ${O2}/><rect x="10" y="-36" width="12" height="28" fill="#90a4ae" ${O2}/>`;
     s += `<rect x="-34" y="-13" width="30" height="13" rx="6" fill="${trim}" ${O}/><rect x="4" y="-13" width="30" height="13" rx="6" fill="${trim}" ${O}/>`;
@@ -440,14 +464,16 @@
       happy: arc, grin: arc,
       surprised: x => `<circle cx="${x}" cy="-3" r="6" fill="none" stroke="${led}" stroke-width="3"/>`,
       sad: x => `<path d="M${x - 6},${x < 0 ? -1 : -6} L${x + 6},${x < 0 ? -6 : -1}" stroke="${led}" stroke-width="3.5" stroke-linecap="round"/>`,
-      angry: x => `<path d="M${x - 6},${x < 0 ? -7 : -1} L${x + 6},${x < 0 ? -1 : -7}" stroke="#ff5252" stroke-width="3.5" stroke-linecap="round"/>`
+      angry: x => `<path d="M${x - 6},${x < 0 ? -7 : -1} L${x + 6},${x < 0 ? -1 : -7}" stroke="#ff5252" stroke-width="3.5" stroke-linecap="round"/>`,
+      think: x => `<rect x="${x - 2}" y="-12" width="8" height="8" rx="3" fill="${led}"/>`
     }[mood] || (x => `<rect x="${x - 4}" y="-9" width="8" height="12" rx="3" fill="${led}"/>`);
     const mouth = {
       happy: `<path d="M-9,7 q9,8 18,0" fill="none" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`,
       grin: `<path d="M-12,5 h24 q-2,10 -12,10 q-10,0 -12,-10Z" fill="${led}"/>`,
       surprised: `<circle cx="0" cy="10" r="4" fill="none" stroke="${led}" stroke-width="3"/>`,
       sad: `<path d="M-8,13 q8,-7 16,0" fill="none" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`,
-      angry: `<path d="M-8,11 h16" stroke="#ff5252" stroke-width="3" stroke-linecap="round"/>`
+      angry: `<path d="M-8,11 h16" stroke="#ff5252" stroke-width="3" stroke-linecap="round"/>`,
+      think: `<path d="M-8,10 q4,-4 8,0 q4,4 8,0" fill="none" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`
     }[mood] || `<path d="M-8,9 h16" stroke="${led}" stroke-width="3" stroke-linecap="round"/>`;
     let hd = `<path d="M0,-26 V-42" stroke="${INK}" stroke-width="3"/><circle cy="-46" r="6.5" fill="#ff5252" ${O2}/>`;
     hd += `<circle cx="-39" cy="0" r="7" fill="${trim}" ${O2}/><circle cx="39" cy="0" r="7" fill="${trim}" ${O2}/>`;
@@ -621,5 +647,5 @@
   }
 
   const propRaw = (type, o = {}) => (P[type] ? P[type](o) : '');
-  window.KomiksArt = { panel, cover, propSVG, propRaw, props: Object.keys(P), backgrounds: Object.keys(BG), moods: ['normal', 'happy', 'grin', 'surprised', 'sad', 'angry'], poses: ['down', 'wave', 'cheer', 'point', 'hold', 'hips', 'walk'] };
+  window.KomiksArt = { panel, cover, propSVG, propRaw, props: Object.keys(P), backgrounds: Object.keys(BG), moods: ['normal', 'happy', 'grin', 'surprised', 'sad', 'angry', 'think'], poses: ['down', 'wave', 'cheer', 'point', 'hold', 'hips', 'walk', 'talk'] };
 })();

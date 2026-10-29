@@ -189,3 +189,6 @@
 - Друзі онлайн (`friends.js`): недовідкрите з'єднання закривається, офлайн-друга опитуємо раз на 2 хв (`N.miss`) — інакше браузер падав з «Cannot create so many PeerConnections».
 - GitHub-копія без звуків, паролів і бази: https://github.com/Ruslan-Bilohash/comiks_full (README генерує `node tools/readme.js`).
 
+- Словник: слова, яких бракує (`node tools/check.js` → «Бракує перекладу»), перекладено пакетом: `tools/.i18n/pt-work/dict-src-NN` (слово + контекст) → `dict-tr-NN.txt` («N\tuk\ten\tpt») → `data/dictionary.js` (no/en) і `tools/lang/pt/96-dict-new.tsv` (англ. глоса → pt). Після нових коміксів повторювати; потім build-audio-list + gen_audio (озвучення слів).
+- Адмінка «Переклади» (`data/i18n-stats.json`, рахує `tools/build.js`) має групи «Що нового», «Пошукові сторінки», «Листи» (`mail_texts`), «Приватність» (`privacy.html`) — щоб нова мова не виглядала готовою, поки частина сайту англійською.
+- `art.js`: фон `room`, предмет `passport`, настрій `think`, поза `talk` (їх використовують комікси Codex p2xx).
